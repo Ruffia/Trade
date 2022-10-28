@@ -60,8 +60,8 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <SourcePath />
     <IncludePath>C:\Program Files\Microsoft SDKs\Windows\v6.0A;C:\Program Files (x86)\Microsoft SDKs\Windows\v6.0A;$(IncludePath)</IncludePath>
-    <OutDir>.\..\..\Bin\</OutDir>
-    <IntDir>.\..\..\Bin\SharedDebug\CtrlLayer\ChartCtrlLib\</IntDir>
+    <OutDir>../Bin/</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IncludePath>C:\Program Files (x86)\Microsoft SDKs\Windows\v6.0A;$(IncludePath)</IncludePath>
@@ -95,7 +95,7 @@
     <Lib>
       <ErrorReporting>QueueForNextLogin</ErrorReporting>
       <TargetMachine>MachineX86</TargetMachine>
-      <OutputFile>.\..\..\Bin\ChartCtrlLib.lib</OutputFile>
+      <OutputFile>../Bin/ChartCtrlLib.lib</OutputFile>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
