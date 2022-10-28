@@ -81,6 +81,12 @@
     <ClInclude Include="Tools\pugixml.hpp">
       <Filter>Tools</Filter>
     </ClInclude>
+    <ClInclude Include="LoadLayout.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MacroEnvironmentDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ADRTrade.cpp">
@@ -133,6 +139,12 @@
     </ClCompile>
     <ClCompile Include="Tools\pugixml.cpp">
       <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="LoadLayout.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MacroEnvironmentDlg.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

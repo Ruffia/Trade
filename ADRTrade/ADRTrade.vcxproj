@@ -44,7 +44,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>../Bin/</OutDir>
-    <IncludePath>../Grid;$(IncludePath)</IncludePath>
+    <IncludePath>../Grid;../Utility;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -63,7 +63,7 @@
       <OutputFile>../Bin/ADRTrade.exe</OutputFile>
       <ProgramDatabaseFile>../Bin/ADRTrade.pdb</ProgramDatabaseFile>
       <AdditionalLibraryDirectories>../Bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Grid.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Grid.lib;Utility.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -111,6 +111,8 @@
     <ClInclude Include="ADRTradeView.h" />
     <ClInclude Include="ChildFrm.h" />
     <ClInclude Include="DialogPlaceHolder.h" />
+    <ClInclude Include="LoadLayout.h" />
+    <ClInclude Include="MacroEnvironmentDlg.h" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="PropertiesWnd.h" />
     <ClInclude Include="Resource.h" />
@@ -133,6 +135,8 @@
     <ClCompile Include="ADRTradeView.cpp" />
     <ClCompile Include="ChildFrm.cpp" />
     <ClCompile Include="DialogPlaceHolder.cpp" />
+    <ClCompile Include="LoadLayout.cpp" />
+    <ClCompile Include="MacroEnvironmentDlg.cpp" />
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="PropertiesWnd.cpp" />
     <ClCompile Include="stdafx.cpp">

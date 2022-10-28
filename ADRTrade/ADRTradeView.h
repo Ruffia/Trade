@@ -3,9 +3,11 @@
 //
 
 #pragma once
+#include "LoadLayout.h"
+#include <map>
+using namespace std;
 
-
-class CADRTradeView : public CView
+class CADRTradeView : public CView,public ILoadLayout
 {
 protected: // 仅从序列化创建
 	CADRTradeView();
@@ -36,6 +38,8 @@ public:
 #endif
 
 protected:
+	virtual void _LoadXML(const CString& strLayoutFile);
+	virtual void _LoadLayout();
 
 // 生成的消息映射函数
 protected:
@@ -43,6 +47,9 @@ protected:
 	afx_msg void OnRButtonUp(UINT nFlags, CPoint point);
 	afx_msg void OnContextMenu(CWnd* pWnd, CPoint point);
 	DECLARE_MESSAGE_MAP()
+
+protected:
+	map<string,CUIData>  m_mapUIName2Data;
 };
 
 #ifndef _DEBUG  // ADRTradeView.cpp 中的调试版本
