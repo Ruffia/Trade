@@ -86,10 +86,12 @@
 #define IDS_EDIT_MENU                   306
 #define IDD_DLG_Tab                     441
 #define IDC_TAB1                        6623
+#define IDC_Grid                        6631
 #define IDC_PROGRESS4Thread             14473
 #define IDC_STATIC_TEXT                 14474
 #define IDC_STATIC_PROGRESS             14475
 #define IDD_DLG_Progress4Thread         31408
+#define IDD_DLG_Grid                    31410
 
 // Next default values for new objects
 // 

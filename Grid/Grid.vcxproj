@@ -43,8 +43,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>.\..\..\Bin\</OutDir>
-    <IntDir>.\..\..\Bin\SharedDebug\CtrlLayer\Grid\</IntDir>
+    <OutDir>../Bin/</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -55,19 +55,20 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_AFXEXT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <PrecompiledHeaderOutputFile>.\..\..\Bin\SharedDebug\CtrlLayer\Grid\Grid.pch</PrecompiledHeaderOutputFile>
-      <AssemblerListingLocation>.\..\..\Bin\SharedDebug\CtrlLayer\Grid\</AssemblerListingLocation>
-      <ObjectFileName>.\..\..\Bin\SharedDebug\CtrlLayer\Grid\</ObjectFileName>
-      <ProgramDataBaseFileName>.\..\..\Bin\SharedDebug\CtrlLayer\Grid\</ProgramDataBaseFileName>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ModuleDefinitionFile>
       </ModuleDefinitionFile>
-      <OutputFile>.\..\..\Bin\Grid.dll</OutputFile>
-      <ImportLibrary>.\..\..\Bin\Grid.lib</ImportLibrary>
-      <AdditionalDependencies>.\..\..\Bin\sqlite3.lib</AdditionalDependencies>
+      <OutputFile>../Bin/Grid.dll</OutputFile>
+      <ImportLibrary>../Bin/Grid.lib</ImportLibrary>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>

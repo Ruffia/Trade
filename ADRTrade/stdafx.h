@@ -61,7 +61,7 @@
 #include "gdiplus.h"
 using namespace Gdiplus;
 
-
+#include "resource.h"
 
 #ifdef _UNICODE
 #if defined _M_IX86
