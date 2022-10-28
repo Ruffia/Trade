@@ -43,6 +43,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <OutDir>../Bin/</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -53,12 +54,13 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <OutputFile>../Bin/$(TargetName)$(TargetExt)</OutputFile>
-      <ProgramDatabaseFile>../Bin/$(TargetName).pdb</ProgramDatabaseFile>
+      <OutputFile>../Bin/ADRTrade.exe</OutputFile>
+      <ProgramDatabaseFile>../Bin/ADRTrade.pdb</ProgramDatabaseFile>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -113,6 +115,13 @@
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="Tools\AsynProcessorWithProgress.h" />
+    <ClInclude Include="Tools\CheckComboBox.h" />
+    <ClInclude Include="Tools\CustomButton.h" />
+    <ClInclude Include="Tools\Dlg4ProgressThread.h" />
+    <ClInclude Include="Tools\DlgGridPage.h" />
+    <ClInclude Include="Tools\DlgTab.h" />
+    <ClInclude Include="Tools\InputEdit.h" />
     <ClInclude Include="ViewTree.h" />
   </ItemGroup>
   <ItemGroup>
@@ -129,6 +138,13 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Tools\AsynProcessorWithProgress.cpp" />
+    <ClCompile Include="Tools\CheckComboBox.cpp" />
+    <ClCompile Include="Tools\CustomButton.cpp" />
+    <ClCompile Include="Tools\Dlg4ProgressThread.cpp" />
+    <ClCompile Include="Tools\DlgGridPage.cpp" />
+    <ClCompile Include="Tools\DlgTab.cpp" />
+    <ClCompile Include="Tools\InputEdit.cpp" />
     <ClCompile Include="ViewTree.cpp" />
   </ItemGroup>
   <ItemGroup>

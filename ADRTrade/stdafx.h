@@ -35,9 +35,31 @@
 
 
 
+#include <afxole.h>         // MFC OLE classes
+#include <afxodlgs.h>       // MFC OLE dialog classes
+#include <afxdocob.h>
+#include <afxdtctl.h>		// MFC support for Internet Explorer 4 Common Controls
+#ifndef _AFX_NO_AFXCMN_SUPPORT
+#include <afxcmn.h>			// MFC support for Windows Common Controls
+#endif // _AFX_NO_AFXCMN_SUPPORT
 
+#include <afxsock.h>		// MFC socket extensions
+#include <afxmt.h>
 
-
+#include <stdlib.h>
+#include <tchar.h>
+#include <cmath>
+#include <vector>
+#include <deque>
+#include <map>
+#include <string>
+#include <sstream>
+#include <iomanip>
+#include <algorithm>
+#include <tuple>
+#include <random>
+#include "gdiplus.h"
+using namespace Gdiplus;
 
 
 
