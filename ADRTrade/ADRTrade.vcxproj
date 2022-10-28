@@ -110,11 +110,8 @@
     <ClInclude Include="ADRTradeDoc.h" />
     <ClInclude Include="ADRTradeView.h" />
     <ClInclude Include="ChildFrm.h" />
-    <ClInclude Include="ClassView.h" />
     <ClInclude Include="DialogPlaceHolder.h" />
-    <ClInclude Include="FileView.h" />
     <ClInclude Include="MainFrm.h" />
-    <ClInclude Include="OutputWnd.h" />
     <ClInclude Include="PropertiesWnd.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
@@ -135,11 +132,8 @@
     <ClCompile Include="ADRTradeDoc.cpp" />
     <ClCompile Include="ADRTradeView.cpp" />
     <ClCompile Include="ChildFrm.cpp" />
-    <ClCompile Include="ClassView.cpp" />
     <ClCompile Include="DialogPlaceHolder.cpp" />
-    <ClCompile Include="FileView.cpp" />
     <ClCompile Include="MainFrm.cpp" />
-    <ClCompile Include="OutputWnd.cpp" />
     <ClCompile Include="PropertiesWnd.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
