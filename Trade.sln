@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Grid", "Grid\Grid.vcxproj",
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ChartCtrlLib", "ChartCtrlLib\ChartCtrlLib.vcxproj", "{C6A114F3-70A1-40DE-B665-2A6F9BF4685A}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Utility", "Utility\Utility.vcxproj", "{5B36C72E-CE71-4138-AABC-AB37A52C9AD2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		ChartCtrlLibS|Win32 = ChartCtrlLibS|Win32
@@ -49,6 +51,14 @@ Global
 		{C6A114F3-70A1-40DE-B665-2A6F9BF4685A}.Release|Win32.Build.0 = Release|Win32
 		{C6A114F3-70A1-40DE-B665-2A6F9BF4685A}.Template|Win32.ActiveCfg = ChartCtrlLibS|Win32
 		{C6A114F3-70A1-40DE-B665-2A6F9BF4685A}.Template|Win32.Build.0 = ChartCtrlLibS|Win32
+		{5B36C72E-CE71-4138-AABC-AB37A52C9AD2}.ChartCtrlLibS|Win32.ActiveCfg = Release|Win32
+		{5B36C72E-CE71-4138-AABC-AB37A52C9AD2}.ChartCtrlLibS|Win32.Build.0 = Release|Win32
+		{5B36C72E-CE71-4138-AABC-AB37A52C9AD2}.Debug|Win32.ActiveCfg = Debug|Win32
+		{5B36C72E-CE71-4138-AABC-AB37A52C9AD2}.Debug|Win32.Build.0 = Debug|Win32
+		{5B36C72E-CE71-4138-AABC-AB37A52C9AD2}.Release|Win32.ActiveCfg = Release|Win32
+		{5B36C72E-CE71-4138-AABC-AB37A52C9AD2}.Release|Win32.Build.0 = Release|Win32
+		{5B36C72E-CE71-4138-AABC-AB37A52C9AD2}.Template|Win32.ActiveCfg = Release|Win32
+		{5B36C72E-CE71-4138-AABC-AB37A52C9AD2}.Template|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
