@@ -92,6 +92,7 @@
 #define IDC_STATIC_PROGRESS             14475
 #define IDD_DLG_Progress4Thread         31408
 #define IDD_DLG_Grid                    31410
+#define IDD_DLG_Common                  31411
 
 // Next default values for new objects
 // 
