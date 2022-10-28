@@ -81,6 +81,15 @@
     <ClInclude Include="Tools\InputEdit.h">
       <Filter>Tools</Filter>
     </ClInclude>
+    <ClInclude Include="DialogPlaceHolder.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\pugiconfig.hpp">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\pugixml.hpp">
+      <Filter>Tools</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ADRTrade.cpp">
@@ -135,6 +144,12 @@
       <Filter>Tools</Filter>
     </ClCompile>
     <ClCompile Include="Tools\InputEdit.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="DialogPlaceHolder.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\pugixml.cpp">
       <Filter>Tools</Filter>
     </ClCompile>
   </ItemGroup>

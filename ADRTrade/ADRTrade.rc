@@ -407,6 +407,12 @@ BEGIN
     CONTROL         "Custom_Grid",IDC_Grid,"MFCGridCtrl",WS_TABSTOP,7,29,427,238
 END
 
+IDD_DLG_Common DIALOGEX 0, 0, 299, 294
+STYLE DS_SETFONT | WS_POPUP | WS_SYSMENU
+FONT 8, "Microsoft Sans Serif", 0, 0, 0x0
+BEGIN
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -483,6 +489,14 @@ BEGIN
     BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 434
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 287
+    END
+
+    IDD_DLG_Common, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 292
         TOPMARGIN, 7
         BOTTOMMARGIN, 287
     END

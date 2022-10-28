@@ -111,6 +111,7 @@
     <ClInclude Include="ADRTradeView.h" />
     <ClInclude Include="ChildFrm.h" />
     <ClInclude Include="ClassView.h" />
+    <ClInclude Include="DialogPlaceHolder.h" />
     <ClInclude Include="FileView.h" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="OutputWnd.h" />
@@ -125,6 +126,8 @@
     <ClInclude Include="Tools\DlgGridPage.h" />
     <ClInclude Include="Tools\DlgTab.h" />
     <ClInclude Include="Tools\InputEdit.h" />
+    <ClInclude Include="Tools\pugiconfig.hpp" />
+    <ClInclude Include="Tools\pugixml.hpp" />
     <ClInclude Include="ViewTree.h" />
   </ItemGroup>
   <ItemGroup>
@@ -133,6 +136,7 @@
     <ClCompile Include="ADRTradeView.cpp" />
     <ClCompile Include="ChildFrm.cpp" />
     <ClCompile Include="ClassView.cpp" />
+    <ClCompile Include="DialogPlaceHolder.cpp" />
     <ClCompile Include="FileView.cpp" />
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="OutputWnd.cpp" />
@@ -148,6 +152,9 @@
     <ClCompile Include="Tools\DlgGridPage.cpp" />
     <ClCompile Include="Tools\DlgTab.cpp" />
     <ClCompile Include="Tools\InputEdit.cpp" />
+    <ClCompile Include="Tools\pugixml.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="ViewTree.cpp" />
   </ItemGroup>
   <ItemGroup>
