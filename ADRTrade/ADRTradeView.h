@@ -38,7 +38,6 @@ public:
 #endif
 
 protected:
-	virtual void _LoadXML(const CString& strLayoutFile);
 	virtual void _LoadLayout();
 
 // 生成的消息映射函数

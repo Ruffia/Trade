@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<Layout>
+		<widget Name="MacroEnvironment" ClassName="CMacroEnvironmentDlg"  Left="0" Top="0" Width="200" Height="200" />
+		<widget Name="MacroEnvironment2" ClassName="CMacroEnvironmentDlg"  Left="0" Top="0" Width="200" Height="200" />
+		<widget Name="MacroEnvironment3" ClassName="CMacroEnvironmentDlg"  Left="0" Top="0" Width="200" Height="200" />
+	</Layout>
+</root>

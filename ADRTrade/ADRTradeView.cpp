@@ -127,34 +127,13 @@ CADRTradeDoc* CADRTradeView::GetDocument() const // 非调试版本是内联的
 #endif //_DEBUG
 
 
-void CADRTradeView::_LoadXML(const CString& strLayoutFile)
-{
-	bool bRet = true;
-	if (!m_doc.load_file((LPSTR)(LPCTSTR)strLayoutFile)) { //加载xml文件
-		return;
-	}
-
-	xml_node root = m_doc.child("root");  //根节点
-	xml_node nodeLayout = root.child("Layout");
-	for (xml_node node = nodeLayout.first_child();node != nodeLayout.last_child(); node = node.next_sibling())
-	{
-		CUIData data;
-		const string sName = node.attribute("Name").as_string("");
-		data.m_strUIClassName = node.attribute("ClassName").as_string("");
-		data.m_nLeft = node.attribute("Left").as_int();
-		data.m_nTop = node.attribute("Top").as_int();
-		data.m_nWidth = node.attribute("Width").as_int();
-		data.m_nHeight = node.attribute("Height").as_int();
-		m_mapUIName2Data[sName] = data;	
-	}
-}
-
 // CADRTradeView 消息处理程序
 void CADRTradeView::_LoadLayout()
 {
 	xml_node root = m_doc.child("root");  //根节点
 	xml_node nodeLayout = root.child("Layout");
-	for (xml_node node = nodeLayout.first_child();node != nodeLayout.last_child(); node = node.next_sibling())
+	xml_node node = nodeLayout.first_child();
+	while (!node.empty())
 	{
 		CUIData data;
 		const string sName = node.attribute("Name").as_string("");
@@ -164,5 +143,6 @@ void CADRTradeView::_LoadLayout()
 		data.m_nWidth = node.attribute("Width").as_int();
 		data.m_nHeight = node.attribute("Height").as_int();
 		m_mapUIName2Data[sName] = data;	
+		node = node.next_sibling();
 	}
 }
