@@ -12,6 +12,8 @@
 #include "ADRTradeDoc.h"
 #include "ADRTradeView.h"
 #include "Util.h"
+#include "Factory.h"
+#include "DialogIDManager.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -29,6 +31,7 @@ BEGIN_MESSAGE_MAP(CADRTradeView, CView)
 	ON_COMMAND(ID_FILE_PRINT_PREVIEW, &CADRTradeView::OnFilePrintPreview)
 	ON_WM_CONTEXTMENU()
 	ON_WM_RBUTTONUP()
+	ON_WM_CREATE()
 END_MESSAGE_MAP()
 
 // CADRTradeView ¹¹Ôì/Îö¹¹
@@ -145,4 +148,36 @@ void CADRTradeView::_LoadLayout()
 		m_mapUIName2Data[sName] = data;	
 		node = node.next_sibling();
 	}
+}
+
+
+void CADRTradeView::OnInitialUpdate()
+{
+	__super::OnInitialUpdate();
+
+	CRect rc;
+	GetWindowRect(rc);
+
+	for (map<string,CUIData>::iterator it = m_mapUIName2Data.begin();
+		it != m_mapUIName2Data.end();it++)
+	{
+		string sCaption = it->first;
+		CUIData& UIData = it->second;
+		CDialog* pDlg = Factory<CDialog,string>::Instance().BuildProduct(UIData.m_strUIClassName);
+		const int nIDD = CDialogIDMgr::Instance().GetDialogResourceID(UIData.m_strUIClassName);
+		ASSERT(-1 != nIDD);
+		pDlg->Create(nIDD,this);
+		CRect rcDialog(rc.left + UIData.m_nLeft,rc.top + UIData.m_nTop,rc.left + UIData.m_nWidth,rc.top + UIData.m_nHeight);
+		pDlg->MoveWindow(rcDialog);	
+		pDlg->ShowWindow(SW_SHOW);
+	}
+}
+
+
+int CADRTradeView::OnCreate(LPCREATESTRUCT lpCreateStruct)
+{
+	if (__super::OnCreate(lpCreateStruct) == -1)
+		return -1;
+
+	return 0;
 }

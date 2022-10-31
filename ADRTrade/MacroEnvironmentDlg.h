@@ -1,6 +1,7 @@
 #pragma once
 #include "LoadLayout.h"
 #include "DialogPlaceHolder.h"
+#include "Factory.h"
 
 class CMacroEnvironmentDlg :public CDialogPlaceHolder,public ILoadLayout
 {
