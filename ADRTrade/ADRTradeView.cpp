@@ -44,6 +44,17 @@ CADRTradeView::CADRTradeView()
 
 CADRTradeView::~CADRTradeView()
 {
+	for (map<string,CUIData>::iterator it = m_mapUIName2Data.begin();
+		it != m_mapUIName2Data.end();it++)
+	{
+		CUIData& uiData = it->second;
+		CWnd* pWnd = uiData.m_pWnd;
+		if (pWnd)
+		{
+			delete pWnd;
+			pWnd = NULL;
+		}
+	}
 }
 
 BOOL CADRTradeView::PreCreateWindow(CREATESTRUCT& cs)
@@ -156,7 +167,7 @@ void CADRTradeView::OnInitialUpdate()
 	__super::OnInitialUpdate();
 
 	CRect rc;
-	GetWindowRect(rc);
+	GetClientRect(rc);
 
 	for (map<string,CUIData>::iterator it = m_mapUIName2Data.begin();
 		it != m_mapUIName2Data.end();it++)
@@ -170,6 +181,7 @@ void CADRTradeView::OnInitialUpdate()
 		CRect rcDialog(rc.left + UIData.m_nLeft,rc.top + UIData.m_nTop,rc.left + UIData.m_nWidth,rc.top + UIData.m_nHeight);
 		pDlg->MoveWindow(rcDialog);	
 		pDlg->ShowWindow(SW_SHOW);
+        UIData.m_pWnd = pDlg;	
 	}
 }
 
