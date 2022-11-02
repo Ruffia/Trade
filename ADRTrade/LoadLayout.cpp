@@ -27,6 +27,7 @@ void ILoadLayout::_CloseXML()
 
 CUIData::CUIData()
 {
+	m_sName = "";
 	m_strUIClassName = "";
 	m_nID = 0;
 	m_nLeft = 0;

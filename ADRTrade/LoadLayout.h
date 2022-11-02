@@ -23,7 +23,8 @@ public:
 	CUIData();
 
 public:
-	string m_strUIClassName;
+	string m_sName;
+    string m_strUIClassName;
 	int m_nID;
 	int  m_nLeft;
 	int  m_nTop;
