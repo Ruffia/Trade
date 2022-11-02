@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="gbk"?>
+<root>
+	<Layout>
+		<widget Name="DateCaption" ClassName="CEdit" ID="10001" Caption="日期：" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT|ES_READONLY" Left="2" Top="10" Width="50" Height="25" />
+		<widget Name="Date" ClassName="CEdit"  ID="10002" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="52" Top="10" Width="90" Height="25" />
+		<!--widget Name="MacroEnvironment2" ClassName="CMacroEnvironmentDlg"  IDD="IDD_DLG_Common" Left="0" Top="0" Width="200" Height="200" />
+		<widget Name="MacroEnvironment3" ClassName="CMacroEnvironmentDlg"  IDD="IDD_DLG_Common" Left="0" Top="0" Width="200" Height="200" /-->
+	</Layout>
+</root>
