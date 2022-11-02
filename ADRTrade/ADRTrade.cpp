@@ -11,6 +11,7 @@
 #include "ChildFrm.h"
 #include "ADRTradeDoc.h"
 #include "ADRTradeView.h"
+#include "Tools/StyleManager.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -109,6 +110,7 @@ BOOL CADRTradeApp::InitInstance()
 	theApp.GetTooltipManager()->SetTooltipParams(AFX_TOOLTIP_TYPE_ALL,
 		RUNTIME_CLASS(CMFCToolTipCtrl), &ttParams);
 
+	CStyleMgr::Instance().Initialize();
 	// 注册应用程序的文档模板。文档模板
 	// 将用作文档、框架窗口和视图之间的连接
 	CMultiDocTemplate* pDocTemplate;
