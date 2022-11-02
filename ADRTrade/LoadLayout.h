@@ -24,8 +24,10 @@ public:
 
 public:
 	string m_strUIClassName;
+	int m_nID;
 	int  m_nLeft;
 	int  m_nTop;
 	int  m_nWidth;
 	int  m_nHeight;
+	CWnd* m_pWnd;
 };

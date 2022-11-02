@@ -28,8 +28,10 @@ void ILoadLayout::_CloseXML()
 CUIData::CUIData()
 {
 	m_strUIClassName = "";
+	m_nID = 0;
 	m_nLeft = 0;
 	m_nTop = 0;
 	m_nWidth = 1;
 	m_nHeight = 1;
+	m_pWnd = NULL;
 }
