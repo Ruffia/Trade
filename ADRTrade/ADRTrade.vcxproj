@@ -128,6 +128,7 @@
     <ClInclude Include="Tools\InputEdit.h" />
     <ClInclude Include="Tools\pugiconfig.hpp" />
     <ClInclude Include="Tools\pugixml.hpp" />
+    <ClInclude Include="Tools\StyleManager.h" />
     <ClInclude Include="ViewTree.h" />
   </ItemGroup>
   <ItemGroup>
@@ -155,6 +156,7 @@
     <ClCompile Include="Tools\pugixml.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Tools\StyleManager.cpp" />
     <ClCompile Include="ViewTree.cpp" />
   </ItemGroup>
   <ItemGroup>

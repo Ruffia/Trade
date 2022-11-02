@@ -90,6 +90,9 @@
     <ClInclude Include="DialogIDManager.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Tools\StyleManager.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ADRTrade.cpp">
@@ -151,6 +154,9 @@
     </ClCompile>
     <ClCompile Include="DialogIDManager.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\StyleManager.cpp">
+      <Filter>Tools</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
