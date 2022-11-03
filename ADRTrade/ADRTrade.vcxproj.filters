@@ -93,6 +93,9 @@
     <ClInclude Include="Tools\StyleManager.h">
       <Filter>Tools</Filter>
     </ClInclude>
+    <ClInclude Include="Tools\CollectiveComponentProvider.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ADRTrade.cpp">
@@ -156,6 +159,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Tools\StyleManager.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\CollectiveComponentProvider.cpp">
       <Filter>Tools</Filter>
     </ClCompile>
   </ItemGroup>

@@ -121,6 +121,7 @@
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Tools\AsynProcessorWithProgress.h" />
     <ClInclude Include="Tools\CheckComboBox.h" />
+    <ClInclude Include="Tools\CollectiveComponentProvider.h" />
     <ClInclude Include="Tools\CustomButton.h" />
     <ClInclude Include="Tools\Dlg4ProgressThread.h" />
     <ClInclude Include="Tools\DlgGridPage.h" />
@@ -148,6 +149,7 @@
     </ClCompile>
     <ClCompile Include="Tools\AsynProcessorWithProgress.cpp" />
     <ClCompile Include="Tools\CheckComboBox.cpp" />
+    <ClCompile Include="Tools\CollectiveComponentProvider.cpp" />
     <ClCompile Include="Tools\CustomButton.cpp" />
     <ClCompile Include="Tools\Dlg4ProgressThread.cpp" />
     <ClCompile Include="Tools\DlgGridPage.cpp" />
