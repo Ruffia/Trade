@@ -110,10 +110,10 @@
     <ClInclude Include="ADRTradeDoc.h" />
     <ClInclude Include="ADRTradeView.h" />
     <ClInclude Include="ChildFrm.h" />
+    <ClInclude Include="DailyMacroEnvironmentDlg.h" />
     <ClInclude Include="DialogIDManager.h" />
     <ClInclude Include="DialogPlaceHolder.h" />
     <ClInclude Include="LoadLayout.h" />
-    <ClInclude Include="MacroEnvironmentDlg.h" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="PropertiesWnd.h" />
     <ClInclude Include="Resource.h" />
@@ -137,10 +137,10 @@
     <ClCompile Include="ADRTradeDoc.cpp" />
     <ClCompile Include="ADRTradeView.cpp" />
     <ClCompile Include="ChildFrm.cpp" />
+    <ClCompile Include="DailyMacroEnvironmentDlg.cpp" />
     <ClCompile Include="DialogIDManager.cpp" />
     <ClCompile Include="DialogPlaceHolder.cpp" />
     <ClCompile Include="LoadLayout.cpp" />
-    <ClCompile Include="MacroEnvironmentDlg.cpp" />
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="PropertiesWnd.cpp" />
     <ClCompile Include="stdafx.cpp">

@@ -84,9 +84,6 @@
     <ClInclude Include="LoadLayout.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="MacroEnvironmentDlg.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="DialogIDManager.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -95,6 +92,9 @@
     </ClInclude>
     <ClInclude Include="Tools\CollectiveComponentProvider.h">
       <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="DailyMacroEnvironmentDlg.h">
+      <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -152,9 +152,6 @@
     <ClCompile Include="LoadLayout.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="MacroEnvironmentDlg.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="DialogIDManager.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -163,6 +160,9 @@
     </ClCompile>
     <ClCompile Include="Tools\CollectiveComponentProvider.cpp">
       <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="DailyMacroEnvironmentDlg.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
