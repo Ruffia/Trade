@@ -20,12 +20,12 @@
 		<widget Name="FEDCaption" ClassName="CEdit" ID="10017" Caption="FED News" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT|ES_READONLY" Left="2" Top="185" Width="70" Height="25" />	
 		<widget Name="FED" ClassName="CEdit" ID="10018" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="72" Top="185" Width="210" Height="25" />
         <widget Name="MacroscopicViewCaption" ClassName="CEdit" ID="10019" Caption="Buy/Sell and strength analysis" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="210" Width="280" Height="25" />			
-		<widget Name="MacroscopicView" ClassName="CEdit" ID="10020" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOVSCROLL|ES_LEFT|ES_MULTILINE|ES_WANTRETURN" Left="2" Top="235" Width="280" Height="75" />	
+		<widget Name="MacroscopicView" ClassName="CEdit" ID="10020" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOVSCROLL|ES_LEFT|ES_MULTILINE|ES_WANTRETURN" Left="2" Top="235" Width="280" Height="50" />	
 		
-		<widget Name="DomesticEnvironmentCaption" ClassName="CEdit" ID="10021" Caption="Domestic Environment" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="310" Width="280" Height="25" />
-        <widget Name="DomesticNewsCaption" ClassName="CEdit" ID="10022" Caption="Domestic News" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT|ES_READONLY" Left="2" Top="335" Width="70" Height="50" />	
-        <widget Name="DomesticNews" ClassName="CEdit" ID="10023" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOVSCROLL|ES_LEFT|ES_MULTILINE|ES_WANTRETURN" Left="72" Top="335" Width="210" Height="50" />
-		<widget Name="MarketSentimentCaption" ClassName="CEdit" ID="10024" Caption="Market Sentiment" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT|ES_READONLY" Left="2" Top="385" Width="70" Height="25" />	
-		<widget Name="MarketSentiment" ClassName="CEdit" ID="10025" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOVSCROLL|ES_LEFT|ES_MULTILINE|ES_WANTRETURN" Left="72" Top="385" Width="210" Height="25" />
+		<widget Name="DomesticEnvironmentCaption" ClassName="CEdit" ID="10021" Caption="Domestic Environment" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="285" Width="280" Height="25" />
+        <widget Name="DomesticNewsCaption" ClassName="CEdit" ID="10022" Caption="Domestic News" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT|ES_READONLY" Left="2" Top="310" Width="70" Height="50" />	
+        <widget Name="DomesticNews" ClassName="CEdit" ID="10023" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOVSCROLL|ES_LEFT|ES_MULTILINE|ES_WANTRETURN" Left="72" Top="310" Width="210" Height="50" />
+		<widget Name="MarketSentimentCaption" ClassName="CEdit" ID="10024" Caption="Market Sentiment" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT|ES_READONLY" Left="2" Top="360" Width="70" Height="25" />	
+		<widget Name="MarketSentiment" ClassName="CEdit" ID="10025" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOVSCROLL|ES_LEFT|ES_MULTILINE|ES_WANTRETURN" Left="72" Top="360" Width="210" Height="25" />
 	</Layout>
 </root>
