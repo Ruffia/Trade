@@ -5,6 +5,7 @@ using namespace std;
 #include "Factory.h"
 #include "DialogIDManager.h"
 #include "Tools/StyleManager.h"
+#include "Tools/CollectiveComponentProvider.h"
 #include "Util.h"
 
 IMPLEMENT_FACTORY(CDialog,CMacroEnvironmentDlg,string,"CMacroEnvironmentDlg")
@@ -51,6 +52,8 @@ void CMacroEnvironmentDlg::_LoadLayout()
 			CEdit* pEdit = new CEdit;
 			CRect rc(data.m_nLeft,data.m_nTop,data.m_nLeft + data.m_nWidth ,data.m_nTop + data.m_nHeight);
 			pEdit->Create(dwTotalStyle,rc,this,data.m_nID);	
+			CFont* pFont = CCollectiveComponentProvider::Instance().GetFont();
+			pEdit->SetFont(pFont);
 			pEdit->ShowWindow(SW_SHOW);
 			pEdit->SetWindowText(sCaption.c_str());
 			m_mapUIName2Wnd[sName] = pEdit;	
