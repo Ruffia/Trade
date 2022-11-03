@@ -53,7 +53,11 @@ void CStyleMgr::Initialize()
 	_Register("WS_VISIBLE",WS_VISIBLE);
 	_Register("WS_TABSTOP",WS_TABSTOP);
 	_Register("ES_AUTOHSCROLL",ES_AUTOHSCROLL);
+	_Register("ES_AUTOVSCROLL",ES_AUTOVSCROLL);
+	_Register("EN_VSCROLL",EN_VSCROLL);
 	_Register("ES_CENTER",ES_CENTER);
 	_Register("ES_LEFT",ES_LEFT);
 	_Register("ES_READONLY",ES_READONLY);	
+	_Register("ES_MULTILINE",ES_MULTILINE);
+	_Register("ES_WANTRETURN",ES_WANTRETURN);
 }
