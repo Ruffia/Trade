@@ -3,11 +3,11 @@
 #include "DialogPlaceHolder.h"
 #include "Factory.h"
 
-class CMacroEnvironmentDlg :public CDialogPlaceHolder,public ILoadLayout
+class CDailyMacroEnvironmentDlg :public CDialogPlaceHolder,public ILoadLayout
 {
 public:
-	CMacroEnvironmentDlg();
-	~CMacroEnvironmentDlg();
+	CDailyMacroEnvironmentDlg();
+	~CDailyMacroEnvironmentDlg();
 	enum { IDD = IDD_DLG_Common };
 
 protected:

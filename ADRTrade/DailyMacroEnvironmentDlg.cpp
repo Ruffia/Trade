@@ -1,20 +1,20 @@
 #include "StdAfx.h"
 #include <vector>
 using namespace std;
-#include "MacroEnvironmentDlg.h"
+#include "DailyMacroEnvironmentDlg.h"
 #include "Factory.h"
 #include "DialogIDManager.h"
 #include "Tools/StyleManager.h"
 #include "Tools/CollectiveComponentProvider.h"
 #include "Util.h"
 
-IMPLEMENT_FACTORY(CDialog,CMacroEnvironmentDlg,string,"CMacroEnvironmentDlg")
-CMacroEnvironmentDlg::CMacroEnvironmentDlg()
+IMPLEMENT_FACTORY(CDialog,CDailyMacroEnvironmentDlg,string,"CDailyMacroEnvironmentDlg")
+CDailyMacroEnvironmentDlg::CDailyMacroEnvironmentDlg()
 {
-	CDialogIDMgr::Instance().Register("CMacroEnvironmentDlg",CMacroEnvironmentDlg::IDD);
+	CDialogIDMgr::Instance().Register("CDailyMacroEnvironmentDlg",CDailyMacroEnvironmentDlg::IDD);
 }
 
-CMacroEnvironmentDlg::~CMacroEnvironmentDlg()
+CDailyMacroEnvironmentDlg::~CDailyMacroEnvironmentDlg()
 {
 	for (map<string,CWnd*>::iterator it = m_mapUIName2Wnd.begin();
 		it!= m_mapUIName2Wnd.end();it++)
@@ -29,7 +29,7 @@ CMacroEnvironmentDlg::~CMacroEnvironmentDlg()
 }
 
 
-void CMacroEnvironmentDlg::_LoadLayout()
+void CDailyMacroEnvironmentDlg::_LoadLayout()
 {
 	xml_node root = m_doc.child("root");  //¸ù½Úµã
 	xml_node nodeLayout = root.child("Layout");
@@ -63,7 +63,7 @@ void CMacroEnvironmentDlg::_LoadLayout()
 }
 
 
-void CMacroEnvironmentDlg::_InitLayOut()
+void CDailyMacroEnvironmentDlg::_InitLayOut()
 {
 	string sFileName = GetModulePath() + "/UI/MarcoEnvironment.xml";
 	_LoadXML(CString(sFileName.c_str()));
