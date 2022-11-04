@@ -187,6 +187,7 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 
 BOOL CMainFrame::PreCreateWindow(CREATESTRUCT& cs)
 {
+	cs.style = cs.style&~WS_MAXIMIZEBOX; 
 	if( !CMDIFrameWndEx::PreCreateWindow(cs) )
 		return FALSE;
 	// TODO: 在此处通过修改
