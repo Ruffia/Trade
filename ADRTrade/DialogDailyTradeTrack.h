@@ -8,7 +8,7 @@ class CDlgDailyTradeTrack :public CChildDlgTab,public ILoadLayout
 public:
 	CDlgDailyTradeTrack();
 	~CDlgDailyTradeTrack();
-	enum { IDD = IDD_ChildDLG_Tab };
+	enum { IDD = IDD_ChildDLG_Tab_DailyTradeTrack };
 
 protected:
 	virtual void _LoadLayout();

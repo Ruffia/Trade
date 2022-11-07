@@ -94,6 +94,8 @@
 #define IDD_DLG_Grid                    31410
 #define IDD_DLG_Common                  31411
 #define IDD_ChildDLG_Tab                31412
+#define IDD_ChildDLG_Tab1               31413
+#define IDD_ChildDLG_Tab_DailyTradeTrack 31413
 
 // Next default values for new objects
 // 
