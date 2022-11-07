@@ -8,6 +8,12 @@ using namespace std;
 #include "Tools/CollectiveComponentProvider.h"
 #include "Util.h"
 
+#ifdef _DEBUG
+#define new DEBUG_NEW
+#undef THIS_FILE
+static char THIS_FILE[] = __FILE__;
+#endif
+
 IMPLEMENT_FACTORY(CDialog,CDailyMacroEnvironmentDlg,string,"CDailyMacroEnvironmentDlg")
 CDailyMacroEnvironmentDlg::CDailyMacroEnvironmentDlg()
 {
@@ -16,21 +22,16 @@ CDailyMacroEnvironmentDlg::CDailyMacroEnvironmentDlg()
 
 CDailyMacroEnvironmentDlg::~CDailyMacroEnvironmentDlg()
 {
-	for (map<string,CWnd*>::iterator it = m_mapUIName2Wnd.begin();
-		it!= m_mapUIName2Wnd.end();it++)
-	{
-		CWnd* pWnd = it->second;
-		if (pWnd)
-		{
-			delete pWnd;
-			pWnd = NULL;
-		}
-	}
+	m_mapUIName2Wnd.clear();
 }
 
 
 void CDailyMacroEnvironmentDlg::_LoadLayout()
 {
+	CRect rc;
+	GetClientRect(rc);
+	ClientToScreen(rc);
+
 	xml_node root = m_doc.child("root");  //¸ù½Úµã
 	xml_node nodeLayout = root.child("Layout");
 	xml_node node = nodeLayout.first_child();
@@ -56,7 +57,8 @@ void CDailyMacroEnvironmentDlg::_LoadLayout()
 			pEdit->SetFont(pFont);
 			pEdit->ShowWindow(SW_SHOW);
 			pEdit->SetWindowText(sCaption.c_str());
-			m_mapUIName2Wnd[sName] = pEdit;	
+			shared_ptr<CEdit> ptr(pEdit);
+			m_mapUIName2Wnd[sName] = ptr;	
 		}	
 		node = node.next_sibling();
 	}
@@ -65,6 +67,6 @@ void CDailyMacroEnvironmentDlg::_LoadLayout()
 
 void CDailyMacroEnvironmentDlg::_InitLayOut()
 {
-	string sFileName = GetModulePath() + "/UI/MarcoEnvironment.xml";
+	string sFileName = GetModulePath() + "/UI/DailyMarcoEnvironment.xml";
 	_LoadXML(CString(sFileName.c_str()));
 }

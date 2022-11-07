@@ -15,5 +15,5 @@ protected:
 	virtual void _InitLayOut();	
 
 protected:
-	map<string,CWnd*>  m_mapUIName2Wnd;
+	map<string,shared_ptr<CEdit>>  m_mapUIName2Wnd;
 };
