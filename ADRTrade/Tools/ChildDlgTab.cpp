@@ -1,0 +1,73 @@
+// DlgSEMLog.cpp : 实现文件
+//
+#include "stdafx.h"
+#include "ChildDlgTab.h"
+
+// CChildDlgTab 对话框
+IMPLEMENT_DYNAMIC(CChildDlgTab, CDialog)
+
+CChildDlgTab::CChildDlgTab(CWnd* pParent /*=NULL*/)
+	: CDialog(CChildDlgTab::IDD, pParent)
+{
+}
+
+CChildDlgTab::~CChildDlgTab()
+{
+	for (int i = 0; i < m_vPage.size();i++)
+	{
+		CDialog* pPage = m_vPage[i];
+		if (pPage)
+		{
+			delete pPage;
+			pPage = NULL;
+		}
+	}
+
+	m_vPage.clear();
+}
+
+void CChildDlgTab::DoDataExchange(CDataExchange* pDX)
+{
+	CDialog::DoDataExchange(pDX);
+	DDX_Control(pDX, IDC_TAB1, m_Tab);
+}
+
+
+BEGIN_MESSAGE_MAP(CChildDlgTab, CDialog)
+	ON_NOTIFY(TCN_SELCHANGE, IDC_TAB1, &CChildDlgTab::OnTcnSelchangeTabLog)
+END_MESSAGE_MAP()
+
+
+// CChildDlgTab 消息处理程序
+BOOL CChildDlgTab::OnInitDialog()
+{
+	CDialog::OnInitDialog();
+	InitPage();
+	return TRUE;
+}
+
+
+void CChildDlgTab::ShowPage(const int nCurPage)
+{
+	for (int i = 0; i < m_vPage.size();i++)
+	{
+		CDialog* pPage = m_vPage[i];
+		if (!pPage) continue;
+		if (nCurPage == i)
+		{
+			pPage->ShowWindow(SW_SHOW);
+		}
+		else
+		{
+			pPage->ShowWindow(SW_HIDE);
+		}
+	}
+}
+
+void CChildDlgTab::OnTcnSelchangeTabLog(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	// TODO: 在此添加控件通知处理程序代码
+	const int nCurSel = m_Tab.GetCurSel();
+	ShowPage(nCurSel);  
+	*pResult = 0;
+}

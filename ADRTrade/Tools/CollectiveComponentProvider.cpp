@@ -43,3 +43,13 @@ void CCollectiveComponentProvider::_CreateFont()
 		DEFAULT_PITCH | FF_SWISS, // nPitchAndFamily 
 		_T("Î¢ÈíÑÅºÚ")); // lpszFac
 }
+
+
+void CCollectiveComponentProvider::Release()
+{
+	if (m_pFont)
+	{
+		delete m_pFont;
+		m_pFont = NULL;
+	}
+}

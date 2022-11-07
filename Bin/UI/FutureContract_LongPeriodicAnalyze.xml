@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="gbk"?>
+<root>
+	<Layout>
+		<widget Name="Title" ClassName="CEdit" ID="10001" Caption="合约大趋势" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="10" Width="680" Height="25" />
+		<widget Name="ContractNameCaption" ClassName="CEdit" ID="10002" Caption="合约名称" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT|ES_READONLY" Left="2" Top="35" Width="60" Height="25" />
+		<widget Name="ContractName" ClassName="CEdit"  ID="10003" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="62" Top="35" Width="90" Height="25" />	
+		<widget Name="MainForceChangeCaption" ClassName="CEdit" ID="10004" Caption="主力增减仓" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT|ES_READONLY" Left="152" Top="35" Width="80" Height="25" />
+		<widget Name="MainForceChange" ClassName="CEdit"  ID="10005" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT" Left="232" Top="35" Width="130" Height="25" />	
+		<widget Name="OuterDiscCaption" ClassName="CEdit" ID="10006" Caption="外盘" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT|ES_READONLY" Left="362" Top="35" Width="50" Height="25" />
+		<widget Name="OuterDisc" ClassName="CEdit"  ID="10007" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="412" Top="35" Width="50" Height="25" />	
+		<widget Name="MonthlyTrendCaption" ClassName="CEdit" ID="10008" Caption="月线" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT|ES_READONLY" Left="462" Top="35" Width="50" Height="25" />
+		<widget Name="MonthlyTrend" ClassName="CEdit"  ID="10009" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="512" Top="35" Width="130" Height="25" />
+		<widget Name="WeeklyTrendCaption" ClassName="CEdit" ID="100010" Caption="周线" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT|ES_READONLY" Left="2" Top="60" Width="60" Height="25" />
+		<widget Name="WeeklyTrend" ClassName="CEdit"  ID="10011" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="62" Top="60" Width="90" Height="25" />
+		<widget Name="DailyTrendCaption" ClassName="CEdit" ID="100012" Caption="日线" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT|ES_READONLY" Left="152" Top="60" Width="40" Height="25" />
+		<widget Name="DailyTrend" ClassName="CEdit"  ID="10013" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="192" Top="60" Width="170" Height="25" />
+		<widget Name="4HTrendCaption" ClassName="CEdit" ID="100014" Caption="4H线" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT|ES_READONLY" Left="362" Top="60" Width="50" Height="25" />
+		<widget Name="4HTrend" ClassName="CEdit"  ID="10015" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="412" Top="60" Width="180" Height="25" />
+		<widget Name="EmotionalFeelingCaption" ClassName="CEdit" ID="10016" Caption="情绪感受" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT|ES_READONLY" Left="2" Top="85" Width="60" Height="25" />
+		<widget Name="EmotionalFeeling" ClassName="CEdit" ID="10017" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="62" Top="85" Width="590" Height="25" />
+	</Layout>
+</root>

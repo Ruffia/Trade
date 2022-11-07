@@ -413,6 +413,13 @@ FONT 8, "Microsoft Sans Serif", 0, 0, 0x0
 BEGIN
 END
 
+IDD_ChildDLG_Tab DIALOGEX 0, 0, 395, 254
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,14,14,236,223
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -499,6 +506,14 @@ BEGIN
         RIGHTMARGIN, 292
         TOPMARGIN, 7
         BOTTOMMARGIN, 287
+    END
+
+    IDD_ChildDLG_Tab, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 388
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 247
     END
 END
 #endif    // APSTUDIO_INVOKED

@@ -96,6 +96,27 @@
     <ClInclude Include="DailyMacroEnvironmentDlg.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Tools\ChildDlgTab.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="ReviewDecision.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DialogDailyTradeTrack.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DialogFutureContract.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DialogFutureContract_LongPeriodicAnalyze.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DialogFutureContract_MinorCycleAnalyze.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DialogFutureContract_TrackPhraseIn1Day.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ADRTrade.cpp">
@@ -162,6 +183,24 @@
       <Filter>Tools</Filter>
     </ClCompile>
     <ClCompile Include="DailyMacroEnvironmentDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\ChildDlgTab.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="DialogDailyTradeTrack.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DialogFutureContract.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DialogFutureContract_LongPeriodicAnalyze.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DialogFutureContract_MinorCycleAnalyze.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DialogFutureContract_TrackPhraseIn1Day.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

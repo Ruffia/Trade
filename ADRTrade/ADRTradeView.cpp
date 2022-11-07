@@ -17,6 +17,8 @@
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
+#undef THIS_FILE
+static char THIS_FILE[] = __FILE__;
 #endif
 
 
@@ -164,8 +166,6 @@ void CADRTradeView::_LoadLayout()
 
 void CADRTradeView::OnInitialUpdate()
 {
-	__super::OnInitialUpdate();
-
 	CRect rc;
 	GetClientRect(rc);
 
@@ -178,11 +178,13 @@ void CADRTradeView::OnInitialUpdate()
 		const int nIDD = CDialogIDMgr::Instance().GetDialogResourceID(UIData.m_strUIClassName);
 		ASSERT(-1 != nIDD);
 		pDlg->Create(nIDD,this);
-		CRect rcDialog(rc.left + UIData.m_nLeft,rc.top + UIData.m_nTop,rc.left + UIData.m_nWidth,rc.top + UIData.m_nHeight);
+		CRect rcDialog(rc.left + UIData.m_nLeft,rc.top + UIData.m_nTop,rc.left + UIData.m_nLeft + UIData.m_nWidth,rc.top + UIData.m_nHeight);
 		pDlg->MoveWindow(rcDialog);	
 		pDlg->ShowWindow(SW_SHOW);
         UIData.m_pWnd = pDlg;	
 	}
+
+	__super::OnInitialUpdate();
 }
 
 

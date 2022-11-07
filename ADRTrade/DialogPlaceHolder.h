@@ -1,5 +1,6 @@
 #pragma once
-
+#include <memory>
+using namespace std;
 
 // CDialogPlaceHolder ¶Ô»°¿ò
 

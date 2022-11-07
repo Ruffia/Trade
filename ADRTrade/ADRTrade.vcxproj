@@ -111,16 +111,23 @@
     <ClInclude Include="ADRTradeView.h" />
     <ClInclude Include="ChildFrm.h" />
     <ClInclude Include="DailyMacroEnvironmentDlg.h" />
+    <ClInclude Include="DialogDailyTradeTrack.h" />
+    <ClInclude Include="DialogFutureContract.h" />
+    <ClInclude Include="DialogFutureContract_LongPeriodicAnalyze.h" />
+    <ClInclude Include="DialogFutureContract_MinorCycleAnalyze.h" />
+    <ClInclude Include="DialogFutureContract_TrackPhraseIn1Day.h" />
     <ClInclude Include="DialogIDManager.h" />
     <ClInclude Include="DialogPlaceHolder.h" />
     <ClInclude Include="LoadLayout.h" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="PropertiesWnd.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="ReviewDecision.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Tools\AsynProcessorWithProgress.h" />
     <ClInclude Include="Tools\CheckComboBox.h" />
+    <ClInclude Include="Tools\ChildDlgTab.h" />
     <ClInclude Include="Tools\CollectiveComponentProvider.h" />
     <ClInclude Include="Tools\CustomButton.h" />
     <ClInclude Include="Tools\Dlg4ProgressThread.h" />
@@ -138,6 +145,11 @@
     <ClCompile Include="ADRTradeView.cpp" />
     <ClCompile Include="ChildFrm.cpp" />
     <ClCompile Include="DailyMacroEnvironmentDlg.cpp" />
+    <ClCompile Include="DialogDailyTradeTrack.cpp" />
+    <ClCompile Include="DialogFutureContract.cpp" />
+    <ClCompile Include="DialogFutureContract_LongPeriodicAnalyze.cpp" />
+    <ClCompile Include="DialogFutureContract_MinorCycleAnalyze.cpp" />
+    <ClCompile Include="DialogFutureContract_TrackPhraseIn1Day.cpp" />
     <ClCompile Include="DialogIDManager.cpp" />
     <ClCompile Include="DialogPlaceHolder.cpp" />
     <ClCompile Include="LoadLayout.cpp" />
@@ -149,6 +161,7 @@
     </ClCompile>
     <ClCompile Include="Tools\AsynProcessorWithProgress.cpp" />
     <ClCompile Include="Tools\CheckComboBox.cpp" />
+    <ClCompile Include="Tools\ChildDlgTab.cpp" />
     <ClCompile Include="Tools\CollectiveComponentProvider.cpp" />
     <ClCompile Include="Tools\CustomButton.cpp" />
     <ClCompile Include="Tools\Dlg4ProgressThread.cpp" />

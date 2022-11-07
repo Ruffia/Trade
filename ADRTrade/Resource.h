@@ -93,6 +93,7 @@
 #define IDD_DLG_Progress4Thread         31408
 #define IDD_DLG_Grid                    31410
 #define IDD_DLG_Common                  31411
+#define IDD_ChildDLG_Tab                31412
 
 // Next default values for new objects
 // 
