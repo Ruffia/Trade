@@ -27,6 +27,8 @@ protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV Ö§³Ö
 	virtual BOOL OnInitDialog();
 	virtual void OnTcnSelchangeTabLog(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnSize(UINT nType, int cx, int cy);
+	virtual void _DesignLayOut();
 
 	DECLARE_MESSAGE_MAP()
 public:

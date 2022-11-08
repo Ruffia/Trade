@@ -35,6 +35,7 @@ void CChildDlgTab::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CChildDlgTab, CDialog)
 	ON_NOTIFY(TCN_SELCHANGE, IDC_TAB1, &CChildDlgTab::OnTcnSelchangeTabLog)
+	ON_WM_SIZE()
 END_MESSAGE_MAP()
 
 
@@ -70,4 +71,17 @@ void CChildDlgTab::OnTcnSelchangeTabLog(NMHDR *pNMHDR, LRESULT *pResult)
 	const int nCurSel = m_Tab.GetCurSel();
 	ShowPage(nCurSel);  
 	*pResult = 0;
+}
+
+
+void CChildDlgTab::OnSize(UINT nType, int cx, int cy)
+{
+	__super::OnSize(nType,cx,cy);
+	_DesignLayOut();
+}
+
+
+void CChildDlgTab::_DesignLayOut()
+{
+
 }
