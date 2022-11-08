@@ -96,6 +96,8 @@
 #define IDD_ChildDLG_Tab                31412
 #define IDD_ChildDLG_Tab1               31413
 #define IDD_ChildDLG_Tab_DailyTradeTrack 31413
+#define IDD_ChildDLG_Tab_DailyTradeTrack1 31414
+#define IDD_ChildDLG_Tab_PhraseIn1Day   31414
 
 // Next default values for new objects
 // 

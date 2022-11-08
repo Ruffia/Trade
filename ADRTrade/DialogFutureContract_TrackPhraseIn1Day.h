@@ -8,7 +8,7 @@ class CDialogFutureContract_TrackPhraseIn1Day :public CChildDlgTab,public ILoadL
 public:
 	CDialogFutureContract_TrackPhraseIn1Day();
 	~CDialogFutureContract_TrackPhraseIn1Day();
-	enum { IDD = IDD_ChildDLG_Tab };
+	enum { IDD = IDD_ChildDLG_Tab_PhraseIn1Day };
 
 protected:
 	virtual void _LoadLayout();
