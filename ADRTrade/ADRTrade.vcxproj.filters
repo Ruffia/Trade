@@ -102,9 +102,6 @@
     <ClInclude Include="ReviewDecision.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="DialogDailyTradeTrack.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="DialogFutureContract.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -115,6 +112,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="DialogFutureContract_TrackPhraseIn1Day.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DialogDailyAnalyze.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -188,9 +188,6 @@
     <ClCompile Include="Tools\ChildDlgTab.cpp">
       <Filter>Tools</Filter>
     </ClCompile>
-    <ClCompile Include="DialogDailyTradeTrack.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="DialogFutureContract.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -201,6 +198,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="DialogFutureContract_TrackPhraseIn1Day.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DialogDailyAnalyze.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

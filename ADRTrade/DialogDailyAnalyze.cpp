@@ -1,7 +1,7 @@
 #include "StdAfx.h"
 #include <vector>
 using namespace std;
-#include "DialogDailyTradeTrack.h"
+#include "DialogDailyAnalyze.h"
 #include "Factory.h"
 #include "DialogIDManager.h"
 #include "Util.h"
@@ -13,19 +13,19 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 
-IMPLEMENT_FACTORY(CDialog,CDlgDailyTradeTrack,string,"CDlgDailyTradeTrack")
-CDlgDailyTradeTrack::CDlgDailyTradeTrack()
+IMPLEMENT_FACTORY(CDialog,CDlgDailyAnalyze,string,"CDlgDailyAnalyze")
+CDlgDailyAnalyze::CDlgDailyAnalyze()
 {
-	CDialogIDMgr::Instance().Register("CDlgDailyTradeTrack",CDlgDailyTradeTrack::IDD);
+	CDialogIDMgr::Instance().Register("CDlgDailyAnalyze",CDlgDailyAnalyze::IDD);
 }
 
-CDlgDailyTradeTrack::~CDlgDailyTradeTrack()
+CDlgDailyAnalyze::~CDlgDailyAnalyze()
 {
 
 }
 
 
-void CDlgDailyTradeTrack::_LoadLayout()
+void CDlgDailyAnalyze::_LoadLayout()
 {
 	CRect rc;
 	GetClientRect(rc);
@@ -79,8 +79,8 @@ void CDlgDailyTradeTrack::_LoadLayout()
 }
 
 
-void CDlgDailyTradeTrack::InitPage()
+void CDlgDailyAnalyze::InitPage()
 {
-	string sFileName = GetModulePath() + "/UI/DailyTradeTrack.xml";
+	string sFileName = GetModulePath() + "/UI/DailyAnalyze.xml";
 	_LoadXML(CString(sFileName.c_str()));
 }
