@@ -34,13 +34,6 @@ void CDlgDailyTradeTrack::_LoadLayout()
 	CRect rcTab;
 	m_Tab.GetClientRect(rcTab);
 
-	//设定在Tab内显示的范围
-	CRect rcHold;
-	rcHold.top = rcTab.top + 20;
-	rcHold.left = rcTab.left;
-	rcHold.right = rcTab.right;
-	rcHold.bottom = rcTab.bottom;
-
 	int nCount = 0;
 	xml_node root = m_doc.child("root");  //根节点
 	xml_node nodeLayout = root.child("Layout");
@@ -56,6 +49,13 @@ void CDlgDailyTradeTrack::_LoadLayout()
 		data.m_nWidth = node.attribute("Width").as_int();
 		data.m_nHeight = node.attribute("Height").as_int();
 		
+		//设定在Tab内显示的范围
+		CRect rcHold;
+		rcHold.top = rcTab.top + 20;
+		rcHold.left = rcTab.left;
+		rcHold.right = rcTab.right;
+		rcHold.bottom = rcTab.bottom;
+
 		CDialog* pDlg = Factory<CDialog,string>::Instance().BuildProduct(data.m_strUIClassName);
 		const int nIDD = CDialogIDMgr::Instance().GetDialogResourceID(data.m_strUIClassName);
 		ASSERT(-1 != nIDD);

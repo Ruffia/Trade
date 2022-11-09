@@ -29,7 +29,7 @@ void CDialogFutureContract_TrackPhraseIn1Day::_LoadLayout()
 	CRect rc;
 	GetClientRect(rc);
 
-	m_Tab.MoveWindow(rc.left,rc.top,rc.Width() - 20,rc.Height() - 50);
+	m_Tab.MoveWindow(rc.left,rc.top,rc.Width() - 10,rc.Height() - 10);
 
 	CRect rcTab;
 	m_Tab.GetClientRect(rcTab);
