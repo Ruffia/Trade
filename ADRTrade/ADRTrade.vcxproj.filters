@@ -99,9 +99,6 @@
     <ClInclude Include="Tools\ChildDlgTab.h">
       <Filter>Tools</Filter>
     </ClInclude>
-    <ClInclude Include="ReviewDecision.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="DialogFutureContract.h">
       <Filter>头文件</Filter>
     </ClInclude>

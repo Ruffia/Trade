@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="gbk"?>
-<root>
-	<Layout>	
-		<widget Name="LongPeriodicAnalyze" ClassName="CDialogFutureContract_LongPeriodicAnalyze" DD="IDD_DLG_Common" Left="0" Top="0" Width="290" Height="290" />		
-		<widget Name="TrackPhraseIn1Day" ClassName="CDialogFutureContract_TrackPhraseIn1Day" DD="IDD_ChildDLG_Tab_PhraseIn1Day" Left="0" Top="0" Width="590" Height="590" />
-	</Layout>
-</root>

@@ -36,7 +36,7 @@ void CDialogFutureContract_TrackPhraseIn1Day::_LoadLayout()
 
 	//设定在Tab内显示的范围
 	CRect rcHold;
-	rcHold.top = rcTab.top + 20;
+	rcHold.top = rcTab.top + 25;
 	rcHold.left = rcTab.left;
 	rcHold.right = rcTab.right;
 	rcHold.bottom = rcTab.bottom;

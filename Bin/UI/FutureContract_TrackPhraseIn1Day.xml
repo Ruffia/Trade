@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="gbk"?>
 <root>
 	<Layout>	
-		<widget Name="09:00" ClassName="CDialogFutureContract_MinorCycleAnalyze" IDD="IDD_DLG_Common" Left="0" Top="0" Width="700" Height="590" />		
-		<widget Name="10:15" ClassName="CDialogFutureContract_MinorCycleAnalyze" IDD="IDD_DLG_Common" Left="0" Top="0" Width="700" Height="490" />
-        <widget Name="11:30" ClassName="CDialogFutureContract_MinorCycleAnalyze" IDD="IDD_DLG_Common" Left="0" Top="0" Width="700" Height="490" />
-        <widget Name="14:15" ClassName="CDialogFutureContract_MinorCycleAnalyze" IDD="IDD_DLG_Common" Left="0" Top="0" Width="700" Height="490" />
-        <widget Name="16:30" ClassName="CDialogFutureContract_MinorCycleAnalyze" IDD="IDD_DLG_Common" Left="0" Top="0" Width="700" Height="590" />		
+		<widget Name="09:00" ClassName="CDialogFutureContract_MinorCycleAnalyze" IDD="IDD_DLG_Common" Left="0" Top="20" Width="700" Height="590" />		
+		<widget Name="10:15" ClassName="CDialogFutureContract_MinorCycleAnalyze" IDD="IDD_DLG_Common" Left="0" Top="20" Width="700" Height="590" />
+        <widget Name="11:25" ClassName="CDialogFutureContract_MinorCycleAnalyze" IDD="IDD_DLG_Common" Left="0" Top="20" Width="700" Height="490" />
+        <widget Name="14:25" ClassName="CDialogFutureContract_MinorCycleAnalyze" IDD="IDD_DLG_Common" Left="0" Top="20" Width="700" Height="490" />
+        <widget Name="16:30" ClassName="CDialogFutureContract_MinorCycleAnalyze" IDD="IDD_DLG_Common" Left="0" Top="20" Width="700" Height="590" />		
 	</Layout>
 </root>

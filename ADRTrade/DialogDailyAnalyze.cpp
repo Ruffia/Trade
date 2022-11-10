@@ -5,6 +5,7 @@ using namespace std;
 #include "Factory.h"
 #include "DialogIDManager.h"
 #include "Util.h"
+#include "Tools/CollectiveComponentProvider.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -34,6 +35,9 @@ void CDlgDailyAnalyze::_LoadLayout()
 	CRect rcTab;
 	m_Tab.GetClientRect(rcTab);
 
+	CFont* pFont = CCollectiveComponentProvider::Instance().GetFont();
+	m_Tab.SetFont(pFont);
+
 	int nCount = 0;
 	xml_node root = m_doc.child("root");  //根节点
 	xml_node nodeLayout = root.child("Layout");
@@ -51,7 +55,7 @@ void CDlgDailyAnalyze::_LoadLayout()
 		
 		//设定在Tab内显示的范围
 		CRect rcHold;
-		rcHold.top = rcTab.top + 20;
+		rcHold.top = rcTab.top + data.m_nTop;
 		rcHold.left = rcTab.left;
 		rcHold.right = rcTab.right;
 		rcHold.bottom = rcTab.bottom;
@@ -65,7 +69,6 @@ void CDlgDailyAnalyze::_LoadLayout()
 
 		m_Tab.InsertItem(nCount,sName.c_str());
 		m_vPage.push_back(pDlg);
-
 		data.m_pWnd = pDlg;
 
 		nCount++;
