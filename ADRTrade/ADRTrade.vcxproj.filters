@@ -114,6 +114,9 @@
     <ClInclude Include="DialogDailyAnalyze.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="DialogDailyTradeSummarize.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ADRTrade.cpp">
@@ -198,6 +201,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="DialogDailyAnalyze.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DialogDailyTradeSummarize.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

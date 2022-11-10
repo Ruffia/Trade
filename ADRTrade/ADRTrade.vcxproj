@@ -112,6 +112,7 @@
     <ClInclude Include="ChildFrm.h" />
     <ClInclude Include="DailyMacroEnvironmentDlg.h" />
     <ClInclude Include="DialogDailyAnalyze.h" />
+    <ClInclude Include="DialogDailyTradeSummarize.h" />
     <ClInclude Include="DialogFutureContract.h" />
     <ClInclude Include="DialogFutureContract_LongPeriodicAnalyze.h" />
     <ClInclude Include="DialogFutureContract_MinorCycleAnalyze.h" />
@@ -145,6 +146,7 @@
     <ClCompile Include="ChildFrm.cpp" />
     <ClCompile Include="DailyMacroEnvironmentDlg.cpp" />
     <ClCompile Include="DialogDailyAnalyze.cpp" />
+    <ClCompile Include="DialogDailyTradeSummarize.cpp" />
     <ClCompile Include="DialogFutureContract.cpp" />
     <ClCompile Include="DialogFutureContract_LongPeriodicAnalyze.cpp" />
     <ClCompile Include="DialogFutureContract_MinorCycleAnalyze.cpp" />
