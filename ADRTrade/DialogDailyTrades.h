@@ -1,12 +1,13 @@
 #pragma once
 #include "Tools/ChildDlgTab.h"
+#include "Factory.h"
 
-//每日分析
-class CDlgDailyAnalyze :public CChildDlgTab
+//每日交易
+class CDlgDailyTrades :public CChildDlgTab
 {
 public:
-	CDlgDailyAnalyze();
-	~CDlgDailyAnalyze();
+	CDlgDailyTrades();
+	~CDlgDailyTrades();
 	enum { IDD = IDD_ChildDLG_Tab_DailyAnalyze };
 
 protected:

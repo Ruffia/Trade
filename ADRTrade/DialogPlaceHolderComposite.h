@@ -3,25 +3,25 @@
 #include <map>
 #include <string>
 using namespace std;
+#include "UIData.h"
 #include "Tools/pugixml.hpp"
 #include "Tools/pugiconfig.hpp"
 using namespace pugi;
 
-// CDialogPlaceHolder 对话框
-
-class CDialogPlaceHolder : public CDialog
+// CDialogPlaceHolderComposite 对话框
+class CDialogPlaceHolderComposite : public CDialogEx
 {
-	DECLARE_DYNAMIC(CDialogPlaceHolder)
+	DECLARE_DYNAMIC(CDialogPlaceHolderComposite)
 
 public:
-	CDialogPlaceHolder(CWnd* pParent = NULL);   // 标准构造函数
-	virtual ~CDialogPlaceHolder();
+	CDialogPlaceHolderComposite(CWnd* pParent = NULL);   // 标准构造函数
+	virtual ~CDialogPlaceHolderComposite();
 	void SetLayout(string& sLayout)
 	{
 		m_sLayout = sLayout;
 	}
 
-// 对话框数据
+	// 对话框数据
 	enum { IDD = IDD_DLG_Common };
 
 protected:
@@ -33,5 +33,5 @@ protected:
 protected:
 	string m_sLayout;    //页面布局配置文件
 	xml_document m_doc;
-	map<string,shared_ptr<CEdit>>  m_mapUIName2Wnd;
+	map<string,CUIData>  m_mapUIName2Data;
 };

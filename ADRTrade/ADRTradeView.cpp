@@ -12,6 +12,8 @@
 #include "ADRTradeDoc.h"
 #include "ADRTradeView.h"
 #include "Util.h"
+#include "DialogPlaceHolder.h"
+#include "Tools/ChildDlgTab.h"
 #include "Factory.h"
 #include "DialogIDManager.h"
 
@@ -63,9 +65,7 @@ BOOL CADRTradeView::PreCreateWindow(CREATESTRUCT& cs)
 {
 	// TODO: 在此处通过修改
 	//  CREATESTRUCT cs 来修改窗口类或样式
-	string sFileName = GetModulePath() + "/UI/ADRTradeView.xml";
-	_LoadXML(CString(sFileName.c_str()));
-
+	_LoadLayout();
 	return CView::PreCreateWindow(cs);
 }
 
@@ -146,6 +146,13 @@ CADRTradeDoc* CADRTradeView::GetDocument() const // 非调试版本是内联的
 // CADRTradeView 消息处理程序
 void CADRTradeView::_LoadLayout()
 {
+	string sFileName = GetModulePath() + "/UI/ADRTradeView.xml";
+	bool bRet = true;
+	if (!m_doc.load_file(sFileName.c_str())) 
+	{ //加载xml文件
+		return;
+	}
+
 	xml_node root = m_doc.child("root");  //根节点
 	xml_node nodeLayout = root.child("Layout");
 	xml_node node = nodeLayout.first_child();
@@ -154,6 +161,7 @@ void CADRTradeView::_LoadLayout()
 		CUIData data;
 		const string sName = node.attribute("Name").as_string("");
 		data.m_strUIClassName = node.attribute("ClassName").as_string("");
+		data.m_strLayout = node.attribute("Layout").as_string("");
 		data.m_nLeft = node.attribute("Left").as_int();
 		data.m_nTop = node.attribute("Top").as_int();
 		data.m_nWidth = node.attribute("Width").as_int();
@@ -177,6 +185,19 @@ void CADRTradeView::OnInitialUpdate()
 		CDialog* pDlg = Factory<CDialog,string>::Instance().BuildProduct(UIData.m_strUIClassName);
 		const int nIDD = CDialogIDMgr::Instance().GetDialogResourceID(UIData.m_strUIClassName);
 		ASSERT(-1 != nIDD);
+		CDialogPlaceHolder* pHolder = dynamic_cast<CDialogPlaceHolder*>(pDlg);
+		if (pHolder)
+		{
+			pHolder->SetLayout(UIData.m_strLayout);
+		}
+		else
+		{
+			CChildDlgTab* pTabWnd = dynamic_cast<CChildDlgTab*>(pDlg);
+			if (pTabWnd)
+			{
+				pTabWnd->SetLayout(UIData.m_strLayout);
+			}
+		}
 		pDlg->Create(nIDD,this);
 		CRect rcDialog(rc.left + UIData.m_nLeft,rc.top + UIData.m_nTop,rc.left + UIData.m_nLeft + UIData.m_nWidth,rc.top + UIData.m_nHeight);
 		pDlg->MoveWindow(rcDialog);	

@@ -112,6 +112,7 @@
     <ClInclude Include="ChildFrm.h" />
     <ClInclude Include="DailyMacroEnvironmentDlg.h" />
     <ClInclude Include="DialogDailyAnalyze.h" />
+    <ClInclude Include="DialogDailyTrades.h" />
     <ClInclude Include="DialogDailyTradeSummarize.h" />
     <ClInclude Include="DialogFutureContract.h" />
     <ClInclude Include="DialogFutureContract_LongPeriodicAnalyze.h" />
@@ -119,7 +120,7 @@
     <ClInclude Include="DialogFutureContract_TrackPhraseIn1Day.h" />
     <ClInclude Include="DialogIDManager.h" />
     <ClInclude Include="DialogPlaceHolder.h" />
-    <ClInclude Include="LoadLayout.h" />
+    <ClInclude Include="DialogPlaceHolderComposite.h" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="PropertiesWnd.h" />
     <ClInclude Include="Resource.h" />
@@ -130,6 +131,7 @@
     <ClInclude Include="Tools\ChildDlgTab.h" />
     <ClInclude Include="Tools\CollectiveComponentProvider.h" />
     <ClInclude Include="Tools\CustomButton.h" />
+    <ClInclude Include="Tools\DialogLayout.h" />
     <ClInclude Include="Tools\Dlg4ProgressThread.h" />
     <ClInclude Include="Tools\DlgGridPage.h" />
     <ClInclude Include="Tools\DlgTab.h" />
@@ -137,6 +139,7 @@
     <ClInclude Include="Tools\pugiconfig.hpp" />
     <ClInclude Include="Tools\pugixml.hpp" />
     <ClInclude Include="Tools\StyleManager.h" />
+    <ClInclude Include="UIData.h" />
     <ClInclude Include="ViewTree.h" />
   </ItemGroup>
   <ItemGroup>
@@ -146,6 +149,7 @@
     <ClCompile Include="ChildFrm.cpp" />
     <ClCompile Include="DailyMacroEnvironmentDlg.cpp" />
     <ClCompile Include="DialogDailyAnalyze.cpp" />
+    <ClCompile Include="DialogDailyTrades.cpp" />
     <ClCompile Include="DialogDailyTradeSummarize.cpp" />
     <ClCompile Include="DialogFutureContract.cpp" />
     <ClCompile Include="DialogFutureContract_LongPeriodicAnalyze.cpp" />
@@ -153,7 +157,7 @@
     <ClCompile Include="DialogFutureContract_TrackPhraseIn1Day.cpp" />
     <ClCompile Include="DialogIDManager.cpp" />
     <ClCompile Include="DialogPlaceHolder.cpp" />
-    <ClCompile Include="LoadLayout.cpp" />
+    <ClCompile Include="DialogPlaceHolderComposite.cpp" />
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="PropertiesWnd.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -165,6 +169,7 @@
     <ClCompile Include="Tools\ChildDlgTab.cpp" />
     <ClCompile Include="Tools\CollectiveComponentProvider.cpp" />
     <ClCompile Include="Tools\CustomButton.cpp" />
+    <ClCompile Include="Tools\DialogLayout.cpp" />
     <ClCompile Include="Tools\Dlg4ProgressThread.cpp" />
     <ClCompile Include="Tools\DlgGridPage.cpp" />
     <ClCompile Include="Tools\DlgTab.cpp" />
@@ -173,6 +178,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Tools\StyleManager.cpp" />
+    <ClCompile Include="UIData.cpp" />
     <ClCompile Include="ViewTree.cpp" />
   </ItemGroup>
   <ItemGroup>

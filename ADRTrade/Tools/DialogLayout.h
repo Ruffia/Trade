@@ -1,21 +1,18 @@
 #pragma once
-#include <memory>
-#include <map>
 #include <string>
 using namespace std;
-#include "Tools/pugixml.hpp"
-#include "Tools/pugiconfig.hpp"
+#include "pugixml.hpp"
+#include "pugiconfig.hpp"
 using namespace pugi;
 
-// CDialogPlaceHolder 对话框
-
-class CDialogPlaceHolder : public CDialog
+// CDialogLayout 对话框
+class CDialogLayout : public CDialog
 {
-	DECLARE_DYNAMIC(CDialogPlaceHolder)
+	DECLARE_DYNAMIC(CDialogLayout)
 
 public:
-	CDialogPlaceHolder(CWnd* pParent = NULL);   // 标准构造函数
-	virtual ~CDialogPlaceHolder();
+	CDialogLayout(CWnd* pParent = NULL);   // 标准构造函数
+	virtual ~CDialogLayout();
 	void SetLayout(string& sLayout)
 	{
 		m_sLayout = sLayout;
@@ -27,11 +24,12 @@ public:
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV 支持
 	virtual BOOL OnInitDialog();
-	virtual void _InitLayOut();
+	virtual void _InitLayOut() = 0;
+	virtual void _ReLayout() = 0;
+	afx_msg void OnSize(UINT nType, int cx, int cy);
 	DECLARE_MESSAGE_MAP()
 
 protected:
 	string m_sLayout;    //页面布局配置文件
 	xml_document m_doc;
-	map<string,shared_ptr<CEdit>>  m_mapUIName2Wnd;
 };

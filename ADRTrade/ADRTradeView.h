@@ -3,11 +3,15 @@
 //
 
 #pragma once
-#include "LoadLayout.h"
 #include <map>
+#include <string>
 using namespace std;
+#include "UIData.h"
+#include "Tools/pugixml.hpp"
+#include "Tools/pugiconfig.hpp"
+using namespace pugi;
 
-class CADRTradeView : public CView,public ILoadLayout
+class CADRTradeView : public CView
 {
 protected: // 仅从序列化创建
 	CADRTradeView();
@@ -50,6 +54,7 @@ protected:
 	DECLARE_MESSAGE_MAP()
 
 protected:
+	xml_document m_doc;
 	map<string,CUIData>  m_mapUIName2Data;
 };
 

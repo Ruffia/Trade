@@ -43,7 +43,7 @@ END_MESSAGE_MAP()
 BOOL CChildDlgTab::OnInitDialog()
 {
 	CDialog::OnInitDialog();
-	InitPage();
+	_InitLayOut();
 	return TRUE;
 }
 
@@ -77,11 +77,11 @@ void CChildDlgTab::OnTcnSelchangeTabLog(NMHDR *pNMHDR, LRESULT *pResult)
 void CChildDlgTab::OnSize(UINT nType, int cx, int cy)
 {
 	__super::OnSize(nType,cx,cy);
-	_DesignLayOut();
+	_ReLayout();
 }
 
 
-void CChildDlgTab::_DesignLayOut()
+void CChildDlgTab::_ReLayout()
 {
 
 }

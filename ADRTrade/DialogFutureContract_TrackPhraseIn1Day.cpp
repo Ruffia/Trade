@@ -3,7 +3,9 @@
 using namespace std;
 #include "DialogFutureContract_TrackPhraseIn1Day.h"
 #include "Factory.h"
+#include "UIData.h"
 #include "DialogIDManager.h"
+#include "DialogPlaceHolder.h"
 #include "Util.h"
 
 #ifdef _DEBUG
@@ -18,14 +20,15 @@ CDialogFutureContract_TrackPhraseIn1Day::CDialogFutureContract_TrackPhraseIn1Day
 	CDialogIDMgr::Instance().Register("CDialogFutureContract_TrackPhraseIn1Day",CDialogFutureContract_TrackPhraseIn1Day::IDD);
 }
 
-CDialogFutureContract_TrackPhraseIn1Day::~CDialogFutureContract_TrackPhraseIn1Day()
+
+void CDialogFutureContract_TrackPhraseIn1Day::_InitLayOut()
 {
+	string sFileName = GetModulePath() + "/UI/" + m_sLayout;
+	if (!m_doc.load_file(sFileName.c_str())) 
+	{ //加载xml文件
+		return;
+	}
 
-}
-
-
-void CDialogFutureContract_TrackPhraseIn1Day::_LoadLayout()
-{
 	CRect rc;
 	GetClientRect(rc);
 
@@ -50,6 +53,7 @@ void CDialogFutureContract_TrackPhraseIn1Day::_LoadLayout()
 		CUIData data;
 		const string sName = node.attribute("Name").as_string("");
 		data.m_strUIClassName = node.attribute("ClassName").as_string("");
+		data.m_strLayout = node.attribute("Layout").as_string("");
 		data.m_nID = node.attribute("ID").as_int();
 		data.m_nLeft = node.attribute("Left").as_int();
 		data.m_nTop = node.attribute("Top").as_int();
@@ -59,6 +63,11 @@ void CDialogFutureContract_TrackPhraseIn1Day::_LoadLayout()
 		CDialog* pDlg = Factory<CDialog,string>::Instance().BuildProduct(data.m_strUIClassName);
 		const int nIDD = CDialogIDMgr::Instance().GetDialogResourceID(data.m_strUIClassName);
 		ASSERT(-1 != nIDD);
+		CDialogPlaceHolder* pHolder = dynamic_cast<CDialogPlaceHolder*>(pDlg);
+		if (pHolder)
+		{
+			pHolder->SetLayout(data.m_strLayout);
+		}
 		pDlg->Create(nIDD,&m_Tab);
 		pDlg->SetParent(&m_Tab);
 		pDlg->MoveWindow(&rcHold);
@@ -76,11 +85,4 @@ void CDialogFutureContract_TrackPhraseIn1Day::_LoadLayout()
 	ShowPage(0);
 	//保存当前选择  
 	m_CurSelTab = 0;
-}
-
-
-void CDialogFutureContract_TrackPhraseIn1Day::InitPage()
-{
-	string sFileName = GetModulePath() + "/UI/FutureContract_TrackPhraseIn1Day.xml";
-	_LoadXML(CString(sFileName.c_str()));
 }

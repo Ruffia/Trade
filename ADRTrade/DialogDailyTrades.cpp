@@ -1,14 +1,11 @@
 #include "StdAfx.h"
 #include <vector>
 using namespace std;
-#include "DialogDailyAnalyze.h"
+#include "DialogDailyTrades.h"
 #include "Factory.h"
 #include "DialogIDManager.h"
-#include "DialogPlaceHolder.h"
-#include "DialogPlaceHolderComposite.h"
-#include "Tools/ChildDlgTab.h"
-#include "UIData.h"
 #include "Util.h"
+#include "UIData.h"
 #include "Tools/CollectiveComponentProvider.h"
 
 #ifdef _DEBUG
@@ -18,20 +15,22 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 
-IMPLEMENT_FACTORY(CDialog,CDlgDailyAnalyze,string,"CDlgDailyAnalyze")
-CDlgDailyAnalyze::CDlgDailyAnalyze()
+IMPLEMENT_FACTORY(CDialog,CDlgDailyTrades,string,"CDlgDailyTrades")
+CDlgDailyTrades::CDlgDailyTrades()
 {
-	CDialogIDMgr::Instance().Register("CDlgDailyAnalyze",CDlgDailyAnalyze::IDD);
+	CDialogIDMgr::Instance().Register("CDlgDailyTrades",CDlgDailyTrades::IDD);
 }
 
-CDlgDailyAnalyze::~CDlgDailyAnalyze()
+CDlgDailyTrades::~CDlgDailyTrades()
 {
 
 }
 
-void CDlgDailyAnalyze::_InitLayOut()
+
+void CDlgDailyTrades::_InitLayOut()
 {
-	string sFileName = GetModulePath() + "/UI/" + m_sLayout;
+	return;
+	string sFileName = GetModulePath() + "/UI/DailyTrades.xml";
 	if (!m_doc.load_file(sFileName.c_str())) 
 	{ //¼ÓÔØxmlÎÄ¼þ
 		return;
@@ -56,7 +55,6 @@ void CDlgDailyAnalyze::_InitLayOut()
 		CUIData data;
 		const string sName = node.attribute("Name").as_string("");
 		data.m_strUIClassName = node.attribute("ClassName").as_string("");
-		data.m_strLayout = node.attribute("Layout").as_string("");
 		data.m_nID = node.attribute("ID").as_int();
 		data.m_nLeft = node.attribute("Left").as_int();
 		data.m_nTop = node.attribute("Top").as_int();
@@ -73,28 +71,6 @@ void CDlgDailyAnalyze::_InitLayOut()
 		CDialog* pDlg = Factory<CDialog,string>::Instance().BuildProduct(data.m_strUIClassName);
 		const int nIDD = CDialogIDMgr::Instance().GetDialogResourceID(data.m_strUIClassName);
 		ASSERT(-1 != nIDD);
-		CDialogPlaceHolder* pHolder = dynamic_cast<CDialogPlaceHolder*>(pDlg);
-		if (pHolder)
-		{
-			pHolder->SetLayout(data.m_strLayout);
-		}
-		else
-		{
-			CChildDlgTab* pTabWnd = dynamic_cast<CChildDlgTab*>(pDlg);
-			if (pTabWnd)
-			{
-				pTabWnd->SetLayout(data.m_strLayout);
-			}
-			else
-			{
-				CDialogPlaceHolderComposite* pDlgComposite = dynamic_cast<CDialogPlaceHolderComposite*>(pDlg);
-				if (pDlgComposite)
-				{
-					pDlgComposite->SetLayout(data.m_strLayout);
-				}
-			}
-		}
-
 		pDlg->Create(nIDD,&m_Tab);
 		pDlg->SetParent(&m_Tab);
 		pDlg->MoveWindow(&rcHold);
