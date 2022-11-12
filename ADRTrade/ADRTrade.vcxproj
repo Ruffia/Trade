@@ -114,6 +114,7 @@
     <ClInclude Include="DialogDailyAnalyze.h" />
     <ClInclude Include="DialogDailyTrades.h" />
     <ClInclude Include="DialogDailyTradeSummarize.h" />
+    <ClInclude Include="DialogDailyTrades_SingleTradeTrack.h" />
     <ClInclude Include="DialogFutureContract.h" />
     <ClInclude Include="DialogFutureContract_LongPeriodicAnalyze.h" />
     <ClInclude Include="DialogFutureContract_MinorCycleAnalyze.h" />
@@ -151,6 +152,7 @@
     <ClCompile Include="DialogDailyAnalyze.cpp" />
     <ClCompile Include="DialogDailyTrades.cpp" />
     <ClCompile Include="DialogDailyTradeSummarize.cpp" />
+    <ClCompile Include="DialogDailyTrades_SingleTradeTrack.cpp" />
     <ClCompile Include="DialogFutureContract.cpp" />
     <ClCompile Include="DialogFutureContract_LongPeriodicAnalyze.cpp" />
     <ClCompile Include="DialogFutureContract_MinorCycleAnalyze.cpp" />

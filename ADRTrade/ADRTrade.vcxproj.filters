@@ -126,6 +126,9 @@
     <ClInclude Include="Tools\DialogLayout.h">
       <Filter>Tools</Filter>
     </ClInclude>
+    <ClInclude Include="DialogDailyTrades_SingleTradeTrack.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ADRTrade.cpp">
@@ -223,6 +226,9 @@
     </ClCompile>
     <ClCompile Include="Tools\DialogLayout.cpp">
       <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="DialogDailyTrades_SingleTradeTrack.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
