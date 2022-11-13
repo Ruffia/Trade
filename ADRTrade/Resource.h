@@ -68,6 +68,7 @@
 #define IDB_PROPERTIES_HC               184
 #define IDR_THEME_MENU                  200
 #define ID_SET_STYLE                    201
+#define IDR_ADRTradeDay                 201
 #define ID_VIEW_APPLOOK_WIN_2000        205
 #define ID_VIEW_APPLOOK_OFF_XP          206
 #define ID_VIEW_APPLOOK_WIN_XP          207

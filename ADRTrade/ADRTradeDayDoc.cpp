@@ -44,12 +44,20 @@ BOOL CADRTradeDayDoc::OnNewDocument()
 
 	// TODO: 在此添加重新初始化代码
 	// (SDI 文档将重用该文档)
-
+	COleDateTime dtNOw = COleDateTime::GetCurrentTime();
+	CString strDate = dtNOw.Format("%Y%m%d");
+	SetTitle(strDate);
 	return TRUE;
 }
 
 
+BOOL CADRTradeDayDoc::OnOpenDocument(LPCTSTR lpszPathName)
+{
+	if (!CDocument::OnOpenDocument(lpszPathName))
+		return FALSE;
 
+	return TRUE;
+}
 
 // CADRTradeDayDoc 序列化
 

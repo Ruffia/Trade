@@ -114,7 +114,7 @@ BOOL CADRTradeApp::InitInstance()
 	// 注册应用程序的文档模板。文档模板
 	// 将用作文档、框架窗口和视图之间的连接
 	CMultiDocTemplate* pDocTemplate;
-	pDocTemplate = new CMultiDocTemplate(IDR_ADRTradeTYPE,
+	pDocTemplate = new CMultiDocTemplate(IDR_ADRTradeDay,
 		RUNTIME_CLASS(CADRTradeDayDoc),
 		RUNTIME_CLASS(CChildFrame), // 自定义 MDI 子框架
 		RUNTIME_CLASS(CADRTradeDayView));
