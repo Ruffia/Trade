@@ -3,6 +3,12 @@
 #include "stdafx.h"
 #include "ChildDlgTab.h"
 
+#ifdef _DEBUG
+#define new DEBUG_NEW
+#undef THIS_FILE
+static char THIS_FILE[] = __FILE__;
+#endif
+
 // CChildDlgTab ¶Ô»°¿ò
 IMPLEMENT_DYNAMIC(CChildDlgTab, CDialog)
 
@@ -13,16 +19,6 @@ CChildDlgTab::CChildDlgTab(CWnd* pParent /*=NULL*/)
 
 CChildDlgTab::~CChildDlgTab()
 {
-	for (int i = 0; i < m_vPage.size();i++)
-	{
-		CDialog* pPage = m_vPage[i];
-		if (pPage)
-		{
-			delete pPage;
-			pPage = NULL;
-		}
-	}
-
 	m_vPage.clear();
 }
 
@@ -52,7 +48,7 @@ void CChildDlgTab::ShowPage(const int nCurPage)
 {
 	for (int i = 0; i < m_vPage.size();i++)
 	{
-		CDialog* pPage = m_vPage[i];
+		shared_ptr<CDialog> pPage = m_vPage[i];
 		if (!pPage) continue;
 		if (nCurPage == i)
 		{

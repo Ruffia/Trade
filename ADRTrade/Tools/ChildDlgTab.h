@@ -1,5 +1,6 @@
 #pragma once
 #include "afxcmn.h"
+#include <memory>
 #include <vector>
 #include <string>
 using namespace std;
@@ -47,5 +48,5 @@ public:
 	xml_document m_doc;
 	CTabCtrl m_Tab;
 	int m_CurSelTab;
-	vector<CDialog*> m_vPage; 
+	vector<shared_ptr<CDialog>> m_vPage; 
 };

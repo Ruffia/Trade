@@ -73,7 +73,8 @@ void CDialogFutureContract_TrackPhraseIn1Day::_InitLayOut()
 		pDlg->MoveWindow(&rcHold);
 
 		m_Tab.InsertItem(nCount,sName.c_str());
-		m_vPage.push_back(pDlg);
+		shared_ptr<CDialog> ptr(pDlg);
+		m_vPage.push_back(ptr);
 
 		data.m_pWnd = pDlg;
 

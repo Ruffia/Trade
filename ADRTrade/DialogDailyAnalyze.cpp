@@ -11,12 +11,6 @@ using namespace std;
 #include "Util.h"
 #include "Tools/CollectiveComponentProvider.h"
 
-#ifdef _DEBUG
-#define new DEBUG_NEW
-#undef THIS_FILE
-static char THIS_FILE[] = __FILE__;
-#endif
-
 
 IMPLEMENT_FACTORY(CDialog,CDlgDailyAnalyze,string,"CDlgDailyAnalyze")
 CDlgDailyAnalyze::CDlgDailyAnalyze()
@@ -100,7 +94,9 @@ void CDlgDailyAnalyze::_InitLayOut()
 		pDlg->MoveWindow(&rcHold);
 
 		m_Tab.InsertItem(nCount,sName.c_str());
-		m_vPage.push_back(pDlg);
+
+		shared_ptr<CDialog> ptr(pDlg);
+		m_vPage.push_back(ptr);
 		data.m_pWnd = pDlg;
 
 		nCount++;
