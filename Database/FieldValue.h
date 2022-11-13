@@ -8,6 +8,20 @@ class EXPORT_CALSS FieldValue
 public:
 	FieldValue();
 
+	FieldValue(const string& strType,bool bValue);
+
+	FieldValue(const string& strType,char* sValue);
+
+	FieldValue(const string& strType,int nValue);
+
+	FieldValue(const string& strType,__int64 iValue64);
+
+	FieldValue(const string& strType,float fValue);
+
+	FieldValue(const string& strType,double dValue);
+
+	FieldValue(const string& strType,long lValue);
+
 	~FieldValue();
 
 	bool GetValueAsBool()
@@ -107,6 +121,6 @@ public:
 		long long llValue;
 		float fValue;
 		double dValue;
-		char sValue[128];
+		char sValue[512];
 	}_value;
 };

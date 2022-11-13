@@ -132,6 +132,12 @@
     <ClInclude Include="ADRTradeDayView.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Bussinise\Business.h">
+      <Filter>Bussinise</Filter>
+    </ClInclude>
+    <ClInclude Include="Bussinise\AbstractObject.h">
+      <Filter>Bussinise</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ADRTrade.cpp">
@@ -232,6 +238,12 @@
     </ClCompile>
     <ClCompile Include="ADRTradeDayView.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Bussinise\Business.cpp">
+      <Filter>Bussinise</Filter>
+    </ClCompile>
+    <ClCompile Include="Bussinise\AbstractObject.cpp">
+      <Filter>Bussinise</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

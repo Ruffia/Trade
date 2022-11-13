@@ -44,7 +44,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>../Bin/</OutDir>
-    <IncludePath>../Grid;../Utility;$(IncludePath)</IncludePath>
+    <IncludePath>../Grid;../Utility;../Database;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -65,7 +65,7 @@
       <OutputFile>../Bin/ADRTrade.exe</OutputFile>
       <ProgramDatabaseFile>../Bin/ADRTradeD.pdb</ProgramDatabaseFile>
       <AdditionalLibraryDirectories>../Bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>GridD.lib;UtilityD.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>GridD.lib;UtilityD.lib;DatabaseD.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -116,6 +116,8 @@
     <ClInclude Include="ADRTrade.h" />
     <ClInclude Include="ADRTradeDayDoc.h" />
     <ClInclude Include="ADRTradeDayView.h" />
+    <ClInclude Include="Bussinise\AbstractObject.h" />
+    <ClInclude Include="Bussinise\Business.h" />
     <ClInclude Include="ChildFrm.h" />
     <ClInclude Include="DailyMacroEnvironmentDlg.h" />
     <ClInclude Include="DialogDailyAnalyze.h" />
@@ -154,6 +156,8 @@
     <ClCompile Include="ADRTrade.cpp" />
     <ClCompile Include="ADRTradeDayDoc.cpp" />
     <ClCompile Include="ADRTradeDayView.cpp" />
+    <ClCompile Include="Bussinise\AbstractObject.cpp" />
+    <ClCompile Include="Bussinise\Business.cpp" />
     <ClCompile Include="ChildFrm.cpp" />
     <ClCompile Include="DailyMacroEnvironmentDlg.cpp" />
     <ClCompile Include="DialogDailyAnalyze.cpp" />
