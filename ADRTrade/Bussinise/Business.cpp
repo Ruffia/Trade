@@ -3,6 +3,4 @@
 #include "Factory.h"
 
 IMPLEMENT_FACTORY(IAbstractObject,CDailyMacroEnvironment,string,"CDailyMacroEnvironment")
-CDailyMacroEnvironment::CDailyMacroEnvironment()
-{
-}
+
