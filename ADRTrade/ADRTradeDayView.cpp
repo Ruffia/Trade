@@ -1,5 +1,5 @@
 
-// ADRTradeView.cpp : CADRTradeView 类的实现
+// ADRTradeView.cpp : CADRTradeDayView 类的实现
 //
 
 #include "stdafx.h"
@@ -9,8 +9,8 @@
 #include "ADRTrade.h"
 #endif
 
-#include "ADRTradeDoc.h"
-#include "ADRTradeView.h"
+#include "ADRTradeDayDoc.h"
+#include "ADRTradeDayView.h"
 #include "Util.h"
 #include "Tools/DialogPlaceHolder.h"
 #include "Tools/ChildDlgTab.h"
@@ -24,29 +24,29 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 
-// CADRTradeView
+// CADRTradeDayView
 
-IMPLEMENT_DYNCREATE(CADRTradeView, CView)
+IMPLEMENT_DYNCREATE(CADRTradeDayView, CView)
 
-BEGIN_MESSAGE_MAP(CADRTradeView, CView)
+BEGIN_MESSAGE_MAP(CADRTradeDayView, CView)
 	// 标准打印命令
 	ON_COMMAND(ID_FILE_PRINT, &CView::OnFilePrint)
 	ON_COMMAND(ID_FILE_PRINT_DIRECT, &CView::OnFilePrint)
-	ON_COMMAND(ID_FILE_PRINT_PREVIEW, &CADRTradeView::OnFilePrintPreview)
+	ON_COMMAND(ID_FILE_PRINT_PREVIEW, &CADRTradeDayView::OnFilePrintPreview)
 	ON_WM_CONTEXTMENU()
 	ON_WM_RBUTTONUP()
 	ON_WM_CREATE()
 END_MESSAGE_MAP()
 
-// CADRTradeView 构造/析构
+// CADRTradeDayView 构造/析构
 
-CADRTradeView::CADRTradeView()
+CADRTradeDayView::CADRTradeDayView()
 {
 	// TODO: 在此处添加构造代码
 
 }
 
-CADRTradeView::~CADRTradeView()
+CADRTradeDayView::~CADRTradeDayView()
 {
 	for (map<string,CUIData>::iterator it = m_mapUIName2Data.begin();
 		it != m_mapUIName2Data.end();it++)
@@ -61,7 +61,7 @@ CADRTradeView::~CADRTradeView()
 	}
 }
 
-BOOL CADRTradeView::PreCreateWindow(CREATESTRUCT& cs)
+BOOL CADRTradeDayView::PreCreateWindow(CREATESTRUCT& cs)
 {
 	// TODO: 在此处通过修改
 	//  CREATESTRUCT cs 来修改窗口类或样式
@@ -69,11 +69,11 @@ BOOL CADRTradeView::PreCreateWindow(CREATESTRUCT& cs)
 	return CView::PreCreateWindow(cs);
 }
 
-// CADRTradeView 绘制
+// CADRTradeDayView 绘制
 
-void CADRTradeView::OnDraw(CDC* /*pDC*/)
+void CADRTradeDayView::OnDraw(CDC* /*pDC*/)
 {
-	CADRTradeDoc* pDoc = GetDocument();
+	CADRTradeDayDoc* pDoc = GetDocument();
 	ASSERT_VALID(pDoc);
 	if (!pDoc)
 		return;
@@ -82,39 +82,39 @@ void CADRTradeView::OnDraw(CDC* /*pDC*/)
 }
 
 
-// CADRTradeView 打印
+// CADRTradeDayView 打印
 
 
-void CADRTradeView::OnFilePrintPreview()
+void CADRTradeDayView::OnFilePrintPreview()
 {
 #ifndef SHARED_HANDLERS
 	AFXPrintPreview(this);
 #endif
 }
 
-BOOL CADRTradeView::OnPreparePrinting(CPrintInfo* pInfo)
+BOOL CADRTradeDayView::OnPreparePrinting(CPrintInfo* pInfo)
 {
 	// 默认准备
 	return DoPreparePrinting(pInfo);
 }
 
-void CADRTradeView::OnBeginPrinting(CDC* /*pDC*/, CPrintInfo* /*pInfo*/)
+void CADRTradeDayView::OnBeginPrinting(CDC* /*pDC*/, CPrintInfo* /*pInfo*/)
 {
 	// TODO: 添加额外的打印前进行的初始化过程
 }
 
-void CADRTradeView::OnEndPrinting(CDC* /*pDC*/, CPrintInfo* /*pInfo*/)
+void CADRTradeDayView::OnEndPrinting(CDC* /*pDC*/, CPrintInfo* /*pInfo*/)
 {
 	// TODO: 添加打印后进行的清理过程
 }
 
-void CADRTradeView::OnRButtonUp(UINT /* nFlags */, CPoint point)
+void CADRTradeDayView::OnRButtonUp(UINT /* nFlags */, CPoint point)
 {
 	ClientToScreen(&point);
 	OnContextMenu(this, point);
 }
 
-void CADRTradeView::OnContextMenu(CWnd* /* pWnd */, CPoint point)
+void CADRTradeDayView::OnContextMenu(CWnd* /* pWnd */, CPoint point)
 {
 #ifndef SHARED_HANDLERS
 	theApp.GetContextMenuManager()->ShowPopupMenu(IDR_POPUP_EDIT, point.x, point.y, this, TRUE);
@@ -122,29 +122,29 @@ void CADRTradeView::OnContextMenu(CWnd* /* pWnd */, CPoint point)
 }
 
 
-// CADRTradeView 诊断
+// CADRTradeDayView 诊断
 
 #ifdef _DEBUG
-void CADRTradeView::AssertValid() const
+void CADRTradeDayView::AssertValid() const
 {
 	CView::AssertValid();
 }
 
-void CADRTradeView::Dump(CDumpContext& dc) const
+void CADRTradeDayView::Dump(CDumpContext& dc) const
 {
 	CView::Dump(dc);
 }
 
-CADRTradeDoc* CADRTradeView::GetDocument() const // 非调试版本是内联的
+CADRTradeDayDoc* CADRTradeDayView::GetDocument() const // 非调试版本是内联的
 {
-	ASSERT(m_pDocument->IsKindOf(RUNTIME_CLASS(CADRTradeDoc)));
-	return (CADRTradeDoc*)m_pDocument;
+	ASSERT(m_pDocument->IsKindOf(RUNTIME_CLASS(CADRTradeDayDoc)));
+	return (CADRTradeDayDoc*)m_pDocument;
 }
 #endif //_DEBUG
 
 
-// CADRTradeView 消息处理程序
-void CADRTradeView::_LoadLayout()
+// CADRTradeDayView 消息处理程序
+void CADRTradeDayView::_LoadLayout()
 {
 	string sFileName = GetModulePath() + "/UI/ADRTradeView.xml";
 	bool bRet = true;
@@ -172,7 +172,7 @@ void CADRTradeView::_LoadLayout()
 }
 
 
-void CADRTradeView::OnInitialUpdate()
+void CADRTradeDayView::OnInitialUpdate()
 {
 	CRect rc;
 	GetClientRect(rc);
@@ -209,7 +209,7 @@ void CADRTradeView::OnInitialUpdate()
 }
 
 
-int CADRTradeView::OnCreate(LPCREATESTRUCT lpCreateStruct)
+int CADRTradeDayView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 {
 	if (__super::OnCreate(lpCreateStruct) == -1)
 		return -1;

@@ -1,16 +1,16 @@
 
-// ADRTradeDoc.h : CADRTradeDoc 类的接口
+// ADRTradeDoc.h : CADRTradeDayDoc 类的接口
 //
 
 
 #pragma once
 
 
-class CADRTradeDoc : public CDocument
+class CADRTradeDayDoc : public CDocument
 {
 protected: // 仅从序列化创建
-	CADRTradeDoc();
-	DECLARE_DYNCREATE(CADRTradeDoc)
+	CADRTradeDayDoc();
+	DECLARE_DYNCREATE(CADRTradeDayDoc)
 
 // 特性
 public:
@@ -29,7 +29,7 @@ public:
 
 // 实现
 public:
-	virtual ~CADRTradeDoc();
+	virtual ~CADRTradeDayDoc();
 #ifdef _DEBUG
 	virtual void AssertValid() const;
 	virtual void Dump(CDumpContext& dc) const;

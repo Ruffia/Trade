@@ -114,8 +114,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ADRTrade.h" />
-    <ClInclude Include="ADRTradeDoc.h" />
-    <ClInclude Include="ADRTradeView.h" />
+    <ClInclude Include="ADRTradeDayDoc.h" />
+    <ClInclude Include="ADRTradeDayView.h" />
     <ClInclude Include="ChildFrm.h" />
     <ClInclude Include="DailyMacroEnvironmentDlg.h" />
     <ClInclude Include="DialogDailyAnalyze.h" />
@@ -152,8 +152,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ADRTrade.cpp" />
-    <ClCompile Include="ADRTradeDoc.cpp" />
-    <ClCompile Include="ADRTradeView.cpp" />
+    <ClCompile Include="ADRTradeDayDoc.cpp" />
+    <ClCompile Include="ADRTradeDayView.cpp" />
     <ClCompile Include="ChildFrm.cpp" />
     <ClCompile Include="DailyMacroEnvironmentDlg.cpp" />
     <ClCompile Include="DialogDailyAnalyze.cpp" />

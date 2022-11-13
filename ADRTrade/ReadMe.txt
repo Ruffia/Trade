@@ -52,14 +52,14 @@ ChildFrm.h, ChildFrm.cpp
 应用程序向导创建一种文档类型和一个视图：
 
 ADRTradeDoc.h、ADRTradeDoc.cpp - 文档
-    这些文件包含 CADRTradeDoc 类。编辑这些文件以添加特殊文档数据并实现文件保存和加载（通过 CADRTradeDoc::Serialize）。
+    这些文件包含 CADRTradeDayDoc 类。编辑这些文件以添加特殊文档数据并实现文件保存和加载（通过 CADRTradeDayDoc::Serialize）。
 
 ADRTradeView.h、ADRTradeView.cpp - 文档视图
-    这些文件包含 CADRTradeView 类。
-    CADRTradeView 对象用于查看 CADRTradeDoc 对象。
+    这些文件包含 CADRTradeDayView 类。
+    CADRTradeDayView 对象用于查看 CADRTradeDayDoc 对象。
 
 res\ADRTradeDoc.ico
-    这是一个图标文件，用作 CADRTradeDoc 类的 MDI 子窗口的图标。此图标包括在主资源文件 ADRTrade.rc 中。
+    这是一个图标文件，用作 CADRTradeDayDoc 类的 MDI 子窗口的图标。此图标包括在主资源文件 ADRTrade.rc 中。
 
 
 

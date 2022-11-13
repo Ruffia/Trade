@@ -1,5 +1,5 @@
 
-// ADRTradeView.h : CADRTradeView 类的接口
+// ADRTradeView.h : CADRTradeDayView 类的接口
 //
 
 #pragma once
@@ -11,15 +11,15 @@ using namespace std;
 #include "Tools/pugiconfig.hpp"
 using namespace pugi;
 
-class CADRTradeView : public CView
+class CADRTradeDayView : public CView
 {
 protected: // 仅从序列化创建
-	CADRTradeView();
-	DECLARE_DYNCREATE(CADRTradeView)
+	CADRTradeDayView();
+	DECLARE_DYNCREATE(CADRTradeDayView)
 
 // 特性
 public:
-	CADRTradeDoc* GetDocument() const;
+	CADRTradeDayDoc* GetDocument() const;
 
 // 操作
 public:
@@ -35,7 +35,7 @@ protected:
 
 // 实现
 public:
-	virtual ~CADRTradeView();
+	virtual ~CADRTradeDayView();
 #ifdef _DEBUG
 	virtual void AssertValid() const;
 	virtual void Dump(CDumpContext& dc) const;
@@ -59,7 +59,7 @@ protected:
 };
 
 #ifndef _DEBUG  // ADRTradeView.cpp 中的调试版本
-inline CADRTradeDoc* CADRTradeView::GetDocument() const
-   { return reinterpret_cast<CADRTradeDoc*>(m_pDocument); }
+inline CADRTradeDayDoc* CADRTradeDayView::GetDocument() const
+   { return reinterpret_cast<CADRTradeDayDoc*>(m_pDocument); }
 #endif
 

@@ -9,8 +9,8 @@
 #include "MainFrm.h"
 
 #include "ChildFrm.h"
-#include "ADRTradeDoc.h"
-#include "ADRTradeView.h"
+#include "ADRTradeDayDoc.h"
+#include "ADRTradeDayView.h"
 #include "Tools/StyleManager.h"
 
 #ifdef _DEBUG
@@ -115,9 +115,9 @@ BOOL CADRTradeApp::InitInstance()
 	// 将用作文档、框架窗口和视图之间的连接
 	CMultiDocTemplate* pDocTemplate;
 	pDocTemplate = new CMultiDocTemplate(IDR_ADRTradeTYPE,
-		RUNTIME_CLASS(CADRTradeDoc),
+		RUNTIME_CLASS(CADRTradeDayDoc),
 		RUNTIME_CLASS(CChildFrame), // 自定义 MDI 子框架
-		RUNTIME_CLASS(CADRTradeView));
+		RUNTIME_CLASS(CADRTradeDayView));
 	if (!pDocTemplate)
 		return FALSE;
 	AddDocTemplate(pDocTemplate);

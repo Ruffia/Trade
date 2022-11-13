@@ -36,12 +36,6 @@
     <ClInclude Include="ChildFrm.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="ADRTradeDoc.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="ADRTradeView.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="Resource.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -129,6 +123,12 @@
     <ClInclude Include="Tools\DialogPlaceHolderComposite.h">
       <Filter>Tools</Filter>
     </ClInclude>
+    <ClInclude Include="ADRTradeDayDoc.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ADRTradeDayView.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ADRTrade.cpp">
@@ -141,12 +141,6 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="ChildFrm.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="ADRTradeDoc.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="ADRTradeView.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="ViewTree.cpp">
@@ -229,6 +223,12 @@
     </ClCompile>
     <ClCompile Include="Tools\DialogPlaceHolderComposite.cpp">
       <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="ADRTradeDayDoc.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ADRTradeDayView.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

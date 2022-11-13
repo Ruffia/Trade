@@ -1,5 +1,5 @@
 
-// ADRTradeDoc.cpp : CADRTradeDoc 类的实现
+// ADRTradeDoc.cpp : CADRTradeDayDoc 类的实现
 //
 
 #include "stdafx.h"
@@ -9,7 +9,7 @@
 #include "ADRTrade.h"
 #endif
 
-#include "ADRTradeDoc.h"
+#include "ADRTradeDayDoc.h"
 
 #include <propkey.h>
 
@@ -17,27 +17,27 @@
 #define new DEBUG_NEW
 #endif
 
-// CADRTradeDoc
+// CADRTradeDayDoc
 
-IMPLEMENT_DYNCREATE(CADRTradeDoc, CDocument)
+IMPLEMENT_DYNCREATE(CADRTradeDayDoc, CDocument)
 
-BEGIN_MESSAGE_MAP(CADRTradeDoc, CDocument)
+BEGIN_MESSAGE_MAP(CADRTradeDayDoc, CDocument)
 END_MESSAGE_MAP()
 
 
-// CADRTradeDoc 构造/析构
+// CADRTradeDayDoc 构造/析构
 
-CADRTradeDoc::CADRTradeDoc()
+CADRTradeDayDoc::CADRTradeDayDoc()
 {
 	// TODO: 在此添加一次性构造代码
 
 }
 
-CADRTradeDoc::~CADRTradeDoc()
+CADRTradeDayDoc::~CADRTradeDayDoc()
 {
 }
 
-BOOL CADRTradeDoc::OnNewDocument()
+BOOL CADRTradeDayDoc::OnNewDocument()
 {
 	if (!CDocument::OnNewDocument())
 		return FALSE;
@@ -51,9 +51,9 @@ BOOL CADRTradeDoc::OnNewDocument()
 
 
 
-// CADRTradeDoc 序列化
+// CADRTradeDayDoc 序列化
 
-void CADRTradeDoc::Serialize(CArchive& ar)
+void CADRTradeDayDoc::Serialize(CArchive& ar)
 {
 	if (ar.IsStoring())
 	{
@@ -68,7 +68,7 @@ void CADRTradeDoc::Serialize(CArchive& ar)
 #ifdef SHARED_HANDLERS
 
 // 缩略图的支持
-void CADRTradeDoc::OnDrawThumbnail(CDC& dc, LPRECT lprcBounds)
+void CADRTradeDayDoc::OnDrawThumbnail(CDC& dc, LPRECT lprcBounds)
 {
 	// 修改此代码以绘制文档数据
 	dc.FillSolidRect(lprcBounds, RGB(255, 255, 255));
@@ -89,7 +89,7 @@ void CADRTradeDoc::OnDrawThumbnail(CDC& dc, LPRECT lprcBounds)
 }
 
 // 搜索处理程序的支持
-void CADRTradeDoc::InitializeSearchContent()
+void CADRTradeDayDoc::InitializeSearchContent()
 {
 	CString strSearchContent;
 	// 从文档数据设置搜索内容。
@@ -99,7 +99,7 @@ void CADRTradeDoc::InitializeSearchContent()
 	SetSearchContent(strSearchContent);
 }
 
-void CADRTradeDoc::SetSearchContent(const CString& value)
+void CADRTradeDayDoc::SetSearchContent(const CString& value)
 {
 	if (value.IsEmpty())
 	{
@@ -119,19 +119,19 @@ void CADRTradeDoc::SetSearchContent(const CString& value)
 
 #endif // SHARED_HANDLERS
 
-// CADRTradeDoc 诊断
+// CADRTradeDayDoc 诊断
 
 #ifdef _DEBUG
-void CADRTradeDoc::AssertValid() const
+void CADRTradeDayDoc::AssertValid() const
 {
 	CDocument::AssertValid();
 }
 
-void CADRTradeDoc::Dump(CDumpContext& dc) const
+void CADRTradeDayDoc::Dump(CDumpContext& dc) const
 {
 	CDocument::Dump(dc);
 }
 #endif //_DEBUG
 
 
-// CADRTradeDoc 命令
+// CADRTradeDayDoc 命令
