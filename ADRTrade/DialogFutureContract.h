@@ -1,5 +1,5 @@
 #pragma once
-#include "DialogPlaceHolderComposite.h"
+#include "Tools/DialogPlaceHolderComposite.h"
 #include "Factory.h"
 
 class CDlgDailyFutureContract :public CDialogPlaceHolderComposite

@@ -1,5 +1,5 @@
 #pragma once
-#include "DialogPlaceHolder.h"
+#include "Tools/DialogPlaceHolder.h"
 #include "Factory.h"
 
 class CDialogDailyTrades_SingleTradeTrack :public CDialogPlaceHolder

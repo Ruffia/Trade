@@ -38,7 +38,7 @@ protected:
 	virtual BOOL OnInitDialog();
 	virtual void OnTcnSelchangeTabLog(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnSize(UINT nType, int cx, int cy);
-	virtual void _InitLayOut() = 0; 
+	virtual void _InitLayOut(); 
 	virtual void _ReLayout();
 
 	DECLARE_MESSAGE_MAP()

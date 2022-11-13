@@ -72,9 +72,6 @@
     <ClInclude Include="Tools\InputEdit.h">
       <Filter>Tools</Filter>
     </ClInclude>
-    <ClInclude Include="DialogPlaceHolder.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="Tools\pugiconfig.hpp">
       <Filter>Tools</Filter>
     </ClInclude>
@@ -120,14 +117,17 @@
     <ClInclude Include="UIData.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="DialogPlaceHolderComposite.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="Tools\DialogLayout.h">
       <Filter>Tools</Filter>
     </ClInclude>
     <ClInclude Include="DialogDailyTrades_SingleTradeTrack.h">
       <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\DialogPlaceHolder.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\DialogPlaceHolderComposite.h">
+      <Filter>Tools</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -176,9 +176,6 @@
     <ClCompile Include="Tools\InputEdit.cpp">
       <Filter>Tools</Filter>
     </ClCompile>
-    <ClCompile Include="DialogPlaceHolder.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="Tools\pugixml.cpp">
       <Filter>Tools</Filter>
     </ClCompile>
@@ -221,14 +218,17 @@
     <ClCompile Include="UIData.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="DialogPlaceHolderComposite.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="Tools\DialogLayout.cpp">
       <Filter>Tools</Filter>
     </ClCompile>
     <ClCompile Include="DialogDailyTrades_SingleTradeTrack.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\DialogPlaceHolder.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\DialogPlaceHolderComposite.cpp">
+      <Filter>Tools</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

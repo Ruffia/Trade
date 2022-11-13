@@ -120,8 +120,6 @@
     <ClInclude Include="DialogFutureContract_MinorCycleAnalyze.h" />
     <ClInclude Include="DialogFutureContract_TrackPhraseIn1Day.h" />
     <ClInclude Include="DialogIDManager.h" />
-    <ClInclude Include="DialogPlaceHolder.h" />
-    <ClInclude Include="DialogPlaceHolderComposite.h" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="PropertiesWnd.h" />
     <ClInclude Include="Resource.h" />
@@ -133,6 +131,8 @@
     <ClInclude Include="Tools\CollectiveComponentProvider.h" />
     <ClInclude Include="Tools\CustomButton.h" />
     <ClInclude Include="Tools\DialogLayout.h" />
+    <ClInclude Include="Tools\DialogPlaceHolder.h" />
+    <ClInclude Include="Tools\DialogPlaceHolderComposite.h" />
     <ClInclude Include="Tools\Dlg4ProgressThread.h" />
     <ClInclude Include="Tools\DlgGridPage.h" />
     <ClInclude Include="Tools\DlgTab.h" />
@@ -158,8 +158,6 @@
     <ClCompile Include="DialogFutureContract_MinorCycleAnalyze.cpp" />
     <ClCompile Include="DialogFutureContract_TrackPhraseIn1Day.cpp" />
     <ClCompile Include="DialogIDManager.cpp" />
-    <ClCompile Include="DialogPlaceHolder.cpp" />
-    <ClCompile Include="DialogPlaceHolderComposite.cpp" />
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="PropertiesWnd.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -172,6 +170,8 @@
     <ClCompile Include="Tools\CollectiveComponentProvider.cpp" />
     <ClCompile Include="Tools\CustomButton.cpp" />
     <ClCompile Include="Tools\DialogLayout.cpp" />
+    <ClCompile Include="Tools\DialogPlaceHolder.cpp" />
+    <ClCompile Include="Tools\DialogPlaceHolderComposite.cpp" />
     <ClCompile Include="Tools\Dlg4ProgressThread.cpp" />
     <ClCompile Include="Tools\DlgGridPage.cpp" />
     <ClCompile Include="Tools\DlgTab.cpp" />

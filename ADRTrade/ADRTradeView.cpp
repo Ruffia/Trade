@@ -12,7 +12,7 @@
 #include "ADRTradeDoc.h"
 #include "ADRTradeView.h"
 #include "Util.h"
-#include "DialogPlaceHolder.h"
+#include "Tools/DialogPlaceHolder.h"
 #include "Tools/ChildDlgTab.h"
 #include "Factory.h"
 #include "DialogIDManager.h"
