@@ -4,7 +4,7 @@
 
 
 #pragma once
-
+#include "Business/AbstractObject.h"
 
 class CADRTradeDayDoc : public CDocument
 {
@@ -37,7 +37,7 @@ public:
 #endif
 
 protected:
-
+	IAbstractObject*     m_pTradeDay;
 // 生成的消息映射函数
 protected:
 	DECLARE_MESSAGE_MAP()

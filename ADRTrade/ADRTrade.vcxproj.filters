@@ -16,7 +16,7 @@
     <Filter Include="Tools">
       <UniqueIdentifier>{9bd6ccca-b26e-4540-b0c0-08bce2bc77f3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Bussinise">
+    <Filter Include="Business">
       <UniqueIdentifier>{7422b414-7ce1-4652-965b-653fa4f183f0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -132,11 +132,11 @@
     <ClInclude Include="ADRTradeDayView.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Bussinise\Business.h">
-      <Filter>Bussinise</Filter>
+    <ClInclude Include="Business\AbstractObject.h">
+      <Filter>Business</Filter>
     </ClInclude>
-    <ClInclude Include="Bussinise\AbstractObject.h">
-      <Filter>Bussinise</Filter>
+    <ClInclude Include="Business\Business.h">
+      <Filter>Business</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -239,11 +239,11 @@
     <ClCompile Include="ADRTradeDayView.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Bussinise\Business.cpp">
-      <Filter>Bussinise</Filter>
+    <ClCompile Include="Business\AbstractObject.cpp">
+      <Filter>Business</Filter>
     </ClCompile>
-    <ClCompile Include="Bussinise\AbstractObject.cpp">
-      <Filter>Bussinise</Filter>
+    <ClCompile Include="Business\Business.cpp">
+      <Filter>Business</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

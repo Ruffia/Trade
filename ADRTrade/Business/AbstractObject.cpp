@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "AbstractObject.h"
 
-IAbstractObject::IAbstractObject()
+IAbstractObject::IAbstractObject():m_strBusinessName("")
 {
 	m_mapName2Attribute.clear();
 }

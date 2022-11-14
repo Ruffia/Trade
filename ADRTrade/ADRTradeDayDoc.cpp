@@ -10,7 +10,7 @@
 #endif
 
 #include "ADRTradeDayDoc.h"
-
+#include "Business/Business.h"
 #include <propkey.h>
 
 #ifdef _DEBUG
@@ -30,11 +30,16 @@ END_MESSAGE_MAP()
 CADRTradeDayDoc::CADRTradeDayDoc()
 {
 	// TODO: 在此添加一次性构造代码
-
+	m_pTradeDay = new CTradeDay;
 }
 
 CADRTradeDayDoc::~CADRTradeDayDoc()
 {
+	if (m_pTradeDay)
+	{
+		delete m_pTradeDay;
+		m_pTradeDay = NULL;
+	}
 }
 
 BOOL CADRTradeDayDoc::OnNewDocument()

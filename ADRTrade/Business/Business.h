@@ -21,7 +21,7 @@ class CDailyFutureContractAnalyze:public IAbstractObject
 {
 public:
 	CLongPeriodicAnalyze m_oLongPeriodicAnalyze;
-	vector<CMinorCycleAnalyze> m_vMinorCycleAnalyze;
+	map<string,CMinorCycleAnalyze> m_mapName2MinorCycleAnalyze;
 };
 
 
@@ -42,6 +42,7 @@ class CTradeDay:public IAbstractObject
 {
 public:
 	CDailyMacroEnvironment m_oEnvirioment;
-	vector<CDailyFutureContractAnalyze> m_vFutureContractAnalyze;
-
+	map<string,CDailyFutureContractAnalyze> m_mapName2FutureContractAnalyze;
+	map<string,CSingleTradeTrack>  m_mapID2Trade;
+	CDailyTradeSummarize m_oTradeSummarize;
 };

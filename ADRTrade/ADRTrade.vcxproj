@@ -116,8 +116,8 @@
     <ClInclude Include="ADRTrade.h" />
     <ClInclude Include="ADRTradeDayDoc.h" />
     <ClInclude Include="ADRTradeDayView.h" />
-    <ClInclude Include="Bussinise\AbstractObject.h" />
-    <ClInclude Include="Bussinise\Business.h" />
+    <ClInclude Include="Business\AbstractObject.h" />
+    <ClInclude Include="Business\Business.h" />
     <ClInclude Include="ChildFrm.h" />
     <ClInclude Include="DailyMacroEnvironmentDlg.h" />
     <ClInclude Include="DialogDailyAnalyze.h" />
@@ -156,8 +156,8 @@
     <ClCompile Include="ADRTrade.cpp" />
     <ClCompile Include="ADRTradeDayDoc.cpp" />
     <ClCompile Include="ADRTradeDayView.cpp" />
-    <ClCompile Include="Bussinise\AbstractObject.cpp" />
-    <ClCompile Include="Bussinise\Business.cpp" />
+    <ClCompile Include="Business\AbstractObject.cpp" />
+    <ClCompile Include="Business\Business.cpp" />
     <ClCompile Include="ChildFrm.cpp" />
     <ClCompile Include="DailyMacroEnvironmentDlg.cpp" />
     <ClCompile Include="DialogDailyAnalyze.cpp" />
