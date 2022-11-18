@@ -479,11 +479,11 @@ BEGIN
     CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,14,14,236,223
 END
 
-IDD_ChildDLG_Tab_DailyAnalyze DIALOGEX 0, 0, 480, 347
+IDD_ChildDLG_Tab_DailyAnalyze DIALOGEX 0, 0, 480, 383
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,14,6,451,334
+    CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,14,6,451,370
 END
 
 IDD_ChildDLG_Tab_PhraseIn1Day DIALOGEX 0, 0, 480, 511
@@ -594,7 +594,7 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 472
         TOPMARGIN, 6
-        BOTTOMMARGIN, 340
+        BOTTOMMARGIN, 376
     END
 
     IDD_ChildDLG_Tab_PhraseIn1Day, DIALOG

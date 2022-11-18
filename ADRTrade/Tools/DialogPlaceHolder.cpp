@@ -91,7 +91,28 @@ void CDialogPlaceHolder::_InitLayOut()
 			pEdit->SetWindowText(sCaption.c_str());
 			shared_ptr<CEdit> ptr(pEdit);
 			m_mapUIName2Wnd[sName] = ptr;	
-		}	
+		}
+		else if (data.m_strUIClassName.find("CComBox") != string::npos)
+		{
+			CComboBox* pCombox = new CComboBox;
+			CRect rc(data.m_nLeft,data.m_nTop,data.m_nLeft + data.m_nWidth ,data.m_nTop + data.m_nHeight);
+			pCombox->Create(dwTotalStyle,rc,this,data.m_nID);	
+			xml_node nodeDropdownItem = node.child("DropdownItem");
+			while (!nodeDropdownItem.empty())
+			{
+				string sDropItem = nodeDropdownItem.attribute("Name").as_string("");
+				pCombox->AddString(sDropItem.c_str());
+				nodeDropdownItem = nodeDropdownItem.next_sibling();
+			}
+
+
+			CFont* pFont = CCollectiveComponentProvider::Instance().GetFont();
+			pCombox->SetFont(pFont);
+			pCombox->ShowWindow(SW_SHOW);
+			pCombox->SetWindowText(sCaption.c_str());
+			shared_ptr<CComboBox> ptr(pCombox);
+			m_mapUIName2Wnd[sName] = ptr;	
+		}
 		node = node.next_sibling();
 	}
 }

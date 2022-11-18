@@ -34,6 +34,6 @@ protected:
 protected:
 	string m_sLayout;    //页面布局配置文件
 	xml_document m_doc;
-	map<string,shared_ptr<CEdit>>  m_mapUIName2Wnd;
+	map<string,shared_ptr<CWnd>>  m_mapUIName2Wnd;
 	IAbstractObject* m_pBusiness;
 };

@@ -59,5 +59,9 @@ void CStyleMgr::Initialize()
 	_Register("ES_LEFT",ES_LEFT);
 	_Register("ES_READONLY",ES_READONLY);	
 	_Register("ES_MULTILINE",ES_MULTILINE);
+	_Register("ES_NUMBER",ES_NUMBER);
 	_Register("ES_WANTRETURN",ES_WANTRETURN);
+	_Register("CBS_DROPDOWN",CBS_DROPDOWN);
+	_Register("CBS_SORT",CBS_SORT);
+	_Register("CBS_OEMCONVERT",CBS_OEMCONVERT);
 }
