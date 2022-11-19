@@ -6,7 +6,7 @@ using namespace std;
 #include "Tools/pugixml.hpp"
 #include "Tools/pugiconfig.hpp"
 using namespace pugi;
-#include "Business/AbstractObject.h";
+#include "Business/AbstractObject.h"
 
 // CDialogPlaceHolder ¶Ô»°¿ò
 
