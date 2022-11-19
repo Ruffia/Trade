@@ -95,18 +95,19 @@
 #define IDD_DLG_Grid                    31410
 #define IDD_DLG_Common                  31411
 #define IDD_ChildDLG_Tab                31412
-#define IDD_ChildDLG_Tab1               31413
-#define IDD_ChildDLG_Tab_DailyTradeTrack 31413
 #define IDD_ChildDLG_Tab_DailyAnalyze   31413
-#define IDD_ChildDLG_Tab_DailyTradeTrack1 31414
 #define IDD_ChildDLG_Tab_PhraseIn1Day   31414
+#define ID_Menu_WorldEconomic           32780
+#define ID_Menu_BulkCommodity           32781
+#define ID_Menu_PoliticEconomicRelation 32784
+#define ID_Menu_Judge                   32787
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        310
-#define _APS_NEXT_COMMAND_VALUE         32771
+#define _APS_NEXT_COMMAND_VALUE         32788
 #define _APS_NEXT_CONTROL_VALUE         1000
 #define _APS_NEXT_SYMED_VALUE           310
 #endif
