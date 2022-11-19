@@ -92,22 +92,6 @@ void CADRTradeDayView::OnFilePrintPreview()
 #endif
 }
 
-BOOL CADRTradeDayView::OnPreparePrinting(CPrintInfo* pInfo)
-{
-	// 默认准备
-	return DoPreparePrinting(pInfo);
-}
-
-void CADRTradeDayView::OnBeginPrinting(CDC* /*pDC*/, CPrintInfo* /*pInfo*/)
-{
-	// TODO: 添加额外的打印前进行的初始化过程
-}
-
-void CADRTradeDayView::OnEndPrinting(CDC* /*pDC*/, CPrintInfo* /*pInfo*/)
-{
-	// TODO: 添加打印后进行的清理过程
-}
-
 void CADRTradeDayView::OnRButtonUp(UINT /* nFlags */, CPoint point)
 {
 	ClientToScreen(&point);
