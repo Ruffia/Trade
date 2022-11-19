@@ -129,6 +129,7 @@
     <ClInclude Include="DialogFutureContract_MinorCycleAnalyze.h" />
     <ClInclude Include="DialogFutureContract_TrackPhraseIn1Day.h" />
     <ClInclude Include="DialogIDManager.h" />
+    <ClInclude Include="MacroEnvironment\DlgTab_WorldEcnomic.h" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="PropertiesWnd.h" />
     <ClInclude Include="Resource.h" />
@@ -169,6 +170,7 @@
     <ClCompile Include="DialogFutureContract_MinorCycleAnalyze.cpp" />
     <ClCompile Include="DialogFutureContract_TrackPhraseIn1Day.cpp" />
     <ClCompile Include="DialogIDManager.cpp" />
+    <ClCompile Include="MacroEnvironment\DlgTab_WorldEcnomic.cpp" />
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="PropertiesWnd.cpp" />
     <ClCompile Include="stdafx.cpp">

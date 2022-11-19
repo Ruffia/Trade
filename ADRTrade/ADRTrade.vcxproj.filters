@@ -19,6 +19,9 @@
     <Filter Include="Business">
       <UniqueIdentifier>{7422b414-7ce1-4652-965b-653fa4f183f0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MacroEnvironment">
+      <UniqueIdentifier>{31fb58ce-c8a0-42ec-bc65-4d90667c7a67}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -138,6 +141,9 @@
     <ClInclude Include="Business\Business.h">
       <Filter>Business</Filter>
     </ClInclude>
+    <ClInclude Include="MacroEnvironment\DlgTab_WorldEcnomic.h">
+      <Filter>MacroEnvironment</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ADRTrade.cpp">
@@ -244,6 +250,9 @@
     </ClCompile>
     <ClCompile Include="Business\Business.cpp">
       <Filter>Business</Filter>
+    </ClCompile>
+    <ClCompile Include="MacroEnvironment\DlgTab_WorldEcnomic.cpp">
+      <Filter>MacroEnvironment</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
