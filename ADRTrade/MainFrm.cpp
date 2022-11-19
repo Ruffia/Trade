@@ -4,8 +4,13 @@
 
 #include "stdafx.h"
 #include "ADRTrade.h"
-
 #include "MainFrm.h"
+#include <string>
+using namespace std;
+#include "Tools/DlgTab.h"
+#include "DialogIDManager.h"
+#include "../Common/Factory.h"
+#include "Util.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -26,6 +31,8 @@ BEGIN_MESSAGE_MAP(CMainFrame, CMDIFrameWndEx)
 	ON_REGISTERED_MESSAGE(AFX_WM_CREATETOOLBAR, &CMainFrame::OnToolbarCreateNew)
 	ON_COMMAND_RANGE(ID_VIEW_APPLOOK_WIN_2000, ID_VIEW_APPLOOK_WINDOWS_7, &CMainFrame::OnApplicationLook)
 	ON_UPDATE_COMMAND_UI_RANGE(ID_VIEW_APPLOOK_WIN_2000, ID_VIEW_APPLOOK_WINDOWS_7, &CMainFrame::OnUpdateApplicationLook)
+	ON_COMMAND(ID_Menu_WorldEconomic,&CMainFrame::OnWorldEconomic)
+	ON_UPDATE_COMMAND_UI(ID_Menu_WorldEconomic,&CMainFrame::OnUpdateWorldEconomic)
 	ON_WM_SETTINGCHANGE()
 END_MESSAGE_MAP()
 
@@ -156,25 +163,8 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	lstBasicCommands.AddTail(ID_FILE_NEW);
 	lstBasicCommands.AddTail(ID_FILE_OPEN);
 	lstBasicCommands.AddTail(ID_FILE_SAVE);
-	lstBasicCommands.AddTail(ID_FILE_PRINT);
 	lstBasicCommands.AddTail(ID_APP_EXIT);
-	lstBasicCommands.AddTail(ID_EDIT_CUT);
-	lstBasicCommands.AddTail(ID_EDIT_PASTE);
-	lstBasicCommands.AddTail(ID_EDIT_UNDO);
 	lstBasicCommands.AddTail(ID_APP_ABOUT);
-	lstBasicCommands.AddTail(ID_VIEW_STATUS_BAR);
-	lstBasicCommands.AddTail(ID_VIEW_TOOLBAR);
-	lstBasicCommands.AddTail(ID_VIEW_APPLOOK_OFF_2003);
-	lstBasicCommands.AddTail(ID_VIEW_APPLOOK_VS_2005);
-	lstBasicCommands.AddTail(ID_VIEW_APPLOOK_OFF_2007_BLUE);
-	lstBasicCommands.AddTail(ID_VIEW_APPLOOK_OFF_2007_SILVER);
-	lstBasicCommands.AddTail(ID_VIEW_APPLOOK_OFF_2007_BLACK);
-	lstBasicCommands.AddTail(ID_VIEW_APPLOOK_OFF_2007_AQUA);
-	lstBasicCommands.AddTail(ID_VIEW_APPLOOK_WINDOWS_7);
-	lstBasicCommands.AddTail(ID_SORTING_SORTALPHABETIC);
-	lstBasicCommands.AddTail(ID_SORTING_SORTBYTYPE);
-	lstBasicCommands.AddTail(ID_SORTING_SORTBYACCESS);
-	lstBasicCommands.AddTail(ID_SORTING_GROUPBYTYPE);
 
 	CMFCToolBar::SetBasicCommands(lstBasicCommands);
 
@@ -193,6 +183,7 @@ BOOL CMainFrame::PreCreateWindow(CREATESTRUCT& cs)
 	// TODO: 在此处通过修改
 	//  CREATESTRUCT cs 来修改窗口类或样式
 
+	_LoadLayout();
 	return TRUE;
 }
 
@@ -377,4 +368,56 @@ BOOL CMainFrame::LoadFrame(UINT nIDResource, DWORD dwDefaultStyle, CWnd* pParent
 void CMainFrame::OnSettingChange(UINT uFlags, LPCTSTR lpszSection)
 {
 	CMDIFrameWndEx::OnSettingChange(uFlags, lpszSection);
+}
+
+
+void CMainFrame::OnWorldEconomic()
+{
+	const string sTopic = "MacroEnvironment_WorldEcnomic";
+	CUIData& ui = m_mapUIName2Data[sTopic];
+	CDlgTab* pDlg = Factory<CDlgTab,string>::Instance().BuildProduct(ui.m_strUIClassName);
+	const int nIDD = CDialogIDMgr::Instance().GetDialogResourceID(ui.m_strUIClassName);
+	if (pDlg)
+	{
+		string sFileName = GetModulePath() + "/UI/" + ui.m_strLayout;
+		pDlg->SetLayout(sFileName);
+		pDlg->Create(nIDD,this);
+		pDlg->SetWindowText("AAA");
+		pDlg->MoveWindow(ui.m_nLeft,ui.m_nTop,ui.m_nLeft + ui.m_nWidth,ui.m_nTop + ui.m_nHeight);
+		pDlg->ShowWindow(SW_SHOW);
+	}
+}
+
+
+void CMainFrame::OnUpdateWorldEconomic(CCmdUI* pCmdUI)
+{
+    pCmdUI->Enable(TRUE);
+}
+
+
+void CMainFrame::_LoadLayout()
+{
+	string sFileName = GetModulePath() + "/UI/DialogPopup.xml";
+	bool bRet = true;
+	if (!m_doc.load_file(sFileName.c_str())) 
+	{ //加载xml文件
+		return;
+	}
+
+	xml_node root = m_doc.child("root");  //根节点
+	xml_node nodeLayout = root.child("Layout");
+	xml_node node = nodeLayout.first_child();
+	while (!node.empty())
+	{
+		CUIData data;
+		const string sName = node.attribute("Name").as_string("");
+		data.m_strUIClassName = node.attribute("ClassName").as_string("");
+		data.m_strLayout = node.attribute("Layout").as_string("");
+		data.m_nLeft = node.attribute("Left").as_int();
+		data.m_nTop = node.attribute("Top").as_int();
+		data.m_nWidth = node.attribute("Width").as_int();
+		data.m_nHeight = node.attribute("Height").as_int();
+		m_mapUIName2Data[sName] = data;	
+		node = node.next_sibling();
+	}
 }

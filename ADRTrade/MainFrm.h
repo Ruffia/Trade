@@ -1,12 +1,14 @@
-
-// MainFrm.h : CMainFrame 类的接口
-//
-
 #pragma once
 #include "FileView.h"
 #include "ClassView.h"
 #include "OutputWnd.h"
 #include "PropertiesWnd.h"
+#include <string>
+using namespace std;
+#include "Tools/pugixml.hpp"
+#include "Tools/pugiconfig.hpp"
+using namespace pugi;
+#include "UIData.h"
 
 class CMainFrame : public CMDIFrameWndEx
 {
@@ -40,6 +42,9 @@ protected:  // 控件条嵌入成员
 	CMFCToolBarImages m_UserImages;
 	CPropertiesWnd    m_wndProperties;
 
+	xml_document m_doc;
+	map<string,CUIData>  m_mapUIName2Data;
+
 // 生成的消息映射函数
 protected:
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
@@ -49,10 +54,14 @@ protected:
 	afx_msg void OnApplicationLook(UINT id);
 	afx_msg void OnUpdateApplicationLook(CCmdUI* pCmdUI);
 	afx_msg void OnSettingChange(UINT uFlags, LPCTSTR lpszSection);
+
+	afx_msg void OnWorldEconomic();
+	afx_msg void OnUpdateWorldEconomic(CCmdUI* pCmdUI);
 	DECLARE_MESSAGE_MAP()
 
 	BOOL CreateDockingWindows();
 	void SetDockingWindowIcons(BOOL bHiColorIcons);
+	virtual void _LoadLayout();
 };
 
 
