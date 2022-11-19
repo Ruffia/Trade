@@ -2,7 +2,7 @@
 //
 #include "stdafx.h"
 #include "ChildDlgTab.h"
-#include "Factory.h"
+#include "../Common/Factory.h"
 #include "DialogIDManager.h"
 #include "DialogPlaceHolder.h"
 #include "DialogPlaceHolderComposite.h"
