@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="gbk"?>
+<root>
+	<Layout>	
+		<widget Name="合约01" ClassName="CDlgDailyFutureContract" IDD="IDD_DLG_Common" Layout="DailyFutureContract.xml"  Left="0" Top="25" Width="700" Height="590" />		
+		<widget Name="合约02" ClassName="CDlgDailyFutureContract" IDD="IDD_DLG_Common" Layout="DailyFutureContract.xml"  Left="0" Top="25" Width="700" Height="590" />
+	</Layout>
+</root>
