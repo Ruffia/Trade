@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="gbk"?>
+<root>
+	<Layout>	
+		<widget Name="LongPeriodicContradiction" ClassName="CDialogStateEconomic_LongPeriodicContradiction" Layout="StateEconomic_LongPeriodicContradiction.xml"  IDD="IDD_DLG_Common" Left="0" Top="0" Width="700" Height="120" />		
+		<widget Name="EconomicPolicyState" ClassName="CDialogStateEconomic_EconomicPolicyState" Layout="StateEconomic_EconomicPolicyState.xml"  IDD="IDD_ChildDLG_Tab_PhraseIn1Day" Left="0" Top="130" Width="700" Height="790" />		
+	</Layout>
+</root>
