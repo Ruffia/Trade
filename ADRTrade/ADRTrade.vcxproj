@@ -119,21 +119,22 @@
     <ClInclude Include="Business\AbstractObject.h" />
     <ClInclude Include="Business\Business.h" />
     <ClInclude Include="ChildFrm.h" />
-    <ClInclude Include="DailyMacroEnvironmentDlg.h" />
-    <ClInclude Include="DialogDailyAnalyze.h" />
-    <ClInclude Include="DialogDailyTrades.h" />
-    <ClInclude Include="DialogDailyTradeSummarize.h" />
-    <ClInclude Include="DialogDailyTrades_SingleTradeTrack.h" />
-    <ClInclude Include="DialogFutureContract.h" />
-    <ClInclude Include="DialogFutureContract_LongPeriodicAnalyze.h" />
-    <ClInclude Include="DialogFutureContract_MinorCycleAnalyze.h" />
-    <ClInclude Include="DialogFutureContract_TrackPhraseIn1Day.h" />
     <ClInclude Include="DialogIDManager.h" />
+    <ClInclude Include="Future\DailyMacroEnvironmentDlg.h" />
+    <ClInclude Include="Future\DialogDailyAnalyze.h" />
+    <ClInclude Include="Future\DialogDailyTrades.h" />
+    <ClInclude Include="Future\DialogDailyTradeSummarize.h" />
+    <ClInclude Include="Future\DialogDailyTrades_SingleTradeTrack.h" />
+    <ClInclude Include="Future\DialogFutureContract.h" />
+    <ClInclude Include="Future\DialogFutureContract_LongPeriodicAnalyze.h" />
+    <ClInclude Include="Future\DialogFutureContract_MinorCycleAnalyze.h" />
+    <ClInclude Include="Future\DialogFutureContract_TrackPhraseIn1Day.h" />
     <ClInclude Include="MacroEnvironment\DlgTab_WorldEcnomic.h" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="PropertiesWnd.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="Stock\DlgPopup_StockPool.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Tools\AsynProcessorWithProgress.h" />
     <ClInclude Include="Tools\CheckComboBox.h" />
@@ -165,16 +166,16 @@
     <ClCompile Include="Business\AbstractObject.cpp" />
     <ClCompile Include="Business\Business.cpp" />
     <ClCompile Include="ChildFrm.cpp" />
-    <ClCompile Include="DailyMacroEnvironmentDlg.cpp" />
-    <ClCompile Include="DialogDailyAnalyze.cpp" />
-    <ClCompile Include="DialogDailyTrades.cpp" />
-    <ClCompile Include="DialogDailyTradeSummarize.cpp" />
-    <ClCompile Include="DialogDailyTrades_SingleTradeTrack.cpp" />
-    <ClCompile Include="DialogFutureContract.cpp" />
-    <ClCompile Include="DialogFutureContract_LongPeriodicAnalyze.cpp" />
-    <ClCompile Include="DialogFutureContract_MinorCycleAnalyze.cpp" />
-    <ClCompile Include="DialogFutureContract_TrackPhraseIn1Day.cpp" />
     <ClCompile Include="DialogIDManager.cpp" />
+    <ClCompile Include="Future\DailyMacroEnvironmentDlg.cpp" />
+    <ClCompile Include="Future\DialogDailyAnalyze.cpp" />
+    <ClCompile Include="Future\DialogDailyTrades.cpp" />
+    <ClCompile Include="Future\DialogDailyTradeSummarize.cpp" />
+    <ClCompile Include="Future\DialogDailyTrades_SingleTradeTrack.cpp" />
+    <ClCompile Include="Future\DialogFutureContract.cpp" />
+    <ClCompile Include="Future\DialogFutureContract_LongPeriodicAnalyze.cpp" />
+    <ClCompile Include="Future\DialogFutureContract_MinorCycleAnalyze.cpp" />
+    <ClCompile Include="Future\DialogFutureContract_TrackPhraseIn1Day.cpp" />
     <ClCompile Include="MacroEnvironment\DlgTab_WorldEcnomic.cpp" />
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="PropertiesWnd.cpp" />
@@ -182,6 +183,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Stock\DlgPopup_StockPool.cpp" />
     <ClCompile Include="Tools\AsynProcessorWithProgress.cpp" />
     <ClCompile Include="Tools\CheckComboBox.cpp" />
     <ClCompile Include="Tools\ChildDlgTab.cpp" />
