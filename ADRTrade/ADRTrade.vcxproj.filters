@@ -156,6 +156,9 @@
     <ClInclude Include="Tools\CursorDef.h">
       <Filter>Tools</Filter>
     </ClInclude>
+    <ClInclude Include="Tools\DialogPopup.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ADRTrade.cpp">
@@ -273,6 +276,9 @@
       <Filter>Tools</Filter>
     </ClCompile>
     <ClCompile Include="Tools\DlgTree.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\DialogPopup.cpp">
       <Filter>Tools</Filter>
     </ClCompile>
   </ItemGroup>

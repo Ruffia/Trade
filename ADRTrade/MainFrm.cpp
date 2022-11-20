@@ -8,6 +8,7 @@
 #include <string>
 using namespace std;
 #include "Tools/DlgTab.h"
+#include "Tools/DialogPopup.h"
 #include "DialogIDManager.h"
 #include "../Common/Factory.h"
 #include "Util.h"
@@ -33,6 +34,8 @@ BEGIN_MESSAGE_MAP(CMainFrame, CMDIFrameWndEx)
 	ON_UPDATE_COMMAND_UI_RANGE(ID_VIEW_APPLOOK_WIN_2000, ID_VIEW_APPLOOK_WINDOWS_7, &CMainFrame::OnUpdateApplicationLook)
 	ON_COMMAND(ID_Menu_WorldEconomic,&CMainFrame::OnWorldEconomic)
 	ON_UPDATE_COMMAND_UI(ID_Menu_WorldEconomic,&CMainFrame::OnUpdateWorldEconomic)
+	ON_COMMAND(ID_Menu_OpenStockPool,&CMainFrame::OnStockPool)
+	ON_UPDATE_COMMAND_UI(ID_Menu_OpenStockPool,&CMainFrame::OnUpdateStockPool)
 	ON_WM_SETTINGCHANGE()
 END_MESSAGE_MAP()
 
@@ -393,6 +396,30 @@ void CMainFrame::OnUpdateWorldEconomic(CCmdUI* pCmdUI)
     pCmdUI->Enable(TRUE);
 }
 
+void CMainFrame::OnStockPool()
+{
+	CDialogPopup dlg;
+	dlg.DoModal();
+
+	const string sTopic = "MacroEnvironment_WorldEcnomic";
+	CUIData& ui = m_mapUIName2Data[sTopic];
+	CDialogPopup* pDlg = Factory<CDialogPopup,string>::Instance().BuildProduct(ui.m_strUIClassName);
+	const int nIDD = CDialogIDMgr::Instance().GetDialogResourceID(ui.m_strUIClassName);
+	if (pDlg)
+	{
+		pDlg->SetLayout(ui.m_strLayout);
+		pDlg->Create(nIDD,this);
+		pDlg->SetWindowText(ui.m_strTitle.c_str());
+		pDlg->MoveWindow(ui.m_nLeft,ui.m_nTop,ui.m_nLeft + ui.m_nWidth,ui.m_nTop + ui.m_nHeight);
+		pDlg->DoModal();
+	}
+}
+
+
+void CMainFrame::OnUpdateStockPool(CCmdUI* pCmdUI)
+{
+	pCmdUI->Enable(TRUE);
+}
 
 void CMainFrame::_LoadLayout()
 {

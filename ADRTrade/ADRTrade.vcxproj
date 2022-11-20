@@ -144,6 +144,7 @@
     <ClInclude Include="Tools\DialogLayout.h" />
     <ClInclude Include="Tools\DialogPlaceHolder.h" />
     <ClInclude Include="Tools\DialogPlaceHolderComposite.h" />
+    <ClInclude Include="Tools\DialogPopup.h" />
     <ClInclude Include="Tools\Dlg4ProgressThread.h" />
     <ClInclude Include="Tools\DlgGridPage.h" />
     <ClInclude Include="Tools\DlgTab.h" />
@@ -189,6 +190,7 @@
     <ClCompile Include="Tools\DialogLayout.cpp" />
     <ClCompile Include="Tools\DialogPlaceHolder.cpp" />
     <ClCompile Include="Tools\DialogPlaceHolderComposite.cpp" />
+    <ClCompile Include="Tools\DialogPopup.cpp" />
     <ClCompile Include="Tools\Dlg4ProgressThread.cpp" />
     <ClCompile Include="Tools\DlgGridPage.cpp" />
     <ClCompile Include="Tools\DlgTab.cpp" />

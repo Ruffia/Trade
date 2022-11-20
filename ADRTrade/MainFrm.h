@@ -57,6 +57,10 @@ protected:
 
 	afx_msg void OnWorldEconomic();
 	afx_msg void OnUpdateWorldEconomic(CCmdUI* pCmdUI);
+
+	afx_msg void OnStockPool();
+	afx_msg void OnUpdateStockPool(CCmdUI* pCmdUI);
+
 	DECLARE_MESSAGE_MAP()
 
 	BOOL CreateDockingWindows();

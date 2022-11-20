@@ -100,18 +100,20 @@
 #define IDD_ChildDLG_Tab                31412
 #define IDD_ChildDLG_Tab_DailyAnalyze   31413
 #define IDD_ChildDLG_Tab_PhraseIn1Day   31414
+#define IDD_DLG_Common_Popup            31415
 #define ID_Menu_WorldEconomic           32780
 #define ID_Menu_BulkCommodity           32781
 #define ID_Menu_PoliticEconomicRelation 32784
 #define ID_Menu_Judge                   32787
 #define ID_Open_StockPool               32788
+#define ID_Menu_OpenStockPool           32789
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        310
-#define _APS_NEXT_COMMAND_VALUE         32789
+#define _APS_NEXT_COMMAND_VALUE         32790
 #define _APS_NEXT_CONTROL_VALUE         1000
 #define _APS_NEXT_SYMED_VALUE           310
 #endif
