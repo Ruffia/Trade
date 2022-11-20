@@ -139,6 +139,7 @@
     <ClInclude Include="Tools\CheckComboBox.h" />
     <ClInclude Include="Tools\ChildDlgTab.h" />
     <ClInclude Include="Tools\CollectiveComponentProvider.h" />
+    <ClInclude Include="Tools\CursorDef.h" />
     <ClInclude Include="Tools\CustomButton.h" />
     <ClInclude Include="Tools\DialogLayout.h" />
     <ClInclude Include="Tools\DialogPlaceHolder.h" />
@@ -146,6 +147,9 @@
     <ClInclude Include="Tools\Dlg4ProgressThread.h" />
     <ClInclude Include="Tools\DlgGridPage.h" />
     <ClInclude Include="Tools\DlgTab.h" />
+    <ClInclude Include="Tools\DlgTree.h" />
+    <ClInclude Include="Tools\EditTreeCtrl.h" />
+    <ClInclude Include="Tools\EditTreeCtrlEx.h" />
     <ClInclude Include="Tools\InputEdit.h" />
     <ClInclude Include="Tools\pugiconfig.hpp" />
     <ClInclude Include="Tools\pugixml.hpp" />
@@ -188,6 +192,9 @@
     <ClCompile Include="Tools\Dlg4ProgressThread.cpp" />
     <ClCompile Include="Tools\DlgGridPage.cpp" />
     <ClCompile Include="Tools\DlgTab.cpp" />
+    <ClCompile Include="Tools\DlgTree.cpp" />
+    <ClCompile Include="Tools\EditTreeCtrl.cpp" />
+    <ClCompile Include="Tools\EditTreeCtrlEx.cpp" />
     <ClCompile Include="Tools\InputEdit.cpp" />
     <ClCompile Include="Tools\pugixml.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>

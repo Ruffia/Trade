@@ -379,10 +379,9 @@ void CMainFrame::OnWorldEconomic()
 	const int nIDD = CDialogIDMgr::Instance().GetDialogResourceID(ui.m_strUIClassName);
 	if (pDlg)
 	{
-		string sFileName = GetModulePath() + "/UI/" + ui.m_strLayout;
-		pDlg->SetLayout(sFileName);
+		pDlg->SetLayout(ui.m_strLayout);
 		pDlg->Create(nIDD,this);
-		pDlg->SetWindowText("AAA");
+		pDlg->SetWindowText(ui.m_strTitle.c_str());
 		pDlg->MoveWindow(ui.m_nLeft,ui.m_nTop,ui.m_nLeft + ui.m_nWidth,ui.m_nTop + ui.m_nHeight);
 		pDlg->ShowWindow(SW_SHOW);
 	}
@@ -417,6 +416,8 @@ void CMainFrame::_LoadLayout()
 		data.m_nTop = node.attribute("Top").as_int();
 		data.m_nWidth = node.attribute("Width").as_int();
 		data.m_nHeight = node.attribute("Height").as_int();
+		data.m_strTitle = node.attribute("Title").as_string();
+		const string sCaption = node.attribute("Title").as_string();
 		m_mapUIName2Data[sName] = data;	
 		node = node.next_sibling();
 	}

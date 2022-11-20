@@ -4,6 +4,7 @@
 //
 #define IDD_ABOUTBOX                    100
 #define IDP_OLE_INIT_FAILED             100
+#define IDD_ChildDialog_Tree            102
 #define IDR_POPUP_EDIT                  119
 #define ID_STATUSBAR_PANE1              120
 #define ID_STATUSBAR_PANE2              121
@@ -86,6 +87,8 @@
 #define IDS_EXPLORER                    305
 #define IDS_EDIT_MENU                   306
 #define IDD_DLG_Tab                     441
+#define IDC_Tree                        1000
+#define IDC_MultiSelect                 1002
 #define IDC_TAB1                        6623
 #define IDC_Grid                        6631
 #define IDC_PROGRESS4Thread             14473
@@ -101,13 +104,14 @@
 #define ID_Menu_BulkCommodity           32781
 #define ID_Menu_PoliticEconomicRelation 32784
 #define ID_Menu_Judge                   32787
+#define ID_Open_StockPool               32788
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        310
-#define _APS_NEXT_COMMAND_VALUE         32788
+#define _APS_NEXT_COMMAND_VALUE         32789
 #define _APS_NEXT_CONTROL_VALUE         1000
 #define _APS_NEXT_SYMED_VALUE           310
 #endif

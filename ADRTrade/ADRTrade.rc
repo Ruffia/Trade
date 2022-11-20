@@ -356,9 +356,9 @@ BEGIN
         MENUITEM "政经关系",                        ID_Menu_PoliticEconomicRelation
         MENUITEM "研判",                          ID_Menu_Judge
     END
-    POPUP "窗口(&W)"
+    POPUP "股票"
     BEGIN
-        MENUITEM "新建窗口(&N)",                    ID_WINDOW_NEW
+        MENUITEM "股票池",                         ID_Open_StockPool
     END
     POPUP "帮助(&H)"
     BEGIN
@@ -457,6 +457,16 @@ STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,14,7,458,498
+END
+
+IDD_ChildDialog_Tree DIALOGEX 0, 0, 151, 176
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "TreeTest"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "Tree1",IDC_Tree,"SysTreeView32",TVS_HASBUTTONS | TVS_HASLINES | TVS_LINESATROOT | TVS_EDITLABELS | TVS_SHOWSELALWAYS | WS_BORDER | WS_HSCROLL | WS_TABSTOP,7,7,137,145
+    CONTROL         "Enable Multiple Selection",IDC_MultiSelect,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,159,92,10
 END
 
 
@@ -569,6 +579,14 @@ BEGIN
         RIGHTMARGIN, 472
         TOPMARGIN, 7
         BOTTOMMARGIN, 505
+    END
+
+    IDD_ChildDialog_Tree, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 144
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 169
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -733,6 +751,11 @@ BEGIN
     IDS_BUILD_TAB           "生成"
     IDS_DEBUG_TAB           "调试"
     IDS_FIND_TAB            "查找"
+END
+
+STRINGTABLE
+BEGIN
+    ID_Open_StockPool       "股票池"
 END
 
 #endif    // 中文(简体，中国) resources

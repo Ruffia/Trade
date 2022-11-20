@@ -144,6 +144,18 @@
     <ClInclude Include="MacroEnvironment\DlgTab_WorldEcnomic.h">
       <Filter>MacroEnvironment</Filter>
     </ClInclude>
+    <ClInclude Include="Tools\EditTreeCtrl.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\EditTreeCtrlEx.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\DlgTree.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\CursorDef.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ADRTrade.cpp">
@@ -253,6 +265,15 @@
     </ClCompile>
     <ClCompile Include="MacroEnvironment\DlgTab_WorldEcnomic.cpp">
       <Filter>MacroEnvironment</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\EditTreeCtrl.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\EditTreeCtrlEx.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\DlgTree.cpp">
+      <Filter>Tools</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
