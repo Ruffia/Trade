@@ -398,10 +398,7 @@ void CMainFrame::OnUpdateWorldEconomic(CCmdUI* pCmdUI)
 
 void CMainFrame::OnStockPool()
 {
-	CDialogPopup dlg;
-	dlg.DoModal();
-
-	const string sTopic = "MacroEnvironment_WorldEcnomic";
+	const string sTopic = "Stock_StockPool";
 	CUIData& ui = m_mapUIName2Data[sTopic];
 	CDialogPopup* pDlg = Factory<CDialogPopup,string>::Instance().BuildProduct(ui.m_strUIClassName);
 	const int nIDD = CDialogIDMgr::Instance().GetDialogResourceID(ui.m_strUIClassName);
