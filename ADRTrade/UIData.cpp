@@ -6,6 +6,7 @@ CUIData::CUIData()
 	m_sName = "";
 	m_strUIClassName = "";
 	m_strLayout = "";
+	m_strTitle = "";
 	m_nID = 0;
 	m_nLeft = 0;
 	m_nTop = 0;

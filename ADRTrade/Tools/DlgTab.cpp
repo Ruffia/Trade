@@ -121,6 +121,7 @@ void CDlgTab::_InitLayOut()
 		data.m_nTop = node.attribute("Top").as_int();
 		data.m_nWidth = node.attribute("Width").as_int();
 		data.m_nHeight = node.attribute("Height").as_int();
+		string sTitle = node.attribute("Title").as_string("");
 
 		//设定在Tab内显示的范围
 		CRect rcHold;
