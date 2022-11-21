@@ -408,7 +408,7 @@ void CMainFrame::OnStockPool()
 		pDlg->Create(nIDD,this);
 		pDlg->SetWindowText(ui.m_strTitle.c_str());
 		pDlg->MoveWindow(ui.m_nLeft,ui.m_nTop,ui.m_nLeft + ui.m_nWidth,ui.m_nTop + ui.m_nHeight);
-		pDlg->DoModal();
+		pDlg->ShowWindow(SW_SHOW);
 	}
 }
 

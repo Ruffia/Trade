@@ -36,8 +36,6 @@ public:
 	virtual void Dump(CDumpContext& dc) const;
 #endif
 
-protected:
-	IAbstractObject*     m_pTradeDay;
 // 生成的消息映射函数
 protected:
 	DECLARE_MESSAGE_MAP()

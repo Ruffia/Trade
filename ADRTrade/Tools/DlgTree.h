@@ -1,14 +1,12 @@
 #pragma once
+#include <memory>
+#include <map>
+#include <string>
+using namespace std;
+#include "Tools/pugixml.hpp"
+#include "Tools/pugiconfig.hpp"
+using namespace pugi;
 #include "EditTreeCtrlEx.h"
-
-
-
-class CTestTreeCtrl : public CEditTreeCtrlEx {
-	protected:
-		virtual void OnNewItem(HTREEITEM) {
-					TRACE0("User created a new item.\n");
-				}
-};
 
 
 class CDlgTree: public CDialog
@@ -22,7 +20,7 @@ class CDlgTree: public CDialog
 	// Dialog Data
 		//{{AFX_DATA(CDlg)
 	enum { IDD = IDD_ChildDialog_Tree };
-		CTestTreeCtrl	m_ctrlTree;
+		CEditTreeCtrlEx	m_ctrlTree;
 	BOOL	m_bMultiSelect;
 	//}}AFX_DATA
 
@@ -39,9 +37,15 @@ class CDlgTree: public CDialog
 		// Generated message map functions
 		//{{AFX_MSG(CDlg)
 		virtual BOOL OnInitDialog();
+		virtual void _InitLayOut();
 		afx_msg void OnPaint();
 		afx_msg HCURSOR OnQueryDragIcon();
 	    afx_msg void OnMultiSelect();
 	//}}AFX_MSG
 		DECLARE_MESSAGE_MAP()
+
+protected:
+	string m_sLayout;    //页面布局配置文件
+	xml_document m_doc;
+	map<string,shared_ptr<CWnd>>  m_mapUIName2Wnd;
 };
