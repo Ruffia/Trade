@@ -168,6 +168,9 @@
     <ClInclude Include="Future\DialogFutureContract_TrackPhraseIn1Day.h">
       <Filter>Future</Filter>
     </ClInclude>
+    <ClInclude Include="Stock\DialogStockPool_StockTree.h">
+      <Filter>Stock</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ADRTrade.cpp">
@@ -292,6 +295,9 @@
     </ClCompile>
     <ClCompile Include="Future\DialogFutureContract_TrackPhraseIn1Day.cpp">
       <Filter>Future</Filter>
+    </ClCompile>
+    <ClCompile Include="Stock\DialogStockPool_StockTree.cpp">
+      <Filter>Stock</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

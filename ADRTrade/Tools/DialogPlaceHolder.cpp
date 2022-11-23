@@ -10,6 +10,7 @@
 #include "UIData.h"
 #include "Tools/CollectiveComponentProvider.h"
 #include "Util.h"
+#include "EditTreeCtrlEx.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -80,7 +81,18 @@ void CDialogPlaceHolder::_InitLayOut()
 		const string sStyle = node.attribute("Style").as_string();
 		DWORD dwTotalStyle = CStyleMgr::Instance().GetStyle(sStyle);
 		const string sCaption = node.attribute("Caption").as_string();
-		if (data.m_strUIClassName.find("CEdit") != string::npos)
+		if (data.m_strUIClassName.find("CEditTreeCtrlEx") != string::npos)
+		{
+			CEditTreeCtrlEx* pTree = new CEditTreeCtrlEx;
+			CRect rc(data.m_nLeft,data.m_nTop,data.m_nLeft + data.m_nWidth ,data.m_nTop + data.m_nHeight);
+			pTree->Create(dwTotalStyle,rc,this,data.m_nID);	
+			CFont* pFont = CCollectiveComponentProvider::Instance().GetFont();
+			pTree->SetFont(pFont);
+			pTree->ShowWindow(SW_SHOW);
+			shared_ptr<CEditTreeCtrlEx> ptr(pTree);
+			m_mapUIName2Wnd[sName] = ptr;	
+		}
+		else if (data.m_strUIClassName.find("CEdit") != string::npos)
 		{
 			CEdit* pEdit = new CEdit;
 			CRect rc(data.m_nLeft,data.m_nTop,data.m_nLeft + data.m_nWidth ,data.m_nTop + data.m_nHeight);
