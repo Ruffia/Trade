@@ -108,7 +108,7 @@ void CDialogPopup::_InitLayOut()
 			}
 		}
 		pDlg->Create(nIDD,this);
-		CRect rcDialog(rc.left + data.m_nLeft,rc.top + data.m_nTop,rc.left + data.m_nLeft + data.m_nWidth,rc.top + data.m_nHeight);
+		CRect rcDialog(rc.left + data.m_nLeft,rc.top + data.m_nTop,rc.left + data.m_nLeft + data.m_nWidth,rc.top + data.m_nTop + data.m_nHeight);
 		pDlg->MoveWindow(rcDialog);	
 		pDlg->ShowWindow(SW_SHOW);
 		data.m_pWnd = pDlg;	
