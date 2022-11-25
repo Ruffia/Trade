@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="gbk"?>
+<root>
+	<Layout>
+        <widget Name="Header" ClassName="CEdit" ID="10000" Caption="指标\周期" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="10" Width="70" Height="25" />	
+		<widget Name="5MINTitle" ClassName="CEdit" ID="10001" Caption="5MIN" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="72" Top="10" Width="200" Height="25" />
+		<widget Name="15MINTitle" ClassName="CEdit" ID="10002" Caption="15MIN" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="272" Top="10" Width="200" Height="25" />
+		<widget Name="1HTitle" ClassName="CEdit" ID="10003" Caption="1H" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="472" Top="10" Width="210" Height="25" />
+		
+        <widget Name="MACDTitle" ClassName="CEdit" ID="10004" Caption="MACD" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="35" Width="70" Height="50" />
+		<widget Name="5MIN_MACD" ClassName="CEdit"  ID="10005" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="72" Top="35" Width="200" Height="50" />
+		<widget Name="15MIN_MACD" ClassName="CEdit"  ID="10006" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="272" Top="35" Width="200" Height="50" />
+		<widget Name="1H_MACD" ClassName="CEdit"  ID="10007" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="472" Top="35" Width="210" Height="50" />
+		
+		<widget Name="MACDPillarTitle" ClassName="CEdit" ID="10008" Caption="MACD柱" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="85" Width="70" Height="50" />
+		<widget Name="5MIN_MACDPillar" ClassName="CEdit"  ID="10009" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="72" Top="85" Width="200" Height="50" />
+		<widget Name="15MIN_MACDPillar" ClassName="CEdit"  ID="10010" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="272" Top="85" Width="200" Height="50" />
+		<widget Name="1H_MACDPillar" ClassName="CEdit"  ID="10011" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="472" Top="85" Width="210" Height="50" />
+		
+		<widget Name="TRIXTitle" ClassName="CEdit" ID="10012" Caption="Trix" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="135" Width="70" Height="50" />
+		<widget Name="5MIN_Trix" ClassName="CEdit"  ID="10013" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="72" Top="135" Width="200" Height="50" />
+		<widget Name="15MIN_Trix" ClassName="CEdit"  ID="10014" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="272" Top="135" Width="200" Height="50" />
+		<widget Name="1H_Trix" ClassName="CEdit"  ID="10015" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="472" Top="135" Width="210" Height="50" />
+		
+		<!--widget Name="SKDJTitle" ClassName="CEdit" ID="10016" Caption="SKDJ" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="185" Width="70" Height="25" />
+		<widget Name="5MIN_SKDJ" ClassName="CEdit"  ID="10017" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="72" Top="185" Width="200" Height="25" />
+		<widget Name="15MIN_SKDJ" ClassName="CEdit"  ID="10018" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="272" Top="185" Width="200" Height="25" />
+		<widget Name="1H_SKDJ" ClassName="CEdit"  ID="10019" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="472" Top="185" Width="210" Height="25" />
+		
+		<widget Name="StrengthAngleTitle" ClassName="CEdit" ID="10020" Caption="趋势角度" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="210" Width="70" Height="25" />
+		<widget Name="5MIN_StrengthAngle" ClassName="CEdit"  ID="10021" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="72" Top="210" Width="200" Height="25" />
+		<widget Name="15MIN_StrengthAngle" ClassName="CEdit"  ID="10022" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="272" Top="210" Width="200" Height="25" />
+		<widget Name="1H_StrengthAngle" ClassName="CEdit"  ID="10023" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="472" Top="210" Width="210" Height="25" />
+		
+		<widget Name="2HJudgmentTitle" ClassName="CEdit"  ID="10024" Caption="2H 评价" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="235" Width="70" Height="25" />
+		<widget Name="2HJudgment" ClassName="CEdit"  ID="10025" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="72" Top="235" Width="610" Height="25" />
+		
+		<widget Name="InclinationTitle" ClassName="CEdit"  ID="10026" Caption="倾向意愿" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="260" Width="70" Height="25" />
+		<widget Name="Inclination" ClassName="CEdit"  ID="10027" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="72" Top="260" Width="610" Height="25" />
+		
+		<widget Name="EmotionFeelingTitle" ClassName="CEdit"  ID="10028" Caption="情绪感受" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="285" Width="70" Height="25" />
+		<widget Name="EmotionFeeling" ClassName="CEdit"  ID="10029" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="72" Top="285" Width="610" Height="25" />
+		
+		<widget Name="ForecastTitle" ClassName="CEdit"  ID="10030" Caption="预测" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="310" Width="70" Height="50" />
+		<widget Name="Forecast" ClassName="CEdit"  ID="10031" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="72" Top="310" Width="610" Height="50" />
+		
+		<widget Name="RealityTitle" ClassName="CEdit"  ID="10032" Caption="实际" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="360" Width="70" Height="50" />
+		<widget Name="Reality" ClassName="CEdit"  ID="10033" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="72" Top="360" Width="610" Height="50" /-->
+		
+		
+	</Layout>
+</root>

@@ -84,8 +84,8 @@ void CDialogPlaceHolder::_InitLayOut()
 		if (data.m_strUIClassName.find("CEditTreeCtrlEx") != string::npos)
 		{
 			CEditTreeCtrlEx* pTree = new CEditTreeCtrlEx;
-			CRect rc(data.m_nLeft,data.m_nTop,data.m_nLeft + data.m_nWidth ,data.m_nTop + data.m_nHeight);
-			pTree->Create(dwTotalStyle,rc,this,data.m_nID);	
+			CRect rcTree(data.m_nLeft,data.m_nTop,data.m_nLeft + data.m_nWidth ,data.m_nTop + data.m_nHeight);
+			pTree->Create(dwTotalStyle,rcTree,this,data.m_nID);	
 			CFont* pFont = CCollectiveComponentProvider::Instance().GetFont();
 			pTree->SetFont(pFont);
 			pTree->ShowWindow(SW_SHOW);

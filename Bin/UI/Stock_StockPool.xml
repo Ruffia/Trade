@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
 	<Layout>
-		<widget Name="StockTree" ClassName="CDialogStockPool_StockTree"  IDD="IDD_DLG_Common"  Layout="StockPool_StockTree.xml"  Left="0" Top="0" Width="220" Height="480" />
-		<!--widget Name="DailyTradeSummarize" ClassName="CDialogDailyTradeSummarize"  IDD="IDD_DLG_Common" Layout="DailyTradeSummarize.xml"  Left="0" Top="390" Width="290" Height="680" />
-		<widget Name="DailyAnalyze" ClassName="CDlgDailyAnalyze"  IDD="IDD_ChildDLG_Tab_DailyAnalyze" Layout="DailyAnalyze.xml"  Left="290" Top="0" Width="700" Height="680" />
-		<widget Name="DailyTrades" ClassName="CDlgDailyTrades"  IDD="IDD_ChildDLG_Tab_DailyAnalyze" Layout="DailyTrades.xml"  Left="990" Top="0" Width="410" Height="680" /-->
-		
-		<!--widget Name="LongPeriodicAnalyze" ClassName="CDialogFutureContract_LongPeriodicAnalyze" Layout="FutureContract_LongPeriodicAnalyze.xml"  IDD="IDD_DLG_Common" Left="0" Top="0" Width="700" Height="120" />		
-		<widget Name="TrackPhraseIn1Day" ClassName="CDialogFutureContract_TrackPhraseIn1Day" Layout="FutureContract_TrackPhraseIn1Day.xml"  IDD="IDD_ChildDLG_Tab_PhraseIn1Day" Left="0" Top="130" Width="700" Height="790" /-->		
+		<widget Name="StockTree" ClassName="CDialogStockPool_StockTree"  IDD="IDD_DLG_Common"  Layout="StockPool_StockTree.xml"  Left="0" Top="0" Width="220" Height="570" />
+		<widget Name="Stocks" ClassName="CDlgStocks"  IDD="IDD_ChildDLG_Tab_DailyAnalyze" Layout="Stocks.xml"  Left="220" Top="10" Width="550" Height="570" />	
 	</Layout>
 </root>

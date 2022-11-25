@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="gbk"?>
+<root>
+	<Layout>		
+		<widget Name="股票01" ClassName="CDlgStock" IDD="IDD_DLG_Common" Layout="StockTrack.xml"  Left="0" Top="25" Width="300" Height="640" />
+		<!--widget Name="交易02" ClassName="CDialogDailyTrades_SingleTradeTrack" IDD="IDD_DLG_Common" Layout="SingleTradeTrack.xml"  Left="0" Top="25" Width="300" Height="590" /-->	
+		<!--widget Name="TradeTrack03" ClassName="CDlgTradeTrack" IDD="IDD_DLG_Common" Left="0" Top="25" Width="700" Height="590" />		
+		<widget Name="TradeTrack04" ClassName="CDlgTradeTrack" IDD="IDD_DLG_Common" Left="0" Top="25" Width="700" Height="590" />
+		<widget Name="TradeTrack05" ClassName="CDlgTradeTrack" IDD="IDD_DLG_Common" Left="0" Top="25" Width="700" Height="590" /-->		
+	</Layout>
+</root>

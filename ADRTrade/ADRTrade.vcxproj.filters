@@ -171,6 +171,21 @@
     <ClInclude Include="Stock\DialogStockPool_StockTree.h">
       <Filter>Stock</Filter>
     </ClInclude>
+    <ClInclude Include="Stock\DialogStocks.h">
+      <Filter>Stock</Filter>
+    </ClInclude>
+    <ClInclude Include="Stock\DialogStock.h">
+      <Filter>Stock</Filter>
+    </ClInclude>
+    <ClInclude Include="Stock\DialogStock_1DayAnalyze.h">
+      <Filter>Stock</Filter>
+    </ClInclude>
+    <ClInclude Include="Stock\DialogStock_FundamentalAnalysis.h">
+      <Filter>Stock</Filter>
+    </ClInclude>
+    <ClInclude Include="Stock\DialogStock_TrackPhraseIn1Week.h">
+      <Filter>Stock</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ADRTrade.cpp">
@@ -297,6 +312,21 @@
       <Filter>Future</Filter>
     </ClCompile>
     <ClCompile Include="Stock\DialogStockPool_StockTree.cpp">
+      <Filter>Stock</Filter>
+    </ClCompile>
+    <ClCompile Include="Stock\DialogStocks.cpp">
+      <Filter>Stock</Filter>
+    </ClCompile>
+    <ClCompile Include="Stock\DialogStock.cpp">
+      <Filter>Stock</Filter>
+    </ClCompile>
+    <ClCompile Include="Stock\DialogStock_1DayAnalyze.cpp">
+      <Filter>Stock</Filter>
+    </ClCompile>
+    <ClCompile Include="Stock\DialogStock_FundamentalAnalysis.cpp">
+      <Filter>Stock</Filter>
+    </ClCompile>
+    <ClCompile Include="Stock\DialogStock_TrackPhraseIn1Week.cpp">
       <Filter>Stock</Filter>
     </ClCompile>
   </ItemGroup>

@@ -3,6 +3,6 @@
 	<Layout>
 		<widget Name="StockTree" ClassName="CEditTreeCtrlEx" ID="10001" 
 		Style="WS_VISIBLE|WS_TABSTOP|WS_CHILD|WS_BORDER|TVS_HASBUTTONS|TVS_LINESATROOT|TVS_HASLINES|TVS_DISABLEDRAGDROP|TVS_NOTOOLTIPS|TVS_EDITLABELS" 
-		Left="5" Top="5" Width="200" Height="680" />
+		Left="5" Top="15" Width="200" Height="520" />
 	</Layout>
 </root>
