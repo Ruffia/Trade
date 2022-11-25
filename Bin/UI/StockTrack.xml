@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="gbk"?>
 <root>
 	<Layout>	
-		<widget Name="StockFundamentalAnalysis" ClassName="CDialogStock_FundamentalAnalysis" Layout="Stock_PeriodicAnalysis.xml"  IDD="IDD_DLG_Common" Left="0" Top="0" Width="700" Height="120" />		
-		<widget Name="StockPeriodicAnalysis" ClassName="CDialogStock_TrackPhraseIn1Week" Layout="Stock_TrackPhraseIn1Week.xml"  IDD="IDD_ChildDLG_Tab_PhraseIn1Day" Left="0" Top="130" Width="700" Height="790" />		
+		<widget Name="StockFundamentalAnalysis" ClassName="CDialogStock_FundamentalAnalysis" Layout="Stock_PeriodicAnalysis.xml"  IDD="IDD_DLG_Common" Left="0" Top="0" Width="760" Height="90" />		
+		<widget Name="StockPeriodicAnalysis" ClassName="CDialogStock_TrackPhraseIn1Week" Layout="Stock_TrackPhraseIn1Week.xml"  IDD="IDD_ChildDLG_Tab_PhraseIn1Day" Left="0" Top="100" Width="760" Height="390" />		
 	</Layout>
 </root>

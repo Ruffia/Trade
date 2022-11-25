@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="gbk"?>
 <root>
 	<Layout>
-		<widget Name="Title" ClassName="CEdit" ID="10001" Caption="合约大趋势" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="10" Width="680" Height="25" />
-		<widget Name="ContractNameCaption" ClassName="CEdit" ID="10002" Caption="合约名称" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT|ES_READONLY" Left="2" Top="35" Width="60" Height="25" />
-		<widget Name="ContractName" ClassName="CEdit"  ID="10003" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="62" Top="35" Width="90" Height="25" />	
-		<widget Name="MainForceChangeCaption" ClassName="CEdit" ID="10004" Caption="主力增减仓" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT|ES_READONLY" Left="152" Top="35" Width="70" Height="25" />
-		<widget Name="MainForceChange" ClassName="CEdit"  ID="10005" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT" Left="222" Top="35" Width="116" Height="25" />	
+		<widget Name="StockNameCaption" ClassName="CEdit" ID="10002" Caption="股票名称" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="10" Width="60" Height="25" />
+		<widget Name="StockName" ClassName="CEdit"  ID="10003" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="62" Top="10" Width="60" Height="25" />	
+		<widget Name="StockCodeCaption" ClassName="CEdit" ID="10004" Caption="股票代码" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT|ES_READONLY" Left="122" Top="10" Width="60" Height="25" />
+		<widget Name="StockCode" ClassName="CEdit"  ID="10005" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT" Left="182" Top="10" Width="116" Height="25" />	
 		
 		<!--widget Name="CITICCaption" ClassName="CEdit" ID="11006" Caption="中信乾坤" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT|ES_READONLY" Left="338" Top="35" Width="62" Height="25" />
 		<widget Name="CITIC" ClassName="CEdit"  ID="11007" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="398" Top="35" Width="200" Height="25" />	

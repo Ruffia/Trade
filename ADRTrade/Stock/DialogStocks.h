@@ -7,5 +7,5 @@ class CDlgStocks :public CChildDlgTab
 {
 public:
 	CDlgStocks();
-	enum { IDD = IDD_ChildDLG_Tab_DailyAnalyze };
+	enum { IDD = IDD_ChildDLG_Tab_Stocks };
 };
