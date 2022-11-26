@@ -2,9 +2,9 @@
 <root>
 	<Layout>	
 		<widget Name="周一" ClassName="CDialogStock_1DayAnalyze" IDD="IDD_DLG_Common" Layout="Stock_TrackPhraseIn1Day.xml"  Left="0" Top="20" Width="300" Height="590" />		
-		<widget Name="周二" ClassName="CDialogStock_1DayAnalyze" IDD="IDD_DLG_Common" Layout="Stock_TrackPhraseIn1Day.xml"  Left="0" Top="20" Width="700" Height="590" />
-        <widget Name="周三" ClassName="CDialogStock_1DayAnalyze" IDD="IDD_DLG_Common" Layout="Stock_TrackPhraseIn1Day.xml"  Left="0" Top="20" Width="700" Height="590" />
-        <widget Name="周四" ClassName="CDialogStock_1DayAnalyze" IDD="IDD_DLG_Common" Layout="Stock_TrackPhraseIn1Day.xml"  Left="0" Top="20" Width="700" Height="590" />
-        <widget Name="周五" ClassName="CDialogStock_1DayAnalyze" IDD="IDD_DLG_Common" Layout="Stock_TrackPhraseIn1Day.xml"  Left="0" Top="20" Width="700" Height="590" />		
+		<widget Name="周二" ClassName="CDialogStock_1DayAnalyze" IDD="IDD_DLG_Common" Layout="Stock_TrackPhraseIn1Day.xml"  Left="0" Top="20" Width="300" Height="590" />
+        <widget Name="周三" ClassName="CDialogStock_1DayAnalyze" IDD="IDD_DLG_Common" Layout="Stock_TrackPhraseIn1Day.xml"  Left="0" Top="20" Width="300" Height="590" />
+        <widget Name="周四" ClassName="CDialogStock_1DayAnalyze" IDD="IDD_DLG_Common" Layout="Stock_TrackPhraseIn1Day.xml"  Left="0" Top="20" Width="300" Height="590" />
+        <widget Name="周五" ClassName="CDialogStock_1DayAnalyze" IDD="IDD_DLG_Common" Layout="Stock_TrackPhraseIn1Day.xml"  Left="0" Top="20" Width="300" Height="590" />		
 	</Layout>
 </root>

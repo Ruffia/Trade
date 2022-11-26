@@ -4,47 +4,47 @@
         <widget Name="Header" ClassName="CEdit" ID="10000" Caption="指标\周期" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="10" Width="70" Height="25" />	
 		<widget Name="DayTitle" ClassName="CEdit" ID="10001" Caption="日线" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="72" Top="10" Width="200" Height="25" />
 		<widget Name="2HTitle" ClassName="CEdit" ID="10002" Caption="2H" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="272" Top="10" Width="200" Height="25" />
-		<widget Name="JudgementTitle" ClassName="CEdit" ID="10003" Caption="判断" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="472" Top="10" Width="226" Height="25" />
+		<widget Name="JudgementTitle" ClassName="CEdit" ID="10003" Caption="判断" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="472" Top="10" Width="248" Height="25" />
 		
         <widget Name="MACDTitle" ClassName="CEdit" ID="10004" Caption="MACD" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="35" Width="70" Height="25" />
 		<widget Name="Day_MACD" ClassName="CEdit"  ID="10005" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="72" Top="35" Width="200" Height="25" />
 		<widget Name="2H_MACD" ClassName="CEdit"  ID="10006" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="272" Top="35" Width="200" Height="25" />
-		<widget Name="Judgement_MACD" ClassName="CEdit"  ID="10007" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="472" Top="35" Width="226" Height="25" />
+		<widget Name="Judgement_MACD" ClassName="CEdit"  ID="10007" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="472" Top="35" Width="248" Height="25" />
 		
 		<widget Name="TrixTitle" ClassName="CEdit" ID="10008" Caption="Trix" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="60" Width="70" Height="25" />
 		<widget Name="Day_Trix" ClassName="CEdit"  ID="10009" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="72" Top="60" Width="200" Height="25" />
 		<widget Name="2H_Trix" ClassName="CEdit"  ID="10010" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="272" Top="60" Width="200" Height="25" />
-		<widget Name="Judgement_Trix" ClassName="CEdit"  ID="10011" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="472" Top="60" Width="226" Height="25" />
+		<widget Name="Judgement_Trix" ClassName="CEdit"  ID="10011" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="472" Top="60" Width="248" Height="25" />
 			
 		<widget Name="StrengthAngleTitle" ClassName="CEdit" ID="10020" Caption="趋势角度" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="85" Width="70" Height="25" />
 		<widget Name="Day_StrengthAngle" ClassName="CEdit"  ID="10021" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="72" Top="85" Width="200" Height="25" />
 		<widget Name="2H_StrengthAngle" ClassName="CEdit"  ID="10022" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="272" Top="85" Width="200" Height="25" />
-		<widget Name="Judgement_StrengthAngle" ClassName="CEdit"  ID="10023" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="472" Top="85" Width="226" Height="25" />
+		<widget Name="Judgement_StrengthAngle" ClassName="CEdit"  ID="10023" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="472" Top="85" Width="248" Height="25" />
 		
 		<widget Name="RiseFallShapeTitle" ClassName="CEdit" ID="10024" Caption="涨跌K线比" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="110" Width="70" Height="25" />
 		<widget Name="Day_RiseFallShape" ClassName="CEdit"  ID="10025" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="72" Top="110" Width="200" Height="25" />
 		<widget Name="2H_RiseFallShape" ClassName="CEdit"  ID="10026" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="272" Top="110" Width="200" Height="25" />
-		<widget Name="Judgement_RiseFallShape" ClassName="CEdit"  ID="10027" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="472" Top="110" Width="226" Height="25" />
+		<widget Name="Judgement_RiseFallShape" ClassName="CEdit"  ID="10027" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="472" Top="110" Width="248" Height="25" />
 			
 		<widget Name="SKDJTitle" ClassName="CEdit" ID="10030" Caption="SKDJ" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="135" Width="70" Height="25" />
 		<widget Name="Day_SKDJ" ClassName="CEdit"  ID="10031" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="72" Top="135" Width="200" Height="25" />
 		<widget Name="2H_SKDJ" ClassName="CEdit"  ID="10032" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="272" Top="135" Width="200" Height="25" />
-		<widget Name="Judgement_SKDJ" ClassName="CEdit"  ID="10033" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="472" Top="135" Width="226" Height="25" />
+		<widget Name="Judgement_SKDJ" ClassName="CEdit"  ID="10033" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="472" Top="135" Width="248" Height="25" />
 		
 		<widget Name="TradeVolumeTitle" ClassName="CEdit" ID="10040" Caption="成交量" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="160" Width="70" Height="25" />
 		<widget Name="Day_TradeVolume" ClassName="CEdit"  ID="10041" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="72" Top="160" Width="200" Height="25" />
 		<widget Name="2H_TradeVolume" ClassName="CEdit"  ID="10042" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="272" Top="160" Width="200" Height="25" />
-		<widget Name="Judgement_TradeVolume" ClassName="CEdit"  ID="10043" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="472" Top="160" Width="226" Height="25" />
+		<widget Name="Judgement_TradeVolume" ClassName="CEdit"  ID="10043" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="472" Top="160" Width="248" Height="25" />
 		
 		<widget Name="OverallJudgmentTitle" ClassName="CEdit" ID="10050" Caption="总体判断" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="185" Width="70" Height="25" />
-		<widget Name="OverallJudgment" ClassName="CEdit"  ID="10051" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="72" Top="185" Width="626" Height="25" />
+		<widget Name="OverallJudgment" ClassName="CEdit"  ID="10051" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="72" Top="185" Width="648" Height="25" />
 			
-		<widget Name="TradeAnalyzeTitle" ClassName="CEdit" ID="10052" Caption="交易分析" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="260" Width="696" Height="25" />
-		<widget Name="PreoperationReasonsTitle" ClassName="CEdit"  ID="10053" Caption="交易理由" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="285" Width="70" Height="25" />
-		<widget Name="PreoperationReasons" ClassName="CEdit"  ID="10054" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="72" Top="285" Width="626" Height="25" />
-		<widget Name="ReasonsAgainstTitle" ClassName="CEdit"  ID="10055" Caption="反对理由" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="310" Width="70" Height="25" />
-		<widget Name="ReasonsAgainst" ClassName="CEdit"  ID="10056" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="72" Top="310" Width="626" Height="25" />
-		<widget Name="ActualOutcomeTitle" ClassName="CEdit"  ID="10058" Caption="实际结果" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="335" Width="70" Height="25" />
-		<widget Name="ActualOutcome" ClassName="CEdit"  ID="10059" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="72" Top="335" Width="626" Height="25" />
+		<widget Name="TradeAnalyzeTitle" ClassName="CEdit" ID="10052" Caption="交易分析" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="240" Width="718" Height="25" />
+		<widget Name="PreoperationReasonsTitle" ClassName="CEdit"  ID="10053" Caption="交易理由" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="265" Width="70" Height="25" />
+		<widget Name="PreoperationReasons" ClassName="CEdit"  ID="10054" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="72" Top="265" Width="648" Height="25" />
+		<widget Name="ReasonsAgainstTitle" ClassName="CEdit"  ID="10055" Caption="反对理由" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="290" Width="70" Height="25" />
+		<widget Name="ReasonsAgainst" ClassName="CEdit"  ID="10056" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="72" Top="290" Width="648" Height="25" />
+		<widget Name="ActualOutcomeTitle" ClassName="CEdit"  ID="10058" Caption="实际结果" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="315" Width="70" Height="25" />
+		<widget Name="ActualOutcome" ClassName="CEdit"  ID="10059" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="72" Top="315" Width="648" Height="25" />
 	</Layout>
 </root>

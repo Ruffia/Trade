@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="gbk"?>
+<root>
+	<Layout>
+		<widget Name="StockNameCaption" ClassName="CEdit" ID="10002" Caption="股票名称" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="6" Width="60" Height="25" />
+		<widget Name="StockName" ClassName="CEdit"  ID="10003" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="62" Top="6" Width="60" Height="25" />	
+		<widget Name="StockCodeCaption" ClassName="CEdit" ID="10004" Caption="股票代码" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="122" Top="6" Width="60" Height="25" />
+		<widget Name="StockCode" ClassName="CEdit"  ID="10005" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT" Left="182" Top="6" Width="60" Height="25" />	
+		<widget Name="MarketValueCaption" ClassName="CEdit" ID="10006" Caption="市值" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="242" Top="6" Width="60" Height="25" />
+		<widget Name="MarketValue" ClassName="CEdit"  ID="10007" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT" Left="302" Top="6" Width="60" Height="25" />
+		<widget Name="CompanyAreaCaption" ClassName="CEdit" ID="10008" Caption="所属区域" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="362" Top="6" Width="60" Height="25" />
+		<widget Name="CompanyArea" ClassName="CEdit"  ID="10009" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT" Left="422" Top="6" Width="60" Height="25" />
+		<widget Name="MonthlyShapeCaption" ClassName="CEdit" ID="10011" Caption="月线形态" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="482" Top="6" Width="60" Height="25" />
+		<widget Name="MonthlyShape" ClassName="CEdit"  ID="10012" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT" Left="542" Top="6" Width="182" Height="25" />
+		
+		<widget Name="WeeklyKAnalyzeCaption" ClassName="CEdit" ID="10100" Caption="周线分析" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="31" Width="60" Height="50" />
+		<widget Name="WeeklyMACDCaption" ClassName="CEdit" ID="10101" Caption="MACD" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="62" Top="31" Width="120" Height="25" />
+		<widget Name="WeeklyTrixCaption" ClassName="CEdit" ID="10102" Caption="Trix" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="182" Top="31" Width="120" Height="25" />
+		<widget Name="WeeklyTradeVolumeCaption" ClassName="CEdit" ID="10103" Caption="上涨角度" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="302" Top="31" Width="120" Height="25" />
+		<widget Name="WeeklyRiseAngleCaption" ClassName="CEdit" ID="10104" Caption="成交量" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="422" Top="31" Width="120" Height="25" />
+		<widget Name="Past1To3WeekRiseCaption" ClassName="CEdit" ID="10105" Caption="过去1-3周上涨情况" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="542" Top="31" Width="182" Height="25" />				
+		
+		<widget Name="WeeklyMACD" ClassName="CEdit" ID="10111" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT" Left="62" Top="56" Width="120" Height="25" />
+		<widget Name="WeeklyTrix" ClassName="CEdit" ID="10112" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT" Left="182" Top="56" Width="120" Height="25" />
+		<widget Name="WeeklyTradeVolume" ClassName="CEdit" ID="10113" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT" Left="302" Top="56" Width="120" Height="25" />
+		<widget Name="WeeklyRiseAngle" ClassName="CEdit" ID="10114" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT" Left="422" Top="56" Width="120" Height="25" />
+		<widget Name="Past1To3WeekRise" ClassName="CEdit" ID="10115" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT" Left="542" Top="56" Width="182" Height="25" />	
+	</Layout>
+</root>
