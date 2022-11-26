@@ -101,8 +101,9 @@
 #define IDD_ChildDLG_Tab_DailyAnalyze   31413
 #define IDD_ChildDLG_Tab_PhraseIn1Day   31414
 #define IDD_DLG_Common_Popup            31415
-#define IDD_ChildDLG_Tab_DailyAnalyze1  31416
 #define IDD_ChildDLG_Tab_Stocks         31416
+#define IDD_ChildDLG_Tab_PhraseIn1Day1  31417
+#define IDD_ChildDLG_Tab_PhraseIn1Week  31417
 #define ID_Menu_WorldEconomic           32780
 #define ID_Menu_BulkCommodity           32781
 #define ID_Menu_PoliticEconomicRelation 32784
