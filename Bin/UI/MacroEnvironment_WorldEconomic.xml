@@ -3,10 +3,11 @@
 	<Layout>	
 		<widget Name="美国" ClassName="CDlgDailyFutureContract" IDD="IDD_DLG_Common" Layout="DailyFutureContract.xml"  Left="0" Top="25" Width="700" Height="590" />		
 		<widget Name="中国" ClassName="CDlgDailyFutureContract" IDD="IDD_DLG_Common" Layout="DailyFutureContract.xml"  Left="0" Top="25" Width="700" Height="590" />
-		<widget Name="欧洲" ClassName="CDlgDailyFutureContract" IDD="IDD_DLG_Common" Layout="DailyFutureContract.xml"  Left="0" Top="25" Width="700" Height="590" />
-		<widget Name="英国" ClassName="CDlgDailyFutureContract" IDD="IDD_DLG_Common" Layout="DailyFutureContract.xml"  Left="0" Top="25" Width="700" Height="590" />		
-		<widget Name="日本" ClassName="CDlgDailyFutureContract" IDD="IDD_DLG_Common" Layout="DailyFutureContract.xml"  Left="0" Top="25" Width="700" Height="590" />
 		<widget Name="俄罗斯" ClassName="CDlgDailyFutureContract" IDD="IDD_DLG_Common" Layout="DailyFutureContract.xml"  Left="0" Top="25" Width="700" Height="590" />
+		<widget Name="欧洲" ClassName="CDlgDailyFutureContract" IDD="IDD_DLG_Common" Layout="DailyFutureContract.xml"  Left="0" Top="25" Width="700" Height="590" />		
+		<widget Name="英国" ClassName="CDlgDailyFutureContract" IDD="IDD_DLG_Common" Layout="DailyFutureContract.xml"  Left="0" Top="25" Width="700" Height="590" />
+		<widget Name="日本" ClassName="CDlgDailyFutureContract" IDD="IDD_DLG_Common" Layout="DailyFutureContract.xml"  Left="0" Top="25" Width="700" Height="590" />
+		<widget Name="印度" ClassName="CDlgDailyFutureContract" IDD="IDD_DLG_Common" Layout="DailyFutureContract.xml"  Left="0" Top="25" Width="700" Height="590" />
 		<widget Name="沙特" ClassName="CDlgDailyFutureContract" IDD="IDD_DLG_Common" Layout="DailyFutureContract.xml"  Left="0" Top="25" Width="700" Height="590" />
 	</Layout>
 </root>

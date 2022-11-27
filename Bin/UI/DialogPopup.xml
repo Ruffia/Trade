@@ -2,7 +2,7 @@
 <root>
 	<Layout>
 		<widget Name="MacroEnvironment_WorldEcnomic" Title="世界经济" ClassName="CDlgTab_WorldEcnomic"  IDD="IDD_DLG_Tab"  Layout="MacroEnvironment_WorldEconomic.xml"  Left="300" Top="180" Width="500" Height="580" />
-		<widget Name="Stock_StockPool" Title="股票池" ClassName="CDlgPopup_StockPool"  IDD="IDD_DLG_Common_Popup" Layout="Stock_StockPool.xml"  Left="300" Top="120" Width="680" Height="480" />
+		<widget Name="Stock_StockPool" Title="周线股票池" ClassName="CDlgPopup_StockPool"  IDD="IDD_DLG_Common_Popup" Layout="Stock_StockPool.xml"  Left="300" Top="120" Width="680" Height="480" />
 		<!--widget Name="DailyAnalyze" ClassName="CDlgDailyAnalyze"  IDD="IDD_ChildDLG_Tab_DailyAnalyze" Layout="DailyAnalyze.xml"  Left="290" Top="0" Width="700" Height="680" />
 		<widget Name="DailyTrades" ClassName="CDlgDailyTrades"  IDD="IDD_ChildDLG_Tab_DailyAnalyze" Layout="DailyTrades.xml"  Left="990" Top="0" Width="410" Height="680" /-->
 	</Layout>
