@@ -148,6 +148,7 @@
     <ClInclude Include="Tools\CollectiveComponentProvider.h" />
     <ClInclude Include="Tools\CursorDef.h" />
     <ClInclude Include="Tools\CustomButton.h" />
+    <ClInclude Include="Tools\CustomTabCtrl.h" />
     <ClInclude Include="Tools\DialogLayout.h" />
     <ClInclude Include="Tools\DialogPlaceHolder.h" />
     <ClInclude Include="Tools\DialogPlaceHolderComposite.h" />
@@ -162,6 +163,7 @@
     <ClInclude Include="Tools\pugiconfig.hpp" />
     <ClInclude Include="Tools\pugixml.hpp" />
     <ClInclude Include="Tools\StyleManager.h" />
+    <ClInclude Include="Tools\ThemeUtil.h" />
     <ClInclude Include="UIData.h" />
     <ClInclude Include="ViewTree.h" />
   </ItemGroup>
@@ -201,6 +203,7 @@
     <ClCompile Include="Tools\ChildDlgTab.cpp" />
     <ClCompile Include="Tools\CollectiveComponentProvider.cpp" />
     <ClCompile Include="Tools\CustomButton.cpp" />
+    <ClCompile Include="Tools\CustomTabCtrl.cpp" />
     <ClCompile Include="Tools\DialogLayout.cpp" />
     <ClCompile Include="Tools\DialogPlaceHolder.cpp" />
     <ClCompile Include="Tools\DialogPlaceHolderComposite.cpp" />
@@ -217,6 +220,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Tools\StyleManager.cpp" />
+    <ClCompile Include="Tools\ThemeUtil.cpp" />
     <ClCompile Include="UIData.cpp" />
     <ClCompile Include="ViewTree.cpp" />
   </ItemGroup>
@@ -256,4 +260,9 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="ADRTrade.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
 </Project>

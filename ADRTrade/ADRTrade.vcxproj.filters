@@ -186,6 +186,12 @@
     <ClInclude Include="Stock\DialogStock_TrackPhraseIn1Week.h">
       <Filter>Stock</Filter>
     </ClInclude>
+    <ClInclude Include="Tools\CustomTabCtrl.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\ThemeUtil.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ADRTrade.cpp">
@@ -328,6 +334,12 @@
     </ClCompile>
     <ClCompile Include="Stock\DialogStock_TrackPhraseIn1Week.cpp">
       <Filter>Stock</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\CustomTabCtrl.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\ThemeUtil.cpp">
+      <Filter>Tools</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

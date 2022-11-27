@@ -358,7 +358,7 @@ BEGIN
     END
     POPUP "股票"
     BEGIN
-        MENUITEM "股票池",                         ID_Menu_OpenStockPool
+        MENUITEM "周线股票池",                         ID_Menu_OpenStockPool
     END
     POPUP "帮助(&H)"
     BEGIN
@@ -798,7 +798,7 @@ END
 
 STRINGTABLE
 BEGIN
-    ID_Open_StockPool       "股票池"
+    ID_Open_StockPool       "周线股票池"
 END
 
 #endif    // 中文(简体，中国) resources
