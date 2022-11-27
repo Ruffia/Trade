@@ -2,9 +2,9 @@
 #include "Tools/DialogPlaceHolderComposite.h"
 #include "Factory.h"
 
-class CDlgStock:public CDialogPlaceHolderComposite
+class CDlgStockPool_Stock:public CDialogPlaceHolderComposite
 {
 public:
-	CDlgStock();
+	CDlgStockPool_Stock();
 	enum { IDD = IDD_DLG_Common };
 };

@@ -3,9 +3,9 @@
 #include "Factory.h"
 
 //¹ÉÆ±Tab
-class CDlgStocks :public CChildDlgTab
+class CDlgStockPool_Stocks :public CChildDlgTab
 {
 public:
-	CDlgStocks();
+	CDlgStockPool_Stocks();
 	enum { IDD = IDD_ChildDLG_Tab_Stocks };
 };

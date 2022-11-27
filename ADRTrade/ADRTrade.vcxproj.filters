@@ -171,12 +171,6 @@
     <ClInclude Include="Stock\DialogStockPool_StockTree.h">
       <Filter>Stock</Filter>
     </ClInclude>
-    <ClInclude Include="Stock\DialogStocks.h">
-      <Filter>Stock</Filter>
-    </ClInclude>
-    <ClInclude Include="Stock\DialogStock.h">
-      <Filter>Stock</Filter>
-    </ClInclude>
     <ClInclude Include="Stock\DialogStock_1DayAnalyze.h">
       <Filter>Stock</Filter>
     </ClInclude>
@@ -191,6 +185,12 @@
     </ClInclude>
     <ClInclude Include="Tools\ThemeUtil.h">
       <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Stock\DialogStockPool_Stock.h">
+      <Filter>Stock</Filter>
+    </ClInclude>
+    <ClInclude Include="Stock\DialogStockPool_Stocks.h">
+      <Filter>Stock</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -320,12 +320,6 @@
     <ClCompile Include="Stock\DialogStockPool_StockTree.cpp">
       <Filter>Stock</Filter>
     </ClCompile>
-    <ClCompile Include="Stock\DialogStocks.cpp">
-      <Filter>Stock</Filter>
-    </ClCompile>
-    <ClCompile Include="Stock\DialogStock.cpp">
-      <Filter>Stock</Filter>
-    </ClCompile>
     <ClCompile Include="Stock\DialogStock_1DayAnalyze.cpp">
       <Filter>Stock</Filter>
     </ClCompile>
@@ -340,6 +334,12 @@
     </ClCompile>
     <ClCompile Include="Tools\ThemeUtil.cpp">
       <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Stock\DialogStockPool_Stock.cpp">
+      <Filter>Stock</Filter>
+    </ClCompile>
+    <ClCompile Include="Stock\DialogStockPool_Stocks.cpp">
+      <Filter>Stock</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -134,9 +134,9 @@
     <ClInclude Include="PropertiesWnd.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
-    <ClInclude Include="Stock\DialogStock.h" />
+    <ClInclude Include="Stock\DialogStockPool_Stock.h" />
+    <ClInclude Include="Stock\DialogStockPool_Stocks.h" />
     <ClInclude Include="Stock\DialogStockPool_StockTree.h" />
-    <ClInclude Include="Stock\DialogStocks.h" />
     <ClInclude Include="Stock\DialogStock_1DayAnalyze.h" />
     <ClInclude Include="Stock\DialogStock_FundamentalAnalysis.h" />
     <ClInclude Include="Stock\DialogStock_TrackPhraseIn1Week.h" />
@@ -191,9 +191,9 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="Stock\DialogStock.cpp" />
+    <ClCompile Include="Stock\DialogStockPool_Stock.cpp" />
+    <ClCompile Include="Stock\DialogStockPool_Stocks.cpp" />
     <ClCompile Include="Stock\DialogStockPool_StockTree.cpp" />
-    <ClCompile Include="Stock\DialogStocks.cpp" />
     <ClCompile Include="Stock\DialogStock_1DayAnalyze.cpp" />
     <ClCompile Include="Stock\DialogStock_FundamentalAnalysis.cpp" />
     <ClCompile Include="Stock\DialogStock_TrackPhraseIn1Week.cpp" />
