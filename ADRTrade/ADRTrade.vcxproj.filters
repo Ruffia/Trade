@@ -192,6 +192,18 @@
     <ClInclude Include="Tools\ThemeUtil.h">
       <Filter>Tools</Filter>
     </ClInclude>
+    <ClInclude Include="Tools\CustomTabCtrlDlg.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\CustomTabCtrlLeftDlg.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\CustomTabCtrlLeftTopDlg.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\CustomTabCtrlTopDlg.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ADRTrade.cpp">
@@ -341,6 +353,18 @@
     <ClCompile Include="Tools\ThemeUtil.cpp">
       <Filter>Tools</Filter>
     </ClCompile>
+    <ClCompile Include="Tools\CustomTabCtrlDlg.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\CustomTabCtrlLeftDlg.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\CustomTabCtrlLeftTopDlg.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\CustomTabCtrlTopDlg.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="ADRTrade.rc">
@@ -426,6 +450,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="res\ADRTrade.rc2">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\cursor1.cur">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\DRAGMOVE.CUR">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\DRAGCOPY.CUR">
       <Filter>资源文件</Filter>
     </None>
   </ItemGroup>

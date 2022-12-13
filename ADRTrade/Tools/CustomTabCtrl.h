@@ -47,6 +47,15 @@
 
 #define MAX_LABEL_TEXT				30
 
+enum PositionType
+{
+	Left = 0,
+	Top,
+	Width,
+	Height,
+	Four,
+};
+
 typedef struct _CTC_NMHDR 
 {
     NMHDR hdr;

@@ -18,7 +18,9 @@
 #define IDR_ADRTradeTYPE                130
 #define ID_WINDOW_MANAGER               131
 #define ID_VIEW_FILEVIEW                133
+#define IDC_CURSORMOVE                  533
 #define ID_VIEW_CLASSVIEW               134
+#define IDC_CURSORCOPY                  534
 #define ID_PROPERTIES                   135
 #define ID_OPEN                         136
 #define ID_OPEN_WITH                    137
@@ -89,6 +91,7 @@
 #define IDD_DLG_Tab                     441
 #define IDC_Tree                        1000
 #define IDC_MultiSelect                 1002
+#define IDC_TAB                         6622
 #define IDC_TAB1                        6623
 #define IDC_Grid                        6631
 #define IDC_PROGRESS4Thread             14473
@@ -115,7 +118,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        310
+#define _APS_NEXT_RESOURCE_VALUE        311
 #define _APS_NEXT_COMMAND_VALUE         32790
 #define _APS_NEXT_CONTROL_VALUE         1000
 #define _APS_NEXT_SYMED_VALUE           310

@@ -358,7 +358,7 @@ BEGIN
     END
     POPUP "股票"
     BEGIN
-        MENUITEM "周线股票池",                         ID_Menu_OpenStockPool
+        MENUITEM "周线股票池",                       ID_Menu_OpenStockPool
     END
     POPUP "帮助(&H)"
     BEGIN
@@ -802,6 +802,24 @@ BEGIN
 END
 
 #endif    // 中文(简体，中国) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// 英语(美国) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Cursor
+//
+
+IDC_CURSORMOVE          CURSOR                  "res\\DRAGMOVE.CUR"
+IDC_CURSORCOPY          CURSOR                  "res\\DRAGCOPY.CUR"
+#endif    // 英语(美国) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
