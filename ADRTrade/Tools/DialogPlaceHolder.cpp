@@ -30,6 +30,16 @@ CDialogPlaceHolder::CDialogPlaceHolder(CWnd* pParent /*=NULL*/)
 
 CDialogPlaceHolder::~CDialogPlaceHolder()
 {
+	for (map<string,CWnd*>::iterator it = m_mapUIName2Wnd.begin();
+		it != m_mapUIName2Wnd.end();it++)
+	{
+		CWnd* pWnd = it->second;
+		if (pWnd)
+		{
+			delete pWnd;
+			pWnd = NULL;
+		}
+	}
 	m_mapUIName2Wnd.clear();
 }
 
@@ -89,8 +99,7 @@ void CDialogPlaceHolder::_InitLayOut()
 			CFont* pFont = CCollectiveComponentProvider::Instance().GetFont();
 			pTree->SetFont(pFont);
 			pTree->ShowWindow(SW_SHOW);
-			shared_ptr<CEditTreeCtrlEx> ptr(pTree);
-			m_mapUIName2Wnd[sName] = ptr;	
+			m_mapUIName2Wnd[sName] = pTree;	
 		}
 		else if (data.m_strUIClassName.find("CEdit") != string::npos)
 		{
@@ -101,8 +110,7 @@ void CDialogPlaceHolder::_InitLayOut()
 			pEdit->SetFont(pFont);
 			pEdit->ShowWindow(SW_SHOW);
 			pEdit->SetWindowText(sCaption.c_str());
-			shared_ptr<CEdit> ptr(pEdit);
-			m_mapUIName2Wnd[sName] = ptr;	
+			m_mapUIName2Wnd[sName] = pEdit;	
 		}
 		else if (data.m_strUIClassName.find("CComBox") != string::npos)
 		{
@@ -117,13 +125,11 @@ void CDialogPlaceHolder::_InitLayOut()
 				nodeDropdownItem = nodeDropdownItem.next_sibling();
 			}
 
-
 			CFont* pFont = CCollectiveComponentProvider::Instance().GetFont();
 			pCombox->SetFont(pFont);
 			pCombox->ShowWindow(SW_SHOW);
 			pCombox->SetWindowText(sCaption.c_str());
-			shared_ptr<CComboBox> ptr(pCombox);
-			m_mapUIName2Wnd[sName] = ptr;	
+			m_mapUIName2Wnd[sName] = pCombox;	
 		}
 		node = node.next_sibling();
 	}
