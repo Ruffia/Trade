@@ -18,7 +18,9 @@
 #define IDR_ADRTradeTYPE                130
 #define ID_WINDOW_MANAGER               131
 #define ID_VIEW_FILEVIEW                133
+#define IDC_CURSORMOVE                  133
 #define ID_VIEW_CLASSVIEW               134
+#define IDC_CURSORCOPY                  134
 #define ID_PROPERTIES                   135
 #define ID_OPEN                         136
 #define ID_OPEN_WITH                    137
@@ -91,6 +93,7 @@
 #define IDC_MultiSelect                 1002
 #define IDC_TAB1                        6623
 #define IDC_Grid                        6631
+#define IDC_TAB                         6632
 #define IDC_PROGRESS4Thread             14473
 #define IDC_STATIC_TEXT                 14474
 #define IDC_STATIC_PROGRESS             14475

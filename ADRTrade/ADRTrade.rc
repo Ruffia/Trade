@@ -358,7 +358,7 @@ BEGIN
     END
     POPUP "股票"
     BEGIN
-        MENUITEM "周线股票池",                         ID_Menu_OpenStockPool
+        MENUITEM "周线股票池",                       ID_Menu_OpenStockPool
     END
     POPUP "帮助(&H)"
     BEGIN
@@ -442,7 +442,6 @@ IDD_ChildDLG_Tab DIALOGEX 0, 0, 395, 254
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,14,14,236,223
 END
 
 IDD_ChildDLG_Tab_DailyAnalyze DIALOGEX 0, 0, 480, 383
@@ -478,7 +477,6 @@ IDD_ChildDLG_Tab_Stocks DIALOGEX 0, 0, 328, 232
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,7,6,312,219
 END
 
 IDD_ChildDLG_Tab_PhraseIn1Week DIALOGEX 0, 0, 327, 173
@@ -802,6 +800,24 @@ BEGIN
 END
 
 #endif    // 中文(简体，中国) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// 英语(美国) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Cursor
+//
+
+IDC_CURSORMOVE          CURSOR                  "res\\DRAGMOVE.CUR"
+IDC_CURSORCOPY          CURSOR                  "res\\DRAGCOPY.CUR"
+#endif    // 英语(美国) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

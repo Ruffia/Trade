@@ -192,6 +192,12 @@
     <ClInclude Include="Stock\DialogStockPool_Stocks.h">
       <Filter>Stock</Filter>
     </ClInclude>
+    <ClInclude Include="Tools\CustomTabCtrlItem.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\CustomTabCtrlDlg.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ADRTrade.cpp">
@@ -341,6 +347,12 @@
     <ClCompile Include="Stock\DialogStockPool_Stocks.cpp">
       <Filter>Stock</Filter>
     </ClCompile>
+    <ClCompile Include="Tools\CustomTabCtrlItem.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\CustomTabCtrlDlg.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="ADRTrade.rc">
@@ -426,6 +438,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="res\ADRTrade.rc2">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\DRAGMOVE.CUR">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\DRAGCOPY.CUR">
       <Filter>资源文件</Filter>
     </None>
   </ItemGroup>

@@ -13,6 +13,7 @@
 #include "ADRTradeDayView.h"
 #include "Util.h"
 #include "Tools/DialogPlaceHolder.h"
+#include "Tools/DialogPlaceHolderComposite.h"
 #include "Tools/ChildDlgTab.h"
 #include "Factory.h"
 #include "DialogIDManager.h"
@@ -176,10 +177,18 @@ void CADRTradeDayView::OnInitialUpdate()
 		}
 		else
 		{
-			CChildDlgTab* pTabWnd = dynamic_cast<CChildDlgTab*>(pDlg);
-			if (pTabWnd)
+	        CDialogPlaceHolderComposite* pCompositeDlg = dynamic_cast<CDialogPlaceHolderComposite*>(pDlg);
+			if (pCompositeDlg)
 			{
-				pTabWnd->SetLayout(UIData.m_strLayout);
+				pCompositeDlg->SetLayout(UIData.m_strLayout);
+			}
+			else
+			{
+				CChildDlgTab* pTabWnd = dynamic_cast<CChildDlgTab*>(pDlg);
+				if (pTabWnd)
+				{
+					pTabWnd->SetLayout(UIData.m_strLayout);
+				}
 			}
 		}
 		pDlg->Create(nIDD,this);

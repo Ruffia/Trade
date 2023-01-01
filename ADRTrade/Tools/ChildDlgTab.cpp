@@ -32,7 +32,6 @@ CChildDlgTab::~CChildDlgTab()
 void CChildDlgTab::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
-	DDX_Control(pDX, IDC_TAB1, m_Tab);
 }
 
 
@@ -55,7 +54,7 @@ void CChildDlgTab::ShowPage(const int nCurPage)
 {
 	for (int i = 0; i < m_vPage.size();i++)
 	{
-		shared_ptr<CDialog> pPage = m_vPage[i];
+		CDialog* pPage = m_vPage[i];
 		if (!pPage) continue;
 		if (nCurPage == i)
 		{
@@ -71,7 +70,7 @@ void CChildDlgTab::ShowPage(const int nCurPage)
 void CChildDlgTab::OnTcnSelchangeTabLog(NMHDR *pNMHDR, LRESULT *pResult)
 {
 	// TODO: 在此添加控件通知处理程序代码
-	const int nCurSel = m_Tab.GetCurSel();
+	const int nCurSel = m_pTab->GetCurSel();
 	ShowPage(nCurSel);  
 	*pResult = 0;
 }
@@ -86,21 +85,21 @@ void CChildDlgTab::OnSize(UINT nType, int cx, int cy)
 
 void CChildDlgTab::_InitLayOut()
 {
+	CRect rc;
+	GetClientRect(rc);
+
+	m_pTab = new CCustomTabCtrl;
+	CRect rcTab(rc.left,rc.top,rc.left + rc.Width() - 10,rc.top + rc.Height() - 30);
+	m_pTab->Create(WS_CHILD|WS_VISIBLE|WS_BORDER|CTCS_DRAGMOVE|CTCS_TOP|CTCS_EDITLABELS|CTCS_CLOSEBUTTON|CTCS_AUTOHIDEBUTTONS|CTCS_MULTIHIGHLIGHT|CTCS_DRAGCOPY|CTCS_TOP,rcTab,this,IDC_TAB1);
+
 	string sFileName = GetModulePath() + "/UI/" + m_sLayout;
 	if (!m_doc.load_file(sFileName.c_str())) 
 	{ //加载xml文件
 		return;
 	}
 
-	CRect rc;
-	GetClientRect(rc);
-	m_Tab.MoveWindow(rc.left,rc.top,rc.Width() - 10,rc.Height() - 10);
-
-	CRect rcTab;
-	m_Tab.GetClientRect(rcTab);
-
 	CFont* pFont = CCollectiveComponentProvider::Instance().GetFont();
-	m_Tab.SetFont(pFont);
+	m_pTab->SetFont(pFont);
 
 	int nCount = 0;
 	xml_node root = m_doc.child("root");  //根节点
@@ -150,14 +149,11 @@ void CChildDlgTab::_InitLayOut()
 			}
 		}
 
-		pDlg->Create(nIDD,&m_Tab);
-		pDlg->SetParent(&m_Tab);
+		pDlg->Create(nIDD,m_pTab);
 		pDlg->MoveWindow(&rcHold);
 
-		m_Tab.InsertItem(nCount,sName.c_str());
-
-		shared_ptr<CDialog> ptr(pDlg);
-		m_vPage.push_back(ptr);
+		m_pTab->InsertItem(nCount,sName.c_str(),(LPARAM)this);
+		m_vPage.push_back(pDlg);
 		data.m_pWnd = pDlg;
 
 		nCount++;

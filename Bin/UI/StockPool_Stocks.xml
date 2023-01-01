@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="gbk"?>
+<root>
+	<Layout>		
+		<widget Name="股票01" ClassName="CDlgStockPool_Stock" IDD="IDD_DLG_Common" Layout="Stock_Track.xml"  Left="0" Top="25" Width="304" Height="640" />
+		<widget Name="股票02" ClassName="CDlgStockPool_Stock" IDD="IDD_DLG_Common" Layout="Stock_Track.xml"  Left="0" Top="25" Width="304" Height="640" />	
+	</Layout>
+</root>

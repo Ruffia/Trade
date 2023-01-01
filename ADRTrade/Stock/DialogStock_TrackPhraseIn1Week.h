@@ -1,10 +1,10 @@
 #pragma once
-#include "Tools/ChildDlgTab.h"
+#include "Tools/DialogPlaceHolder.h"
 #include "Factory.h"
 
-class CDialogStock_TrackPhraseIn1Week :public CChildDlgTab
+class CDialogStock_TrackPhraseIn1Week :public CDialogPlaceHolder
 {
 public:
 	CDialogStock_TrackPhraseIn1Week();
-	enum { IDD = IDD_ChildDLG_Tab_PhraseIn1Week };
+	enum { IDD = IDD_DLG_Common };
 };

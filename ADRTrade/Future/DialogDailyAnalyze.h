@@ -1,10 +1,10 @@
 #pragma once
-#include "Tools/ChildDlgTab.h"
+#include "Tools/DialogPlaceHolderComposite.h"
 
 //√ø»’∑÷Œˆ
-class CDlgDailyAnalyze :public CChildDlgTab
+class CDlgDailyAnalyze :public CDialogPlaceHolderComposite
 {
 public:
 	CDlgDailyAnalyze();
-	enum { IDD = IDD_ChildDLG_Tab_DailyAnalyze };
+	enum { IDD = IDD_DLG_Common };
 };

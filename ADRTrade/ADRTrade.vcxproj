@@ -149,6 +149,8 @@
     <ClInclude Include="Tools\CursorDef.h" />
     <ClInclude Include="Tools\CustomButton.h" />
     <ClInclude Include="Tools\CustomTabCtrl.h" />
+    <ClInclude Include="Tools\CustomTabCtrlDlg.h" />
+    <ClInclude Include="Tools\CustomTabCtrlItem.h" />
     <ClInclude Include="Tools\DialogLayout.h" />
     <ClInclude Include="Tools\DialogPlaceHolder.h" />
     <ClInclude Include="Tools\DialogPlaceHolderComposite.h" />
@@ -204,6 +206,8 @@
     <ClCompile Include="Tools\CollectiveComponentProvider.cpp" />
     <ClCompile Include="Tools\CustomButton.cpp" />
     <ClCompile Include="Tools\CustomTabCtrl.cpp" />
+    <ClCompile Include="Tools\CustomTabCtrlDlg.cpp" />
+    <ClCompile Include="Tools\CustomTabCtrlItem.cpp" />
     <ClCompile Include="Tools\DialogLayout.cpp" />
     <ClCompile Include="Tools\DialogPlaceHolder.cpp" />
     <ClCompile Include="Tools\DialogPlaceHolderComposite.cpp" />
@@ -256,6 +260,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="res\ADRTrade.rc2" />
+    <None Include="res\DRAGCOPY.CUR" />
+    <None Include="res\DRAGMOVE.CUR" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

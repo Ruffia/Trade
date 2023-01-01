@@ -4,7 +4,7 @@
 #include "ADRTrade.h"
 #include "DialogPlaceHolderComposite.h"
 #include "DialogPlaceHolder.h"
-#include "Tools/ChildDlgTab.h"
+#include "Tools/CustomTabCtrlDlg.h"
 #include "afxdialogex.h"
 #include "Factory.h"
 #include "DialogIDManager.h"
@@ -98,7 +98,7 @@ void CDialogPlaceHolderComposite::_InitLayOut()
 		}
 		else
 		{
-			CChildDlgTab* pTabWnd = dynamic_cast<CChildDlgTab*>(pDlg);
+			CCustomTabCtrlDlg* pTabWnd = dynamic_cast<CCustomTabCtrlDlg*>(pDlg);
 			if (pTabWnd)
 			{
 				pTabWnd->SetLayout(data.m_strLayout);

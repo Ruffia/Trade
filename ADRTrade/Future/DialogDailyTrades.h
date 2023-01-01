@@ -1,9 +1,9 @@
 #pragma once
-#include "Tools/ChildDlgTab.h"
+#include "Tools/DialogPlaceHolder.h"
 #include "Factory.h"
 
 //每日交易
-class CDlgDailyTrades :public CChildDlgTab
+class CDlgDailyTrades :public CDialogPlaceHolder
 {
 public:
 	CDlgDailyTrades();

@@ -1,4 +1,6 @@
 #pragma once
+#include <vector>
+using namespace std;
 #include "CustomTabCtrlItem.h"
 
 // CCustomTabCtrl
@@ -70,6 +72,15 @@
 
 #define CustomTabCtrl_CLASSNAME    _T("CCustomTabCtrl")  // Window class name
 
+enum PositionType
+{
+	Left = 0,
+	Top,
+	Width,
+	Height,
+	Four,
+};
+
 class CCustomTabCtrl : public CWnd
 {
 public:
@@ -82,7 +93,7 @@ public:
 
 	// Attributes
 
-	int							GetItemCount() {return m_aItems.GetSize();}
+	int							GetItemCount() {return m_aItems.size();}
 	int							GetCurSel() { return m_nItemSelected; }
 	int							SetCurSel(int nItem);
 	int							IsItemHighlighted(int nItem);
@@ -180,5 +191,5 @@ private:
 	MY_MARGINS					m_mrgnRight;
 	CToolTipCtrl				m_ctrlToolTip;
 	CEdit						m_ctrlEdit;
-	CArray <CCustomTabCtrlItem*,CCustomTabCtrlItem*>	m_aItems;
+	vector<CCustomTabCtrlItem*>	m_aItems;
 };

@@ -9,6 +9,7 @@
 #include "Tools/StyleManager.h"
 #include "DialogPlaceHolder.h"
 #include "DialogPlaceHolderComposite.h"
+#include "CustomTabCtrlDlg.h"
 #include "ChildDlgTab.h"
 #include "UIData.h"
 #include "Tools/CollectiveComponentProvider.h"
@@ -104,6 +105,14 @@ void CDialogPopup::_InitLayOut()
 				if (pDlgComposite)
 				{
 					pDlgComposite->SetLayout(data.m_strLayout);
+				}
+				else
+				{
+					CCustomTabCtrlDlg* pCustomTabCtrlDlg = dynamic_cast<CCustomTabCtrlDlg*>(pDlg);
+					if (pCustomTabCtrlDlg)
+					{
+						pCustomTabCtrlDlg->SetLayout(data.m_strLayout);
+					}
 				}
 			}
 		}

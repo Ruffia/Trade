@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 using namespace std;
+#include "CustomTabCtrl.h"
 #include "Tools/pugixml.hpp"
 #include "Tools/pugiconfig.hpp"
 using namespace pugi;
@@ -46,7 +47,7 @@ protected:
 public:
 	string m_sLayout;    //页面布局配置文件
 	xml_document m_doc;
-	CTabCtrl m_Tab;
+	CCustomTabCtrl* m_pTab;
 	int m_CurSelTab;
-	vector<shared_ptr<CDialog>> m_vPage; 
+	vector<CDialog*> m_vPage; 
 };
