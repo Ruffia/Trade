@@ -154,6 +154,22 @@ int CDBDataManager::LoadData(const string& strSQL,const string& strTableName, CD
 }
 
 
+bool CDBDataManager::Exists(const string& strTableName,const string& strFieldName, const string& strFieldDataType,const FieldValue& v)
+{
+	if (strFieldDataType == "string")
+	{
+
+	}
+	else if (strFieldDataType == "int" || strFieldDataType == "integer" )
+	{
+	}
+	else if (strFieldDataType == "float" || strFieldDataType == "double" || strFieldDataType == "decimal")
+	{
+	}
+
+	return false;
+}
+
 bool CDBDataManager::Exec(const string strSQL)
 {
 	CString strErr;

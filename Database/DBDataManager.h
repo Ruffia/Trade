@@ -20,11 +20,9 @@ public:
 	bool OpenDatabase(const CString& sDatabaseFile);
 	void Close();
 
-	//打开日志数据库,并加载元数据
+	//打开数据库,并加载元数据
 	bool InitializeDatabase();
 
-	//初始化电源类型,CPS3603 or Spellman771
-	void SetHVType(DWORD dwHVtype);
 
 	//加载"表-->字段"元数据
 	void LoadFieldMetaData(const string &sTableName);
@@ -37,6 +35,13 @@ public:
 	//ds,输出参数，保存数据
 	//mapFieldName2FieldDesc
 	int LoadData(const string& strDataSource,const string& strTable, CDataSet& ds);
+
+	//判断是否存在满足特定条件的记录
+	//strTableName       表名
+	//strFieldName       字段名
+	//strFieldDataType   字段数据类型
+	//FieldValue& v      字段值
+	bool Exists(const string& strTableName,const string& strFieldName, const string& strFieldDataType,const FieldValue& v);
 
 	//执行特定SQL
 	bool Exec(const string strSQL);
