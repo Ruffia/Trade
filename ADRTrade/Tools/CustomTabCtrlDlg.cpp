@@ -153,25 +153,6 @@ void CCustomTabCtrlDlg::_InitPage(CRect& rcTab)
 		node = node.next_sibling();
 	}
 
-	//m_pTab->InsertItem(0,"SS_BLACKRECT");
-	//m_pTab->SetItemData(0,SS_BLACKRECT);
-	//m_pTab->InsertItem(1,"SS_GRAY");
-	//m_pTab->SetItemData(1,SS_GRAYRECT);
-	//m_pTab->InsertItem(2,"SS_WHITERECT");
-	//m_pTab->SetItemData(2,SS_WHITERECT);
-	//m_pTab->SetCurSel(0);
-
-	//CDlgSEMLog_OperationQueryKeyWordSettings* pDlgOperationKeyWord = new CDlgSEMLog_OperationQueryKeyWordSettings;
-	//pDlgOperationKeyWord->Create(CDlgSEMLog_OperationQueryKeyWordSettings::IDD, this);
-	//m_vPage.push_back(pDlgOperationKeyWord);
-
-	//CDlgSEMLog_GridHeaderSettings* pDlgGridHeader = new CDlgSEMLog_GridHeaderSettings;
-	//pDlgGridHeader->Create(CDlgSEMLog_GridHeaderSettings::IDD, this);
-	//m_vPage.push_back(pDlgGridHeader);
-
-	//CDlgSEMLog_PageB* pDlgGridHeader2 = new CDlgSEMLog_PageB;
-	//pDlgGridHeader2->Create(CDlgSEMLog_PageB::IDD, this);
-	//m_vPage.push_back(pDlgGridHeader2);
 }
 
 void CCustomTabCtrlDlg::OnSize(UINT nType, int cx, int cy) 
