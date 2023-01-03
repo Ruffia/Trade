@@ -21,7 +21,7 @@ public:
 	void Close();
 
 	//打开日志数据库,并加载元数据
-	bool InitializeLogDatabase();
+	bool InitializeDatabase();
 
 	//初始化电源类型,CPS3603 or Spellman771
 	void SetHVType(DWORD dwHVtype);
@@ -49,18 +49,10 @@ public:
 	//过滤"表-->字段"元数据
 	void GetFieldMetaData(const string &sTableName,vector<string>& vFieldID);
 
-	//返回主数据表名称 CPS3603，Spellman771
-	string GetLogTableName()
-	{
-		return m_strTableName;
-	}
-
 private:
 	CSQLiteDatabase m_db;
 	//表名--->表元数据
 	map<string,TableMeta>   m_mapTable2Meta;
 	//根据条件过滤出来部分字段
 	map<string,CFieldDesc*> m_mapFieldName2FieldDescFilter;
-	DWORD     m_dwHVtype;       //电源类型,0 -- CPS3603, 1 -- Spellman771
-	string    m_strTableName;   //主数据表名称 CPS3603，Spellman771
 };

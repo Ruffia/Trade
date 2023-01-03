@@ -2,7 +2,7 @@
 #include "DBDataManager.h"
 
 
-CDBDataManager::CDBDataManager():m_dwHVtype(1),m_strTableName("")
+CDBDataManager::CDBDataManager()
 {
 	m_mapTable2Meta.clear();
 }
@@ -71,11 +71,6 @@ void CDBDataManager::GetMetaFilter(const string& strTableName,vector<string>& vF
 	}
 }
 
-void CDBDataManager::SetHVType(DWORD dwHVtype)
-{
-	m_dwHVtype = dwHVtype;
-	m_strTableName = dwHVtype < 0? "CPS3603":"Spellman771";
-}
 
 int CDBDataManager::LoadData(const string& strSQL,const string& strTableName, CDataSet& ds)
 {
@@ -329,7 +324,7 @@ void CDBDataManager::LoadFieldAttribute(const string &sTableName)
 
 
 
-bool CDBDataManager::InitializeLogDatabase()
+bool CDBDataManager::InitializeDatabase()
 {
 	char exeFullPath[255] = {0};
 	GetModuleFileNameA(NULL,exeFullPath,MAX_PATH);
@@ -345,9 +340,8 @@ bool CDBDataManager::InitializeLogDatabase()
 	bool bRet = OpenDatabase(path);
 	if(!bRet) return false;
 
-	string sViewName = GetLogTableName();
-	LoadFieldMetaData(sViewName);
-	LoadFieldAttribute(sViewName);
+	//LoadFieldMetaData(sViewName);
+	//LoadFieldAttribute(sViewName);
 	LoadFieldMetaData("OperationLog");
 	LoadFieldAttribute("OperationLog");
 	LoadFieldMetaData("Settings");
