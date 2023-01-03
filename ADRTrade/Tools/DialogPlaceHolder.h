@@ -7,8 +7,25 @@ using namespace std;
 #include "Tools/pugiconfig.hpp"
 using namespace pugi;
 #include "Business/AbstractObject.h"
+#include "DialogIDManager.h"
 
 // CDialogPlaceHolder ¶Ô»°¿ò
+
+#define DefineClass(ClassName,BaseClass,ID) \
+ class ClassName: public BaseClass  \
+ {                                  \
+   public:                          \
+	 ClassName();                   \
+	 enum { IDD = ID };             \
+};                                  \
+
+
+#define ImplementClass(ClassName,BaseClass)                       \
+IMPLEMENT_FACTORY(CDialog,ClassName,string,#ClassName)            \
+ClassName::ClassName()                                            \
+{                                                                 \
+	CDialogIDMgr::Instance().Register(#ClassName,ClassName::IDD); \
+}                                                                 \
 
 class CDialogPlaceHolder : public CDialog
 {
