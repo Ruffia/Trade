@@ -141,33 +141,6 @@
     <ClInclude Include="Stock\DlgPopup_StockPool.h">
       <Filter>Stock</Filter>
     </ClInclude>
-    <ClInclude Include="Future\DailyMacroEnvironmentDlg.h">
-      <Filter>Future</Filter>
-    </ClInclude>
-    <ClInclude Include="Future\DialogDailyAnalyze.h">
-      <Filter>Future</Filter>
-    </ClInclude>
-    <ClInclude Include="Future\DialogDailyTrades.h">
-      <Filter>Future</Filter>
-    </ClInclude>
-    <ClInclude Include="Future\DialogDailyTrades_SingleTradeTrack.h">
-      <Filter>Future</Filter>
-    </ClInclude>
-    <ClInclude Include="Future\DialogDailyTradeSummarize.h">
-      <Filter>Future</Filter>
-    </ClInclude>
-    <ClInclude Include="Future\DialogFutureContract.h">
-      <Filter>Future</Filter>
-    </ClInclude>
-    <ClInclude Include="Future\DialogFutureContract_LongPeriodicAnalyze.h">
-      <Filter>Future</Filter>
-    </ClInclude>
-    <ClInclude Include="Future\DialogFutureContract_MinorCycleAnalyze.h">
-      <Filter>Future</Filter>
-    </ClInclude>
-    <ClInclude Include="Future\DialogFutureContract_TrackPhraseIn1Day.h">
-      <Filter>Future</Filter>
-    </ClInclude>
     <ClInclude Include="Stock\DialogStockPool_StockTree.h">
       <Filter>Stock</Filter>
     </ClInclude>
@@ -197,6 +170,9 @@
     </ClInclude>
     <ClInclude Include="Tools\CustomTabCtrlDlg.h">
       <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Future\FutureContract_TradeDialogs.h">
+      <Filter>Future</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -296,33 +272,6 @@
     <ClCompile Include="Stock\DlgPopup_StockPool.cpp">
       <Filter>Stock</Filter>
     </ClCompile>
-    <ClCompile Include="Future\DailyMacroEnvironmentDlg.cpp">
-      <Filter>Future</Filter>
-    </ClCompile>
-    <ClCompile Include="Future\DialogDailyAnalyze.cpp">
-      <Filter>Future</Filter>
-    </ClCompile>
-    <ClCompile Include="Future\DialogDailyTrades.cpp">
-      <Filter>Future</Filter>
-    </ClCompile>
-    <ClCompile Include="Future\DialogDailyTrades_SingleTradeTrack.cpp">
-      <Filter>Future</Filter>
-    </ClCompile>
-    <ClCompile Include="Future\DialogDailyTradeSummarize.cpp">
-      <Filter>Future</Filter>
-    </ClCompile>
-    <ClCompile Include="Future\DialogFutureContract.cpp">
-      <Filter>Future</Filter>
-    </ClCompile>
-    <ClCompile Include="Future\DialogFutureContract_LongPeriodicAnalyze.cpp">
-      <Filter>Future</Filter>
-    </ClCompile>
-    <ClCompile Include="Future\DialogFutureContract_MinorCycleAnalyze.cpp">
-      <Filter>Future</Filter>
-    </ClCompile>
-    <ClCompile Include="Future\DialogFutureContract_TrackPhraseIn1Day.cpp">
-      <Filter>Future</Filter>
-    </ClCompile>
     <ClCompile Include="Stock\DialogStockPool_StockTree.cpp">
       <Filter>Stock</Filter>
     </ClCompile>
@@ -352,6 +301,9 @@
     </ClCompile>
     <ClCompile Include="Tools\CustomTabCtrlDlg.cpp">
       <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Future\FutureContract_TradeDialogs.cpp">
+      <Filter>Future</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
