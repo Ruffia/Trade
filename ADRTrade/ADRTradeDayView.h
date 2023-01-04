@@ -40,6 +40,8 @@ public:
 protected:
 	virtual void OnInitialUpdate();
 	virtual void _LoadLayout();
+	void _LoadDataFromDB();
+	void _CreateUI();
 
 // 生成的消息映射函数
 protected:

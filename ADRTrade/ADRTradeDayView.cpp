@@ -160,18 +160,23 @@ void CADRTradeDayView::_LoadLayout()
 
 void CADRTradeDayView::OnInitialUpdate()
 {
-	COleDateTime dtNOw = COleDateTime::GetCurrentTime();
-	CString strDate = dtNOw.Format("%Y-%m-%d");
+	_LoadDataFromDB();
+	_CreateUI();
+	__super::OnInitialUpdate();
+}
 
-	FieldValue v;
-	v.SetDataType("string");
-	v.SetValueString((LPSTR)(LPCTSTR)strDate);
-	bool bExist = CDBDataManager::Instance().RecordExists("Trade_DailyMacroEnvironmentAnalyze","TradeDay","string",v);
-	if (!bExist)
-	{
-		CDBDataManager::Instance().InsertRecordWithPrimaryKey("Trade_DailyMacroEnvironmentAnalyze","TradeDay","string",v);
-	}
 
+int CADRTradeDayView::OnCreate(LPCREATESTRUCT lpCreateStruct)
+{
+	if (__super::OnCreate(lpCreateStruct) == -1)
+		return -1;
+
+	return 0;
+}
+
+
+void CADRTradeDayView::_CreateUI()
+{
 	CRect rc;
 	GetClientRect(rc);
 
@@ -190,7 +195,7 @@ void CADRTradeDayView::OnInitialUpdate()
 		}
 		else
 		{
-	        CDialogPlaceHolderComposite* pCompositeDlg = dynamic_cast<CDialogPlaceHolderComposite*>(pDlg);
+			CDialogPlaceHolderComposite* pCompositeDlg = dynamic_cast<CDialogPlaceHolderComposite*>(pDlg);
 			if (pCompositeDlg)
 			{
 				pCompositeDlg->SetLayout(UIData.m_strLayout);
@@ -208,17 +213,21 @@ void CADRTradeDayView::OnInitialUpdate()
 		CRect rcDialog(rc.left + UIData.m_nLeft,rc.top + UIData.m_nTop,rc.left + UIData.m_nLeft + UIData.m_nWidth,rc.top + UIData.m_nHeight);
 		pDlg->MoveWindow(rcDialog);	
 		pDlg->ShowWindow(SW_SHOW);
-        UIData.m_pWnd = pDlg;	
+		UIData.m_pWnd = pDlg;	
 	}
-
-	__super::OnInitialUpdate();
 }
 
-
-int CADRTradeDayView::OnCreate(LPCREATESTRUCT lpCreateStruct)
+void CADRTradeDayView::_LoadDataFromDB()
 {
-	if (__super::OnCreate(lpCreateStruct) == -1)
-		return -1;
+	COleDateTime dtNOw = COleDateTime::GetCurrentTime();
+	CString strDate = dtNOw.Format("%Y-%m-%d");
 
-	return 0;
+	FieldValue v;
+	v.SetDataType("string");
+	v.SetValueString((LPSTR)(LPCTSTR)strDate);
+	bool bExist = CDBDataManager::Instance().RecordExists("Trade_DailyMacroEnvironmentAnalyze","TradeDay","string",v);
+	if (!bExist)
+	{
+		CDBDataManager::Instance().InsertRecordWithPrimaryKey("Trade_DailyMacroEnvironmentAnalyze","TradeDay","string",v);
+	}
 }
