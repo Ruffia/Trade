@@ -11,6 +11,7 @@
 #include "ChildFrm.h"
 #include "ADRTradeDayDoc.h"
 #include "ADRTradeDayView.h"
+#include "DBDataManager.h"
 #include "Tools/StyleManager.h"
 
 #ifdef _DEBUG
@@ -110,6 +111,7 @@ BOOL CADRTradeApp::InitInstance()
 	theApp.GetTooltipManager()->SetTooltipParams(AFX_TOOLTIP_TYPE_ALL,
 		RUNTIME_CLASS(CMFCToolTipCtrl), &ttParams);
 
+	CDBDataManager::Instance().InitializeDatabase("TradeTrack.db");
 	CStyleMgr::Instance().Initialize();
 	// 注册应用程序的文档模板。文档模板
 	// 将用作文档、框架窗口和视图之间的连接
