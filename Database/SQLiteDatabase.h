@@ -48,7 +48,7 @@ public:
 	virtual BOOL BindParam    (CAbstractRecordset *pRecordset, int index, LPCTSTR szValue , CString &sError);
 	virtual BOOL BindParam    (CAbstractRecordset *pRecordset, int index, double  fValue  , CString &sError);
 	virtual BOOL Rewind       (CAbstractRecordset *pRecordset, CString &sError);
-private:
+public:
 	BOOL m_bTransaction;
 	sqlite3 *m_pDatabase;
 	CString GetLastError();
