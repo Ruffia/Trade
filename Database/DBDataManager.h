@@ -21,7 +21,7 @@ public:
 	void Close();
 
 	//打开数据库,并加载元数据
-	bool InitializeDatabase();
+	bool InitializeDatabase(const char* sDataBase);
 
 
 	//加载"表-->字段"元数据
@@ -41,7 +41,9 @@ public:
 	//strFieldName       字段名
 	//strFieldDataType   字段数据类型
 	//FieldValue& v      字段值
-	bool Exists(const string& strTableName,const string& strFieldName, const string& strFieldDataType,const FieldValue& v);
+	bool RecordExists(const string& strTableName,const string& strFieldName, const string& strFieldDataType, FieldValue& v);
+
+	bool InsertRecordWithPrimaryKey(const string& strTableName,const string& strFieldName, const string& strFieldDataType, FieldValue& v);
 
 	//执行特定SQL
 	bool Exec(const string strSQL);
