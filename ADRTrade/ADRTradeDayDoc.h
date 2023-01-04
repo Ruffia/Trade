@@ -1,10 +1,7 @@
 
 // ADRTradeDoc.h : CADRTradeDayDoc 类的接口
 //
-
-
 #pragma once
-#include "Business/AbstractObject.h"
 
 class CADRTradeDayDoc : public CDocument
 {

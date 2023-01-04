@@ -430,15 +430,40 @@ bool CDBDataManager::InitializeDatabase(const char* sDataBase)
 	//打开数据库
 	bool bRet = OpenDatabase(path);
 	if(!bRet) return false;
+	
+	string strSQL = "select * from Business";
 
-	//LoadFieldMetaData(sViewName);
-	//LoadFieldAttribute(sViewName);
-	LoadFieldMetaData("OperationLog");
-	LoadFieldAttribute("OperationLog");
-	LoadFieldMetaData("Settings");
-	LoadFieldAttribute("Settings");
-	LoadFieldMetaData("AlarmLog");
-	LoadFieldAttribute("AlarmLog");
+	CString sError = "";
+	CAbstractRecordset *pRecordset = NULL;
+	BOOL bQuery = m_db.Query(strSQL.c_str(),sError,&pRecordset);
+	if (!bQuery) {
+		return false;
+	}
+
+	vector<string> vBusiness;
+	while (pRecordset->Next())
+	{
+		const int nColumnCount = pRecordset->GetFieldCount();
+		for (int i = 0; i < nColumnCount; i++)
+		{	
+			string sFieldName = pRecordset->GetFieldName(i);
+			string sValue = pRecordset->AsString(i);
+			vBusiness.push_back(sValue);
+		}
+	}
+
+	if (pRecordset)
+	{
+		pRecordset->Close();
+		delete pRecordset;
+		pRecordset = NULL;
+	}
+
+	for (int i = 0; i < vBusiness.size(); i++)
+	{
+		const string& strTableName = vBusiness[i];
+		LoadFieldMetaData(strTableName);
+	}
 
 	return true;
 }

@@ -3,23 +3,27 @@
 #include <memory>
 #include <map>
 using namespace std;
+#include "FieldMeta.h"
 #include "Attribute.h"
 
-class IAbstractObject
+class IBusinessNode
 {
 public:
-	IAbstractObject();
-	virtual ~IAbstractObject();
+	IBusinessNode();
+	virtual ~IBusinessNode();
 
-	void SetName(const string& sName)
+	void SetBusinessName(const string& sName)
 	{
 		m_strBusinessName = sName;
 	}
 
+	void LoadData();
+
 	void AddAttribute(const string& strAttributeID,shared_ptr<CAttribute>& ptrAttribute);
 	shared_ptr<CAttribute> GetAttribute(const string& strAttributeID);
+	
 
 protected:
 	string m_strBusinessName;
-	map<string,shared_ptr<CAttribute>>  m_mapName2Attribute;
+	map<string,CFieldDesc*>  m_mapFieldName2FieldDesc;
 };

@@ -10,7 +10,6 @@
 #endif
 
 #include "ADRTradeDayDoc.h"
-#include "Business/Business.h"
 #include <propkey.h>
 
 #ifdef _DEBUG

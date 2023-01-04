@@ -116,8 +116,7 @@
     <ClInclude Include="ADRTrade.h" />
     <ClInclude Include="ADRTradeDayDoc.h" />
     <ClInclude Include="ADRTradeDayView.h" />
-    <ClInclude Include="Business\AbstractObject.h" />
-    <ClInclude Include="Business\Business.h" />
+    <ClInclude Include="Business\BusinessNode.h" />
     <ClInclude Include="ChildFrm.h" />
     <ClInclude Include="DialogIDManager.h" />
     <ClInclude Include="Future\FutureContract_TradeDialogs.h" />
@@ -165,8 +164,7 @@
     <ClCompile Include="ADRTrade.cpp" />
     <ClCompile Include="ADRTradeDayDoc.cpp" />
     <ClCompile Include="ADRTradeDayView.cpp" />
-    <ClCompile Include="Business\AbstractObject.cpp" />
-    <ClCompile Include="Business\Business.cpp" />
+    <ClCompile Include="Business\BusinessNode.cpp" />
     <ClCompile Include="ChildFrm.cpp" />
     <ClCompile Include="DialogIDManager.cpp" />
     <ClCompile Include="Future\FutureContract_TradeDialogs.cpp" />

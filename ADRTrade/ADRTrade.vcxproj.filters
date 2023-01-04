@@ -114,12 +114,6 @@
     <ClInclude Include="ADRTradeDayView.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Business\AbstractObject.h">
-      <Filter>Business</Filter>
-    </ClInclude>
-    <ClInclude Include="Business\Business.h">
-      <Filter>Business</Filter>
-    </ClInclude>
     <ClInclude Include="MacroEnvironment\DlgTab_WorldEcnomic.h">
       <Filter>MacroEnvironment</Filter>
     </ClInclude>
@@ -173,6 +167,9 @@
     </ClInclude>
     <ClInclude Include="Future\FutureContract_TradeDialogs.h">
       <Filter>Future</Filter>
+    </ClInclude>
+    <ClInclude Include="Business\BusinessNode.h">
+      <Filter>Business</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -248,12 +245,6 @@
     <ClCompile Include="ADRTradeDayView.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Business\AbstractObject.cpp">
-      <Filter>Business</Filter>
-    </ClCompile>
-    <ClCompile Include="Business\Business.cpp">
-      <Filter>Business</Filter>
-    </ClCompile>
     <ClCompile Include="MacroEnvironment\DlgTab_WorldEcnomic.cpp">
       <Filter>MacroEnvironment</Filter>
     </ClCompile>
@@ -304,6 +295,9 @@
     </ClCompile>
     <ClCompile Include="Future\FutureContract_TradeDialogs.cpp">
       <Filter>Future</Filter>
+    </ClCompile>
+    <ClCompile Include="Business\BusinessNode.cpp">
+      <Filter>Business</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
