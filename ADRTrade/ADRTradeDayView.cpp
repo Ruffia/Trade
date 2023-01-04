@@ -17,6 +17,7 @@
 #include "Tools/ChildDlgTab.h"
 #include "Factory.h"
 #include "DialogIDManager.h"
+#include "DBDataManager.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -159,6 +160,18 @@ void CADRTradeDayView::_LoadLayout()
 
 void CADRTradeDayView::OnInitialUpdate()
 {
+	COleDateTime dtNOw = COleDateTime::GetCurrentTime();
+	CString strDate = dtNOw.Format("%Y-%m-%d");
+
+	FieldValue v;
+	v.SetDataType("string");
+	v.SetValueString((LPSTR)(LPCTSTR)strDate);
+	bool bExist = CDBDataManager::Instance().RecordExists("Trade_DailyMacroEnvironmentAnalyze","TradeDay","string",v);
+	if (!bExist)
+	{
+		CDBDataManager::Instance().InsertRecordWithPrimaryKey("Trade_DailyMacroEnvironmentAnalyze","TradeDay","string",v);
+	}
+
 	CRect rc;
 	GetClientRect(rc);
 
