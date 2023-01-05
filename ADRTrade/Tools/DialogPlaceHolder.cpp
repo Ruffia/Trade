@@ -9,6 +9,7 @@
 #include "Tools/StyleManager.h"
 #include "UIData.h"
 #include "Tools/CollectiveComponentProvider.h"
+#include "BusinessEdit.h"
 #include "Util.h"
 #include "EditTreeCtrlEx.h"
 
@@ -26,6 +27,7 @@ CDialogPlaceHolder::CDialogPlaceHolder(CWnd* pParent /*=NULL*/)
 	: CDialog(CDialogPlaceHolder::IDD, pParent)
 {
 	m_mapUIName2Wnd.clear();
+	m_sBusiness = "";
 }
 
 CDialogPlaceHolder::~CDialogPlaceHolder()
@@ -91,22 +93,33 @@ void CDialogPlaceHolder::_InitLayOut()
 		const string sStyle = node.attribute("Style").as_string();
 		DWORD dwTotalStyle = CStyleMgr::Instance().GetStyle(sStyle);
 		const string sCaption = node.attribute("Caption").as_string();
+		CFont* pFont = CCollectiveComponentProvider::Instance().GetFont();
 		if (data.m_strUIClassName.find("CEditTreeCtrlEx") != string::npos)
 		{
 			CEditTreeCtrlEx* pTree = new CEditTreeCtrlEx;
 			CRect rcTree(data.m_nLeft,data.m_nTop,data.m_nLeft + data.m_nWidth ,data.m_nTop + data.m_nHeight);
-			pTree->Create(dwTotalStyle,rcTree,this,data.m_nID);	
-			CFont* pFont = CCollectiveComponentProvider::Instance().GetFont();
+			pTree->Create(dwTotalStyle,rcTree,this,data.m_nID);		
 			pTree->SetFont(pFont);
 			pTree->ShowWindow(SW_SHOW);
 			m_mapUIName2Wnd[sName] = pTree;	
+		}
+		else if (data.m_strUIClassName.find("CBusinessEdit") != string::npos)
+		{
+			CBusinessEdit* pEdit = new CBusinessEdit;
+			CRect rc(data.m_nLeft,data.m_nTop,data.m_nLeft + data.m_nWidth ,data.m_nTop + data.m_nHeight);
+			pEdit->Create(dwTotalStyle,rc,this,data.m_nID);	
+			pEdit->SetFont(pFont);
+			pEdit->ShowWindow(SW_SHOW);
+			pEdit->SetWindowText(sCaption.c_str());
+			const string& sBusiness = node.attribute("business").as_string();
+			pEdit->m_sBusinessField = sBusiness;
+			m_mapUIName2Wnd[sName] = pEdit;	
 		}
 		else if (data.m_strUIClassName.find("CEdit") != string::npos)
 		{
 			CEdit* pEdit = new CEdit;
 			CRect rc(data.m_nLeft,data.m_nTop,data.m_nLeft + data.m_nWidth ,data.m_nTop + data.m_nHeight);
 			pEdit->Create(dwTotalStyle,rc,this,data.m_nID);	
-			CFont* pFont = CCollectiveComponentProvider::Instance().GetFont();
 			pEdit->SetFont(pFont);
 			pEdit->ShowWindow(SW_SHOW);
 			pEdit->SetWindowText(sCaption.c_str());
@@ -125,7 +138,6 @@ void CDialogPlaceHolder::_InitLayOut()
 				nodeDropdownItem = nodeDropdownItem.next_sibling();
 			}
 
-			CFont* pFont = CCollectiveComponentProvider::Instance().GetFont();
 			pCombox->SetFont(pFont);
 			pCombox->ShowWindow(SW_SHOW);
 			pCombox->SetWindowText(sCaption.c_str());
@@ -133,4 +145,25 @@ void CDialogPlaceHolder::_InitLayOut()
 		}
 		node = node.next_sibling();
 	}
+}
+
+
+void CDialogPlaceHolder::UpdateDB2UI()
+{
+	for(map<string,CWnd*>::iterator it = m_mapUIName2Wnd.begin();
+		it != m_mapUIName2Wnd.end();it++)
+	{
+		CWnd* pControl = it->second;
+		CBusinessEdit* pBusinessControl = dynamic_cast<CBusinessEdit*>(pControl);
+		if (pBusinessControl)
+		{
+		}
+	}
+	
+}
+
+
+void CDialogPlaceHolder::UpdateUI2DB()
+{
+
 }

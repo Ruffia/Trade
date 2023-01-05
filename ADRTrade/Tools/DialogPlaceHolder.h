@@ -39,6 +39,14 @@ public:
 		m_sLayout = sLayout;
 	}
 
+	void SetBusiness(string& sBusiness)
+	{
+		m_sBusiness = sBusiness;
+	}
+
+	virtual void UpdateDB2UI();
+	virtual void UpdateUI2DB();
+
 // 对话框数据
 	enum { IDD = IDD_DLG_Common };
 
@@ -52,4 +60,6 @@ protected:
 	string m_sLayout;    //页面布局配置文件
 	xml_document m_doc;
 	map<string,CWnd*>  m_mapUIName2Wnd;
+
+	string m_sBusiness;  //业务名
 };

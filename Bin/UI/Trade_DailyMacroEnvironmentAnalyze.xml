@@ -5,44 +5,24 @@
 		
 		<widget Name="DowCaption" ClassName="CEdit" ID="10005" Caption="美股" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT|ES_READONLY" Left="2" Top="35" Width="140" Height="25" />
 		<widget Name="DollarIndexCaption" ClassName="CEdit" ID="10006" Caption="美元指数" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT|ES_READONLY" Left="142" Top="35" Width="140" Height="25" />
-		<widget Name="Dow" ClassName="CEdit"  ID="10007" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="2" Top="60" Width="140" Height="25">
-            <Bussinise ID="Dow" DataType="string" />
-        </widget>			
-		<widget Name="DollarIndex" ClassName="CEdit"  ID="10008" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="142" Top="60" Width="140" Height="25">	
-            <Bussinise ID="DollarIndex" DataType="string" />
-		</widget>		
+		<widget Name="Dow" ClassName="CBusinessEdit"  ID="10007" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="2" Top="60" Width="140" Height="25" business="USStock"/>		
+		<widget Name="DollarIndex" ClassName="CBusinessEdit"  ID="10008" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="142" Top="60" Width="140" Height="25" business="USDollarIndex"/>		
 		<widget Name="JKACaption" ClassName="CEdit" ID="10009" Caption="日韩" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT|ES_READONLY" Left="2" Top="85" Width="140" Height="25" />
 		<widget Name="EuropeCaption" ClassName="CEdit" ID="10010" Caption="欧洲" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT|ES_READONLY" Left="142" Top="85" Width="140" Height="25" />
-		<widget Name="JKA" ClassName="JKA"  ID="100011" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="2" Top="110" Width="140" Height="25">
-             <Bussinise ID="JKA" DataType="string" />
-        </widget>			 
-		<widget Name="Europe" ClassName="CEdit"  ID="10012" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="142" Top="110" Width="140" Height="25">	
-             <Bussinise ID="Europe" DataType="string" />
-        </widget>			 
+		<widget Name="JKA" ClassName="CBusinessEdit"  ID="100011" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="2" Top="110" Width="140" Height="25" business="JapanKoreaStock"/>		 
+		<widget Name="Europe" ClassName="CBusinessEdit"  ID="10012" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="142" Top="110" Width="140" Height="25" business="EropeStock"/>				 
 		<widget Name="OilCaption" ClassName="CEdit" ID="10013" Caption="原油" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT|ES_READONLY" Left="2" Top="135" Width="140" Height="25" />
 		<widget Name="VIXCaption" ClassName="CEdit" ID="10014" Caption="VIX" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT|ES_READONLY" Left="142" Top="135" Width="140" Height="25" />
-		<widget Name="Oil" ClassName="CEdit"  ID="100015" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="2" Top="160" Width="140" Height="25">	
-		     <Bussinise ID="Oil" DataType="string" />
-        </widget>			 
-		<widget Name="VIX" ClassName="CEdit"  ID="10016" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="142" Top="160" Width="140" Height="25">	
-		     <Bussinise ID="VIX" DataType="string" />
-        </widget>			 
+		<widget Name="Oil" ClassName="CBusinessEdit"  ID="100015" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="2" Top="160" Width="140" Height="25" business="OilPrice"/>				 
+		<widget Name="VIX" ClassName="CBusinessEdit"  ID="10016" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="142" Top="160" Width="140" Height="25" business="VIX"/>			 
 		<widget Name="FEDCaption" ClassName="CEdit" ID="10017" Caption="FED消息" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT|ES_READONLY" Left="2" Top="185" Width="70" Height="25" />	
-		<widget Name="FED" ClassName="CEdit" ID="10018" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="72" Top="185" Width="210" Height="25">
-			 <Bussinise ID="FED" DataType="string" />
-        </widget>	
+		<widget Name="FED" ClassName="CBusinessEdit" ID="10018" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="72" Top="185" Width="210" Height="25"  business="FEDMessage"/>
         <widget Name="MacroscopicViewCaption" ClassName="CEdit" ID="10019" Caption="多空及强度分析" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="210" Width="280" Height="25" />			
-		<widget Name="MacroscopicView" ClassName="CEdit" ID="10020" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOVSCROLL|ES_LEFT|ES_MULTILINE|ES_WANTRETURN|WS_VSCROLL" Left="2" Top="235" Width="280" Height="50">	
-			 <Bussinise ID="MacroscopicView" DataType="string" />
-        </widget>
+		<widget Name="MacroscopicView" ClassName="CBusinessEdit" ID="10020" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOVSCROLL|ES_LEFT|ES_MULTILINE|ES_WANTRETURN|WS_VSCROLL" Left="2" Top="235" Width="280" Height="50" business="BuySellAndStrength"/>	
 		<widget Name="DomesticEnvironmentCaption" ClassName="CEdit" ID="10021" Caption="国内环境" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="285" Width="280" Height="25" />
         <widget Name="DomesticNewsCaption" ClassName="CEdit" ID="10022" Caption="国内消息" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT|ES_READONLY" Left="2" Top="310" Width="70" Height="50" />	
-        <widget Name="DomesticNews" ClassName="CEdit" ID="10023" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN|WS_VSCROLL" Left="72" Top="310" Width="210" Height="50">
-			<Bussinise ID="Europe" DataType="string" />
-        </widget>
+        <widget Name="DomesticNews" ClassName="CBusinessEdit" ID="10023" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN|WS_VSCROLL" Left="72" Top="310" Width="210" Height="50" business="DomesticMessage"/>
 		<widget Name="MarketSentimentCaption" ClassName="CEdit" ID="10024" Caption="市场情绪" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT|ES_READONLY" Left="2" Top="360" Width="70" Height="25" />	
-		<widget Name="MarketSentiment" ClassName="CEdit" ID="10025" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOVSCROLL|ES_LEFT|ES_MULTILINE|ES_WANTRETURN" Left="72" Top="360" Width="210" Height="25">
-			<Bussinise ID="Europe" DataType="string" />
-        </widget>
+		<widget Name="MarketSentiment" ClassName="CBusinessEdit" ID="10025" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOVSCROLL|ES_LEFT|ES_MULTILINE|ES_WANTRETURN" Left="72" Top="360" Width="210" Height="25" business="MarketSentiment"/>
 	</Layout>
 </root>
