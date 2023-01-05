@@ -47,6 +47,7 @@ public:
 	string  m_strDataType;
 	string  m_strTableName;
 	int     m_nSequenceID;
+	bool    m_bPrimaryKey;
 
 	//一个 Field 可能包含很多信息，这里由一个"属性名-->属性值"的集合来表示
 	map<string,CAttribute*> m_mapName2Attribute;

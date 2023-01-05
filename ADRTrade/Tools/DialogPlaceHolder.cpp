@@ -10,6 +10,7 @@
 #include "UIData.h"
 #include "Tools/CollectiveComponentProvider.h"
 #include "BusinessEdit.h"
+#include "DBDataManager.h"
 #include "Util.h"
 #include "EditTreeCtrlEx.h"
 
@@ -113,6 +114,7 @@ void CDialogPlaceHolder::_InitLayOut()
 			pEdit->SetWindowText(sCaption.c_str());
 			const string& sBusiness = node.attribute("business").as_string();
 			pEdit->m_sBusinessField = sBusiness;
+			m_mapBusiness2Control[sBusiness] = pEdit;
 			m_mapUIName2Wnd[sName] = pEdit;	
 		}
 		else if (data.m_strUIClassName.find("CEdit") != string::npos)
@@ -150,6 +152,14 @@ void CDialogPlaceHolder::_InitLayOut()
 
 void CDialogPlaceHolder::UpdateDB2UI()
 {
+	map<string,CFieldDesc*>& mapTableName2FieldDesc = CDBDataManager::Instance().GetTableMeta(m_sBusiness);
+
+	vector<CFieldDesc*> VFieldDesc;
+	CDBDataManager::Instance().GetFieldMetaData(m_sBusiness,VFieldDesc);
+
+	vector<CFieldDesc*> VPrimaryKey;
+	CDBDataManager::Instance().GetPrimaryKey(m_sBusiness,VPrimaryKey);
+
 	for(map<string,CWnd*>::iterator it = m_mapUIName2Wnd.begin();
 		it != m_mapUIName2Wnd.end();it++)
 	{
@@ -157,6 +167,7 @@ void CDialogPlaceHolder::UpdateDB2UI()
 		CBusinessEdit* pBusinessControl = dynamic_cast<CBusinessEdit*>(pControl);
 		if (pBusinessControl)
 		{
+
 		}
 	}
 	
