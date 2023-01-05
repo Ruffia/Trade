@@ -267,41 +267,33 @@ void CDBDataManager::LoadFieldMetaData(const string &sTableName)
 	{	
 		CFieldDesc* pFieldDesc = new CFieldDesc;
 		const int nFieldColumnCount = pRecordset->GetFieldCount();
-
 		for (int i = 0; i < nFieldColumnCount; i++)
 		{	
 			string sFieldName = pRecordset->GetFieldName(i);	
-			if (sFieldName.find("FieldID") != string::npos )
-			{
-				string sValue = pRecordset->AsString(i);
-				pFieldDesc->SetFieldID(sValue);
-			}
-			else if(sFieldName.find("FieldName") != string::npos )
+			if(sFieldName.find("FieldName") != string::npos )
 			{
 				string sValue = pRecordset->AsString(i);
 				pFieldDesc->SetFieldName(sValue);
-			}
-			else if (sFieldName.find("DataType") != string::npos )
-			{
-				string sValue = pRecordset->AsString(i);
-				pFieldDesc->SetDataType(sValue);
 			}
 			else if (sFieldName.find("TableName") != string::npos )
 			{
 				string sValue = pRecordset->AsString(i);
 				pFieldDesc->SetTableName(sValue);
 			}
+			else if (sFieldName.find("DataType") != string::npos )
+			{
+				string sValue = pRecordset->AsString(i);
+				pFieldDesc->SetDataType(sValue);
+			}
 			else if(sFieldName.find("SequenceID") != string::npos )
 			{
 				int nValue = pRecordset->AsInteger(i);
 				pFieldDesc->SetSequenceID(nValue);
 			}
-
 		}
 
-		const string strFieldID = pFieldDesc->GetFieldID();
-		mapFieldName2FieldDesc[strFieldID] = pFieldDesc;
-		m_mapFieldName2FieldDescFilter[strFieldID] = pFieldDesc;
+		const string strFieldName = pFieldDesc->m_strFieldName;
+		mapFieldName2FieldDesc[strFieldName] = pFieldDesc;
 	}
 
 	if (pRecordset)
@@ -348,8 +340,8 @@ void CDBDataManager::LoadFieldAttribute(const string &sTableName)
 	{	
 		CFieldDesc* pFieldDesc = NULL;
 
-		string sFieldAttributeID = "";
-		string sFieldID = "";
+		string sFieldAttributeName = "";
+		string sFieldName = "";
 		string sTableName = ""; 
 		string sDataType = ""; 
 		string sAttributeValue = "";
@@ -360,14 +352,14 @@ void CDBDataManager::LoadFieldAttribute(const string &sTableName)
 		{	
 			string sFieldCaption = pRecordset->GetFieldName(i);
 			
-			if (sFieldCaption.find("FieldID") != string::npos )
+			if (sFieldCaption.find("FieldName") != string::npos )
 			{
-				sFieldID = pRecordset->AsString(i);
-				pFieldDesc = mapFieldName2FieldDesc[sFieldID];	
+				sFieldName = pRecordset->AsString(i);
+				pFieldDesc = mapFieldName2FieldDesc[sFieldName];	
 			}
-			else if(sFieldCaption.find("FieldAttributeID") != string::npos )
+			else if(sFieldCaption.find("FieldAttributeName") != string::npos )
 			{
-				sFieldAttributeID = pRecordset->AsString(i);
+				sFieldAttributeName = pRecordset->AsString(i);
 			}
 			else if (sFieldCaption.find("TableName") != string::npos)
 			{
@@ -401,8 +393,8 @@ void CDBDataManager::LoadFieldAttribute(const string &sTableName)
 		}
 
 		CAttribute* pAttribute = new CAttribute;
-		pAttribute->Initialize(sFieldAttributeID,sFieldID,sTableName,sDataType,pAttributeValue);
-		pFieldDesc->AddAttribute(sFieldAttributeID,pAttribute);
+		pAttribute->Initialize(sFieldAttributeName,sFieldName,sTableName,sDataType,pAttributeValue);
+		pFieldDesc->AddAttribute(sFieldAttributeName,pAttribute);
 	}
 
 	if (pRecordset)
@@ -444,12 +436,10 @@ bool CDBDataManager::InitializeDatabase(const char* sDataBase)
 	while (pRecordset->Next())
 	{
 		const int nColumnCount = pRecordset->GetFieldCount();
-		for (int i = 0; i < nColumnCount; i++)
-		{	
-			string sFieldName = pRecordset->GetFieldName(i);
-			string sValue = pRecordset->AsString(i);
-			vBusiness.push_back(sValue);
-		}
+		const int nTableNameColumn = 0;  //结果集的第0列保存的是表的名称
+		string sFieldName = pRecordset->GetFieldName(nTableNameColumn);
+		string sValue = pRecordset->AsString(nTableNameColumn);
+		vBusiness.push_back(sValue);
 	}
 
 	if (pRecordset)
@@ -463,6 +453,7 @@ bool CDBDataManager::InitializeDatabase(const char* sDataBase)
 	{
 		const string& strTableName = vBusiness[i];
 		LoadFieldMetaData(strTableName);
+		LoadFieldAttribute(strTableName);
 	}
 
 	return true;

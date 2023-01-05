@@ -16,10 +16,10 @@ CAttribute::~CAttribute()
 }
 
 
-void CAttribute::Initialize(string strAttributeID,string strFieldID,string strTableName,string strDataType,FieldValue* pValue)
+void CAttribute::Initialize(string strAttributeName,string strFieldName,string strTableName,string strDataType,FieldValue* pValue)
 {
-	m_strAttributeID = strAttributeID;
-	m_strFieldID = strFieldID;
+	m_strAttributeName = strAttributeName;
+	m_strFieldName = strFieldName;
 	m_strTableName = strTableName;
 	m_strDataType = strDataType;
 	m_pAttributeValue = pValue;

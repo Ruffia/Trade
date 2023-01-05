@@ -12,14 +12,12 @@ public:
 
 	~CFieldDesc();
 
-	void Initialize(string strFieldID,string strFieldName,string strTableName,string strDataType);
+	void Initialize(string strFieldName,string strTableName,string strDataType);
 
-	void SetFieldID(string strFieldID)      {m_strFieldID = strFieldID;}
 	void SetFieldName(string strFieldName)  {m_strFieldName = strFieldName;}
 	void SetDataType(string strDataType)    {m_strDataType = strDataType;}
 	void SetSequenceID(int nSequenceID)     {m_nSequenceID = nSequenceID;}
 	void SetTableName(string strTableName)  {m_strTableName = strTableName;}
-	string GetFieldID() {return m_strFieldID;}
 	
 	//增加属性到属性集合中
 	//strAttributeName,属性名
@@ -45,7 +43,6 @@ public:
 
 
 public:
-	string  m_strFieldID;
 	string  m_strFieldName;
 	string  m_strDataType;
 	string  m_strTableName;

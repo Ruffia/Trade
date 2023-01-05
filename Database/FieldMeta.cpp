@@ -23,9 +23,8 @@ CFieldDesc::~CFieldDesc()
 }
 
 
-void CFieldDesc::Initialize(string strFieldID,string strFieldName,string strTableName,string strDataType)
+void CFieldDesc::Initialize(string strFieldName,string strTableName,string strDataType)
 {
-	m_strFieldID = strFieldID;
 	m_strFieldName = strFieldName;
 	m_strTableName = strTableName;
 	m_strDataType = strDataType;
