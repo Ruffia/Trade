@@ -4,6 +4,7 @@
 IMPLEMENT_FACTORY(CFieldDesc,CFieldDesc,string,"CFieldDesc")
 CFieldDesc::CFieldDesc()
 {
+	m_bPrimaryKey = false;
 	m_mapName2Attribute.clear();
 }
 

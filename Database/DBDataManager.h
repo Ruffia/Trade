@@ -54,12 +54,15 @@ public:
 	void GetMetaFilter(const string& strTableName,vector<string>& vField,map<string,CFieldDesc*>& mapFieldID2Desc);
 
 	//过滤"表-->字段"元数据
-	void GetFieldMetaData(const string &sTableName,vector<string>& vFieldID);
+	void GetFieldMetaData(const string &sTableName,vector<CFieldDesc*>& vFieldDesc);
+
+	//获取某个表的主键
+	void GetPrimaryKey(const string &sTableName,vector<CFieldDesc*>& vPrimaryKeyField);
 
 private:
 	CSQLiteDatabase m_db;
 	//表名--->表元数据
 	map<string,TableMeta>   m_mapTable2Meta;
 	//根据条件过滤出来部分字段
-	map<string,CFieldDesc*> m_mapFieldName2FieldDescFilter;
+	//map<string,CFieldDesc*> m_mapFieldName2FieldDescFilter;
 };

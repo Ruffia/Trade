@@ -8,6 +8,7 @@ using namespace std;
 using namespace pugi;
 #include "Business/BusinessNode.h"
 #include "DialogIDManager.h"
+class CBusinessEdit;
 
 // CDialogPlaceHolder 对话框
 
@@ -60,6 +61,9 @@ protected:
 	string m_sLayout;    //页面布局配置文件
 	xml_document m_doc;
 	map<string,CWnd*>  m_mapUIName2Wnd;
+
+	//业务字段--->UI对象
+	map<string,CBusinessEdit*> m_mapBusiness2Control;
 
 	string m_sBusiness;  //业务名
 };

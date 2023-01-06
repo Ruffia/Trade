@@ -280,6 +280,11 @@ void CDBDataManager::LoadFieldMetaData(const string &sTableName)
 				string sValue = pRecordset->AsString(i);
 				pFieldDesc->SetTableName(sValue);
 			}
+			else if (sFieldName.find("PrimaryKey") != string::npos )
+			{
+				int nValue = pRecordset->AsInteger(i);
+				pFieldDesc->m_bPrimaryKey = nValue == 1;
+			}
 			else if (sFieldName.find("DataType") != string::npos )
 			{
 				string sValue = pRecordset->AsString(i);
@@ -305,20 +310,28 @@ void CDBDataManager::LoadFieldMetaData(const string &sTableName)
 	
 }
 
-void CDBDataManager::GetFieldMetaData(const string &sTableName,vector<string>& vFieldID)
+void CDBDataManager::GetFieldMetaData(const string &sTableName,vector<CFieldDesc*>& vFieldDesc)
 {
-	m_mapFieldName2FieldDescFilter.clear();
 	map<string,CFieldDesc*>& mapFieldName2FieldDesc = m_mapTable2Meta[sTableName];
-	for (int i = 0; i < vFieldID.size();i++)
+	for (map<string,CFieldDesc*>::iterator it = mapFieldName2FieldDesc.begin();
+		it != mapFieldName2FieldDesc.begin(); it++)
 	{
-		map<string,CFieldDesc*>::iterator it = mapFieldName2FieldDesc.find(vFieldID[i]);
-		if (it != mapFieldName2FieldDesc.end())
+		CFieldDesc* pFieldDesc = it->second;
+		vFieldDesc.push_back(pFieldDesc);
+	}
+}
+
+
+void CDBDataManager::GetPrimaryKey(const string &sTableName,vector<CFieldDesc*>& vPrimaryKeyField)
+{
+	map<string,CFieldDesc*>& mapFieldName2FieldDesc = m_mapTable2Meta[sTableName];
+	for (map<string,CFieldDesc*>::iterator it = mapFieldName2FieldDesc.begin();
+		it != mapFieldName2FieldDesc.end(); it++)
+	{
+		CFieldDesc* pFieldDesc = it->second;
+		if (pFieldDesc->m_bPrimaryKey)
 		{
-			CFieldDesc* pFieldDesc = it->second;
-			if (pFieldDesc && sTableName == pFieldDesc->m_strTableName )
-			{
-				m_mapFieldName2FieldDescFilter[vFieldID[i]] = it->second;
-			}			
+			vPrimaryKeyField.push_back(pFieldDesc);
 		}
 	}
 }
