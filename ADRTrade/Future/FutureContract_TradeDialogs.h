@@ -2,7 +2,7 @@
 #include "Tools/DialogPlaceHolder.h"
 #include "Tools/DialogPlaceHolderComposite.h"
 #include "Tools/CustomTabCtrlDlg.h"
-#include "Factory.h"
+#include "../Common/Factory.h"
 
 DefineClass(CDailyMacroEnvironmentDlg,CDialogPlaceHolder,IDD_DLG_Common)
 

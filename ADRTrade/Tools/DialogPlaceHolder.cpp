@@ -154,23 +154,68 @@ void CDialogPlaceHolder::UpdateDB2UI()
 {
 	map<string,CFieldDesc*>& mapTableName2FieldDesc = CDBDataManager::Instance().GetTableMeta(m_sBusiness);
 
-	vector<CFieldDesc*> VFieldDesc;
-	CDBDataManager::Instance().GetFieldMetaData(m_sBusiness,VFieldDesc);
+	vector<CFieldDesc*> vFieldDesc;
+	CDBDataManager::Instance().GetFieldMetaData(m_sBusiness,vFieldDesc);
 
-	vector<CFieldDesc*> VPrimaryKey;
-	CDBDataManager::Instance().GetPrimaryKey(m_sBusiness,VPrimaryKey);
+	vector<CFieldDesc*> vPrimaryKey;
+	CDBDataManager::Instance().GetPrimaryKey(m_sBusiness,vPrimaryKey);
 
-	for(map<string,CWnd*>::iterator it = m_mapUIName2Wnd.begin();
-		it != m_mapUIName2Wnd.end();it++)
+	string sSQL = "update ";
+	sSQL += m_sBusiness;
+	sSQL += " set ";
+
+	int nUIControlCount = 0;
+	for(map<string,CBusinessEdit*>::iterator it = m_mapBusiness2Control.begin();
+		it != m_mapBusiness2Control.end();it++)
 	{
-		CWnd* pControl = it->second;
-		CBusinessEdit* pBusinessControl = dynamic_cast<CBusinessEdit*>(pControl);
-		if (pBusinessControl)
+		CBusinessEdit* pBusinessControl = it->second;
+		if(!pBusinessControl) continue;
+
+		map<string,CFieldDesc*>::iterator itFieldDesc = mapTableName2FieldDesc.find(pBusinessControl->m_sBusinessField);
+		if(mapTableName2FieldDesc.end() == itFieldDesc) continue;
+
+		CFieldDesc* pFieldDesc = itFieldDesc->second;
+		if (!pFieldDesc) continue;
+
+		string sFieldValue2Update = pBusinessControl->m_sBusinessField;
+		sFieldValue2Update += " = ";
+
+		char szValue[512] = {0}; 
+		pBusinessControl->GetWindowTextA(szValue,512);
+
+		char szSQL[512] = {0}; 
+		if (pFieldDesc->m_strDataType == "string")
+		{
+			sprintf_s(szSQL,512," %s = '%s' ",pBusinessControl->m_sBusinessField.c_str(),szValue);
+		}
+		else if (pFieldDesc->m_strDataType == "float" || pFieldDesc->m_strDataType == "integer" ||
+			pFieldDesc->m_strDataType == "int" )
+		{
+			sprintf_s(szSQL,512," %s = %s ", pBusinessControl->m_sBusinessField.c_str(), szValue);
+		}
+
+		sSQL += szSQL;
+
+		if (m_mapBusiness2Control.size() - 1 != nUIControlCount)
+		{
+			sSQL += ",";
+		}
+
+		nUIControlCount++;
+	}
+
+
+	for (vector<CFieldDesc*>::iterator it = vPrimaryKey.begin(); it!= vPrimaryKey.end(); it++)
+	{
+		CFieldDesc* pPrimaryKeyDesc = *it;
+		if (!pPrimaryKeyDesc) continue;
+		if (!pPrimaryKeyDesc->m_bShowOnUI)
 		{
 
 		}
 	}
 	
+	CDBDataManager::Instance().Exec(sSQL);
 }
 
 

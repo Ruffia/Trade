@@ -280,15 +280,20 @@ void CDBDataManager::LoadFieldMetaData(const string &sTableName)
 				string sValue = pRecordset->AsString(i);
 				pFieldDesc->SetTableName(sValue);
 			}
+			else if (sFieldName.find("DataType") != string::npos )
+			{
+				string sValue = pRecordset->AsString(i);
+				pFieldDesc->SetDataType(sValue);
+			}
 			else if (sFieldName.find("PrimaryKey") != string::npos )
 			{
 				int nValue = pRecordset->AsInteger(i);
 				pFieldDesc->m_bPrimaryKey = nValue == 1;
 			}
-			else if (sFieldName.find("DataType") != string::npos )
+			else if (sFieldName.find("ShowOnUI") != string::npos )
 			{
-				string sValue = pRecordset->AsString(i);
-				pFieldDesc->SetDataType(sValue);
+				int nValue = pRecordset->AsInteger(i);
+				pFieldDesc->m_bShowOnUI = nValue == 1;
 			}
 			else if(sFieldName.find("SequenceID") != string::npos )
 			{
