@@ -177,40 +177,51 @@ bool CDBDataManager::RecordExists(const string& strTableName,const string& strFi
 
 	sSQL += szValue;
 
-	int nRet = -1;
-	sqlite3_stmt* pStmt;
-	nRet = sqlite3_prepare_v2(m_db.m_pDatabase, sSQL.c_str(), sSQL.length(), &pStmt, NULL);
-	if (nRet != SQLITE_OK)
+	bool bRet = _ExecExistsSQL(sSQL);
+	return bRet;
+}
+
+
+bool CDBDataManager::RecordExists(const string& strTableName,map<CFieldDesc*,FieldValue>& mapFieldDesc2Value)
+{
+	string sSQL = "select count(*) from ";
+	sSQL += strTableName;
+	sSQL += " where ";
+
+	const int nFieldCount = mapFieldDesc2Value.size();
+	int nIndex = 0;
+	for (map<CFieldDesc*,FieldValue>::iterator it = mapFieldDesc2Value.begin();
+		 it != mapFieldDesc2Value.end(); it++)
 	{
-		return false;
+		CFieldDesc* pFieldDesc = it->first;
+		if(!pFieldDesc) continue;
+		FieldValue& vField = it->second; 
+		string strFieldDataType = pFieldDesc->m_strDataType;
+
+		char szValue[128] = {0};
+		if (strFieldDataType == "string")
+		{
+			sprintf_s(szValue,128," %s = '%s' ",pFieldDesc->m_strFieldName.c_str(), vField.GetValueAsString());
+		}
+		else if (strFieldDataType == "int" || strFieldDataType == "integer" )
+		{
+			sprintf_s(szValue,128," %s = %d ",pFieldDesc->m_strFieldName.c_str(), vField.GetValueAsInt());
+		}
+		else if(strFieldDataType == "long")
+		{
+			sprintf_s(szValue,128," %s = %ld ",pFieldDesc->m_strFieldName.c_str(), vField.GetValueAsLong());
+		}
+
+		sSQL += szValue;
+
+		if (nFieldCount -1 != nIndex)
+		{
+			sSQL += " and ";
+		}
 	}
 
-	char** result = NULL;
-	char* sMsg = NULL;
-	int nRowCount = 0;
-	int nColumnCount = 0;
-	nRet = sqlite3_get_table( m_db.m_pDatabase, sSQL.c_str(), &result, &nRowCount, &nColumnCount, &sMsg); //查询数据库
-	if( nRet != SQLITE_OK )
-	{
-		return false;
-	}
-
-	//对于 select count(*) 语句而言，执行SQL语句返回的结果是
-	//第一行   count(*)   列标题
-	//第二行    0
-	//所以此时 nRowCount == 1，且 nColumnCount == 1
-	if(nRowCount != 1 || nColumnCount != 1) 
-	{
-		return false;
-	}
-
-	char* sValue = result[1];   //获取第二行的字符串值
-	int nValue = atoi(sValue);  //将字符串值转换为数字值
-
-	sqlite3_free_table(result);  //释放掉 result 的内存空间
-	sqlite3_finalize(pStmt);     //销毁一个SQL语句对象
-
-	return nValue > 0;
+	bool bRet = _ExecExistsSQL(sSQL);
+	return bRet;
 }
 
 
@@ -475,4 +486,43 @@ bool CDBDataManager::InitializeDatabase(const char* sDataBase)
 	}
 
 	return true;
+}
+
+
+bool CDBDataManager::_ExecExistsSQL( string &sSQL )
+{
+	int nRet = -1;
+	sqlite3_stmt* pStmt;
+	nRet = sqlite3_prepare_v2(m_db.m_pDatabase, sSQL.c_str(), sSQL.length(), &pStmt, NULL);
+	if (nRet != SQLITE_OK)
+	{
+		return false;
+	}
+
+	char** result = NULL;
+	char* sMsg = NULL;
+	int nRowCount = 0;
+	int nColumnCount = 0;
+	nRet = sqlite3_get_table( m_db.m_pDatabase, sSQL.c_str(), &result, &nRowCount, &nColumnCount, &sMsg); //查询数据库
+	if( nRet != SQLITE_OK )
+	{
+		return false;
+	}
+
+	//对于 select count(*) 语句而言，执行SQL语句返回的结果是
+	//第一行   count(*)   列标题
+	//第二行    0
+	//所以此时 nRowCount == 1，且 nColumnCount == 1
+	if(nRowCount != 1 || nColumnCount != 1) 
+	{
+		return false;
+	}
+
+	char* sValue = result[1];   //获取第二行的字符串值
+	int nValue = atoi(sValue);  //将字符串值转换为数字值
+
+	sqlite3_free_table(result);  //释放掉 result 的内存空间
+	sqlite3_finalize(pStmt);     //销毁一个SQL语句对象
+
+	return nValue > 0;
 }

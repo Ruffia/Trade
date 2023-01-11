@@ -43,6 +43,8 @@ public:
 	//FieldValue& v      字段值
 	bool RecordExists(const string& strTableName,const string& strFieldName, const string& strFieldDataType, FieldValue& v);
 
+	bool RecordExists(const string& strTableName,map<CFieldDesc*,FieldValue>& mapFieldDesc2Value);
+
 	bool InsertRecordWithPrimaryKey(const string& strTableName,const string& strFieldName, const string& strFieldDataType, FieldValue& v);
 
 	//执行特定SQL
@@ -58,6 +60,9 @@ public:
 
 	//获取某个表的主键
 	void GetPrimaryKey(const string &sTableName,vector<CFieldDesc*>& vPrimaryKeyField);
+
+protected:
+	bool _ExecExistsSQL( string &sSQL );
 
 private:
 	CSQLiteDatabase m_db;

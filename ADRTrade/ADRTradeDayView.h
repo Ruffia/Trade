@@ -11,6 +11,8 @@ using namespace std;
 #include "Tools/pugiconfig.hpp"
 using namespace pugi;
 
+#define Timer_SaveData2UI  3650
+
 class CADRTradeDayView : public CView
 {
 protected: // 仅从序列化创建
@@ -49,6 +51,7 @@ protected:
 	afx_msg void OnRButtonUp(UINT nFlags, CPoint point);
 	afx_msg void OnContextMenu(CWnd* pWnd, CPoint point);
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
+	afx_msg void OnTimer(UINT nIDEvent); 
 	DECLARE_MESSAGE_MAP()
 
 protected:

@@ -38,6 +38,7 @@ BEGIN_MESSAGE_MAP(CADRTradeDayView, CView)
 	ON_WM_CONTEXTMENU()
 	ON_WM_RBUTTONUP()
 	ON_WM_CREATE()
+	ON_WM_TIMER()
 END_MESSAGE_MAP()
 
 // CADRTradeDayView ¹¹Ôì/Îö¹¹
@@ -162,6 +163,7 @@ void CADRTradeDayView::OnInitialUpdate()
 {
 	_LoadDataFromDB();
 	_CreateUI();
+	SetTimer(Timer_SaveData2UI,5000,NULL);
 	__super::OnInitialUpdate();
 }
 
@@ -192,6 +194,7 @@ void CADRTradeDayView::_CreateUI()
 		if (pHolder)
 		{
 			pHolder->SetLayout(UIData.m_strLayout);
+			pHolder->SetBusiness(UIData.m_sName);
 		}
 		else
 		{
@@ -236,4 +239,23 @@ void CADRTradeDayView::_LoadDataFromDB()
 	{
 		CDBDataManager::Instance().InsertRecordWithPrimaryKey("Future_DailyTradeSummarize","TradeDay","string",v);
 	}
+}
+
+
+void CADRTradeDayView::OnTimer(UINT nIDEvent) 
+{
+	// TODO: Add your message handler code here and/or call default
+	if(nIDEvent == Timer_SaveData2UI)
+	{
+		for (map<string,CUIData>::iterator it = m_mapUIName2Data.begin();
+			it != m_mapUIName2Data.end();it++)
+		{
+			CUIData& ui = it->second;	
+			CDialogPlaceHolder* pHolder = dynamic_cast<CDialogPlaceHolder*>(ui.m_pWnd);
+			if(!pHolder) continue;
+			pHolder->UpdateUI2DB();
+		}
+	}
+
+	__super::OnTimer(nIDEvent);
 }

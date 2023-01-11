@@ -9,6 +9,7 @@ using namespace pugi;
 #include "Business/BusinessNode.h"
 #include "DialogIDManager.h"
 class CBusinessEdit;
+class CRecord;
 
 // CDialogPlaceHolder 对话框
 
@@ -45,7 +46,12 @@ public:
 		m_sBusiness = sBusiness;
 	}
 
-	virtual void UpdateDB2UI();
+	void AddPrimaryKey(string& sKeyName,FieldValue& KeyValue)
+	{
+		m_mapPrimaryKey2Value[sKeyName] = KeyValue;
+	}
+
+	//将UI上的数据保存到数据库中
 	virtual void UpdateUI2DB();
 
 // 对话框数据
@@ -54,7 +60,18 @@ public:
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV 支持
 	virtual BOOL OnInitDialog();
+	//从XML中加载UI布局
 	virtual void _InitLayOut();
+
+	//将数据库中的数据记录加载到UI上显示
+	void virtual _LoadData2UI();
+
+	//判断当日记录是否存在
+	bool _CheckExistsRecord();
+
+	//根据从数据库查询得到的数据记录值更新UI控件的显示
+	void _UpdateDB2UI( CRecord* pRecord );
+
 	DECLARE_MESSAGE_MAP()
 
 protected:
@@ -64,6 +81,9 @@ protected:
 
 	//业务字段--->UI对象
 	map<string,CBusinessEdit*> m_mapBusiness2Control;
+
+	//主键--->值
+	map<string,FieldValue>     m_mapPrimaryKey2Value;
 
 	string m_sBusiness;  //业务名
 };

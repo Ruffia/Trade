@@ -61,6 +61,7 @@ BOOL CDialogPlaceHolder::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 	_InitLayOut();
+	_LoadData2UI();
 	return TRUE;
 }
 
@@ -150,15 +151,124 @@ void CDialogPlaceHolder::_InitLayOut()
 }
 
 
-void CDialogPlaceHolder::UpdateDB2UI()
+void CDialogPlaceHolder::_LoadData2UI()
 {
-	map<string,CFieldDesc*>& mapTableName2FieldDesc = CDBDataManager::Instance().GetTableMeta(m_sBusiness);
+	bool bExists = _CheckExistsRecord();
+	if (!bExists) return;
 
 	vector<CFieldDesc*> vFieldDesc;
 	CDBDataManager::Instance().GetFieldMetaData(m_sBusiness,vFieldDesc);
 
 	vector<CFieldDesc*> vPrimaryKey;
 	CDBDataManager::Instance().GetPrimaryKey(m_sBusiness,vPrimaryKey);
+	//此处只处理只有一个主键"TradeDay"的情况
+	if(vPrimaryKey.size() != 1) return;
+
+	CFieldDesc* pPrimaryKeyDesc = vPrimaryKey[0];
+	if(!pPrimaryKeyDesc) return;
+
+	COleDateTime dtNOw = COleDateTime::GetCurrentTime();
+	CString strDate = dtNOw.Format("%Y-%m-%d");
+
+	FieldValue vKey;
+	vKey.SetDataType("string");
+	vKey.SetValueString(strDate);
+
+	string sSQL = "select * from ";
+	sSQL += m_sBusiness;
+	sSQL += " where ";
+	sSQL += pPrimaryKeyDesc->m_strFieldName;
+	sSQL += " = ";
+	sSQL += vKey.GetValueAsString();
+
+	CDataSet ds;
+	CDBDataManager::Instance().LoadData(sSQL,m_sBusiness,ds);
+	if(ds.Size() != 1) return;   //此处有且仅有一条记录
+	 
+	CRecord* pRecord = ds[0];
+	if(!pRecord) return;
+
+	_UpdateDB2UI(pRecord);
+}
+
+
+bool CDialogPlaceHolder::_CheckExistsRecord()
+{
+	vector<CFieldDesc*> vPrimaryKey;
+	CDBDataManager::Instance().GetPrimaryKey(m_sBusiness,vPrimaryKey);
+	//此处只处理只有一个主键"TradeDay"的情况
+	if(vPrimaryKey.size() != 1) return false;
+
+	CFieldDesc* pPrimaryKeyDesc = vPrimaryKey[0];
+	if(!pPrimaryKeyDesc) return false;
+
+	COleDateTime dtNOw = COleDateTime::GetCurrentTime();
+	CString strDate = dtNOw.Format("%Y-%m-%d");
+
+	FieldValue vKey;
+	vKey.SetDataType("string");
+	vKey.SetValueString(strDate);
+	bool bExists = CDBDataManager::Instance().RecordExists(m_sBusiness,pPrimaryKeyDesc->m_strFieldName,pPrimaryKeyDesc->m_strDataType,vKey);
+	if (!bExists)
+	{
+		return false; 
+	}
+
+	return true;
+}
+
+void CDialogPlaceHolder::_UpdateDB2UI( CRecord* pRecord )
+{
+	map<string,CFieldDesc*>& mapTableName2FieldDesc = CDBDataManager::Instance().GetTableMeta(m_sBusiness);
+	for(map<string,CBusinessEdit*>::iterator it = m_mapBusiness2Control.begin();
+		it != m_mapBusiness2Control.end();it++)
+	{
+		CBusinessEdit* pBusinessControl = it->second;
+		if(!pBusinessControl) continue;
+
+		//根据FieldID 找到 CFieldDesc
+		map<string,CFieldDesc*>::iterator itFieldDesc = mapTableName2FieldDesc.find(pBusinessControl->m_sBusinessField);
+		if(mapTableName2FieldDesc.end() == itFieldDesc) continue;
+
+		CFieldDesc* pFieldDesc = itFieldDesc->second;
+		if (!pFieldDesc) continue;
+
+		//根据FieldDesc 找到 CField
+		CField* pField = pRecord->GetField(pFieldDesc->m_strFieldName);
+		if(!pField) return;
+
+		CString strValue = "";
+		const string strDataType = pFieldDesc->m_strDataType;
+		const string strDisplayType = pFieldDesc->GetAttributeString("DisplayType");
+		if (strDataType.find("string") != string::npos)
+		{
+			string sValue = pField->GetValueAsString();
+			strValue.Format(strDisplayType.c_str(),sValue.c_str());
+		}
+		else if (strDataType.find("int") != string::npos)
+		{
+			strValue.Format(strDisplayType.c_str(),pField->GetValueAsInt());
+		}
+		else if (strDataType.find("float") != string::npos)
+		{
+			strValue.Format(strDisplayType.c_str(),pField->GetValueAsFloat());
+		}
+		else if (strDataType.find("double") != string::npos)
+		{
+			strValue.Format(strDisplayType.c_str(),pField->GetValueAsDouble());
+		}
+
+		pBusinessControl->SetWindowTextA(strValue);
+	}
+}
+
+
+void CDialogPlaceHolder::UpdateUI2DB()
+{
+	bool bExists = _CheckExistsRecord();
+	if(!bExists) return;
+
+	map<string,CFieldDesc*>& mapTableName2FieldDesc = CDBDataManager::Instance().GetTableMeta(m_sBusiness);
 
 	string sSQL = "update ";
 	sSQL += m_sBusiness;
@@ -204,22 +314,23 @@ void CDialogPlaceHolder::UpdateDB2UI()
 		nUIControlCount++;
 	}
 
+	sSQL += " where ";
 
-	for (vector<CFieldDesc*>::iterator it = vPrimaryKey.begin(); it!= vPrimaryKey.end(); it++)
-	{
-		CFieldDesc* pPrimaryKeyDesc = *it;
-		if (!pPrimaryKeyDesc) continue;
-		if (!pPrimaryKeyDesc->m_bShowOnUI)
-		{
+	vector<CFieldDesc*> vPrimaryKey;
+	CDBDataManager::Instance().GetPrimaryKey(m_sBusiness,vPrimaryKey);
+	//此处只处理只有一个主键"TradeDay"的情况
+	if(vPrimaryKey.size() != 1) return;
 
-		}
-	}
-	
+	CFieldDesc* pPrimaryKeyDesc = vPrimaryKey[0];
+	if(!pPrimaryKeyDesc) return;
+
+	COleDateTime dtNOw = COleDateTime::GetCurrentTime();
+	CString strDate = dtNOw.Format("%Y-%m-%d");
+
+	char szChereClause[512] = {0};
+	sprintf_s(szChereClause,512,"%s = '%s'",pPrimaryKeyDesc->m_strFieldName,strDate);
+
+	sSQL += szChereClause;
+
 	CDBDataManager::Instance().Exec(sSQL);
-}
-
-
-void CDialogPlaceHolder::UpdateUI2DB()
-{
-
 }
