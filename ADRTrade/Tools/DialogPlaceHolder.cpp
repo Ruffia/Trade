@@ -4,7 +4,7 @@
 #include "ADRTrade.h"
 #include "DialogPlaceHolder.h"
 #include "afxdialogex.h"
-#include "Factory.h"
+#include "../Common/Factory.h"
 #include "DialogIDManager.h"
 #include "Tools/StyleManager.h"
 #include "UIData.h"
