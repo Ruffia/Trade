@@ -146,14 +146,14 @@ void CADRTradeDayView::_LoadLayout()
 	while (!node.empty())
 	{
 		CUIData data;
-		const string sName = node.attribute("Name").as_string("");
+		data.m_sName = node.attribute("Name").as_string("");
 		data.m_strUIClassName = node.attribute("ClassName").as_string("");
 		data.m_strLayout = node.attribute("Layout").as_string("");
 		data.m_nLeft = node.attribute("Left").as_int();
 		data.m_nTop = node.attribute("Top").as_int();
 		data.m_nWidth = node.attribute("Width").as_int();
 		data.m_nHeight = node.attribute("Height").as_int();
-		m_mapUIName2Data[sName] = data;	
+		m_mapUIName2Data[data.m_sName] = data;	
 		node = node.next_sibling();
 	}
 }
@@ -193,8 +193,8 @@ void CADRTradeDayView::_CreateUI()
 		CDialogPlaceHolder* pHolder = dynamic_cast<CDialogPlaceHolder*>(pDlg);
 		if (pHolder)
 		{
-			pHolder->SetLayout(UIData.m_strLayout);
 			pHolder->SetBusiness(UIData.m_sName);
+			pHolder->SetLayout(UIData.m_strLayout);		
 		}
 		else
 		{

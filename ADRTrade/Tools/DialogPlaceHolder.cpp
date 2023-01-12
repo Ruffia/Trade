@@ -178,8 +178,9 @@ void CDialogPlaceHolder::_LoadData2UI()
 	sSQL += m_sBusiness;
 	sSQL += " where ";
 	sSQL += pPrimaryKeyDesc->m_strFieldName;
-	sSQL += " = ";
+	sSQL += " = '";
 	sSQL += vKey.GetValueAsString();
+	sSQL += "'";
 
 	CDataSet ds;
 	CDBDataManager::Instance().LoadData(sSQL,m_sBusiness,ds);

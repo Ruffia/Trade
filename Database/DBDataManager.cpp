@@ -330,7 +330,7 @@ void CDBDataManager::GetFieldMetaData(const string &sTableName,vector<CFieldDesc
 {
 	map<string,CFieldDesc*>& mapFieldName2FieldDesc = m_mapTable2Meta[sTableName];
 	for (map<string,CFieldDesc*>::iterator it = mapFieldName2FieldDesc.begin();
-		it != mapFieldName2FieldDesc.begin(); it++)
+		it != mapFieldName2FieldDesc.end(); it++)
 	{
 		CFieldDesc* pFieldDesc = it->second;
 		vFieldDesc.push_back(pFieldDesc);
