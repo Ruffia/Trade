@@ -54,6 +54,7 @@ CString CSQLiteRecordset::AsString(int index)
 {
 	ASSERT(IsOpen());
 	char* str = (char*)sqlite3_column_text(m_pStatement, index);
+	if(NULL == str) return "";
 	wstring ws = CA2W(Utf8ToAnsi(str), CP_UTF8); 
 	_bstr_t bst = ws.c_str();  
 	char* wstr = (char*)bst; 

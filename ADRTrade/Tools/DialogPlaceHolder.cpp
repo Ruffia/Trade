@@ -329,7 +329,7 @@ void CDialogPlaceHolder::UpdateUI2DB()
 	CString strDate = dtNOw.Format("%Y-%m-%d");
 
 	char szChereClause[512] = {0};
-	sprintf_s(szChereClause,512,"%s = '%s'",pPrimaryKeyDesc->m_strFieldName,strDate);
+	sprintf_s(szChereClause,512,"%s = '%s'",pPrimaryKeyDesc->m_strFieldName.c_str(),strDate);
 
 	sSQL += szChereClause;
 

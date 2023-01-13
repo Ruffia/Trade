@@ -118,8 +118,8 @@ int CDBDataManager::LoadData(const string& strSQL,const string& strTableName, CD
 
 			if (sDataType.find("string") != string::npos)
 			{
-				string sValue = pRecordset->AsString(i);
-				pValue->SetValueString(sValue.c_str());
+				CString sValue = pRecordset->AsString(i);
+				pValue->SetValueString((LPTSTR)(LPCTSTR)sValue);
 			}
 			else if (sDataType.find("int") != string::npos)
 			{
