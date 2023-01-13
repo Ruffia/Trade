@@ -379,16 +379,15 @@ void CDBDataManager::LoadFieldAttribute(const string &sTableName)
 		const int nFieldColumnCount = pRecordset->GetFieldCount();
 		for (int i = 0; i < nFieldColumnCount; i++)
 		{	
-			string sFieldCaption = pRecordset->GetFieldName(i);
-			
-			if (sFieldCaption.find("FieldName") != string::npos )
+			string sFieldCaption = pRecordset->GetFieldName(i);		
+            if(sFieldCaption.find("FieldAttributeName") != string::npos )
+			{
+				sFieldAttributeName = pRecordset->AsString(i);
+			}
+			else if (sFieldCaption.find("FieldName") != string::npos )
 			{
 				sFieldName = pRecordset->AsString(i);
 				pFieldDesc = mapFieldName2FieldDesc[sFieldName];	
-			}
-			else if(sFieldCaption.find("FieldAttributeName") != string::npos )
-			{
-				sFieldAttributeName = pRecordset->AsString(i);
 			}
 			else if (sFieldCaption.find("TableName") != string::npos)
 			{
@@ -419,6 +418,12 @@ void CDBDataManager::LoadFieldAttribute(const string &sTableName)
 			pAttributeValue->SetDataType("int");
 			int nValue = atoi(sAttributeValue.c_str());
 			pAttributeValue->SetValueInt(nValue);
+		}
+		else if (sDataType.find("float") != string::npos )
+		{
+			pAttributeValue->SetDataType("float");
+			float fValue = atof(sAttributeValue.c_str());
+			pAttributeValue->SetValueInt(fValue);
 		}
 
 		CAttribute* pAttribute = new CAttribute;

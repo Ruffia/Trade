@@ -302,7 +302,7 @@ void CDialogPlaceHolder::UpdateUI2DB()
 		else if (pFieldDesc->m_strDataType == "float" || pFieldDesc->m_strDataType == "integer" ||
 			pFieldDesc->m_strDataType == "int" )
 		{
-			sprintf_s(szSQL,512," %s = %s ", pBusinessControl->m_sBusinessField.c_str(), szValue);
+			sprintf_s(szSQL,512," %s = %s ", pBusinessControl->m_sBusinessField.c_str(), strcmp(szValue,"")?szValue:"0");
 		}
 
 		sSQL += szSQL;
