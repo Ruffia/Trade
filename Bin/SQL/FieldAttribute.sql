@@ -10,7 +10,7 @@
  Target Server Version : 3035005
  File Encoding         : 65001
 
- Date: 04/01/2023 21:28:56
+ Date: 13/01/2023 17:17:40
 */
 
 PRAGMA foreign_keys = false;
@@ -91,5 +91,98 @@ INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'GainLoss', 'Future_DailyTra
 INSERT INTO "FieldAttribute" VALUES ('Meaning', 'GainLossPercent', 'Future_DailyTradeSummarize', 'string', '盈亏百分比');
 INSERT INTO "FieldAttribute" VALUES ('ControlType', 'GainLossPercent', 'Future_DailyTradeSummarize', 'string', 'CEdit');
 INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'GainLossPercent', 'Future_DailyTradeSummarize', 'string', '%.1f');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'TradeDay', 'Future_IntradayTrade', 'string', '交易日');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'TradeDay', 'Future_IntradayTrade', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'TradeDay', 'Future_IntradayTrade', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'FutureContractName', 'Future_IntradayTrade', 'string', '合约名称');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'FutureContractName', 'Future_IntradayTrade', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'FutureContractName', 'Future_IntradayTrade', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'TradeTime', 'Future_IntradayTrade', 'string', '下单时间');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'TradeTime', 'Future_IntradayTrade', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'TradeTime', 'Future_IntradayTrade', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'ExpectOrderTime', 'Future_IntradayTrade', 'string', '预期交易时长');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'ExpectOrderTime', 'Future_IntradayTrade', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'ExpectOrderTime', 'Future_IntradayTrade', 'string', '%d');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'TradeType', 'Future_IntradayTrade', 'string', '交易类型');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'TradeType', 'Future_IntradayTrade', 'string', 'CComBox');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'TradeType', 'Future_IntradayTrade', 'string', '%d');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'OpenQuantity', 'Future_IntradayTrade', 'string', '开仓仓位');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'OpenQuantity', 'Future_IntradayTrade', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'OpenQuantity', 'Future_IntradayTrade', 'string', '%d');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'OpenPrice', 'Future_IntradayTrade', 'string', '开仓价格');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'OpenPrice', 'Future_IntradayTrade', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'OpenPrice', 'Future_IntradayTrade', 'string', '%f');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'ExpectMaxLoss', 'Future_IntradayTrade', 'string', '预期最大损失');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'ExpectMaxLoss', 'Future_IntradayTrade', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'ExpectMaxLoss', 'Future_IntradayTrade', 'string', '%.1f');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'ExpectIncomde', 'Future_IntradayTrade', 'string', '预期收益');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'ExpectIncomde', 'Future_IntradayTrade', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'ExpectIncomde', 'Future_IntradayTrade', 'string', '%.1f');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'BuySellStrength', 'Future_IntradayTrade', 'string', '多空强度');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'BuySellStrength', 'Future_IntradayTrade', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'BuySellStrength', 'Future_IntradayTrade', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'Reason4Transaction', 'Future_IntradayTrade', 'string', '交易理由');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'Reason4Transaction', 'Future_IntradayTrade', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'Reason4Transaction', 'Future_IntradayTrade', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'Reason4Prevention', 'Future_IntradayTrade', 'string', '阻止理由');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'Reason4Prevention', 'Future_IntradayTrade', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'Reason4Prevention', 'Future_IntradayTrade', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'China_HKStockMarket01', 'Future_IntradayTrade', 'string', 'A股/香港股市行情');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'China_HKStockMarket01', 'Future_IntradayTrade', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'China_HKStockMarket01', 'Future_IntradayTrade', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'FutureMarket01', 'Future_IntradayTrade', 'string', '期货市场整体行情');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'FutureMarket01', 'Future_IntradayTrade', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'FutureMarket01', 'Future_IntradayTrade', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'FutureMACD01', 'Future_IntradayTrade', 'string', 'MACD');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'FutureMACD01', 'Future_IntradayTrade', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'FutureMACD01', 'Future_IntradayTrade', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'FutureStrenthAngle01', 'Future_IntradayTrade', 'string', '角度和力量');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'FutureStrenthAngle01', 'Future_IntradayTrade', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'FutureStrenthAngle01', 'Future_IntradayTrade', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'FutureTRIX01', 'Future_IntradayTrade', 'string', 'Trix');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'FutureTRIX01', 'Future_IntradayTrade', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'FutureTRIX01', 'Future_IntradayTrade', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'China_HKStockMarket02', 'Future_IntradayTrade', 'string', 'A股/香港股市行情');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'China_HKStockMarket02', 'Future_IntradayTrade', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'China_HKStockMarket02', 'Future_IntradayTrade', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'FutureMarket02', 'Future_IntradayTrade', 'string', '期货市场整体行情');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'FutureMarket02', 'Future_IntradayTrade', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'FutureMarket02', 'Future_IntradayTrade', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'FutureMACD02', 'Future_IntradayTrade', 'string', 'MACD');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'FutureMACD02', 'Future_IntradayTrade', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'FutureMACD02', 'Future_IntradayTrade', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'FutureStrenthAngle02', 'Future_IntradayTrade', 'string', '角度和力量');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'FutureStrenthAngle02', 'Future_IntradayTrade', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'FutureStrenthAngle02', 'Future_IntradayTrade', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'FutureTRIX02', 'Future_IntradayTrade', 'string', 'Trix');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'FutureTRIX02', 'Future_IntradayTrade', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'FutureTRIX02', 'Future_IntradayTrade', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'ClosePositionReason', 'Future_IntradayTrade', 'string', '平仓理由');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'ClosePositionReason', 'Future_IntradayTrade', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'ClosePositionReason', 'Future_IntradayTrade', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'PreventClosePositionReason', 'Future_IntradayTrade', 'string', '阻止平仓理由');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'PreventClosePositionReason', 'Future_IntradayTrade', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'PreventClosePositionReason', 'Future_IntradayTrade', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'ClosePositionTime', 'Future_IntradayTrade', 'string', '平仓时间');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'ClosePositionTime', 'Future_IntradayTrade', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'ClosePositionTime', 'Future_IntradayTrade', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'CloseQuantity', 'Future_IntradayTrade', 'string', '平仓仓位');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'CloseQuantity', 'Future_IntradayTrade', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'CloseQuantity', 'Future_IntradayTrade', 'string', '%d');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'ClosePrice', 'Future_IntradayTrade', 'string', '平仓价格');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'ClosePrice', 'Future_IntradayTrade', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'ClosePrice', 'Future_IntradayTrade', 'string', '%f');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'GainLoss', 'Future_IntradayTrade', 'string', '盈亏');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'GainLoss', 'Future_IntradayTrade', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'GainLoss', 'Future_IntradayTrade', 'string', '%f');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'HighestPrice', 'Future_IntradayTrade', 'string', '区间最高价格');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'HighestPrice', 'Future_IntradayTrade', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'HighestPrice', 'Future_IntradayTrade', 'string', '%f');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'LowestPricePrice', 'Future_IntradayTrade', 'string', '区间最低价格');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'LowestPricePrice', 'Future_IntradayTrade', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'LowestPricePrice', 'Future_IntradayTrade', 'string', '%f');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'TransactionQuality', 'Future_IntradayTrade', 'string', '交易质量');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'TransactionQuality', 'Future_IntradayTrade', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'TransactionQuality', 'Future_IntradayTrade', 'string', '%f');
 
 PRAGMA foreign_keys = true;
