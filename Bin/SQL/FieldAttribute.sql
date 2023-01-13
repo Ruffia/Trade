@@ -75,21 +75,21 @@ INSERT INTO "FieldAttribute" VALUES ('ControlType', 'WrongDeeds', 'Future_DailyT
 INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'WrongDeeds', 'Future_DailyTradeSummarize', 'string', '%s');
 INSERT INTO "FieldAttribute" VALUES ('Meaning', 'MoneyBegin', 'Future_DailyTradeSummarize', 'string', '起始时资金数额');
 INSERT INTO "FieldAttribute" VALUES ('ControlType', 'MoneyBegin', 'Future_DailyTradeSummarize', 'string', 'CEdit');
-INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'MoneyBegin', 'Future_DailyTradeSummarize', 'float', '%.1f');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'MoneyBegin', 'Future_DailyTradeSummarize', 'string', '%.1f');
 INSERT INTO "FieldAttribute" VALUES ('Meaning', 'MoneyEnd', 'Future_DailyTradeSummarize', 'string', '结束时资金数额');
 INSERT INTO "FieldAttribute" VALUES ('ControlType', 'MoneyEnd', 'Future_DailyTradeSummarize', 'string', 'CEdit');
-INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'MoneyEnd', 'Future_DailyTradeSummarize', 'float', '%.1f');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'MoneyEnd', 'Future_DailyTradeSummarize', 'string', '%.1f');
 INSERT INTO "FieldAttribute" VALUES ('Meaning', 'Money2Bank', 'Future_DailyTradeSummarize', 'string', '出金数额');
 INSERT INTO "FieldAttribute" VALUES ('ControlType', 'Money2Bank', 'Future_DailyTradeSummarize', 'string', 'CEdit');
-INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'Money2Bank', 'Future_DailyTradeSummarize', 'float', '%.1f');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'Money2Bank', 'Future_DailyTradeSummarize', 'string', '%.1f');
 INSERT INTO "FieldAttribute" VALUES ('Meaning', 'MoneyFromBank', 'Future_DailyTradeSummarize', 'string', '入金数额');
 INSERT INTO "FieldAttribute" VALUES ('ControlType', 'MoneyFromBank', 'Future_DailyTradeSummarize', 'string', 'CEdit');
-INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'MoneyFromBank', 'Future_DailyTradeSummarize', 'float', '%.1f');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'MoneyFromBank', 'Future_DailyTradeSummarize', 'string', '%.1f');
 INSERT INTO "FieldAttribute" VALUES ('Meaning', 'GainLoss', 'Future_DailyTradeSummarize', 'string', '盈利(亏损)金额');
 INSERT INTO "FieldAttribute" VALUES ('ControlType', 'GainLoss', 'Future_DailyTradeSummarize', 'string', 'CEdit');
-INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'GainLoss', 'Future_DailyTradeSummarize', 'float', '%.1f');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'GainLoss', 'Future_DailyTradeSummarize', 'string', '%.1f');
 INSERT INTO "FieldAttribute" VALUES ('Meaning', 'GainLossPercent', 'Future_DailyTradeSummarize', 'string', '盈亏百分比');
 INSERT INTO "FieldAttribute" VALUES ('ControlType', 'GainLossPercent', 'Future_DailyTradeSummarize', 'string', 'CEdit');
-INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'GainLossPercent', 'Future_DailyTradeSummarize', 'float', '%.1f');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'GainLossPercent', 'Future_DailyTradeSummarize', 'string', '%.1f');
 
 PRAGMA foreign_keys = true;
