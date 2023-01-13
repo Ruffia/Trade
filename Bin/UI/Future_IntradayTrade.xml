@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="gbk"?>
 <root>
 	<Layout>
-	    <widget Name="FutureContractTitle" ClassName="CEdit" ID="21000" Caption="日内短线交易" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="10" Width="406" Height="25" />	
+	    <widget Name="IntradayTradeTitle" ClassName="CEdit" ID="21000" Caption="日内短线交易" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="10" Width="406" Height="25" />	
         <widget Name="FutureContractTitle" ClassName="CEdit" ID="10000" Caption="交易合约" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="35" Width="70" Height="25" />	
-		<widget Name="FutureContractName" ClassName="CEdit"  ID="10002" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="72" Top="35" Width="88" Height="25" />
+		<widget Name="FutureContractName" ClassName="CBusinessEdit"  ID="10002" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="72" Top="35" Width="88" Height="25" business="FutureContractName"/>
 		<widget Name="TradeTimeTitle" ClassName="CEdit" ID="10003" Caption="下单时间" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="160" Top="35" Width="60" Height="25" />	
-		<widget Name="TradeTime" ClassName="CEdit"  ID="10004" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="220" Top="35" Width="60" Height="25" />
+		<widget Name="TradeTime" ClassName="CEdit"  ID="10004" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="220" Top="35" Width="60" Height="25" business="TradeTime"/>
 		<widget Name="ExpectOrderTimeTitle" ClassName="CEdit" ID="10005" Caption="预交易时长" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="280" Top="35" Width="84" Height="25" />	
-		<widget Name="ExpectOrderTime" ClassName="CEdit"  ID="10006" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="364" Top="35" Width="44" Height="25" />	
+		<widget Name="ExpectOrderTime" ClassName="CBusinessEdit"  ID="10006" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="364" Top="35" Width="44" Height="25" business="ExpectOrderTime"/>	
 		<widget Name="TradeContentTitle" ClassName="CEdit" ID="10007" Caption="交易仓位" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="60" Width="70" Height="25" />	
-		<widget Name="TradeType" ClassName="CComBox"  ID="10008" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_SORT|CBS_DROPDOWN|CBS_OEMCONVERT" Left="72" Top="60" Width="55" Height="75">
+		<widget Name="TradeType" ClassName="CComBox"  ID="10008" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_SORT|CBS_DROPDOWN|CBS_OEMCONVERT" Left="72" Top="60" Width="55" Height="75" business="TradeType">
 		    <DropdownItem Name="买入" value="1"/>
 			<DropdownItem Name="卖出" value="0"/>
 		</widget>
-		<widget Name="OpenQuantity" ClassName="CEdit"  ID="10009" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_NUMBER|ES_LEFT" Left="130" Top="60" Width="30" Height="25" />
+		<widget Name="OpenQuantity" ClassName="CBusinessEdit"  ID="10009" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_NUMBER|ES_LEFT" Left="130" Top="60" Width="30" Height="25"  business="OpenQuantity"/>
 		<widget Name="OpenMultiplyTitle" ClassName="CEdit" ID="10010" Caption="*" Style="WS_CHILD|WS_VISIBLE|ES_CENTER|WS_TABSTOP|ES_READONLY" Left="160" Top="60" Width="10" Height="25" />
         <widget Name="OpenPrice" ClassName="CEdit"  ID="10011" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_NUMBER|ES_LEFT" Left="170" Top="60" Width="50" Height="25" />  		
 		<widget Name="ExpectMaxLossTitle" ClassName="CEdit" ID="12010" Caption="预期亏损" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="220" Top="60" Width="60" Height="25" />	

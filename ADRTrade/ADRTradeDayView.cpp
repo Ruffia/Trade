@@ -239,6 +239,12 @@ void CADRTradeDayView::_LoadDataFromDB()
 	{
 		CDBDataManager::Instance().InsertRecordWithPrimaryKey("Future_DailyTradeSummarize","TradeDay","string",v);
 	}
+
+	bExist = CDBDataManager::Instance().RecordExists("Future_IntradayTrade","TradeDay","string",v);
+	if (!bExist)
+	{
+		CDBDataManager::Instance().InsertRecordWithPrimaryKey("Future_IntradayTrade","TradeDay","string",v);
+	}
 }
 
 
