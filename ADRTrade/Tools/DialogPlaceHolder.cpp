@@ -10,6 +10,7 @@
 #include "UIData.h"
 #include "Tools/CollectiveComponentProvider.h"
 #include "BusinessEdit.h"
+#include "BusinessComboBox.h"
 #include "DBDataManager.h"
 #include "Util.h"
 #include "EditTreeCtrlEx.h"
@@ -128,9 +129,9 @@ void CDialogPlaceHolder::_InitLayOut()
 			pEdit->SetWindowText(sCaption.c_str());
 			m_mapUIName2Wnd[sName] = pEdit;	
 		}
-		else if (data.m_strUIClassName.find("CComBox") != string::npos)
+		else if (data.m_strUIClassName.find("CBusinessComboBox") != string::npos)
 		{
-			CComboBox* pCombox = new CComboBox;
+			CBusinessComboBox* pCombox = new CBusinessComboBox;
 			CRect rc(data.m_nLeft,data.m_nTop,data.m_nLeft + data.m_nWidth ,data.m_nTop + data.m_nHeight);
 			pCombox->Create(dwTotalStyle,rc,this,data.m_nID);	
 			xml_node nodeDropdownItem = node.child("DropdownItem");
@@ -141,9 +142,13 @@ void CDialogPlaceHolder::_InitLayOut()
 				nodeDropdownItem = nodeDropdownItem.next_sibling();
 			}
 
+			const string& sBusiness = node.attribute("business").as_string();
+			pCombox->m_sBusinessField = sBusiness;
+
 			pCombox->SetFont(pFont);
 			pCombox->ShowWindow(SW_SHOW);
 			pCombox->SetWindowText(sCaption.c_str());
+			m_mapBusiness2Control[sBusiness] = pCombox;
 			m_mapUIName2Wnd[sName] = pCombox;	
 		}
 		node = node.next_sibling();
@@ -221,14 +226,30 @@ bool CDialogPlaceHolder::_CheckExistsRecord()
 void CDialogPlaceHolder::_UpdateDB2UI( CRecord* pRecord )
 {
 	map<string,CFieldDesc*>& mapTableName2FieldDesc = CDBDataManager::Instance().GetTableMeta(m_sBusiness);
-	for(map<string,CBusinessEdit*>::iterator it = m_mapBusiness2Control.begin();
+	for(map<string,CWnd*>::iterator it = m_mapBusiness2Control.begin();
 		it != m_mapBusiness2Control.end();it++)
 	{
-		CBusinessEdit* pBusinessControl = it->second;
-		if(!pBusinessControl) continue;
+		CWnd* pWnd = it->second;
+		string sBusinessField = "";
+		bool bCombox = false;
+		CBusinessComboBox* pComboBoxControl = NULL;
+		CBusinessEdit* pBusinessControl = dynamic_cast<CBusinessEdit*>(pWnd);
+		if(!pBusinessControl)
+		{
+			pComboBoxControl = dynamic_cast<CBusinessComboBox*>(pWnd);
+			if(!pComboBoxControl) continue;
+
+			bCombox = true;
+			sBusinessField = pComboBoxControl->m_sBusinessField;
+		}
+		else
+		{
+			sBusinessField = pBusinessControl->m_sBusinessField;
+		}
+
 
 		//¸ù¾ÝFieldID ÕÒµ½ CFieldDesc
-		map<string,CFieldDesc*>::iterator itFieldDesc = mapTableName2FieldDesc.find(pBusinessControl->m_sBusinessField);
+		map<string,CFieldDesc*>::iterator itFieldDesc = mapTableName2FieldDesc.find(sBusinessField);
 		if(mapTableName2FieldDesc.end() == itFieldDesc) continue;
 
 		CFieldDesc* pFieldDesc = itFieldDesc->second;
@@ -248,7 +269,19 @@ void CDialogPlaceHolder::_UpdateDB2UI( CRecord* pRecord )
 		}
 		else if (strDataType.find("int") != string::npos)
 		{
-			strValue.Format(strDisplayType.c_str(),pField->GetValueAsInt());
+			if (bCombox)
+			{
+				if (pComboBoxControl)
+				{
+					string sMeaning = "";
+					bool bFindValue = pComboBoxControl->GetMeaning(pField->GetValueAsInt(),sMeaning);
+					strValue = sMeaning.c_str();
+				}
+			}
+			else
+			{
+				strValue.Format(strDisplayType.c_str(),pField->GetValueAsInt());
+			}			
 		}
 		else if (strDataType.find("float") != string::npos)
 		{
@@ -259,7 +292,7 @@ void CDialogPlaceHolder::_UpdateDB2UI( CRecord* pRecord )
 			strValue.Format(strDisplayType.c_str(),pField->GetValueAsDouble());
 		}
 
-		pBusinessControl->SetWindowTextA(strValue);
+		pWnd->SetWindowTextA(strValue);
 	}
 }
 
@@ -276,43 +309,70 @@ void CDialogPlaceHolder::UpdateUI2DB()
 	sSQL += " set ";
 
 	int nUIControlCount = 0;
-	for(map<string,CBusinessEdit*>::iterator it = m_mapBusiness2Control.begin();
+	for(map<string,CWnd*>::iterator it = m_mapBusiness2Control.begin();
 		it != m_mapBusiness2Control.end();it++)
 	{
-		CBusinessEdit* pBusinessControl = it->second;
-		if(!pBusinessControl) continue;
+		CWnd* pWnd = it->second;
+		nUIControlCount++;
+		bool bComBox = false;
+		string sBusinessField = "";
+		CBusinessComboBox* pComboBoxControl = NULL;
+		CBusinessEdit* pBusinessControl = dynamic_cast<CBusinessEdit*>(it->second);
+		if(!pBusinessControl)
+		{
+			pComboBoxControl = dynamic_cast<CBusinessComboBox*>(it->second);
+			if(!pComboBoxControl) continue;
 
-		map<string,CFieldDesc*>::iterator itFieldDesc = mapTableName2FieldDesc.find(pBusinessControl->m_sBusinessField);
+			sBusinessField = pComboBoxControl->m_sBusinessField;
+			bComBox = true;
+		}
+		else
+		{
+			sBusinessField = pBusinessControl->m_sBusinessField;
+		}
+
+		map<string,CFieldDesc*>::iterator itFieldDesc = mapTableName2FieldDesc.find(sBusinessField);
 		if(mapTableName2FieldDesc.end() == itFieldDesc) continue;
 
 		CFieldDesc* pFieldDesc = itFieldDesc->second;
 		if (!pFieldDesc) continue;
 
-		string sFieldValue2Update = pBusinessControl->m_sBusinessField;
-		sFieldValue2Update += " = ";
-
 		char szValue[512] = {0}; 
-		pBusinessControl->GetWindowTextA(szValue,512);
+		pWnd->GetWindowTextA(szValue,512);
 
 		char szSQL[512] = {0}; 
 		if (pFieldDesc->m_strDataType == "string")
 		{
-			sprintf_s(szSQL,512," %s = '%s' ",pBusinessControl->m_sBusinessField.c_str(),szValue);
+			sprintf_s(szSQL,512," %s = '%s' ",sBusinessField.c_str(),szValue);
 		}
-		else if (pFieldDesc->m_strDataType == "float" || pFieldDesc->m_strDataType == "integer" ||
-			pFieldDesc->m_strDataType == "int" )
+		else if (pFieldDesc->m_strDataType == "float" )
 		{
-			sprintf_s(szSQL,512," %s = %s ", pBusinessControl->m_sBusinessField.c_str(), strcmp(szValue,"")?szValue:"0");
+			sprintf_s(szSQL,512," %s = %s ", sBusinessField.c_str(), strcmp(szValue,"")?szValue:"0");
+		}
+		else if( pFieldDesc->m_strDataType == "integer" || pFieldDesc->m_strDataType == "int")
+		{
+			if (bComBox)
+			{
+				int nValue = -1;
+				bool bFindValue = pComboBoxControl->GetValue(szValue,nValue);
+				sprintf_s(szSQL,512," %s = %d ", sBusinessField.c_str(), nValue);
+			}
+			else
+			{
+				sprintf_s(szSQL,512," %s = %s ", sBusinessField.c_str(), strcmp(szValue,"")?szValue:"0");
+			}			
 		}
 
 		sSQL += szSQL;
-
-		if (m_mapBusiness2Control.size() - 1 != nUIControlCount)
+		if (m_mapBusiness2Control.size() != nUIControlCount)
 		{
 			sSQL += ",";
 		}
-
-		nUIControlCount++;
+		else
+		{
+			sSQL += " ";
+		}
+	
 	}
 
 	sSQL += " where ";
@@ -332,6 +392,5 @@ void CDialogPlaceHolder::UpdateUI2DB()
 	sprintf_s(szChereClause,512,"%s = '%s'",pPrimaryKeyDesc->m_strFieldName.c_str(),strDate);
 
 	sSQL += szChereClause;
-
 	CDBDataManager::Instance().Exec(sSQL);
 }

@@ -134,6 +134,7 @@
     <ClInclude Include="Stock\DlgPopup_StockPool.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Tools\AsynProcessorWithProgress.h" />
+    <ClInclude Include="Tools\BusinessComboBox.h" />
     <ClInclude Include="Tools\BusinessEdit.h" />
     <ClInclude Include="Tools\CheckComboBox.h" />
     <ClInclude Include="Tools\ChildDlgTab.h" />
@@ -184,6 +185,7 @@
     <ClCompile Include="Stock\DialogStock_TrackPhraseIn1Week.cpp" />
     <ClCompile Include="Stock\DlgPopup_StockPool.cpp" />
     <ClCompile Include="Tools\AsynProcessorWithProgress.cpp" />
+    <ClCompile Include="Tools\BusinessComboBox.cpp" />
     <ClCompile Include="Tools\BusinessEdit.cpp" />
     <ClCompile Include="Tools\CheckComboBox.cpp" />
     <ClCompile Include="Tools\ChildDlgTab.cpp" />

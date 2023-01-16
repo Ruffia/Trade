@@ -80,7 +80,7 @@ protected:
 	map<string,CWnd*>  m_mapUIName2Wnd;
 
 	//业务字段--->UI对象
-	map<string,CBusinessEdit*> m_mapBusiness2Control;
+	map<string,CWnd*> m_mapBusiness2Control;
 
 	//主键--->值
 	map<string,FieldValue>     m_mapPrimaryKey2Value;
