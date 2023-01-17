@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="gbk"?>
 <root>
 	<Layout>	
-		<widget Name="LongPeriodicAnalyze" ClassName="CDialogFutureContract_LongPeriodicAnalyze" Layout="FutureContract_LongPeriodicAnalyze.xml"  IDD="IDD_DLG_Common" Left="0" Top="0" Width="700" Height="120" />		
-		<widget Name="TrackPhraseIn1Day" ClassName="CDialogFutureContract_TrackPhraseIn1Day" Layout="FutureContract_TrackPhraseIn1Day.xml"  IDD="IDD_DLG_Common" Left="0" Top="130" Width="700" Height="790" />		
+		<widget Name="Future_DailyLongPeriodicAnalyze" ClassName="CDialogFutureContract_LongPeriodicAnalyze" Layout="FutureContract_LongPeriodicAnalyze.xml"  IDD="IDD_DLG_Common" Left="0" Top="0" Width="700" Height="120" />		
+		<widget Name="Future_DailyMinorCycleAnalyze" ClassName="CDialogFutureContract_TrackPhraseIn1Day" Layout="FutureContract_TrackPhraseIn1Day.xml"  IDD="IDD_DLG_Common" Left="0" Top="130" Width="700" Height="790" />		
 	</Layout>
 </root>
