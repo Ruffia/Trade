@@ -6,7 +6,7 @@
 #include "DialogPlaceHolder.h"
 #include "Tools/CustomTabCtrlDlg.h"
 #include "afxdialogex.h"
-#include "Factory.h"
+#include "../Common/Factory.h"
 #include "DialogIDManager.h"
 #include "Tools/StyleManager.h"
 #include "UIData.h"
