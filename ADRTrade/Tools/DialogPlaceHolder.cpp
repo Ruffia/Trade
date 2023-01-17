@@ -137,8 +137,10 @@ void CDialogPlaceHolder::_InitLayOut()
 			xml_node nodeDropdownItem = node.child("DropdownItem");
 			while (!nodeDropdownItem.empty())
 			{
+				int nValue = nodeDropdownItem.attribute("value").as_int(-1);
 				string sDropItem = nodeDropdownItem.attribute("Name").as_string("");
 				pCombox->AddString(sDropItem.c_str());
+				pCombox->Add2Map(nValue,sDropItem);
 				nodeDropdownItem = nodeDropdownItem.next_sibling();
 			}
 
