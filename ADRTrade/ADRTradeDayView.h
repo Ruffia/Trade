@@ -56,7 +56,7 @@ protected:
 
 protected:
 	xml_document m_doc;
-	map<string,CUIData>  m_mapUIName2Data;
+	
 };
 
 #ifndef _DEBUG  // ADRTradeView.cpp 中的调试版本

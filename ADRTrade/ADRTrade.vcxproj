@@ -160,6 +160,7 @@
     <ClInclude Include="Tools\StyleManager.h" />
     <ClInclude Include="Tools\ThemeUtil.h" />
     <ClInclude Include="UIData.h" />
+    <ClInclude Include="UIDataManager.h" />
     <ClInclude Include="ViewTree.h" />
   </ItemGroup>
   <ItemGroup>
@@ -212,6 +213,7 @@
     <ClCompile Include="Tools\StyleManager.cpp" />
     <ClCompile Include="Tools\ThemeUtil.cpp" />
     <ClCompile Include="UIData.cpp" />
+    <ClCompile Include="UIDataManager.cpp" />
     <ClCompile Include="ViewTree.cpp" />
   </ItemGroup>
   <ItemGroup>

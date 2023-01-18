@@ -177,6 +177,9 @@
     <ClInclude Include="Tools\BusinessComboBox.h">
       <Filter>Tools</Filter>
     </ClInclude>
+    <ClInclude Include="UIDataManager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ADRTrade.cpp">
@@ -310,6 +313,9 @@
     </ClCompile>
     <ClCompile Include="Tools\BusinessComboBox.cpp">
       <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="UIDataManager.cpp">
+      <Filter>头文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

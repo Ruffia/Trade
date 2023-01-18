@@ -15,9 +15,10 @@
 #include "Tools/DialogPlaceHolder.h"
 #include "Tools/DialogPlaceHolderComposite.h"
 #include "Tools/ChildDlgTab.h"
-#include "Factory.h"
+#include "../Common/Factory.h"
 #include "DialogIDManager.h"
 #include "DBDataManager.h"
+#include "UIDataManager.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -51,17 +52,6 @@ CADRTradeDayView::CADRTradeDayView()
 
 CADRTradeDayView::~CADRTradeDayView()
 {
-	for (map<string,CUIData>::iterator it = m_mapUIName2Data.begin();
-		it != m_mapUIName2Data.end();it++)
-	{
-		CUIData& uiData = it->second;
-		CWnd* pWnd = uiData.m_pWnd;
-		if (pWnd)
-		{
-			delete pWnd;
-			pWnd = NULL;
-		}
-	}
 }
 
 BOOL CADRTradeDayView::PreCreateWindow(CREATESTRUCT& cs)
@@ -153,7 +143,7 @@ void CADRTradeDayView::_LoadLayout()
 		data.m_nTop = node.attribute("Top").as_int();
 		data.m_nWidth = node.attribute("Width").as_int();
 		data.m_nHeight = node.attribute("Height").as_int();
-		m_mapUIName2Data[data.m_sName] = data;	
+		CUIDataMgr::Instance().Register(data.m_sName,data);
 		node = node.next_sibling();
 	}
 }
@@ -181,9 +171,9 @@ void CADRTradeDayView::_CreateUI()
 {
 	CRect rc;
 	GetClientRect(rc);
-
-	for (map<string,CUIData>::iterator it = m_mapUIName2Data.begin();
-		it != m_mapUIName2Data.end();it++)
+	map<string,CUIData>& mapUIName2Data = CUIDataMgr::Instance().GetUIData();
+	for (map<string,CUIData>::iterator it = mapUIName2Data.begin();
+		it != mapUIName2Data.end();it++)
 	{
 		string sCaption = it->first;
 		CUIData& UIData = it->second;
@@ -253,14 +243,7 @@ void CADRTradeDayView::OnTimer(UINT nIDEvent)
 	// TODO: Add your message handler code here and/or call default
 	if(nIDEvent == Timer_SaveData2UI)
 	{
-		for (map<string,CUIData>::iterator it = m_mapUIName2Data.begin();
-			it != m_mapUIName2Data.end();it++)
-		{
-			CUIData& ui = it->second;	
-			CDialogPlaceHolder* pHolder = dynamic_cast<CDialogPlaceHolder*>(ui.m_pWnd);
-			if(!pHolder) continue;
-			pHolder->UpdateUI2DB();
-		}
+		CUIDataMgr::Instance().UpdateUI2DB();
 	}
 
 	__super::OnTimer(nIDEvent);
