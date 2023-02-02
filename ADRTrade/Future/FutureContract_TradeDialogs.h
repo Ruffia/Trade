@@ -18,6 +18,6 @@ DefineClass(CDlgDailyFutureContract,CDialogPlaceHolderComposite,IDD_DLG_Common)
 
 DefineClass(CDialogFutureContract_LongPeriodicAnalyze,CDialogPlaceHolder,IDD_DLG_Common)
 
-DefineClass(CDialogFutureContract_MinorCycleAnalyze,CDialogPlaceHolder,IDD_DLG_Common)
+DefineClass(CDialogFutureContract_MinorCycleAnalyze,CDialogTabItem,IDD_DLG_Common)
 
 DefineClass(CDialogFutureContract_TrackPhraseIn1Day,CCustomTabCtrlDlg,IDD_DLG_Common)
