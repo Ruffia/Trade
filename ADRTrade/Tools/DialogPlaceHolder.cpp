@@ -396,3 +396,12 @@ void CDialogPlaceHolder::UpdateUI2DB()
 	sSQL += szChereClause;
 	CDBDataManager::Instance().Exec(sSQL);
 }
+
+
+IMPLEMENT_DYNAMIC(CDialogTabItem, CDialogPlaceHolder)
+CDialogTabItem::CDialogTabItem(CWnd* pParent /*=NULL*/)
+	: CDialogPlaceHolder(pParent)
+{
+	m_strItemName = "";
+}
+

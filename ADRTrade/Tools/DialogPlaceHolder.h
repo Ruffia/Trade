@@ -87,3 +87,19 @@ protected:
 
 	string m_sBusiness;  //ÒµÎñÃû
 };
+
+
+class CDialogTabItem : public CDialogPlaceHolder
+{
+	DECLARE_DYNAMIC(CDialogTabItem)
+public:
+	CDialogTabItem(CWnd* pParent = NULL);
+
+	void SetItem(string& sItemName)
+	{
+		m_strItemName = sItemName;
+	}
+
+protected:
+	string m_strItemName;
+};
