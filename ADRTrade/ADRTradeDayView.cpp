@@ -214,10 +214,22 @@ void CADRTradeDayView::_LoadDataFromDB()
 {
 	COleDateTime dtNOw = COleDateTime::GetCurrentTime();
 	CString strDate = dtNOw.Format("%Y-%m-%d");
-
+	const int nWeekDay = CaculateWeekDay(dtNOw.GetYear(),dtNOw.GetMonth(),dtNOw.GetDay());
+	if (Saturday == nWeekDay || Sunday == nWeekDay)
+	{
+		return;
+	}
+	
 	FieldValue v;
 	v.SetDataType("string");
 	v.SetValueString((LPSTR)(LPCTSTR)strDate);
+	bool bFestival = CDBDataManager::Instance().RecordExists("Festival","Date","string",v);
+	if (bFestival)
+	{
+		return;
+	}
+
+
 	bool bExist = CDBDataManager::Instance().RecordExists("Trade_DailyMacroEnvironmentAnalyze","TradeDay","string",v);
 	if (!bExist)
 	{

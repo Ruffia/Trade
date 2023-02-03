@@ -155,3 +155,20 @@ string AFX_EXT_API trim(string& text);
 
 //获取模块的路径
 string AFX_EXT_API GetModulePath();
+
+
+enum AFX_EXT_API WeekDay
+{
+	Monday = 0,
+	Tuesday,
+	Wednesday,
+	Thursday,
+	Friday,
+	Saturday,
+	Sunday,
+};
+
+//计算某一日是周几
+//输入参数：nYear 年, nMonth 月，nDay 日
+//返回值:0 周一，1 周二，2 周三，3 周四，4 周五，5 周六，6 周日
+int AFX_EXT_API CaculateWeekDay(int nYear, int nMonth, int nDay);
