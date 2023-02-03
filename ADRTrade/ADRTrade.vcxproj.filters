@@ -180,6 +180,9 @@
     <ClInclude Include="UIDataManager.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Tools\DialogPlaceHolder_MinorCycleAnalyze.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ADRTrade.cpp">
@@ -316,6 +319,9 @@
     </ClCompile>
     <ClCompile Include="UIDataManager.cpp">
       <Filter>头文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\DialogPlaceHolder_MinorCycleAnalyze.cpp">
+      <Filter>Tools</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

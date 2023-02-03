@@ -1,5 +1,6 @@
 #pragma once
 #include "Tools/DialogPlaceHolder.h"
+#include "Tools/DialogPlaceHolder_MinorCycleAnalyze.h"
 #include "Tools/DialogPlaceHolderComposite.h"
 #include "Tools/CustomTabCtrlDlg.h"
 #include "../Common/Factory.h"
@@ -18,6 +19,6 @@ DefineClass(CDlgDailyFutureContract,CDialogPlaceHolderComposite,IDD_DLG_Common)
 
 DefineClass(CDialogFutureContract_LongPeriodicAnalyze,CDialogPlaceHolder,IDD_DLG_Common)
 
-DefineClass(CDialogFutureContract_MinorCycleAnalyze,CDialogTabItem,IDD_DLG_Common)
+DefineClass(CDialogFutureContract_MinorCycleAnalyze,CDialogTabItem_MinorCycleAnalyze,IDD_DLG_Common)
 
 DefineClass(CDialogFutureContract_TrackPhraseIn1Day,CCustomTabCtrlDlg,IDD_DLG_Common)

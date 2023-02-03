@@ -15,7 +15,7 @@ ImplementClass(CDlgDailyFutureContract,CDialogPlaceHolderComposite)
 
 ImplementClass(CDialogFutureContract_LongPeriodicAnalyze,CDialogPlaceHolder)
 
-ImplementClass(CDialogFutureContract_MinorCycleAnalyze,CDialogTabItem)
+ImplementClass(CDialogFutureContract_MinorCycleAnalyze,CDialogTabItem_MinorCycleAnalyze)
 
 ImplementClass(CDialogFutureContract_TrackPhraseIn1Day,CCustomTabCtrlDlg)
 
