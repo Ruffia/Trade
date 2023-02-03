@@ -14,48 +14,11 @@
 #include "Util.h"
 
 // CDialogPlaceHolderComposite 对话框
-
-IMPLEMENT_DYNAMIC(CDialogPlaceHolderComposite, CDialogEx)
+IMPLEMENT_DYNAMIC(CDialogPlaceHolderComposite, CDialogPlaceHolder)
 
 CDialogPlaceHolderComposite::CDialogPlaceHolderComposite(CWnd* pParent /*=NULL*/)
-	: CDialogEx(CDialogPlaceHolderComposite::IDD, pParent)
+	: CDialogPlaceHolder(pParent)
 {
-	m_mapUIName2Data.clear();
-}
-
-CDialogPlaceHolderComposite::~CDialogPlaceHolderComposite()
-{
-	for (map<string,CUIData>::iterator it = m_mapUIName2Data.begin();
-		it != m_mapUIName2Data.end();it++)
-	{
-		CUIData& uiData = it->second;
-		CWnd* pWnd = uiData.m_pWnd;
-		if (pWnd)
-		{
-			delete pWnd;
-			pWnd = NULL;
-		}
-	}
-
-	m_mapUIName2Data.clear();
-}
-
-void CDialogPlaceHolderComposite::DoDataExchange(CDataExchange* pDX)
-{
-	CDialogEx::DoDataExchange(pDX);
-}
-
-
-BEGIN_MESSAGE_MAP(CDialogPlaceHolderComposite, CDialogEx)
-END_MESSAGE_MAP()
-
-
-// CDialogPlaceHolderComposite 消息处理程序
-BOOL CDialogPlaceHolderComposite::OnInitDialog()
-{
-	CDialogEx::OnInitDialog();
-	_InitLayOut();
-	return TRUE;
 }
 
 
@@ -76,7 +39,7 @@ void CDialogPlaceHolderComposite::_InitLayOut()
 	while (!node.empty())
 	{
 		CUIData data;
-		const string sName = node.attribute("Name").as_string("");
+		data.m_sName = node.attribute("Name").as_string("");
 		data.m_strUIClassName = node.attribute("ClassName").as_string("");
 		data.m_strLayout = node.attribute("Layout").as_string("");
 		data.m_nID = node.attribute("ID").as_int();
@@ -91,10 +54,10 @@ void CDialogPlaceHolderComposite::_InitLayOut()
 		const int nIDD = CDialogIDMgr::Instance().GetDialogResourceID(data.m_strUIClassName);
 		ASSERT(-1 != nIDD);
 
-		CDialogPlaceHolder* pHolder = dynamic_cast<CDialogPlaceHolder*>(pDlg);
-		if (pHolder)
+		CDialogPlaceHolderComposite* pDlgComposite = dynamic_cast<CDialogPlaceHolderComposite*>(pDlg);
+		if (pDlgComposite)
 		{
-			pHolder->SetLayout(data.m_strLayout);
+			pDlgComposite->SetLayout(data.m_strLayout);
 		}
 		else
 		{
@@ -105,13 +68,15 @@ void CDialogPlaceHolderComposite::_InitLayOut()
 			}
 			else
 			{
-				CDialogPlaceHolderComposite* pDlgComposite = dynamic_cast<CDialogPlaceHolderComposite*>(pDlg);
-				if (pDlgComposite)
+				CDialogPlaceHolder* pHolder = dynamic_cast<CDialogPlaceHolder*>(pDlg);
+				if (pHolder)
 				{
-					pDlgComposite->SetLayout(data.m_strLayout);
+					pHolder->SetBusiness(data.m_sName);
+					pHolder->SetLayout(data.m_strLayout);
 				}
 			}
 		}
+
 		pDlg->Create(nIDD,this);
 		CRect rcDialog(rc.left + data.m_nLeft,rc.top + data.m_nTop,rc.left + data.m_nLeft + data.m_nWidth,rc.top + data.m_nTop + data.m_nHeight);
 		pDlg->MoveWindow(rcDialog);	

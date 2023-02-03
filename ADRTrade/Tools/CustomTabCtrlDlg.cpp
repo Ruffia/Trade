@@ -10,9 +10,7 @@
 #include "DialogPlaceHolderComposite.h"
 
 #include "CustomTabCtrlDlg.h"
-//#include "DlgSEMLog_OperationQueryKeyWordSettings.h"
-//#include "DlgSEMLog_GridHeaderSettings.h"
-//#include "DlgSEMLog_PageB.h"
+
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -22,7 +20,7 @@ static char THIS_FILE[] = __FILE__;
 
 IMPLEMENT_FACTORY(CDialog,CCustomTabCtrlDlg,string,"CCustomTabCtrlDlg")
 CCustomTabCtrlDlg::CCustomTabCtrlDlg(CWnd* pParent /*=NULL*/)
-	: CDialog(CCustomTabCtrlDlg::IDD, pParent),m_pTab(NULL),m_nCurSel(0)
+	: CDialogPlaceHolder(pParent),m_pTab(NULL),m_nCurSel(0)
 {
 	CDialogIDMgr::Instance().Register("CCustomTabCtrlDlg",CCustomTabCtrlDlg::IDD);
 }

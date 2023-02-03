@@ -9,7 +9,7 @@ using namespace pugi;
 #include "CustomTabCtrl.h"
 
 
-class CCustomTabCtrlDlg : public CDialog
+class CCustomTabCtrlDlg : public CDialogPlaceHolder
 {
 public:
 	CCustomTabCtrlDlg(CWnd* pParent = NULL);
@@ -44,8 +44,4 @@ protected:
 	void _Resize(int cx, int cy);
 	void _ShowPage(const int nCurPage);
 	LPCTSTR GetTooltipText(int nStyle);
-
-protected:
-	string m_sLayout;    //页面布局配置文件
-	xml_document m_doc;
 };
