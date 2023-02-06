@@ -83,7 +83,7 @@ void CDialogPopup::_InitLayOut()
 		const string sStyle = node.attribute("Style").as_string();
 		DWORD dwTotalStyle = CStyleMgr::Instance().GetStyle(sStyle);
 		const string sCaption = node.attribute("Caption").as_string();
-		CDialog* pDlg = Factory<CDialog,string>::Instance().BuildProduct(data.m_strUIClassName);
+		CDialogPlaceHolder* pDlg = Factory<CDialogPlaceHolder,string>::Instance().BuildProduct(data.m_strUIClassName);
 		const int nIDD = CDialogIDMgr::Instance().GetDialogResourceID(data.m_strUIClassName);
 		ASSERT(-1 != nIDD);
 

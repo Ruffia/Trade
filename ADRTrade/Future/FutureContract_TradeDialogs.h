@@ -1,21 +1,16 @@
 #pragma once
 #include "Tools/DialogPlaceHolder.h"
 #include "Tools/DialogPlaceHolder_MinorCycleAnalyze.h"
-#include "Tools/DialogPlaceHolderComposite.h"
 #include "Tools/CustomTabCtrlDlg.h"
 #include "../Common/Factory.h"
 
 DefineClass(CDailyMacroEnvironmentDlg,CDialogPlaceHolder,IDD_DLG_Common)
 
-DefineClass(CDlgDailyAnalyze,CDialogPlaceHolderComposite,IDD_DLG_Common)
-
-DefineClass(CDlgDailyTrades,CDialogPlaceHolder,IDD_ChildDLG_Tab_DailyAnalyze)
+DefineClass(CDialogFutureContract_IntradayTrade,CDialogPlaceHolder,IDD_DLG_Common)
 
 DefineClass(CDialogDailyTrades_SingleTradeTrack,CDialogPlaceHolder,IDD_DLG_Common)
 
 DefineClass(CDialogDailyTradeSummarize,CDialogPlaceHolder,IDD_DLG_Common)
-
-DefineClass(CDlgDailyFutureContract,CDialogPlaceHolderComposite,IDD_DLG_Common)
 
 DefineClass(CDialogFutureContract_LongPeriodicAnalyze,CDialogPlaceHolder,IDD_DLG_Common)
 

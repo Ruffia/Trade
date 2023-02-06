@@ -23,7 +23,7 @@ class CRecord;
 
 
 #define ImplementClass(ClassName,BaseClass)                       \
-IMPLEMENT_FACTORY(CDialog,ClassName,string,#ClassName)            \
+IMPLEMENT_FACTORY(CDialogPlaceHolder,ClassName,string,#ClassName)            \
 ClassName::ClassName()                                            \
 {                                                                 \
 	CDialogIDMgr::Instance().Register(#ClassName,ClassName::IDD); \

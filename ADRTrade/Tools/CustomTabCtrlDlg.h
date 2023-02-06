@@ -17,14 +17,9 @@ public:
 
 	enum { IDD = IDD_DLG_Common };
 
-	void SetLayout(string& sLayout)
-	{
-		m_sLayout = sLayout;
-	}
-
 	CCustomTabCtrl*	m_pTab;
 	int m_nCurSel;
-	vector<CDialog*> m_vPage; 
+	vector<CDialogPlaceHolder*> m_vPage; 
 
 protected:
 	virtual BOOL OnInitDialog();

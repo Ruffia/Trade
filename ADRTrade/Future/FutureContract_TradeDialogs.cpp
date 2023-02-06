@@ -3,15 +3,11 @@
 
 ImplementClass(CDailyMacroEnvironmentDlg,CDialogPlaceHolder)
 
-ImplementClass(CDlgDailyAnalyze,CDialogPlaceHolderComposite)
-
 ImplementClass(CDialogDailyTradeSummarize,CDialogPlaceHolder)
 
-ImplementClass(CDlgDailyTrades,CDialogPlaceHolder)
+ImplementClass(CDialogFutureContract_IntradayTrade,CDialogPlaceHolder)
 
 ImplementClass(CDialogDailyTrades_SingleTradeTrack,CDialogPlaceHolder)
-
-ImplementClass(CDlgDailyFutureContract,CDialogPlaceHolderComposite)
 
 ImplementClass(CDialogFutureContract_LongPeriodicAnalyze,CDialogPlaceHolder)
 

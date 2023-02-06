@@ -177,7 +177,7 @@ void CADRTradeDayView::_CreateUI()
 	{
 		string sCaption = it->first;
 		CUIData& UIData = it->second;
-		CDialog* pDlg = Factory<CDialog,string>::Instance().BuildProduct(UIData.m_strUIClassName);
+		CDialogPlaceHolder* pDlg = Factory<CDialogPlaceHolder,string>::Instance().BuildProduct(UIData.m_strUIClassName);
 		const int nIDD = CDialogIDMgr::Instance().GetDialogResourceID(UIData.m_strUIClassName);
 		ASSERT(-1 != nIDD);
 		CDialogPlaceHolder* pHolder = dynamic_cast<CDialogPlaceHolder*>(pDlg);
