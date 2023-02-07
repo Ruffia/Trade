@@ -10,7 +10,7 @@
  Target Server Version : 3035005
  File Encoding         : 65001
 
- Date: 07/02/2023 10:12:10
+ Date: 07/02/2023 10:34:09
 */
 
 PRAGMA foreign_keys = false;
@@ -253,5 +253,35 @@ INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'Forecast', 'Future_DailyMin
 INSERT INTO "FieldAttribute" VALUES ('Meaning', 'Reality', 'Future_DailyMinorCycleAnalyze', 'string', '实际情况');
 INSERT INTO "FieldAttribute" VALUES ('ControlType', 'Reality', 'Future_DailyMinorCycleAnalyze', 'string', 'CEdit');
 INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'Reality', 'Future_DailyMinorCycleAnalyze', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'TradeDay', 'Future_DailyLongPeriodicAnalyze', 'string', '交易日');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'TradeDay', 'Future_DailyLongPeriodicAnalyze', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'TradeDay', 'Future_DailyLongPeriodicAnalyze', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'FutureContractName', 'Future_DailyLongPeriodicAnalyze', 'string', '合约名称');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'FutureContractName', 'Future_DailyLongPeriodicAnalyze', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'FutureContractName', 'Future_DailyLongPeriodicAnalyze', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'MainForceChange', 'Future_DailyLongPeriodicAnalyze', 'string', '主力增减仓');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'MainForceChange', 'Future_DailyLongPeriodicAnalyze', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'MainForceChange', 'Future_DailyLongPeriodicAnalyze', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'CITIC_GoldmanSachs', 'Future_DailyLongPeriodicAnalyze', 'string', '中信/乾坤/国泰');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'CITIC_GoldmanSachs', 'Future_DailyLongPeriodicAnalyze', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'CITIC_GoldmanSachs', 'Future_DailyLongPeriodicAnalyze', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'ExternalMarket', 'Future_DailyLongPeriodicAnalyze', 'string', '外围市场');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'ExternalMarket', 'Future_DailyLongPeriodicAnalyze', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'ExternalMarket', 'Future_DailyLongPeriodicAnalyze', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'MonthlyTrend', 'Future_DailyLongPeriodicAnalyze', 'string', '月线趋势');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'MonthlyTrend', 'Future_DailyLongPeriodicAnalyze', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'MonthlyTrend', 'Future_DailyLongPeriodicAnalyze', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'WeeklyTrend', 'Future_DailyLongPeriodicAnalyze', 'string', '周线趋势');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'WeeklyTrend', 'Future_DailyLongPeriodicAnalyze', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'WeeklyTrend', 'Future_DailyLongPeriodicAnalyze', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'DailyTrend', 'Future_DailyLongPeriodicAnalyze', 'string', '日线趋势');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'DailyTrend', 'Future_DailyLongPeriodicAnalyze', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'DailyTrend', 'Future_DailyLongPeriodicAnalyze', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', '4HTrend', 'Future_DailyLongPeriodicAnalyze', 'string', '4H线趋势');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', '4HTrend', 'Future_DailyLongPeriodicAnalyze', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', '4HTrend', 'Future_DailyLongPeriodicAnalyze', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'EmotionalFeeling', 'Future_DailyLongPeriodicAnalyze', 'string', '情绪感受');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'EmotionalFeeling', 'Future_DailyLongPeriodicAnalyze', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'EmotionalFeeling', 'Future_DailyLongPeriodicAnalyze', 'string', '%s');
 
 PRAGMA foreign_keys = true;
