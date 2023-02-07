@@ -10,7 +10,7 @@
  Target Server Version : 3035005
  File Encoding         : 65001
 
- Date: 17/01/2023 10:58:40
+ Date: 07/02/2023 10:12:10
 */
 
 PRAGMA foreign_keys = false;
@@ -184,5 +184,74 @@ INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'LowestPricePrice', 'Future_
 INSERT INTO "FieldAttribute" VALUES ('Meaning', 'TransactionQuality', 'Future_IntradayTrade', 'string', '交易质量');
 INSERT INTO "FieldAttribute" VALUES ('ControlType', 'TransactionQuality', 'Future_IntradayTrade', 'string', 'CEdit');
 INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'TransactionQuality', 'Future_IntradayTrade', 'string', '%.2f');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'TradeDay', 'Future_DailyMinorCycleAnalyze', 'string', '交易日');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'TradeDay', 'Future_DailyMinorCycleAnalyze', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'TradeDay', 'Future_DailyMinorCycleAnalyze', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'FutureContractName', 'Future_DailyMinorCycleAnalyze', 'string', '合约名称');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'FutureContractName', 'Future_DailyMinorCycleAnalyze', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'FutureContractName', 'Future_DailyMinorCycleAnalyze', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'RecordTime', 'Future_DailyMinorCycleAnalyze', 'string', '记录时间');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'RecordTime', 'Future_DailyMinorCycleAnalyze', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'RecordTime', 'Future_DailyMinorCycleAnalyze', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', '15MIN_MACD', 'Future_DailyMinorCycleAnalyze', 'string', '15分钟MACD');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', '15MIN_MACD', 'Future_DailyMinorCycleAnalyze', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', '15MIN_MACD', 'Future_DailyMinorCycleAnalyze', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', '1H_MACD', 'Future_DailyMinorCycleAnalyze', 'string', '1小时MACD');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', '1H_MACD', 'Future_DailyMinorCycleAnalyze', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', '1H_MACD', 'Future_DailyMinorCycleAnalyze', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', '4H_MACD', 'Future_DailyMinorCycleAnalyze', 'string', '4小时MACD');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', '4H_MACD', 'Future_DailyMinorCycleAnalyze', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', '4H_MACD', 'Future_DailyMinorCycleAnalyze', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', '15MIN_MACDPillar', 'Future_DailyMinorCycleAnalyze', 'string', '15分钟MACD柱');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', '15MIN_MACDPillar', 'Future_DailyMinorCycleAnalyze', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', '15MIN_MACDPillar', 'Future_DailyMinorCycleAnalyze', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', '1H_MACDPillar', 'Future_DailyMinorCycleAnalyze', 'string', '1小时MACD柱');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', '1H_MACDPillar', 'Future_DailyMinorCycleAnalyze', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', '1H_MACDPillar', 'Future_DailyMinorCycleAnalyze', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', '4H_MACDPillar', 'Future_DailyMinorCycleAnalyze', 'string', '4小时MACD柱');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', '4H_MACDPillar', 'Future_DailyMinorCycleAnalyze', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', '4H_MACDPillar', 'Future_DailyMinorCycleAnalyze', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', '15MIN_Trix', 'Future_DailyMinorCycleAnalyze', 'string', '15分钟Trix');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', '15MIN_Trix', 'Future_DailyMinorCycleAnalyze', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', '15MIN_Trix', 'Future_DailyMinorCycleAnalyze', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', '1H_Trix', 'Future_DailyMinorCycleAnalyze', 'string', '1小时Trix');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', '1H_Trix', 'Future_DailyMinorCycleAnalyze', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', '1H_Trix', 'Future_DailyMinorCycleAnalyze', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', '4H_Trix', 'Future_DailyMinorCycleAnalyze', 'string', '4小时Trix');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', '4H_Trix', 'Future_DailyMinorCycleAnalyze', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', '4H_Trix', 'Future_DailyMinorCycleAnalyze', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', '15MIN_SKDJ', 'Future_DailyMinorCycleAnalyze', 'string', '15分钟SKDJ');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', '15MIN_SKDJ', 'Future_DailyMinorCycleAnalyze', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', '15MIN_SKDJ', 'Future_DailyMinorCycleAnalyze', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', '1H_SKDJ', 'Future_DailyMinorCycleAnalyze', 'string', '1小时SKDJ');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', '1H_SKDJ', 'Future_DailyMinorCycleAnalyze', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', '1H_SKDJ', 'Future_DailyMinorCycleAnalyze', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', '4H_SKDJ', 'Future_DailyMinorCycleAnalyze', 'string', '4小时SKDJ');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', '4H_SKDJ', 'Future_DailyMinorCycleAnalyze', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', '4H_SKDJ', 'Future_DailyMinorCycleAnalyze', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', '15MIN_StrengthAngle', 'Future_DailyMinorCycleAnalyze', 'string', '15分钟趋势角度');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', '15MIN_StrengthAngle', 'Future_DailyMinorCycleAnalyze', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', '15MIN_StrengthAngle', 'Future_DailyMinorCycleAnalyze', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', '1H_StrengthAngle', 'Future_DailyMinorCycleAnalyze', 'string', '1小时趋势角度');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', '1H_StrengthAngle', 'Future_DailyMinorCycleAnalyze', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', '1H_StrengthAngle', 'Future_DailyMinorCycleAnalyze', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', '4H_StrengthAngle', 'Future_DailyMinorCycleAnalyze', 'string', '4小时趋势角度');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', '4H_StrengthAngle', 'Future_DailyMinorCycleAnalyze', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', '4H_StrengthAngle', 'Future_DailyMinorCycleAnalyze', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'MainSignal', 'Future_DailyMinorCycleAnalyze', 'string', '主要信号');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'MainSignal', 'Future_DailyMinorCycleAnalyze', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'MainSignal', 'Future_DailyMinorCycleAnalyze', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'Inclination', 'Future_DailyMinorCycleAnalyze', 'string', '倾向和意愿');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'Inclination', 'Future_DailyMinorCycleAnalyze', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'Inclination', 'Future_DailyMinorCycleAnalyze', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'EmotionFeeling', 'Future_DailyMinorCycleAnalyze', 'string', '情绪感受');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'EmotionFeeling', 'Future_DailyMinorCycleAnalyze', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'EmotionFeeling', 'Future_DailyMinorCycleAnalyze', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'Forecast', 'Future_DailyMinorCycleAnalyze', 'string', '预测');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'Forecast', 'Future_DailyMinorCycleAnalyze', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'Forecast', 'Future_DailyMinorCycleAnalyze', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'Reality', 'Future_DailyMinorCycleAnalyze', 'string', '实际情况');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'Reality', 'Future_DailyMinorCycleAnalyze', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'Reality', 'Future_DailyMinorCycleAnalyze', 'string', '%s');
 
 PRAGMA foreign_keys = true;
