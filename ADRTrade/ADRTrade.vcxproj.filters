@@ -183,6 +183,9 @@
     <ClInclude Include="Tools\DialogPlaceHolder_MinorCycleAnalyze.h">
       <Filter>Tools</Filter>
     </ClInclude>
+    <ClInclude Include="Tools\PrimaryKeyRule.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ADRTrade.cpp">
@@ -321,6 +324,9 @@
       <Filter>头文件</Filter>
     </ClCompile>
     <ClCompile Include="Tools\DialogPlaceHolder_MinorCycleAnalyze.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\PrimaryKeyRule.cpp">
       <Filter>Tools</Filter>
     </ClCompile>
   </ItemGroup>

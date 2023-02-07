@@ -83,7 +83,7 @@ protected:
 	map<string,CWnd*> m_mapBusiness2Control;
 
 	//主键--->值
-	map<string,FieldValue>     m_mapPrimaryKey2Value;
+	map<string,FieldValue>  m_mapPrimaryKey2Value;
 
 	string m_sBusiness;  //业务名
 };

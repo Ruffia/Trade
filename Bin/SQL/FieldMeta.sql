@@ -10,7 +10,7 @@
  Target Server Version : 3035005
  File Encoding         : 65001
 
- Date: 06/02/2023 16:58:57
+ Date: 07/02/2023 11:22:33
 */
 
 PRAGMA foreign_keys = false;
@@ -53,7 +53,7 @@ INSERT INTO "FieldMeta" VALUES ('MoneyFromBank', 'Future_DailyTradeSummarize', '
 INSERT INTO "FieldMeta" VALUES ('GainLoss', 'Future_DailyTradeSummarize', 'float', 0, 1, 7);
 INSERT INTO "FieldMeta" VALUES ('GainLossPercent', 'Future_DailyTradeSummarize', 'float', 0, 1, 8);
 INSERT INTO "FieldMeta" VALUES ('TradeDay', 'Future_IntradayTrade', 'string', 1, 0, 0);
-INSERT INTO "FieldMeta" VALUES ('FutureContractName', 'Future_IntradayTrade', 'string', 0, 1, 1);
+INSERT INTO "FieldMeta" VALUES ('FutureContractName', 'Future_IntradayTrade', 'string', 1, 1, 1);
 INSERT INTO "FieldMeta" VALUES ('TradeTime', 'Future_IntradayTrade', 'string', 0, 1, 2);
 INSERT INTO "FieldMeta" VALUES ('ExpectOrderTime', 'Future_IntradayTrade', 'int', 0, 1, 3);
 INSERT INTO "FieldMeta" VALUES ('TradeType', 'Future_IntradayTrade', 'int', 0, 1, 4);
@@ -84,7 +84,7 @@ INSERT INTO "FieldMeta" VALUES ('HighestPrice', 'Future_IntradayTrade', 'float',
 INSERT INTO "FieldMeta" VALUES ('LowestPricePrice', 'Future_IntradayTrade', 'float', 0, 1, 29);
 INSERT INTO "FieldMeta" VALUES ('TransactionQuality', 'Future_IntradayTrade', 'float', 0, 1, 30);
 INSERT INTO "FieldMeta" VALUES ('TradeDay', 'Future_DailyLongPeriodicAnalyze', 'string', 1, 0, 0);
-INSERT INTO "FieldMeta" VALUES ('FutureContractName', 'Future_DailyLongPeriodicAnalyze', 'string', 0, 1, 1);
+INSERT INTO "FieldMeta" VALUES ('FutureContractName', 'Future_DailyLongPeriodicAnalyze', 'string', 1, 1, 1);
 INSERT INTO "FieldMeta" VALUES ('MainForceChange', 'Future_DailyLongPeriodicAnalyze', 'string', 0, 1, 2);
 INSERT INTO "FieldMeta" VALUES ('CITIC_GoldmanSachs', 'Future_DailyLongPeriodicAnalyze', 'string', 0, 1, 3);
 INSERT INTO "FieldMeta" VALUES ('ExternalMarket', 'Future_DailyLongPeriodicAnalyze', 'string', 0, 1, 4);
@@ -94,8 +94,8 @@ INSERT INTO "FieldMeta" VALUES ('DailyTrend', 'Future_DailyLongPeriodicAnalyze',
 INSERT INTO "FieldMeta" VALUES ('4HTrend', 'Future_DailyLongPeriodicAnalyze', 'string', 0, 1, 8);
 INSERT INTO "FieldMeta" VALUES ('EmotionalFeeling', 'Future_DailyLongPeriodicAnalyze', 'string', 0, 1, 9);
 INSERT INTO "FieldMeta" VALUES ('TradeDay', 'Future_DailyMinorCycleAnalyze', 'string', 1, 0, 0);
-INSERT INTO "FieldMeta" VALUES ('FutureContractName', 'Future_DailyMinorCycleAnalyze', 'string', 0, 1, 1);
-INSERT INTO "FieldMeta" VALUES ('RecordTime', 'Future_DailyMinorCycleAnalyze', 'string', 0, 1, 2);
+INSERT INTO "FieldMeta" VALUES ('FutureContractName', 'Future_DailyMinorCycleAnalyze', 'string', 1, 1, 1);
+INSERT INTO "FieldMeta" VALUES ('RecordTime', 'Future_DailyMinorCycleAnalyze', 'string', 1, 1, 2);
 INSERT INTO "FieldMeta" VALUES ('15MIN_MACD', 'Future_DailyMinorCycleAnalyze', 'string', 0, 1, 3);
 INSERT INTO "FieldMeta" VALUES ('1H_MACD', 'Future_DailyMinorCycleAnalyze', 'string', 0, 1, 4);
 INSERT INTO "FieldMeta" VALUES ('4H_MACD', 'Future_DailyMinorCycleAnalyze', 'string', 0, 1, 5);

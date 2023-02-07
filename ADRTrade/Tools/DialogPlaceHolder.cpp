@@ -14,6 +14,7 @@
 #include "DBDataManager.h"
 #include "Util.h"
 #include "EditTreeCtrlEx.h"
+#include "PrimaryKeyRule.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -204,6 +205,31 @@ bool CDialogPlaceHolder::_CheckExistsRecord()
 {
 	vector<CFieldDesc*> vPrimaryKey;
 	CDBDataManager::Instance().GetPrimaryKey(m_sBusiness,vPrimaryKey);
+
+	string sPrimaryKey = "";
+	int nSize = vPrimaryKey.size();
+	for (int i = 0;i < nSize;i++)
+	{
+		CFieldDesc* pFieldDesc = vPrimaryKey[i];
+		if(!pFieldDesc) continue;
+		IPrimaryKeyRule* pRule = Factory<IPrimaryKeyRule,string>::Instance().BuildProduct(pFieldDesc->m_strFieldName);
+		if(!pRule) continue;
+		pRule->SetFieldDesc(pFieldDesc);
+
+		if (i != nSize -1)
+		{
+			sPrimaryKey += pRule->GetSQLPair();
+			sPrimaryKey += ",";
+		}
+		else
+		{
+			sPrimaryKey += pRule->GetSQLPair();
+		}
+
+		delete pRule;
+		pRule = NULL;
+	}
+
 	//此处只处理只有一个主键"TradeDay"的情况
 	if(vPrimaryKey.size() != 1) return false;
 
