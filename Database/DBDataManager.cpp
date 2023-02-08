@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "DBDataManager.h"
 #include "PrimaryKeyRule.h"
+#include "DefaultRecordCreator.h"
 
 
 CDBDataManager::CDBDataManager()
@@ -228,47 +229,17 @@ bool CDBDataManager::RecordExists(const string& strTableName,map<CFieldDesc*,Fie
 
 bool CDBDataManager::InsertDefaultRecord(const string& strTableName)
 {
-	vector<CFieldDesc*> vPrimaryKey;
-	CDBDataManager::Instance().GetPrimaryKey(strTableName,vPrimaryKey);
-
-	string sSQL = "insert into ";
-	sSQL += strTableName;
-	sSQL += "(";
-
-	string sPrimaryKey = "";
-	int nSize = vPrimaryKey.size();
-	for (int i = 0;i < nSize;i++)
+	IDefaultRecordCreator* pCreator = Factory<IDefaultRecordCreator,string>::Instance().BuildProduct(strTableName);
+	if(!pCreator)
 	{
-		CFieldDesc* pFieldDesc = vPrimaryKey[i];
-		if(!pFieldDesc) continue;
-		IPrimaryKeyRule* pRule = Factory<IPrimaryKeyRule,string>::Instance().BuildProduct(pFieldDesc->m_strFieldName);
-		if(!pRule) continue;
-		pRule->SetFieldDesc(pFieldDesc);
-
-		if (i != nSize -1)
-		{
-			sPrimaryKey += pRule->GetInsertSQL();
-			sPrimaryKey += ",";
-			sSQL += pFieldDesc->m_strFieldName;
-			sSQL += ",";
-		}
-		else
-		{
-			sPrimaryKey += pRule->GetInsertSQL();
-			sSQL += pFieldDesc->m_strFieldName;
-		}
-
-		delete pRule;
-		pRule = NULL;
+		pCreator = Factory<IDefaultRecordCreator,string>::Instance().BuildProduct("CDefaultRecordCreator_Common");
 	}
-
-	sSQL += ") values(";
-	sSQL += sPrimaryKey;
-	sSQL += ")";
-
-	CString strErr;
-	bool bRet = m_db.Query(sSQL.c_str(),strErr);
-	return bRet;
+	pCreator->SetTable(strTableName);
+	pCreator->CreateRecord();
+	
+	delete pCreator;
+	pCreator = NULL;
+	return true;
 }
 
 

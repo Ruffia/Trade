@@ -121,6 +121,7 @@
     <ClCompile Include="Database.cpp" />
     <ClCompile Include="DataSet.cpp" />
     <ClCompile Include="DBDataManager.cpp" />
+    <ClCompile Include="DefaultRecordCreator.cpp" />
     <ClCompile Include="dllmain.cpp">
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -160,6 +161,7 @@
     <ClInclude Include="Attribute.h" />
     <ClInclude Include="DataSet.h" />
     <ClInclude Include="DBDataManager.h" />
+    <ClInclude Include="DefaultRecordCreator.h" />
     <ClInclude Include="Export.h" />
     <ClInclude Include="Field.h" />
     <ClInclude Include="FieldMeta.h" />

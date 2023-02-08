@@ -20,6 +20,11 @@ public:
 	bool OpenDatabase(const CString& sDatabaseFile);
 	void Close();
 
+	CSQLiteDatabase& GetDB()
+	{
+		return m_db;
+	}
+
 	//打开数据库,并加载元数据
 	bool InitializeDatabase(const char* sDataBase);
 
