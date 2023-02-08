@@ -67,10 +67,10 @@ protected:
 	void virtual _LoadData2UI();
 
 	//判断当日记录是否存在
-	bool _CheckExistsRecord();
+	bool _CheckExistsTradeDayRecord();
 
 	//根据从数据库查询得到的数据记录值更新UI控件的显示
-	void _UpdateDB2UI( CRecord* pRecord );
+	virtual void _UpdateDB2UI( CRecord* pRecord );
 
 	DECLARE_MESSAGE_MAP()
 

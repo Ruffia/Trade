@@ -211,23 +211,25 @@ void CADRTradeDayView::_LoadDataFromDB()
 		return;
 	}
 
-
-	bool bExist = CDBDataManager::Instance().RecordExists("Trade_DailyMacroEnvironmentAnalyze","TradeDay","string",v);
-	if (!bExist)
+	const string strTableName = "Business";
+	const string strFieldName = "BusinessName";
+	string strSQL = "select * from ";
+	strSQL += strTableName;
+	CDataSet dsBusiness;
+	int nRet = CDBDataManager::Instance().LoadData(strSQL, strTableName, dsBusiness);
+	const int nBusinessCount = dsBusiness.Size();
+	for (int i = 0; i < nBusinessCount;i++)
 	{
-		CDBDataManager::Instance().InsertRecordWithPrimaryKey("Trade_DailyMacroEnvironmentAnalyze","TradeDay","string",v);
-	}
-
-	bExist = CDBDataManager::Instance().RecordExists("Future_DailyTradeSummarize","TradeDay","string",v);
-	if (!bExist)
-	{
-		CDBDataManager::Instance().InsertRecordWithPrimaryKey("Future_DailyTradeSummarize","TradeDay","string",v);
-	}
-
-	bExist = CDBDataManager::Instance().RecordExists("Future_IntradayTrade","TradeDay","string",v);
-	if (!bExist)
-	{
-		CDBDataManager::Instance().InsertRecordWithPrimaryKey("Future_IntradayTrade","TradeDay","string",v);
+		CRecord* pRecord = dsBusiness[i];
+		if(!pRecord) continue;
+		CField* pField = pRecord->GetField(strFieldName);
+		if(!pField) continue;
+		const string sBusinessName = pField->GetValueAsString();
+		bool bExist = CDBDataManager::Instance().RecordExists(sBusinessName,"TradeDay","string",v);
+		if (!bExist)
+		{
+			CDBDataManager::Instance().InsertDefaultRecord(sBusinessName);
+		}
 	}
 }
 

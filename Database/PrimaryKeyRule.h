@@ -1,9 +1,9 @@
 #pragma once
 #include <string>
 using namespace std;
-class CFieldDesc;
+#include "FieldMeta.h"
 
-class IPrimaryKeyRule
+class EXPORT_CALSS IPrimaryKeyRule
 {
 public:
 	IPrimaryKeyRule();
@@ -13,7 +13,8 @@ public:
 		m_pFieldDesc = pFieldDesc;
 	}
 
-	virtual string GetSQLPair() = 0;
+	virtual string GetInsertSQL() = 0;
+	virtual string GetUpdateSQL() = 0;
 protected:
 	CFieldDesc* m_pFieldDesc;
 };
@@ -22,19 +23,22 @@ protected:
 class CPrimaryKey_TradeDay : public IPrimaryKeyRule
 {
 public:
-	virtual string GetSQLPair();
+	virtual string GetInsertSQL();
+	virtual string GetUpdateSQL();
 };
 
 
 class CPrimaryKey_FutureContractName: public IPrimaryKeyRule
 {
 public:
-	virtual string GetSQLPair();
+	virtual string GetInsertSQL();
+	virtual string GetUpdateSQL();
 };
 
 
 class CPrimaryKey_RecordTime: public IPrimaryKeyRule
 {
 public:
-	virtual string GetSQLPair();
+	virtual string GetInsertSQL();
+	virtual string GetUpdateSQL();
 };

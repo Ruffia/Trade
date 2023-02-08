@@ -132,6 +132,7 @@
     <ClCompile Include="Field.cpp" />
     <ClCompile Include="FieldMeta.cpp" />
     <ClCompile Include="FieldValue.cpp" />
+    <ClCompile Include="PrimaryKeyRule.cpp" />
     <ClCompile Include="Record.cpp" />
     <ClCompile Include="SQLiteDatabase.cpp" />
     <ClCompile Include="SQLiteRecordset.cpp" />
@@ -163,6 +164,7 @@
     <ClInclude Include="Field.h" />
     <ClInclude Include="FieldMeta.h" />
     <ClInclude Include="FieldValue.h" />
+    <ClInclude Include="PrimaryKeyRule.h" />
     <ClInclude Include="Record.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="SQLiteDatabase.h" />

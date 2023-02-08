@@ -8,7 +8,7 @@
 #include "DialogPlaceHolder.h"
 #include "DialogPlaceHolder_MinorCycleAnalyze.h"
 #include "DialogPlaceHolderComposite.h"
-
+#include "DBDataManager.h"
 #include "CustomTabCtrlDlg.h"
 
 
@@ -125,21 +125,15 @@ void CCustomTabCtrlDlg::_InitPage(CRect& rcTab)
 	
 
 		CDialogPlaceHolder* pDlg = Factory<CDialogPlaceHolder,string>::Instance().BuildProduct(data.m_strUIClassName);
+		if(!pDlg) continue;
 		const int nIDD = CDialogIDMgr::Instance().GetDialogResourceID(data.m_strUIClassName);
 		ASSERT(-1 != nIDD);
 		CDialogTabItem_MinorCycleAnalyze* pDlgItem = dynamic_cast<CDialogTabItem_MinorCycleAnalyze*>(pDlg);
 		if (pDlgItem)
 		{
+			pDlgItem->SetBusiness(m_sBusiness);
 			pDlgItem->SetLayout(data.m_strLayout);
-			pDlgItem->SetItem(sName);
-		}
-		else
-		{
-			CDialogPlaceHolderComposite* pDlgComposite = dynamic_cast<CDialogPlaceHolderComposite*>(pDlg);
-			if (pDlgComposite)
-			{
-				pDlgComposite->SetLayout(data.m_strLayout);
-			}
+			pDlgItem->SetItem(sName);		
 		}
 
 		pDlg->Create(nIDD,this);
@@ -454,4 +448,44 @@ void CCustomTabCtrlDlg::_ShowPage(const int nCurPage)
 			pPage->ShowWindow(SW_HIDE);
 		}
 	}
+}
+
+
+void CCustomTabCtrlDlg::_LoadData2UI()
+{
+	bool bExists = _CheckExistsTradeDayRecord();
+	if (!bExists) return;
+
+	vector<CFieldDesc*> vFieldDesc;
+	CDBDataManager::Instance().GetFieldMetaData(m_sBusiness,vFieldDesc);
+
+	vector<CFieldDesc*> vPrimaryKey;
+	CDBDataManager::Instance().GetPrimaryKey(m_sBusiness,vPrimaryKey);
+
+	CFieldDesc* pPrimaryKeyDesc = vPrimaryKey[0];
+	if(!pPrimaryKeyDesc) return;
+
+	COleDateTime dtNOw = COleDateTime::GetCurrentTime();
+	CString strDate = dtNOw.Format("%Y-%m-%d");
+
+	FieldValue vKey;
+	vKey.SetDataType("string");
+	vKey.SetValueString(strDate);
+
+	string sSQL = "select * from ";
+	sSQL += m_sBusiness;
+	sSQL += " where ";
+	sSQL += pPrimaryKeyDesc->m_strFieldName;
+	sSQL += " = '";
+	sSQL += vKey.GetValueAsString();
+	sSQL += "'";
+
+	CDataSet ds;
+	CDBDataManager::Instance().LoadData(sSQL,m_sBusiness,ds);
+	if(ds.Size() != 1) return;   //此处有且仅有一条记录
+
+	CRecord* pRecord = ds[0];
+	if(!pRecord) return;
+
+	_UpdateDB2UI(pRecord);
 }

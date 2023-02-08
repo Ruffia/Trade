@@ -45,7 +45,7 @@ public:
 
 	bool RecordExists(const string& strTableName,map<CFieldDesc*,FieldValue>& mapFieldDesc2Value);
 
-	bool InsertRecordWithPrimaryKey(const string& strTableName,const string& strFieldName, const string& strFieldDataType, FieldValue& v);
+	bool InsertDefaultRecord(const string& strTableName);
 
 	//Ö´ÐÐÌØ¶¨SQL
 	bool Exec(const string strSQL);

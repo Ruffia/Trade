@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "DBDataManager.h"
+#include "PrimaryKeyRule.h"
 
 
 CDBDataManager::CDBDataManager()
@@ -225,29 +226,44 @@ bool CDBDataManager::RecordExists(const string& strTableName,map<CFieldDesc*,Fie
 }
 
 
-bool CDBDataManager::InsertRecordWithPrimaryKey(const string& strTableName,const string& strFieldName, const string& strFieldDataType, FieldValue& vField)
+bool CDBDataManager::InsertDefaultRecord(const string& strTableName)
 {
+	vector<CFieldDesc*> vPrimaryKey;
+	CDBDataManager::Instance().GetPrimaryKey(strTableName,vPrimaryKey);
+
 	string sSQL = "insert into ";
 	sSQL += strTableName;
 	sSQL += "(";
-	sSQL += strFieldName;
+
+	string sPrimaryKey = "";
+	int nSize = vPrimaryKey.size();
+	for (int i = 0;i < nSize;i++)
+	{
+		CFieldDesc* pFieldDesc = vPrimaryKey[i];
+		if(!pFieldDesc) continue;
+		IPrimaryKeyRule* pRule = Factory<IPrimaryKeyRule,string>::Instance().BuildProduct(pFieldDesc->m_strFieldName);
+		if(!pRule) continue;
+		pRule->SetFieldDesc(pFieldDesc);
+
+		if (i != nSize -1)
+		{
+			sPrimaryKey += pRule->GetInsertSQL();
+			sPrimaryKey += ",";
+			sSQL += pFieldDesc->m_strFieldName;
+			sSQL += ",";
+		}
+		else
+		{
+			sPrimaryKey += pRule->GetInsertSQL();
+			sSQL += pFieldDesc->m_strFieldName;
+		}
+
+		delete pRule;
+		pRule = NULL;
+	}
+
 	sSQL += ") values(";
-
-	char szValue[128] = {0};
-	if (strFieldDataType == "string")
-	{
-		sprintf_s(szValue,128,"'%s'",vField.GetValueAsString());
-	}
-	else if (strFieldDataType == "int" || strFieldDataType == "integer" )
-	{
-		sprintf_s(szValue,128,"%d",vField.GetValueAsInt());
-	}
-	else if(strFieldDataType == "long")
-	{
-		sprintf_s(szValue,128,"%ld",vField.GetValueAsLong());
-	}
-
-	sSQL += szValue;
+	sSQL += sPrimaryKey;
 	sSQL += ")";
 
 	CString strErr;
@@ -489,6 +505,8 @@ bool CDBDataManager::InitializeDatabase(const char* sDataBase)
 		LoadFieldMetaData(strTableName);
 		LoadFieldAttribute(strTableName);
 	}
+
+	LoadFieldMetaData("Business");
 
 	return true;
 }

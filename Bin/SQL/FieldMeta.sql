@@ -10,7 +10,7 @@
  Target Server Version : 3035005
  File Encoding         : 65001
 
- Date: 07/02/2023 11:22:33
+ Date: 08/02/2023 10:18:15
 */
 
 PRAGMA foreign_keys = false;
@@ -116,5 +116,8 @@ INSERT INTO "FieldMeta" VALUES ('Inclination', 'Future_DailyMinorCycleAnalyze', 
 INSERT INTO "FieldMeta" VALUES ('EmotionFeeling', 'Future_DailyMinorCycleAnalyze', 'string', 0, 1, 20);
 INSERT INTO "FieldMeta" VALUES ('Forecast', 'Future_DailyMinorCycleAnalyze', 'string', 0, 1, 21);
 INSERT INTO "FieldMeta" VALUES ('Reality', 'Future_DailyMinorCycleAnalyze', 'string', 0, 1, 22);
+INSERT INTO "FieldMeta" VALUES ('BusinessName', 'Business', 'string', 1, 0, 0);
+INSERT INTO "FieldMeta" VALUES ('UI', 'Business', 'string', 0, 0, 1);
+INSERT INTO "FieldMeta" VALUES ('Description', 'Business', 'string', 0, 0, 2);
 
 PRAGMA foreign_keys = true;

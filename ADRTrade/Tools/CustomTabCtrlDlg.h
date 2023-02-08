@@ -36,6 +36,7 @@ protected:
 
 protected:
 	virtual void _InitPage(CRect& rcTab); 
+	virtual void _LoadData2UI();
 	void _Resize(int cx, int cy);
 	void _ShowPage(const int nCurPage);
 	LPCTSTR GetTooltipText(int nStyle);

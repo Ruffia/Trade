@@ -156,7 +156,6 @@
     <ClInclude Include="Tools\EditTreeCtrl.h" />
     <ClInclude Include="Tools\EditTreeCtrlEx.h" />
     <ClInclude Include="Tools\InputEdit.h" />
-    <ClInclude Include="Tools\PrimaryKeyRule.h" />
     <ClInclude Include="Tools\pugiconfig.hpp" />
     <ClInclude Include="Tools\pugixml.hpp" />
     <ClInclude Include="Tools\StyleManager.h" />
@@ -209,7 +208,6 @@
     <ClCompile Include="Tools\EditTreeCtrl.cpp" />
     <ClCompile Include="Tools\EditTreeCtrlEx.cpp" />
     <ClCompile Include="Tools\InputEdit.cpp" />
-    <ClCompile Include="Tools\PrimaryKeyRule.cpp" />
     <ClCompile Include="Tools\pugixml.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>

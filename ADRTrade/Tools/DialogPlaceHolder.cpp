@@ -161,7 +161,7 @@ void CDialogPlaceHolder::_InitLayOut()
 
 void CDialogPlaceHolder::_LoadData2UI()
 {
-	bool bExists = _CheckExistsRecord();
+	bool bExists = _CheckExistsTradeDayRecord();
 	if (!bExists) return;
 
 	vector<CFieldDesc*> vFieldDesc;
@@ -169,8 +169,6 @@ void CDialogPlaceHolder::_LoadData2UI()
 
 	vector<CFieldDesc*> vPrimaryKey;
 	CDBDataManager::Instance().GetPrimaryKey(m_sBusiness,vPrimaryKey);
-	//此处只处理只有一个主键"TradeDay"的情况
-	if(vPrimaryKey.size() != 1) return;
 
 	CFieldDesc* pPrimaryKeyDesc = vPrimaryKey[0];
 	if(!pPrimaryKeyDesc) return;
@@ -201,40 +199,27 @@ void CDialogPlaceHolder::_LoadData2UI()
 }
 
 
-bool CDialogPlaceHolder::_CheckExistsRecord()
+bool CDialogPlaceHolder::_CheckExistsTradeDayRecord()
 {
 	vector<CFieldDesc*> vPrimaryKey;
 	CDBDataManager::Instance().GetPrimaryKey(m_sBusiness,vPrimaryKey);
 
+	const string strFieldSelect = "TradeDay";
+	CFieldDesc* pTradeDayDesc = NULL;
 	string sPrimaryKey = "";
 	int nSize = vPrimaryKey.size();
 	for (int i = 0;i < nSize;i++)
 	{
 		CFieldDesc* pFieldDesc = vPrimaryKey[i];
 		if(!pFieldDesc) continue;
-		IPrimaryKeyRule* pRule = Factory<IPrimaryKeyRule,string>::Instance().BuildProduct(pFieldDesc->m_strFieldName);
-		if(!pRule) continue;
-		pRule->SetFieldDesc(pFieldDesc);
-
-		if (i != nSize -1)
+		if (string::npos != pFieldDesc->m_strFieldName.find(strFieldSelect))
 		{
-			sPrimaryKey += pRule->GetSQLPair();
-			sPrimaryKey += ",";
+			pTradeDayDesc = pFieldDesc;
+			break;
 		}
-		else
-		{
-			sPrimaryKey += pRule->GetSQLPair();
-		}
-
-		delete pRule;
-		pRule = NULL;
 	}
 
-	//此处只处理只有一个主键"TradeDay"的情况
-	if(vPrimaryKey.size() != 1) return false;
-
-	CFieldDesc* pPrimaryKeyDesc = vPrimaryKey[0];
-	if(!pPrimaryKeyDesc) return false;
+	if(!pTradeDayDesc) return false;
 
 	COleDateTime dtNOw = COleDateTime::GetCurrentTime();
 	CString strDate = dtNOw.Format("%Y-%m-%d");
@@ -242,7 +227,7 @@ bool CDialogPlaceHolder::_CheckExistsRecord()
 	FieldValue vKey;
 	vKey.SetDataType("string");
 	vKey.SetValueString(strDate);
-	bool bExists = CDBDataManager::Instance().RecordExists(m_sBusiness,pPrimaryKeyDesc->m_strFieldName,pPrimaryKeyDesc->m_strDataType,vKey);
+	bool bExists = CDBDataManager::Instance().RecordExists(m_sBusiness,pTradeDayDesc->m_strFieldName,pTradeDayDesc->m_strDataType,vKey);
 	if (!bExists)
 	{
 		return false; 
@@ -327,7 +312,7 @@ void CDialogPlaceHolder::_UpdateDB2UI( CRecord* pRecord )
 
 void CDialogPlaceHolder::UpdateUI2DB()
 {
-	bool bExists = _CheckExistsRecord();
+	bool bExists = _CheckExistsTradeDayRecord();
 	if(!bExists) return;
 
 	map<string,CFieldDesc*>& mapTableName2FieldDesc = CDBDataManager::Instance().GetTableMeta(m_sBusiness);

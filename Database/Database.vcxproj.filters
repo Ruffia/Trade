@@ -63,6 +63,9 @@
     <ClCompile Include="Attribute.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="PrimaryKeyRule.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="res\Database.rc2">
@@ -125,6 +128,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Attribute.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="PrimaryKeyRule.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
