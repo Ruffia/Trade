@@ -1,6 +1,6 @@
 #pragma once
 #include "Tools/DialogPlaceHolder.h"
-#include "Tools/DialogPlaceHolder_MinorCycleAnalyze.h"
+#include "DialogPlaceHolder_MinorCycleAnalyze.h"
 #include "Tools/CustomTabCtrlDlg.h"
 #include "../Common/Factory.h"
 

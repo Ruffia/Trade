@@ -6,8 +6,6 @@
 #include "Factory.h"
 #include "DialogIDManager.h"
 #include "DialogPlaceHolder.h"
-#include "DialogPlaceHolder_MinorCycleAnalyze.h"
-#include "DialogPlaceHolderComposite.h"
 #include "DBDataManager.h"
 #include "CustomTabCtrlDlg.h"
 
@@ -18,7 +16,7 @@
 static char THIS_FILE[] = __FILE__;
 #endif
 
-IMPLEMENT_FACTORY(CDialog,CCustomTabCtrlDlg,string,"CCustomTabCtrlDlg")
+IMPLEMENT_FACTORY(CDialogPlaceHolder,CCustomTabCtrlDlg,string,"CCustomTabCtrlDlg")
 CCustomTabCtrlDlg::CCustomTabCtrlDlg(CWnd* pParent /*=NULL*/)
 	: CDialogPlaceHolder(pParent),m_pTab(NULL),m_nCurSel(0)
 {
@@ -76,6 +74,7 @@ BOOL CCustomTabCtrlDlg::OnInitDialog()
 	m_pTab->SetDragCursors(AfxGetApp()->LoadCursor(IDC_CURSORMOVE),AfxGetApp()->LoadCursor(IDC_CURSORCOPY));
 
 	_InitPage(rcTab);
+	_LoadData2UI();
 
 	m_nCurSel = 0;
 	//œ‘ æ≥ı º“≥√Ê
@@ -126,15 +125,12 @@ void CCustomTabCtrlDlg::_InitPage(CRect& rcTab)
 
 		CDialogPlaceHolder* pDlg = Factory<CDialogPlaceHolder,string>::Instance().BuildProduct(data.m_strUIClassName);
 		if(!pDlg) continue;
+		pDlg->SetBusiness(m_sBusiness);
+		pDlg->SetLayout(data.m_strLayout);
+
 		const int nIDD = CDialogIDMgr::Instance().GetDialogResourceID(data.m_strUIClassName);
 		ASSERT(-1 != nIDD);
-		CDialogTabItem_MinorCycleAnalyze* pDlgItem = dynamic_cast<CDialogTabItem_MinorCycleAnalyze*>(pDlg);
-		if (pDlgItem)
-		{
-			pDlgItem->SetBusiness(m_sBusiness);
-			pDlgItem->SetLayout(data.m_strLayout);
-			pDlgItem->SetItem(sName);		
-		}
+
 
 		pDlg->Create(nIDD,this);
 		pDlg->MoveWindow(&rcHold);
@@ -487,5 +483,5 @@ void CCustomTabCtrlDlg::_LoadData2UI()
 	CRecord* pRecord = ds[0];
 	if(!pRecord) return;
 
-	_UpdateDB2UI(pRecord);
+	UpdateDB2UI(pRecord);
 }

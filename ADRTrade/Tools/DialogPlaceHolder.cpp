@@ -195,7 +195,7 @@ void CDialogPlaceHolder::_LoadData2UI()
 	CRecord* pRecord = ds[0];
 	if(!pRecord) return;
 
-	_UpdateDB2UI(pRecord);
+	UpdateDB2UI(pRecord);
 }
 
 
@@ -236,7 +236,7 @@ bool CDialogPlaceHolder::_CheckExistsTradeDayRecord()
 	return true;
 }
 
-void CDialogPlaceHolder::_UpdateDB2UI( CRecord* pRecord )
+void CDialogPlaceHolder::UpdateDB2UI( CRecord* pRecord )
 {
 	map<string,CFieldDesc*>& mapTableName2FieldDesc = CDBDataManager::Instance().GetTableMeta(m_sBusiness);
 	for(map<string,CWnd*>::iterator it = m_mapBusiness2Control.begin();

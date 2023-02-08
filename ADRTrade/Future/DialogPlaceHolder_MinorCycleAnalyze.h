@@ -1,5 +1,5 @@
 #pragma once
-#include "DialogPlaceHolder.h"
+#include "Tools/DialogPlaceHolder.h"
 
 class CDialogTabItem_MinorCycleAnalyze : public CDialogPlaceHolder
 {

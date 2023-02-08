@@ -54,6 +54,9 @@ public:
 	//将UI上的数据保存到数据库中
 	virtual void UpdateUI2DB();
 
+	//根据从数据库查询得到的数据记录值更新UI控件的显示
+	virtual void UpdateDB2UI( CRecord* pRecord );
+
 // 对话框数据
 	enum { IDD = IDD_DLG_Common };
 
@@ -64,13 +67,10 @@ protected:
 	virtual void _InitLayOut();
 
 	//将数据库中的数据记录加载到UI上显示
-	void virtual _LoadData2UI();
+	virtual void _LoadData2UI();
 
 	//判断当日记录是否存在
 	bool _CheckExistsTradeDayRecord();
-
-	//根据从数据库查询得到的数据记录值更新UI控件的显示
-	virtual void _UpdateDB2UI( CRecord* pRecord );
 
 	DECLARE_MESSAGE_MAP()
 

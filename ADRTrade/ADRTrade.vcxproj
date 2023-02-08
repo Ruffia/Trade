@@ -119,6 +119,8 @@
     <ClInclude Include="Business\BusinessNode.h" />
     <ClInclude Include="ChildFrm.h" />
     <ClInclude Include="DialogIDManager.h" />
+    <ClInclude Include="Future\CustomTabCtrlDlg_DailyMinorCycleAnalyze.h" />
+    <ClInclude Include="Future\DialogPlaceHolder_MinorCycleAnalyze.h" />
     <ClInclude Include="Future\FutureContract_TradeDialogs.h" />
     <ClInclude Include="MacroEnvironment\DlgTab_WorldEcnomic.h" />
     <ClInclude Include="MainFrm.h" />
@@ -147,7 +149,6 @@
     <ClInclude Include="Tools\DialogLayout.h" />
     <ClInclude Include="Tools\DialogPlaceHolder.h" />
     <ClInclude Include="Tools\DialogPlaceHolderComposite.h" />
-    <ClInclude Include="Tools\DialogPlaceHolder_MinorCycleAnalyze.h" />
     <ClInclude Include="Tools\DialogPopup.h" />
     <ClInclude Include="Tools\Dlg4ProgressThread.h" />
     <ClInclude Include="Tools\DlgGridPage.h" />
@@ -171,6 +172,8 @@
     <ClCompile Include="Business\BusinessNode.cpp" />
     <ClCompile Include="ChildFrm.cpp" />
     <ClCompile Include="DialogIDManager.cpp" />
+    <ClCompile Include="Future\CustomTabCtrlDlg_DailyMinorCycleAnalyze.cpp" />
+    <ClCompile Include="Future\DialogPlaceHolder_MinorCycleAnalyze.cpp" />
     <ClCompile Include="Future\FutureContract_TradeDialogs.cpp" />
     <ClCompile Include="MacroEnvironment\DlgTab_WorldEcnomic.cpp" />
     <ClCompile Include="MainFrm.cpp" />
@@ -199,7 +202,6 @@
     <ClCompile Include="Tools\DialogLayout.cpp" />
     <ClCompile Include="Tools\DialogPlaceHolder.cpp" />
     <ClCompile Include="Tools\DialogPlaceHolderComposite.cpp" />
-    <ClCompile Include="Tools\DialogPlaceHolder_MinorCycleAnalyze.cpp" />
     <ClCompile Include="Tools\DialogPopup.cpp" />
     <ClCompile Include="Tools\Dlg4ProgressThread.cpp" />
     <ClCompile Include="Tools\DlgGridPage.cpp" />
