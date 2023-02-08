@@ -177,36 +177,18 @@ void CADRTradeDayView::_CreateUI()
 	{
 		string sCaption = it->first;
 		CUIData& UIData = it->second;
-		CDialogPlaceHolder* pDlg = Factory<CDialogPlaceHolder,string>::Instance().BuildProduct(UIData.m_strUIClassName);
+		CDialogPlaceHolder* pHolder = Factory<CDialogPlaceHolder,string>::Instance().BuildProduct(UIData.m_strUIClassName);
+		if(!pHolder) continue;
 		const int nIDD = CDialogIDMgr::Instance().GetDialogResourceID(UIData.m_strUIClassName);
 		ASSERT(-1 != nIDD);
-		CDialogPlaceHolder* pHolder = dynamic_cast<CDialogPlaceHolder*>(pDlg);
-		if (pHolder)
-		{
-			pHolder->SetBusiness(UIData.m_sName);
-			pHolder->SetLayout(UIData.m_strLayout);		
-		}
-		else
-		{
-			CDialogPlaceHolderComposite* pCompositeDlg = dynamic_cast<CDialogPlaceHolderComposite*>(pDlg);
-			if (pCompositeDlg)
-			{
-				pCompositeDlg->SetLayout(UIData.m_strLayout);
-			}
-			else
-			{
-				CChildDlgTab* pTabWnd = dynamic_cast<CChildDlgTab*>(pDlg);
-				if (pTabWnd)
-				{
-					pTabWnd->SetLayout(UIData.m_strLayout);
-				}
-			}
-		}
-		pDlg->Create(nIDD,this);
+		pHolder->SetBusiness(UIData.m_sName);
+		pHolder->SetLayout(UIData.m_strLayout);		
+
+		pHolder->Create(nIDD,this);
 		CRect rcDialog(rc.left + UIData.m_nLeft,rc.top + UIData.m_nTop,rc.left + UIData.m_nLeft + UIData.m_nWidth,rc.top + UIData.m_nHeight);
-		pDlg->MoveWindow(rcDialog);	
-		pDlg->ShowWindow(SW_SHOW);
-		UIData.m_pWnd = pDlg;	
+		pHolder->MoveWindow(rcDialog);	
+		pHolder->ShowWindow(SW_SHOW);
+		UIData.m_pWnd = pHolder;	
 	}
 }
 
