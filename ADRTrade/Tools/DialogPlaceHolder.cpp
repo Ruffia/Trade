@@ -15,6 +15,7 @@
 #include "Util.h"
 #include "EditTreeCtrlEx.h"
 #include "PrimaryKeyRule.h"
+#include "TradeDayPrimaryData.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -186,6 +187,7 @@ void CDialogPlaceHolder::_LoadTradeDayData2UI()
 
 	COleDateTime dtNOw = COleDateTime::GetCurrentTime();
 	CString strDate = dtNOw.Format("%Y-%m-%d");
+	CTradeDayPrimaryData::Instance().m_strTradeDay = strDate;
 
 	FieldValue vKey;
 	vKey.SetDataType("string");

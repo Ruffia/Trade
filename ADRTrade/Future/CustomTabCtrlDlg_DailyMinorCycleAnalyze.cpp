@@ -120,12 +120,28 @@ void CCustomTabCtrlDlg_DailyMinorCycleAnalyze::_LoadTradeDayData2UI()
 	for (int i = 0; i < nRecordCount;i++)
 	{
 		CRecord* pRecord = ds[i];
-		if(!pRecord) return;
+		if(!pRecord) continue;
 
 		CDialogPlaceHolder* pPage = m_vPage[i];
 		if(pPage)
 		{
 			pPage->UpdateDB2UI(pRecord);
 		}	
+	}
+}
+
+
+void CCustomTabCtrlDlg_DailyMinorCycleAnalyze::UpdateUI2DB()
+{
+	bool bExists = _CheckExistsTradeDayRecord();
+	if(!bExists) return;
+
+	const int nPageCount = m_vPage.size();
+	for (int i = 0; i < nPageCount;i++)
+	{
+		CDialogPlaceHolder* pHolder = m_vPage[i];
+		if(!pHolder) continue;
+
+		pHolder->UpdateUI2DB();	
 	}
 }
