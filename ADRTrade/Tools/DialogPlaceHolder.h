@@ -67,7 +67,7 @@ protected:
 	virtual void _InitLayOut();
 
 	//将数据库中的数据记录加载到UI上显示
-	virtual void _LoadData2UI();
+	virtual void _LoadTradeDayData2UI();
 
 	//判断当日记录是否存在
 	bool _CheckExistsTradeDayRecord();

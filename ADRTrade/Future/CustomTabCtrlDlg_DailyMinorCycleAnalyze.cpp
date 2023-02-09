@@ -87,7 +87,7 @@ void CCustomTabCtrlDlg_DailyMinorCycleAnalyze::_InitPage(CRect& rcTab)
 }
 
 
-void CCustomTabCtrlDlg_DailyMinorCycleAnalyze::_LoadData2UI()
+void CCustomTabCtrlDlg_DailyMinorCycleAnalyze::_LoadTradeDayData2UI()
 {
 	bool bExists = _CheckExistsTradeDayRecord();
 	if (!bExists) return;

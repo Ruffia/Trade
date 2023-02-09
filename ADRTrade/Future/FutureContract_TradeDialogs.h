@@ -15,5 +15,3 @@ DefineClass(CDialogDailyTradeSummarize,CDialogPlaceHolder,IDD_DLG_Common)
 DefineClass(CDialogFutureContract_LongPeriodicAnalyze,CDialogPlaceHolder,IDD_DLG_Common)
 
 DefineClass(CDialogFutureContract_MinorCycleAnalyze,CDialogTabItem_MinorCycleAnalyze,IDD_DLG_Common)
-
-DefineClass(CDialogFutureContract_TrackPhraseIn1Day,CCustomTabCtrlDlg,IDD_DLG_Common)

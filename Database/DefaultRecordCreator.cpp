@@ -60,7 +60,7 @@ IMPLEMENT_FACTORY(IDefaultRecordCreator,CDefaultRecordCreator_MinorCycleAnalyze,
 void CDefaultRecordCreator_MinorCycleAnalyze::CreateRecord()
 {
 	const int nRecordCount = 5;
-	string sRecordTimeKey[nRecordCount] = {"9:00","10:00","11:15","14:15","16:15"};
+	string sRecordTimeKey[nRecordCount] = {"09:00","10:00","11:15","14:15","16:15"};
 
 	vector<CFieldDesc*> vPrimaryKey;
 	CDBDataManager::Instance().GetPrimaryKey(m_strTableName,vPrimaryKey);
@@ -73,9 +73,9 @@ void CDefaultRecordCreator_MinorCycleAnalyze::CreateRecord()
 
 		string sPrimaryKey = "";
 		int nSize = vPrimaryKey.size();
-		for (int i = 0;i < nSize;i++)
+		for (int j = 0;j < nSize;j++)
 		{
-			CFieldDesc* pFieldDesc = vPrimaryKey[i];
+			CFieldDesc* pFieldDesc = vPrimaryKey[j];
 			if(!pFieldDesc) continue;
 			IPrimaryKeyRule* pRule = Factory<IPrimaryKeyRule,string>::Instance().BuildProduct(pFieldDesc->m_strFieldName);
 			if(!pRule) continue;
@@ -83,7 +83,7 @@ void CDefaultRecordCreator_MinorCycleAnalyze::CreateRecord()
 
 			const type_info &typeInfo = typeid(*pRule);
 			string sTypeName = typeInfo.raw_name();
-			if (i != nSize -1)
+			if (j != nSize -1)
 			{
 				if (string::npos != sTypeName.find("CPrimaryKey_RecordTime"))
 				{

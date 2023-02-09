@@ -18,6 +18,9 @@ public:
 	}
 
 protected:
+	virtual void _LoadTradeDayData2UI();
+
+protected:
 	string m_strItemName_Old;  //保存修改页签名称之前的名称
 	string m_strItemName;
 };

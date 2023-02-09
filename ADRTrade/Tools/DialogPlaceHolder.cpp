@@ -63,7 +63,7 @@ BOOL CDialogPlaceHolder::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 	_InitLayOut();
-	_LoadData2UI();
+	_LoadTradeDayData2UI();
 	return TRUE;
 }
 
@@ -159,7 +159,7 @@ void CDialogPlaceHolder::_InitLayOut()
 }
 
 
-void CDialogPlaceHolder::_LoadData2UI()
+void CDialogPlaceHolder::_LoadTradeDayData2UI()
 {
 	bool bExists = _CheckExistsTradeDayRecord();
 	if (!bExists) return;
@@ -170,8 +170,19 @@ void CDialogPlaceHolder::_LoadData2UI()
 	vector<CFieldDesc*> vPrimaryKey;
 	CDBDataManager::Instance().GetPrimaryKey(m_sBusiness,vPrimaryKey);
 
-	CFieldDesc* pPrimaryKeyDesc = vPrimaryKey[0];
-	if(!pPrimaryKeyDesc) return;
+	const string strTradeDay = "TradeDay";
+	CFieldDesc* pTradeDayDesc = NULL;
+	for (int i = 0;i < vPrimaryKey.size();i++)
+	{
+		CFieldDesc* pFieldDesc = vPrimaryKey[i];
+		if (pFieldDesc && pFieldDesc->m_strFieldName.find(strTradeDay) != string::npos)
+		{
+			pTradeDayDesc = pFieldDesc;
+			break;
+		}
+	}
+		
+	if(!pTradeDayDesc) return;
 
 	COleDateTime dtNOw = COleDateTime::GetCurrentTime();
 	CString strDate = dtNOw.Format("%Y-%m-%d");
@@ -183,7 +194,7 @@ void CDialogPlaceHolder::_LoadData2UI()
 	string sSQL = "select * from ";
 	sSQL += m_sBusiness;
 	sSQL += " where ";
-	sSQL += pPrimaryKeyDesc->m_strFieldName;
+	sSQL += pTradeDayDesc->m_strFieldName;
 	sSQL += " = '";
 	sSQL += vKey.GetValueAsString();
 	sSQL += "'";

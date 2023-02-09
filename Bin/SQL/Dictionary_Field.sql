@@ -10,7 +10,7 @@
  Target Server Version : 3035005
  File Encoding         : 65001
 
- Date: 03/02/2023 13:10:14
+ Date: 09/02/2023 09:14:43
 */
 
 PRAGMA foreign_keys = false;
@@ -35,5 +35,9 @@ INSERT INTO "Dictionary_Field" VALUES (4, 'Festival', 'LaborDay');
 INSERT INTO "Dictionary_Field" VALUES (5, 'Festival', 'DragonBoatFestival');
 INSERT INTO "Dictionary_Field" VALUES (6, 'Festival', 'Mid-AutumnFestival');
 INSERT INTO "Dictionary_Field" VALUES (7, 'Festival', 'NationalDay');
+INSERT INTO "Dictionary_Field" VALUES (1, 'Judgement', 'Absolutely right');
+INSERT INTO "Dictionary_Field" VALUES (2, 'Judgement', 'roughly right');
+INSERT INTO "Dictionary_Field" VALUES (3, 'Judgement', 'Something Right,Something Wrong');
+INSERT INTO "Dictionary_Field" VALUES (4, 'Judgement', 'Wrong');
 
 PRAGMA foreign_keys = true;
