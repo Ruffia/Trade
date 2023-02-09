@@ -69,6 +69,9 @@
     <ClCompile Include="DefaultRecordCreator.cpp">
       <Filter>头文件</Filter>
     </ClCompile>
+    <ClCompile Include="TradeDayPrimaryData.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="res\Database.rc2">
@@ -137,6 +140,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="DefaultRecordCreator.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TradeDayPrimaryData.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

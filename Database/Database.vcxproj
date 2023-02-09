@@ -149,6 +149,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="TradeDayPrimaryData.cpp" />
     <ClCompile Include="UnicodeTools.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -175,6 +176,7 @@
     <ClInclude Include="SQLite\sqlite3ext.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="TradeDayPrimaryData.h" />
     <ClInclude Include="UnicodeTools.h" />
   </ItemGroup>
   <ItemGroup>

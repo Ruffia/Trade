@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "PrimaryKeyRule.h"
 #include "FieldMeta.h"
+#include "TradeDayPrimaryData.h"
 #include "../Common/Factory.h"
 
 IPrimaryKeyRule::IPrimaryKeyRule()
@@ -13,6 +14,7 @@ string CPrimaryKey_TradeDay::GetInsertSQL()
 {
 	COleDateTime dtNOw = COleDateTime::GetCurrentTime();
 	CString strDate = dtNOw.Format("%Y-%m-%d");
+	CTradeDayPrimaryData::Instance().m_strTradeDay = strDate;
 
 	char sz[256] = {0};
 	sprintf_s(sz,256,"%s%s%s","'",strDate,"'");
@@ -36,6 +38,8 @@ string CPrimaryKey_FutureContractName::GetInsertSQL()
 	char sz[256] = {0};
 	COleDateTime dtNOw = COleDateTime::GetCurrentTime();
 	CString strDate = dtNOw.Format("%Y%m");
+	CTradeDayPrimaryData::Instance().m_strFutureContractName_LastTime = "Future" + strDate;
+	CTradeDayPrimaryData::Instance().m_strFutureContractName = CTradeDayPrimaryData::Instance().m_strFutureContractName_LastTime;
 	sprintf_s(sz,256,"%sFuture%s%s","'",strDate,"'");
 	return string(sz);
 }
