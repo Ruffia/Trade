@@ -18,5 +18,6 @@ public:
 	//由于
 	string  m_strFutureContractName_LastTime;  //上次更新时记录的FutureContractName
 	string  m_strFutureContractName;           //上次更新时记录的FutureContractName
+	bool    m_bNeed2UpdateFutureContractName;
 
 };

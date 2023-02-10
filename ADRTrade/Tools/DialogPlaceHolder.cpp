@@ -292,10 +292,6 @@ void CDialogPlaceHolder::UpdateDB2UI( CRecord* pRecord )
 		{
 			string sValue = pField->GetValueAsString();
 			strValue.Format(strDisplayType.c_str(),sValue.c_str());
-			if (pFieldDesc->m_strFieldName.find("FutureContractName") != string::npos)
-			{
-				CTradeDayPrimaryData::Instance().m_strFutureContractName = strValue;
-			}
 		}
 		else if (strDataType.find("int") != string::npos)
 		{

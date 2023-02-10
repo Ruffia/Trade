@@ -19,6 +19,7 @@
 #include "DialogIDManager.h"
 #include "DBDataManager.h"
 #include "UIDataManager.h"
+#include "TradeDayPrimaryData.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -196,6 +197,8 @@ void CADRTradeDayView::_LoadDataFromDB()
 {
 	COleDateTime dtNOw = COleDateTime::GetCurrentTime();
 	CString strDate = dtNOw.Format("%Y-%m-%d");
+	//记录当前交易日期
+	CTradeDayPrimaryData::Instance().m_strTradeDay = strDate; 
 	const int nWeekDay = CaculateWeekDay(dtNOw.GetYear(),dtNOw.GetMonth(),dtNOw.GetDay());
 	if (Saturday == nWeekDay || Sunday == nWeekDay)
 	{

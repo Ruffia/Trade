@@ -9,8 +9,6 @@ ImplementClass(CDialogFutureContract_IntradayTrade,CDialogPlaceHolder)
 
 ImplementClass(CDialogDailyTrades_SingleTradeTrack,CDialogPlaceHolder)
 
-ImplementClass(CDialogFutureContract_LongPeriodicAnalyze,CDialogPlaceHolder)
-
 ImplementClass(CDialogFutureContract_MinorCycleAnalyze,CDialogTabItem_MinorCycleAnalyze)
 
 

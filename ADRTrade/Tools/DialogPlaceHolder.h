@@ -46,11 +46,6 @@ public:
 		m_sBusiness = sBusiness;
 	}
 
-	void AddPrimaryKey(string& sKeyName,FieldValue& KeyValue)
-	{
-		m_mapPrimaryKey2Value[sKeyName] = KeyValue;
-	}
-
 	//将UI上的数据保存到数据库中
 	virtual void UpdateUI2DB();
 
@@ -81,9 +76,6 @@ protected:
 
 	//业务字段--->UI对象
 	map<string,CWnd*> m_mapBusiness2Control;
-
-	//主键--->值
-	map<string,FieldValue>  m_mapPrimaryKey2Value;
 
 	string m_sBusiness;  //业务名
 };

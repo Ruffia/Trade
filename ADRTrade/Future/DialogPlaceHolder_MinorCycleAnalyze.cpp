@@ -95,6 +95,10 @@ void CDialogTabItem_MinorCycleAnalyze::UpdateUI2DB()
 	string sSQL = "update ";
 	sSQL += m_sBusiness;
 	sSQL += " set ";
+	sSQL += " FutureContractName = '";
+	sSQL += CTradeDayPrimaryData::Instance().m_strFutureContractName;
+	sSQL += "'";
+	sSQL += ",";
 
 	int nUIControlCount = 0;
 	for(map<string,CWnd*>::iterator it = m_mapBusiness2Control.begin();
@@ -181,7 +185,7 @@ void CDialogTabItem_MinorCycleAnalyze::UpdateUI2DB()
 		}
 		else if (pFieldDesc->m_strFieldName.find("FutureContractName") != string::npos)
 		{
-			sprintf_s(sz,256,"%s = '%s'",pFieldDesc->m_strFieldName.c_str(),CTradeDayPrimaryData::Instance().m_strFutureContractName.c_str());
+			sprintf_s(sz,256,"%s = '%s'",pFieldDesc->m_strFieldName.c_str(),CTradeDayPrimaryData::Instance().m_strFutureContractName_LastTime.c_str());
 		}
 		else if (pFieldDesc->m_strFieldName.find("RecordTime") != string::npos)
 		{

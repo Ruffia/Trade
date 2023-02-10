@@ -5,7 +5,9 @@
 CTradeDayPrimaryData::CTradeDayPrimaryData()
 {
 	m_strTradeDay = "";
+	m_strFutureContractName_LastTime = "";
 	m_strFutureContractName = "";
+	m_bNeed2UpdateFutureContractName = false;
 }
 
 CTradeDayPrimaryData& CTradeDayPrimaryData::Instance()
