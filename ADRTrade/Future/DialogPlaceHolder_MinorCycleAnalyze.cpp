@@ -22,6 +22,7 @@ CDialogTabItem_MinorCycleAnalyze::CDialogTabItem_MinorCycleAnalyze(CWnd* pParent
 	: CDialogPlaceHolder(pParent)
 {
 	m_strRecordTime = "";
+	m_strRecordTime_Old = "";
 }
 
 void CDialogTabItem_MinorCycleAnalyze::_LoadTradeDayData2UI()
@@ -97,6 +98,10 @@ void CDialogTabItem_MinorCycleAnalyze::UpdateUI2DB()
 	sSQL += " set ";
 	sSQL += " FutureContractName = '";
 	sSQL += CTradeDayPrimaryData::Instance().m_strFutureContractName;
+	sSQL += "'";
+	sSQL += ",";
+	sSQL += " RecordTime = '";
+	sSQL += m_strRecordTime;
 	sSQL += "'";
 	sSQL += ",";
 
@@ -189,7 +194,7 @@ void CDialogTabItem_MinorCycleAnalyze::UpdateUI2DB()
 		}
 		else if (pFieldDesc->m_strFieldName.find("RecordTime") != string::npos)
 		{
-			sprintf_s(sz,256,"%s = '%s'",pFieldDesc->m_strFieldName.c_str(),m_strRecordTime.c_str());
+			sprintf_s(sz,256,"%s = '%s'",pFieldDesc->m_strFieldName.c_str(),m_strRecordTime_Old.c_str());
 		}
 
 		if (vPrimaryKey.size() - 1 != i)

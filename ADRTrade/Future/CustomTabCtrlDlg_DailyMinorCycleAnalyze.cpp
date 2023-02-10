@@ -145,7 +145,12 @@ void CCustomTabCtrlDlg_DailyMinorCycleAnalyze::UpdateUI2DB()
 	{
 		CDialogPlaceHolder* pHolder = m_vPage[i];
 		if(!pHolder) continue;
+		CDialogTabItem_MinorCycleAnalyze* pDlgItem = dynamic_cast<CDialogTabItem_MinorCycleAnalyze*>(pHolder);
+		if(!pDlgItem) continue;
 
- 		pHolder->UpdateUI2DB();	
+		CString strText = "";
+		int nRet = m_pTab->GetItemText(i,strText);
+		pDlgItem->SetRecordTime(strText.GetBuffer());
+ 		pDlgItem->UpdateUI2DB();	
 	}
 }
