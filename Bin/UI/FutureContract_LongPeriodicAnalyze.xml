@@ -13,15 +13,15 @@
 		<widget Name="ExternalMarketCaption" ClassName="CEdit" ID="10006" Caption="外盘" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT|ES_READONLY" Left="598" Top="35" Width="30" Height="25" />
 		<widget Name="ExternalMarket" ClassName="CBusinessEdit"  ID="10007" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="628" Top="35" Width="54" Height="25" business="ExternalMarket"/>	
 		
-		<widget Name="MonthlyTrendCaption" ClassName="CEdit" ID="10008" Caption="月线" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT|ES_READONLY" Left="2" Top="60" Width="60" Height="25" />
-		<widget Name="MonthlyTrend" ClassName="CBusinessEdit"  ID="10009" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="62" Top="60" Width="90" Height="25" business="MonthlyTrend"/>
-		<widget Name="WeeklyTrendCaption" ClassName="CEdit" ID="100010" Caption="周线" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT|ES_READONLY" Left="152" Top="60" Width="40" Height="25" />
-		<widget Name="WeeklyTrend" ClassName="CBusinessEdit"  ID="10011" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="192" Top="60" Width="146" Height="25" business="WeeklyTrend"/>
-		<widget Name="DailyTrendCaption" ClassName="CEdit" ID="100012" Caption="日线" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT|ES_READONLY" Left="338" Top="60" Width="62" Height="25" />
-		<widget Name="DailyTrend" ClassName="CBusinessEdit"  ID="10013" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="398" Top="60" Width="122" Height="25" business="DailyTrend"/>
+		<widget Name="Trend_MonthCaption" ClassName="CEdit" ID="10008" Caption="月线" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT|ES_READONLY" Left="2" Top="60" Width="60" Height="25" />
+		<widget Name="Trend_Month" ClassName="CBusinessEdit"  ID="10009" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="62" Top="60" Width="90" Height="25" business="Trend_Month"/>
+		<widget Name="Trend_WeekCaption" ClassName="CEdit" ID="100010" Caption="周线" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT|ES_READONLY" Left="152" Top="60" Width="40" Height="25" />
+		<widget Name="Trend_Week" ClassName="CBusinessEdit"  ID="10011" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="192" Top="60" Width="146" Height="25" business="Trend_Week"/>
+		<widget Name="Trend_DayCaption" ClassName="CEdit" ID="100012" Caption="日线" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT|ES_READONLY" Left="338" Top="60" Width="62" Height="25" />
+		<widget Name="Trend_Day" ClassName="CBusinessEdit"  ID="10013" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="398" Top="60" Width="122" Height="25" business="Trend_Day"/>
 		
-		<widget Name="4HTrendCaption" ClassName="CEdit" ID="100014" Caption="4H线" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT|ES_READONLY" Left="520" Top="60" Width="42" Height="25" />
-		<widget Name="4HTrend" ClassName="CBusinessEdit"  ID="10015" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="562" Top="60" Width="120" Height="25" business="4HTrend"/>
+		<widget Name="Trend_4HCaption" ClassName="CEdit" ID="100014" Caption="4H线" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT|ES_READONLY" Left="520" Top="60" Width="42" Height="25" />
+		<widget Name="Trend_4H" ClassName="CBusinessEdit"  ID="10015" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="562" Top="60" Width="120" Height="25" business="Trend_4H"/>
 		
 		<widget Name="EmotionalFeelingCaption" ClassName="CEdit" ID="10016" Caption="情绪感受" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT|ES_READONLY" Left="2" Top="85" Width="60" Height="25" />
 		<widget Name="EmotionalFeeling" ClassName="CBusinessEdit" ID="10017" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="62" Top="85" Width="620" Height="25" business="EmotionalFeeling"/>

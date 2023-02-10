@@ -7,29 +7,29 @@
 		<widget Name="4HTitle" ClassName="CEdit" ID="10003" Caption="4H" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="472" Top="10" Width="208" Height="25" />
 		
         <widget Name="MACDTitle" ClassName="CEdit" ID="10004" Caption="MACD" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="35" Width="70" Height="50" />
-		<widget Name="15MIN_MACD" ClassName="CBusinessEdit"  ID="10005" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="72" Top="35" Width="200" Height="50" business="15MIN_MACD"/>
-		<widget Name="1H_MACD" ClassName="CBusinessEdit"  ID="10006" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="272" Top="35" Width="200" Height="50" business="1H_MACD"/>
-		<widget Name="4H_MACD" ClassName="CBusinessEdit"  ID="10007" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="472" Top="35" Width="208" Height="50" business="4H_MACD"/>
+		<widget Name="MACD_15MIN" ClassName="CBusinessEdit"  ID="10005" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="72" Top="35" Width="200" Height="50" business="MACD_15MIN"/>
+		<widget Name="MACD_1H" ClassName="CBusinessEdit"  ID="10006" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="272" Top="35" Width="200" Height="50" business="MACD_1H"/>
+		<widget Name="MACD_4H" ClassName="CBusinessEdit"  ID="10007" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="472" Top="35" Width="208" Height="50" business="MACD_4H"/>
 		
 		<widget Name="MACDPillarTitle" ClassName="CEdit" ID="10008" Caption="MACD柱" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="85" Width="70" Height="50" />
-		<widget Name="15MIN_MACDPillar" ClassName="CBusinessEdit"  ID="10009" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="72" Top="85" Width="200" Height="50" business="15MIN_MACDPillar"/>
-		<widget Name="1H_MACDPillar" ClassName="CBusinessEdit"  ID="10010" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="272" Top="85" Width="200" Height="50" business="1H_MACDPillar"/>
-		<widget Name="4H_MACDPillar" ClassName="CBusinessEdit"  ID="10011" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="472" Top="85" Width="208" Height="50" business="4H_MACDPillar"/>
+		<widget Name="MACDPillar_15MIN" ClassName="CBusinessEdit"  ID="10009" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="72" Top="85" Width="200" Height="50" business="MACDPillar_15MIN"/>
+		<widget Name="MACDPillar_1H" ClassName="CBusinessEdit"  ID="10010" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="272" Top="85" Width="200" Height="50" business="MACDPillar_1H"/>
+		<widget Name="MACDPillar_4H" ClassName="CBusinessEdit"  ID="10011" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="472" Top="85" Width="208" Height="50" business="MACDPillar_4H"/>
 		
 		<widget Name="TRIXTitle" ClassName="CEdit" ID="10012" Caption="Trix" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="135" Width="70" Height="50" />
-		<widget Name="15MIN_Trix" ClassName="CBusinessEdit"  ID="10013" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="72" Top="135" Width="200" Height="50" business="15MIN_Trix"/>
-		<widget Name="1H_Trix" ClassName="CBusinessEdit"  ID="10014" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="272" Top="135" Width="200" Height="50" business="1H_Trix"/>
-		<widget Name="4H_Trix" ClassName="CBusinessEdit"  ID="10015" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="472" Top="135" Width="208" Height="50" business="4H_Trix"/>
+		<widget Name="Trix_15MIN" ClassName="CBusinessEdit"  ID="10013" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="72" Top="135" Width="200" Height="50" business="Trix_15MIN"/>
+		<widget Name="Trix_1H" ClassName="CBusinessEdit"  ID="10014" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="272" Top="135" Width="200" Height="50" business="Trix_1H"/>
+		<widget Name="Trix_4H" ClassName="CBusinessEdit"  ID="10015" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="472" Top="135" Width="208" Height="50" business="Trix_4H"/>
 		
 		<widget Name="SKDJTitle" ClassName="CEdit" ID="10016" Caption="SKDJ" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="185" Width="70" Height="25" />
-		<widget Name="15MIN_SKDJ" ClassName="CBusinessEdit"  ID="10017" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="72" Top="185" Width="200" Height="25" business="15MIN_SKDJ"/>
-		<widget Name="1H_SKDJ" ClassName="CBusinessEdit"  ID="10018" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="272" Top="185" Width="200" Height="25" business="1H_SKDJ"/>
-		<widget Name="4H_SKDJ" ClassName="CBusinessEdit"  ID="10019" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="472" Top="185" Width="208" Height="25" business="4H_SKDJ"/>
+		<widget Name="SKDJ_15MIN" ClassName="CBusinessEdit"  ID="10017" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="72" Top="185" Width="200" Height="25" business="SKDJ_15MIN"/>
+		<widget Name="SKDJ_1H" ClassName="CBusinessEdit"  ID="10018" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="272" Top="185" Width="200" Height="25" business="SKDJ_1H"/>
+		<widget Name="SKDJ_4H" ClassName="CBusinessEdit"  ID="10019" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="472" Top="185" Width="208" Height="25" business="SKDJ_4H"/>
 		
 		<widget Name="StrengthAngleTitle" ClassName="CEdit" ID="10020" Caption="趋势角度" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="210" Width="70" Height="25" />
-		<widget Name="15MIN_StrengthAngle" ClassName="CBusinessEdit"  ID="10021" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="72" Top="210" Width="200" Height="25"  business="15MIN_StrengthAngle"/>
-		<widget Name="1H_StrengthAngle" ClassName="CBusinessEdit"  ID="10022" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="272" Top="210" Width="200" Height="25"  business="1H_StrengthAngle"/>
-		<widget Name="4H_StrengthAngle" ClassName="CBusinessEdit"  ID="10023" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="472" Top="210" Width="208" Height="25"  business="4H_StrengthAngle"/>
+		<widget Name="StrengthAngle_15MIN" ClassName="CBusinessEdit"  ID="10021" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="72" Top="210" Width="200" Height="25"  business="StrengthAngle_15MIN"/>
+		<widget Name="StrengthAngle_1H" ClassName="CBusinessEdit"  ID="10022" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="272" Top="210" Width="200" Height="25"  business="StrengthAngle_1H"/>
+		<widget Name="StrengthAngle_4H" ClassName="CBusinessEdit"  ID="10023" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="472" Top="210" Width="208" Height="25"  business="StrengthAngle_4H"/>
 		
 		<widget Name="MainSignalTitle" ClassName="CEdit"  ID="10024" Caption="主要信号" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="235" Width="70" Height="25" />
 		<widget Name="MainSignal" ClassName="CBusinessEdit"  ID="10025" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="72" Top="235" Width="608" Height="25"  business="MainSignal"/>

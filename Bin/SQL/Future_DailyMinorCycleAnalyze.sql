@@ -10,7 +10,7 @@
  Target Server Version : 3035005
  File Encoding         : 65001
 
- Date: 13/01/2023 13:34:42
+ Date: 10/02/2023 10:02:07
 */
 
 PRAGMA foreign_keys = false;
@@ -23,26 +23,27 @@ CREATE TABLE "Future_DailyMinorCycleAnalyze" (
   "TradeDay" text NOT NULL,
   "FutureContractName" TEXT NOT NULL,
   "RecordTime" TEXT NOT NULL,
-  "15MIN_MACD" TEXT,
-  "1H_MACD" TEXT,
-  "4H_MACD" TEXT,
-  "15MIN_MACDPillar" TEXT,
-  "1H_MACDPillar" TEXT,
-  "4H_MACDPillar" TEXT,
-  "15MIN_Trix" TEXT,
-  "1H_Trix" TEXT,
-  "4H_Trix" TEXT,
-  "15MIN_SKDJ" TEXT,
-  "1H_SKDJ" TEXT,
-  "4H_SKDJ" TEXT,
-  "15MIN_StrengthAngle" TEXT,
-  "1H_StrengthAngle" TEXT,
-  "4H_StrengthAngle" TEXT,
+  "MACD_15MIN" TEXT,
+  "MACD_1H" TEXT,
+  "MACD_4H" TEXT,
+  "MACDPillar_15MIN" TEXT,
+  "MACDPillar_1H" TEXT,
+  "MACDPillar_4H" TEXT,
+  "Trix_15MIN" TEXT,
+  "Trix_1H" TEXT,
+  "Trix_4H" TEXT,
+  "SKDJ_15MIN" TEXT,
+  "SKDJ_1H" TEXT,
+  "SKDJ_4H" TEXT,
+  "StrengthAngle_15MIN" TEXT,
+  "StrengthAngle_1H" TEXT,
+  "StrengthAngle_4H" TEXT,
   "MainSignal" TEXT,
   "Inclination" TEXT,
   "EmotionFeeling" TEXT,
   "Forecast" TEXT,
-  "Reality" TEXT
+  "Reality" TEXT,
+  PRIMARY KEY ("TradeDay", "FutureContractName", "RecordTime")
 );
 
 PRAGMA foreign_keys = true;
