@@ -49,6 +49,8 @@ string CPrimaryKey_FutureContractName::GetUpdateSQL()
 	char sz[256] = {0};
 	COleDateTime dtNOw = COleDateTime::GetCurrentTime();
 	CString strDate = dtNOw.Format("%Y%m");
+	CTradeDayPrimaryData::Instance().m_strFutureContractName_LastTime = "Future" + strDate;
+	CTradeDayPrimaryData::Instance().m_strFutureContractName = CTradeDayPrimaryData::Instance().m_strFutureContractName_LastTime;
 	sprintf_s(sz,256,"%s = %sFuture%s%s","FutureContractName","'",strDate,"'");
 	return string(sz);
 }

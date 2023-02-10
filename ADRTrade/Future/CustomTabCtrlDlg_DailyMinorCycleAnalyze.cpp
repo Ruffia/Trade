@@ -69,7 +69,7 @@ void CCustomTabCtrlDlg_DailyMinorCycleAnalyze::_InitPage(CRect& rcTab)
 		CDialogTabItem_MinorCycleAnalyze* pDlgItem = dynamic_cast<CDialogTabItem_MinorCycleAnalyze*>(pDlg);
 		if (pDlgItem)
 		{
-			pDlgItem->SetItem(sName);		
+			pDlgItem->SetRecordTime(sName);		
 		}
 
 		pDlg->Create(nIDD,this);
@@ -83,7 +83,11 @@ void CCustomTabCtrlDlg_DailyMinorCycleAnalyze::_InitPage(CRect& rcTab)
 		nCount++;
 		node = node.next_sibling();
 	}
-
+	
+	if (m_pTab->GetItemCount() > 0)
+	{
+		m_pTab->SetCurSel(0);
+	}
 }
 
 
@@ -142,6 +146,6 @@ void CCustomTabCtrlDlg_DailyMinorCycleAnalyze::UpdateUI2DB()
 		CDialogPlaceHolder* pHolder = m_vPage[i];
 		if(!pHolder) continue;
 
-		pHolder->UpdateUI2DB();	
+ 		pHolder->UpdateUI2DB();	
 	}
 }
