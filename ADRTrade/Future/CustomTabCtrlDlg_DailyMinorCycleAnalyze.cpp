@@ -10,6 +10,7 @@
 #include "DBDataManager.h"
 #include "Tools/CustomTabCtrlDlg.h"
 #include "FutureContract_TradeDialogs.h"
+#include "TradeDayPrimaryData.h"
 
 
 #ifdef _DEBUG
@@ -69,7 +70,8 @@ void CCustomTabCtrlDlg_DailyMinorCycleAnalyze::_InitPage(CRect& rcTab)
 		CDialogTabItem_MinorCycleAnalyze* pDlgItem = dynamic_cast<CDialogTabItem_MinorCycleAnalyze*>(pDlg);
 		if (pDlgItem)
 		{
-			pDlgItem->SetRecordTime(sName);		
+			pDlgItem->SetRecordTime(sName);	
+			pDlgItem->SetRecordTime_Old(sName);
 		}
 
 		pDlg->Create(nIDD,this);
@@ -102,20 +104,14 @@ void CCustomTabCtrlDlg_DailyMinorCycleAnalyze::_LoadTradeDayData2UI()
 	vector<CFieldDesc*> vPrimaryKey;
 	CDBDataManager::Instance().GetPrimaryKey(m_sBusiness,vPrimaryKey);
 
-	COleDateTime dtNOw = COleDateTime::GetCurrentTime();
-	CString strDate = dtNOw.Format("%Y-%m-%d");
-
-	FieldValue vKey;
-	vKey.SetDataType("string");
-	vKey.SetValueString(strDate);
-
 	string sSQL = "select * from ";
 	sSQL += m_sBusiness;
 	sSQL += " where ";
 	sSQL += " TradeDay ";
 	sSQL += " = '";
-	sSQL += vKey.GetValueAsString();
+	sSQL += CTradeDayPrimaryData::Instance().m_strTradeDay;
 	sSQL += "'";
+	sSQL += "order by RecordTime asc";
 
 	CDataSet ds;
 	CDBDataManager::Instance().LoadData(sSQL,m_sBusiness,ds);
@@ -126,11 +122,18 @@ void CCustomTabCtrlDlg_DailyMinorCycleAnalyze::_LoadTradeDayData2UI()
 		CRecord* pRecord = ds[i];
 		if(!pRecord) continue;
 
+		CField* pField = pRecord->GetField("RecordTime");
+		if(!pField) continue;
+		string strRecordTime = pField->GetValueAsString();
+
 		CDialogPlaceHolder* pPage = m_vPage[i];
-		if(pPage)
-		{
-			pPage->UpdateDB2UI(pRecord);
-		}	
+		CDialogTabItem_MinorCycleAnalyze* pDlgItem = dynamic_cast<CDialogTabItem_MinorCycleAnalyze*>(pPage);
+		if(!pDlgItem) continue;
+
+		m_pTab->SetItemText(i,strRecordTime.c_str());
+		pDlgItem->SetRecordTime(strRecordTime);
+		pDlgItem->SetRecordTime_Old(strRecordTime);
+		pDlgItem->UpdateDB2UI(pRecord);	
 	}
 }
 
@@ -150,7 +153,17 @@ void CCustomTabCtrlDlg_DailyMinorCycleAnalyze::UpdateUI2DB()
 
 		CString strText = "";
 		int nRet = m_pTab->GetItemText(i,strText);
-		pDlgItem->SetRecordTime(strText.GetBuffer());
+		string strRecordTime = strText.GetBuffer();
+		if (!pDlgItem->Need2UpdateRecordTime())
+		{
+			if (strRecordTime != pDlgItem->GetRecordTime())
+			{
+				pDlgItem->SetRecordTime_Old(pDlgItem->GetRecordTime());
+				pDlgItem->SetRecordTime(strRecordTime);
+				pDlgItem->SetNeed2UpdateRecordTime(true);
+			}
+		}
+
  		pDlgItem->UpdateUI2DB();	
 	}
 }

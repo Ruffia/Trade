@@ -23,6 +23,7 @@ CDialogTabItem_MinorCycleAnalyze::CDialogTabItem_MinorCycleAnalyze(CWnd* pParent
 {
 	m_strRecordTime = "";
 	m_strRecordTime_Old = "";
+	m_bNeed2UpdateRecordTime = false;
 }
 
 void CDialogTabItem_MinorCycleAnalyze::_LoadTradeDayData2UI()
@@ -55,19 +56,12 @@ void CDialogTabItem_MinorCycleAnalyze::_LoadTradeDayData2UI()
 
 	if(!pTradeDayDesc || !pRecordTimeDesc) return;
 
-	COleDateTime dtNOw = COleDateTime::GetCurrentTime();
-	CString strDate = dtNOw.Format("%Y-%m-%d");
-
-	FieldValue vKey;
-	vKey.SetDataType("string");
-	vKey.SetValueString(strDate);
-
 	string sSQL = "select * from ";
 	sSQL += m_sBusiness;
 	sSQL += " where ";
 	sSQL += pTradeDayDesc->m_strFieldName;
 	sSQL += " = '";
-	sSQL += vKey.GetValueAsString();
+	sSQL += CTradeDayPrimaryData::Instance().m_strTradeDay;
 	sSQL += "'";
 	sSQL += " and ";
 	sSQL += pRecordTimeDesc->m_strFieldName;
@@ -191,10 +185,18 @@ void CDialogTabItem_MinorCycleAnalyze::UpdateUI2DB()
 		else if (pFieldDesc->m_strFieldName.find("FutureContractName") != string::npos)
 		{
 			sprintf_s(sz,256,"%s = '%s'",pFieldDesc->m_strFieldName.c_str(),CTradeDayPrimaryData::Instance().m_strFutureContractName_LastTime.c_str());
+			if (CTradeDayPrimaryData::Instance().m_bNeed2UpdateFutureContractName)
+			{
+				CTradeDayPrimaryData::Instance().m_bNeed2UpdateFutureContractName = false;
+			}		
 		}
 		else if (pFieldDesc->m_strFieldName.find("RecordTime") != string::npos)
 		{
 			sprintf_s(sz,256,"%s = '%s'",pFieldDesc->m_strFieldName.c_str(),m_strRecordTime_Old.c_str());
+			if (m_bNeed2UpdateRecordTime)
+			{
+				m_bNeed2UpdateRecordTime = false;
+			}
 		}
 
 		if (vPrimaryKey.size() - 1 != i)

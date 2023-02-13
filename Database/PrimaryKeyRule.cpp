@@ -12,22 +12,15 @@ IPrimaryKeyRule::IPrimaryKeyRule()
 IMPLEMENT_FACTORY(IPrimaryKeyRule,CPrimaryKey_TradeDay,string,"TradeDay")
 string CPrimaryKey_TradeDay::GetInsertSQL()
 {
-	COleDateTime dtNOw = COleDateTime::GetCurrentTime();
-	CString strDate = dtNOw.Format("%Y-%m-%d");
-	CTradeDayPrimaryData::Instance().m_strTradeDay = strDate;
-
 	char sz[256] = {0};
-	sprintf_s(sz,256,"%s%s%s","'",strDate,"'");
+	sprintf_s(sz,256,"%s%s%s","'",CTradeDayPrimaryData::Instance().m_strTradeDay.c_str(),"'");
 	return string(sz);
 }
 
 string CPrimaryKey_TradeDay::GetUpdateSQL()
 {
-	COleDateTime dtNOw = COleDateTime::GetCurrentTime();
-	CString strDate = dtNOw.Format("%Y-%m-%d");
-
 	char sz[256] = {0};
-	sprintf_s(sz,256,"%s = %s%s%s","TradeDay","'",strDate,"'");
+	sprintf_s(sz,256,"%s = %s%s%s","TradeDay","'",CTradeDayPrimaryData::Instance().m_strTradeDay.c_str(),"'");
 	return string(sz);
 }
 
@@ -36,22 +29,18 @@ IMPLEMENT_FACTORY(IPrimaryKeyRule,CPrimaryKey_FutureContractName,string,"FutureC
 string CPrimaryKey_FutureContractName::GetInsertSQL()
 {
 	char sz[256] = {0};
-	COleDateTime dtNOw = COleDateTime::GetCurrentTime();
-	CString strDate = dtNOw.Format("%Y%m");
-	CTradeDayPrimaryData::Instance().m_strFutureContractName_LastTime = "Future" + strDate;
+	CTradeDayPrimaryData::Instance().m_strFutureContractName_LastTime = "Future" + CTradeDayPrimaryData::Instance().m_strTradeDay;
 	CTradeDayPrimaryData::Instance().m_strFutureContractName = CTradeDayPrimaryData::Instance().m_strFutureContractName_LastTime;
-	sprintf_s(sz,256,"%sFuture%s%s","'",strDate,"'");
+	sprintf_s(sz,256,"%sFuture%s%s","'",CTradeDayPrimaryData::Instance().m_strTradeDay.c_str(),"'");
 	return string(sz);
 }
 
 string CPrimaryKey_FutureContractName::GetUpdateSQL()
 {
 	char sz[256] = {0};
-	COleDateTime dtNOw = COleDateTime::GetCurrentTime();
-	CString strDate = dtNOw.Format("%Y%m");
-	CTradeDayPrimaryData::Instance().m_strFutureContractName_LastTime = "Future" + strDate;
+	CTradeDayPrimaryData::Instance().m_strFutureContractName_LastTime = "Future" + CTradeDayPrimaryData::Instance().m_strTradeDay;
 	CTradeDayPrimaryData::Instance().m_strFutureContractName = CTradeDayPrimaryData::Instance().m_strFutureContractName_LastTime;
-	sprintf_s(sz,256,"%s = %sFuture%s%s","FutureContractName","'",strDate,"'");
+	sprintf_s(sz,256,"%s = %sFuture%s%s","FutureContractName","'",CTradeDayPrimaryData::Instance().m_strTradeDay.c_str(),"'");
 	return string(sz);
 }
 

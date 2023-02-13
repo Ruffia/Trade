@@ -8,6 +8,7 @@
 #include "DialogPlaceHolder.h"
 #include "DBDataManager.h"
 #include "CustomTabCtrlDlg.h"
+#include "TradeDayPrimaryData.h"
 
 
 #ifdef _DEBUG
@@ -461,19 +462,12 @@ void CCustomTabCtrlDlg::_LoadTradeDayData2UI()
 	CFieldDesc* pPrimaryKeyDesc = vPrimaryKey[0];
 	if(!pPrimaryKeyDesc) return;
 
-	COleDateTime dtNOw = COleDateTime::GetCurrentTime();
-	CString strDate = dtNOw.Format("%Y-%m-%d");
-
-	FieldValue vKey;
-	vKey.SetDataType("string");
-	vKey.SetValueString(strDate);
-
 	string sSQL = "select * from ";
 	sSQL += m_sBusiness;
 	sSQL += " where ";
 	sSQL += pPrimaryKeyDesc->m_strFieldName;
 	sSQL += " = '";
-	sSQL += vKey.GetValueAsString();
+	sSQL += CTradeDayPrimaryData::Instance().m_strTradeDay;
 	sSQL += "'";
 
 	CDataSet ds;

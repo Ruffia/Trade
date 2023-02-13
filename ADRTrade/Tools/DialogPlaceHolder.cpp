@@ -185,20 +185,12 @@ void CDialogPlaceHolder::_LoadTradeDayData2UI()
 		
 	if(!pTradeDayDesc) return;
 
-	COleDateTime dtNOw = COleDateTime::GetCurrentTime();
-	CString strDate = dtNOw.Format("%Y-%m-%d");
-	CTradeDayPrimaryData::Instance().m_strTradeDay = strDate;
-
-	FieldValue vKey;
-	vKey.SetDataType("string");
-	vKey.SetValueString(strDate);
-
 	string sSQL = "select * from ";
 	sSQL += m_sBusiness;
 	sSQL += " where ";
 	sSQL += pTradeDayDesc->m_strFieldName;
 	sSQL += " = '";
-	sSQL += vKey.GetValueAsString();
+	sSQL += CTradeDayPrimaryData::Instance().m_strTradeDay;
 	sSQL += "'";
 
 	CDataSet ds;
@@ -411,11 +403,8 @@ void CDialogPlaceHolder::UpdateUI2DB()
 	CFieldDesc* pPrimaryKeyDesc = vPrimaryKey[0];
 	if(!pPrimaryKeyDesc) return;
 
-	COleDateTime dtNOw = COleDateTime::GetCurrentTime();
-	CString strDate = dtNOw.Format("%Y-%m-%d");
-
 	char szChereClause[512] = {0};
-	sprintf_s(szChereClause,512,"%s = '%s'",pPrimaryKeyDesc->m_strFieldName.c_str(),strDate);
+	sprintf_s(szChereClause,512,"%s = '%s'",pPrimaryKeyDesc->m_strFieldName.c_str(),CTradeDayPrimaryData::Instance().m_strTradeDay.c_str());
 
 	sSQL += szChereClause;
 	CDBDataManager::Instance().Exec(sSQL);

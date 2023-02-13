@@ -134,11 +134,14 @@ void CDialogFutureContract_LongPeriodicAnalyze::UpdateUI2DB()
 			sprintf_s(szSQL,512," %s = '%s' ",sBusinessField.c_str(),szValue);
 			if (pFieldDesc->m_strFieldName.find("FutureContractName") != string::npos)
 			{
-				CTradeDayPrimaryData::Instance().m_strFutureContractName_LastTime = CTradeDayPrimaryData::Instance().m_strFutureContractName;
-				CTradeDayPrimaryData::Instance().m_strFutureContractName = szValue;
-				if (CTradeDayPrimaryData::Instance().m_strFutureContractName_LastTime != CTradeDayPrimaryData::Instance().m_strFutureContractName)
+				if (!CTradeDayPrimaryData::Instance().m_bNeed2UpdateFutureContractName)
 				{
-					CTradeDayPrimaryData::Instance().m_bNeed2UpdateFutureContractName = true;
+					CTradeDayPrimaryData::Instance().m_strFutureContractName_LastTime = CTradeDayPrimaryData::Instance().m_strFutureContractName;
+					CTradeDayPrimaryData::Instance().m_strFutureContractName = szValue;
+					if (CTradeDayPrimaryData::Instance().m_strFutureContractName_LastTime != CTradeDayPrimaryData::Instance().m_strFutureContractName)
+					{
+						CTradeDayPrimaryData::Instance().m_bNeed2UpdateFutureContractName = true;
+					}
 				}
 			}
 		}
