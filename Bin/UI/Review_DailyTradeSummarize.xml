@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<Layout>
+		<widget Name="StockTree" ClassName="CDialogStockPool_StockTree"  IDD="IDD_DLG_Common"  Layout="StockPool_StockTree.xml"  Left="0" Top="0" Width="220" Height="570" />
+		<widget Name="Stocks" ClassName="CCustomTabCtrlDlg"  IDD="IDD_DLG_Common" Layout="StockPool_Stocks.xml"  Left="220" Top="10" Width="730" Height="525" />	
+	</Layout>
+</root>
