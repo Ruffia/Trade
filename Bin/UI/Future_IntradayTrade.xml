@@ -10,8 +10,7 @@
 		<widget Name="ExpectOrderTime" ClassName="CBusinessEdit"  ID="10006" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="364" Top="35" Width="44" Height="25" business="ExpectOrderTime"/>	
 		<widget Name="TradeContentTitle" ClassName="CEdit" ID="10007" Caption="交易仓位" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="60" Width="70" Height="25" />	
 		<widget Name="TradeType" ClassName="CBusinessComboBox"  ID="10008" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_SORT|CBS_DROPDOWN|CBS_OEMCONVERT" Left="72" Top="60" Width="55" Height="75" business="TradeType">
-		    <DropdownItem value="1" Name="买入" />
-			<DropdownItem value="0" Name="卖出" />
+		    <Dropdown Subject="TradeType" />
 		</widget>
 		<widget Name="OpenQuantity" ClassName="CBusinessEdit"  ID="10009" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_NUMBER|ES_LEFT" Left="130" Top="60" Width="30" Height="25"  business="OpenQuantity"/>
 		<widget Name="OpenMultiplyTitle" ClassName="CEdit" ID="10010" Caption="*" Style="WS_CHILD|WS_VISIBLE|ES_CENTER|WS_TABSTOP|ES_READONLY" Left="160" Top="60" Width="10" Height="25" />

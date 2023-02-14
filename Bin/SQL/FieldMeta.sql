@@ -10,7 +10,7 @@
  Target Server Version : 3035005
  File Encoding         : 65001
 
- Date: 10/02/2023 10:20:32
+ Date: 14/02/2023 16:04:10
 */
 
 PRAGMA foreign_keys = false;
@@ -96,28 +96,37 @@ INSERT INTO "FieldMeta" VALUES ('EmotionalFeeling', 'Future_DailyLongPeriodicAna
 INSERT INTO "FieldMeta" VALUES ('TradeDay', 'Future_DailyMinorCycleAnalyze', 'string', 1, 0, 0);
 INSERT INTO "FieldMeta" VALUES ('FutureContractName', 'Future_DailyMinorCycleAnalyze', 'string', 1, 1, 1);
 INSERT INTO "FieldMeta" VALUES ('RecordTime', 'Future_DailyMinorCycleAnalyze', 'string', 1, 1, 2);
-INSERT INTO "FieldMeta" VALUES ('MACD_15MIN', 'Future_DailyMinorCycleAnalyze', 'string', 0, 1, 3);
-INSERT INTO "FieldMeta" VALUES ('MACD_1H', 'Future_DailyMinorCycleAnalyze', 'string', 0, 1, 4);
-INSERT INTO "FieldMeta" VALUES ('MACD_4H', 'Future_DailyMinorCycleAnalyze', 'string', 0, 1, 5);
-INSERT INTO "FieldMeta" VALUES ('MACD_15MINPillar', 'Future_DailyMinorCycleAnalyze', 'string', 0, 1, 6);
-INSERT INTO "FieldMeta" VALUES ('MACD_1HPillar', 'Future_DailyMinorCycleAnalyze', 'string', 0, 1, 7);
-INSERT INTO "FieldMeta" VALUES ('MACD_4HPillar', 'Future_DailyMinorCycleAnalyze', 'string', 0, 1, 8);
-INSERT INTO "FieldMeta" VALUES ('Trix_15MIN', 'Future_DailyMinorCycleAnalyze', 'string', 0, 1, 9);
-INSERT INTO "FieldMeta" VALUES ('Trix_1H', 'Future_DailyMinorCycleAnalyze', 'string', 0, 1, 10);
-INSERT INTO "FieldMeta" VALUES ('Trix_4H', 'Future_DailyMinorCycleAnalyze', 'string', 0, 1, 11);
-INSERT INTO "FieldMeta" VALUES ('SKDJ_15MIN', 'Future_DailyMinorCycleAnalyze', 'string', 0, 1, 12);
-INSERT INTO "FieldMeta" VALUES ('SKDJ_1H', 'Future_DailyMinorCycleAnalyze', 'string', 0, 1, 13);
-INSERT INTO "FieldMeta" VALUES ('SKDJ_4H', 'Future_DailyMinorCycleAnalyze', 'string', 0, 1, 14);
-INSERT INTO "FieldMeta" VALUES ('StrengthAngle_15MIN', 'Future_DailyMinorCycleAnalyze', 'string', 0, 1, 15);
-INSERT INTO "FieldMeta" VALUES ('StrengthAngle_1H', 'Future_DailyMinorCycleAnalyze', 'string', 0, 1, 16);
-INSERT INTO "FieldMeta" VALUES ('StrengthAngle_4H', 'Future_DailyMinorCycleAnalyze', 'string', 0, 1, 17);
+INSERT INTO "FieldMeta" VALUES ('MACD_5MIN', 'Future_DailyMinorCycleAnalyze', 'string', 0, 1, 3);
+INSERT INTO "FieldMeta" VALUES ('MACD_15MIN', 'Future_DailyMinorCycleAnalyze', 'string', 0, 1, 4);
+INSERT INTO "FieldMeta" VALUES ('MACD_2H', 'Future_DailyMinorCycleAnalyze', 'string', 0, 1, 5);
+INSERT INTO "FieldMeta" VALUES ('MACDPillar_5MIN', 'Future_DailyMinorCycleAnalyze', 'string', 0, 1, 6);
+INSERT INTO "FieldMeta" VALUES ('MACDPillar_15MIN', 'Future_DailyMinorCycleAnalyze', 'string', 0, 1, 7);
+INSERT INTO "FieldMeta" VALUES ('MACDPillar_2H', 'Future_DailyMinorCycleAnalyze', 'string', 0, 1, 8);
+INSERT INTO "FieldMeta" VALUES ('Trix_5MIN', 'Future_DailyMinorCycleAnalyze', 'string', 0, 1, 9);
+INSERT INTO "FieldMeta" VALUES ('Trix_15MIN', 'Future_DailyMinorCycleAnalyze', 'string', 0, 1, 10);
+INSERT INTO "FieldMeta" VALUES ('Trix_2H', 'Future_DailyMinorCycleAnalyze', 'string', 0, 1, 11);
+INSERT INTO "FieldMeta" VALUES ('SKDJ_5MIN', 'Future_DailyMinorCycleAnalyze', 'string', 0, 1, 12);
+INSERT INTO "FieldMeta" VALUES ('SKDJ_15MIN', 'Future_DailyMinorCycleAnalyze', 'string', 0, 1, 13);
+INSERT INTO "FieldMeta" VALUES ('SKDJ_2H', 'Future_DailyMinorCycleAnalyze', 'string', 0, 1, 14);
+INSERT INTO "FieldMeta" VALUES ('StrengthAngle_5MIN', 'Future_DailyMinorCycleAnalyze', 'string', 0, 1, 15);
+INSERT INTO "FieldMeta" VALUES ('StrengthAngle_15MIN', 'Future_DailyMinorCycleAnalyze', 'string', 0, 1, 16);
+INSERT INTO "FieldMeta" VALUES ('StrengthAngle_2H', 'Future_DailyMinorCycleAnalyze', 'string', 0, 1, 17);
 INSERT INTO "FieldMeta" VALUES ('MainSignal', 'Future_DailyMinorCycleAnalyze', 'string', 0, 1, 18);
 INSERT INTO "FieldMeta" VALUES ('Inclination', 'Future_DailyMinorCycleAnalyze', 'string', 0, 1, 19);
 INSERT INTO "FieldMeta" VALUES ('EmotionFeeling', 'Future_DailyMinorCycleAnalyze', 'string', 0, 1, 20);
 INSERT INTO "FieldMeta" VALUES ('Forecast', 'Future_DailyMinorCycleAnalyze', 'string', 0, 1, 21);
-INSERT INTO "FieldMeta" VALUES ('Reality', 'Future_DailyMinorCycleAnalyze', 'string', 0, 1, 22);
+INSERT INTO "FieldMeta" VALUES ('Judgement', 'Future_DailyMinorCycleAnalyze', 'integer', 0, 1, 22);
+INSERT INTO "FieldMeta" VALUES ('HighCertainty', 'Future_DailyMinorCycleAnalyze', 'integer', 0, 1, 23);
+INSERT INTO "FieldMeta" VALUES ('InkeepingWithMainForce', 'Future_DailyMinorCycleAnalyze', 'integer', 0, 1, 24);
+INSERT INTO "FieldMeta" VALUES ('InkeepingWithMacroEconomicPolicy', 'Future_DailyMinorCycleAnalyze', 'integer', 0, 1, 25);
+INSERT INTO "FieldMeta" VALUES ('FeelRelaxedButNotAfraid', 'Future_DailyMinorCycleAnalyze', 'integer', 0, 1, 26);
+INSERT INTO "FieldMeta" VALUES ('BeHunterNotBePrey', 'Future_DailyMinorCycleAnalyze', 'integer', 0, 1, 27);
 INSERT INTO "FieldMeta" VALUES ('BusinessName', 'Business', 'string', 1, 0, 0);
 INSERT INTO "FieldMeta" VALUES ('UI', 'Business', 'string', 0, 0, 1);
 INSERT INTO "FieldMeta" VALUES ('Description', 'Business', 'string', 0, 0, 2);
+INSERT INTO "FieldMeta" VALUES ('Value', 'Dictionary_Field', 'integer', 1, 0, 0);
+INSERT INTO "FieldMeta" VALUES ('Subject', 'Dictionary_Field', 'string', 1, 0, 1);
+INSERT INTO "FieldMeta" VALUES ('Meaning', 'Dictionary_Field', 'string', 0, 0, 2);
+INSERT INTO "FieldMeta" VALUES ('Translation', 'Dictionary_Field', 'string', 0, 0, 3);
 
 PRAGMA foreign_keys = true;

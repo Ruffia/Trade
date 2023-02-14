@@ -478,6 +478,7 @@ bool CDBDataManager::InitializeDatabase(const char* sDataBase)
 	}
 
 	LoadFieldMetaData("Business");
+	LoadFieldMetaData("Dictionary_Field");
 
 	return true;
 }

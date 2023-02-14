@@ -420,7 +420,7 @@ void CMainFrame::OnUpdateStockPool(CCmdUI* pCmdUI)
 
 void CMainFrame::_LoadLayout()
 {
-	string sFileName = GetModulePath() + "/UI/DialogPopup.xml";
+	string sFileName = GetModulePath() + "/UI/Dialog_Popup.xml";
 	bool bRet = true;
 	if (!m_doc.load_file(sFileName.c_str())) 
 	{ //╪стьxmlнд╪Ч

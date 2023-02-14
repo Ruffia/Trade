@@ -84,38 +84,12 @@ void CDialogPopup::_InitLayOut()
 		DWORD dwTotalStyle = CStyleMgr::Instance().GetStyle(sStyle);
 		const string sCaption = node.attribute("Caption").as_string();
 		CDialogPlaceHolder* pDlg = Factory<CDialogPlaceHolder,string>::Instance().BuildProduct(data.m_strUIClassName);
+		if(!pDlg) continue;
 		const int nIDD = CDialogIDMgr::Instance().GetDialogResourceID(data.m_strUIClassName);
 		ASSERT(-1 != nIDD);
 
-		CDialogPlaceHolder* pHolder = dynamic_cast<CDialogPlaceHolder*>(pDlg);
-		if (pHolder)
-		{
-			pHolder->SetLayout(data.m_strLayout);
-		}
-		else
-		{
-			CChildDlgTab* pTabWnd = dynamic_cast<CChildDlgTab*>(pDlg);
-			if (pTabWnd)
-			{
-				pTabWnd->SetLayout(data.m_strLayout);
-			}
-			else
-			{
-				CDialogPlaceHolderComposite* pDlgComposite = dynamic_cast<CDialogPlaceHolderComposite*>(pDlg);
-				if (pDlgComposite)
-				{
-					pDlgComposite->SetLayout(data.m_strLayout);
-				}
-				else
-				{
-					CCustomTabCtrlDlg* pCustomTabCtrlDlg = dynamic_cast<CCustomTabCtrlDlg*>(pDlg);
-					if (pCustomTabCtrlDlg)
-					{
-						pCustomTabCtrlDlg->SetLayout(data.m_strLayout);
-					}
-				}
-			}
-		}
+		pDlg->SetLayout(data.m_strLayout);
+
 		pDlg->Create(nIDD,this);
 		CRect rcDialog(rc.left + data.m_nLeft,rc.top + data.m_nTop,rc.left + data.m_nLeft + data.m_nWidth,rc.top + data.m_nTop + data.m_nHeight);
 		pDlg->MoveWindow(rcDialog);	

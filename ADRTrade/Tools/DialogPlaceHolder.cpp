@@ -136,14 +136,33 @@ void CDialogPlaceHolder::_InitLayOut()
 			CBusinessComboBox* pCombox = new CBusinessComboBox;
 			CRect rc(data.m_nLeft,data.m_nTop,data.m_nLeft + data.m_nWidth ,data.m_nTop + data.m_nHeight);
 			pCombox->Create(dwTotalStyle,rc,this,data.m_nID);	
-			xml_node nodeDropdownItem = node.child("DropdownItem");
-			while (!nodeDropdownItem.empty())
+			xml_node nodeDropdownItem = node.child("Dropdown");
+			string sSubject = nodeDropdownItem.attribute("Subject").as_string("");
+
+			string sSQL = "select * from Dictionary_Field where Subject ";
+			sSQL += "='";
+			sSQL += sSubject;
+			sSQL += "'";
+			sSQL += " order by value asc";
+
+			CDataSet ds;
+			CDBDataManager::Instance().LoadData(sSQL,"Dictionary_Field",ds);
+
+			const int nRecordCount = ds.Size();
+			for (int i = 0; i < nRecordCount;i++)
 			{
-				int nValue = nodeDropdownItem.attribute("value").as_int(-1);
-				string sDropItem = nodeDropdownItem.attribute("Name").as_string("");
-				pCombox->AddString(sDropItem.c_str());
-				pCombox->Add2Map(nValue,sDropItem);
-				nodeDropdownItem = nodeDropdownItem.next_sibling();
+				CRecord* pRecord = ds[i];
+				if(!pRecord) continue;
+
+				CField* pFieldValue = pRecord->GetField("Value");
+				if(!pFieldValue) continue;
+				int nValue = pFieldValue->GetValueAsInt();
+
+				CField* pFieldTranslation = pRecord->GetField("Translation");
+				if(!pFieldTranslation) continue;
+				string sMeaning = pFieldTranslation->GetValueAsString();
+				pCombox->AddString(sMeaning.c_str());
+				pCombox->Add2Map(nValue,sMeaning);
 			}
 
 			const string& sBusiness = node.attribute("business").as_string();

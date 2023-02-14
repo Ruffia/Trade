@@ -10,7 +10,7 @@
  Target Server Version : 3035005
  File Encoding         : 65001
 
- Date: 10/02/2023 10:02:07
+ Date: 14/02/2023 09:57:35
 */
 
 PRAGMA foreign_keys = false;
@@ -23,26 +23,31 @@ CREATE TABLE "Future_DailyMinorCycleAnalyze" (
   "TradeDay" text NOT NULL,
   "FutureContractName" TEXT NOT NULL,
   "RecordTime" TEXT NOT NULL,
+  "MACD_5MIN" TEXT,
   "MACD_15MIN" TEXT,
-  "MACD_1H" TEXT,
-  "MACD_4H" TEXT,
+  "MACD_2H" TEXT,
+  "MACDPillar_5MIN" TEXT,
   "MACDPillar_15MIN" TEXT,
-  "MACDPillar_1H" TEXT,
-  "MACDPillar_4H" TEXT,
+  "MACDPillar_2H" TEXT,
+  "Trix_5MIN" TEXT,
   "Trix_15MIN" TEXT,
-  "Trix_1H" TEXT,
-  "Trix_4H" TEXT,
+  "Trix_2H" TEXT,
+  "SKDJ_5MIN" TEXT,
   "SKDJ_15MIN" TEXT,
-  "SKDJ_1H" TEXT,
-  "SKDJ_4H" TEXT,
+  "SKDJ_2H" TEXT,
+  "StrengthAngle_5MIN" TEXT,
   "StrengthAngle_15MIN" TEXT,
-  "StrengthAngle_1H" TEXT,
-  "StrengthAngle_4H" TEXT,
+  "StrengthAngle_2H" TEXT,
   "MainSignal" TEXT,
   "Inclination" TEXT,
-  "EmotionFeeling" TEXT,
+  "EmotionFeeling" integer,
   "Forecast" TEXT,
-  "Reality" TEXT,
+  "Judgement" integer,
+  "HighCertainty" integer DEFAULT (0),
+  "InkeepingWithMainForce" integer DEFAULT (0),
+  "InkeepingWithMacroEconomicPolicy" integer DEFAULT (0),
+  "FeelRelaxedButNotAfraid" integer DEFAULT (0),
+  "BeHunterNotBePrey" integer DEFAULT (0),
   PRIMARY KEY ("TradeDay", "FutureContractName", "RecordTime")
 );
 

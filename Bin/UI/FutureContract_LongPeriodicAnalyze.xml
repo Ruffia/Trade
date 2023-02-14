@@ -2,28 +2,30 @@
 <root>
 	<Layout>
 		<widget Name="Title" ClassName="CEdit" ID="10001" Caption="合约大趋势" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="10" Width="680" Height="25" />
-		<widget Name="FutureContractNameCaption" ClassName="CEdit" ID="10002" Caption="合约名称" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT|ES_READONLY" Left="2" Top="35" Width="60" Height="25" />
-		<widget Name="FutureContractName" ClassName="CBusinessEdit"  ID="10003" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="62" Top="35" Width="90" Height="25" business="FutureContractName"/>	
-		<widget Name="MainForceChangeCaption" ClassName="CEdit" ID="10004" Caption="主力增减仓" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT|ES_READONLY" Left="152" Top="35" Width="70" Height="25" />
+		<widget Name="FutureContractNameCaption" ClassName="CEdit" ID="10002" Caption="合约名称" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN|ES_READONLY" Left="2" Top="35" Width="60" Height="25" />
+		<widget Name="FutureContractName" ClassName="CBusinessEdit"  ID="10003" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN" Left="62" Top="35" Width="90" Height="25" business="FutureContractName"/>	
+		<widget Name="MainForceChangeCaption" ClassName="CEdit" ID="10004" Caption="主力增减仓" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN|ES_READONLY" Left="152" Top="35" Width="70" Height="25" />
 		<widget Name="MainForceChange" ClassName="CBusinessEdit"  ID="10005" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT" Left="222" Top="35" Width="116" Height="25" business="MainForceChange"/>	
 		
-		<widget Name="CITIC_GoldmanSachsCaption" ClassName="CEdit" ID="11006" Caption="中信乾坤" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT|ES_READONLY" Left="338" Top="35" Width="62" Height="25" />
-		<widget Name="CITIC_GoldmanSachs" ClassName="CBusinessEdit"  ID="11007" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="398" Top="35" Width="200" Height="25" business="CITIC_GoldmanSachs"/>	
+		<widget Name="CITIC_GoldmanSachsCaption" ClassName="CEdit" ID="11006" Caption="中信乾坤" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN|ES_READONLY" Left="338" Top="35" Width="62" Height="25" />
+		<widget Name="CITIC_GoldmanSachs" ClassName="CBusinessEdit"  ID="11007" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN" Left="398" Top="35" Width="200" Height="25" business="CITIC_GoldmanSachs"/>	
 	
-		<widget Name="ExternalMarketCaption" ClassName="CEdit" ID="10006" Caption="外盘" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT|ES_READONLY" Left="598" Top="35" Width="30" Height="25" />
-		<widget Name="ExternalMarket" ClassName="CBusinessEdit"  ID="10007" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="628" Top="35" Width="54" Height="25" business="ExternalMarket"/>	
+		<widget Name="ExternalMarketCaption" ClassName="CEdit" ID="10006" Caption="外盘" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN|ES_READONLY" Left="598" Top="35" Width="30" Height="25" />
+		<widget Name="ExternalMarket" ClassName="CBusinessEdit"  ID="10007" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN" Left="628" Top="35" Width="54" Height="25" business="ExternalMarket"/>	
 		
-		<widget Name="Trend_MonthCaption" ClassName="CEdit" ID="10008" Caption="月线" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT|ES_READONLY" Left="2" Top="60" Width="60" Height="25" />
-		<widget Name="Trend_Month" ClassName="CBusinessEdit"  ID="10009" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="62" Top="60" Width="90" Height="25" business="Trend_Month"/>
-		<widget Name="Trend_WeekCaption" ClassName="CEdit" ID="100010" Caption="周线" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT|ES_READONLY" Left="152" Top="60" Width="40" Height="25" />
-		<widget Name="Trend_Week" ClassName="CBusinessEdit"  ID="10011" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="192" Top="60" Width="146" Height="25" business="Trend_Week"/>
-		<widget Name="Trend_DayCaption" ClassName="CEdit" ID="100012" Caption="日线" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT|ES_READONLY" Left="338" Top="60" Width="62" Height="25" />
-		<widget Name="Trend_Day" ClassName="CBusinessEdit"  ID="10013" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="398" Top="60" Width="122" Height="25" business="Trend_Day"/>
+		<widget Name="Trend_MonthCaption" ClassName="CEdit" ID="10008" Caption="月线" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN|ES_READONLY" Left="2" Top="60" Width="60" Height="25" />
+		<widget Name="Trend_Month" ClassName="CBusinessEdit"  ID="10009" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN" Left="62" Top="60" Width="276" Height="25" business="Trend_Month"/>
 		
-		<widget Name="Trend_4HCaption" ClassName="CEdit" ID="100014" Caption="4H线" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT|ES_READONLY" Left="520" Top="60" Width="42" Height="25" />
-		<widget Name="Trend_4H" ClassName="CBusinessEdit"  ID="10015" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="562" Top="60" Width="120" Height="25" business="Trend_4H"/>
+		<widget Name="Trend_WeekCaption" ClassName="CEdit" ID="100010" Caption="周线" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN|ES_READONLY" Left="338" Top="60" Width="40" Height="25" />
+		<widget Name="Trend_Week" ClassName="CBusinessEdit"  ID="10011" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN" Left="378" Top="60" Width="304" Height="25" business="Trend_Week"/>
 		
-		<widget Name="EmotionalFeelingCaption" ClassName="CEdit" ID="10016" Caption="情绪感受" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT|ES_READONLY" Left="2" Top="85" Width="60" Height="25" />
-		<widget Name="EmotionalFeeling" ClassName="CBusinessEdit" ID="10017" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_LEFT" Left="62" Top="85" Width="620" Height="25" business="EmotionalFeeling"/>
+		<widget Name="Trend_DayCaption" ClassName="CEdit" ID="100012" Caption="日线" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN|ES_READONLY" Left="2" Top="85" Width="60" Height="25" />
+		<widget Name="Trend_Day" ClassName="CBusinessEdit"  ID="10013" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN" Left="62" Top="85" Width="276" Height="25" business="Trend_Day"/>
+		
+		<widget Name="Trend_4HCaption" ClassName="CEdit" ID="100014" Caption="4H线" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN|ES_READONLY" Left="338" Top="85" Width="40" Height="25" />
+		<widget Name="Trend_4H" ClassName="CBusinessEdit"  ID="10015" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN" Left="378" Top="85" Width="304" Height="25" business="Trend_4H"/>
+		
+		<widget Name="EmotionalFeelingCaption" ClassName="CEdit" ID="10016" Caption="情绪感受" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN|ES_READONLY" Left="2" Top="110" Width="60" Height="25" />
+		<widget Name="EmotionalFeeling" ClassName="CBusinessEdit" ID="10017" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN" Left="62" Top="110" Width="620" Height="25" business="EmotionalFeeling"/>
 	</Layout>
 </root>
