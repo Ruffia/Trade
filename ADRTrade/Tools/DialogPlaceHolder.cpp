@@ -11,6 +11,7 @@
 #include "Tools/CollectiveComponentProvider.h"
 #include "BusinessEdit.h"
 #include "BusinessComboBox.h"
+#include "BusinessCheckBox.h"
 #include "DBDataManager.h"
 #include "Util.h"
 #include "EditTreeCtrlEx.h"
@@ -173,6 +174,17 @@ void CDialogPlaceHolder::_InitLayOut()
 			pCombox->SetWindowText(sCaption.c_str());
 			m_mapBusiness2Control[sBusiness] = pCombox;
 			m_mapUIName2Wnd[sName] = pCombox;	
+		}
+		else if(data.m_strUIClassName.find("CBusinessCheckBox") != string::npos)
+		{
+			CBusinessCheckBox* pCheckBox = new CBusinessCheckBox;
+			CRect rc(data.m_nLeft,data.m_nTop,data.m_nLeft + data.m_nWidth ,data.m_nTop + data.m_nHeight);	
+			pCheckBox->Create(sCaption.c_str(), dwTotalStyle,rc,this, data.m_nID);
+			pCheckBox->SetFont(pFont);
+			const string& sBusiness = node.attribute("business").as_string();
+			pCheckBox->m_sBusinessField = sBusiness;
+			m_mapBusiness2Control[sName] = pCheckBox;
+			m_mapUIName2Wnd[sName] = pCheckBox;	
 		}
 		node = node.next_sibling();
 	}

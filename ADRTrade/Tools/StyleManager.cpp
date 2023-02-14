@@ -57,6 +57,7 @@ void CStyleMgr::Initialize()
 	_Register("WS_VSCROLL",WS_VSCROLL);
 	_Register("ES_CENTER",ES_CENTER);
 	_Register("ES_LEFT",ES_LEFT);
+	_Register("ES_RIGHT",ES_RIGHT);
 	_Register("ES_READONLY",ES_READONLY);	
 	_Register("ES_MULTILINE",ES_MULTILINE);
 	_Register("ES_NUMBER",ES_NUMBER);
@@ -71,4 +72,6 @@ void CStyleMgr::Initialize()
 	_Register("TVS_DISABLEDRAGDROP",TVS_DISABLEDRAGDROP);
 	_Register("TVS_NOTOOLTIPS",TVS_NOTOOLTIPS);
 	_Register("TVS_EDITLABELS",TVS_EDITLABELS);
+	_Register("BS_AUTOCHECKBOX",BS_AUTOCHECKBOX);
+	
 }
