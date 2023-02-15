@@ -6,6 +6,7 @@
 #include "Tools/CollectiveComponentProvider.h"
 #include "Tools/BusinessEdit.h"
 #include "Tools/BusinessComboBox.h"
+#include "Tools/BusinessCheckBox.h"
 #include "Tools/EditTreeCtrlEx.h"
 #include "PrimaryKeyRule.h"
 #include "TradeDayPrimaryData.h"
@@ -104,19 +105,36 @@ void CDialogFutureContract_LongPeriodicAnalyze::UpdateUI2DB()
 		nUIControlCount++;
 		bool bComBox = false;
 		string sBusinessField = "";
-		CBusinessComboBox* pComboBoxControl = NULL;
-		CBusinessEdit* pBusinessControl = dynamic_cast<CBusinessEdit*>(it->second);
-		if(!pBusinessControl)
-		{
-			pComboBoxControl = dynamic_cast<CBusinessComboBox*>(it->second);
-			if(!pComboBoxControl) continue;
 
-			sBusinessField = pComboBoxControl->m_sBusinessField;
-			bComBox = true;
-		}
-		else
+		//截至目前，有3中Business 字段类型
+		CBusinessEdit* pBusinessControl = NULL;
+		CBusinessComboBox* pComboBoxControl = NULL;
+		CBusinessCheckBox* pCheckBoxControl = NULL;
+
+		const int nBussinessType = 3;
+		bool ControlType[3] = {false,false,false}; 
+		const type_info &typeInfo = typeid(*pWnd);
+		string sTypeName = typeInfo.raw_name();
+		if (string::npos != sTypeName.find("CBusinessEdit"))
 		{
+			ControlType[Business_Edit] = true;
+			pBusinessControl = dynamic_cast<CBusinessEdit*>(pWnd);
+			if(!pBusinessControl) continue;
 			sBusinessField = pBusinessControl->m_sBusinessField;
+		}
+		else if (string::npos != sTypeName.find("CBusinessComboBox"))
+		{
+			ControlType[Business_ComboBox] = true;
+			pComboBoxControl = dynamic_cast<CBusinessComboBox*>(pWnd);
+			if(!pComboBoxControl) continue;
+			sBusinessField = pComboBoxControl->m_sBusinessField;
+		}
+		else if (string::npos != sTypeName.find("CBusinessCheckBox"))
+		{
+			ControlType[Business_CheckBox] = true;
+			pCheckBoxControl = dynamic_cast<CBusinessCheckBox*>(pWnd);
+			if(!pCheckBoxControl) continue;
+			sBusinessField = pCheckBoxControl->m_sBusinessField;
 		}
 
 		map<string,CFieldDesc*>::iterator itFieldDesc = mapTableName2FieldDesc.find(sBusinessField);
@@ -151,16 +169,21 @@ void CDialogFutureContract_LongPeriodicAnalyze::UpdateUI2DB()
 		}
 		else if( pFieldDesc->m_strDataType == "integer" || pFieldDesc->m_strDataType == "int")
 		{
-			if (bComBox)
+			if (ControlType[Business_ComboBox])
 			{
 				int nValue = -1;
 				bool bFindValue = pComboBoxControl->GetValue(szValue,nValue);
 				sprintf_s(szSQL,512," %s = %d ", sBusinessField.c_str(), nValue);
 			}
+			else if (ControlType[Business_CheckBox])
+			{
+				int nValue = pCheckBoxControl->GetCheck();
+				sprintf_s(szSQL,512," %s = %d ", sBusinessField.c_str(), nValue);
+			}
 			else
 			{
 				sprintf_s(szSQL,512," %s = %s ", sBusinessField.c_str(), strcmp(szValue,"")?szValue:"0");
-			}			
+			}
 		}
 
 		sSQL += szSQL;
@@ -244,20 +267,35 @@ void CDialogFutureContract_LongPeriodicAnalyze::UpdateDB2UI( CRecord* pRecord )
 	{
 		CWnd* pWnd = it->second;
 		string sBusinessField = "";
-		bool bCombox = false;
+		//截至目前，有3中Business 字段类型
+		CBusinessEdit* pBusinessControl = NULL;
 		CBusinessComboBox* pComboBoxControl = NULL;
-		CBusinessEdit* pBusinessControl = dynamic_cast<CBusinessEdit*>(pWnd);
-		if(!pBusinessControl)
+		CBusinessCheckBox* pCheckBoxControl = NULL;
+
+		const int nBussinessType = 3;
+		bool ControlType[3] = {false,false,false}; 
+		const type_info &typeInfo = typeid(*pWnd);
+		string sTypeName = typeInfo.raw_name();
+		if (string::npos != sTypeName.find("CBusinessEdit"))
 		{
+			ControlType[Business_Edit] = true;
+			pBusinessControl = dynamic_cast<CBusinessEdit*>(pWnd);
+			if(!pBusinessControl) continue;
+			sBusinessField = pBusinessControl->m_sBusinessField;
+		}
+		else if (string::npos != sTypeName.find("CBusinessComboBox"))
+		{
+			ControlType[Business_ComboBox] = true;
 			pComboBoxControl = dynamic_cast<CBusinessComboBox*>(pWnd);
 			if(!pComboBoxControl) continue;
-
-			bCombox = true;
 			sBusinessField = pComboBoxControl->m_sBusinessField;
 		}
-		else
+		else if (string::npos != sTypeName.find("CBusinessCheckBox"))
 		{
-			sBusinessField = pBusinessControl->m_sBusinessField;
+			ControlType[Business_CheckBox] = true;
+			pCheckBoxControl = dynamic_cast<CBusinessCheckBox*>(pWnd);
+			if(!pCheckBoxControl) continue;
+			sBusinessField = pCheckBoxControl->m_sBusinessField;
 		}
 
 
@@ -282,19 +320,23 @@ void CDialogFutureContract_LongPeriodicAnalyze::UpdateDB2UI( CRecord* pRecord )
 		}
 		else if (strDataType.find("int") != string::npos)
 		{
-			if (bCombox)
+			if (ControlType[Business_ComboBox])
 			{
-				if (pComboBoxControl)
-				{
-					string sMeaning = "";
-					bool bFindValue = pComboBoxControl->GetMeaning(pField->GetValueAsInt(),sMeaning);
-					strValue = sMeaning.c_str();
-				}
+				string sMeaning = "";
+				bool bFindValue = pComboBoxControl->GetMeaning(pField->GetValueAsInt(),sMeaning);
+				strValue = sMeaning.c_str();
+			}
+			else if (ControlType[Business_CheckBox])
+			{
+				int nValue = pField->GetValueAsInt();
+				pCheckBoxControl->SetCheck(nValue);
+				pCheckBoxControl->GetWindowTextA(strValue);
 			}
 			else
 			{
 				strValue.Format(strDisplayType.c_str(),pField->GetValueAsInt());
-			}			
+			}	
+
 		}
 		else if (strDataType.find("float") != string::npos)
 		{

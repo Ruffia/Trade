@@ -3,14 +3,14 @@
 
  Source Server         : TradeTrack
  Source Server Type    : SQLite
- Source Server Version : 3035005
+ Source Server Version : 3035005 (3.35.5)
  Source Schema         : main
 
  Target Server Type    : SQLite
- Target Server Version : 3035005
+ Target Server Version : 3035005 (3.35.5)
  File Encoding         : 65001
 
- Date: 14/02/2023 16:04:10
+ Date: 15/02/2023 13:25:54
 */
 
 PRAGMA foreign_keys = false;
@@ -113,7 +113,7 @@ INSERT INTO "FieldMeta" VALUES ('StrengthAngle_15MIN', 'Future_DailyMinorCycleAn
 INSERT INTO "FieldMeta" VALUES ('StrengthAngle_2H', 'Future_DailyMinorCycleAnalyze', 'string', 0, 1, 17);
 INSERT INTO "FieldMeta" VALUES ('MainSignal', 'Future_DailyMinorCycleAnalyze', 'string', 0, 1, 18);
 INSERT INTO "FieldMeta" VALUES ('Inclination', 'Future_DailyMinorCycleAnalyze', 'string', 0, 1, 19);
-INSERT INTO "FieldMeta" VALUES ('EmotionFeeling', 'Future_DailyMinorCycleAnalyze', 'string', 0, 1, 20);
+INSERT INTO "FieldMeta" VALUES ('EmotionFeeling', 'Future_DailyMinorCycleAnalyze', 'integer', 0, 1, 20);
 INSERT INTO "FieldMeta" VALUES ('Forecast', 'Future_DailyMinorCycleAnalyze', 'string', 0, 1, 21);
 INSERT INTO "FieldMeta" VALUES ('Judgement', 'Future_DailyMinorCycleAnalyze', 'integer', 0, 1, 22);
 INSERT INTO "FieldMeta" VALUES ('HighCertainty', 'Future_DailyMinorCycleAnalyze', 'integer', 0, 1, 23);

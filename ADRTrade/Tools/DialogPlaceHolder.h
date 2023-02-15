@@ -29,6 +29,16 @@ ClassName::ClassName()                                            \
 	CDialogIDMgr::Instance().Register(#ClassName,ClassName::IDD); \
 }                                                                 \
 
+
+//业务字段的控件类型
+enum BusinessControlType
+{
+	Business_Edit = 0,
+	Business_ComboBox,
+	Business_CheckBox,
+};
+
+
 class CDialogPlaceHolder : public CDialog
 {
 	DECLARE_DYNAMIC(CDialogPlaceHolder)

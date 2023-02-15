@@ -3,14 +3,14 @@
 
  Source Server         : TradeTrack
  Source Server Type    : SQLite
- Source Server Version : 3035005
+ Source Server Version : 3035005 (3.35.5)
  Source Schema         : main
 
  Target Server Type    : SQLite
- Target Server Version : 3035005
+ Target Server Version : 3035005 (3.35.5)
  File Encoding         : 65001
 
- Date: 14/02/2023 13:36:02
+ Date: 15/02/2023 13:26:01
 */
 
 PRAGMA foreign_keys = false;
@@ -245,8 +245,8 @@ INSERT INTO "FieldAttribute" VALUES ('Meaning', 'Inclination', 'Future_DailyMino
 INSERT INTO "FieldAttribute" VALUES ('ControlType', 'Inclination', 'Future_DailyMinorCycleAnalyze', 'string', 'CEdit');
 INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'Inclination', 'Future_DailyMinorCycleAnalyze', 'string', '%s');
 INSERT INTO "FieldAttribute" VALUES ('Meaning', 'EmotionFeeling', 'Future_DailyMinorCycleAnalyze', 'string', '情绪感受');
-INSERT INTO "FieldAttribute" VALUES ('ControlType', 'EmotionFeeling', 'Future_DailyMinorCycleAnalyze', 'string', 'CEdit');
-INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'EmotionFeeling', 'Future_DailyMinorCycleAnalyze', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'EmotionFeeling', 'Future_DailyMinorCycleAnalyze', 'string', 'CBusinessComboBox');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'EmotionFeeling', 'Future_DailyMinorCycleAnalyze', 'string', '%d');
 INSERT INTO "FieldAttribute" VALUES ('Meaning', 'Forecast', 'Future_DailyMinorCycleAnalyze', 'string', '预测');
 INSERT INTO "FieldAttribute" VALUES ('ControlType', 'Forecast', 'Future_DailyMinorCycleAnalyze', 'string', 'CEdit');
 INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'Forecast', 'Future_DailyMinorCycleAnalyze', 'string', '%s');
