@@ -10,7 +10,7 @@
  Target Server Version : 3035005 (3.35.5)
  File Encoding         : 65001
 
- Date: 15/02/2023 14:58:13
+ Date: 15/02/2023 18:06:19
 */
 
 PRAGMA foreign_keys = false;
@@ -50,5 +50,54 @@ INSERT INTO "Dictionary_Field" VALUES (6, 'EmotionFeeling', 'Painful', '感到�
 INSERT INTO "Dictionary_Field" VALUES (7, 'EmotionFeeling', 'BitterlyPainful ', '极度痛苦，不堪回首');
 INSERT INTO "Dictionary_Field" VALUES (1, 'TradeType', 'Buy', '买入');
 INSERT INTO "Dictionary_Field" VALUES (0, 'TradeType', 'Sell', '卖出');
+INSERT INTO "Dictionary_Field" VALUES (0, 'TimePeriod', '5Min', '5分钟');
+INSERT INTO "Dictionary_Field" VALUES (1, 'TimePeriod', '15Min', '15分钟');
+INSERT INTO "Dictionary_Field" VALUES (2, 'TimePeriod', '1H', '1小时');
+INSERT INTO "Dictionary_Field" VALUES (3, 'TimePeriod', '2H', '2小时');
+INSERT INTO "Dictionary_Field" VALUES (4, 'TimePeriod', '4H', '4小时');
+INSERT INTO "Dictionary_Field" VALUES (5, 'TimePeriod', '1Day', '日');
+INSERT INTO "Dictionary_Field" VALUES (6, 'TimePeriod', 'Week', '周');
+INSERT INTO "Dictionary_Field" VALUES (7, 'TimePeriod', 'Month', '月');
+INSERT INTO "Dictionary_Field" VALUES (0, 'TechnicalIndex', 'MACD', 'MACD');
+INSERT INTO "Dictionary_Field" VALUES (1, 'TechnicalIndex', 'MACDPillar', 'MACD柱');
+INSERT INTO "Dictionary_Field" VALUES (2, 'TechnicalIndex', 'Trix', 'Trix');
+INSERT INTO "Dictionary_Field" VALUES (3, 'TechnicalIndex', 'SKDJ', 'SKDJ');
+INSERT INTO "Dictionary_Field" VALUES (4, 'TechnicalIndex', 'StrengthAngle', '角度和能量');
+INSERT INTO "Dictionary_Field" VALUES (5, 'TechnicalIndex', 'TradeVolume', '成交量');
+INSERT INTO "Dictionary_Field" VALUES (6, 'TechnicalIndex', 'Decline', '跌幅');
+INSERT INTO "Dictionary_Field" VALUES (7, 'TechnicalIndex', 'Rise', '涨幅');
+INSERT INTO "Dictionary_Field" VALUES (0, 'MACD', 'InclineUpward', '倾斜向上');
+INSERT INTO "Dictionary_Field" VALUES (1, 'MACD', 'InclineDown', '倾斜向下');
+INSERT INTO "Dictionary_Field" VALUES (0, 'StrengthAngle', 'Small', '小角度');
+INSERT INTO "Dictionary_Field" VALUES (1, 'StrengthAngle', 'Medium', '中等角度');
+INSERT INTO "Dictionary_Field" VALUES (2, 'StrengthAngle', 'Large', '大角度');
+INSERT INTO "Dictionary_Field" VALUES (0, 'Trix', 'CrossedUpward', '已向上交叉');
+INSERT INTO "Dictionary_Field" VALUES (1, 'Trix', 'CrossedDown', '已向下交叉');
+INSERT INTO "Dictionary_Field" VALUES (2, 'Trix', 'GapIncreasing', '敞开变大');
+INSERT INTO "Dictionary_Field" VALUES (3, 'Trix', 'GapDecreasing', '敞口减小');
+INSERT INTO "Dictionary_Field" VALUES (4, 'Trix', 'GapCrossing', '即将交叉');
+INSERT INTO "Dictionary_Field" VALUES (5, 'Trix', 'GapMaximizing', '敞口最大');
+INSERT INTO "Dictionary_Field" VALUES (0, 'PriceFluctuating', 'Rising', '上涨');
+INSERT INTO "Dictionary_Field" VALUES (1, 'PriceFluctuating', 'Falling', '下跌');
+INSERT INTO "Dictionary_Field" VALUES (2, 'PriceFluctuating', 'OscillatingAfterRise', '上涨后震荡');
+INSERT INTO "Dictionary_Field" VALUES (3, 'PriceFluctuating', 'OscillatingAfterRise', '下跌后震荡');
+INSERT INTO "Dictionary_Field" VALUES (0, 'MACDPillar', '3Wave_40Pillar_Red', '3波40根红柱');
+INSERT INTO "Dictionary_Field" VALUES (1, 'MACDPillar', '4Wave_45Pillar_Red', '4波45根红柱');
+INSERT INTO "Dictionary_Field" VALUES (2, 'MACDPillar', '5Wave_50Pillar_Red', '5波50根红柱');
+INSERT INTO "Dictionary_Field" VALUES (3, 'MACDPillar', '3Wave_40Pillar_Green', '3波40根绿柱');
+INSERT INTO "Dictionary_Field" VALUES (4, 'MACDPillar', '4Wave_45Pillar_Green', '4波45根绿柱');
+INSERT INTO "Dictionary_Field" VALUES (5, 'MACDPillar', '5Wave_50Pillar_Green', '5波50根绿柱');
+INSERT INTO "Dictionary_Field" VALUES (0, 'SKDJ', '2Bottom', '2次探底');
+INSERT INTO "Dictionary_Field" VALUES (1, 'SKDJ', '3Bottom', '3次探底');
+INSERT INTO "Dictionary_Field" VALUES (2, 'SKDJ', '2Top', '2次冲顶');
+INSERT INTO "Dictionary_Field" VALUES (3, 'SKDJ', '3Top', '3次冲顶');
+INSERT INTO "Dictionary_Field" VALUES (4, 'SKDJ', 'WanderingInTop', '顶部徘徊');
+INSERT INTO "Dictionary_Field" VALUES (5, 'SKDJ', 'WanderingInBottom', '底部徘徊');
+INSERT INTO "Dictionary_Field" VALUES (0, 'Decline', 'DecreaseBy6%', '下跌6%');
+INSERT INTO "Dictionary_Field" VALUES (1, 'Decline', 'DecreaseBy9%', '下跌9%');
+INSERT INTO "Dictionary_Field" VALUES (2, 'Decline', 'DecreaseBy12%', '下跌12%');
+INSERT INTO "Dictionary_Field" VALUES (0, 'Rise', 'IncreaseBy6%', '上涨6%');
+INSERT INTO "Dictionary_Field" VALUES (1, 'Rise', 'IncreaseBy9%', '上涨9%');
+INSERT INTO "Dictionary_Field" VALUES (2, 'Rise', 'IncreaseBy12%', '上涨12%');
 
 PRAGMA foreign_keys = true;
