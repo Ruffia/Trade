@@ -10,7 +10,7 @@
  Target Server Version : 3035005 (3.35.5)
  File Encoding         : 65001
 
- Date: 16/02/2023 09:16:11
+ Date: 16/02/2023 10:02:23
 */
 
 PRAGMA foreign_keys = false;
@@ -63,10 +63,10 @@ INSERT INTO "Dictionary_Field" VALUES (1, 'TechnicalIndex', 'MACDPillar', 'MACD�
 INSERT INTO "Dictionary_Field" VALUES (2, 'TechnicalIndex', 'Trix', 'Trix');
 INSERT INTO "Dictionary_Field" VALUES (3, 'TechnicalIndex', 'SKDJ', 'SKDJ');
 INSERT INTO "Dictionary_Field" VALUES (4, 'TechnicalIndex', 'StrengthAngle', '角度和能量');
-INSERT INTO "Dictionary_Field" VALUES (5, 'TechnicalIndex', 'Deviation', '背离');
-INSERT INTO "Dictionary_Field" VALUES (5, 'TechnicalIndex', 'TradeVolume', '成交量');
-INSERT INTO "Dictionary_Field" VALUES (6, 'TechnicalIndex', 'PriceFluctuating', '价格波动');
+INSERT INTO "Dictionary_Field" VALUES (5, 'TechnicalIndex', 'PriceFluctuating', '价格波动');
+INSERT INTO "Dictionary_Field" VALUES (6, 'TechnicalIndex', 'Deviation', '背离');
 INSERT INTO "Dictionary_Field" VALUES (7, 'TechnicalIndex', 'RiseFallExtent', '涨跌幅度');
+INSERT INTO "Dictionary_Field" VALUES (8, 'TechnicalIndex', 'TradeVolume', '成交量');
 INSERT INTO "Dictionary_Field" VALUES (0, 'MACD', 'InclineUpward', '倾斜向上');
 INSERT INTO "Dictionary_Field" VALUES (1, 'MACD', 'InclineDown', '倾斜向下');
 INSERT INTO "Dictionary_Field" VALUES (0, 'MACDPillar', '3Wave_40Pillar_Red', '3波40根红柱');
@@ -93,9 +93,13 @@ INSERT INTO "Dictionary_Field" VALUES (2, 'StrengthAngle', 'Large', '大角度')
 INSERT INTO "Dictionary_Field" VALUES (0, 'PriceFluctuating', 'Rising', '上涨');
 INSERT INTO "Dictionary_Field" VALUES (1, 'PriceFluctuating', 'Falling', '下跌');
 INSERT INTO "Dictionary_Field" VALUES (2, 'PriceFluctuating', 'OscillatingAfterRise', '上涨后震荡');
-INSERT INTO "Dictionary_Field" VALUES (3, 'PriceFluctuating', 'OscillatingAfterRise', '下跌后震荡');
+INSERT INTO "Dictionary_Field" VALUES (3, 'PriceFluctuating', 'OscillatingAfterFall', '下跌后震荡');
 INSERT INTO "Dictionary_Field" VALUES (4, 'PriceFluctuating', 'SlightFallAfterRiseDramatically', '大角度上涨后小幅度下跌');
 INSERT INTO "Dictionary_Field" VALUES (5, 'PriceFluctuating', 'SlightRiseAfterFallSharply', '大角度下跌后小幅度上涨');
+INSERT INTO "Dictionary_Field" VALUES (0, 'Deviation', '3GreenMACDPillar,RecordLowPriceButIndexValueNot', '3波MACD绿柱，指标未创新低而价格创新低');
+INSERT INTO "Dictionary_Field" VALUES (1, 'Deviation', '4GreenMACDPillar,RecordLowPriceButIndexValueNot', '4波MACD绿柱，指标未创新低而价格创新低');
+INSERT INTO "Dictionary_Field" VALUES (2, 'Deviation', '3RedMACDPillar,RecordHighPriceButIndexValueNot', '3波MACD红柱，指标未创新高而价格创新高');
+INSERT INTO "Dictionary_Field" VALUES (3, 'Deviation', '4RedMACDPillar,RecordHighPriceButIndexValueNot', '4波MACD红柱，指标未创新高而价格创新高');
 INSERT INTO "Dictionary_Field" VALUES (0, 'RiseFallExtent', 'DecreaseBy6%', '下跌6%');
 INSERT INTO "Dictionary_Field" VALUES (1, 'RiseFallExtent', 'DecreaseBy9%', '下跌9%');
 INSERT INTO "Dictionary_Field" VALUES (2, 'RiseFallExtent', 'DecreaseBy12%', '下跌12%');
