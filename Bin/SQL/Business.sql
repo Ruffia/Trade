@@ -3,14 +3,14 @@
 
  Source Server         : TradeTrack
  Source Server Type    : SQLite
- Source Server Version : 3035005
+ Source Server Version : 3035005 (3.35.5)
  Source Schema         : main
 
  Target Server Type    : SQLite
- Target Server Version : 3035005
+ Target Server Version : 3035005 (3.35.5)
  File Encoding         : 65001
 
- Date: 06/02/2023 16:41:12
+ Date: 16/02/2023 13:33:49
 */
 
 PRAGMA foreign_keys = false;
@@ -34,5 +34,7 @@ INSERT INTO "Business" VALUES ('Future_IntradayTrade', 'Future_IntradayTrade.xml
 INSERT INTO "Business" VALUES ('Future_DailyTradeSummarize', 'Future_DailyTradeSummarize.xml', '期货日交易总结记录表');
 INSERT INTO "Business" VALUES ('Future_DailyMinorCycleAnalyze', 'FutureContract_TrackPhraseIn1Day.xml', '期货日内短周期分析记录表');
 INSERT INTO "Business" VALUES ('Future_DailyLongPeriodicAnalyze', 'FutureContract_LongPeriodicAnalyze.xml', '期货日内长周期分析记录表');
+INSERT INTO "Business" VALUES ('Future_DailyTraceEvidence', 'FutureContract_DailyTraceEvidence.xml', '期货日内日内行情中的线索');
+INSERT INTO "Business" VALUES ('Future_DailyTraceConflict', 'FutureContract_DailyTraceConflict.xml', '期货日内日内行情中的冲突点');
 
 PRAGMA foreign_keys = true;
