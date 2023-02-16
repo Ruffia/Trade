@@ -10,7 +10,7 @@
  Target Server Version : 3035005 (3.35.5)
  File Encoding         : 65001
 
- Date: 16/02/2023 10:02:23
+ Date: 16/02/2023 10:29:28
 */
 
 PRAGMA foreign_keys = false;
@@ -65,8 +65,9 @@ INSERT INTO "Dictionary_Field" VALUES (3, 'TechnicalIndex', 'SKDJ', 'SKDJ');
 INSERT INTO "Dictionary_Field" VALUES (4, 'TechnicalIndex', 'StrengthAngle', '角度和能量');
 INSERT INTO "Dictionary_Field" VALUES (5, 'TechnicalIndex', 'PriceFluctuating', '价格波动');
 INSERT INTO "Dictionary_Field" VALUES (6, 'TechnicalIndex', 'Deviation', '背离');
-INSERT INTO "Dictionary_Field" VALUES (7, 'TechnicalIndex', 'RiseFallExtent', '涨跌幅度');
-INSERT INTO "Dictionary_Field" VALUES (8, 'TechnicalIndex', 'TradeVolume', '成交量');
+INSERT INTO "Dictionary_Field" VALUES (7, 'TechnicalIndex', 'RedGreenKRatio', '红绿K线比');
+INSERT INTO "Dictionary_Field" VALUES (8, 'TechnicalIndex', 'RiseFallExtent', '涨跌幅度');
+INSERT INTO "Dictionary_Field" VALUES (9, 'TechnicalIndex', 'TradeVolume', '成交量');
 INSERT INTO "Dictionary_Field" VALUES (0, 'MACD', 'InclineUpward', '倾斜向上');
 INSERT INTO "Dictionary_Field" VALUES (1, 'MACD', 'InclineDown', '倾斜向下');
 INSERT INTO "Dictionary_Field" VALUES (0, 'MACDPillar', '3Wave_40Pillar_Red', '3波40根红柱');
@@ -100,11 +101,24 @@ INSERT INTO "Dictionary_Field" VALUES (0, 'Deviation', '3GreenMACDPillar,RecordL
 INSERT INTO "Dictionary_Field" VALUES (1, 'Deviation', '4GreenMACDPillar,RecordLowPriceButIndexValueNot', '4波MACD绿柱，指标未创新低而价格创新低');
 INSERT INTO "Dictionary_Field" VALUES (2, 'Deviation', '3RedMACDPillar,RecordHighPriceButIndexValueNot', '3波MACD红柱，指标未创新高而价格创新高');
 INSERT INTO "Dictionary_Field" VALUES (3, 'Deviation', '4RedMACDPillar,RecordHighPriceButIndexValueNot', '4波MACD红柱，指标未创新高而价格创新高');
+INSERT INTO "Dictionary_Field" VALUES (0, 'RedGreenKRatio', '2RedVS1Green', '红绿K数2:1,上涨行情');
+INSERT INTO "Dictionary_Field" VALUES (1, 'RedGreenKRatio', '3RedVS1Green', '红绿K数3:1,上涨行情');
+INSERT INTO "Dictionary_Field" VALUES (2, 'RedGreenKRatio', '4RedVS1Green', '红绿K数4:1,强上涨行情');
+INSERT INTO "Dictionary_Field" VALUES (3, 'RedGreenKRatio', '5RedVS1Green', '红绿K数5:1,极强上涨行情');
+INSERT INTO "Dictionary_Field" VALUES (4, 'RedGreenKRatio', '6RedVS1Green', '红绿K数6:1,极强上涨行情');
+INSERT INTO "Dictionary_Field" VALUES (5, 'RedGreenKRatio', '1RedVS2Green', '红绿K数1:2,下跌行情');
+INSERT INTO "Dictionary_Field" VALUES (6, 'RedGreenKRatio', '1RedVS3Green', '红绿K数1:3,下跌行情');
+INSERT INTO "Dictionary_Field" VALUES (7, 'RedGreenKRatio', '1RedVS4Green', '红绿K数1:4,强下跌行情');
+INSERT INTO "Dictionary_Field" VALUES (8, 'RedGreenKRatio', '1RedVS5Green', '红绿K数1:5,极强下跌行情');
+INSERT INTO "Dictionary_Field" VALUES (9, 'RedGreenKRatio', '1RedVS6Green', '红绿K数1:6,极强下跌行情');
 INSERT INTO "Dictionary_Field" VALUES (0, 'RiseFallExtent', 'DecreaseBy6%', '下跌6%');
 INSERT INTO "Dictionary_Field" VALUES (1, 'RiseFallExtent', 'DecreaseBy9%', '下跌9%');
 INSERT INTO "Dictionary_Field" VALUES (2, 'RiseFallExtent', 'DecreaseBy12%', '下跌12%');
 INSERT INTO "Dictionary_Field" VALUES (3, 'RiseFallExtent', 'IncreaseBy6%', '上涨6%');
 INSERT INTO "Dictionary_Field" VALUES (4, 'RiseFallExtent', 'IncreaseBy9%', '上涨9%');
 INSERT INTO "Dictionary_Field" VALUES (5, 'RiseFallExtent', 'IncreaseBy12%', '上涨12%');
+INSERT INTO "Dictionary_Field" VALUES (0, 'TradeVolume', 'Average*2', '2倍');
+INSERT INTO "Dictionary_Field" VALUES (1, 'TradeVolume', 'Average*3', '3倍');
+INSERT INTO "Dictionary_Field" VALUES (2, 'TradeVolume', 'Average*4', '4倍');
 
 PRAGMA foreign_keys = true;
