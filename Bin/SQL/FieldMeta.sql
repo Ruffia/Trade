@@ -10,7 +10,7 @@
  Target Server Version : 3035005 (3.35.5)
  File Encoding         : 65001
 
- Date: 15/02/2023 13:25:54
+ Date: 16/02/2023 15:54:45
 */
 
 PRAGMA foreign_keys = false;
@@ -121,6 +121,12 @@ INSERT INTO "FieldMeta" VALUES ('InkeepingWithMainForce', 'Future_DailyMinorCycl
 INSERT INTO "FieldMeta" VALUES ('InkeepingWithMacroEconomicPolicy', 'Future_DailyMinorCycleAnalyze', 'integer', 0, 1, 25);
 INSERT INTO "FieldMeta" VALUES ('FeelRelaxedButNotAfraid', 'Future_DailyMinorCycleAnalyze', 'integer', 0, 1, 26);
 INSERT INTO "FieldMeta" VALUES ('BeHunterNotBePrey', 'Future_DailyMinorCycleAnalyze', 'integer', 0, 1, 27);
+INSERT INTO "FieldMeta" VALUES ('TradeDay', 'Future_DailyTraceEvidence', 'string', 1, 0, 0);
+INSERT INTO "FieldMeta" VALUES ('FutureContractName', 'Future_DailyTraceEvidence', 'string', 1, 1, 1);
+INSERT INTO "FieldMeta" VALUES ('number', 'Future_DailyTraceEvidence', 'int', 1, 1, 2);
+INSERT INTO "FieldMeta" VALUES ('TimePeriod', 'Future_DailyTraceEvidence', 'int', 0, 1, 3);
+INSERT INTO "FieldMeta" VALUES ('TechnicalIndex', 'Future_DailyTraceEvidence', 'int', 0, 1, 4);
+INSERT INTO "FieldMeta" VALUES ('IndexValue', 'Future_DailyTraceEvidence', 'int', 0, 1, 5);
 INSERT INTO "FieldMeta" VALUES ('BusinessName', 'Business', 'string', 1, 0, 0);
 INSERT INTO "FieldMeta" VALUES ('UI', 'Business', 'string', 0, 0, 1);
 INSERT INTO "FieldMeta" VALUES ('Description', 'Business', 'string', 0, 0, 2);

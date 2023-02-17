@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "DialogPlaceHolder_LongPeriodicAnalyze.h"
+#include "DialogPlaceHolder_DailyTraceEvidence.h"
 #include "../Common/Factory.h"
 #include "DBDataManager.h"
 #include "Util.h"
@@ -10,6 +10,8 @@
 #include "Tools/EditTreeCtrlEx.h"
 #include "PrimaryKeyRule.h"
 #include "TradeDayPrimaryData.h"
+#include "UIData.h"
+#include "Tools/StyleManager.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -18,26 +20,134 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 
-IMPLEMENT_FACTORY(CDialogPlaceHolder,CDialogFutureContract_LongPeriodicAnalyze, string,"CDialogFutureContract_LongPeriodicAnalyze")
-CDialogFutureContract_LongPeriodicAnalyze::CDialogFutureContract_LongPeriodicAnalyze(CWnd* pParent /*=NULL*/)
+IMPLEMENT_FACTORY(CDialogPlaceHolder,CDialogFutureContract_DailyTraceEvidence, string,"CDialogFutureContract_DailyTraceEvidence")
+CDialogFutureContract_DailyTraceEvidence::CDialogFutureContract_DailyTraceEvidence(CWnd* pParent /*=NULL*/)
 	: CDialogPlaceHolder(pParent)
 {
-	CDialogIDMgr::Instance().Register("CDialogFutureContract_LongPeriodicAnalyze",CDialogFutureContract_LongPeriodicAnalyze::IDD); 
+	CDialogIDMgr::Instance().Register("CDialogFutureContract_DailyTraceEvidence",CDialogFutureContract_DailyTraceEvidence::IDD); 
 }
 
-void CDialogFutureContract_LongPeriodicAnalyze::_LoadTradeDayData2UI()
+
+void CDialogFutureContract_DailyTraceEvidence::_InitLayOut()
+{
+	string sFileName = GetModulePath() + "/UI/" + m_sLayout;
+	bool bRet = true;
+	if (!m_doc.load_file(sFileName.c_str())) 
+	{ //加载xml文件
+		return;
+	}
+
+	CRect rc;
+	GetClientRect(rc);
+	ClientToScreen(rc);
+
+	xml_node root = m_doc.child("root");  //根节点
+	xml_node nodeLayout = root.child("Layout");
+	xml_node node = nodeLayout.first_child();
+	while (!node.empty())
+	{
+		CUIData data;
+		const string sName = node.attribute("Name").as_string("");
+		data.m_strUIClassName = node.attribute("ClassName").as_string("");
+		data.m_nID = node.attribute("ID").as_int();
+		data.m_nLeft = node.attribute("Left").as_int();
+		data.m_nTop = node.attribute("Top").as_int();
+		data.m_nWidth = node.attribute("Width").as_int();
+		data.m_nHeight = node.attribute("Height").as_int();
+		const string sStyle = node.attribute("Style").as_string();
+		DWORD dwTotalStyle = CStyleMgr::Instance().GetStyle(sStyle);
+		const string sCaption = node.attribute("Caption").as_string();
+		CFont* pFont = CCollectiveComponentProvider::Instance().GetFont();
+        if (data.m_strUIClassName.find("CBusinessEdit") != string::npos)
+		{
+			CBusinessEdit* pEdit = new CBusinessEdit;
+			CRect rc(data.m_nLeft,data.m_nTop,data.m_nLeft + data.m_nWidth ,data.m_nTop + data.m_nHeight);
+			pEdit->Create(dwTotalStyle,rc,this,data.m_nID);	
+			pEdit->SetFont(pFont);
+			pEdit->ShowWindow(SW_SHOW);
+			pEdit->SetWindowText(sCaption.c_str());
+			const string& sBusiness = node.attribute("business").as_string();
+			pEdit->m_sBusinessField = sBusiness;
+			m_mapBusiness2Control[sName] = pEdit;
+			m_mapUIName2Wnd[sName] = pEdit;	
+		}
+		else if (data.m_strUIClassName.find("CEdit") != string::npos)
+		{
+			CEdit* pEdit = new CEdit;
+			CRect rc(data.m_nLeft,data.m_nTop,data.m_nLeft + data.m_nWidth ,data.m_nTop + data.m_nHeight);
+			pEdit->Create(dwTotalStyle,rc,this,data.m_nID);	
+			pEdit->SetFont(pFont);
+			pEdit->ShowWindow(SW_SHOW);
+			pEdit->SetWindowText(sName.c_str());
+			m_mapUIName2Wnd[sName] = pEdit;	
+		}
+		else if (data.m_strUIClassName.find("CBusinessComboBox") != string::npos)
+		{
+			CBusinessComboBox* pCombox = new CBusinessComboBox;
+			CRect rc(data.m_nLeft,data.m_nTop,data.m_nLeft + data.m_nWidth ,data.m_nTop + data.m_nHeight);
+			pCombox->Create(dwTotalStyle,rc,this,data.m_nID);	
+			xml_node nodeDropdownItem = node.child("Dropdown");
+			string sSubject = nodeDropdownItem.attribute("Subject").as_string("");
+
+			string sSQL = "select * from Dictionary_Field where Subject ";
+			sSQL += "='";
+			sSQL += sSubject;
+			sSQL += "'";
+			sSQL += " order by value asc";
+
+			CDataSet ds;
+			CDBDataManager::Instance().LoadData(sSQL,"Dictionary_Field",ds);
+
+			const int nRecordCount = ds.Size();
+			for (int i = 0; i < nRecordCount;i++)
+			{
+				CRecord* pRecord = ds[i];
+				if(!pRecord) continue;
+
+				CField* pFieldValue = pRecord->GetField("Value");
+				if(!pFieldValue) continue;
+				int nValue = pFieldValue->GetValueAsInt();
+
+				CField* pFieldTranslation = pRecord->GetField("Translation");
+				if(!pFieldTranslation) continue;
+				string sMeaning = pFieldTranslation->GetValueAsString();
+				pCombox->AddString(sMeaning.c_str());
+				pCombox->Add2Map(nValue,sMeaning);
+			}
+
+			const string& sBusiness = node.attribute("business").as_string();
+			pCombox->m_sBusinessField = sBusiness;
+
+			pCombox->SetFont(pFont);
+			pCombox->ShowWindow(SW_SHOW);
+			pCombox->SetWindowText(sCaption.c_str());
+			m_mapBusiness2Control[sName] = pCombox;
+			m_mapUIName2Wnd[sName] = pCombox;	
+		}
+		else if(data.m_strUIClassName.find("CBusinessCheckBox") != string::npos)
+		{
+			CBusinessCheckBox* pCheckBox = new CBusinessCheckBox;
+			CRect rc(data.m_nLeft,data.m_nTop,data.m_nLeft + data.m_nWidth ,data.m_nTop + data.m_nHeight);	
+			pCheckBox->Create(sCaption.c_str(), dwTotalStyle,rc,this, data.m_nID);
+			pCheckBox->SetFont(pFont);
+			const string& sBusiness = node.attribute("business").as_string();
+			pCheckBox->m_sBusinessField = sBusiness;
+			m_mapBusiness2Control[sName] = pCheckBox;
+			m_mapUIName2Wnd[sName] = pCheckBox;	
+		}
+		node = node.next_sibling();
+	}
+}
+
+
+void CDialogFutureContract_DailyTraceEvidence::_LoadTradeDayData2UI()
 {
 	bool bExists = _CheckExistsTradeDayRecord();
 	if (!bExists) return;
 
 	const string strTradeDay = "TradeDay";
 	const string strFutureContractName = "FutureContractName";
-	CTradeDayPrimaryData::Instance().m_strFutureContractName = _QueryFutureContractName(strTradeDay,strFutureContractName);
-	if ("" == CTradeDayPrimaryData::Instance().m_strFutureContractName)
-	{
-		return;
-	}
-	CTradeDayPrimaryData::Instance().m_strFutureContractName_LastTime = CTradeDayPrimaryData::Instance().m_strFutureContractName;
+	const string strNumber = "number";
 
 	vector<CFieldDesc*> vFieldDesc;
 	CDBDataManager::Instance().GetFieldMetaData(m_sBusiness,vFieldDesc);
@@ -47,6 +157,7 @@ void CDialogFutureContract_LongPeriodicAnalyze::_LoadTradeDayData2UI()
 
 	CFieldDesc* pTradeDayDesc = NULL;
 	CFieldDesc* pFutureContractNameDesc = NULL;
+	CFieldDesc* pNumberDesc = NULL;
 	for (int i = 0;i < vPrimaryKey.size();i++)
 	{
 		CFieldDesc* pFieldDesc = vPrimaryKey[i];
@@ -58,9 +169,13 @@ void CDialogFutureContract_LongPeriodicAnalyze::_LoadTradeDayData2UI()
 		{
 			pFutureContractNameDesc = pFieldDesc;
 		}
+		else if (pFieldDesc && pFieldDesc->m_strFieldName.find(strNumber) != string::npos)
+		{
+			pNumberDesc = pFieldDesc;
+		}
 	}
 
-	if(!pTradeDayDesc || !pFutureContractNameDesc) return;
+	if(!pTradeDayDesc || !pFutureContractNameDesc || !pNumberDesc) return;
 
 	string sSQL = "select * from ";
 	sSQL += m_sBusiness;
@@ -82,7 +197,7 @@ void CDialogFutureContract_LongPeriodicAnalyze::_LoadTradeDayData2UI()
 }
 
 
-void CDialogFutureContract_LongPeriodicAnalyze::UpdateUI2DB()
+void CDialogFutureContract_DailyTraceEvidence::UpdateUI2DB()
 {
 	bool bExists = _CheckExistsTradeDayRecord();
 	if(!bExists) return;
@@ -231,42 +346,14 @@ void CDialogFutureContract_LongPeriodicAnalyze::UpdateUI2DB()
 	CDBDataManager::Instance().Exec(sSQL);
 }
 
-
-string CDialogFutureContract_LongPeriodicAnalyze::_QueryFutureContractName(const string& strTradeDay,const string& strFutureContractName)
+void CDialogFutureContract_DailyTraceEvidence::UpdateDB2UI(CDataSet& ds,int index)
 {
-	string strSQL = "select ";
-	strSQL += strFutureContractName;
-	strSQL += " from ";
-	strSQL += m_sBusiness;
-	strSQL += " where ";
-	strSQL += strTradeDay;
-	strSQL += " = '";
-	strSQL += CTradeDayPrimaryData::Instance().m_strTradeDay;
-	strSQL += "'";
-
-	CDataSet ds;
-	CDBDataManager::Instance().LoadData(strSQL,m_sBusiness,ds);
-	if(ds.Size() != 1) return "";   //此处有且仅有一条记录
-
 	CRecord* pRecord = ds[0];
-	if(!pRecord) return "";
-	CField* pField = pRecord->GetField(strFutureContractName);
-	string sFieldValue = pField->GetValueAsString();
-	return sFieldValue;
-}
-
-
-void CDialogFutureContract_LongPeriodicAnalyze::UpdateDB2UI( CDataSet& ds,int index )
-{
-	if(ds.Size() != 1) return;   //此处有且仅有一条记录
-
-	CRecord* pRecord = ds[index];
-	if(!pRecord) return;
-
 	map<string,CFieldDesc*>& mapTableName2FieldDesc = CDBDataManager::Instance().GetTableMeta(m_sBusiness);
 	for(map<string,CWnd*>::iterator it = m_mapBusiness2Control.begin();
 		it != m_mapBusiness2Control.end();it++)
 	{
+		string sCaption = it->first;
 		CWnd* pWnd = it->second;
 		string sBusinessField = "";
 		//截至目前，有3中Business 字段类型

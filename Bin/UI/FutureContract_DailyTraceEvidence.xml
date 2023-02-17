@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="gbk"?>
+<root>
+	<Layout>
+ 	    <widget Name="DailyTraceEvidenceTitle" ClassName="CEdit" ID="10000" Caption="蛛丝马迹" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="10" Width="678" Height="25" />		
+		<widget Name="NumberTitle" ClassName="CEdit" ID="10001" Caption="编号" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="35" Width="20" Height="25" />
+		<widget Name="TimePeriodTitle" ClassName="CEdit" ID="10002" Caption="周期" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="22" Top="35" Width="60" Height="25" />
+		<widget Name="TechnicalIndexTitle" ClassName="CEdit" ID="10003" Caption="指标" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="82" Top="35" Width="300" Height="25" />
+		<widget Name="IndexValueTitle" ClassName="CEdit" ID="10004" Caption="值" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="382" Top="35" Width="298" Height="25" />
+		
+		<widget Name="number0" ClassName="CBusinessEdit"  ID="10011" Caption="1" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN" Left="2" Top="35" Width="20" Height="25" business="number"/>
+		<widget Name="TimePeriod0" ClassName="CBusinessComboBox"  ID="10012" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="22" Top="35" Width="60" Height="200" business="TimePeriod">
+			<Dropdown Subject="TimePeriod" />
+		</widget>
+		<widget Name="TechnicalIndex0" ClassName="CBusinessComboBox"  ID="10013" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="82" Top="35" Width="300" Height="200" business="TechnicalIndex">
+			<Dropdown Subject="TechnicalIndex" />
+		</widget>
+		<widget Name="IndexValue0" ClassName="CBusinessComboBox"  ID="10014" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="382" Top="35" Width="298" Height="200" business="IndexValue"/>
+			
+		<widget Name="number1" ClassName="CBusinessEdit"  ID="10021" Caption="2" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN" Left="2" Top="60" Width="20" Height="25" business="number"/>
+		<widget Name="TimePeriod1" ClassName="CBusinessComboBox"  ID="10022" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="22" Top="60" Width="60" Height="200" business="TimePeriod">
+			<Dropdown Subject="TimePeriod" />
+		</widget>
+		<widget Name="TechnicalIndex1" ClassName="CBusinessComboBox"  ID="10023" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="82" Top="60" Width="300" Height="25" business="TechnicalIndex">
+			<Dropdown Subject="TechnicalIndex" />
+		</widget>
+		<widget Name="IndexValue1" ClassName="CBusinessComboBox"  ID="10024" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="382" Top="60" Width="298" Height="200" business="IndexValue"/>
+		
+		<widget Name="number2" ClassName="CBusinessEdit"  ID="10031" Caption="3" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN" Left="2" Top="85" Width="20" Height="25" business="number"/>
+		<widget Name="TimePeriod2" ClassName="CBusinessComboBox"  ID="10032" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="22" Top="85" Width="60" Height="200" business="TimePeriod">
+			<Dropdown Subject="TimePeriod" />
+		</widget>
+		<widget Name="TechnicalIndex2" ClassName="CBusinessComboBox"  ID="10033" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="82" Top="85" Width="300" Height="25" business="TechnicalIndex">
+			<Dropdown Subject="TechnicalIndex" />
+		</widget>
+		<widget Name="IndexValue2" ClassName="CBusinessComboBox"  ID="10034" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="382" Top="85" Width="298" Height="200" business="IndexValue"/>
+	</Layout>
+</root>

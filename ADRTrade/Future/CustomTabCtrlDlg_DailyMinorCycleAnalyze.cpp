@@ -133,7 +133,7 @@ void CCustomTabCtrlDlg_DailyMinorCycleAnalyze::_LoadTradeDayData2UI()
 		m_pTab->SetItemText(i,strRecordTime.c_str());
 		pDlgItem->SetRecordTime(strRecordTime);
 		pDlgItem->SetRecordTime_Old(strRecordTime);
-		pDlgItem->UpdateDB2UI(pRecord);	
+		pDlgItem->UpdateDB2UI(ds,i);	
 	}
 }
 

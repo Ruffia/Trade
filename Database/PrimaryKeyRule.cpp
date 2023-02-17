@@ -61,3 +61,21 @@ string CPrimaryKey_RecordTime::GetUpdateSQL()
 	sprintf_s(sz,256,"%s = %s%d:%d%s","RecordTime","'",dtNOw.GetHour(),dtNOw.GetMinute(),"'");
 	return string(sz);
 }
+
+
+int CPrimaryKey_TraceEvidenceNumber::nSequence = 0;
+IMPLEMENT_FACTORY(IPrimaryKeyRule,CPrimaryKey_TraceEvidenceNumber,string,"number")
+string CPrimaryKey_TraceEvidenceNumber::GetInsertSQL()
+{
+	char sz[256] = {0};
+	sprintf_s(sz,256,"%d",nSequence);
+	nSequence++;
+	return string(sz);
+}
+
+string CPrimaryKey_TraceEvidenceNumber::GetUpdateSQL()
+{
+	char sz[256] = {0};
+	sprintf_s(sz,256,"%s = %d","number",nSequence);
+	return string(sz);
+}

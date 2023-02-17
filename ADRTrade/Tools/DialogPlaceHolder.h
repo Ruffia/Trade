@@ -8,6 +8,7 @@ using namespace std;
 using namespace pugi;
 #include "Business/BusinessNode.h"
 #include "DialogIDManager.h"
+#include "DBDataManager.h"
 class CBusinessEdit;
 class CRecord;
 
@@ -59,8 +60,11 @@ public:
 	//将UI上的数据保存到数据库中
 	virtual void UpdateUI2DB();
 
+	//UpdateUI2DB时，获取字段部分的更新SQL语句
+	virtual string _CreateUpdateSQL();
+
 	//根据从数据库查询得到的数据记录值更新UI控件的显示
-	virtual void UpdateDB2UI( CRecord* pRecord );
+	virtual void UpdateDB2UI( CDataSet& ds,int index = 0);
 
 // 对话框数据
 	enum { IDD = IDD_DLG_Common };

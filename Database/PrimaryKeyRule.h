@@ -42,3 +42,13 @@ public:
 	virtual string GetInsertSQL();
 	virtual string GetUpdateSQL();
 };
+
+
+class CPrimaryKey_TraceEvidenceNumber: public IPrimaryKeyRule
+{
+public:
+	virtual string GetInsertSQL();
+	virtual string GetUpdateSQL();
+protected:
+	static int nSequence;
+};

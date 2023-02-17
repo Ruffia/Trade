@@ -72,12 +72,8 @@ void CDialogTabItem_MinorCycleAnalyze::_LoadTradeDayData2UI()
 
 	CDataSet ds;
 	CDBDataManager::Instance().LoadData(sSQL,m_sBusiness,ds);
-	if(ds.Size() != 1) return;   //此处有且仅有一条记录
 
-	CRecord* pRecord = ds[0];
-	if(!pRecord) return;
-
-	UpdateDB2UI(pRecord);
+	UpdateDB2UI(ds);
 }
 
 
@@ -209,7 +205,11 @@ void CDialogTabItem_MinorCycleAnalyze::UpdateUI2DB()
 			sprintf_s(sz,256,"%s = '%s'",pFieldDesc->m_strFieldName.c_str(),CTradeDayPrimaryData::Instance().m_strFutureContractName_LastTime.c_str());
 			if (CTradeDayPrimaryData::Instance().m_bNeed2UpdateFutureContractName)
 			{
-				CTradeDayPrimaryData::Instance().m_bNeed2UpdateFutureContractName = false;
+				CTradeDayPrimaryData::Instance().m_nPlace2UpdateFutureContractName--;
+				if (0 == CTradeDayPrimaryData::Instance().m_nPlace2UpdateFutureContractName)
+				{
+					CTradeDayPrimaryData::Instance().m_bNeed2UpdateFutureContractName = false;
+				}			
 			}		
 		}
 		else if (pFieldDesc->m_strFieldName.find("RecordTime") != string::npos)

@@ -472,10 +472,6 @@ void CCustomTabCtrlDlg::_LoadTradeDayData2UI()
 
 	CDataSet ds;
 	CDBDataManager::Instance().LoadData(sSQL,m_sBusiness,ds);
-	if(ds.Size() != 1) return;   //此处有且仅有一条记录
 
-	CRecord* pRecord = ds[0];
-	if(!pRecord) return;
-
-	UpdateDB2UI(pRecord);
+	UpdateDB2UI(ds);
 }

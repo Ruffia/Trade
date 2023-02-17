@@ -192,6 +192,9 @@
     <ClInclude Include="Tools\BusinessCheckBox.h">
       <Filter>Tools</Filter>
     </ClInclude>
+    <ClInclude Include="Future\DialogPlaceHolder_DailyTraceEvidence.h">
+      <Filter>Future</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ADRTrade.cpp">
@@ -340,6 +343,9 @@
     </ClCompile>
     <ClCompile Include="Tools\BusinessCheckBox.cpp">
       <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Future\DialogPlaceHolder_DailyTraceEvidence.cpp">
+      <Filter>Future</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

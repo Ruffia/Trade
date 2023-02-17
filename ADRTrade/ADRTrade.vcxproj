@@ -120,6 +120,7 @@
     <ClInclude Include="ChildFrm.h" />
     <ClInclude Include="DialogIDManager.h" />
     <ClInclude Include="Future\CustomTabCtrlDlg_DailyMinorCycleAnalyze.h" />
+    <ClInclude Include="Future\DialogPlaceHolder_DailyTraceEvidence.h" />
     <ClInclude Include="Future\DialogPlaceHolder_LongPeriodicAnalyze.h" />
     <ClInclude Include="Future\DialogPlaceHolder_MinorCycleAnalyze.h" />
     <ClInclude Include="Future\FutureContract_TradeDialogs.h" />
@@ -175,6 +176,7 @@
     <ClCompile Include="ChildFrm.cpp" />
     <ClCompile Include="DialogIDManager.cpp" />
     <ClCompile Include="Future\CustomTabCtrlDlg_DailyMinorCycleAnalyze.cpp" />
+    <ClCompile Include="Future\DialogPlaceHolder_DailyTraceEvidence.cpp" />
     <ClCompile Include="Future\DialogPlaceHolder_LongPeriodicAnalyze.cpp" />
     <ClCompile Include="Future\DialogPlaceHolder_MinorCycleAnalyze.cpp" />
     <ClCompile Include="Future\FutureContract_TradeDialogs.cpp" />

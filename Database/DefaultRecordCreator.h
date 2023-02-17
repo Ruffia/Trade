@@ -32,3 +32,10 @@ class CDefaultRecordCreator_MinorCycleAnalyze : public IDefaultRecordCreator
 public:
 	virtual void CreateRecord();
 };
+
+
+class CDefaultRecordCreator_DailyTraceEvidence : public IDefaultRecordCreator
+{
+public:
+	virtual void CreateRecord();
+};
