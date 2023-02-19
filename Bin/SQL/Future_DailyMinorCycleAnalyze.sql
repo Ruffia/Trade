@@ -3,14 +3,14 @@
 
  Source Server         : TradeTrack
  Source Server Type    : SQLite
- Source Server Version : 3035005
+ Source Server Version : 3035005 (3.35.5)
  Source Schema         : main
 
  Target Server Type    : SQLite
- Target Server Version : 3035005
+ Target Server Version : 3035005 (3.35.5)
  File Encoding         : 65001
 
- Date: 14/02/2023 09:57:35
+ Date: 19/02/2023 11:38:52
 */
 
 PRAGMA foreign_keys = false;
@@ -23,22 +23,22 @@ CREATE TABLE "Future_DailyMinorCycleAnalyze" (
   "TradeDay" text NOT NULL,
   "FutureContractName" TEXT NOT NULL,
   "RecordTime" TEXT NOT NULL,
-  "MACD_5MIN" TEXT,
-  "MACD_15MIN" TEXT,
-  "MACD_2H" TEXT,
-  "MACDPillar_5MIN" TEXT,
-  "MACDPillar_15MIN" TEXT,
-  "MACDPillar_2H" TEXT,
-  "Trix_5MIN" TEXT,
-  "Trix_15MIN" TEXT,
-  "Trix_2H" TEXT,
-  "SKDJ_5MIN" TEXT,
-  "SKDJ_15MIN" TEXT,
-  "SKDJ_2H" TEXT,
-  "StrengthAngle_5MIN" TEXT,
-  "StrengthAngle_15MIN" TEXT,
-  "StrengthAngle_2H" TEXT,
-  "MainSignal" TEXT,
+  "MACD_5MIN" integer,
+  "MACD_15MIN" integer,
+  "MACD_2H" integer,
+  "MACDPillar_5MIN" integer,
+  "MACDPillar_15MIN" integer,
+  "MACDPillar_2H" integer,
+  "Trix_5MIN" integer,
+  "Trix_15MIN" integer,
+  "Trix_2H" integer,
+  "SKDJ_5MIN" integer,
+  "SKDJ_15MIN" integer,
+  "SKDJ_2H" integer,
+  "StrengthAngle_5MIN" integer,
+  "StrengthAngle_15MIN" integer,
+  "StrengthAngle_2H" integer,
+  "MainSignal" text,
   "Inclination" TEXT,
   "EmotionFeeling" integer,
   "Forecast" TEXT,
