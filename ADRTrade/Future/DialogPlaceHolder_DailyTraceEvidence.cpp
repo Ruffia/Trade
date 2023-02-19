@@ -78,7 +78,7 @@ void CDialogFutureContract_DailyTraceEvidence::_InitLayOut()
 			pEdit->Create(dwTotalStyle,rc,this,data.m_nID);	
 			pEdit->SetFont(pFont);
 			pEdit->ShowWindow(SW_SHOW);
-			pEdit->SetWindowText(sName.c_str());
+			pEdit->SetWindowText(sCaption.c_str());
 			m_mapUIName2Wnd[sName] = pEdit;	
 		}
 		else if (data.m_strUIClassName.find("CBusinessComboBox") != string::npos)
@@ -409,21 +409,21 @@ void CDialogFutureContract_DailyTraceEvidence::UpdateDB2UI(CDataSet& ds,int inde
 		}
 		else if (strDataType.find("int") != string::npos)
 		{
+			int nValue = pField->GetValueAsInt();
 			if (ControlType[Business_ComboBox])
 			{
 				string sMeaning = "";
-				bool bFindValue = pComboBoxControl->GetMeaning(pField->GetValueAsInt(),sMeaning);
+				bool bFindValue = pComboBoxControl->GetMeaning(nValue,sMeaning);
 				strValue = sMeaning.c_str();
 			}
 			else if (ControlType[Business_CheckBox])
 			{
-				int nValue = pField->GetValueAsInt();
 				pCheckBoxControl->SetCheck(nValue);
 				pCheckBoxControl->GetWindowTextA(strValue);
 			}
 			else
 			{
-				strValue.Format(strDisplayType.c_str(),pField->GetValueAsInt());
+				strValue.Format(strDisplayType.c_str(),nValue);
 			}	
 
 		}

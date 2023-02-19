@@ -202,7 +202,7 @@ void CADRTradeDayView::_LoadDataFromDB()
 	const int nWeekDay = CaculateWeekDay(dtNOw.GetYear(),dtNOw.GetMonth(),dtNOw.GetDay());
 	if (Saturday == nWeekDay || Sunday == nWeekDay)
 	{
-		return;
+		//return;
 	}
 	
 	FieldValue v;

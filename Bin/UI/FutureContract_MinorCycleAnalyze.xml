@@ -7,7 +7,9 @@
 		<widget Name="2HTitle" ClassName="CEdit" ID="10003" Caption="2H" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="472" Top="10" Width="208" Height="25" />
 		
         <widget Name="MACDTitle" ClassName="CEdit" ID="10004" Caption="MACD" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="35" Width="70" Height="40" />
-		<widget Name="MACD_5MIN" ClassName="CBusinessEdit"  ID="10005" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN" Left="72" Top="35" Width="200" Height="40" business="MACD_5MIN"/>
+		<widget Name="MACD_5MIN" ClassName="CBusinessComboBox"  ID="10005" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN" Left="72" Top="35" Width="200" Height="40" business="MACD_5MIN"/>
+			<Dropdown Subject="Judgement" />
+		</widget>	
 		<widget Name="MACD_15MIN" ClassName="CBusinessEdit"  ID="10006" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN" Left="272" Top="35" Width="200" Height="40" business="MACD_15MIN"/>
 		<widget Name="MACD_2H" ClassName="CBusinessEdit"  ID="10007" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN" Left="472" Top="35" Width="208" Height="40" business="MACD_2H"/>
 		
