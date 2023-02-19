@@ -3,14 +3,14 @@
 
  Source Server         : TradeTrack
  Source Server Type    : SQLite
- Source Server Version : 3035005 (3.35.5)
+ Source Server Version : 3035005
  Source Schema         : main
 
  Target Server Type    : SQLite
- Target Server Version : 3035005 (3.35.5)
+ Target Server Version : 3035005
  File Encoding         : 65001
 
- Date: 15/02/2023 13:26:01
+ Date: 18/02/2023 10:08:51
 */
 
 PRAGMA foreign_keys = false;
@@ -298,5 +298,23 @@ INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'Trend_4H', 'Future_DailyLon
 INSERT INTO "FieldAttribute" VALUES ('Meaning', 'EmotionalFeeling', 'Future_DailyLongPeriodicAnalyze', 'string', '情绪感受');
 INSERT INTO "FieldAttribute" VALUES ('ControlType', 'EmotionalFeeling', 'Future_DailyLongPeriodicAnalyze', 'string', 'CEdit');
 INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'EmotionalFeeling', 'Future_DailyLongPeriodicAnalyze', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'TradeDay', 'Future_DailyTraceEvidence', 'string', '交易日');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'TradeDay', 'Future_DailyTraceEvidence', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'TradeDay', 'Future_DailyTraceEvidence', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'FutureContractName', 'Future_DailyTraceEvidence', 'string', '合约名称');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'FutureContractName', 'Future_DailyTraceEvidence', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'FutureContractName', 'Future_DailyTraceEvidence', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'number', 'Future_DailyTraceEvidence', 'string', '编号');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'number', 'Future_DailyTraceEvidence', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'number', 'Future_DailyTraceEvidence', 'string', '%d');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'TimePeriod', 'Future_DailyTraceEvidence', 'string', '时间周期');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'TimePeriod', 'Future_DailyTraceEvidence', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'TimePeriod', 'Future_DailyTraceEvidence', 'string', '%d');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'TechnicalIndex', 'Future_DailyTraceEvidence', 'string', '技术指标');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'TechnicalIndex', 'Future_DailyTraceEvidence', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'TechnicalIndex', 'Future_DailyTraceEvidence', 'string', '%d');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'IndexValue', 'Future_DailyTraceEvidence', 'string', '指标值');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'IndexValue', 'Future_DailyTraceEvidence', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'IndexValue', 'Future_DailyTraceEvidence', 'string', '%s');
 
 PRAGMA foreign_keys = true;
