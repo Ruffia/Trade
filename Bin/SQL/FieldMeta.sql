@@ -3,14 +3,14 @@
 
  Source Server         : TradeTrack
  Source Server Type    : SQLite
- Source Server Version : 3035005 (3.35.5)
+ Source Server Version : 3035005
  Source Schema         : main
 
  Target Server Type    : SQLite
- Target Server Version : 3035005 (3.35.5)
+ Target Server Version : 3035005
  File Encoding         : 65001
 
- Date: 16/02/2023 15:54:45
+ Date: 18/02/2023 09:55:55
 */
 
 PRAGMA foreign_keys = false;
@@ -122,7 +122,7 @@ INSERT INTO "FieldMeta" VALUES ('InkeepingWithMacroEconomicPolicy', 'Future_Dail
 INSERT INTO "FieldMeta" VALUES ('FeelRelaxedButNotAfraid', 'Future_DailyMinorCycleAnalyze', 'integer', 0, 1, 26);
 INSERT INTO "FieldMeta" VALUES ('BeHunterNotBePrey', 'Future_DailyMinorCycleAnalyze', 'integer', 0, 1, 27);
 INSERT INTO "FieldMeta" VALUES ('TradeDay', 'Future_DailyTraceEvidence', 'string', 1, 0, 0);
-INSERT INTO "FieldMeta" VALUES ('FutureContractName', 'Future_DailyTraceEvidence', 'string', 1, 1, 1);
+INSERT INTO "FieldMeta" VALUES ('FutureContractName', 'Future_DailyTraceEvidence', 'string', 1, 0, 1);
 INSERT INTO "FieldMeta" VALUES ('number', 'Future_DailyTraceEvidence', 'int', 1, 1, 2);
 INSERT INTO "FieldMeta" VALUES ('TimePeriod', 'Future_DailyTraceEvidence', 'int', 0, 1, 3);
 INSERT INTO "FieldMeta" VALUES ('TechnicalIndex', 'Future_DailyTraceEvidence', 'int', 0, 1, 4);
