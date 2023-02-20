@@ -10,7 +10,7 @@
  Target Server Version : 3035005 (3.35.5)
  File Encoding         : 65001
 
- Date: 20/02/2023 14:38:01
+ Date: 20/02/2023 14:47:01
 */
 
 PRAGMA foreign_keys = false;
@@ -26,5 +26,9 @@ CREATE TABLE "Future_DailyTraceConflict" (
   "DetailedDescription" text,
   PRIMARY KEY ("TradeDay", "FutureContractName", "ConflictType")
 );
+
+-- ----------------------------
+-- Records of Future_DailyTraceConflict
+-- ----------------------------
 
 PRAGMA foreign_keys = true;

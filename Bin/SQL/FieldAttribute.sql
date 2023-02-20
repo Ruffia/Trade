@@ -3,14 +3,14 @@
 
  Source Server         : TradeTrack
  Source Server Type    : SQLite
- Source Server Version : 3035005
+ Source Server Version : 3035005 (3.35.5)
  Source Schema         : main
 
  Target Server Type    : SQLite
- Target Server Version : 3035005
+ Target Server Version : 3035005 (3.35.5)
  File Encoding         : 65001
 
- Date: 18/02/2023 10:08:51
+ Date: 20/02/2023 14:46:51
 */
 
 PRAGMA foreign_keys = false;
@@ -316,5 +316,17 @@ INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'TechnicalIndex', 'Future_Da
 INSERT INTO "FieldAttribute" VALUES ('Meaning', 'IndexValue', 'Future_DailyTraceEvidence', 'string', '指标值');
 INSERT INTO "FieldAttribute" VALUES ('ControlType', 'IndexValue', 'Future_DailyTraceEvidence', 'string', 'CEdit');
 INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'IndexValue', 'Future_DailyTraceEvidence', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'TradeDay', 'Future_DailyTraceConflict', 'string', '交易日');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'TradeDay', 'Future_DailyTraceConflict', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'TradeDay', 'Future_DailyTraceConflict', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'FutureContractName', 'Future_DailyTraceConflict', 'string', '合约名称');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'FutureContractName', 'Future_DailyTraceConflict', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'FutureContractName', 'Future_DailyTraceConflict', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'ConflictType', 'Future_DailyTraceConflict', 'string', '冲突类型');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'ConflictType', 'Future_DailyTraceConflict', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'ConflictType', 'Future_DailyTraceConflict', 'string', '%d');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'DetailedDescription', 'Future_DailyTraceConflict', 'string', '冲突描述');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'DetailedDescription', 'Future_DailyTraceConflict', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'DetailedDescription', 'Future_DailyTraceConflict', 'string', '%s');
 
 PRAGMA foreign_keys = true;

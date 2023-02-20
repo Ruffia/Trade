@@ -3,14 +3,14 @@
 
  Source Server         : TradeTrack
  Source Server Type    : SQLite
- Source Server Version : 3035005
+ Source Server Version : 3035005 (3.35.5)
  Source Schema         : main
 
  Target Server Type    : SQLite
- Target Server Version : 3035005
+ Target Server Version : 3035005 (3.35.5)
  File Encoding         : 65001
 
- Date: 18/02/2023 09:55:55
+ Date: 20/02/2023 14:46:44
 */
 
 PRAGMA foreign_keys = false;
@@ -127,6 +127,10 @@ INSERT INTO "FieldMeta" VALUES ('number', 'Future_DailyTraceEvidence', 'int', 1,
 INSERT INTO "FieldMeta" VALUES ('TimePeriod', 'Future_DailyTraceEvidence', 'int', 0, 1, 3);
 INSERT INTO "FieldMeta" VALUES ('TechnicalIndex', 'Future_DailyTraceEvidence', 'int', 0, 1, 4);
 INSERT INTO "FieldMeta" VALUES ('IndexValue', 'Future_DailyTraceEvidence', 'int', 0, 1, 5);
+INSERT INTO "FieldMeta" VALUES ('TradeDay', 'Future_DailyTraceConflict', 'string', 1, 0, 0);
+INSERT INTO "FieldMeta" VALUES ('FutureContractName', 'Future_DailyTraceConflict', 'string', 1, 0, 1);
+INSERT INTO "FieldMeta" VALUES ('ConflictType', 'Future_DailyTraceConflict', 'int', 1, 1, 2);
+INSERT INTO "FieldMeta" VALUES ('DetailedDescription', 'Future_DailyTraceConflict', 'int', 0, 1, 3);
 INSERT INTO "FieldMeta" VALUES ('BusinessName', 'Business', 'string', 1, 0, 0);
 INSERT INTO "FieldMeta" VALUES ('UI', 'Business', 'string', 0, 0, 1);
 INSERT INTO "FieldMeta" VALUES ('Description', 'Business', 'string', 0, 0, 2);

@@ -10,7 +10,7 @@
  Target Server Version : 3035005 (3.35.5)
  File Encoding         : 65001
 
- Date: 19/02/2023 11:20:49
+ Date: 20/02/2023 14:47:13
 */
 
 PRAGMA foreign_keys = false;
@@ -153,5 +153,9 @@ INSERT INTO "Dictionary_Field" VALUES (5, 'RiseFallExtent', 'IncreaseBy12%', '�
 INSERT INTO "Dictionary_Field" VALUES (0, 'TradeVolume', 'Average*2', '2倍');
 INSERT INTO "Dictionary_Field" VALUES (1, 'TradeVolume', 'Average*3', '3倍');
 INSERT INTO "Dictionary_Field" VALUES (2, 'TradeVolume', 'Average*4', '4倍');
+INSERT INTO "Dictionary_Field" VALUES (0, 'Conflict', 'PositionDirectionvsMonetaryTighteningOrMonetaryLoosening', '持仓方向与货币宽松/紧缩环境(预期)');
+INSERT INTO "Dictionary_Field" VALUES (1, 'Conflict', 'ShortPeriodvcLongPeriod', '短周期与长周期');
+INSERT INTO "Dictionary_Field" VALUES (2, 'Conflict', 'PricevsTechnicalIndex', '价格与技术指标');
+INSERT INTO "Dictionary_Field" VALUES (3, 'Conflict', 'TechnicalIndexvsEnergy', '技术指标与能量');
 
 PRAGMA foreign_keys = true;
