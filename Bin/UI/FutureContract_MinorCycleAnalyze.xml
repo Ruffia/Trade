@@ -30,13 +30,13 @@
 		
 		<widget Name="TRIXTitle" ClassName="CEdit" ID="10012" Caption="Trix" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="85" Width="70" Height="25" />
 		<widget Name="Trix_5MIN" ClassName="CBusinessComboBox"  ID="10013" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="72" Top="85" Width="200" Height="400" business="Trix_5MIN">
-			<Dropdown Subject="MACDPillar" />
+			<Dropdown Subject="Trix" />
 		</widget>
 		<widget Name="Trix_15MIN" ClassName="CBusinessComboBox"  ID="10014" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="272" Top="85" Width="200" Height="400" business="Trix_15MIN">
-			<Dropdown Subject="MACDPillar" />
+			<Dropdown Subject="Trix" />
 		</widget>		
 		<widget Name="Trix_2H" ClassName="CBusinessComboBox"  ID="10015" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="472" Top="85" Width="208" Height="400" business="Trix_2H">
-			<Dropdown Subject="MACDPillar" />
+			<Dropdown Subject="Trix" />
 		</widget>
 		
 		<widget Name="SKDJTitle" ClassName="CEdit" ID="10016" Caption="SKDJ" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="110" Width="70" Height="25" />
