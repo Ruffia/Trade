@@ -10,7 +10,7 @@
  Target Server Version : 3035005 (3.35.5)
  File Encoding         : 65001
 
- Date: 20/02/2023 14:47:13
+ Date: 21/02/2023 11:24:34
 */
 
 PRAGMA foreign_keys = false;
@@ -154,8 +154,15 @@ INSERT INTO "Dictionary_Field" VALUES (0, 'TradeVolume', 'Average*2', '2倍');
 INSERT INTO "Dictionary_Field" VALUES (1, 'TradeVolume', 'Average*3', '3倍');
 INSERT INTO "Dictionary_Field" VALUES (2, 'TradeVolume', 'Average*4', '4倍');
 INSERT INTO "Dictionary_Field" VALUES (0, 'Conflict', 'PositionDirectionvsMonetaryTighteningOrMonetaryLoosening', '持仓方向与货币宽松/紧缩环境(预期)');
-INSERT INTO "Dictionary_Field" VALUES (1, 'Conflict', 'ShortPeriodvcLongPeriod', '短周期与长周期');
-INSERT INTO "Dictionary_Field" VALUES (2, 'Conflict', 'PricevsTechnicalIndex', '价格与技术指标');
-INSERT INTO "Dictionary_Field" VALUES (3, 'Conflict', 'TechnicalIndexvsEnergy', '技术指标与能量');
+INSERT INTO "Dictionary_Field" VALUES (1, 'Conflict', 'PositionDirectionvsMarketTemperature', '持仓方向与市场温度');
+INSERT INTO "Dictionary_Field" VALUES (2, 'Conflict', 'ShortPeriodvcLongPeriod', '短周期与长周期');
+INSERT INTO "Dictionary_Field" VALUES (3, 'Conflict', 'PricevsTechnicalIndex', '价格与技术指标');
+INSERT INTO "Dictionary_Field" VALUES (4, 'Conflict', 'TechnicalIndexvsEnergy', '技术指标与能量');
+INSERT INTO "Dictionary_Field" VALUES (0, 'Inclination', 'Easy2RiseHard2Fall', '易涨难跌');
+INSERT INTO "Dictionary_Field" VALUES (1, 'Inclination', 'Easy2FallHard2Rise', '易跌难涨');
+INSERT INTO "Dictionary_Field" VALUES (2, 'Inclination', 'RiseSteadily', '持续稳步上涨');
+INSERT INTO "Dictionary_Field" VALUES (3, 'Inclination', 'RiseSharply', '快速大幅上涨');
+INSERT INTO "Dictionary_Field" VALUES (4, 'Inclination', 'FallSteadily', '暴跌后持续阴跌');
+INSERT INTO "Dictionary_Field" VALUES (5, 'Inclination', 'FallSharply', '暴跌进行中');
 
 PRAGMA foreign_keys = true;
