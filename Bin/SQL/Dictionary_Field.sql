@@ -10,7 +10,7 @@
  Target Server Version : 3035005 (3.35.5)
  File Encoding         : 65001
 
- Date: 21/02/2023 11:24:34
+ Date: 21/02/2023 14:44:13
 */
 
 PRAGMA foreign_keys = false;
@@ -164,5 +164,18 @@ INSERT INTO "Dictionary_Field" VALUES (2, 'Inclination', 'RiseSteadily', '持续
 INSERT INTO "Dictionary_Field" VALUES (3, 'Inclination', 'RiseSharply', '快速大幅上涨');
 INSERT INTO "Dictionary_Field" VALUES (4, 'Inclination', 'FallSteadily', '暴跌后持续阴跌');
 INSERT INTO "Dictionary_Field" VALUES (5, 'Inclination', 'FallSharply', '暴跌进行中');
+INSERT INTO "Dictionary_Field" VALUES (0, 'FutureMarketTemperature', 'MajorityRise', '涨多跌少，市场情绪偏乐观');
+INSERT INTO "Dictionary_Field" VALUES (1, 'FutureMarketTemperature', 'MostRise', '普涨(若干品种领涨)，市场情绪高涨');
+INSERT INTO "Dictionary_Field" VALUES (2, 'FutureMarketTemperature', 'SomeRiseSomeFall', '分化，市场情绪偏谨慎');
+INSERT INTO "Dictionary_Field" VALUES (3, 'FutureMarketTemperature', 'MajorityFall', '跌多涨少，市场情绪偏悲观');
+INSERT INTO "Dictionary_Field" VALUES (4, 'FutureMarketTemperature', 'MostFall', '普跌(多品种跌幅大)，市场情绪悲观');
+INSERT INTO "Dictionary_Field" VALUES (0, 'StockMarketTemperature', 'MajorityRise', '涨多跌少，市场情绪偏乐观');
+INSERT INTO "Dictionary_Field" VALUES (1, 'StockMarketTemperature', 'MostRise', '普涨，市场情绪高涨');
+INSERT INTO "Dictionary_Field" VALUES (2, 'StockMarketTemperature', 'MostRiseSomeDays', '连续多日上涨，市场情绪极度兴奋');
+INSERT INTO "Dictionary_Field" VALUES (3, 'StockMarketTemperature', 'SomeRiseSomeFall', '分化，市场情绪中性');
+INSERT INTO "Dictionary_Field" VALUES (4, 'StockMarketTemperature', 'MajorityFall', '沉闷，市场情绪谨慎');
+INSERT INTO "Dictionary_Field" VALUES (5, 'StockMarketTemperature', 'MostFall', '普跌，市场情绪悲观');
+INSERT INTO "Dictionary_Field" VALUES (6, 'StockMarketTemperature', 'ManyFallSharply', '大面积暴跌，市场出现恐慌');
+INSERT INTO "Dictionary_Field" VALUES (7, 'StockMarketTemperature', 'ManyFallSharply', '连续多日下跌，绝望情绪蔓延');
 
 PRAGMA foreign_keys = true;
