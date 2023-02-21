@@ -61,22 +61,33 @@
 			<Dropdown Subject="StrengthAngle" />
 		</widget>
 		
-		<widget Name="InclinationTitle" ClassName="CEdit"  ID="10026" Caption="倾向意愿" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="160" Width="70" Height="25" />
-		<widget Name="Inclination" ClassName="CBusinessEdit"  ID="10027" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN" Left="72" Top="160" Width="270" Height="25" business="Inclination"/>		
-		<widget Name="MainSignalTitle" ClassName="CEdit"  ID="10024" Caption="主要信号" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="342" Top="160" Width="70" Height="25"/>
-		<widget Name="MainSignal" ClassName="CBusinessEdit"  ID="10025" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN" Left="412" Top="160" Width="268" Height="25"  business="MainSignal"/>
-		
-		<widget Name="ForecastTitle" ClassName="CEdit"  ID="10030" Caption="预测" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="185" Width="70" Height="25" />
-		<widget Name="Forecast" ClassName="CBusinessEdit"  ID="10031" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN" Left="72" Top="185" Width="608" Height="25" business="Forecast"/>
-		
-		<widget Name="JudgementTitle" ClassName="CEdit"  ID="10032" Caption="预测结果" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="210" Width="70" Height="25" />
-		<widget Name="Judgement" ClassName="CBusinessComboBox"  ID="10132" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="72" Top="210" Width="100" Height="200" business="Judgement">
-		    <Dropdown Subject="Judgement" />
-		</widget>		
-		<widget Name="EmotionFeelingTitle" ClassName="CEdit"  ID="10033" Caption="情绪感受" Style="WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="182" Top="210" Width="70" Height="25" />
-		<widget Name="EmotionFeeling" ClassName="CBusinessComboBox"  ID="10034" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="252" Top="210" Width="150" Height="200"  business="EmotionFeeling">
-			<Dropdown Subject="EmotionFeeling" />
+		<widget Name="FutureMarketTemperatureTitle" ClassName="CEdit"  ID="10320" Caption="期市温度" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="160" Width="70" Height="25" />
+		<widget Name="FutureMarketTemperature" ClassName="CBusinessComboBox"  ID="10321" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="72" Top="160" Width="240" Height="100" business="FutureMarketTemperature">
+			<Dropdown Subject="FutureMarketTemperature" />
 		</widget>
+
+		<widget Name="StockMarketTemperatureTitle" ClassName="CEdit"  ID="10322" Caption="股市温度" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="312" Top="160" Width="70" Height="25" />
+		<widget Name="StockMarketTemperature" ClassName="CBusinessComboBox"  ID="10323" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="382" Top="160" Width="300" Height="100" business="StockMarketTemperature">
+			<Dropdown Subject="StockMarketTemperature" />
+		</widget>		
+		
+		<widget Name="InclinationTitle" ClassName="CEdit"  ID="10324" Caption="倾向意愿" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="185" Width="70" Height="25" />
+		<widget Name="Inclination" ClassName="CBusinessComboBox"  ID="10325" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="72" Top="185" Width="172" Height="100" business="Inclination">
+			<Dropdown Subject="Inclination" />
+		</widget>
+		
+		<widget Name="MainSignalTitle" ClassName="CEdit"  ID="10024" Caption="主要信号" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="242" Top="185" Width="70" Height="25"/>
+		<widget Name="MainSignal" ClassName="CBusinessEdit"  ID="10025" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN" Left="312" Top="185" Width="368" Height="25"  business="MainSignal"/>	
+		<widget Name="ForecastTitle" ClassName="CEdit"  ID="10030" Caption="预测" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="210" Width="70" Height="25" />
+		<widget Name="Forecast" ClassName="CBusinessEdit"  ID="10031" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN" Left="72" Top="210" Width="240" Height="25" business="Forecast"/>	
+		<widget Name="JudgementTitle" ClassName="CEdit"  ID="10032" Caption="预测结果" Style="WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_RIGHT|ES_READONLY" Left="312" Top="210" Width="56" Height="25" />
+		<widget Name="Judgement" ClassName="CBusinessComboBox"  ID="10132" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="372" Top="210" Width="100" Height="200" business="Judgement">
+		    <Dropdown Subject="Judgement" />
+		</widget>
+		<widget Name="EmotionFeelingAfterCheckTitle" ClassName="CEdit"  ID="10033" Caption="情绪感受" Style="WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_RIGHT|ES_READONLY" Left="472" Top="210" Width="56" Height="25" />
+		<widget Name="EmotionFeelingAfterCheck" ClassName="CBusinessComboBox"  ID="10034" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="532" Top="210" Width="150" Height="200"  business="EmotionFeelingAfterCheck">
+			<Dropdown Subject="EmotionFeeling" />
+		</widget>	
 		<widget Name="ConsistencyCheckTitle" ClassName="CEdit"  ID="10035" Caption="一致性检测" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="235" Width="70" Height="25" />
         <widget Name="HighCertainty" ClassName="CBusinessCheckBox"  ID="10036" Caption="高确定性" Style="WS_CHILD|WS_VISIBLE|WS_TABSTOP|BS_AUTOCHECKBOX|ES_RIGHT" Left="82" Top="235" Width="72" Height="25"  business="HighCertainty"/>	
 		<widget Name="InkeepingWithMainForce" ClassName="CBusinessCheckBox"  ID="10037" Caption="与主力一致" Style="WS_CHILD|WS_VISIBLE|WS_TABSTOP|BS_AUTOCHECKBOX|ES_RIGHT" Left="162" Top="235" Width="86" Height="25"  business="InkeepingWithMainForce"/>	

@@ -10,7 +10,7 @@
  Target Server Version : 3035005 (3.35.5)
  File Encoding         : 65001
 
- Date: 19/02/2023 11:38:52
+ Date: 21/02/2023 17:52:34
 */
 
 PRAGMA foreign_keys = false;
@@ -38,11 +38,13 @@ CREATE TABLE "Future_DailyMinorCycleAnalyze" (
   "StrengthAngle_5MIN" integer,
   "StrengthAngle_15MIN" integer,
   "StrengthAngle_2H" integer,
+  "FutureMarketTemperature" integer,
+  "StockMarketTemperature" integer,
+  "Inclination" integer,
   "MainSignal" text,
-  "Inclination" TEXT,
-  "EmotionFeeling" integer,
   "Forecast" TEXT,
   "Judgement" integer,
+  "EmotionFeelingAfterCheck" integer,
   "HighCertainty" integer DEFAULT (0),
   "InkeepingWithMainForce" integer DEFAULT (0),
   "InkeepingWithMacroEconomicPolicy" integer DEFAULT (0),

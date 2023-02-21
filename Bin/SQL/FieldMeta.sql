@@ -10,7 +10,7 @@
  Target Server Version : 3035005 (3.35.5)
  File Encoding         : 65001
 
- Date: 21/02/2023 11:20:27
+ Date: 21/02/2023 15:35:45
 */
 
 PRAGMA foreign_keys = false;
@@ -111,16 +111,18 @@ INSERT INTO "FieldMeta" VALUES ('SKDJ_2H', 'Future_DailyMinorCycleAnalyze', 'int
 INSERT INTO "FieldMeta" VALUES ('StrengthAngle_5MIN', 'Future_DailyMinorCycleAnalyze', 'integer', 0, 1, 15);
 INSERT INTO "FieldMeta" VALUES ('StrengthAngle_15MIN', 'Future_DailyMinorCycleAnalyze', 'integer', 0, 1, 16);
 INSERT INTO "FieldMeta" VALUES ('StrengthAngle_2H', 'Future_DailyMinorCycleAnalyze', 'integer', 0, 1, 17);
-INSERT INTO "FieldMeta" VALUES ('MainSignal', 'Future_DailyMinorCycleAnalyze', 'string', 0, 1, 18);
-INSERT INTO "FieldMeta" VALUES ('Inclination', 'Future_DailyMinorCycleAnalyze', 'integer', 0, 1, 19);
-INSERT INTO "FieldMeta" VALUES ('EmotionFeeling', 'Future_DailyMinorCycleAnalyze', 'integer', 0, 1, 20);
-INSERT INTO "FieldMeta" VALUES ('Forecast', 'Future_DailyMinorCycleAnalyze', 'string', 0, 1, 21);
-INSERT INTO "FieldMeta" VALUES ('Judgement', 'Future_DailyMinorCycleAnalyze', 'integer', 0, 1, 22);
-INSERT INTO "FieldMeta" VALUES ('HighCertainty', 'Future_DailyMinorCycleAnalyze', 'integer', 0, 1, 23);
-INSERT INTO "FieldMeta" VALUES ('InkeepingWithMainForce', 'Future_DailyMinorCycleAnalyze', 'integer', 0, 1, 24);
-INSERT INTO "FieldMeta" VALUES ('InkeepingWithMacroEconomicPolicy', 'Future_DailyMinorCycleAnalyze', 'integer', 0, 1, 25);
-INSERT INTO "FieldMeta" VALUES ('FeelRelaxedButNotAfraid', 'Future_DailyMinorCycleAnalyze', 'integer', 0, 1, 26);
-INSERT INTO "FieldMeta" VALUES ('BeHunterNotBePrey', 'Future_DailyMinorCycleAnalyze', 'integer', 0, 1, 27);
+INSERT INTO "FieldMeta" VALUES ('FutureMarketTemperature', 'Future_DailyMinorCycleAnalyze', 'integer', 0, 1, 18);
+INSERT INTO "FieldMeta" VALUES ('StockMarketTemperature', 'Future_DailyMinorCycleAnalyze', 'integer', 0, 1, 19);
+INSERT INTO "FieldMeta" VALUES ('Inclination', 'Future_DailyMinorCycleAnalyze', 'integer', 0, 1, 20);
+INSERT INTO "FieldMeta" VALUES ('MainSignal', 'Future_DailyMinorCycleAnalyze', 'string', 0, 1, 21);
+INSERT INTO "FieldMeta" VALUES ('Forecast', 'Future_DailyMinorCycleAnalyze', 'string', 0, 1, 22);
+INSERT INTO "FieldMeta" VALUES ('EmotionFeelingAfterCheck', 'Future_DailyMinorCycleAnalyze', 'integer', 0, 1, 23);
+INSERT INTO "FieldMeta" VALUES ('Judgement', 'Future_DailyMinorCycleAnalyze', 'integer', 0, 1, 24);
+INSERT INTO "FieldMeta" VALUES ('HighCertainty', 'Future_DailyMinorCycleAnalyze', 'integer', 0, 1, 25);
+INSERT INTO "FieldMeta" VALUES ('InkeepingWithMainForce', 'Future_DailyMinorCycleAnalyze', 'integer', 0, 1, 26);
+INSERT INTO "FieldMeta" VALUES ('InkeepingWithMacroEconomicPolicy', 'Future_DailyMinorCycleAnalyze', 'integer', 0, 1, 27);
+INSERT INTO "FieldMeta" VALUES ('FeelRelaxedButNotAfraid', 'Future_DailyMinorCycleAnalyze', 'integer', 0, 1, 28);
+INSERT INTO "FieldMeta" VALUES ('BeHunterNotBePrey', 'Future_DailyMinorCycleAnalyze', 'integer', 0, 1, 29);
 INSERT INTO "FieldMeta" VALUES ('TradeDay', 'Future_DailyTraceEvidence', 'string', 1, 0, 0);
 INSERT INTO "FieldMeta" VALUES ('FutureContractName', 'Future_DailyTraceEvidence', 'string', 1, 0, 1);
 INSERT INTO "FieldMeta" VALUES ('number', 'Future_DailyTraceEvidence', 'int', 1, 1, 2);
