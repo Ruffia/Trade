@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="gbk"?>
 <root>
 	<Layout>
- 	    <widget Name="DailyTraceEvidenceTitle" ClassName="CEdit" ID="10000" Caption="风险与冲突" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="10" Width="680" Height="25" />		
-		<widget Name="ConflictTypeTitle" ClassName="CEdit" ID="10001" Caption="冲突类型" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="35" Width="120" Height="25" />
-		<widget Name="DetailedDescriptionTitle" ClassName="CEdit" ID="10002" Caption="冲突内容" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="122" Top="35" Width="560" Height="25" />
+ 	    <widget Name="DailyTraceEvidenceTitle" ClassName="CEdit" ID="10000" Caption="风险与冲突" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="10" Width="680" Height="25" />	
+		<widget Name="NumberTitle" ClassName="CEdit" ID="10001" Caption="编号" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="35" Width="60" Height="25" />		
+		<widget Name="ConflictTypeTitle" ClassName="CEdit" ID="10001" Caption="冲突类型" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="62" Top="35" Width="240" Height="25" />
+		<widget Name="DetailedDescriptionTitle" ClassName="CEdit" ID="10002" Caption="冲突内容" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="302" Top="35" Width="380" Height="25" />
 		
-		<widget Name="ConflictType0" ClassName="CBusinessComboBox"  ID="10012" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="2" Top="60" Width="240" Height="200" business="ConflictType">
+		<widget Name="number0" ClassName="CBusinessEdit"  ID="10011" Caption="0" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN" Left="2" Top="60" Width="60" Height="25" business="number"/>
+		<widget Name="ConflictType0" ClassName="CBusinessComboBox"  ID="10012" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="62" Top="60" Width="240" Height="200" business="ConflictType">
 			<Dropdown Subject="Conflict" />
 		</widget>
-		<widget Name="DetailedDescription0" ClassName="CBusinessEdit"  ID="10013" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN" Left="242" Top="60" Width="440" Height="25" business="DetailedDescription"/>
-		
-		<widget Name="ConflictType1" ClassName="CBusinessComboBox"  ID="10022" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="2" Top="85" Width="240" Height="200" business="ConflictType">
-			<Dropdown Subject="Conflict" />
-		</widget>
-		<widget Name="DetailedDescription1" ClassName="CBusinessEdit"  ID="10023" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN" Left="242" Top="85" Width="440" Height="25" business="DetailedDescription"/>		
+		<widget Name="DetailedDescription0" ClassName="CBusinessEdit"  ID="10013" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN" Left="302" Top="60" Width="380" Height="25" business="DetailedDescription"/>
 
-		<widget Name="ConflictType2" ClassName="CBusinessComboBox"  ID="10032" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="2" Top="110" Width="240" Height="200" business="ConflictType">
+		<widget Name="number1" ClassName="CBusinessEdit"  ID="10021" Caption="0" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN" Left="2" Top="85" Width="60" Height="25" business="number"/>		
+		<widget Name="ConflictType1" ClassName="CBusinessComboBox"  ID="10022" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="62" Top="85" Width="240" Height="200" business="ConflictType">
 			<Dropdown Subject="Conflict" />
 		</widget>
-		<widget Name="DetailedDescription3" ClassName="CBusinessEdit"  ID="10033" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN" Left="242" Top="110" Width="440" Height="25" business="DetailedDescription"/>	
+		<widget Name="DetailedDescription1" ClassName="CBusinessEdit"  ID="10023" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN" Left="302" Top="85" Width="380" Height="25" business="DetailedDescription"/>		
+
+		<widget Name="number2" ClassName="CBusinessEdit"  ID="10031" Caption="0" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN" Left="2" Top="110" Width="60" Height="25" business="number"/>
+		<widget Name="ConflictType2" ClassName="CBusinessComboBox"  ID="10032" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="62" Top="110" Width="240" Height="200" business="ConflictType">
+			<Dropdown Subject="Conflict" />
+		</widget>
+		<widget Name="DetailedDescription3" ClassName="CBusinessEdit"  ID="10033" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN" Left="302" Top="110" Width="380" Height="25" business="DetailedDescription"/>	
 	</Layout>
 </root>
