@@ -425,6 +425,12 @@ void CDialogFutureContract_DailyTraceConflict::UpdateDB2UI(CDataSet& ds,int inde
 				pCheckBoxControl->SetCheck(nValue);
 				pCheckBoxControl->GetWindowTextA(strValue);
 			}
+			else if(ControlType[Business_Edit])
+			{
+				CString sText = "";
+				pBusinessControl->GetWindowTextA(sText);
+				strValue = sText;
+			}
 			else
 			{
 				strValue.Format(strDisplayType.c_str(),nValue);

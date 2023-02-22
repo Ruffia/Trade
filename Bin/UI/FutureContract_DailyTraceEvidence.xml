@@ -7,7 +7,7 @@
 		<widget Name="TechnicalIndexTitle" ClassName="CEdit" ID="10003" Caption="Ö¸±ê" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="182" Top="35" Width="160" Height="25" />
 		<widget Name="IndexValueTitle" ClassName="CEdit" ID="10004" Caption="Öµ" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="342" Top="35" Width="340" Height="25" />
 		
-		<widget Name="number0" ClassName="CBusinessEdit"  ID="10011" Caption="1" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN" Left="2" Top="60" Width="60" Height="25" business="number"/>
+		<widget Name="number0" ClassName="CBusinessEdit"  ID="10011" Caption="0" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN" Left="2" Top="60" Width="60" Height="25" business="number"/>
 		<widget Name="TimePeriod0" ClassName="CBusinessComboBox"  ID="10012" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="62" Top="60" Width="120" Height="300" business="TimePeriod">
 			<Dropdown Subject="TimePeriod" />
 		</widget>
@@ -17,7 +17,7 @@
 		<widget Name="IndexValue0" ClassName="CBusinessComboBox"  ID="10014" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="342" Top="60" Width="340" Height="400" business="IndexValue"/>
 		
 		
-		<widget Name="number1" ClassName="CBusinessEdit"  ID="10021" Caption="2" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN" Left="2" Top="85" Width="60" Height="25" business="number"/>
+		<widget Name="number1" ClassName="CBusinessEdit"  ID="10021" Caption="1" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN" Left="2" Top="85" Width="60" Height="25" business="number"/>
 		<widget Name="TimePeriod1" ClassName="CBusinessComboBox"  ID="10022" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="62" Top="85" Width="120" Height="300" business="TimePeriod">
 			<Dropdown Subject="TimePeriod" />
 		</widget>
@@ -27,7 +27,7 @@
 		<widget Name="IndexValue1" ClassName="CBusinessComboBox"  ID="10024" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="342" Top="85" Width="340" Height="400" business="IndexValue"/>
 		
 		
-		<widget Name="number2" ClassName="CBusinessEdit"  ID="10031" Caption="3" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN" Left="2" Top="110" Width="60" Height="25" business="number"/>
+		<widget Name="number2" ClassName="CBusinessEdit"  ID="10031" Caption="2" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN" Left="2" Top="110" Width="60" Height="25" business="number"/>
 		<widget Name="TimePeriod2" ClassName="CBusinessComboBox"  ID="10032" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="62" Top="110" Width="120" Height="300" business="TimePeriod">
 			<Dropdown Subject="TimePeriod" />
 		</widget>
