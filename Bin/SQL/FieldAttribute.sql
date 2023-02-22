@@ -10,7 +10,7 @@
  Target Server Version : 3035005 (3.35.5)
  File Encoding         : 65001
 
- Date: 21/02/2023 16:56:17
+ Date: 22/02/2023 13:53:55
 */
 
 PRAGMA foreign_keys = false;
@@ -259,7 +259,6 @@ INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'Judgement', 'Future_DailyMi
 INSERT INTO "FieldAttribute" VALUES ('Meaning', 'EmotionFeelingAfterCheck', 'Future_DailyMinorCycleAnalyze', 'string', '情绪感受');
 INSERT INTO "FieldAttribute" VALUES ('ControlType', 'EmotionFeelingAfterCheck', 'Future_DailyMinorCycleAnalyze', 'string', 'CBusinessComboBox');
 INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'EmotionFeelingAfterCheck', 'Future_DailyMinorCycleAnalyze', 'string', '%d');
-
 INSERT INTO "FieldAttribute" VALUES ('Meaning', 'HighCertainty', 'Future_DailyMinorCycleAnalyze', 'integer', '高度确定性');
 INSERT INTO "FieldAttribute" VALUES ('ControlType', 'HighCertainty', 'Future_DailyMinorCycleAnalyze', 'string', 'CEdit');
 INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'HighCertainty', 'Future_DailyMinorCycleAnalyze', 'string', '%s');
@@ -329,6 +328,9 @@ INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'TradeDay', 'Future_DailyTra
 INSERT INTO "FieldAttribute" VALUES ('Meaning', 'FutureContractName', 'Future_DailyTraceConflict', 'string', '合约名称');
 INSERT INTO "FieldAttribute" VALUES ('ControlType', 'FutureContractName', 'Future_DailyTraceConflict', 'string', 'CEdit');
 INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'FutureContractName', 'Future_DailyTraceConflict', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'number', 'Future_DailyTraceConflict', 'string', '编号');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'number', 'Future_DailyTraceConflict', 'string', 'CEdit');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'number', 'Future_DailyTraceConflict', 'string', '%d');
 INSERT INTO "FieldAttribute" VALUES ('Meaning', 'ConflictType', 'Future_DailyTraceConflict', 'string', '冲突类型');
 INSERT INTO "FieldAttribute" VALUES ('ControlType', 'ConflictType', 'Future_DailyTraceConflict', 'string', 'CEdit');
 INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'ConflictType', 'Future_DailyTraceConflict', 'string', '%d');

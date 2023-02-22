@@ -10,7 +10,7 @@
  Target Server Version : 3035005 (3.35.5)
  File Encoding         : 65001
 
- Date: 21/02/2023 15:35:45
+ Date: 22/02/2023 14:07:52
 */
 
 PRAGMA foreign_keys = false;
@@ -131,8 +131,9 @@ INSERT INTO "FieldMeta" VALUES ('TechnicalIndex', 'Future_DailyTraceEvidence', '
 INSERT INTO "FieldMeta" VALUES ('IndexValue', 'Future_DailyTraceEvidence', 'int', 0, 1, 5);
 INSERT INTO "FieldMeta" VALUES ('TradeDay', 'Future_DailyTraceConflict', 'string', 1, 0, 0);
 INSERT INTO "FieldMeta" VALUES ('FutureContractName', 'Future_DailyTraceConflict', 'string', 1, 0, 1);
-INSERT INTO "FieldMeta" VALUES ('ConflictType', 'Future_DailyTraceConflict', 'int', 1, 1, 2);
-INSERT INTO "FieldMeta" VALUES ('DetailedDescription', 'Future_DailyTraceConflict', 'int', 0, 1, 3);
+INSERT INTO "FieldMeta" VALUES ('number', 'Future_DailyTraceConflict', 'int', 1, 1, 2);
+INSERT INTO "FieldMeta" VALUES ('ConflictType', 'Future_DailyTraceConflict', 'int', 0, 1, 3);
+INSERT INTO "FieldMeta" VALUES ('DetailedDescription', 'Future_DailyTraceConflict', 'string', 0, 1, 4);
 INSERT INTO "FieldMeta" VALUES ('BusinessName', 'Business', 'string', 1, 0, 0);
 INSERT INTO "FieldMeta" VALUES ('UI', 'Business', 'string', 0, 0, 1);
 INSERT INTO "FieldMeta" VALUES ('Description', 'Business', 'string', 0, 0, 2);
