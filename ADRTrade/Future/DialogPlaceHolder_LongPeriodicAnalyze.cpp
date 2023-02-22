@@ -169,7 +169,7 @@ void CDialogFutureContract_LongPeriodicAnalyze::UpdateUI2DB()
 			if (ControlType[Business_ComboBox])
 			{
 				int nValue = -1;
-				bool bFindValue = pComboBoxControl->GetValue(szValue,nValue);
+				bool bFindValue = pComboBoxControl->GetValueByTranslation(szValue,nValue);
 				sprintf_s(szSQL,512," %s = %d ", sBusinessField.c_str(), nValue);
 			}
 			else if (ControlType[Business_CheckBox])
@@ -325,7 +325,7 @@ void CDialogFutureContract_LongPeriodicAnalyze::UpdateDB2UI( CDataSet& ds,int in
 			if (ControlType[Business_ComboBox])
 			{
 				string sMeaning = "";
-				bool bFindValue = pComboBoxControl->GetMeaning(pField->GetValueAsInt(),sMeaning);
+				bool bFindValue = pComboBoxControl->GetTranslation(pField->GetValueAsInt(),sMeaning);
 				strValue = sMeaning.c_str();
 			}
 			else if (ControlType[Business_CheckBox])

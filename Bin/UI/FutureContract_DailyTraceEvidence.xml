@@ -14,7 +14,7 @@
 		<widget Name="TechnicalIndex0" ClassName="CBusinessComboBox"  ID="10013" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="182" Top="60" Width="160" Height="300" business="TechnicalIndex">
 			<Dropdown Subject="TechnicalIndex" />
 		</widget>
-		<widget Name="IndexValue0" ClassName="CBusinessComboBox"  ID="10014" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="342" Top="60" Width="340" Height="200" business="IndexValue"/>
+		<widget Name="IndexValue0" ClassName="CBusinessComboBox"  ID="10014" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="342" Top="60" Width="340" Height="400" business="IndexValue"/>
 		
 		
 		<widget Name="number1" ClassName="CBusinessEdit"  ID="10021" Caption="2" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN" Left="2" Top="85" Width="60" Height="25" business="number"/>
@@ -24,7 +24,7 @@
 		<widget Name="TechnicalIndex1" ClassName="CBusinessComboBox"  ID="10023" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="182" Top="85" Width="160" Height="300" business="TechnicalIndex">
 			<Dropdown Subject="TechnicalIndex" />
 		</widget>
-		<widget Name="IndexValue1" ClassName="CBusinessComboBox"  ID="10024" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="342" Top="85" Width="340" Height="200" business="IndexValue"/>
+		<widget Name="IndexValue1" ClassName="CBusinessComboBox"  ID="10024" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="342" Top="85" Width="340" Height="400" business="IndexValue"/>
 		
 		
 		<widget Name="number2" ClassName="CBusinessEdit"  ID="10031" Caption="3" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN" Left="2" Top="110" Width="60" Height="25" business="number"/>
@@ -34,6 +34,6 @@
 		<widget Name="TechnicalIndex2" ClassName="CBusinessComboBox"  ID="10033" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="182" Top="110" Width="160" Height="300" business="TechnicalIndex">
 			<Dropdown Subject="TechnicalIndex" />
 		</widget>
-		<widget Name="IndexValue2" ClassName="CBusinessComboBox"  ID="10034" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="342" Top="110" Width="340" Height="200" business="IndexValue"/>
+		<widget Name="IndexValue2" ClassName="CBusinessComboBox"  ID="10034" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="342" Top="110" Width="340" Height="400" business="IndexValue"/>
 	</Layout>
 </root>

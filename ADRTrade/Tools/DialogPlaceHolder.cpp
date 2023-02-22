@@ -160,9 +160,13 @@ void CDialogPlaceHolder::_InitLayOut()
 
 				CField* pFieldTranslation = pRecord->GetField("Translation");
 				if(!pFieldTranslation) continue;
-				string sMeaning = pFieldTranslation->GetValueAsString();
-				pCombox->AddString(sMeaning.c_str());
-				pCombox->Add2Map(nValue,sMeaning);
+				CField* pFieldMeaning = pRecord->GetField("Meaning");
+				if(!pFieldMeaning) continue;
+
+				string sTranslation = pFieldTranslation->GetValueAsString();
+				string sMeaning = pFieldMeaning->GetValueAsString();
+				pCombox->AddString(sTranslation.c_str());
+				pCombox->Add2Map(nValue,sMeaning,sTranslation);
 			}
 
 			const string& sBusiness = node.attribute("business").as_string();
@@ -337,7 +341,7 @@ void CDialogPlaceHolder::UpdateDB2UI(CDataSet& ds,int index)
 				string sMeaning = "";
 				const int nCurSel = pComboBoxControl->GetCurSel();
 				const int nFieldValue = pField->GetValueAsInt();
-				bool bFindValue = pComboBoxControl->GetMeaning(nFieldValue,sMeaning);
+				bool bFindValue = pComboBoxControl->GetTranslation(nFieldValue,sMeaning);
 				strValue = sMeaning.c_str();
 			}
 			else if (ControlType[Business_CheckBox])
@@ -458,7 +462,7 @@ string CDialogPlaceHolder::_CreateUpdateSQL()
 			if (ControlType[Business_ComboBox])
 			{
 				int nValue = -1;
-				bool bFindValue = pComboBoxControl->GetValue(szValue,nValue);
+				bool bFindValue = pComboBoxControl->GetValueByTranslation(szValue,nValue);
 				sprintf_s(szSQL,512," %s = %d ", sBusinessField.c_str(), nValue);
 			}
 			else if (ControlType[Business_CheckBox])

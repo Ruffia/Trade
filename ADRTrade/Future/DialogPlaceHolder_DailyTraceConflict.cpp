@@ -110,9 +110,13 @@ void CDialogFutureContract_DailyTraceConflict::_InitLayOut()
 
 				CField* pFieldTranslation = pRecord->GetField("Translation");
 				if(!pFieldTranslation) continue;
-				string sMeaning = pFieldTranslation->GetValueAsString();
-				pCombox->AddString(sMeaning.c_str());
-				pCombox->Add2Map(nValue,sMeaning);
+				CField* pFieldMeaning = pRecord->GetField("Meaning");
+				if(!pFieldMeaning) continue;
+
+				string sTranslation = pFieldTranslation->GetValueAsString();
+				string sMeaning = pFieldMeaning->GetValueAsString();
+				pCombox->AddString(sTranslation.c_str());
+				pCombox->Add2Map(nValue,sMeaning,sTranslation);
 			}
 
 			const string& sBusiness = node.attribute("business").as_string();
@@ -284,7 +288,7 @@ void CDialogFutureContract_DailyTraceConflict::UpdateUI2DB()
 			if (ControlType[Business_ComboBox])
 			{
 				int nValue = -1;
-				bool bFindValue = pComboBoxControl->GetValue(szValue,nValue);
+				bool bFindValue = pComboBoxControl->GetValueByTranslation(szValue,nValue);
 				sprintf_s(szSQL,512," %s = %d ", sBusinessField.c_str(), nValue);
 			}
 			else if (ControlType[Business_CheckBox])
@@ -413,7 +417,7 @@ void CDialogFutureContract_DailyTraceConflict::UpdateDB2UI(CDataSet& ds,int inde
 			if (ControlType[Business_ComboBox])
 			{
 				string sMeaning = "";
-				bool bFindValue = pComboBoxControl->GetMeaning(nValue,sMeaning);
+				bool bFindValue = pComboBoxControl->GetTranslation(nValue,sMeaning);
 				strValue = sMeaning.c_str();
 			}
 			else if (ControlType[Business_CheckBox])

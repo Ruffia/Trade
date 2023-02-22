@@ -27,6 +27,11 @@ CDialogFutureContract_DailyTraceEvidence::CDialogFutureContract_DailyTraceEviden
 	CDialogIDMgr::Instance().Register("CDialogFutureContract_DailyTraceEvidence",CDialogFutureContract_DailyTraceEvidence::IDD); 
 }
 
+BEGIN_MESSAGE_MAP(CDialogFutureContract_DailyTraceEvidence,CDialogPlaceHolder)
+	ON_CBN_SELCHANGE(Combox_TechnicalIndex0,&CDialogFutureContract_DailyTraceEvidence::OnSelComboChange_TechnicalIndex0)
+	ON_CBN_SELCHANGE(Combox_TechnicalIndex1,&CDialogFutureContract_DailyTraceEvidence::OnSelComboChange_TechnicalIndex1)
+	ON_CBN_SELCHANGE(Combox_TechnicalIndex2,&CDialogFutureContract_DailyTraceEvidence::OnSelComboChange_TechnicalIndex2)
+END_MESSAGE_MAP()
 
 void CDialogFutureContract_DailyTraceEvidence::_InitLayOut()
 {
@@ -110,9 +115,13 @@ void CDialogFutureContract_DailyTraceEvidence::_InitLayOut()
 
 				CField* pFieldTranslation = pRecord->GetField("Translation");
 				if(!pFieldTranslation) continue;
-				string sMeaning = pFieldTranslation->GetValueAsString();
-				pCombox->AddString(sMeaning.c_str());
-				pCombox->Add2Map(nValue,sMeaning);
+				CField* pFieldMeaning = pRecord->GetField("Meaning");
+				if(!pFieldMeaning) continue;
+
+				string sTranslation = pFieldTranslation->GetValueAsString();
+				string sMeaning = pFieldMeaning->GetValueAsString();
+				pCombox->AddString(sTranslation.c_str());
+				pCombox->Add2Map(nValue,sMeaning,sTranslation);
 			}
 
 			const string& sBusiness = node.attribute("business").as_string();
@@ -284,7 +293,7 @@ void CDialogFutureContract_DailyTraceEvidence::UpdateUI2DB()
 			if (ControlType[Business_ComboBox])
 			{
 				int nValue = -1;
-				bool bFindValue = pComboBoxControl->GetValue(szValue,nValue);
+				bool bFindValue = pComboBoxControl->GetValueByTranslation(szValue,nValue);
 				sprintf_s(szSQL,512," %s = %d ", sBusinessField.c_str(), nValue);
 			}
 			else if (ControlType[Business_CheckBox])
@@ -413,7 +422,7 @@ void CDialogFutureContract_DailyTraceEvidence::UpdateDB2UI(CDataSet& ds,int inde
 			if (ControlType[Business_ComboBox])
 			{
 				string sMeaning = "";
-				bool bFindValue = pComboBoxControl->GetMeaning(nValue,sMeaning);
+				bool bFindValue = pComboBoxControl->GetTranslation(nValue,sMeaning);
 				strValue = sMeaning.c_str();
 			}
 			else if (ControlType[Business_CheckBox])
@@ -438,4 +447,72 @@ void CDialogFutureContract_DailyTraceEvidence::UpdateDB2UI(CDataSet& ds,int inde
 
 		pWnd->SetWindowTextA(strValue);
 	}
+}
+
+
+void CDialogFutureContract_DailyTraceEvidence::_ChangeComboxDropdownList( const string& strComboxTechnicalIndex_Name, const string& strComboxTechnicalIndexValue_Name ) 
+{
+	CBusinessComboBox* pCombox_TechnicalIndex = dynamic_cast<CBusinessComboBox*>(m_mapBusiness2Control[strComboxTechnicalIndex_Name]);
+	if(!pCombox_TechnicalIndex) return;
+
+	CBusinessComboBox* pCombox_TechnicalIndexValue = dynamic_cast<CBusinessComboBox*>(m_mapBusiness2Control[strComboxTechnicalIndexValue_Name]);
+	if(!pCombox_TechnicalIndexValue) return;
+
+	int nCurSel = pCombox_TechnicalIndex->GetCurSel();
+	if(-1 == nCurSel) return;
+
+	string sMeaning = "";
+	pCombox_TechnicalIndex->GetMeaning(nCurSel,sMeaning);
+
+	string sSQL = "select * from Dictionary_Field where Subject ";
+	sSQL += "='";
+	sSQL += sMeaning;
+	sSQL += "'";
+	sSQL += " order by value asc";
+
+	CDataSet ds;
+	CDBDataManager::Instance().LoadData(sSQL,"Dictionary_Field",ds);
+
+	const int nRecordCount = ds.Size();
+	for (int i = 0; i < nRecordCount;i++)
+	{
+		CRecord* pRecord = ds[i];
+		if(!pRecord) continue;
+
+		CField* pFieldValue = pRecord->GetField("Value");
+		if(!pFieldValue) continue;
+		int nValue = pFieldValue->GetValueAsInt();
+
+		CField* pFieldTranslation = pRecord->GetField("Translation");
+		if(!pFieldTranslation) continue;
+		CField* pFieldMeaning = pRecord->GetField("Meaning");
+		if(!pFieldMeaning) continue;
+
+		string sTranslation = pFieldTranslation->GetValueAsString();
+		string sMeaning = pFieldMeaning->GetValueAsString();
+		pCombox_TechnicalIndexValue->Reset();
+		pCombox_TechnicalIndexValue->AddString(sTranslation.c_str());
+		pCombox_TechnicalIndexValue->Add2Map(nValue,sMeaning,sTranslation);
+	}
+}
+
+void CDialogFutureContract_DailyTraceEvidence::OnSelComboChange_TechnicalIndex0()
+{
+	const string strComboxTechnicalIndex_Name = "TechnicalIndex0";
+	const string strComboxTechnicalIndexValue_Name = "IndexValue0";
+	_ChangeComboxDropdownList(strComboxTechnicalIndex_Name, strComboxTechnicalIndexValue_Name);
+}
+
+void CDialogFutureContract_DailyTraceEvidence::OnSelComboChange_TechnicalIndex1()
+{
+	const string strComboxTechnicalIndex_Name = "TechnicalIndex1";
+	const string strComboxTechnicalIndexValue_Name = "IndexValue1";
+	_ChangeComboxDropdownList(strComboxTechnicalIndex_Name, strComboxTechnicalIndexValue_Name);
+}
+
+void CDialogFutureContract_DailyTraceEvidence::OnSelComboChange_TechnicalIndex2()
+{
+	const string strComboxTechnicalIndex_Name = "TechnicalIndex2";
+	const string strComboxTechnicalIndexValue_Name = "IndexValue2";
+	_ChangeComboxDropdownList(strComboxTechnicalIndex_Name, strComboxTechnicalIndexValue_Name);
 }

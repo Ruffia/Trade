@@ -158,7 +158,7 @@ void CDialogTabItem_MinorCycleAnalyze::UpdateUI2DB()
 			if (ControlType[Business_ComboBox])
 			{
 				int nValue = -1;
-				bool bFindValue = pComboBoxControl->GetValue(szValue,nValue);
+				bool bFindValue = pComboBoxControl->GetValueByTranslation(szValue,nValue);
 				sprintf_s(szSQL,512," %s = %d ", sBusinessField.c_str(), nValue);
 			}
 			else if (ControlType[Business_CheckBox])
