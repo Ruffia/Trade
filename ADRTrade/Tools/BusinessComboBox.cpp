@@ -38,7 +38,13 @@ bool CBusinessComboBox::GetValue(const string& sMeaning,int& nValue)
 }
 
 
+BOOL CBusinessComboBox::PreTranslateMessage(MSG* pMsg)
+{
+	return pMsg->message == WM_MOUSEWHEEL ? TRUE : CComboBox::PreTranslateMessage(pMsg);
+}
+
 BEGIN_MESSAGE_MAP(CBusinessComboBox, CComboBox)
+	ON_WM_MOUSEWHEEL()
 END_MESSAGE_MAP()
 
 

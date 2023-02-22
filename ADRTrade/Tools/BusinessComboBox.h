@@ -18,6 +18,8 @@ public:
 		m_mapValue2Meaning[nValue] = sMeaning;
 	}
 
+	virtual BOOL PreTranslateMessage(MSG* pMsg);
+
 public:
 	string m_sBusinessField;
 	map<int,string> m_mapValue2Meaning;
