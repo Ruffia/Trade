@@ -335,8 +335,9 @@ void CDialogPlaceHolder::UpdateDB2UI(CDataSet& ds,int index)
 			if (ControlType[Business_ComboBox])
 			{
 				string sMeaning = "";
-				int nCurSel = pComboBoxControl->GetCurSel();
-				bool bFindValue = pComboBoxControl->GetMeaning(pField->GetValueAsInt(),sMeaning);
+				const int nCurSel = pComboBoxControl->GetCurSel();
+				const int nFieldValue = pField->GetValueAsInt();
+				bool bFindValue = pComboBoxControl->GetMeaning(nFieldValue,sMeaning);
 				strValue = sMeaning.c_str();
 			}
 			else if (ControlType[Business_CheckBox])

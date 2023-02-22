@@ -123,9 +123,14 @@ int CDBDataManager::LoadData(const string& strSQL,const string& strTableName, CD
 				CString sValue = pRecordset->AsString(i);
 				pValue->SetValueString((LPTSTR)(LPCTSTR)sValue);
 			}
-			else if (sDataType.find("int") != string::npos)
+			else if (sDataType.find("integer") != string::npos)
+			{			
+				int nValue = pRecordset->IsNULL(i)?-1:pRecordset->AsInteger(i);
+				pValue->SetValueInt(nValue);
+			}
+			else if ( sDataType.find("int") != string::npos)
 			{
-				int nValue = pRecordset->AsInteger(i);
+				int nValue = pRecordset->IsNULL(i)?-1:pRecordset->AsInteger(i);
 				pValue->SetValueInt(nValue);
 			}
 			else if (sDataType.find("double") != string::npos)
