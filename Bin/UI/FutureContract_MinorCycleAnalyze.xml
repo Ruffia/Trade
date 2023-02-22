@@ -4,7 +4,7 @@
         <widget Name="Header" ClassName="CEdit" ID="10000" Caption="指标\周期" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="10" Width="70" Height="25" />	
 		<widget Name="5MINTitle" ClassName="CEdit" ID="10001" Caption="5MIN" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="72" Top="10" Width="200" Height="25" />
 		<widget Name="15MINTitle" ClassName="CEdit" ID="10002" Caption="15MIN" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="272" Top="10" Width="200" Height="25" />
-		<widget Name="2HTitle" ClassName="CEdit" ID="10003" Caption="2H" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="472" Top="10" Width="208" Height="25" />
+		<widget Name="2HTitle" ClassName="CEdit" ID="10003" Caption="2H" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="472" Top="10" Width="210" Height="25" />
 		
         <widget Name="MACDTitle" ClassName="CEdit" ID="10004" Caption="MACD" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="35" Width="70" Height="25" />
 		<widget Name="MACD_5MIN" ClassName="CBusinessComboBox"  ID="10005" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="72" Top="35" Width="200" Height="400" business="MACD_5MIN">
@@ -13,7 +13,7 @@
 		<widget Name="MACD_15MIN" ClassName="CBusinessComboBox"  ID="10006" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="272" Top="35" Width="200" Height="400" business="MACD_15MIN">
 			<Dropdown Subject="MACD" />
 		</widget>		
-		<widget Name="MACD_2H" ClassName="CBusinessComboBox"  ID="10007" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="472" Top="35" Width="208" Height="400" business="MACD_2H">
+		<widget Name="MACD_2H" ClassName="CBusinessComboBox"  ID="10007" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="472" Top="35" Width="210" Height="400" business="MACD_2H">
 			<Dropdown Subject="MACD" />
 		</widget>	
 		
@@ -24,7 +24,7 @@
 		<widget Name="MACDPillar_15MIN" ClassName="CBusinessComboBox"  ID="10010" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="272" Top="60" Width="200" Height="400" business="MACDPillar_15MIN">
 			<Dropdown Subject="MACDPillar" />
 		</widget>
-		<widget Name="MACDPillar_2H" ClassName="CBusinessComboBox"  ID="10011" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="472" Top="60" Width="208" Height="400" business="MACDPillar_2H">
+		<widget Name="MACDPillar_2H" ClassName="CBusinessComboBox"  ID="10011" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="472" Top="60" Width="210" Height="400" business="MACDPillar_2H">
 			<Dropdown Subject="MACDPillar" />
 		</widget>
 		
@@ -35,7 +35,7 @@
 		<widget Name="Trix_15MIN" ClassName="CBusinessComboBox"  ID="10014" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="272" Top="85" Width="200" Height="400" business="Trix_15MIN">
 			<Dropdown Subject="Trix" />
 		</widget>		
-		<widget Name="Trix_2H" ClassName="CBusinessComboBox"  ID="10015" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="472" Top="85" Width="208" Height="400" business="Trix_2H">
+		<widget Name="Trix_2H" ClassName="CBusinessComboBox"  ID="10015" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="472" Top="85" Width="210" Height="400" business="Trix_2H">
 			<Dropdown Subject="Trix" />
 		</widget>
 		
@@ -46,7 +46,7 @@
 		<widget Name="SKDJ_15MIN" ClassName="CBusinessComboBox"  ID="10018" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="272" Top="110" Width="200" Height="400" business="SKDJ_15MIN">
 			<Dropdown Subject="SKDJ" />
 		</widget>
-		<widget Name="SKDJ_2H" ClassName="CBusinessComboBox"  ID="10019" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="472" Top="110" Width="208" Height="400" business="SKDJ_2H">
+		<widget Name="SKDJ_2H" ClassName="CBusinessComboBox"  ID="10019" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="472" Top="110" Width="210" Height="400" business="SKDJ_2H">
 			<Dropdown Subject="SKDJ" />
 		</widget>
 		
@@ -57,7 +57,7 @@
 		<widget Name="StrengthAngle_15MIN" ClassName="CBusinessComboBox"  ID="10022" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="272" Top="135" Width="200" Height="400" business="StrengthAngle_15MIN">
 			<Dropdown Subject="StrengthAngle" />
 		</widget>
-		<widget Name="StrengthAngle_2H" ClassName="CBusinessComboBox"  ID="10023" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="472" Top="135" Width="208" Height="400" business="StrengthAngle_2H">
+		<widget Name="StrengthAngle_2H" ClassName="CBusinessComboBox"  ID="10023" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="472" Top="135" Width="210" Height="400" business="StrengthAngle_2H">
 			<Dropdown Subject="StrengthAngle" />
 		</widget>
 		
@@ -77,7 +77,7 @@
 		</widget>
 		
 		<widget Name="MainSignalTitle" ClassName="CEdit"  ID="10024" Caption="主要信号" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="242" Top="185" Width="70" Height="25"/>
-		<widget Name="MainSignal" ClassName="CBusinessEdit"  ID="10025" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN" Left="312" Top="185" Width="368" Height="25"  business="MainSignal"/>	
+		<widget Name="MainSignal" ClassName="CBusinessEdit"  ID="10025" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN" Left="312" Top="185" Width="370" Height="25"  business="MainSignal"/>	
 		<widget Name="ForecastTitle" ClassName="CEdit"  ID="10030" Caption="预测" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="210" Width="70" Height="25" />
 		<widget Name="Forecast" ClassName="CBusinessEdit"  ID="10031" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN" Left="72" Top="210" Width="240" Height="25" business="Forecast"/>	
 		<widget Name="JudgementTitle" ClassName="CEdit"  ID="10032" Caption="预测结果" Style="WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_RIGHT|ES_READONLY" Left="312" Top="210" Width="56" Height="25" />
