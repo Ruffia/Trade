@@ -11,6 +11,5 @@ public:
 	virtual void UpdateDB2UI(CDataSet& ds,int index = 0);
 
 protected:
-	virtual void _InitLayOut();
 	virtual void _LoadTradeDayData2UI();
 };

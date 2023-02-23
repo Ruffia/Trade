@@ -34,44 +34,6 @@ BEGIN_MESSAGE_MAP(CDialogFutureContract_DailyTraceEvidence,CDialogPlaceHolder)
 	ON_CBN_SELCHANGE(Combox_TechnicalIndex2,&CDialogFutureContract_DailyTraceEvidence::OnSelComboChange_TechnicalIndex2)
 END_MESSAGE_MAP()
 
-void CDialogFutureContract_DailyTraceEvidence::_InitLayOut()
-{
-	string sFileName = GetModulePath() + "/UI/" + m_sLayout;
-	bool bRet = true;
-	if (!m_doc.load_file(sFileName.c_str())) 
-	{ //加载xml文件
-		return;
-	}
-
-	CRect rc;
-	GetClientRect(rc);
-	ClientToScreen(rc);
-
-	xml_node root = m_doc.child("root");  //根节点
-	xml_node nodeLayout = root.child("Layout");
-	xml_node node = nodeLayout.first_child();
-	while (!node.empty())
-	{
-		CUIData data;
-		const string sName = node.attribute("Name").as_string("");
-		data.m_strUIClassName = node.attribute("ClassName").as_string("");
-		data.m_nID = node.attribute("ID").as_int();
-		data.m_nLeft = node.attribute("Left").as_int();
-		data.m_nTop = node.attribute("Top").as_int();
-		data.m_nWidth = node.attribute("Width").as_int();
-		data.m_nHeight = node.attribute("Height").as_int();
-		const string sStyle = node.attribute("Style").as_string();
-		DWORD dwTotalStyle = CStyleMgr::Instance().GetStyle(sStyle);
-		const string sCaption = node.attribute("Caption").as_string();
-		IControlCreator* pCreator = Factory<IControlCreator,string>::Instance().BuildProduct(data.m_strUIClassName);
-		if(!pCreator) continue;
-		pCreator->Initialize(m_mapUIName2Wnd,m_mapBusiness2Control,this);
-		pCreator->Create(data,sName,sCaption,dwTotalStyle,node);
-		delete pCreator; pCreator = NULL;
-		node = node.next_sibling();
-	}
-}
-
 
 void CDialogFutureContract_DailyTraceEvidence::_LoadTradeDayData2UI()
 {
