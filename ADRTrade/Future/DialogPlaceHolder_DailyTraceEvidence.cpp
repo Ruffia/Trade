@@ -12,6 +12,7 @@
 #include "TradeDayPrimaryData.h"
 #include "UIData.h"
 #include "Tools/StyleManager.h"
+#include "Tools/ControlCreator.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -62,88 +63,11 @@ void CDialogFutureContract_DailyTraceEvidence::_InitLayOut()
 		const string sStyle = node.attribute("Style").as_string();
 		DWORD dwTotalStyle = CStyleMgr::Instance().GetStyle(sStyle);
 		const string sCaption = node.attribute("Caption").as_string();
-		CFont* pFont = CCollectiveComponentProvider::Instance().GetFont();
-        if (data.m_strUIClassName.find("CBusinessEdit") != string::npos)
-		{
-			CBusinessEdit* pEdit = new CBusinessEdit;
-			CRect rc(data.m_nLeft,data.m_nTop,data.m_nLeft + data.m_nWidth ,data.m_nTop + data.m_nHeight);
-			pEdit->Create(dwTotalStyle,rc,this,data.m_nID);	
-			pEdit->SetFont(pFont);
-			pEdit->ShowWindow(SW_SHOW);
-			pEdit->SetWindowText(sCaption.c_str());
-			const string& sBusiness = node.attribute("business").as_string();
-			pEdit->m_sBusinessField = sBusiness;
-			m_mapBusiness2Control[sName] = pEdit;
-			m_mapUIName2Wnd[sName] = pEdit;	
-		}
-		else if (data.m_strUIClassName.find("CEdit") != string::npos)
-		{
-			CEdit* pEdit = new CEdit;
-			CRect rc(data.m_nLeft,data.m_nTop,data.m_nLeft + data.m_nWidth ,data.m_nTop + data.m_nHeight);
-			pEdit->Create(dwTotalStyle,rc,this,data.m_nID);	
-			pEdit->SetFont(pFont);
-			pEdit->ShowWindow(SW_SHOW);
-			pEdit->SetWindowText(sCaption.c_str());
-			m_mapUIName2Wnd[sName] = pEdit;	
-		}
-		else if (data.m_strUIClassName.find("CBusinessComboBox") != string::npos)
-		{
-			CBusinessComboBox* pCombox = new CBusinessComboBox;
-			CRect rc(data.m_nLeft,data.m_nTop,data.m_nLeft + data.m_nWidth ,data.m_nTop + data.m_nHeight);
-			pCombox->Create(dwTotalStyle,rc,this,data.m_nID);	
-			xml_node nodeDropdownItem = node.child("Dropdown");
-			string sSubject = nodeDropdownItem.attribute("Subject").as_string("");
-
-			string sSQL = "select * from Dictionary_Field where Subject ";
-			sSQL += "='";
-			sSQL += sSubject;
-			sSQL += "'";
-			sSQL += " order by value asc";
-
-			CDataSet ds;
-			CDBDataManager::Instance().LoadData(sSQL,"Dictionary_Field",ds);
-
-			const int nRecordCount = ds.Size();
-			for (int i = 0; i < nRecordCount;i++)
-			{
-				CRecord* pRecord = ds[i];
-				if(!pRecord) continue;
-
-				CField* pFieldValue = pRecord->GetField("Value");
-				if(!pFieldValue) continue;
-				int nValue = pFieldValue->GetValueAsInt();
-
-				CField* pFieldTranslation = pRecord->GetField("Translation");
-				if(!pFieldTranslation) continue;
-				CField* pFieldMeaning = pRecord->GetField("Meaning");
-				if(!pFieldMeaning) continue;
-
-				string sTranslation = pFieldTranslation->GetValueAsString();
-				string sMeaning = pFieldMeaning->GetValueAsString();
-				pCombox->AddString(sTranslation.c_str());
-				pCombox->Add2Map(nValue,sMeaning,sTranslation);
-			}
-
-			const string& sBusiness = node.attribute("business").as_string();
-			pCombox->m_sBusinessField = sBusiness;
-
-			pCombox->SetFont(pFont);
-			pCombox->ShowWindow(SW_SHOW);
-			pCombox->SetWindowText(sCaption.c_str());
-			m_mapBusiness2Control[sName] = pCombox;
-			m_mapUIName2Wnd[sName] = pCombox;	
-		}
-		else if(data.m_strUIClassName.find("CBusinessCheckBox") != string::npos)
-		{
-			CBusinessCheckBox* pCheckBox = new CBusinessCheckBox;
-			CRect rc(data.m_nLeft,data.m_nTop,data.m_nLeft + data.m_nWidth ,data.m_nTop + data.m_nHeight);	
-			pCheckBox->Create(sCaption.c_str(), dwTotalStyle,rc,this, data.m_nID);
-			pCheckBox->SetFont(pFont);
-			const string& sBusiness = node.attribute("business").as_string();
-			pCheckBox->m_sBusinessField = sBusiness;
-			m_mapBusiness2Control[sName] = pCheckBox;
-			m_mapUIName2Wnd[sName] = pCheckBox;	
-		}
+		IControlCreator* pCreator = Factory<IControlCreator,string>::Instance().BuildProduct(data.m_strUIClassName);
+		if(!pCreator) continue;
+		pCreator->Initialize(m_mapUIName2Wnd,m_mapBusiness2Control,this);
+		pCreator->Create(data,sName,sCaption,dwTotalStyle,node);
+		delete pCreator; pCreator = NULL;
 		node = node.next_sibling();
 	}
 }
