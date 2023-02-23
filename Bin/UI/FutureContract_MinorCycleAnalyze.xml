@@ -62,17 +62,17 @@
 		</widget>
 		
 		<widget Name="FutureMarketTemperatureTitle" ClassName="CEdit"  ID="10320" Caption="期市温度" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="160" Width="70" Height="25" />
-		<widget Name="FutureMarketTemperature" ClassName="CBusinessComboBox"  ID="10321" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="72" Top="160" Width="240" Height="100" business="FutureMarketTemperature">
+		<widget Name="FutureMarketTemperature" ClassName="CBusinessComboBox"  ID="10321" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="72" Top="160" Width="240" Height="400" business="FutureMarketTemperature">
 			<Dropdown Subject="FutureMarketTemperature" />
 		</widget>
 
 		<widget Name="StockMarketTemperatureTitle" ClassName="CEdit"  ID="10322" Caption="股市温度" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="312" Top="160" Width="70" Height="25" />
-		<widget Name="StockMarketTemperature" ClassName="CBusinessComboBox"  ID="10323" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="382" Top="160" Width="300" Height="100" business="StockMarketTemperature">
+		<widget Name="StockMarketTemperature" ClassName="CBusinessComboBox"  ID="10323" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="382" Top="160" Width="300" Height="400" business="StockMarketTemperature">
 			<Dropdown Subject="StockMarketTemperature" />
 		</widget>		
 		
 		<widget Name="InclinationTitle" ClassName="CEdit"  ID="10324" Caption="倾向意愿" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_AUTOHSCROLL|ES_CENTER|ES_READONLY" Left="2" Top="185" Width="70" Height="25" />
-		<widget Name="Inclination" ClassName="CBusinessComboBox"  ID="10325" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="72" Top="185" Width="172" Height="100" business="Inclination">
+		<widget Name="Inclination" ClassName="CBusinessComboBox"  ID="10325" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="72" Top="185" Width="172" Height="400" business="Inclination">
 			<Dropdown Subject="Inclination" />
 		</widget>
 		
