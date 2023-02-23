@@ -72,5 +72,6 @@ BEGIN_MESSAGE_MAP(CBusinessComboBox, CComboBox)
 END_MESSAGE_MAP()
 
 
-
+CBusinessComboBox_TechnicalIndex::CBusinessComboBox_TechnicalIndex()
+{}
 

@@ -108,6 +108,8 @@ void CDialogFutureContract_DailyTraceEvidence::UpdateUI2DB()
 		it != m_mapBusiness2Control.end();it++)
 	{
 		CWnd* pWnd = it->second;
+		if(!pWnd) continue;
+
 		nUIControlCount++;
 		bool bComBox = false;
 		string sBusinessField = "";

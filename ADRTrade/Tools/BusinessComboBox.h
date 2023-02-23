@@ -29,3 +29,10 @@ protected:
 };
 
 
+class CBusinessComboBox_TechnicalIndex:public CBusinessComboBox
+{
+public:
+	CBusinessComboBox_TechnicalIndex();
+};
+
+

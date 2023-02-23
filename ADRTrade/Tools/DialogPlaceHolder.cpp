@@ -102,8 +102,7 @@ void CDialogPlaceHolder::_InitLayOut()
 		CFont* pFont = CCollectiveComponentProvider::Instance().GetFont();
 	    IControlCreator* pCreator = Factory<IControlCreator,string>::Instance().BuildProduct(data.m_strUIClassName);
 		if(!pCreator) continue;
-		pCreator->Initialize(m_mapUIName2Wnd,m_mapBusiness2Control,this);
-		pCreator->Create(data,sName,sCaption,dwTotalStyle,node);
+		pCreator->Create(data,sName,sCaption,dwTotalStyle,node,m_mapUIName2Wnd,m_mapBusiness2Control,this);
 		delete pCreator; pCreator = NULL;
 		node = node.next_sibling();
 	}
