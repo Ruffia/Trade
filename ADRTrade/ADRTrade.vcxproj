@@ -145,6 +145,7 @@
     <ClInclude Include="Tools\CheckComboBox.h" />
     <ClInclude Include="Tools\ChildDlgTab.h" />
     <ClInclude Include="Tools\CollectiveComponentProvider.h" />
+    <ClInclude Include="Tools\ControlCreator.h" />
     <ClInclude Include="Tools\CursorDef.h" />
     <ClInclude Include="Tools\CustomButton.h" />
     <ClInclude Include="Tools\CustomTabCtrl.h" />
@@ -203,6 +204,7 @@
     <ClCompile Include="Tools\CheckComboBox.cpp" />
     <ClCompile Include="Tools\ChildDlgTab.cpp" />
     <ClCompile Include="Tools\CollectiveComponentProvider.cpp" />
+    <ClCompile Include="Tools\ControlCreator.cpp" />
     <ClCompile Include="Tools\CustomButton.cpp" />
     <ClCompile Include="Tools\CustomTabCtrl.cpp" />
     <ClCompile Include="Tools\CustomTabCtrlDlg.cpp" />

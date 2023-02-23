@@ -198,6 +198,9 @@
     <ClInclude Include="Future\DialogPlaceHolder_DailyTraceConflict.h">
       <Filter>Future</Filter>
     </ClInclude>
+    <ClInclude Include="Tools\ControlCreator.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ADRTrade.cpp">
@@ -352,6 +355,9 @@
     </ClCompile>
     <ClCompile Include="Future\DialogPlaceHolder_DailyTraceConflict.cpp">
       <Filter>Future</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\ControlCreator.cpp">
+      <Filter>Tools</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
