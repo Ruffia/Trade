@@ -3,7 +3,7 @@
 #include "afxdialogex.h"
 #include "Util.h"
 #include "UIData.h"
-#include "Factory.h"
+#include "../Common/Factory.h"
 #include "DialogIDManager.h"
 #include "Tools/DialogPlaceHolder.h"
 #include "CustomTabCtrlDlg_DailyMinorCycleAnalyze.h"
