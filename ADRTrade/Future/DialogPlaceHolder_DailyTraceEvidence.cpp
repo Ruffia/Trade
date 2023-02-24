@@ -265,6 +265,9 @@ void CDialogFutureContract_DailyTraceEvidence::UpdateDB2UI(CDataSet& ds,int inde
 					continue;
 				}
 				
+				string sTranslation = "";
+				string sTechnicalIndexMeaning = "";
+
 				string sCaption = itControl->first;
 				CWnd* pWnd = itControl->second;
 				string sBusinessField = "";
@@ -324,9 +327,53 @@ void CDialogFutureContract_DailyTraceEvidence::UpdateDB2UI(CDataSet& ds,int inde
 					int nValue = pField->GetValueAsInt();
 					if (ControlType[Business_ComboBox])
 					{
-						string sMeaning = "";
-						bool bFindValue = pComboBoxControl->GetTranslation(nValue,sMeaning);
-						strValue = sMeaning.c_str();
+						string strControlID = szControlID;
+						if (string::npos != strControlID.find("TechnicalIndex"))
+						{
+							bool bFindValue = pComboBoxControl->GetTranslation(nValue,sTranslation);
+							bFindValue = pComboBoxControl->GetMeaning(nValue,sTechnicalIndexMeaning);
+							strValue = sTranslation.c_str();
+						}
+						else if (string::npos != strControlID.find("IndexValue"))
+						{
+							pComboBoxControl->Reset();
+							string sSQL = "select * from Dictionary_Field where Subject ";
+							sSQL += "='";
+							sSQL += sTechnicalIndexMeaning;
+							sSQL += "'";
+							sSQL += " order by value asc";
+
+							CDataSet ds;
+							CDBDataManager::Instance().LoadData(sSQL,"Dictionary_Field",ds);
+
+							const int nRecordCount = ds.Size();
+							for (int i = 0; i < nRecordCount;i++)
+							{
+								CRecord* pRecord = ds[i];
+								if(!pRecord) continue;
+
+								CField* pFieldValue = pRecord->GetField("Value");
+								if(!pFieldValue) continue;
+								int nValue = pFieldValue->GetValueAsInt();
+
+								CField* pFieldTranslation = pRecord->GetField("Translation");
+								if(!pFieldTranslation) continue;
+								CField* pFieldMeaning = pRecord->GetField("Meaning");
+								if(!pFieldMeaning) continue;
+
+								string sTranslation = pFieldTranslation->GetValueAsString();
+								string sMeaning = pFieldMeaning->GetValueAsString();
+								pComboBoxControl->AddString(sTranslation.c_str());
+								pComboBoxControl->Add2Map(nValue,sMeaning,sTranslation);
+							}
+							bool bFindValue = pComboBoxControl->GetTranslation(nValue,sTranslation);
+							strValue = sTranslation.c_str();
+						}
+						else
+						{
+							bool bFindValue = pComboBoxControl->GetTranslation(nValue,sTranslation);
+							strValue = sTranslation.c_str();
+						}				
 					}
 					else if (ControlType[Business_CheckBox])
 					{
