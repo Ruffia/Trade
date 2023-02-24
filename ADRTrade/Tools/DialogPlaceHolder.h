@@ -6,7 +6,6 @@ using namespace std;
 #include "Tools/pugixml.hpp"
 #include "Tools/pugiconfig.hpp"
 using namespace pugi;
-#include "Business/BusinessNode.h"
 #include "DialogIDManager.h"
 #include "DBDataManager.h"
 class CBusinessEdit;

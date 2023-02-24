@@ -16,9 +16,6 @@
     <Filter Include="Tools">
       <UniqueIdentifier>{9bd6ccca-b26e-4540-b0c0-08bce2bc77f3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Business">
-      <UniqueIdentifier>{7422b414-7ce1-4652-965b-653fa4f183f0}</UniqueIdentifier>
-    </Filter>
     <Filter Include="MacroEnvironment">
       <UniqueIdentifier>{31fb58ce-c8a0-42ec-bc65-4d90667c7a67}</UniqueIdentifier>
     </Filter>
@@ -167,9 +164,6 @@
     </ClInclude>
     <ClInclude Include="Future\FutureContract_TradeDialogs.h">
       <Filter>Future</Filter>
-    </ClInclude>
-    <ClInclude Include="Business\BusinessNode.h">
-      <Filter>Business</Filter>
     </ClInclude>
     <ClInclude Include="Tools\BusinessEdit.h">
       <Filter>Tools</Filter>
@@ -325,9 +319,6 @@
     </ClCompile>
     <ClCompile Include="Future\FutureContract_TradeDialogs.cpp">
       <Filter>Future</Filter>
-    </ClCompile>
-    <ClCompile Include="Business\BusinessNode.cpp">
-      <Filter>Business</Filter>
     </ClCompile>
     <ClCompile Include="Tools\BusinessEdit.cpp">
       <Filter>Tools</Filter>
