@@ -250,112 +250,150 @@ void CDialogFutureContract_DailyTraceEvidence::UpdateDB2UI(CDataSet& ds,int inde
 	{
 		CRecord* pRecord = ds[i];
 		if(!pRecord) continue;
-		for (int j = 0; j < pRecord->Size();j++)
+		vector<CField*> vField;
+		pRecord->GetSortedFieldSet(vField);
+		string sTechnicalIndexMeaning = "";
+		string sTranslation = "";
+		for (int j = 0; j < vField.size();j++)
 		{
-			map<string,CField*>& mapFieldName2Field = pRecord->GetFieldName2FieldMap();
-			for (map<string,CField*>::iterator it = mapFieldName2Field.begin();
-				it != mapFieldName2Field.end(); it++)
+			CField* pField = vField[j];
+			if(!pField) continue;
+			CFieldDesc* pFieldDesc = pField->GetFieldDesc();
+			if (!pFieldDesc) continue;
+
+			string strFieldName = pField->GetFieldDesc()->m_strFieldName;
+			char szControlID[128] = {0};
+			sprintf_s(szControlID,128,"%s%d",strFieldName.c_str(),i);
+			map<string,CWnd*>::iterator itControl = m_mapBusiness2Control.find(szControlID);
+			if (m_mapBusiness2Control.end() == itControl)
 			{
-				string strFieldName = it->first;
-				char szControlID[128] = {0};
-				sprintf_s(szControlID,128,"%s%d",strFieldName.c_str(),i);
-				map<string,CWnd*>::iterator itControl = m_mapBusiness2Control.find(szControlID);
-				if (m_mapBusiness2Control.end() == itControl)
-				{
-					continue;
-				}
-				
-				string sCaption = itControl->first;
-				CWnd* pWnd = itControl->second;
-				string sBusinessField = "";
-				//截至目前，有3中Business 字段类型
-				CBusinessEdit* pBusinessControl = NULL;
-				CBusinessComboBox* pComboBoxControl = NULL;
-				CBusinessCheckBox* pCheckBoxControl = NULL;
+				continue;
+			}
 
-				const int nBussinessType = 3;
-				bool ControlType[3] = {false,false,false}; 
-				const type_info &typeInfo = typeid(*pWnd);
-				string sTypeName = typeInfo.raw_name();
-				if (string::npos != sTypeName.find("CBusinessEdit"))
-				{
-					ControlType[Business_Edit] = true;
-					pBusinessControl = dynamic_cast<CBusinessEdit*>(pWnd);
-					if(!pBusinessControl) continue;
-					sBusinessField = pBusinessControl->m_sBusinessField;
-				}
-				else if (string::npos != sTypeName.find("CBusinessComboBox"))
-				{
-					ControlType[Business_ComboBox] = true;
-					pComboBoxControl = dynamic_cast<CBusinessComboBox*>(pWnd);
-					if(!pComboBoxControl) continue;
-					sBusinessField = pComboBoxControl->m_sBusinessField;
-				}
-				else if (string::npos != sTypeName.find("CBusinessCheckBox"))
-				{
-					ControlType[Business_CheckBox] = true;
-					pCheckBoxControl = dynamic_cast<CBusinessCheckBox*>(pWnd);
-					if(!pCheckBoxControl) continue;
-					sBusinessField = pCheckBoxControl->m_sBusinessField;
-				}
+			string sCaption = itControl->first;
+			CWnd* pWnd = itControl->second;
+			string sBusinessField = "";
+			//截至目前，有3中Business 字段类型
+			CBusinessEdit* pBusinessControl = NULL;
+			CBusinessComboBox* pComboBoxControl = NULL;
+			CBusinessCheckBox* pCheckBoxControl = NULL;
 
+			const int nBussinessType = 3;
+			bool ControlType[3] = {false,false,false}; 
+			const type_info &typeInfo = typeid(*pWnd);
+			string sTypeName = typeInfo.raw_name();
+			if (string::npos != sTypeName.find("CBusinessEdit"))
+			{
+				ControlType[Business_Edit] = true;
+				pBusinessControl = dynamic_cast<CBusinessEdit*>(pWnd);
+				if(!pBusinessControl) continue;
+				sBusinessField = pBusinessControl->m_sBusinessField;
+			}
+			else if (string::npos != sTypeName.find("CBusinessComboBox"))
+			{
+				ControlType[Business_ComboBox] = true;
+				pComboBoxControl = dynamic_cast<CBusinessComboBox*>(pWnd);
+				if(!pComboBoxControl) continue;
+				sBusinessField = pComboBoxControl->m_sBusinessField;
+			}
+			else if (string::npos != sTypeName.find("CBusinessCheckBox"))
+			{
+				ControlType[Business_CheckBox] = true;
+				pCheckBoxControl = dynamic_cast<CBusinessCheckBox*>(pWnd);
+				if(!pCheckBoxControl) continue;
+				sBusinessField = pCheckBoxControl->m_sBusinessField;
+			}
 
-				//根据FieldID 找到 CFieldDesc
-				map<string,CFieldDesc*>::iterator itFieldDesc = mapTableName2FieldDesc.find(sBusinessField);
-				if(mapTableName2FieldDesc.end() == itFieldDesc) continue;
-
-				CFieldDesc* pFieldDesc = itFieldDesc->second;
-				if (!pFieldDesc) continue;
-
-				//根据FieldDesc 找到 CField
-				CField* pField = pRecord->GetField(pFieldDesc->m_strFieldName);
-				if(!pField) return;
-
-				CString strValue = "";
-				const string strDataType = pFieldDesc->m_strDataType;
-				const string strDisplayType = pFieldDesc->GetAttributeString("DisplayType");
-				if (strDataType.find("string") != string::npos)
+			CString strValue = "";
+			const string strDataType = pFieldDesc->m_strDataType;
+			const string strDisplayType = pFieldDesc->GetAttributeString("DisplayType");
+			if (strDataType.find("string") != string::npos)
+			{
+				string sValue = pField->GetValueAsString();
+				strValue.Format(strDisplayType.c_str(),sValue.c_str());
+			}
+			else if (strDataType.find("int") != string::npos)
+			{
+				int nValue = pField->GetValueAsInt();
+				if (ControlType[Business_ComboBox])
 				{
-					string sValue = pField->GetValueAsString();
-					strValue.Format(strDisplayType.c_str(),sValue.c_str());
-				}
-				else if (strDataType.find("int") != string::npos)
-				{
-					int nValue = pField->GetValueAsInt();
-					if (ControlType[Business_ComboBox])
+					string strControlID = szControlID;
+					if (string::npos != strFieldName.find("TechnicalIndex"))
 					{
-						string sMeaning = "";
-						bool bFindValue = pComboBoxControl->GetTranslation(nValue,sMeaning);
-						strValue = sMeaning.c_str();
+						bool bFindValue = pComboBoxControl->GetMeaning(nValue,sTechnicalIndexMeaning);
+						bFindValue = pComboBoxControl->GetTranslation(nValue,sTranslation);
+						strValue = sTranslation.c_str();
 					}
-					else if (ControlType[Business_CheckBox])
+					else if (string::npos != strFieldName.find("IndexValue"))
 					{
-						pCheckBoxControl->SetCheck(nValue);
-						pCheckBoxControl->GetWindowTextA(strValue);
-					}
-					else if(ControlType[Business_Edit])
-					{
-						CString sText = "";
-						pBusinessControl->GetWindowTextA(sText);
-						strValue = sText;
+						pComboBoxControl->Reset();
+						string sSQL = "select * from Dictionary_Field where Subject ";
+						sSQL += "='";
+						sSQL += sTechnicalIndexMeaning;
+						sSQL += "'";
+						sSQL += " order by value asc";
+
+						CDataSet ds;
+						CDBDataManager::Instance().LoadData(sSQL,"Dictionary_Field",ds);
+
+						const int nRecordCount = ds.Size();
+						for (int i = 0; i < nRecordCount;i++)
+						{
+							CRecord* pRecord = ds[i];
+							if(!pRecord) continue;
+
+							CField* pFieldValue = pRecord->GetField("Value");
+							if(!pFieldValue) continue;
+							int nValue = pFieldValue->GetValueAsInt();
+
+							CField* pFieldTranslation = pRecord->GetField("Translation");
+							if(!pFieldTranslation) continue;
+							CField* pFieldMeaning = pRecord->GetField("Meaning");
+							if(!pFieldMeaning) continue;
+
+							string sTranslation = pFieldTranslation->GetValueAsString();
+							string sMeaning = pFieldMeaning->GetValueAsString();
+							pComboBoxControl->AddString(sTranslation.c_str());
+							pComboBoxControl->Add2Map(nValue,sMeaning,sTranslation);
+						}
+
+						bool bFindValue = pComboBoxControl->GetTranslation(nValue,sTranslation);
+						strValue = sTranslation.c_str();
 					}
 					else
 					{
-						strValue.Format(strDisplayType.c_str(),nValue);
+						bool bFindValue = pComboBoxControl->GetTranslation(nValue,sTranslation);
+						strValue = sTranslation.c_str();
 					}
 
 				}
-				else if (strDataType.find("float") != string::npos)
+				else if (ControlType[Business_CheckBox])
 				{
-					strValue.Format(strDisplayType.c_str(),pField->GetValueAsFloat());
+					pCheckBoxControl->SetCheck(nValue);
+					pCheckBoxControl->GetWindowTextA(strValue);
 				}
-				else if (strDataType.find("double") != string::npos)
+				else if(ControlType[Business_Edit])
 				{
-					strValue.Format(strDisplayType.c_str(),pField->GetValueAsDouble());
+					CString sText = "";
+					pBusinessControl->GetWindowTextA(sText);
+					strValue = sText;
+				}
+				else
+				{
+					strValue.Format(strDisplayType.c_str(),nValue);
 				}
 
-				pWnd->SetWindowTextA(strValue);
 			}
+			else if (strDataType.find("float") != string::npos)
+			{
+				strValue.Format(strDisplayType.c_str(),pField->GetValueAsFloat());
+			}
+			else if (strDataType.find("double") != string::npos)
+			{
+				strValue.Format(strDisplayType.c_str(),pField->GetValueAsDouble());
+			}
+
+			pWnd->SetWindowTextA(strValue);
 		}
 		
 	}
