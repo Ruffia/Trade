@@ -75,3 +75,7 @@ END_MESSAGE_MAP()
 CBusinessComboBox_TechnicalIndex::CBusinessComboBox_TechnicalIndex()
 {}
 
+
+CBusinessComboBox_TimePeriod::CBusinessComboBox_TimePeriod()
+{}
+

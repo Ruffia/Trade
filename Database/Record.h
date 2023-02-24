@@ -24,6 +24,11 @@ public:
 		return m_mapFieldName2Field.size();
 	}
 
+	map<string,CField*>& GetFieldName2FieldMap()
+	{
+		return m_mapFieldName2Field;
+	}
+
 private:
 	//ÁÐºÅ-->×Ö¶Î
 	map<string,CField*> m_mapFieldName2Field; 

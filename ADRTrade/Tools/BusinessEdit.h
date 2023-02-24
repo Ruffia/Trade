@@ -18,3 +18,9 @@ protected:
 };
 
 
+class CBusinessEditNumber:public CBusinessEdit
+{
+public:
+	CBusinessEditNumber(){}
+};
+

@@ -36,3 +36,10 @@ public:
 };
 
 
+class CBusinessComboBox_TimePeriod:public CBusinessComboBox
+{
+public:
+	CBusinessComboBox_TimePeriod();
+};
+
+

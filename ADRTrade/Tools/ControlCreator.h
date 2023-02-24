@@ -31,6 +31,12 @@ public:
 		const xml_node &node,map<string,CWnd*>& mapUIName2Wnd,map<string,CWnd*>& mapBusiness2Control,CWnd* pParent);
 };
 
+class CControlCreator_CBusinessEditNumber : public IControlCreator
+{
+public:
+	virtual void Create(const CUIData &data,const string& sName, const string &sCaption, DWORD dwTotalStyle,
+		const xml_node &node,map<string,CWnd*>& mapUIName2Wnd,map<string,CWnd*>& mapBusiness2Control,CWnd* pParent);
+};
 
 class CControlCreator_CBusinessComboBox : public IControlCreator
 {
@@ -41,6 +47,14 @@ public:
 
 
 class CControlCreator_CBusinessComboBoxTechnicalIndex : public IControlCreator
+{
+public:
+	virtual void Create(const CUIData &data,const string& sName, const string &sCaption, DWORD dwTotalStyle,
+		const xml_node &node,map<string,CWnd*>& mapUIName2Wnd,map<string,CWnd*>& mapBusiness2Control,CWnd* pParent);
+};
+
+
+class CControlCreator_CBusinessComboBoxTimePeriod : public CControlCreator_CBusinessComboBoxTechnicalIndex
 {
 public:
 	virtual void Create(const CUIData &data,const string& sName, const string &sCaption, DWORD dwTotalStyle,
