@@ -52,3 +52,13 @@ public:
 protected:
 	static int nSequence;
 };
+
+
+class CPrimaryKey_TraceConflictNumber: public IPrimaryKeyRule
+{
+public:
+	virtual string GetInsertSQL();
+	virtual string GetUpdateSQL();
+protected:
+	static int nSequence;
+};

@@ -79,3 +79,22 @@ string CPrimaryKey_TraceEvidenceNumber::GetUpdateSQL()
 	sprintf_s(sz,256,"%s = %d","number",nSequence);
 	return string(sz);
 }
+
+
+int CPrimaryKey_TraceConflictNumber::nSequence = 0;
+IMPLEMENT_FACTORY(IPrimaryKeyRule,CPrimaryKey_TraceConflictNumber,string,"number")
+string CPrimaryKey_TraceConflictNumber::GetInsertSQL()
+{
+	char sz[256] = {0};
+	sprintf_s(sz,256,"%d",nSequence);
+	nSequence++;
+	return string(sz);
+}
+
+
+string CPrimaryKey_TraceConflictNumber::GetUpdateSQL()
+{
+	char sz[256] = {0};
+	sprintf_s(sz,256,"%s = %d","number",nSequence);
+	return string(sz);
+}

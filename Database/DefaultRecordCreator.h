@@ -39,3 +39,10 @@ class CDefaultRecordCreator_DailyTraceEvidence : public IDefaultRecordCreator
 public:
 	virtual void CreateRecord();
 };
+
+
+class CDefaultRecordCreator_DailyTraceConflict : public IDefaultRecordCreator
+{
+public:
+	virtual void CreateRecord();
+};

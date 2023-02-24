@@ -180,3 +180,57 @@ void CDefaultRecordCreator_DailyTraceEvidence::CreateRecord()
 		bool bRet = CDBDataManager::Instance().GetDB().Query(sSQL.c_str(),strErr);
 	}
 }
+
+
+IMPLEMENT_FACTORY(IDefaultRecordCreator,CDefaultRecordCreator_DailyTraceConflict, string,"Future_DailyTraceConflict")
+void CDefaultRecordCreator_DailyTraceConflict::CreateRecord()
+{
+	//默认插入3条数据
+	const int nRecordCount = 3;
+
+	vector<CFieldDesc*> vPrimaryKey;
+	CDBDataManager::Instance().GetPrimaryKey(m_strTableName,vPrimaryKey);
+
+	for (int i = 0; i < nRecordCount;i++)
+	{
+		string sSQL = "insert into ";
+		sSQL += m_strTableName;
+		sSQL += "(";
+
+		string sPrimaryKey = "";
+		int nSize = vPrimaryKey.size();
+		for (int j = 0;j < nSize;j++)
+		{
+			CFieldDesc* pFieldDesc = vPrimaryKey[j];
+			if(!pFieldDesc) continue;
+			IPrimaryKeyRule* pRule = Factory<IPrimaryKeyRule,string>::Instance().BuildProduct(pFieldDesc->m_strFieldName);
+			if(!pRule) continue;
+			pRule->SetFieldDesc(pFieldDesc);
+
+			const type_info &typeInfo = typeid(*pRule);
+			string sTypeName = typeInfo.raw_name();
+			if (j != nSize -1)
+			{
+				sPrimaryKey += pRule->GetInsertSQL();	
+				sPrimaryKey += ",";
+				sSQL += pFieldDesc->m_strFieldName;
+				sSQL += ",";
+			}
+			else
+			{
+				sPrimaryKey += pRule->GetInsertSQL();
+				sSQL += pFieldDesc->m_strFieldName;
+			}
+
+			delete pRule;
+			pRule = NULL;
+		}
+
+		sSQL += ") values(";
+		sSQL += sPrimaryKey;
+		sSQL += ")";
+
+		CString strErr;
+		bool bRet = CDBDataManager::Instance().GetDB().Query(sSQL.c_str(),strErr);
+	}
+}
