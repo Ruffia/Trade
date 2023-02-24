@@ -1,5 +1,7 @@
 #pragma once
 #include <string>
+#include <vector>
+#include <algorithm>
 #include <map>
 using namespace std;
 #include "Field.h"
@@ -29,7 +31,8 @@ public:
 		return m_mapFieldName2Field;
 	}
 
-private:
+	virtual void GetSortedFieldSet(vector<CField*>& vField);
+protected:
 	//ÁÐºÅ-->×Ö¶Î
 	map<string,CField*> m_mapFieldName2Field; 
 };
