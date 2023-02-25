@@ -420,6 +420,7 @@ void CDialogFutureContract_DailyTraceEvidence::_ChangeComboxDropdownList( const 
 	CDataSet ds;
 	CDBDataManager::Instance().LoadData(sSQL,"Dictionary_Field",ds);
 
+	pCombox_TechnicalIndexValue->ResetContent();
 	const int nRecordCount = ds.Size();
 	for (int i = 0; i < nRecordCount;i++)
 	{
