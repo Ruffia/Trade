@@ -38,6 +38,11 @@ public:
 		const xml_node &node,map<string,CWnd*>& mapUIName2Wnd,map<string,CWnd*>& mapBusiness2Control,CWnd* pParent);
 };
 
+
+class CControlCreator_CBusinessEditConflictDetailedDescription : public CControlCreator_CBusinessEditNumber
+{
+};
+
 class CControlCreator_CBusinessComboBox : public IControlCreator
 {
 public:
@@ -53,6 +58,10 @@ public:
 		const xml_node &node,map<string,CWnd*>& mapUIName2Wnd,map<string,CWnd*>& mapBusiness2Control,CWnd* pParent);
 };
 
+
+class CControlCreator_CBusinessComboBoxConflict : public CControlCreator_CBusinessComboBoxTechnicalIndex
+{
+};
 
 class CControlCreator_CBusinessComboBoxTimePeriod : public CControlCreator_CBusinessComboBoxTechnicalIndex
 {

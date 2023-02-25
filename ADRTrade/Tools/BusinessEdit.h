@@ -24,3 +24,9 @@ public:
 	CBusinessEditNumber(){}
 };
 
+
+class CBusinessEdit_ConflictDetailedDescription:public CBusinessEdit
+{
+public:
+	CBusinessEdit_ConflictDetailedDescription(){}
+};
