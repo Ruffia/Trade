@@ -11,7 +11,6 @@ using namespace std;
 #include "Tools/pugiconfig.hpp"
 using namespace pugi;
 
-#define Timer_SaveData2UI  3650
 
 class CADRTradeDayView : public CView
 {
