@@ -3,14 +3,14 @@
 
  Source Server         : TradeTrack
  Source Server Type    : SQLite
- Source Server Version : 3035005
+ Source Server Version : 3035005 (3.35.5)
  Source Schema         : main
 
  Target Server Type    : SQLite
- Target Server Version : 3035005
+ Target Server Version : 3035005 (3.35.5)
  File Encoding         : 65001
 
- Date: 10/02/2023 10:02:00
+ Date: 26/02/2023 15:37:50
 */
 
 PRAGMA foreign_keys = false;
@@ -29,7 +29,7 @@ CREATE TABLE "Future_DailyLongPeriodicAnalyze" (
   "Trend_Week" TEXT,
   "Trend_Day" TEXT,
   "Trend_4H" TEXT,
-  "EmotionalFeeling" TEXT,
+  "EmotionalFeeling" integer,
   PRIMARY KEY ("TradeDay", "FutureContractName")
 );
 

@@ -10,7 +10,7 @@
  Target Server Version : 3035005 (3.35.5)
  File Encoding         : 65001
 
- Date: 22/02/2023 14:07:52
+ Date: 26/02/2023 15:37:38
 */
 
 PRAGMA foreign_keys = false;
@@ -92,7 +92,7 @@ INSERT INTO "FieldMeta" VALUES ('Trend_Month', 'Future_DailyLongPeriodicAnalyze'
 INSERT INTO "FieldMeta" VALUES ('Trend_Week', 'Future_DailyLongPeriodicAnalyze', 'string', 0, 1, 6);
 INSERT INTO "FieldMeta" VALUES ('Trend_Day', 'Future_DailyLongPeriodicAnalyze', 'string', 0, 1, 7);
 INSERT INTO "FieldMeta" VALUES ('Trend_4H', 'Future_DailyLongPeriodicAnalyze', 'string', 0, 1, 8);
-INSERT INTO "FieldMeta" VALUES ('EmotionalFeeling', 'Future_DailyLongPeriodicAnalyze', 'string', 0, 1, 9);
+INSERT INTO "FieldMeta" VALUES ('EmotionalFeeling', 'Future_DailyLongPeriodicAnalyze', 'integer', 0, 1, 9);
 INSERT INTO "FieldMeta" VALUES ('TradeDay', 'Future_DailyMinorCycleAnalyze', 'string', 1, 0, 0);
 INSERT INTO "FieldMeta" VALUES ('FutureContractName', 'Future_DailyMinorCycleAnalyze', 'string', 1, 1, 1);
 INSERT INTO "FieldMeta" VALUES ('RecordTime', 'Future_DailyMinorCycleAnalyze', 'string', 1, 1, 2);
