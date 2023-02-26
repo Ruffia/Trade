@@ -166,4 +166,19 @@ void CCustomTabCtrlDlg_DailyMinorCycleAnalyze::UpdateUI2DB()
 
  		pDlgItem->UpdateUI2DB();	
 	}
+
+	if (CTradeDayPrimaryData::Instance().m_bNeed2UpdateFutureContractName)
+	{
+		CTradeDayPrimaryData::Instance().m_Synchronize[UI_MinorCycleAnalyze] = true;
+		if (CTradeDayPrimaryData::Instance().m_Synchronize[UI_MinorCycleAnalyze] &&
+			CTradeDayPrimaryData::Instance().m_Synchronize[UI_DailyTraceEvidence] &&
+			CTradeDayPrimaryData::Instance().m_Synchronize[UI_DailyTraceConflict])
+		{
+			for (int k = 0;k < Place2UpdateFutureContractName;k++)
+			{
+				CTradeDayPrimaryData::Instance().m_Synchronize[k] = false;
+			}
+			CTradeDayPrimaryData::Instance().m_bNeed2UpdateFutureContractName = false;
+		}
+	}
 }

@@ -155,7 +155,6 @@ void CDialogFutureContract_LongPeriodicAnalyze::UpdateUI2DB()
 					if (CTradeDayPrimaryData::Instance().m_strFutureContractName_LastTime != CTradeDayPrimaryData::Instance().m_strFutureContractName)
 					{
 						CTradeDayPrimaryData::Instance().m_bNeed2UpdateFutureContractName = true;
-						CTradeDayPrimaryData::Instance().m_nPlace2UpdateFutureContractName = Place2UpdateFutureContractName;
 					}
 				}
 			}

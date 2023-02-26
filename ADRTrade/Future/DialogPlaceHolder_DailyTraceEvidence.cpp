@@ -100,17 +100,6 @@ void CDialogFutureContract_DailyTraceEvidence::UpdateUI2DB()
 	bool bExists = _CheckExistsTradeDayRecord();
 	if(!bExists) return;
 
-	//if (!CTradeDayPrimaryData::Instance().m_bNeed2UpdateFutureContractName)
-	//{
-	//	CTradeDayPrimaryData::Instance().m_strFutureContractName_LastTime = CTradeDayPrimaryData::Instance().m_strFutureContractName;
-	//	CTradeDayPrimaryData::Instance().m_strFutureContractName = szValue;
-	//	if (CTradeDayPrimaryData::Instance().m_strFutureContractName_LastTime != CTradeDayPrimaryData::Instance().m_strFutureContractName)
-	//	{
-	//		CTradeDayPrimaryData::Instance().m_bNeed2UpdateFutureContractName = true;
-	//		CTradeDayPrimaryData::Instance().m_nPlace2UpdateFutureContractName = Place2UpdateFutureContractName;
-	//	}
-	//}
-
 	typedef tuple<CWnd*, CWnd*, CWnd*,CWnd*> TraceEvidence;
 	vector<TraceEvidence> vEvidence;
 
@@ -193,7 +182,15 @@ void CDialogFutureContract_DailyTraceEvidence::UpdateUI2DB()
 		}
 
 		sSQL += sSQLField;
+		if (CTradeDayPrimaryData::Instance().m_bNeed2UpdateFutureContractName)
+		{
+			char sz[256] = {0};
+			sprintf_s(sz,256,", FutureContractName = '%s'",CTradeDayPrimaryData::Instance().m_strFutureContractName.c_str());
+			sSQL += sz;
+		}
+
 		sSQL += " where ";
+
 		vector<CFieldDesc*> vPrimaryKey;
 		CDBDataManager::Instance().GetPrimaryKey(m_sBusiness,vPrimaryKey);
 
@@ -230,8 +227,24 @@ void CDialogFutureContract_DailyTraceEvidence::UpdateUI2DB()
 
 		sSQL += strPrimaryKeyClause;
 		CDBDataManager::Instance().Exec(sSQL);
-		
 
+		if (vEvidence.size() - 1 == i)
+		{
+			if (CTradeDayPrimaryData::Instance().m_bNeed2UpdateFutureContractName)
+			{
+				CTradeDayPrimaryData::Instance().m_Synchronize[UI_DailyTraceEvidence] = true;
+				if (CTradeDayPrimaryData::Instance().m_Synchronize[UI_MinorCycleAnalyze] &&
+					CTradeDayPrimaryData::Instance().m_Synchronize[UI_DailyTraceEvidence] &&
+					CTradeDayPrimaryData::Instance().m_Synchronize[UI_DailyTraceConflict])
+				{			
+					for (int k = 0;k < Place2UpdateFutureContractName;k++)
+					{
+						CTradeDayPrimaryData::Instance().m_Synchronize[k] = false;
+					}
+					CTradeDayPrimaryData::Instance().m_bNeed2UpdateFutureContractName = false;
+				}	
+			}
+		}
 	}
 }
 

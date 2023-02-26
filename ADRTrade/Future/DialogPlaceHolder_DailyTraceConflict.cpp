@@ -162,7 +162,15 @@ void CDialogFutureContract_DailyTraceConflict::UpdateUI2DB()
 		}
 
 		sSQL += sSQLField;
+		if (CTradeDayPrimaryData::Instance().m_bNeed2UpdateFutureContractName)
+		{
+			char sz[256] = {0};
+			sprintf_s(sz,256,", FutureContractName = '%s'",CTradeDayPrimaryData::Instance().m_strFutureContractName.c_str());
+			sSQL += sz;
+		}
+		
 		sSQL += " where ";
+
 		vector<CFieldDesc*> vPrimaryKey;
 		CDBDataManager::Instance().GetPrimaryKey(m_sBusiness,vPrimaryKey);
 
@@ -199,6 +207,24 @@ void CDialogFutureContract_DailyTraceConflict::UpdateUI2DB()
 
 		sSQL += strPrimaryKeyClause;
 		CDBDataManager::Instance().Exec(sSQL);
+
+		if (vConflict.size() - 1 == i)
+		{
+			if (CTradeDayPrimaryData::Instance().m_bNeed2UpdateFutureContractName)
+			{
+				CTradeDayPrimaryData::Instance().m_Synchronize[UI_DailyTraceConflict] = true;
+				if (CTradeDayPrimaryData::Instance().m_Synchronize[UI_MinorCycleAnalyze] &&
+					CTradeDayPrimaryData::Instance().m_Synchronize[UI_DailyTraceEvidence] &&
+					CTradeDayPrimaryData::Instance().m_Synchronize[UI_DailyTraceConflict])
+				{
+					for (int k = 0;k < Place2UpdateFutureContractName;k++)
+					{
+						CTradeDayPrimaryData::Instance().m_Synchronize[k] = false;
+					}
+					CTradeDayPrimaryData::Instance().m_bNeed2UpdateFutureContractName = false;
+				}
+			}
+		}
 	}
 }
 
