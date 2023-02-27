@@ -91,246 +91,261 @@ void CDialogFutureContract_DailyTraceConflict::UpdateUI2DB()
 	bool bExists = _CheckExistsTradeDayRecord();
 	if(!bExists) return;
 
-	map<string,CFieldDesc*>& mapTableName2FieldDesc = CDBDataManager::Instance().GetTableMeta(m_sBusiness);
 
-	string sSQL = "update ";
-	sSQL += m_sBusiness;
-	sSQL += " set ";
+	typedef tuple<CWnd*, CWnd*, CWnd*> TraceConflict;
+	vector<TraceConflict> vConflict;
 
-	int nUIControlCount = 0;
-	for(map<string,CWnd*>::iterator it = m_mapBusiness2Control.begin();
-		it != m_mapBusiness2Control.end();it++)
+	//三组数值，控件下标为0，1，2
+	//四个控件: number,ConflictType,DetailedDescription
+	const char* szControl[3] = {"number","ConflictType","DetailedDescription"};
+	for (int i = 0; i < 3;i++)
 	{
-		CWnd* pWnd = it->second;
-		nUIControlCount++;
-		bool bComBox = false;
-		string sBusinessField = "";
-
-		//截至目前，有3中Business 字段类型
-		CBusinessEdit* pBusinessControl = NULL;
-		CBusinessComboBox* pComboBoxControl = NULL;
-		CBusinessCheckBox* pCheckBoxControl = NULL;
-
-		const int nBussinessType = 3;
-		bool ControlType[3] = {false,false,false}; 
-		const type_info &typeInfo = typeid(*pWnd);
-		string sTypeName = typeInfo.raw_name();
-		if (string::npos != sTypeName.find("CBusinessEdit"))
+		TraceConflict controlSet;
+		for (int j = 0; j < 3;j++)
 		{
-			ControlType[Business_Edit] = true;
-			pBusinessControl = dynamic_cast<CBusinessEdit*>(pWnd);
-			if(!pBusinessControl) continue;
-			sBusinessField = pBusinessControl->m_sBusinessField;
-		}
-		else if (string::npos != sTypeName.find("CBusinessComboBox"))
-		{
-			ControlType[Business_ComboBox] = true;
-			pComboBoxControl = dynamic_cast<CBusinessComboBox*>(pWnd);
-			if(!pComboBoxControl) continue;
-			sBusinessField = pComboBoxControl->m_sBusinessField;
-		}
-		else if (string::npos != sTypeName.find("CBusinessCheckBox"))
-		{
-			ControlType[Business_CheckBox] = true;
-			pCheckBoxControl = dynamic_cast<CBusinessCheckBox*>(pWnd);
-			if(!pCheckBoxControl) continue;
-			sBusinessField = pCheckBoxControl->m_sBusinessField;
-		}
-
-		map<string,CFieldDesc*>::iterator itFieldDesc = mapTableName2FieldDesc.find(sBusinessField);
-		if(mapTableName2FieldDesc.end() == itFieldDesc) continue;
-
-		CFieldDesc* pFieldDesc = itFieldDesc->second;
-		if (!pFieldDesc) continue;
-
-		char szValue[512] = {0}; 
-		pWnd->GetWindowTextA(szValue,512);
-
-		char szSQL[512] = {0}; 
-		if (pFieldDesc->m_strDataType == "string")
-		{
-			sprintf_s(szSQL,512," %s = '%s' ",sBusinessField.c_str(),szValue);
-			if (pFieldDesc->m_strFieldName.find("FutureContractName") != string::npos)
+			char sz[128] = {0};
+			sprintf_s(sz,128,"%s%d",szControl[j],i);
+			CWnd* pControl = m_mapBusiness2Control[sz];
+			//不支持 get<j>(controlSet) = pControl; 这种用法，无语
+			if (0 == j)
 			{
-				if (!CTradeDayPrimaryData::Instance().m_bNeed2UpdateFutureContractName)
-				{
-					CTradeDayPrimaryData::Instance().m_strFutureContractName_LastTime = CTradeDayPrimaryData::Instance().m_strFutureContractName;
-					CTradeDayPrimaryData::Instance().m_strFutureContractName = szValue;
-					if (CTradeDayPrimaryData::Instance().m_strFutureContractName_LastTime != CTradeDayPrimaryData::Instance().m_strFutureContractName)
-					{
-						CTradeDayPrimaryData::Instance().m_bNeed2UpdateFutureContractName = true;
-						CTradeDayPrimaryData::Instance().m_nPlace2UpdateFutureContractName = Place2UpdateFutureContractName;
-					}
-				}
+				get<0>(controlSet) = pControl;
+			}
+			else if (1 == j)
+			{
+				get<1>(controlSet) = pControl;
+			}
+			else if (2 == j)
+			{
+				get<2>(controlSet) = pControl;
 			}
 		}
-		else if (pFieldDesc->m_strDataType == "float" )
+
+		vConflict.push_back(controlSet);
+	}
+
+
+	map<string,CFieldDesc*>& mapTableName2FieldDesc = CDBDataManager::Instance().GetTableMeta(m_sBusiness);
+	for (int i = 0; i < vConflict.size();i++)
+	{
+		string sSQL = "update ";
+		sSQL += m_sBusiness;
+		sSQL += " set ";
+
+		string sSQLField = "";
+		TraceConflict& objConflict = vConflict[i];
+		CBusinessEdit* pNumber = dynamic_cast<CBusinessEdit*>(get<0>(objConflict));
+		if(!pNumber) continue;
 		{
-			sprintf_s(szSQL,512," %s = %s ", sBusinessField.c_str(), strcmp(szValue,"")?szValue:"0");
+			char sz[256] = {0};
+			sprintf_s(sz,256," %s = %d, ",pNumber->m_sBusinessField.c_str(),i);
+			sSQLField += sz;
 		}
-		else if( pFieldDesc->m_strDataType == "integer" || pFieldDesc->m_strDataType == "int")
+
+		CBusinessComboBox* pTimePeriod = dynamic_cast<CBusinessComboBox*>(get<1>(objConflict));
+		if(!pTimePeriod) continue;
 		{
-			if (ControlType[Business_ComboBox])
+			int nValue = pTimePeriod->GetCurSel();
+			char sz[256] = {0};
+			sprintf_s(sz,256," %s = %d, ",pTimePeriod->m_sBusinessField.c_str(),nValue);
+			sSQLField += sz;
+		}
+
+		CBusinessEdit* pDetailedDescription = dynamic_cast<CBusinessEdit*>(get<2>(objConflict));
+		if(!pDetailedDescription) continue;
+		{
+			char sz[256] = {0};
+			CString strText = "";
+			pDetailedDescription->GetWindowTextA(strText);
+			sprintf_s(sz,256," %s = '%s' ",pDetailedDescription->m_sBusinessField.c_str(),strText);
+			sSQLField += sz;
+		}
+
+		sSQL += sSQLField;
+		if (CTradeDayPrimaryData::Instance().m_bNeed2UpdateFutureContractName)
+		{
+			char sz[256] = {0};
+			sprintf_s(sz,256,", FutureContractName = '%s'",CTradeDayPrimaryData::Instance().m_strFutureContractName.c_str());
+			sSQL += sz;
+		}
+		
+		sSQL += " where ";
+
+		vector<CFieldDesc*> vPrimaryKey;
+		CDBDataManager::Instance().GetPrimaryKey(m_sBusiness,vPrimaryKey);
+
+		string strPrimaryKeyClause = "";
+		for (int j = 0; j < vPrimaryKey.size();j++)
+		{
+			char sz[256] = {0};
+			CFieldDesc* pFieldDesc = vPrimaryKey[j];
+			if(!pFieldDesc) continue;
+
+			if (pFieldDesc->m_strFieldName.find("TradeDay") != string::npos)
 			{
-				int nValue = -1;
-				bool bFindValue = pComboBoxControl->GetValueByTranslation(szValue,nValue);
-				sprintf_s(szSQL,512," %s = %d ", sBusinessField.c_str(), nValue);
+				sprintf_s(sz,256,"%s = '%s'",pFieldDesc->m_strFieldName.c_str(),CTradeDayPrimaryData::Instance().m_strTradeDay.c_str());
 			}
-			else if (ControlType[Business_CheckBox])
+			else if (pFieldDesc->m_strFieldName.find("FutureContractName") != string::npos)
 			{
-				int nValue = pCheckBoxControl->GetCheck();
-				sprintf_s(szSQL,512," %s = %d ", sBusinessField.c_str(), nValue);
+				sprintf_s(sz,256,"%s = '%s'",pFieldDesc->m_strFieldName.c_str(),CTradeDayPrimaryData::Instance().m_strFutureContractName_LastTime.c_str());
+			}
+			else if (pFieldDesc->m_strFieldName.find("number") != string::npos)
+			{
+				sprintf_s(sz,256,"%s = %d",pFieldDesc->m_strFieldName.c_str(),i);
+			}
+
+			if (vPrimaryKey.size() - 1 != j)
+			{
+				strPrimaryKeyClause += sz;
+				strPrimaryKeyClause += " and ";
 			}
 			else
 			{
-				sprintf_s(szSQL,512," %s = %s ", sBusinessField.c_str(), strcmp(szValue,"")?szValue:"0");
+				strPrimaryKeyClause += sz;
+			}	
+		}
+
+		sSQL += strPrimaryKeyClause;
+		CDBDataManager::Instance().Exec(sSQL);
+
+		if (vConflict.size() - 1 == i)
+		{
+			if (CTradeDayPrimaryData::Instance().m_bNeed2UpdateFutureContractName)
+			{
+				CTradeDayPrimaryData::Instance().m_Synchronize[UI_DailyTraceConflict] = true;
+				if (CTradeDayPrimaryData::Instance().m_Synchronize[UI_MinorCycleAnalyze] &&
+					CTradeDayPrimaryData::Instance().m_Synchronize[UI_DailyTraceEvidence] &&
+					CTradeDayPrimaryData::Instance().m_Synchronize[UI_DailyTraceConflict])
+				{
+					for (int k = 0;k < Place2UpdateFutureContractName;k++)
+					{
+						CTradeDayPrimaryData::Instance().m_Synchronize[k] = false;
+					}
+					CTradeDayPrimaryData::Instance().m_bNeed2UpdateFutureContractName = false;
+				}
 			}
 		}
-
-		sSQL += szSQL;
-		if (m_mapBusiness2Control.size() != nUIControlCount)
-		{
-			sSQL += ",";
-		}
-		else
-		{
-			sSQL += " ";
-		}
-
 	}
-
-	sSQL += " where ";
-
-	vector<CFieldDesc*> vPrimaryKey;
-	CDBDataManager::Instance().GetPrimaryKey(m_sBusiness,vPrimaryKey);
-
-	string strPrimaryKeyClause = "";
-	for (int i = 0; i < vPrimaryKey.size();i++)
-	{
-		char sz[256] = {0};
-		CFieldDesc* pFieldDesc = vPrimaryKey[i];
-		if(!pFieldDesc) continue;
-
-		if (pFieldDesc->m_strFieldName.find("TradeDay") != string::npos)
-		{
-			sprintf_s(sz,256,"%s = '%s'",pFieldDesc->m_strFieldName.c_str(),CTradeDayPrimaryData::Instance().m_strTradeDay.c_str());
-		}
-		else if (pFieldDesc->m_strFieldName.find("FutureContractName") != string::npos)
-		{
-			sprintf_s(sz,256,"%s = '%s'",pFieldDesc->m_strFieldName.c_str(),CTradeDayPrimaryData::Instance().m_strFutureContractName_LastTime.c_str());
-		}
-
-		if (vPrimaryKey.size() - 1 != i)
-		{
-			strPrimaryKeyClause += sz;
-			strPrimaryKeyClause += " and ";
-		}
-		else
-		{
-			strPrimaryKeyClause += sz;
-		}	
-	}
-
-	sSQL += strPrimaryKeyClause;
-	CDBDataManager::Instance().Exec(sSQL);
 }
 
 void CDialogFutureContract_DailyTraceConflict::UpdateDB2UI(CDataSet& ds,int index)
 {
-	CRecord* pRecord = ds[0];
 	map<string,CFieldDesc*>& mapTableName2FieldDesc = CDBDataManager::Instance().GetTableMeta(m_sBusiness);
-	for(map<string,CWnd*>::iterator it = m_mapBusiness2Control.begin();
-		it != m_mapBusiness2Control.end();it++)
+	for (int i = 0; i < ds.Size();i++)
 	{
-		string sCaption = it->first;
-		CWnd* pWnd = it->second;
-		string sBusinessField = "";
-		//截至目前，有3中Business 字段类型
-		CBusinessEdit* pBusinessControl = NULL;
-		CBusinessComboBox* pComboBoxControl = NULL;
-		CBusinessCheckBox* pCheckBoxControl = NULL;
-
-		const int nBussinessType = 3;
-		bool ControlType[3] = {false,false,false}; 
-		const type_info &typeInfo = typeid(*pWnd);
-		string sTypeName = typeInfo.raw_name();
-		if (string::npos != sTypeName.find("CBusinessEdit"))
+		CRecord* pRecord = ds[i];
+		if(!pRecord) continue;
+		vector<CField*> vField;
+		pRecord->GetSortedFieldSet(vField);
+		string sTechnicalIndexMeaning = "";
+		string sTranslation = "";
+		for (int j = 0; j < vField.size();j++)
 		{
-			ControlType[Business_Edit] = true;
-			pBusinessControl = dynamic_cast<CBusinessEdit*>(pWnd);
-			if(!pBusinessControl) continue;
-			sBusinessField = pBusinessControl->m_sBusinessField;
-		}
-		else if (string::npos != sTypeName.find("CBusinessComboBox"))
-		{
-			ControlType[Business_ComboBox] = true;
-			pComboBoxControl = dynamic_cast<CBusinessComboBox*>(pWnd);
-			if(!pComboBoxControl) continue;
-			sBusinessField = pComboBoxControl->m_sBusinessField;
-		}
-		else if (string::npos != sTypeName.find("CBusinessCheckBox"))
-		{
-			ControlType[Business_CheckBox] = true;
-			pCheckBoxControl = dynamic_cast<CBusinessCheckBox*>(pWnd);
-			if(!pCheckBoxControl) continue;
-			sBusinessField = pCheckBoxControl->m_sBusinessField;
-		}
+			CField* pField = vField[j];
+			if(!pField) continue;
+			CFieldDesc* pFieldDesc = pField->GetFieldDesc();
+			if (!pFieldDesc) continue;
 
-
-		//根据FieldID 找到 CFieldDesc
-		map<string,CFieldDesc*>::iterator itFieldDesc = mapTableName2FieldDesc.find(sBusinessField);
-		if(mapTableName2FieldDesc.end() == itFieldDesc) continue;
-
-		CFieldDesc* pFieldDesc = itFieldDesc->second;
-		if (!pFieldDesc) continue;
-
-		//根据FieldDesc 找到 CField
-		CField* pField = pRecord->GetField(pFieldDesc->m_strFieldName);
-		if(!pField) return;
-
-		CString strValue = "";
-		const string strDataType = pFieldDesc->m_strDataType;
-		const string strDisplayType = pFieldDesc->GetAttributeString("DisplayType");
-		if (strDataType.find("string") != string::npos)
-		{
-			string sValue = pField->GetValueAsString();
-			strValue.Format(strDisplayType.c_str(),sValue.c_str());
-		}
-		else if (strDataType.find("int") != string::npos)
-		{
-			int nValue = pField->GetValueAsInt();
-			if (ControlType[Business_ComboBox])
+			string strFieldName = pField->GetFieldDesc()->m_strFieldName;
+			char szControlID[128] = {0};
+			sprintf_s(szControlID,128,"%s%d",strFieldName.c_str(),i);
+			map<string,CWnd*>::iterator itControl = m_mapBusiness2Control.find(szControlID);
+			if (m_mapBusiness2Control.end() == itControl)
 			{
-				string sMeaning = "";
-				bool bFindValue = pComboBoxControl->GetTranslation(nValue,sMeaning);
-				strValue = sMeaning.c_str();
+				continue;
 			}
-			else if (ControlType[Business_CheckBox])
-			{
-				pCheckBoxControl->SetCheck(nValue);
-				pCheckBoxControl->GetWindowTextA(strValue);
-			}
-			else if(ControlType[Business_Edit])
-			{
-				CString sText = "";
-				pBusinessControl->GetWindowTextA(sText);
-				strValue = sText;
-			}
-			else
-			{
-				strValue.Format(strDisplayType.c_str(),nValue);
-			}	
 
-		}
-		else if (strDataType.find("float") != string::npos)
-		{
-			strValue.Format(strDisplayType.c_str(),pField->GetValueAsFloat());
-		}
-		else if (strDataType.find("double") != string::npos)
-		{
-			strValue.Format(strDisplayType.c_str(),pField->GetValueAsDouble());
+			string sCaption = itControl->first;
+			CWnd* pWnd = itControl->second;
+			string sBusinessField = "";
+			//截至目前，有3中Business 字段类型
+			CBusinessEdit* pBusinessControl = NULL;
+			CBusinessComboBox* pComboBoxControl = NULL;
+			CBusinessCheckBox* pCheckBoxControl = NULL;
+
+			const int nBussinessType = 3;
+			bool ControlType[3] = {false,false,false}; 
+			const type_info &typeInfo = typeid(*pWnd);
+			string sTypeName = typeInfo.raw_name();
+			if (string::npos != sTypeName.find("CBusinessEdit"))
+			{
+				ControlType[Business_Edit] = true;
+				pBusinessControl = dynamic_cast<CBusinessEdit*>(pWnd);
+				if(!pBusinessControl) continue;
+				sBusinessField = pBusinessControl->m_sBusinessField;
+			}
+			else if (string::npos != sTypeName.find("CBusinessComboBox"))
+			{
+				ControlType[Business_ComboBox] = true;
+				pComboBoxControl = dynamic_cast<CBusinessComboBox*>(pWnd);
+				if(!pComboBoxControl) continue;
+				sBusinessField = pComboBoxControl->m_sBusinessField;
+			}
+			else if (string::npos != sTypeName.find("CBusinessCheckBox"))
+			{
+				ControlType[Business_CheckBox] = true;
+				pCheckBoxControl = dynamic_cast<CBusinessCheckBox*>(pWnd);
+				if(!pCheckBoxControl) continue;
+				sBusinessField = pCheckBoxControl->m_sBusinessField;
+			}
+
+			CString strValue = "";
+			const string strDataType = pFieldDesc->m_strDataType;
+			const string strDisplayType = pFieldDesc->GetAttributeString("DisplayType");
+			if (strDataType.find("string") != string::npos)
+			{
+				string sValue = pField->GetValueAsString();
+				strValue.Format(strDisplayType.c_str(),sValue.c_str());
+			}
+			else if (strDataType.find("int") != string::npos)
+			{
+				int nValue = pField->GetValueAsInt();
+				if (ControlType[Business_ComboBox])
+				{
+					string strControlID = szControlID;
+					if (string::npos != strFieldName.find("TechnicalIndex"))
+					{
+						bool bFindValue = pComboBoxControl->GetMeaning(nValue,sTechnicalIndexMeaning);
+						bFindValue = pComboBoxControl->GetTranslation(nValue,sTranslation);
+						pComboBoxControl->SetCurSel(nValue);
+						strValue = sTranslation.c_str();
+					}
+					else
+					{
+						bool bFindValue = pComboBoxControl->GetTranslation(nValue,sTranslation);
+						pComboBoxControl->SetCurSel(nValue);
+						strValue = sTranslation.c_str();
+					}
+
+				}
+				else if (ControlType[Business_CheckBox])
+				{
+					pCheckBoxControl->SetCheck(nValue);
+					pCheckBoxControl->GetWindowTextA(strValue);
+				}
+				else if(ControlType[Business_Edit])
+				{
+					CString sText = "";
+					pBusinessControl->GetWindowTextA(sText);
+					strValue = sText;
+				}
+				else
+				{
+					strValue.Format(strDisplayType.c_str(),nValue);
+				}
+
+			}
+			else if (strDataType.find("float") != string::npos)
+			{
+				strValue.Format(strDisplayType.c_str(),pField->GetValueAsFloat());
+			}
+			else if (strDataType.find("double") != string::npos)
+			{
+				strValue.Format(strDisplayType.c_str(),pField->GetValueAsDouble());
+			}
+
+			pWnd->SetWindowTextA(strValue);
 		}
 
-		pWnd->SetWindowTextA(strValue);
 	}
 }

@@ -7,7 +7,15 @@ using namespace std;
 //需要更新 FutureContractName 的地方
 //1.MinorCycleAnalyze
 //2.Future_DailyTraceEvidence
-#define Place2UpdateFutureContractName 2
+//3.Future_DailyTraceConflict
+#define Place2UpdateFutureContractName 3
+
+enum  ESynchronizeBusiness
+{
+	UI_MinorCycleAnalyze,
+	UI_DailyTraceEvidence,
+	UI_DailyTraceConflict,
+};
 
 //交易日主数据
 class EXPORT_CALSS CTradeDayPrimaryData
@@ -25,6 +33,8 @@ public:
 	string  m_strFutureContractName_LastTime;  //上次更新时记录的FutureContractName
 	string  m_strFutureContractName;           //上次更新时记录的FutureContractName
 	bool    m_bNeed2UpdateFutureContractName;
-	int     m_nPlace2UpdateFutureContractName;  //需要更新FutureContractName 的地方
+	//当 m_bNeed2UpdateFutureContractName 值为true时， 
+	// m_Synchronize[X] = true 表示已同步, m_Synchronize[X] = false 表示未同步
+	bool    m_Synchronize[Place2UpdateFutureContractName];  
 
 };

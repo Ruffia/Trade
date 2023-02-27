@@ -23,9 +23,11 @@
 		<widget Name="Trend_Day" ClassName="CBusinessEdit"  ID="10013" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN" Left="400" Top="60" Width="282" Height="25" business="Trend_Day"/>
 		
 		<widget Name="Trend_4HCaption" ClassName="CEdit" ID="100014" Caption="4H线" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN|ES_READONLY" Left="2" Top="85" Width="40" Height="25" />
-		<widget Name="Trend_4H" ClassName="CBusinessEdit"  ID="10015" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN" Left="42" Top="85" Width="432" Height="25" business="Trend_4H"/>
+		<widget Name="Trend_4H" ClassName="CBusinessEdit"  ID="10015" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN" Left="42" Top="85" Width="380" Height="25" business="Trend_4H"/>
 		
-		<widget Name="EmotionalFeelingCaption" ClassName="CEdit" ID="10016" Caption="情绪感受" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN|ES_READONLY" Left="472" Top="85" Width="60" Height="25" />
-		<widget Name="EmotionalFeeling" ClassName="CBusinessEdit" ID="10017" Caption="" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN" Left="532" Top="85" Width="150" Height="25" business="EmotionalFeeling"/>
+		<widget Name="EmotionalFeelingCaption" ClassName="CEdit" ID="10016" Caption="情绪感受" Style="WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP|ES_LEFT|ES_MULTILINE|ES_WANTRETURN|ES_READONLY" Left="422" Top="85" Width="60" Height="25" />
+		<widget Name="EmotionFeeling" ClassName="CBusinessComboBox"  ID="10017" Caption="" Style="WS_CHILD|WS_VISIBLE|CBS_DROPDOWN|CBS_OEMCONVERT" Left="482" Top="85" Width="200" Height="200" business="EmotionalFeeling">
+			<Dropdown Subject="EmotionFeeling" />
+		</widget>	
 	</Layout>
 </root>

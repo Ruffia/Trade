@@ -202,15 +202,7 @@ void CDialogTabItem_MinorCycleAnalyze::UpdateUI2DB()
 		}
 		else if (pFieldDesc->m_strFieldName.find("FutureContractName") != string::npos)
 		{
-			sprintf_s(sz,256,"%s = '%s'",pFieldDesc->m_strFieldName.c_str(),CTradeDayPrimaryData::Instance().m_strFutureContractName_LastTime.c_str());
-			if (CTradeDayPrimaryData::Instance().m_bNeed2UpdateFutureContractName)
-			{
-				CTradeDayPrimaryData::Instance().m_nPlace2UpdateFutureContractName--;
-				if (0 == CTradeDayPrimaryData::Instance().m_nPlace2UpdateFutureContractName)
-				{
-					CTradeDayPrimaryData::Instance().m_bNeed2UpdateFutureContractName = false;
-				}			
-			}		
+			sprintf_s(sz,256,"%s = '%s'",pFieldDesc->m_strFieldName.c_str(),CTradeDayPrimaryData::Instance().m_strFutureContractName_LastTime.c_str());		
 		}
 		else if (pFieldDesc->m_strFieldName.find("RecordTime") != string::npos)
 		{

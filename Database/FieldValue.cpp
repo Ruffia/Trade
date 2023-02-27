@@ -64,5 +64,5 @@ void FieldValue::SetValueString(const char* sValue)
 {
 	//_value.sValue = new char[strlen(sValue) + 1];
 	memset(_value.sValue,0,strlen(sValue) + 1);
-	strcpy(_value.sValue,sValue);
+	strcpy_s(_value.sValue,512,sValue);
 }

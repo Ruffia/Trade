@@ -76,6 +76,10 @@ CBusinessComboBox_TechnicalIndex::CBusinessComboBox_TechnicalIndex()
 {}
 
 
+CBusinessComboBoxConflict::CBusinessComboBoxConflict()
+{}
+
+
 CBusinessComboBox_TimePeriod::CBusinessComboBox_TimePeriod()
 {}
 

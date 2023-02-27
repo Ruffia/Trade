@@ -27,6 +27,7 @@ const UINT uiLastUserToolBarId = uiFirstUserToolBarId + iMaxUserToolbars - 1;
 
 BEGIN_MESSAGE_MAP(CMainFrame, CMDIFrameWndEx)
 	ON_WM_CREATE()
+	ON_WM_CLOSE()
 	ON_COMMAND(ID_WINDOW_MANAGER, &CMainFrame::OnWindowManager)
 	ON_COMMAND(ID_VIEW_CUSTOMIZE, &CMainFrame::OnViewCustomize)
 	ON_REGISTERED_MESSAGE(AFX_WM_CREATETOOLBAR, &CMainFrame::OnToolbarCreateNew)
@@ -176,6 +177,13 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	ModifyStyle(0, FWS_PREFIXTITLE);
 
 	return 0;
+}
+
+
+void CMainFrame::OnClose()
+{
+	GetActiveFrame()->GetActiveView()->KillTimer(Timer_SaveData2UI);
+	CFrameWnd::OnClose();
 }
 
 BOOL CMainFrame::PreCreateWindow(CREATESTRUCT& cs)

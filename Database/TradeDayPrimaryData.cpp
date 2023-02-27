@@ -8,7 +8,10 @@ CTradeDayPrimaryData::CTradeDayPrimaryData()
 	m_strFutureContractName_LastTime = "";
 	m_strFutureContractName = "";
 	m_bNeed2UpdateFutureContractName = false;
-	m_nPlace2UpdateFutureContractName = 0;
+	for (int i = 0;i < Place2UpdateFutureContractName;i++)
+	{
+		m_Synchronize[i] = false;
+	}
 }
 
 CTradeDayPrimaryData& CTradeDayPrimaryData::Instance()

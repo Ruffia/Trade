@@ -35,6 +35,11 @@ public:
 	CBusinessComboBox_TechnicalIndex();
 };
 
+class CBusinessComboBoxConflict:public CBusinessComboBox
+{
+public:
+	CBusinessComboBoxConflict();
+};
 
 class CBusinessComboBox_TimePeriod:public CBusinessComboBox
 {

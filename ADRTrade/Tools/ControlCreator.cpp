@@ -66,6 +66,7 @@ void CControlCreator_CBusinessEditNumber::Create(const CUIData &data,const strin
 }
 
 
+IMPLEMENT_FACTORY(IControlCreator,CControlCreator_CBusinessEditConflictDetailedDescription,string,"CBusinessEdit_ConflictDetailedDescription")
 
 IMPLEMENT_FACTORY(IControlCreator,CControlCreator_CBusinessComboBox,string,"CBusinessComboBox")
 void CControlCreator_CBusinessComboBox::Create(const CUIData &data,const string& sName, const string &sCaption, DWORD dwTotalStyle,
@@ -171,6 +172,7 @@ void CControlCreator_CBusinessComboBoxTechnicalIndex::Create(const CUIData &data
 	mapUIName2Wnd[sName] = pCombox;	
 }
 
+IMPLEMENT_FACTORY(IControlCreator,CControlCreator_CBusinessComboBoxConflict,string,"CBusinessComboBox_Conflict")
 
 IMPLEMENT_FACTORY(IControlCreator,CControlCreator_CBusinessComboBoxTimePeriod,string,"CBusinessComboBox_TimePeriod")
 void CControlCreator_CBusinessComboBoxTimePeriod::Create(const CUIData &data,const string& sName, const string &sCaption, DWORD dwTotalStyle,
