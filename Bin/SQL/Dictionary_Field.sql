@@ -10,7 +10,7 @@
  Target Server Version : 3035005 (3.35.5)
  File Encoding         : 65001
 
- Date: 21/02/2023 14:44:13
+ Date: 06/03/2023 10:14:36
 */
 
 PRAGMA foreign_keys = false;
@@ -177,5 +177,11 @@ INSERT INTO "Dictionary_Field" VALUES (4, 'StockMarketTemperature', 'MajorityFal
 INSERT INTO "Dictionary_Field" VALUES (5, 'StockMarketTemperature', 'MostFall', '普跌，市场情绪悲观');
 INSERT INTO "Dictionary_Field" VALUES (6, 'StockMarketTemperature', 'ManyFallSharply', '大面积暴跌，市场出现恐慌');
 INSERT INTO "Dictionary_Field" VALUES (7, 'StockMarketTemperature', 'ManyFallSharply', '连续多日下跌，绝望情绪蔓延');
+INSERT INTO "Dictionary_Field" VALUES (0, 'FailureReason', 'PlaceOrderEagerlyAndHotheadedly', '脑热，急切下单');
+INSERT INTO "Dictionary_Field" VALUES (1, 'FailureReason', 'NotThinkCarefullyOfSignalAndAngleConflict', '未仔细思考信号和角度冲突');
+INSERT INTO "Dictionary_Field" VALUES (2, 'FailureReason', 'NotThinkCarefullyOfSignalAndConflictOnTimePeriod', '未仔细思考信号及冲突的时间周期');
+INSERT INTO "Dictionary_Field" VALUES (3, 'FailureReason', 'Slow2ReactWhenEnvironmenChanged', '大环境已变化，反应慢');
+INSERT INTO "Dictionary_Field" VALUES (4, 'FailureReason', 'PlaceOrderConstrainedlyAsNotReconciled2LosingChance', '不甘心错失机会，勉强下单');
+INSERT INTO "Dictionary_Field" VALUES (5, 'FailureReason', 'NotExitEvenSignalTimePeriodExpired', '信号时间周期已过，但不退场');
 
 PRAGMA foreign_keys = true;
