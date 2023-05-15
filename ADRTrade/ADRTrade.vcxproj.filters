@@ -195,6 +195,12 @@
     <ClInclude Include="Tools\ControlCreator.h">
       <Filter>Tools</Filter>
     </ClInclude>
+    <ClInclude Include="ADRTradeRecordDoc.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ADRTradeRecordView.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ADRTrade.cpp">
@@ -349,6 +355,12 @@
     </ClCompile>
     <ClCompile Include="Tools\ControlCreator.cpp">
       <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="ADRTradeRecordDoc.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ADRTradeRecordView.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

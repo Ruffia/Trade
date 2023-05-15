@@ -116,6 +116,8 @@
     <ClInclude Include="ADRTrade.h" />
     <ClInclude Include="ADRTradeDayDoc.h" />
     <ClInclude Include="ADRTradeDayView.h" />
+    <ClInclude Include="ADRTradeRecordDoc.h" />
+    <ClInclude Include="ADRTradeRecordView.h" />
     <ClInclude Include="ChildFrm.h" />
     <ClInclude Include="DialogIDManager.h" />
     <ClInclude Include="Future\CustomTabCtrlDlg_DailyMinorCycleAnalyze.h" />
@@ -173,6 +175,8 @@
     <ClCompile Include="ADRTrade.cpp" />
     <ClCompile Include="ADRTradeDayDoc.cpp" />
     <ClCompile Include="ADRTradeDayView.cpp" />
+    <ClCompile Include="ADRTradeRecordDoc.cpp" />
+    <ClCompile Include="ADRTradeRecordView.cpp" />
     <ClCompile Include="ChildFrm.cpp" />
     <ClCompile Include="DialogIDManager.cpp" />
     <ClCompile Include="Future\CustomTabCtrlDlg_DailyMinorCycleAnalyze.cpp" />
