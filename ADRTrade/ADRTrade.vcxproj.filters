@@ -201,6 +201,9 @@
     <ClInclude Include="ADRTradeRecordView.h">
       <Filter>源文件</Filter>
     </ClInclude>
+    <ClInclude Include="DocumentTemplateManager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ADRTrade.cpp">
@@ -360,6 +363,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="ADRTradeRecordView.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DocumentTemplateManager.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

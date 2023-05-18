@@ -120,6 +120,7 @@
     <ClInclude Include="ADRTradeRecordView.h" />
     <ClInclude Include="ChildFrm.h" />
     <ClInclude Include="DialogIDManager.h" />
+    <ClInclude Include="DocumentTemplateManager.h" />
     <ClInclude Include="Future\CustomTabCtrlDlg_DailyMinorCycleAnalyze.h" />
     <ClInclude Include="Future\DialogPlaceHolder_DailyTraceConflict.h" />
     <ClInclude Include="Future\DialogPlaceHolder_DailyTraceEvidence.h" />
@@ -179,6 +180,7 @@
     <ClCompile Include="ADRTradeRecordView.cpp" />
     <ClCompile Include="ChildFrm.cpp" />
     <ClCompile Include="DialogIDManager.cpp" />
+    <ClCompile Include="DocumentTemplateManager.cpp" />
     <ClCompile Include="Future\CustomTabCtrlDlg_DailyMinorCycleAnalyze.cpp" />
     <ClCompile Include="Future\DialogPlaceHolder_DailyTraceConflict.cpp" />
     <ClCompile Include="Future\DialogPlaceHolder_DailyTraceEvidence.cpp" />

@@ -62,6 +62,7 @@
 using namespace Gdiplus;
 
 #include "resource.h"
+#include "afxres.h"
 
 #define Timer_SaveData2UI  5000
 

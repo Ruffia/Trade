@@ -29,12 +29,16 @@ public:
 	UINT  m_nAppLook;
 	BOOL  m_bHiColorIcons;
 
+	afx_msg void OnFileNew();
 	virtual void PreLoadState();
 	virtual void LoadCustomState();
 	virtual void SaveCustomState();
 
 	afx_msg void OnAppAbout();
 	DECLARE_MESSAGE_MAP()
+
+protected:
+	BOOL _InitDocumentTemplateList();
 };
 
 extern CADRTradeApp theApp;

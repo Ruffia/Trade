@@ -11,8 +11,11 @@
 #include "ChildFrm.h"
 #include "ADRTradeDayDoc.h"
 #include "ADRTradeDayView.h"
+#include "ADRTradeRecordDoc.h"
+#include "ADRTradeRecordView.h"
 #include "DBDataManager.h"
 #include "Tools/StyleManager.h"
+#include "DocumentTemplateManager.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -24,7 +27,7 @@
 BEGIN_MESSAGE_MAP(CADRTradeApp, CWinAppEx)
 	ON_COMMAND(ID_APP_ABOUT, &CADRTradeApp::OnAppAbout)
 	// 基于文件的标准文档命令
-	ON_COMMAND(ID_FILE_NEW, &CWinAppEx::OnFileNew)
+	ON_COMMAND(ID_FILE_NEW, &CADRTradeApp::OnFileNew)
 	ON_COMMAND(ID_FILE_OPEN, &CWinAppEx::OnFileOpen)
 	// 标准打印设置命令
 	ON_COMMAND(ID_FILE_PRINT_SETUP, &CWinAppEx::OnFilePrintSetup)
@@ -113,16 +116,10 @@ BOOL CADRTradeApp::InitInstance()
 
 	CDBDataManager::Instance().InitializeDatabase("TradeTrack.db");
 	CStyleMgr::Instance().Initialize();
-	// 注册应用程序的文档模板。文档模板
-	// 将用作文档、框架窗口和视图之间的连接
-	CMultiDocTemplate* pDocTemplate;
-	pDocTemplate = new CMultiDocTemplate(IDR_ADRTradeDay,
-		RUNTIME_CLASS(CADRTradeDayDoc),
-		RUNTIME_CLASS(CChildFrame), // 自定义 MDI 子框架
-		RUNTIME_CLASS(CADRTradeDayView));
-	if (!pDocTemplate)
-		return FALSE;
-	AddDocTemplate(pDocTemplate);
+
+	_InitDocumentTemplateList();
+
+
 
 	// 创建主 MDI 框架窗口
 	CMainFrame* pMainFrame = new CMainFrame;
@@ -137,8 +134,8 @@ BOOL CADRTradeApp::InitInstance()
 	// 分析标准 shell 命令、DDE、打开文件操作的命令行
 	CCommandLineInfo cmdInfo;
 	ParseCommandLine(cmdInfo);
-
-
+	if(cmdInfo.m_nShellCommand==CCommandLineInfo::FileNew)
+		cmdInfo.m_nShellCommand=CCommandLineInfo::FileNothing;
 
 	// 调度在命令行中指定的命令。如果
 	// 用 /RegServer、/Register、/Unregserver 或 /Unregister 启动应用程序，则返回 FALSE。
@@ -221,6 +218,40 @@ void CADRTradeApp::SaveCustomState()
 {
 }
 
+BOOL CADRTradeApp::_InitDocumentTemplateList()
+{
+	{
+		CMultiDocTemplate* pDocTemplate = new CMultiDocTemplate(IDR_ADRTradeDay,
+			RUNTIME_CLASS(CADRTradeDayDoc),
+			RUNTIME_CLASS(CChildFrame), // 自定义 MDI 子框架
+			RUNTIME_CLASS(CADRTradeDayView));
+		if (!pDocTemplate)
+			return FALSE;
+		AddDocTemplate(pDocTemplate);
+
+		CDocumentTemplateManager::Instance().Register("TradeDay",pDocTemplate);
+	}
+
+
+	{
+		CMultiDocTemplate* pDocTemplate = new CMultiDocTemplate(IDR_ADRTradeRecord,
+			RUNTIME_CLASS(CADRTradeRecordDoc),
+			RUNTIME_CLASS(CChildFrame), // 自定义 MDI 子框架
+			RUNTIME_CLASS(CADRTradeRecordView));
+		if (!pDocTemplate)
+			return FALSE;
+		AddDocTemplate(pDocTemplate);
+		CDocumentTemplateManager::Instance().Register("TradeRecord",pDocTemplate);
+	}
+}
+
+
+void CADRTradeApp::OnFileNew()
+{
+	CMultiDocTemplate* pDocTemplate = CDocumentTemplateManager::Instance().GetDocumnetTemplate("TradeDay");
+	if (!pDocTemplate) return;
+	pDocTemplate->OpenDocumentFile(NULL);
+}
 // CADRTradeApp 消息处理程序
 
 
