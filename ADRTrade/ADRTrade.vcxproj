@@ -57,14 +57,15 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir);/Trade/Common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);/Trade/Common;../Common;../Source;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/Zm200 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <OutputFile>../Bin/ADRTrade.exe</OutputFile>
       <ProgramDatabaseFile>../Bin/ADRTradeD.pdb</ProgramDatabaseFile>
-      <AdditionalLibraryDirectories>../Bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../Bin;../Source/GraphicLibrary/GdiPlus;../lib/vc110;../Source/GraphicLibrary/OpenGL;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>GridD.lib;UtilityD.lib;DatabaseD.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Midl>
@@ -77,6 +78,9 @@
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
+    <Manifest>
+      <AdditionalManifestFiles>../Common/res/dpiAware.manifest;</AdditionalManifestFiles>
+    </Manifest>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -171,6 +175,7 @@
     <ClInclude Include="UIData.h" />
     <ClInclude Include="UIDataManager.h" />
     <ClInclude Include="ViewTree.h" />
+    <ClInclude Include="WeatherGlass\ChartDialogDlg.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ADRTrade.cpp" />
@@ -233,6 +238,7 @@
     <ClCompile Include="UIData.cpp" />
     <ClCompile Include="UIDataManager.cpp" />
     <ClCompile Include="ViewTree.cpp" />
+    <ClCompile Include="WeatherGlass\ChartDialogDlg.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="ADRTrade.rc" />

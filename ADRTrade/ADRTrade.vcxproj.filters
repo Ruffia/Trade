@@ -25,6 +25,9 @@
     <Filter Include="Future">
       <UniqueIdentifier>{172ef117-0b09-4b77-86f4-713ef43d8b35}</UniqueIdentifier>
     </Filter>
+    <Filter Include="WeatherGlass">
+      <UniqueIdentifier>{a17a3f55-d4db-45d7-9a05-5eb8eced828f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -204,6 +207,9 @@
     <ClInclude Include="DocumentTemplateManager.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="WeatherGlass\ChartDialogDlg.h">
+      <Filter>WeatherGlass</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ADRTrade.cpp">
@@ -367,6 +373,9 @@
     </ClCompile>
     <ClCompile Include="DocumentTemplateManager.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="WeatherGlass\ChartDialogDlg.cpp">
+      <Filter>WeatherGlass</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

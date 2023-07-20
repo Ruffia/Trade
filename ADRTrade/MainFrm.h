@@ -62,11 +62,14 @@ protected:
 	afx_msg void OnStockPool();
 	afx_msg void OnUpdateStockPool(CCmdUI* pCmdUI);
 
+	afx_msg void OnMenuWeatherglass();
+
 	DECLARE_MESSAGE_MAP()
 
 	BOOL CreateDockingWindows();
 	void SetDockingWindowIcons(BOOL bHiColorIcons);
 	virtual void _LoadLayout();
+
 };
 
 

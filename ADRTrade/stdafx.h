@@ -61,6 +61,12 @@
 #include "gdiplus.h"
 using namespace Gdiplus;
 
+#	define _XTP_EXCLUDE_CALENDAR
+#	define _XTP_EXCLUDE_SYNTAXEDIT
+#	define _XTP_EXCLUDE_GRIDCONTROL
+
+#	include <XTToolkitPro.h> // Codejock Chart components.
+
 #include "resource.h"
 #include "afxres.h"
 

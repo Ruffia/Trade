@@ -72,7 +72,6 @@
 #define IDR_THEME_MENU                  200
 #define ID_SET_STYLE                    201
 #define IDR_ADRTradeDay                 201
-#define IDR_ADRTradeDay1                202
 #define IDR_ADRTradeRecord              202
 #define ID_VIEW_APPLOOK_WIN_2000        205
 #define ID_VIEW_APPLOOK_OFF_XP          206
@@ -90,9 +89,16 @@
 #define IDS_FIND_TAB                    302
 #define IDS_EXPLORER                    305
 #define IDS_EDIT_MENU                   306
+#define IDD_CHARTDIALOG_DIALOG          310
 #define IDD_DLG_Tab                     441
 #define IDC_Tree                        1000
+#define IDC_CHARTCONTROL                1000
+#define IDC_COMBO_STYLE                 1001
 #define IDC_MultiSelect                 1002
+#define IDC_COMBO_APPEARANCE            1002
+#define IDC_COMBO_PALETTE               1003
+#define IDC_CHECK_LEGEND                1004
+#define IDC_STATIC_3DTEXT               1005
 #define IDC_TAB1                        6623
 #define IDC_Grid                        6631
 #define IDC_TAB                         6632
@@ -115,13 +121,15 @@
 #define ID_Menu_Judge                   32787
 #define ID_Open_StockPool               32788
 #define ID_Menu_OpenStockPool           32789
+#define ID_32790                        32790
+#define ID_Menu_WeatherGlass            32791
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        310
-#define _APS_NEXT_COMMAND_VALUE         32790
+#define _APS_NEXT_RESOURCE_VALUE        311
+#define _APS_NEXT_COMMAND_VALUE         32792
 #define _APS_NEXT_CONTROL_VALUE         1000
 #define _APS_NEXT_SYMED_VALUE           310
 #endif

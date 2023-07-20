@@ -12,6 +12,7 @@ using namespace std;
 #include "DialogIDManager.h"
 #include "../Common/Factory.h"
 #include "Util.h"
+#include "WeatherGlass/ChartDialogDlg.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -38,6 +39,7 @@ BEGIN_MESSAGE_MAP(CMainFrame, CMDIFrameWndEx)
 	ON_COMMAND(ID_Menu_OpenStockPool,&CMainFrame::OnStockPool)
 	ON_UPDATE_COMMAND_UI(ID_Menu_OpenStockPool,&CMainFrame::OnUpdateStockPool)
 	ON_WM_SETTINGCHANGE()
+	ON_COMMAND(ID_Menu_WeatherGlass, &CMainFrame::OnMenuWeatherglass)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -182,7 +184,7 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 
 void CMainFrame::OnClose()
 {
-	GetActiveFrame()->GetActiveView()->KillTimer(Timer_SaveData2UI);
+	//GetActiveFrame()->GetActiveView()->KillTimer(Timer_SaveData2UI);
 	CFrameWnd::OnClose();
 }
 
@@ -453,4 +455,12 @@ void CMainFrame::_LoadLayout()
 		m_mapUIName2Data[sName] = data;	
 		node = node.next_sibling();
 	}
+}
+
+
+void CMainFrame::OnMenuWeatherglass()
+{
+	// TODO: 在此添加命令处理程序代码
+	CChartDialogDlg dlg;
+	dlg.DoModal();
 }
