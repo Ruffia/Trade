@@ -864,9 +864,9 @@ STYLE DS_SETFONT | WS_CHILD | WS_VISIBLE | WS_THICKFRAME
 EXSTYLE WS_EX_APPWINDOW
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    CONTROL         "Custom1",IDC_CHARTCONTROL,"XTPChartControl",WS_TABSTOP,14,7,396,265
-    PUSHBUTTON      "<<",IDC_Btn_Previous,2,116,12,22
-    PUSHBUTTON      ">>",IDC_Btn_Next,411,127,12,22
+    CONTROL         "Custom1",IDC_CHARTCONTROL,"XTPChartControl",WS_TABSTOP,14,7,409,265
+    PUSHBUTTON      "<<",IDC_Btn_Previous,0,116,11,22
+    PUSHBUTTON      ">>",IDC_Btn_Next,423,127,12,22
 END
 
 
@@ -889,9 +889,6 @@ BEGIN
 
     IDD_WeatherGlass_Chart, DIALOG
     BEGIN
-        LEFTMARGIN, 2
-        RIGHTMARGIN, 429
-        VERTGUIDE, 428
         TOPMARGIN, 7
         BOTTOMMARGIN, 272
     END

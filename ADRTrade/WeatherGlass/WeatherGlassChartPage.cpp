@@ -20,11 +20,11 @@ void CChartPage_RiseFall::AddSeries()
 	CXTPChartSeries* pSeries = m_wndChartControl.GetContent()->GetSeries()->Add(
 		new CXTPChartSeries());
 
-	pSeries->GetPoints()->Add(new CXTPChartSeriesPoint(6, 4, 4));
-	pSeries->GetPoints()->Add(new CXTPChartSeriesPoint(7, 3.3, 3.3));
-	pSeries->GetPoints()->Add(new CXTPChartSeriesPoint(8, 2.8, 2.8))->m_bSpecial = TRUE;
-	pSeries->GetPoints()->Add(new CXTPChartSeriesPoint(9, 3.7, 3.7));
-	pSeries->GetPoints()->Add(new CXTPChartSeriesPoint(10, 1.9, 1.9));
+	pSeries->GetPoints()->Add(new CXTPChartSeriesPoint(1, 2.6, 2.6));
+	pSeries->GetPoints()->Add(new CXTPChartSeriesPoint(2, 3.9, 3.9));
+	pSeries->GetPoints()->Add(new CXTPChartSeriesPoint(3, 4.8, 4.8))->m_bSpecial = TRUE;
+	pSeries->GetPoints()->Add(new CXTPChartSeriesPoint(4, 3.7, 3.7));
+	pSeries->GetPoints()->Add(new CXTPChartSeriesPoint(5, 1.9, 1.9));
 }
 
 void CChartPage_RiseFall::ShowChart()
