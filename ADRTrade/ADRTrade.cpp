@@ -243,6 +243,8 @@ BOOL CADRTradeApp::_InitDocumentTemplateList()
 		AddDocTemplate(pDocTemplate);
 		CDocumentTemplateManager::Instance().Register("TradeRecord",pDocTemplate);
 	}
+
+	return TRUE;
 }
 
 

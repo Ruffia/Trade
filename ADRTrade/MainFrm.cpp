@@ -12,6 +12,7 @@ using namespace std;
 #include "DialogIDManager.h"
 #include "../Common/Factory.h"
 #include "Util.h"
+#include "WeatherGlass/WeatherGlass_TabCtrlDlg.h"
 #include "WeatherGlass/ChartDialogDlg.h"
 
 #ifdef _DEBUG
@@ -461,6 +462,6 @@ void CMainFrame::_LoadLayout()
 void CMainFrame::OnMenuWeatherglass()
 {
 	// TODO: 在此添加命令处理程序代码
-	CChartDialogDlg dlg;
+	CWeatherGlass_TabCtrlDlg dlg;
 	dlg.DoModal();
 }

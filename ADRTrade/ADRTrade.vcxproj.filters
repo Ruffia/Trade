@@ -210,6 +210,15 @@
     <ClInclude Include="WeatherGlass\ChartDialogDlg.h">
       <Filter>WeatherGlass</Filter>
     </ClInclude>
+    <ClInclude Include="WeatherGlass\WeatherGlassChartPage.h">
+      <Filter>WeatherGlass</Filter>
+    </ClInclude>
+    <ClInclude Include="WeatherGlass\ChartPageBase.h">
+      <Filter>WeatherGlass</Filter>
+    </ClInclude>
+    <ClInclude Include="WeatherGlass\WeatherGlass_TabCtrlDlg.h">
+      <Filter>WeatherGlass</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ADRTrade.cpp">
@@ -375,6 +384,15 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="WeatherGlass\ChartDialogDlg.cpp">
+      <Filter>WeatherGlass</Filter>
+    </ClCompile>
+    <ClCompile Include="WeatherGlass\WeatherGlassChartPage.cpp">
+      <Filter>WeatherGlass</Filter>
+    </ClCompile>
+    <ClCompile Include="WeatherGlass\ChartPageBase.cpp">
+      <Filter>WeatherGlass</Filter>
+    </ClCompile>
+    <ClCompile Include="WeatherGlass\WeatherGlass_TabCtrlDlg.cpp">
       <Filter>WeatherGlass</Filter>
     </ClCompile>
   </ItemGroup>

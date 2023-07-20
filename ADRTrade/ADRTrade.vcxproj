@@ -176,6 +176,9 @@
     <ClInclude Include="UIDataManager.h" />
     <ClInclude Include="ViewTree.h" />
     <ClInclude Include="WeatherGlass\ChartDialogDlg.h" />
+    <ClInclude Include="WeatherGlass\ChartPageBase.h" />
+    <ClInclude Include="WeatherGlass\WeatherGlassChartPage.h" />
+    <ClInclude Include="WeatherGlass\WeatherGlass_TabCtrlDlg.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ADRTrade.cpp" />
@@ -239,6 +242,9 @@
     <ClCompile Include="UIDataManager.cpp" />
     <ClCompile Include="ViewTree.cpp" />
     <ClCompile Include="WeatherGlass\ChartDialogDlg.cpp" />
+    <ClCompile Include="WeatherGlass\ChartPageBase.cpp" />
+    <ClCompile Include="WeatherGlass\WeatherGlassChartPage.cpp" />
+    <ClCompile Include="WeatherGlass\WeatherGlass_TabCtrlDlg.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="ADRTrade.rc" />

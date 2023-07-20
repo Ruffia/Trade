@@ -58,6 +58,7 @@
 #include <algorithm>
 #include <tuple>
 #include <random>
+using namespace std;
 #include "gdiplus.h"
 using namespace Gdiplus;
 
