@@ -19,7 +19,7 @@ public:
 
 	CCustomTabCtrl*	m_pTab;
 	int m_nCurSel;
-	vector<CDialog*> m_vPage; 
+	vector<CDialog*> m_vPage;  
 
 protected:
 	virtual BOOL OnInitDialog();

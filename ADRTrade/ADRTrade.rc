@@ -859,13 +859,12 @@ BEGIN
     LTEXT           "Hint: Drag 3D chart using right mouse key in order to rotate it. Use mouse wheel to zoom in and out.",IDC_STATIC_3DTEXT,285,114,97,40
 END
 
-IDD_WeatherGlass_Chart DIALOGEX 0, 0, 435, 279
-STYLE DS_SETFONT | WS_CHILD | WS_VISIBLE
+IDD_WeatherGlass_Chart DIALOGEX 0, 0, 436, 279
+STYLE DS_SETFONT | WS_CHILD | WS_VISIBLE | WS_THICKFRAME
 EXSTYLE WS_EX_APPWINDOW
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    CONTROL         "Custom1",IDC_CHARTCONTROL,"XTPChartControl",WS_TABSTOP,14,26,396,246
-    LTEXT           "Palette:",-1,12,14,75,8
+    CONTROL         "Custom1",IDC_CHARTCONTROL,"XTPChartControl",WS_TABSTOP,14,7,396,265
     PUSHBUTTON      "<<",IDC_Btn_Previous,2,116,12,22
     PUSHBUTTON      ">>",IDC_Btn_Next,411,127,12,22
 END
@@ -891,7 +890,7 @@ BEGIN
     IDD_WeatherGlass_Chart, DIALOG
     BEGIN
         LEFTMARGIN, 2
-        RIGHTMARGIN, 428
+        RIGHTMARGIN, 429
         VERTGUIDE, 428
         TOPMARGIN, 7
         BOTTOMMARGIN, 272

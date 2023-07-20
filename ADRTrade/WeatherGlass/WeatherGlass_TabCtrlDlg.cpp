@@ -73,7 +73,7 @@ BOOL CWeatherGlass_TabCtrlDlg::OnInitDialog()
 	GetClientRect(rcClient);
 
 	m_pTab = new CCustomTabCtrl;
-	CRect rcTab(rcClient.left + 17,rcClient.top + 27,rcClient.Width() - 20,rcClient.Height() - 20);
+	CRect rcTab(rcClient.left + 17,rcClient.top + 17,rcClient.Width() - 10,rcClient.Height() - 10);
 	m_pTab->Create(WS_CHILD|WS_VISIBLE|CTCS_DRAGMOVE|CTCS_TOP|CTCS_EDITLABELS|CTCS_CLOSEBUTTON|CTCS_AUTOHIDEBUTTONS|CTCS_MULTIHIGHLIGHT|CTCS_DRAGCOPY|CTCS_TOP,rcTab,this,IDC_TAB);
 	m_pTab->SetDragCursors(AfxGetApp()->LoadCursor(IDC_CURSORMOVE),AfxGetApp()->LoadCursor(IDC_CURSORCOPY));
 
@@ -96,11 +96,16 @@ BOOL CWeatherGlass_TabCtrlDlg::OnInitDialog()
 void CWeatherGlass_TabCtrlDlg::_InitPage(CRect& rcTab) 
 {
 	string subject[] = {"RiseFall","RiseFall2Limit"};
+
+	//设定在Tab内显示的范围
+	CRect rcHold;
+	rcHold.left = rcTab.left + 5;
+	rcHold.top = rcTab.top + 5;
+	rcHold.right = rcTab.right - 5;
+	rcHold.bottom = rcTab.bottom - 10;
+
 	for (int i = 0; i < 2;i++)
 	{
-		//设定在Tab内显示的范围
-		CRect rcHold(100,100,400,600);
-
 		CDialog* pDlg = Factory<CChartPageBase,string>::Instance().BuildProduct(subject[i]);
 		if(!pDlg) continue;
 
