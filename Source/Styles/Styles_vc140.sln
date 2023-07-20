@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Office2007", ".\Office2007\Office2007_vc140.vcxproj", "{75674693-4772-7314-2492-542521211227}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Office2010", ".\Office2010\Office2010_vc140.vcxproj", "{78928685-2325-9894-6721-594412897568}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Office2013", ".\Office2013\Office2013_vc140.vcxproj", "{93745329-9572-8196-3461-723365227518}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Office2016", ".\Office2016\Office2016_vc140.vcxproj", "{68243735-7249-2783-1544-227181359367}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VisualStudio2012", ".\VisualStudio2012\VisualStudio2012_vc140.vcxproj", "{55132783-4399-1882-9939-888789214825}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VisualStudio2015", ".\VisualStudio2015\VisualStudio2015_vc140.vcxproj", "{58366875-2954-4572-4358-841679711266}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VisualStudio2017", ".\VisualStudio2017\VisualStudio2017_vc140.vcxproj", "{84283519-9119-2665-1199-168533121215}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VisualStudio2019", ".\VisualStudio2019\VisualStudio2019_vc140.vcxproj", "{49581826-7767-6361-8162-564358263964}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VisualStudio2022", ".\VisualStudio2022\VisualStudio2022_vc140.vcxproj", "{46479984-4927-5551-8567-225967117622}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Windows10", ".\Windows10\Windows10_vc140.vcxproj", "{39714966-2672-7251-3886-287848714863}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Windows7", ".\Windows7\Windows7_vc140.vcxproj", "{64531711-9737-6343-8637-415792134813}"
+EndProject

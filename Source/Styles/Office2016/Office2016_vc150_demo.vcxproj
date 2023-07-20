@@ -1,0 +1,373 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectName>Office2016</ProjectName>
+    <ProjectGuid>{54487894-9186-8267-9265-728995269564}</ProjectGuid>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141_xp</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141_xp</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.40219.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\Release/vc150\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\Release/vc150\</IntDir>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</IgnoreImportLibrary>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\Release/vc150x64\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\Release/vc150x64\</IntDir>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</IgnoreImportLibrary>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <TargetName>Office2016</TargetName>
+    <PlatformToolset>v141_xp</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <TargetName>Office2016</TargetName>
+    <PlatformToolset>v141_xp</PlatformToolset>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <CustomBuildStep>
+      <Command>if exist "$(TargetPath)" if exist "../../../Workspace/*" copy "$(TargetPath)" "../../../bin/vc150/Styles"
+if exist "$(TargetPath)" if exist "../../../Workspace/*" copy "$(TargetPath)" "../../../Samples/ActiveX/Styles"
+if not exist "../../../Workspace/*" if exist "../../../bin/vc150/Styles" rmdir /q "../../../bin/vc150/Styles"&gt;nul
+if not exist "../../../Workspace/*" if exist "../../../Samples/ActiveX/Styles" rmdir /q "../../../Samples/ActiveX/Styles"&gt;nul &amp;&amp; rmdir /q "../../../Samples/ActiveX"&gt;nul
+</Command>
+      <Outputs>../../../bin/vc150/Styles/$(TargetName);../../../Samples/ActiveX/Styles/$(TargetName);%(Outputs)</Outputs>
+    </CustomBuildStep>
+    <Midl>
+      <TypeLibraryName>.\Release/vc150/Office2016.tlb</TypeLibraryName>
+      <HeaderFileName>
+      </HeaderFileName>
+    </Midl>
+    <ClCompile>
+      <Optimization>MinSpace</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <PreprocessorDefinitions>NDEBUG;WIN32;_WINDOWS;_USRDLL;XTPRESOURCE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <PrecompiledHeaderOutputFile>.\Release/vc150/Office2016.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\Release/vc150/</AssemblerListingLocation>
+      <ObjectFileName>.\Release/vc150/</ObjectFileName>
+      <ProgramDataBaseFileName>.\Release/vc150/</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;_AFXDLL;_XTP_INCLUDE_VERSION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>../../;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <ProgramDatabaseFile>
+      </ProgramDatabaseFile>
+      <NoEntryPoint>true</NoEntryPoint>
+      <ImportLibrary>.\Release/vc150/Office2016vc150.lib</ImportLibrary>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <CustomBuildStep>
+      <Command>if exist "$(TargetPath)" if exist "../../../Workspace/*" copy "$(TargetPath)" "../../../bin/vc150x64/Styles"
+if exist "$(TargetPath)" if exist "../../../Workspace/*" copy "$(TargetPath)" "../../../Samples/ActiveX/Styles"
+if not exist "../../../Workspace/*" if exist "../../../bin/vc150x64/Styles" rmdir /q "../../../bin/vc150x64/Styles"&gt;nul
+if not exist "../../../Workspace/*" if exist "../../../Samples/ActiveX/Styles" rmdir /q "../../../Samples/ActiveX/Styles"&gt;nul &amp;&amp; rmdir /q "../../../Samples/ActiveX"&gt;nul
+</Command>
+      <Outputs>../../../bin/vc150x64/Styles/$(TargetName);../../../Samples/ActiveX/Styles/$(TargetName);%(Outputs)</Outputs>
+    </CustomBuildStep>
+    <Midl>
+      <TargetEnvironment>X64</TargetEnvironment>
+      <TypeLibraryName>.\Release/vc150/Office2016.tlb</TypeLibraryName>
+      <HeaderFileName>
+      </HeaderFileName>
+    </Midl>
+    <ClCompile>
+      <Optimization>MinSpace</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <PreprocessorDefinitions>NDEBUG;WIN32;_WINDOWS;_USRDLL;XTPRESOURCE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <PrecompiledHeaderOutputFile>.\Release/vc150x64/Office2016.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\Release/vc150x64/</AssemblerListingLocation>
+      <ObjectFileName>.\Release/vc150x64/</ObjectFileName>
+      <ProgramDataBaseFileName>.\Release/vc150x64/</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;_AFXDLL;_XTP_INCLUDE_VERSION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>../../;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <ProgramDatabaseFile>
+      </ProgramDatabaseFile>
+      <NoEntryPoint>true</NoEntryPoint>
+      <ImportLibrary>.\Release/vc150x64/Office2016vc150x64.lib</ImportLibrary>
+      <TargetMachine>MachineX64</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Office2016.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\backstage-back-button-extralarge-rtl.png" />
+    <None Include="res\backstage-back-button-extralarge.png" />
+    <None Include="res\backstage-back-button-large-rtl.png" />
+    <None Include="res\backstage-back-button-large.png" />
+    <None Include="res\backstage-back-button-medium-rtl.png" />
+    <None Include="res\backstage-back-button-medium.png" />
+    <None Include="res\backstage-back-button-small-rtl.png" />
+    <None Include="res\backstage-back-button-small.png" />
+    <None Include="res\black-large-caligraphy.png" />
+    <None Include="Styles\Office2016\res\black-large-calligraphy.png" />
+    <None Include="res\black-large-circles.png" />
+    <None Include="res\black-large-circuit.png" />
+    <None Include="res\black-large-clouds.png" />
+    <None Include="res\black-large-diamonds.png" />
+    <None Include="res\black-large-doodle.png" />
+    <None Include="res\black-large-geometry.png" />
+    <None Include="res\black-large-lunch.png" />
+    <None Include="res\black-large-school.png" />
+    <None Include="res\black-large-spring.png" />
+    <None Include="res\black-large-stars.png" />
+    <None Include="res\black-large-straws.png" />
+    <None Include="res\black-large-tree.png" />
+    <None Include="res\black-large-under.png" />
+    <None Include="res\black-medium-caligraphy.png" />
+    <None Include="res\black-medium-circles.png" />
+    <None Include="res\black-medium-circuit.png" />
+    <None Include="res\black-medium-clouds.png" />
+    <None Include="res\black-medium-diamonds.png" />
+    <None Include="res\black-medium-doodle.png" />
+    <None Include="res\black-medium-lunch.png" />
+    <None Include="res\black-medium-school.png" />
+    <None Include="res\black-medium-signature.png" />
+    <None Include="res\black-medium-spring.png" />
+    <None Include="res\black-medium-stars.png" />
+    <None Include="res\black-medium-straws.png" />
+    <None Include="res\black-medium-tree.png" />
+    <None Include="res\black-medium-under.png" />
+    <None Include="res\black-small-caligraphy.png" />
+    <None Include="res\black-small-circles.png" />
+    <None Include="res\black-small-circuit.png" />
+    <None Include="res\black-small-clouds.png" />
+    <None Include="res\black-small-diamonds.png" />
+    <None Include="res\black-small-doodle.png" />
+    <None Include="res\black-small-geometry.png" />
+    <None Include="res\black-small-lunch.png" />
+    <None Include="res\black-small-school.png" />
+    <None Include="res\black-small-spring.png" />
+    <None Include="res\black-small-stars.png" />
+    <None Include="res\black-small-straws.png" />
+    <None Include="res\black-small-tree.png" />
+    <None Include="res\black-small-under.png" />
+    <None Include="res\colorful-large-caligraphy.png" />
+    <None Include="res\colorful-large-circles.png" />
+    <None Include="res\colorful-large-circuit.png" />
+    <None Include="res\colorful-large-clouds.png" />
+    <None Include="res\colorful-large-diamonds.png" />
+    <None Include="res\colorful-large-doodle.png" />
+    <None Include="res\colorful-large-geometry.png" />
+    <None Include="res\colorful-large-lunch.png" />
+    <None Include="res\colorful-large-school.png" />
+    <None Include="res\colorful-large-spring.png" />
+    <None Include="res\colorful-large-stars.png" />
+    <None Include="res\colorful-large-straws.png" />
+    <None Include="res\colorful-large-tree.png" />
+    <None Include="res\colorful-large-under.png" />
+    <None Include="res\colorful-medium-caligraphy.png" />
+    <None Include="res\colorful-medium-circles.png" />
+    <None Include="res\colorful-medium-circuit.png" />
+    <None Include="res\colorful-medium-clouds.png" />
+    <None Include="res\colorful-medium-diamonds.png" />
+    <None Include="res\colorful-medium-doodle.png" />
+    <None Include="res\colorful-medium-geometry.png" />
+    <None Include="res\colorful-medium-lunch.png" />
+    <None Include="res\colorful-medium-school.png" />
+    <None Include="res\colorful-medium-spring.png" />
+    <None Include="res\colorful-medium-stars.png" />
+    <None Include="res\colorful-medium-straws.png" />
+    <None Include="res\colorful-medium-tree.png" />
+    <None Include="res\colorful-medium-under.png" />
+    <None Include="res\colorful-small-caligraphy.png" />
+    <None Include="res\colorful-small-circles.png" />
+    <None Include="res\colorful-small-circuit.png" />
+    <None Include="res\colorful-small-clouds.png" />
+    <None Include="res\colorful-small-diamonds.png" />
+    <None Include="res\colorful-small-doodle.png" />
+    <None Include="res\colorful-small-geometry.png" />
+    <None Include="res\colorful-small-lunch.png" />
+    <None Include="res\colorful-small-school.png" />
+    <None Include="res\colorful-small-spring.png" />
+    <None Include="res\colorful-small-stars.png" />
+    <None Include="res\colorful-small-straws.png" />
+    <None Include="res\colorful-small-tree.png" />
+    <None Include="res\colorful-small-under.png" />
+    <None Include="res\dark-gray-large-caligraphy.png" />
+    <None Include="res\dark-gray-large-circles.png" />
+    <None Include="res\dark-gray-large-circuit.png" />
+    <None Include="res\dark-gray-large-clouds.png" />
+    <None Include="res\dark-gray-large-diamonds.png" />
+    <None Include="res\dark-gray-large-doodle.png" />
+    <None Include="res\dark-gray-large-geometry.png" />
+    <None Include="res\dark-gray-large-lunch.png" />
+    <None Include="res\dark-gray-large-school.png" />
+    <None Include="res\dark-gray-large-spring.png" />
+    <None Include="res\dark-gray-large-stars.png" />
+    <None Include="res\dark-gray-large-straws.png" />
+    <None Include="res\dark-gray-large-tree.png" />
+    <None Include="res\dark-gray-large-under.png" />
+    <None Include="res\dark-gray-medium-caligraphy.png" />
+    <None Include="res\dark-gray-medium-circles.png" />
+    <None Include="res\dark-gray-medium-circuit.png" />
+    <None Include="res\dark-gray-medium-clouds.png" />
+    <None Include="res\dark-gray-medium-diamonds.png" />
+    <None Include="res\dark-gray-medium-doodle.png" />
+    <None Include="res\dark-gray-medium-geometry.png" />
+    <None Include="res\dark-gray-medium-lunch.png" />
+    <None Include="res\dark-gray-medium-school.png" />
+    <None Include="res\dark-gray-medium-spring.png" />
+    <None Include="res\dark-gray-medium-stars.png" />
+    <None Include="res\dark-gray-medium-straws.png" />
+    <None Include="res\dark-gray-medium-tree.png" />
+    <None Include="res\dark-gray-medium-under.png" />
+    <None Include="res\dark-gray-small-caligraphy.png" />
+    <None Include="res\dark-gray-small-circles.png" />
+    <None Include="res\dark-gray-small-circuit.png" />
+    <None Include="res\dark-gray-small-clouds.png" />
+    <None Include="res\dark-gray-small-diamonds.png" />
+    <None Include="res\dark-gray-small-doodle.png" />
+    <None Include="res\dark-gray-small-geometry.png" />
+    <None Include="res\dark-gray-small-lunch.png" />
+    <None Include="res\dark-gray-small-school.png" />
+    <None Include="res\dark-gray-small-spring.png" />
+    <None Include="res\dark-gray-small-stars.png" />
+    <None Include="res\dark-gray-small-straws.png" />
+    <None Include="res\dark-gray-small-tree.png" />
+    <None Include="res\dark-gray-small-under.png" />
+    <None Include="res\TimeLineViewAppointmentIcon.png" />
+    <None Include="res\white-large-caligraphy.png" />
+    <None Include="res\white-large-circles.png" />
+    <None Include="res\white-large-circuit.png" />
+    <None Include="res\white-large-clouds.png" />
+    <None Include="res\white-large-diamonds.png" />
+    <None Include="res\white-large-doodle.png" />
+    <None Include="res\white-large-geometry.png" />
+    <None Include="res\white-large-lunch.png" />
+    <None Include="res\white-large-school.png" />
+    <None Include="res\white-large-spring.png" />
+    <None Include="res\white-large-stars.png" />
+    <None Include="res\white-large-straws.png" />
+    <None Include="res\white-large-tree.png" />
+    <None Include="res\white-large-under.png" />
+    <None Include="res\white-medium-caligraphy.png" />
+    <None Include="res\white-medium-circles.png" />
+    <None Include="res\white-medium-circuit.png" />
+    <None Include="res\white-medium-clouds.png" />
+    <None Include="res\white-medium-diamonds.png" />
+    <None Include="res\white-medium-doodle.png" />
+    <None Include="res\white-medium-geometry.png" />
+    <None Include="res\white-medium-lunch.png" />
+    <None Include="res\white-medium-school.png" />
+    <None Include="res\white-medium-spring.png" />
+    <None Include="res\white-medium-stars.png" />
+    <None Include="res\white-medium-straws.png" />
+    <None Include="res\white-medium-tree.png" />
+    <None Include="res\white-medium-under.png" />
+    <None Include="res\white-small-caligraphy.png" />
+    <None Include="res\white-small-circles.png" />
+    <None Include="res\white-small-circuit.png" />
+    <None Include="res\white-small-clouds.png" />
+    <None Include="res\white-small-diamonds.png" />
+    <None Include="res\white-small-doodle.png" />
+    <None Include="res\white-small-geometry.png" />
+    <None Include="res\white-small-lunch.png" />
+    <None Include="res\white-small-school.png" />
+    <None Include="res\white-small-spring.png" />
+    <None Include="res\white-small-stars.png" />
+    <None Include="res\white-small-straws.png" />
+    <None Include="res\white-small-tree.png" />
+    <None Include="res\white-small-under.png" />
+    <None Include="res\CalendarEventGlyphs.bmp" />
+    <None Include="Office2016AccessBlack.ini" />
+    <None Include="Office2016AccessColorful.ini" />
+    <None Include="Office2016AccessDarkGray.ini" />
+    <None Include="Office2016AccessWhite.ini" />
+    <None Include="Office2016ExcelBlack.ini" />
+    <None Include="Office2016ExcelColorful.ini" />
+    <None Include="Office2016ExcelDarkGray.ini" />
+    <None Include="Office2016ExcelWhite.ini" />
+    <None Include="Office2016OneNoteBlack.ini" />
+    <None Include="Office2016OneNoteColorful.ini" />
+    <None Include="Office2016OneNoteDarkGray.ini" />
+    <None Include="Office2016OneNoteWhite.ini" />
+    <None Include="Office2016OutlookBlack.ini" />
+    <None Include="Office2016OutlookColorful.ini" />
+    <None Include="Office2016OutlookDarkGray.ini" />
+    <None Include="Office2016OutlookWhite.ini" />
+    <None Include="Office2016PowerPointBlack.ini" />
+    <None Include="Office2016PowerPointColorful.ini" />
+    <None Include="Office2016PowerPointDarkGray.ini" />
+    <None Include="Office2016PowerPointWhite.ini" />
+    <None Include="Office2016PublisherBlack.ini" />
+    <None Include="Office2016PublisherColorful.ini" />
+    <None Include="Office2016PublisherDarkGray.ini" />
+    <None Include="Office2016PublisherWhite.ini" />
+    <None Include="Office2016WordBlack.ini" />
+    <None Include="Office2016WordColorful.ini" />
+    <None Include="Office2016WordDarkGray.ini" />
+    <None Include="Office2016WordWhite.ini" />
+    <None Include="Styles\Office2016\XAMLStyle.zip" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

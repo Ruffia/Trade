@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform" Width="16" Height="16">
+  <Canvas Width="16" Height="16" Canvas.Left="0" Canvas.Top="0">
+    <Canvas>
+      <Rectangle Canvas.Left="0.555" Canvas.Top="3.8" Width="11.945" Height="11.8" Fill="#FFFFFF"/>
+      <Ellipse Canvas.Left="7.896" Canvas.Top="4.922" Width="3.186" Height="3.178" Fill="#BDC2C7" Stroke="#7C8690" StrokeThickness="1" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeMiterLimit="5"/>
+      <Path Data="M0.509,11.564l2.456,-2.449L9.569,15.7H0.509C0.509,15.7,0.489,11.585,0.509,11.564z" Fill="#BAC0C5"/>
+      <Polygon Points="6.336,12.328 8.358,10.311 12.445,14.262 12.445,15.62 9.555,15.62" Fill="#BAC0C5" StrokeLineJoin="Miter"/>
+      <Path Data="M0.509,11.538l2.456,-2.449l6.604,6.584M12.5,14.357l-4.128,-4.115l-2.043,2.037" Stroke="#555C63" StrokeThickness="1" StrokeMiterLimit="5"/>
+      <Rectangle Canvas.Left="0.5" Canvas.Top="3.5" Width="12" Height="12" Stroke="#33383C" StrokeThickness="1" StrokeMiterLimit="5"/>
+      <Polygon Points="3.555,0.8 3.555,2 14,2 14,12.6 15.5,12.6 15.5,0.8" Fill="#FFFFFF" StrokeLineJoin="Miter"/>
+      <Polygon Points="14,9.865 14,12.62 15.445,12.62 15.445,11.262" Fill="#BAC0C5" StrokeLineJoin="Miter"/>
+      <Polygon Points="14,9.155 14,10.567 15.147,11.711 15.853,11.003" Fill="#555C63" StrokeLineJoin="Miter"/>
+      <Polygon Points="3,0 3,2 4,2 4,1 15,1 15,12 14,12 14,13 16,13 16,0" Fill="#33383C" StrokeLineJoin="Miter"/>
+    </Canvas>
+  </Canvas>
+</Viewbox>

@@ -1,0 +1,20 @@
+<Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform">
+	<Canvas Width="32" Height="32">
+		<Border Width="32" Height="32" BorderBrush="#ABACAC" BorderThickness="1" CornerRadius="5">
+			<Border.Background>
+				<LinearGradientBrush StartPoint="0, 0" EndPoint="0,1">
+					<GradientStop Offset="0" Color="#FEFEFE"/>
+					<GradientStop Offset="1" Color="#E2E2E2"/>
+				</LinearGradientBrush>
+			</Border.Background>
+		</Border>
+		<Path Data="M 12,6 20,6 16,10">
+			<Path.Fill>
+				<LinearGradientBrush StartPoint="0, 0" EndPoint="0,1">
+					<GradientStop Offset="0" Color="#758BDD"/>
+					<GradientStop Offset="1" Color="#48506C"/>
+				</LinearGradientBrush>
+			</Path.Fill>
+		</Path>
+	</Canvas>
+</Viewbox>

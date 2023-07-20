@@ -1,0 +1,163 @@
+// Common resource file
+//
+// (c)1998-2023 Codejock Software, All Rights Reserved.
+//
+// THIS SOURCE FILE IS THE PROPERTY OF CODEJOCK SOFTWARE AND IS NOT TO BE
+// RE-DISTRIBUTED BY ANY MEANS WHATSOEVER WITHOUT THE EXPRESSED WRITTEN
+// CONSENT OF CODEJOCK SOFTWARE.
+//
+// THIS SOURCE CODE CAN ONLY BE USED UNDER THE TERMS AND CONDITIONS OUTLINED
+// IN THE XTREME TOOLKIT PRO LICENSE AGREEMENT. CODEJOCK SOFTWARE GRANTS TO
+// YOU (ONE SOFTWARE DEVELOPER) THE LIMITED RIGHT TO USE THIS SOFTWARE ON A
+// SINGLE COMPUTER.
+//
+// CONTACT INFORMATION:
+// support@codejock.com
+// http://www.codejock.com
+//
+/////////////////////////////////////////////////////////////////////////////
+
+#if !defined(__XTPCOMMONRESOURCE_RC__)
+#define __XTPCOMMONRESOURCE_RC__
+
+#include "Common/Resource.h"
+#include "Common/res/Resource-Neutral.rc"
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_LTH)
+#ifdef _WIN32
+LANGUAGE LANG_LITHUANIAN, SUBLANG_LITHUANIAN
+#pragma code_page(1257)
+#endif //_WIN32
+
+#ifndef _AFXDLL
+
+#include <afxctl.rc>
+#include <afxdb.rc>
+#include <afxolecl.rc>
+#include <afxolesv.rc>
+#include <afxprint.rc>
+#include <afxres.rc>
+
+#ifdef _XTP_INCLUDE_MFC_STRINGS
+#include "Common/res/mfc/indicate.rc"
+#include "Common/res/mfc/prompts.rc"
+#endif
+
+#endif	//_AFXDLL
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+
+XTP_IDR_MENU_HEADERFOOTER_FORMATS MENU DISCARDABLE 
+BEGIN
+    POPUP "HF"
+    BEGIN
+        MENUITEM "&&d   Trumpas datos formatas",    XTP_ID_HF_FORMAT_D1
+        MENUITEM "&&D   Ilgos datos formatas",     XTP_ID_HF_FORMAT_D2
+        MENUITEM SEPARATOR
+        MENUITEM "&&t   Laikas",                 XTP_ID_HF_FORMAT_T1
+        MENUITEM "&&T  Laikas (24 valandos)",       XTP_ID_HF_FORMAT_T2 
+        MENUITEM SEPARATOR
+        MENUITEM "&&p   Puslapio numeris",          XTP_ID_HF_FORMAT_P1
+        MENUITEM "&&P   Puslapiø skaièius",      XTP_ID_HF_FORMAT_P2
+        MENUITEM SEPARATOR
+        MENUITEM "&&b   Lygiavimas á kairæ &&b Iðlygiavimas centre &&b Deðinysis lygiavimas", XTP_ID_HF_FORMAT_B
+        MENUITEM SEPARATOR
+        MENUITEM "&&w   Lango pavadinimas",         XTP_ID_HF_FORMAT_W
+        MENUITEM "&&&&  Ampersandas (&&)",       XTP_ID_HF_FORMAT_UMP
+        MENUITEM "\\n   Nauja linija",             XTP_ID_HF_FORMAT_N
+    END
+END
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+XTP_IDD_PREVIEW_TOOLBAR DIALOG PRELOAD DISCARDABLE  0, 0, 392, 16
+STYLE DS_3DLOOK | WS_CHILD
+FONT 8, "MS Shell Dlg"
+BEGIN
+    PUSHBUTTON      "Spausdinti...",AFX_ID_PREVIEW_PRINT,2,2,61,12,BS_FLAT
+    PUSHBUTTON      "Kitas puslapis",AFX_ID_PREVIEW_NEXT,70,2,61,12,BS_FLAT
+    PUSHBUTTON      "Ankstesnis puslapis",AFX_ID_PREVIEW_PREV,138,2,61,12,BS_FLAT
+    PUSHBUTTON      "",AFX_ID_PREVIEW_NUMPAGE,206,2,61,12,BS_FLAT
+    PUSHBUTTON      "Priartinti",AFX_ID_PREVIEW_ZOOMIN,274,2,61,12,BS_FLAT
+    PUSHBUTTON      "Nutolinti",AFX_ID_PREVIEW_ZOOMOUT,342,2,61,12,BS_FLAT
+    PUSHBUTTON      "Uþdaryti",AFX_ID_PREVIEW_CLOSE,410,2,61,12,BS_FLAT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_ONEPAGE             "Vienas puslapis"
+    XTP_IDS_TWOPAGE             "Du puslapiai"
+    XTP_IDS_PREVIEWPAGEDESC     "Puslapis %u\nPuslapiai %u-%u"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_CLR_INDIGO          "Indigo"
+    XTP_IDS_CLR_GRAY80          "Pilka–80%"
+    XTP_IDS_CLR_DARK_RED        "Tamsiai raudona"
+    XTP_IDS_CLR_ORANGE          "Oranþinë"
+    XTP_IDS_CLR_DARK_YELLOW     "Tamsiai Geltona"
+    XTP_IDS_CLR_GREEN           "Þalias"
+    XTP_IDS_CLR_TEAL            "Þalsvai mëlyna"
+    XTP_IDS_CLR_BLUE            "Mëlyna"
+    XTP_IDS_CLR_BLUEGRAY        "Mëlyna-Pilka"
+    XTP_IDS_CLR_GRAY50          "Pilka–50%"
+    XTP_IDS_CLR_RED             "Raudona"
+    XTP_IDS_CLR_LIGHTORANGE     "Ðviesiai oranþinë"
+    XTP_IDS_CLR_LIME            "Kalkës"
+    XTP_IDS_CLR_SEA_GREEN       "Jûros þalia"
+    XTP_IDS_CLR_AQUA            "Aqua"
+    XTP_IDS_CLR_LIGHT_BLUE      "Ðviesiai mëlynas"
+    XTP_IDS_CLR_VIOLET          "Violetinë"
+    XTP_IDS_CLR_GRAY40          "Pilka-40%"
+    XTP_IDS_CLR_PINK            "Roþinis"
+    XTP_IDS_CLR_GOLD            "Auksas"
+    XTP_IDS_CLR_YELLOW          "Geltona"
+    XTP_IDS_CLR_BRIGHT_GREEN    "Ðviesiai þalia"
+    XTP_IDS_CLR_TURQUOISE       "Turkis"
+    XTP_IDS_CLR_SKY_BLUE        "Dangaus mëlynumo"
+    XTP_IDS_CLR_PLUM            "Slyva"
+    XTP_IDS_CLR_GRAY25          "Pilka-25%"
+    XTP_IDS_CLR_ROSE            "Roþë"
+    XTP_IDS_CLR_TAN             "Tan"
+    XTP_IDS_CLR_LIGHT_YELLOW    "Ðviesiai geltona"
+    XTP_IDS_CLR_LIGHT_GREEN     "Ðviesiai þalia"
+    XTP_IDS_CLR_LIGHT_TURQUOISE "Ðviesus turkis"
+    XTP_IDS_CLR_PALE_BLUE       "Ðviesiai mëlyna"
+    XTP_IDS_CLR_BLACK           "Juoda"
+    XTP_IDS_CLR_BROWN           "Ruda"
+    XTP_IDS_CLR_OLIVE_GREEN     "Alyvuogiø þalia"
+    XTP_IDS_CLR_DARK_GREEN      "Tamsiai þalia"
+    XTP_IDS_CLR_DARK_TEAL       "Tamsi þalsva"
+    XTP_IDS_CLR_DARK_BLUE       "Tamsiai mëlyna"
+    XTP_IDS_CLR_LAVENDER        "Levandos"
+    XTP_IDS_CLR_WHITE           "Baltas"
+    XTP_IDS_CLR_GRAY            "Pilka"
+    XTP_IDS_CLR_MAROON          "Maroon"
+    XTP_IDS_CLR_OLIVE           "Alyvuogiø"
+    XTP_IDS_CLR_NAVY            "Karinis jûrø laivynas"
+    XTP_IDS_CLR_PURPLE          "Violetinë"
+    XTP_IDS_CLR_SILVER          "Sidabras"
+    XTP_IDS_CLR_FUCHSIA         "Fuksija"
+    XTP_IDS_CLR_NOFILL          "Neuþpildyti\nNeuþpildyti"
+    XTP_IDS_CLR_AUTOMATIC       "Automatinë spalva\nAutomatinë spalva"
+    XTP_IDS_CLR_MORE            "Daugiau spalvø..."
+END
+
+
+#endif // !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_LTH)
+#endif // __XTPCOMMONRESOURCE_RC__

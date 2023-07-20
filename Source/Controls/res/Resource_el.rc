@@ -1,0 +1,278 @@
+// Controls resource file
+//
+// (c)1998-2023 Codejock Software, All Rights Reserved.
+//
+// THIS SOURCE FILE IS THE PROPERTY OF CODEJOCK SOFTWARE AND IS NOT TO BE
+// RE-DISTRIBUTED BY ANY MEANS WHATSOEVER WITHOUT THE EXPRESSED WRITTEN
+// CONSENT OF CODEJOCK SOFTWARE.
+//
+// THIS SOURCE CODE CAN ONLY BE USED UNDER THE TERMS AND CONDITIONS OUTLINED
+// IN THE XTREME TOOLKIT PRO LICENSE AGREEMENT. CODEJOCK SOFTWARE GRANTS TO
+// YOU (ONE SOFTWARE DEVELOPER) THE LIMITED RIGHT TO USE THIS SOFTWARE ON A
+// SINGLE COMPUTER.
+//
+// CONTACT INFORMATION:
+// support@codejock.com
+// http://www.codejock.com
+//
+/////////////////////////////////////////////////////////////////////////////
+
+#include "Controls/Resource.h"
+#include "Controls/res/Resource-Neutral.rc"
+
+#if !defined(_XTP_NO_STANDARDCONTROLS_RES) && ( !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ELL))
+#ifdef _WIN32
+LANGUAGE LANG_GREEK, SUBLANG_DEFAULT
+#pragma code_page(1253)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+XTP_IDD_TIPOFTHEDAY DIALOGEX 0, 0, 279, 127
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Συμβουλή της ημέρας"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    DEFPUSHBUTTON   "Κλείσε",IDOK,224,108,50,14
+    CONTROL         "Εμφάνιση συμβουλών κατά την εκκίνηση",XTP_IDC_CHK_DAYTIP_SHOW,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,6,110,140,10
+    PUSHBUTTON      "Επόμενη συμβουλή",XTP_IDC_BTN_DAYTIP_NEXT,150,108,70,14
+    CONTROL         "",XTP_IDC_BTN_DAYTIP_BORDER,"Static",SS_GRAYFRAME | NOT WS_VISIBLE,0,0,279,103
+END
+
+XTP_IDD_COLORCUSTOM DIALOGEX DISCARDABLE  0, 0, 147, 161
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | 
+    WS_CAPTION
+CAPTION "Εθιμο"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "Χρωματιστά:",XTP_IDC_TXT_COLORS,2,4,43,10
+    CONTROL         "",XTP_IDC_CLR_WND,"Static",SS_BLACKFRAME | WS_TABSTOP,3,
+                    15,119,86
+    CONTROL         "",XTP_IDC_CLR_LUM,"Static",SS_BLACKFRAME | WS_TABSTOP,
+                    126,15,20,86
+    LTEXT           "Απόχρωση:",XTP_IDC_TXT_HUE,3,108,45,8
+    EDITTEXT        XTP_IDC_EDIT_HUE,47,106,33,13,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Spin1",XTP_IDC_SPIN_HUE,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,58,105,
+                    10,14
+    LTEXT           "Κορεσμός:",XTP_IDC_TXT_SAT,3,125,45,8
+    EDITTEXT        XTP_IDC_EDIT_SAT,47,122,33,13,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Spin2",XTP_IDC_SPIN_SAT,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,58,122,
+                    10,14
+    LTEXT           "Φωτεινότητα:",XTP_IDC_TXT_LUM,3,140,45,8
+    EDITTEXT        XTP_IDC_EDIT_LUM,47,138,33,13,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Spin3",XTP_IDC_SPIN_LUM,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,58,137,
+                    10,14
+    LTEXT           "Κόκκινο:",XTP_IDC_TXT_RED,84,108,28,8
+    EDITTEXT        XTP_IDC_EDIT_RED,116,106,33,13,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Spin1",XTP_IDC_SPIN_RED,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,130,105,
+                    11,14
+    LTEXT           "Πράσινος:",XTP_IDC_TXT_GREEN,84,125,28,8
+    EDITTEXT        XTP_IDC_EDIT_GREEN,116,122,33,13,ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    CONTROL         "Spin2",XTP_IDC_SPIN_GREEN,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,130,122,
+                    11,14
+    LTEXT           "Μπλε:",XTP_IDC_TXT_BLUE,84,140,23,8
+    EDITTEXT        XTP_IDC_EDIT_BLUE,116,138,33,13,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Spin3",XTP_IDC_SPIN_BLUE,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,130,137,
+                    11,14
+END
+
+XTP_IDD_COLORSTANDARD DIALOGEX DISCARDABLE  0, 0, 147, 161
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | 
+    WS_CAPTION
+CAPTION "Πρότυπο"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "Χρωματιστά:",XTP_IDC_TXT_COLORS,2,4,43,10
+    CONTROL         "",XTP_IDC_CLR_HEX,"Static",SS_BLACKFRAME | WS_TABSTOP,0,
+                    15,147,145
+END
+
+XTP_IDD_WINDOWLIST DIALOGEX DISCARDABLE  0, 0, 301, 164
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Τακτοποιήστε τα παράθυρα"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "Επιλέξτε Παράθυρο:",IDC_STATIC,7,7,147,8
+    LISTBOX         XTP_IDC_LBOX_WINDOWS,7,17,200,140,LBS_SORT | 
+                    LBS_OWNERDRAWFIXED | LBS_HASSTRINGS | 
+                    LBS_NOINTEGRALHEIGHT | LBS_EXTENDEDSEL | WS_VSCROLL | 
+                    WS_HSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Θέτω εις ενέργειαν",XTP_IDC_BTN_ACTIVATE,212,7,83,14
+    PUSHBUTTON      "Εντάξει",IDOK,212,24,83,14
+    PUSHBUTTON      "Σώσει",XTP_IDC_BTN_SAVE,212,41,83,14
+    PUSHBUTTON      "Κλείσε το παράθυρο",XTP_IDC_BTN_CLOSEWINDOWS,212,58,83,14
+    PUSHBUTTON      "αλληλουχία",XTP_IDC_BTN_CASCADE,212,75,83,14
+    PUSHBUTTON      "Πλακάκι Οριζόντια",XTP_IDC_BTN_TILEHORZ,212,92,83,14
+    PUSHBUTTON      "Πλακάκι Κάθετα",XTP_IDC_BTN_TILEVERT,212,109,83,14
+    PUSHBUTTON      "Σμικροποιώ",XTP_IDC_BTN_MINIMIZE,212,126,83,14
+END
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+XTP_IDM_POPUP MENU DISCARDABLE 
+BEGIN
+    POPUP "RClickOutlookBar"
+    BEGIN
+        MENUITEM "Μικρά εικονίδια",                XTP_IDC_SMALLICON
+        MENUITEM "Μεγάλα εικονίδια",                XTP_IDC_LARGEICON
+    END
+    POPUP "RClickHexEdit"
+    BEGIN
+        MENUITEM "Ξεκάνω",                       ID_EDIT_UNDO
+        MENUITEM SEPARATOR
+        MENUITEM "Τομή",                        ID_EDIT_CUT
+        MENUITEM "Αντίγραφο",                       ID_EDIT_COPY
+        MENUITEM "Επικόλληση",                      ID_EDIT_PASTE
+        MENUITEM "Διαγράφω",                     ID_EDIT_CLEAR
+        MENUITEM SEPARATOR
+        MENUITEM "Επιλογή όλων",                 ID_EDIT_SELECT_ALL
+    END
+    POPUP "RClickHeader"
+    BEGIN
+        MENUITEM "Αύξουσα ταξινόμηση",              XTP_IDC_SORTASC
+        MENUITEM "Ταξινόμηση Φθίνουσα",             XTP_IDC_SORTDSC
+        MENUITEM SEPARATOR
+        POPUP "Ευθυγραμμία"
+        BEGIN
+            MENUITEM "Στοίχιση αριστερά",                  XTP_IDC_ALIGNLEFT
+            MENUITEM "Στοίχιση στο κέντρο",                XTP_IDC_ALIGNCENTER
+            MENUITEM "Στοίχιση δεξιά",                 XTP_IDC_ALIGNRIGHT
+        END
+    END
+END
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN	
+    XTP_IDC_BTN_NEW          "Νέος"
+    XTP_IDC_BTN_DELETE       "Διαγράφω"
+    XTP_IDC_BTN_UP           "Μετακίνηση προς τα επάνω"
+    XTP_IDC_BTN_DOWN         "Μετακινηθείτε προς τα κάτω"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_NAME             "Ονομα"
+    XTP_IDS_SIZE             "Μέγεθος"
+    XTP_IDS_TYPE             "Τύπος"
+    XTP_IDS_MODIFIED         "Τροποποιήθηκε"
+    XTP_IDS_COLOR_AUTO       "Αυτόματο"
+    XTP_IDS_COLOR_CUST       "Προσαρμογή..."
+    XTP_IDS_SELDIR           "Επιλέξτε Κατάλογο:"
+    XTP_IDS_DOT              "..."
+    XTP_IDS_DEFEXT           "*.*"
+    XTP_IDS_DEFFILT          "Όλα τα αρχεία (*.*)|*.*||"
+    XTP_IDS_DEFTITLE         "Όνομα καταλόγου:"
+    XTP_IDS_CLICKKEEPOPEN    "Κάντε κλικ στην πινέζα για να παραμείνει ανοιχτή"
+    XTP_IDS_SE_0             "Το λειτουργικό σύστημα δεν έχει μνήμη ή πόρους."
+    XTP_IDS_SE_ERR_FNF       "Το συγκεκριμενο ΑΡΧΕΙΟ δεν βρεθηκε."
+    XTP_IDS_SE_ERR_PNF       "Η καθορισμένη διαδρομή δεν βρέθηκε."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_SE_ERR_ACCESSDENIED    "Το λειτουργικό σύστημα απαγόρευσε την πρόσβαση στο καθορισμένο αρχείο."
+    XTP_IDS_SE_ERR_OOM             "Δεν υπήρχε αρκετή μνήμη για να ολοκληρωθεί η επέμβαση."
+    XTP_IDS_SE_ERR_BAD_FORMAT      "Το αρχείο .exe δεν είναι έγκυρο (δεν είναι Win32® .exe ή σφάλμα στην εικόνα .exe)."
+    XTP_IDS_SE_ERR_SHARE           "Παρουσιάστηκε παράβαση κοινής χρήσης."
+    XTP_IDS_SE_ERR_ASSOCINCOMPLETE "Ο συσχετισμός ονόματος αρχείου είναι ελλιπής ή μη έγκυρος."
+    XTP_IDS_SE_ERR_DDETIMEOUT      "Δεν ήταν δυνατή η ολοκλήρωση της συναλλαγής DDE, επειδή το αίτημα έληξε."
+    XTP_IDS_SE_ERR_DDEFAIL         "Η συναλλαγή DDE απέτυχε."
+    XTP_IDS_SE_ERR_DDEBUSY         "Η συναλλαγή DDE δεν ήταν δυνατό να ολοκληρωθεί επειδή άλλες συναλλαγές DDE ήταν υπό επεξεργασία."
+    XTP_IDS_SE_ERR_NOASSOC         "Δεν υπάρχει καμία εφαρμογή που να σχετίζεται με τη δεδομένη επέκταση ονόματος αρχείου."
+    XTP_IDS_SE_ERR_DLLNOTFOUND     "Η καθορισμένη βιβλιοθήκη δυναμικής σύνδεσης δεν βρέθηκε."
+    XTP_IDS_SE_ERR_UNKOWN          "Παρουσιάστηκε άγνωστος αριθμός σφάλματος %d."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDC_SORTASC          "Αύξουσα ταξινόμηση\nΑύξουσα ταξινόμηση"
+    XTP_IDC_SORTDSC          "Ταξινόμηση Φθίνουσα\nΤαξινόμηση Φθίνουσας"
+    XTP_IDC_ALIGNLEFT        "Ευθυγραμμίζει την παράγραφο στο αριστερό περιθώριο\nΣτοίχιση αριστερά"
+    XTP_IDC_ALIGNCENTER      "Κεντράρει την παράγραφο ανάμεσα στα περιθώρια\nΚέντρο"
+    XTP_IDC_ALIGNRIGHT       "Ευθυγραμμίζει την παράγραφο στο δεξί περιθώριο\nΣτοίχιση δεξιά"
+    XTP_IDC_LARGEICON        "Εμφάνιση μεγάλων εικονιδίων\nΜεγάλα εικονίδια"
+    XTP_IDC_SMALLICON        "Εμφάνιση μικρών εικονιδίων\nΜικρά εικονίδια"
+    XTP_IDC_REMOVEITEM       "Κατάργηση από τη γραμμή του Outlook"
+    XTP_IDC_RENAMEITEM       "Μετονομασία συντόμευσης"
+    XTP_IDC_REMOVEGROUP      "Κατάργηση ομάδας"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDC_RENAMEGROUP      "Μετονομασία ομάδας"
+    XTP_IDS_HEX              "Μαγεύω"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_STD_COLORS       "Τυπικά χρώματα"
+	XTP_IDS_RECENT_COLORS    "Πρόσφατα Χρώματα"
+	XTP_IDS_THEME_COLORS     "Χρώματα θέματος"
+	XTP_IDS_TAGCLOUD_TIP     "Ετικέτα: %s, Βαθμολογία: %d"
+    XTP_IDS_TIPTEXT          "Κείμενο συμβουλής"
+    XTP_IDS_DIDYOUKNOW       "Το ήξερες..."
+    XTP_IDS_FILE_ABSENT      "Το καθορισμένο αρχείο δεν υπάρχει."
+    XTP_IDS_FILE_CORRUPT     "Σφάλμα κατά την ανάγνωση του αρχείου."
+    XTP_IDS_COLOR_CAPTION    "Χρωματιστά"
+    XTP_IDS_NEW              "Νέος"
+    XTP_IDS_CURRENT          "Ρεύμα"
+    XTP_IDS_DIRECTORIES      "Κατάλογοι:"
+    XTP_IDS_FILES            "Αρχεία:"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_TASK_OK           "Εντάξει"
+    XTP_IDS_TASK_YES          "Ναί"
+    XTP_IDS_TASK_NO           "Οχι"
+    XTP_IDS_TASK_RETRY        "Προσπαθησε ξανα"
+    XTP_IDS_TASK_CANCEL       "Ματαίωση"
+    XTP_IDS_TASK_CLOSE        "Κλείσε"
+    XTP_IDS_TASK_APPLY        "Ισχύουν"
+    XTP_IDS_TASK_HELP         "Βοήθεια"
+    XTP_IDS_TASK_SEE_DETAILS  "Δείξε λεπτομέρειες"
+    XTP_IDS_TASK_HIDE_DETAILS "Κρύψε τις λεπτομέρειες"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_BACKGROUND1        "Ιστορικό 1"
+    XTP_IDS_BACKGROUND2        "Ιστορικό 2"
+    XTP_IDS_TEXT1              "Κείμενο 1"
+    XTP_IDS_TEXT2              "Κείμενο 2"
+    XTP_IDS_ACCENT1            "Προφορά 1"
+    XTP_IDS_ACCENT2            "Προφορά 2"
+    XTP_IDS_ACCENT3            "Προφορά 3"
+    XTP_IDS_ACCENT4            "Προφορά 4"
+    XTP_IDS_ACCENT5            "Προφορά 5"
+    XTP_IDS_ACCENT6            "Προφορά 6"
+    XTP_IDS_LIGHTER            "Αναπτήρας"
+    XTP_IDS_DARKER             "Πιο σκοτεινό"
+END
+
+
+STRINGTABLE DISCARDABLE
+BEGIN
+    XTP_IDS_PREVIEW_DEFAULT_LOADING_MESSAGE "Λήψη προεπισκόπησης του '%'"
+    XTP_IDS_PREVIEW_DEFAULT_FAILED_MESSAGE  "Δεν είναι δυνατή η λήψη προεπισκόπησης του '%'"
+END
+
+#endif // !defined(_XTP_NO_STANDARDCONTROLS_RES) && ( !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ELL))

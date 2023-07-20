@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform">
+  <Canvas Width="14" Height="14" Canvas.Left="0" Canvas.Top="0">
+    <Rectangle Canvas.Left="0" Canvas.Top="1" Width="14" Height="12" Fill="#ABC8FF" Stroke="#383838" StrokeThickness="1" RadiusX="2" RadiusY="2" Stretch="Fill"/>
+  </Canvas>
+</Viewbox>

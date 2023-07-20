@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform" Width="16" Height="16">
+  <Canvas Width="16" Height="16" Canvas.Left="0" Canvas.Top="0">
+    <Canvas>
+      <Path Data="M15,15.5H1c-0.2761,0,-0.5,-0.2239,-0.5,-0.5V3.5h15v11.5C15.5,15.2761,15.2761,15.5,15,15.5z" Fill="#FFFFFF" Stroke="#6D6E71" StrokeThickness="1" StrokeMiterLimit="1"/>
+      <Path Data="M16,4H0V2c0,-0.5523,0.4477,-1,1,-1h14c0.5523,0,1,0.4477,1,1V4z" Fill="#4EA17E"/>
+      <Line X1="2.5" Y1="6.5" X2="3.5" Y2="6.5" Stroke="#797979" StrokeThickness="1" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeMiterLimit="1" StrokeLineJoin="Round"/>
+      <Line X1="5.5" Y1="6.5" X2="8.5" Y2="6.5" Stroke="#797979" StrokeThickness="1" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeMiterLimit="1" StrokeLineJoin="Round"/>
+      <Line X1="2.5" Y1="8.5" X2="3.5" Y2="8.5" Stroke="#797979" StrokeThickness="1" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeMiterLimit="1" StrokeLineJoin="Round"/>
+      <Line X1="5.5" Y1="8.5" X2="8.5" Y2="8.5" Stroke="#797979" StrokeThickness="1" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeMiterLimit="1" StrokeLineJoin="Round"/>
+      <Line X1="2.5" Y1="10.5" X2="3.5" Y2="10.5" Stroke="#797979" StrokeThickness="1" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeMiterLimit="1" StrokeLineJoin="Round"/>
+      <Line X1="5.5" Y1="10.5" X2="8.5" Y2="10.5" Stroke="#797979" StrokeThickness="1" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeMiterLimit="1" StrokeLineJoin="Round"/>
+      <Line X1="10.5" Y1="6.5" X2="13.5" Y2="6.5" Stroke="#797979" StrokeThickness="1" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeMiterLimit="1" StrokeLineJoin="Round"/>
+      <Line X1="10.5" Y1="8.5" X2="13.5" Y2="8.5" Stroke="#797979" StrokeThickness="1" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeMiterLimit="1" StrokeLineJoin="Round"/>
+      <Line X1="10.5" Y1="10.5" X2="13.5" Y2="10.5" Stroke="#797979" StrokeThickness="1" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeMiterLimit="1" StrokeLineJoin="Round"/>
+      <Line X1="2.5" Y1="12.5" X2="3.5" Y2="12.5" Stroke="#797979" StrokeThickness="1" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeMiterLimit="1" StrokeLineJoin="Round"/>
+      <Line X1="5.5" Y1="12.5" X2="8.5" Y2="12.5" Stroke="#797979" StrokeThickness="1" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeMiterLimit="1" StrokeLineJoin="Round"/>
+      <Line X1="10.5" Y1="12.5" X2="13.5" Y2="12.5" Stroke="#797979" StrokeThickness="1" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeMiterLimit="1" StrokeLineJoin="Round"/>
+    </Canvas>
+  </Canvas>
+</Viewbox>

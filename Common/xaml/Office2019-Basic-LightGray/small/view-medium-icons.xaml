@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform" Width="16" Height="16">
+  <Canvas Width="16" Height="16" Canvas.Left="0" Canvas.Top="0">
+    <Canvas>
+      <Rectangle Canvas.Left="0.5" Canvas.Top="3.5" Width="15" Height="12" Fill="#FFFFFF" Stroke="#33383C" StrokeThickness="1" StrokeMiterLimit="5"/>
+      <Rectangle Canvas.Left="0.5" Canvas.Top="1.5" Width="15" Height="2" Fill="#BDC2C6" Stroke="#4E555C" StrokeThickness="1" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeMiterLimit="5"/>
+      <Path Data="M4.5,8.5H2.5V6.5h1.5l0.5,0.5V8.5zM8.5,8.5H6.5V6.5h1.5l0.5,0.5V8.5zM12.5,8.5h-2V6.5h1.5l0.5,0.5V8.5zM4.5,12.5H2.5v-2h1.5l0.5,0.5V12.5zM8.5,12.5H6.5v-2h1.5l0.5,0.5V12.5z" Fill="#FFFFFF" Stroke="#33383C" StrokeThickness="1" StrokeMiterLimit="5"/>
+    </Canvas>
+  </Canvas>
+</Viewbox>

@@ -1,0 +1,163 @@
+// Common resource file
+//
+// (c)1998-2023 Codejock Software, All Rights Reserved.
+//
+// THIS SOURCE FILE IS THE PROPERTY OF CODEJOCK SOFTWARE AND IS NOT TO BE
+// RE-DISTRIBUTED BY ANY MEANS WHATSOEVER WITHOUT THE EXPRESSED WRITTEN
+// CONSENT OF CODEJOCK SOFTWARE.
+//
+// THIS SOURCE CODE CAN ONLY BE USED UNDER THE TERMS AND CONDITIONS OUTLINED
+// IN THE XTREME TOOLKIT PRO LICENSE AGREEMENT. CODEJOCK SOFTWARE GRANTS TO
+// YOU (ONE SOFTWARE DEVELOPER) THE LIMITED RIGHT TO USE THIS SOFTWARE ON A
+// SINGLE COMPUTER.
+//
+// CONTACT INFORMATION:
+// support@codejock.com
+// http://www.codejock.com
+//
+/////////////////////////////////////////////////////////////////////////////
+
+#if !defined(__XTPCOMMONRESOURCE_RC__)
+#define __XTPCOMMONRESOURCE_RC__
+
+#include "Common/Resource.h"
+#include "Common/res/Resource-Neutral.rc"
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHT)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_TRADITIONAL
+#pragma code_page(950)
+#endif //_WIN32
+
+#ifndef _AFXDLL
+
+#include <l.cht/afxctl.rc>
+#include <l.cht/afxdb.rc>
+#include <l.cht/afxolecl.rc>
+#include <l.cht/afxolesv.rc>
+#include <l.cht/afxprint.rc>
+#include <l.cht/afxres.rc>
+
+#ifdef _XTP_INCLUDE_MFC_STRINGS
+#include "Common/res/mfc/l.cht/indicate.rc"
+#include "Common/res/mfc/l.cht/prompts.rc"
+#endif
+
+#endif	//_AFXDLL
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+
+XTP_IDR_MENU_HEADERFOOTER_FORMATS MENU DISCARDABLE 
+BEGIN
+    POPUP "HF"
+    BEGIN
+        MENUITEM "&&d   短日期格式",    XTP_ID_HF_FORMAT_D1
+        MENUITEM "&&D   長日期格式",     XTP_ID_HF_FORMAT_D2
+        MENUITEM SEPARATOR
+        MENUITEM "&&t   時間",                 XTP_ID_HF_FORMAT_T1
+        MENUITEM "&&T   時間（24小時）",       XTP_ID_HF_FORMAT_T2 
+        MENUITEM SEPARATOR
+        MENUITEM "&&p   頁碼",          XTP_ID_HF_FORMAT_P1
+        MENUITEM "&&P   頁數",      XTP_ID_HF_FORMAT_P2
+        MENUITEM SEPARATOR
+        MENUITEM "&&b   左對齊 &&b 居中對齊 &&b 右對齊", XTP_ID_HF_FORMAT_B
+        MENUITEM SEPARATOR
+        MENUITEM "&&w   窗口標題",         XTP_ID_HF_FORMAT_W
+        MENUITEM "&&&&  符號 (&&)",       XTP_ID_HF_FORMAT_UMP
+        MENUITEM "\\n   新隊",             XTP_ID_HF_FORMAT_N
+    END
+END
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+XTP_IDD_PREVIEW_TOOLBAR DIALOG PRELOAD DISCARDABLE  0, 0, 392, 16
+STYLE DS_3DLOOK | WS_CHILD
+FONT 8, "MS Shell Dlg"
+BEGIN
+    PUSHBUTTON      "打印(P)...",AFX_ID_PREVIEW_PRINT,2,2,61,12,BS_FLAT
+    PUSHBUTTON      "下一頁",AFX_ID_PREVIEW_NEXT,70,2,61,12,BS_FLAT
+    PUSHBUTTON      "上一頁",AFX_ID_PREVIEW_PREV,138,2,61,12,BS_FLAT
+    PUSHBUTTON      "",AFX_ID_PREVIEW_NUMPAGE,206,2,61,12,BS_FLAT
+    PUSHBUTTON      "放大",AFX_ID_PREVIEW_ZOOMIN,274,2,61,12,BS_FLAT
+    PUSHBUTTON      "縮小",AFX_ID_PREVIEW_ZOOMOUT,342,2,61,12,BS_FLAT
+    PUSHBUTTON      "關閉",AFX_ID_PREVIEW_CLOSE,410,2,61,12,BS_FLAT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_ONEPAGE             "一頁"
+    XTP_IDS_TWOPAGE             "兩頁"
+    XTP_IDS_PREVIEWPAGEDESC     "第 %u 頁\n第 %u-%u 頁"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_CLR_INDIGO          "靛青"
+    XTP_IDS_CLR_GRAY80          "灰色-80%"
+    XTP_IDS_CLR_DARK_RED        "深紅"
+    XTP_IDS_CLR_ORANGE          "橙子"
+    XTP_IDS_CLR_DARK_YELLOW     "暗黃色"
+    XTP_IDS_CLR_GREEN           "綠色的"
+    XTP_IDS_CLR_TEAL            "藍綠色"
+    XTP_IDS_CLR_BLUE            "藍色的"
+    XTP_IDS_CLR_BLUEGRAY        "藍灰色"
+    XTP_IDS_CLR_GRAY50          "灰色-50%"
+    XTP_IDS_CLR_RED             "紅色的"
+    XTP_IDS_CLR_LIGHTORANGE     "淺橙色"
+    XTP_IDS_CLR_LIME            "酸橙"
+    XTP_IDS_CLR_SEA_GREEN       "海綠色"
+    XTP_IDS_CLR_AQUA            "水族"
+    XTP_IDS_CLR_LIGHT_BLUE      "淺藍"
+    XTP_IDS_CLR_VIOLET          "紫色"
+    XTP_IDS_CLR_GRAY40          "灰色-40%"
+    XTP_IDS_CLR_PINK            "粉色的"
+    XTP_IDS_CLR_GOLD            "金子"
+    XTP_IDS_CLR_YELLOW          "黃色"
+    XTP_IDS_CLR_BRIGHT_GREEN    "亮綠色"
+    XTP_IDS_CLR_TURQUOISE       "綠松石"
+    XTP_IDS_CLR_SKY_BLUE        "天藍色"
+    XTP_IDS_CLR_PLUM            "李子"
+    XTP_IDS_CLR_GRAY25          "灰色-25%"
+    XTP_IDS_CLR_ROSE            "玫瑰"
+    XTP_IDS_CLR_TAN             "譚"
+    XTP_IDS_CLR_LIGHT_YELLOW    "淡黃色"
+    XTP_IDS_CLR_LIGHT_GREEN     "淺綠色"
+    XTP_IDS_CLR_LIGHT_TURQUOISE "淺綠松石色"
+    XTP_IDS_CLR_PALE_BLUE       "淡藍色"
+    XTP_IDS_CLR_BLACK           "黑色的"
+    XTP_IDS_CLR_BROWN           "棕色的"
+    XTP_IDS_CLR_OLIVE_GREEN     "橄欖綠"
+    XTP_IDS_CLR_DARK_GREEN      "深綠色"
+    XTP_IDS_CLR_DARK_TEAL       "深藍綠色"
+    XTP_IDS_CLR_DARK_BLUE       "深藍"
+    XTP_IDS_CLR_LAVENDER        "薰衣草"
+    XTP_IDS_CLR_WHITE           "白色的"
+    XTP_IDS_CLR_GRAY            "灰色的"
+    XTP_IDS_CLR_MAROON          "栗色"
+    XTP_IDS_CLR_OLIVE           "橄欖"
+    XTP_IDS_CLR_NAVY            "海軍"
+    XTP_IDS_CLR_PURPLE          "紫色的"
+    XTP_IDS_CLR_SILVER          "銀"
+    XTP_IDS_CLR_FUCHSIA         "紫紅色"
+    XTP_IDS_CLR_NOFILL          "無填充\n無填充"
+    XTP_IDS_CLR_AUTOMATIC       "自動顏色\n自動顏色"
+    XTP_IDS_CLR_MORE            "更多顏色...	"
+END
+
+
+#endif // !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHT)
+#endif // __XTPCOMMONRESOURCE_RC__

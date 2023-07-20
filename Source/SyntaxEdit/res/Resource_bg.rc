@@ -1,0 +1,292 @@
+// SyntaxEdit resource file
+//
+// (c)1998-2023 Codejock Software, All Rights Reserved.
+//
+// THIS SOURCE FILE IS THE PROPERTY OF CODEJOCK SOFTWARE AND IS NOT TO BE
+// RE-DISTRIBUTED BY ANY MEANS WHATSOEVER WITHOUT THE EXPRESSED WRITTEN
+// CONSENT OF CODEJOCK SOFTWARE.
+//
+// THIS SOURCE CODE CAN ONLY BE USED UNDER THE TERMS AND CONDITIONS OUTLINED
+// IN THE XTREME TOOLKIT PRO LICENSE AGREEMENT. CODEJOCK SOFTWARE GRANTS TO
+// YOU (ONE SOFTWARE DEVELOPER) THE LIMITED RIGHT TO USE THIS SOFTWARE ON A
+// SINGLE COMPUTER.
+//
+// CONTACT INFORMATION:
+// support@codejock.com
+// http://www.codejock.com
+//
+/////////////////////////////////////////////////////////////////////////////
+
+#include "SyntaxEdit/Resource.h"
+#include "SyntaxEdit/res/Resource-Neutral.rc"
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_BGR)
+#ifdef _WIN32
+LANGUAGE LANG_BULGARIAN, SUBLANG_DEFAULT
+#pragma code_page(1251)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+XTP_IDD_EDIT_PAGEEDITOR DIALOGEX DISCARDABLE  0, 0, 260, 180
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Редактор"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    GROUPBOX        "Настройки на прозореца",IDC_STATIC,7,7,246,76
+    CONTROL         "Вертикална лента за превъртане",XTP_IDC_EDIT_CHK_VERT_SCROLLBAR,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,21,105,10
+    CONTROL         "Хоризонтална лента за превъртане",XTP_IDC_EDIT_CHK_HORZ_SCROLLBAR,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,32,105,10
+    CONTROL         "Номер на ред",XTP_IDC_EDIT_CHK_LINE_NUMBERS,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,15,43,105,10
+    CONTROL         "Марж за избор",XTP_IDC_EDIT_CHK_SELMARGIN,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,15,54,105,10
+    CONTROL         "Сгъваеми възли",XTP_IDC_EDIT_CHK_COLLAPSIBLE_NODES,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,15,65,105,10
+    CONTROL         "Автоматичен отстъп",XTP_IDC_EDIT_CHK_AUTO_INDENT,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,130,20,115,10
+    CONTROL         "Виртуално пространство",XTP_IDC_EDIT_CHK_VIRTUAL_SPACE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,130,35,115,10
+    CONTROL         "Оцветяване на синтаксиса",XTP_IDC_EDIT_CHK_SYNTAX_COLOR,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,130,50,115,10
+    GROUPBOX        "Раздели",IDC_STATIC,7,88,152,43
+    LTEXT           "Размер на раздела:",IDC_STATIC,15,103,30,8
+    EDITTEXT        XTP_IDC_EDIT_TABS_SIZE,45,100,21,14,ES_AUTOHSCROLL
+    CONTROL         "Вмъкване на интервали",XTP_IDC_EDIT_RAD_TABS_SPACES,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,71,102,83,10
+    CONTROL         "Запазване на раздели",XTP_IDC_EDIT_RAD_TABS_TAB,"Button",
+                    BS_AUTORADIOBUTTON,71,113,55,10
+    GROUPBOX        "Презаписване на Caret",XTP_IDC_EDIT_GBOX_CARET,165,88,88,43,
+                    WS_GROUP
+    CONTROL         "Тънък",XTP_IDC_EDIT_RAD_CARET_THIN,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,181,102,31,10
+    CONTROL         "Дебела",XTP_IDC_EDIT_RAD_CARET_THICK,"Button",
+                    BS_AUTORADIOBUTTON,181,113,36,10
+    GROUPBOX        "Опции за запазване",IDC_STATIC,7,135,246,37
+    CONTROL         "Автоматично презареждане на външно модифицирани файлове",
+                    XTP_IDC_EDIT_CHK_AUTO_RELOAD,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,15,151,232,10
+END
+XTP_IDD_EDIT_PAGEFONT DIALOGEX 0, 0, 260, 180
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Шрифт на редактора"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "Шрифт:",XTP_IDC_EDIT_TXT_FONTNAMES,7,7,40,9
+    COMBOBOX        XTP_IDC_EDIT_COMB_NAMES,7,18,119,55,CBS_SIMPLE | 
+                    CBS_AUTOHSCROLL | CBS_SORT | CBS_DISABLENOSCROLL | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Стил на шрифта:",XTP_IDC_EDIT_TXT_FONTSTYLES,134,7,45,9
+    COMBOBOX        XTP_IDC_EDIT_COMB_STYLES,134,18,75,55,CBS_SIMPLE | 
+                    CBS_DISABLENOSCROLL | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Размер:",XTP_IDC_EDIT_TXT_FONTSIZES,217,7,30,9
+    COMBOBOX        XTP_IDC_EDIT_COMB_SIZES,217,18,36,55,CBS_SIMPLE | 
+                    CBS_DISABLENOSCROLL | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Н&ормален текст:",IDC_STATIC,7,68,100,8
+    COMBOBOX        XTP_IDC_EDIT_COMB_TEXT,7,78,103,100,CBS_DROPDOWNLIST | 
+                    CBS_OWNERDRAWVARIABLE | CBS_HASSTRINGS | WS_VSCROLL | 
+                    WS_TABSTOP
+    PUSHBUTTON      "...",XTP_IDC_EDIT_BTN_CUSTOM_TEXT,113,78,13,12
+    LTEXT           "&Нормален фон:",IDC_STATIC,7,95,100,8
+    COMBOBOX        XTP_IDC_EDIT_COMB_BACK,7,105,103,100,CBS_DROPDOWNLIST | 
+                    CBS_OWNERDRAWVARIABLE | CBS_HASSTRINGS | WS_VSCROLL | 
+                    WS_TABSTOP
+    PUSHBUTTON      "...",XTP_IDC_EDIT_BTN_CUSTOM_BACK,113,105,13,12
+    LTEXT           "&Избран текст:",IDC_STATIC,7,122,100,8
+    COMBOBOX        XTP_IDC_EDIT_COMB_TEXTSEL,7,132,103,100,CBS_DROPDOWNLIST | 
+                    CBS_OWNERDRAWVARIABLE | CBS_HASSTRINGS | WS_VSCROLL | 
+                    WS_TABSTOP
+    PUSHBUTTON      "...",XTP_IDC_EDIT_BTN_CUSTOM_TEXTSEL,113,132,13,12
+    LTEXT           "Избран фон:",IDC_STATIC,7,149,100,8
+    COMBOBOX        XTP_IDC_EDIT_COMB_BACKSEL,7,159,103,100,CBS_DROPDOWNLIST | 
+                    CBS_OWNERDRAWVARIABLE | CBS_HASSTRINGS | WS_VSCROLL | 
+                    WS_TABSTOP
+    PUSHBUTTON      "...",XTP_IDC_EDIT_BTN_CUSTOM_BACKSEL,113,159,13,12
+    LTEXT           "Скрипт:",XTP_IDC_EDIT_TXT_FONTSCRIPT,135,69,100,9
+    COMBOBOX        XTP_IDC_EDIT_COMB_SCRIPT,134,78,119,115,CBS_DROPDOWNLIST | 
+                    CBS_AUTOHSCROLL | WS_BORDER | WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "Примерен нормален / избран:",XTP_IDC_EDIT_GRP_SAMPLE,135,128,
+                    118,44,WS_GROUP
+    CTEXT           "AaBbCc",XTP_IDC_EDIT_TXT_SAMPLE,143,140,49,26,
+                    SS_CENTERIMAGE,WS_EX_CLIENTEDGE
+    CTEXT           "XxYyZz",XTP_IDC_EDIT_TXT_SAMPLESEL,196,140,49,26,
+                    SS_CENTERIMAGE,WS_EX_CLIENTEDGE
+END
+
+XTP_IDD_EDIT_PAGECOLOR DIALOGEX 0, 0, 260, 180
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Цвят на синтаксиса"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "Тип файл:",XTP_IDC_EDIT_TXT_SCHEMANAMES,7,7,123,9
+    LISTBOX         XTP_IDC_EDIT_LBOX_SCHEMANAMES,7,17,123,64,LBS_SORT | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Атрибути:",XTP_IDC_EDIT_TXT_SCHEMAPROP,7,85,123,9
+    LISTBOX         XTP_IDC_EDIT_LBOX_SCHEMAPROP,7,95,123,77,LBS_SORT | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Нормален текст:",IDC_STATIC,135,7,100,8
+    COMBOBOX        XTP_IDC_EDIT_COMB_TEXT,135,17,100,100,CBS_DROPDOWNLIST | 
+                    CBS_OWNERDRAWVARIABLE | CBS_HASSTRINGS | WS_VSCROLL | 
+                    WS_TABSTOP
+    PUSHBUTTON      "...",XTP_IDC_EDIT_BTN_CUSTOM_TEXT,238,17,13,12
+    LTEXT           "Нормален фон:",IDC_STATIC,135,33,100,8
+    COMBOBOX        XTP_IDC_EDIT_COMB_BACK,135,43,100,100,CBS_DROPDOWNLIST | 
+                    CBS_OWNERDRAWVARIABLE | CBS_HASSTRINGS | WS_VSCROLL | 
+                    WS_TABSTOP
+    PUSHBUTTON      "...",XTP_IDC_EDIT_BTN_CUSTOM_BACK,238,43,13,12
+    LTEXT           "Избран текст:",IDC_STATIC,135,59,100,8
+    COMBOBOX        XTP_IDC_EDIT_COMB_TEXTSEL,135,69,100,100,CBS_DROPDOWNLIST | 
+                    CBS_OWNERDRAWVARIABLE | CBS_HASSTRINGS | WS_VSCROLL | 
+                    WS_TABSTOP
+    PUSHBUTTON      "...",XTP_IDC_EDIT_BTN_CUSTOM_TEXTSEL,238,69,13,12
+    LTEXT           "Избран фон:",IDC_STATIC,135,85,100,8
+    COMBOBOX        XTP_IDC_EDIT_COMB_BACKSEL,135,95,100,100,CBS_DROPDOWNLIST | 
+                    CBS_OWNERDRAWVARIABLE | CBS_HASSTRINGS | WS_VSCROLL | 
+                    WS_TABSTOP
+    PUSHBUTTON      "...",XTP_IDC_EDIT_BTN_CUSTOM_BACKSEL,238,95,13,12
+    CONTROL         "Удебелен",XTP_IDC_EDIT_CHK_BOLD,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,135,114,30,10
+    CONTROL         "Курсив",XTP_IDC_EDIT_CHK_ITALIC,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,170,114,31,10
+    CONTROL         "Подчертайте",XTP_IDC_EDIT_CHK_UNDERLINE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,206,114,46,10
+    GROUPBOX        "Примерен нормален / избран:",XTP_IDC_EDIT_GRP_SAMPLE,135,128,
+                    118,44,WS_GROUP
+    CTEXT           "AaBbCc",XTP_IDC_EDIT_TXT_SAMPLE,143,140,49,26,
+                    SS_CENTERIMAGE,WS_EX_CLIENTEDGE
+    CTEXT           "XxYyZz",XTP_IDC_EDIT_TXT_SAMPLESEL,196,140,49,26,
+                    SS_CENTERIMAGE,WS_EX_CLIENTEDGE
+END
+
+XTP_IDD_EDIT_SEARCH_FIND DIALOGEX DISCARDABLE  0, 0, 271, 82
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Намирам"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "Намери какво",IDC_STATIC,7,9,43,8,NOT WS_GROUP
+    COMBOBOX        XTP_IDC_EDIT_COMBO_FIND,51,6,154,153,CBS_DROPDOWN | 
+                    CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "Настроики",IDC_STATIC,7,30,113,45 
+    CONTROL         "Съпоставете само цялата дума",XTP_IDC_EDIT_CHK_MATCH_WHOLE_WORD,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,43,100,10
+    CONTROL         "Съвпадаща кутия",XTP_IDC_EDIT_CHK_MATCH_CASE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,13,58,104,10
+    GROUPBOX        "Посока",IDC_STATIC,126,30,80,45
+    CONTROL         "Търсене нагоре",XTP_IDC_EDIT_RADIO_UP,"Button",
+                    BS_AUTORADIOBUTTON,134,43,65,10
+    CONTROL         "Търсене надолу",XTP_IDC_EDIT_RADIO_DOWN,"Button",
+                    BS_AUTORADIOBUTTON,134,58,65,10
+    PUSHBUTTON      "Намери следващото",XTP_IDC_EDIT_BTN_FIND_NEXT,214,7,50,14,
+                    WS_DISABLED | WS_TABSTOP
+    PUSHBUTTON      "Близо",IDCANCEL,214,26,50,14, WS_TABSTOP
+END
+
+XTP_IDD_EDIT_SEARCH_REPLACE DIALOGEX DISCARDABLE  0, 0, 271, 86
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Намиране и замяна"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "Намерете текст	",IDC_STATIC,7,9,50,8,NOT WS_GROUP
+    COMBOBOX        XTP_IDC_EDIT_COMBO_FIND,61,6,143,154,CBS_DROPDOWN | 
+                    CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Замени с",IDC_STATIC,7,25,50,8,NOT WS_GROUP
+    COMBOBOX        XTP_IDC_EDIT_COMBO_REPLACE,61,23,143,135,CBS_DROPDOWN | 
+                    CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "Настроики",IDC_STATIC,7,38,113,41
+    CONTROL         "Съпоставете само цялата дума",XTP_IDC_EDIT_CHK_MATCH_WHOLE_WORD,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,51,100,10
+    CONTROL         "Съвпадаща кутия",XTP_IDC_EDIT_CHK_MATCH_CASE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,13,64,100,10
+    GROUPBOX        "Посока",IDC_STATIC,126,38,80,41
+    CONTROL         "Търсене нагоре",XTP_IDC_EDIT_RADIO_UP,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,134,51,65,10
+    CONTROL         "Търсене надолу",XTP_IDC_EDIT_RADIO_DOWN,"Button",
+                    BS_AUTORADIOBUTTON,134,64,65,10
+    PUSHBUTTON      "Намери следващото",XTP_IDC_EDIT_BTN_FIND_NEXT,214,7,50,14,
+                    WS_DISABLED | WS_TABSTOP
+    PUSHBUTTON      "Сменете",XTP_IDC_EDIT_BTN_REPLACE,214,23,50,14,
+                    WS_DISABLED | WS_TABSTOP
+    PUSHBUTTON      "Замени всички",XTP_IDC_EDIT_BTN_REPLACE_ALL,214,39,50,14,
+                    WS_DISABLED | WS_TABSTOP
+    PUSHBUTTON      "Близо",IDCANCEL,214,65,50,14, WS_TABSTOP
+END
+
+XTP_IDD_EDIT_GOTOLINE DIALOGEX DISCARDABLE  0, 0, 165, 55
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Отидете на линия"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "Номер на реда",XTP_IDC_EDIT_TXT_LINENO,5,5,155,8
+    EDITTEXT        XTP_IDC_EDIT_LINENO,5,17,155,14,ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    PUSHBUTTON      "Отидете на",XTP_IDC_EDIT_BTN_GOTO,56,36,50,14
+    PUSHBUTTON      "Отказ",IDCANCEL,110,36,50,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_EDIT_UNDEFINED     "Недефинирана команда"
+    XTP_IDS_EDIT_MULTIPLE      "Множество операции"
+    XTP_IDS_EDIT_DELETE        "Изтрий: "
+    XTP_IDS_EDIT_INSERT        "Поставете: "
+    XTP_IDS_EDIT_TYPING        "Въвеждане"
+    XTP_IDS_EDIT_PASTE         "Залепете"
+    XTP_IDS_EDIT_MOVE          "Ход"
+    XTP_IDS_EDIT_COPY          "Копие"
+    XTP_IDS_EDIT_INDENTATION   "Вдлъбнатина"
+    XTP_IDS_EDIT_INDENT_DECREASE "Намаляване на отстъпа"
+    XTP_IDS_EDIT_FORMAT        "Формат"
+    XTP_IDS_EDIT_TABIFY        "Tabify"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_EDIT_UNTABIFY      "Прекратяване на достъпа"
+    XTP_IDS_EDIT_REPLACE_ALL   "Сменете всички"
+    XTP_IDS_EDIT_CASE          "Промяна на регистъра на избраните букви"
+    XTP_IDS_EDIT_DELETE_TEXT_BLOCK "Изтриване на текстов блок"
+    XTP_IDS_EDIT_MOVE_HERE     "Преместете се тук"
+    XTP_IDS_EDIT_COPY_HERE     "Копирайте тук"
+    XTP_IDS_EDIT_CANCEL        "Отказ"
+    XTP_IDS_EDIT_MSG_WARN_RELOAD 
+                            "Файлът '%s' е променен от външен източник!\nИскате ли да презаредите?"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_EDIT_CUSTOM        "Персонализиран"
+    XTP_IDS_EDIT_REGULAR       "Редовен"
+    XTP_IDS_EDIT_BOLD          "Удебелен"
+    XTP_IDS_EDIT_ITALIC        "Курсив"
+    XTP_IDS_EDIT_BOLDITALIC    "Удебелен курсив"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDD_EDIT_OPTIONS       "Опции за редактиране"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_EDIT_MSG_FREPLACED "%d съвпадение е намерено и заменено!"
+    XTP_IDS_EDIT_MSG_FSEARCH   "Търсенето приключи!"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_EDIT_LINENO        "Номер на ред (1 - %d):"
+    XTP_IDS_EDIT_OPENSCHEMACMD "Отворете файла със схемата"
+    XTP_IDS_EDIT_OPENSCHEMAMSG "Искате ли да затворите ""диалоговия прозорец с опции"" и да отворите файла със схемата ""%s%s"" в прозореца на редактора?"
+END
+
+#endif // !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_BGR)

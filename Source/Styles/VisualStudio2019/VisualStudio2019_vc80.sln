@@ -1,0 +1,4 @@
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VisualStudio2019", ".\VisualStudio2019_vc80.vcproj", "{46652243-6672-7916-9719-779935524756}"
+EndProject

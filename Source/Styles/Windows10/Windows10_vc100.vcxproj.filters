@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{782aa38e-35c2-420c-9d5b-7759fe36afc1}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Image Files">
+      <UniqueIdentifier>{6bb63d89-ea06-4f57-a5ca-baf95c6d2c6b}</UniqueIdentifier>
+      <Extensions>.png;.bmp</Extensions>
+    </Filter>
+    <Filter Include="Image Files\png">
+      <UniqueIdentifier>{8c7ce49d-8eab-49a7-a2c5-ebfc66305376}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Image Files\bmp">
+      <UniqueIdentifier>{b5debfa2-a32b-49e2-9704-8bf43562a1b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ini Files">
+      <UniqueIdentifier>{45d97681-f4c4-48f1-8c7a-c9f7ef933b00}</UniqueIdentifier>
+      <Extensions>.ini</Extensions>
+    </Filter>
+    <Filter Include="Zip Files">
+      <UniqueIdentifier>{6f90ed17-cbca-40d9-8bfd-ec186ca9dde1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Windows10.rc">
+      <Filter>Source Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Styles\Windows10\res\CalendarEventGlyphs.bmp">
+      <Filter>Image Files</Filter>
+    </None>
+    <None Include="res\backstage-back-button-extralarge-rtl.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\backstage-back-button-extralarge.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\backstage-back-button-large-rtl.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\backstage-back-button-large.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\backstage-back-button-medium-rtl.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\backstage-back-button-medium.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\backstage-back-button-small-rtl.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\backstage-back-button-small.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-backstage-back-button-extralarge-rtl.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-backstage-back-button-extralarge.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-backstage-back-button-large-rtl.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-backstage-back-button-large.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-backstage-back-button-medium-rtl.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-backstage-back-button-medium.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-backstage-back-button-small-rtl.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-backstage-back-button-small.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\ShortcutBarGlyphs.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\ShortcutBarGripper.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\ShortcutBarItems.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\ShortcutBarNavigateItem.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\TimeLineViewAppointmentIcon.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\CalendarEventGlyphs.bmp">
+      <Filter>Image Files\bmp</Filter>
+    </None>
+    <None Include="Windows10Dark.ini">
+      <Filter>Ini Files</Filter>
+    </None>
+    <None Include="Windows10Light.ini">
+      <Filter>Ini Files</Filter>
+    </None>
+    <None Include="XamlStyle.zip">
+      <Filter>Zip Files</Filter>
+    </None>
+  </ItemGroup>
+</Project>

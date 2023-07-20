@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform" Width="32" Height="32">
+  <Canvas Width="32" Height="32" Canvas.Left="0" Canvas.Top="0">
+      <Canvas>
+        <Path Data="M0.5,7.5v22h30V7.5H0.5z" Fill="#EFEFEF" Stroke="#8C8C8C" StrokeThickness="1" StrokeMiterLimit="5"/>
+        <Rectangle Canvas.Left="0.5" Canvas.Top="2.5" Width="30" Height="5" Fill="#D3D3D3" Stroke="#8C8C8C" StrokeThickness="1" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeMiterLimit="5"/>
+        <Path Data="M7.5,0v5M25.5,0v5" Fill="#EFEFEF" Stroke="#8C8C8C" StrokeThickness="1" StrokeMiterLimit="5"/>
+        <Path Data="M9.5,26.5H3.5v-4h6V26.5zM15.5,22.5H9.5v4h6V22.5zM21.5,22.5h-6v4h6V22.5zM27.5,22.5h-6v4h6V22.5zM9.5,18.5H3.5v4h6V18.5zM15.5,18.5H9.5v4h6V18.5zM21.5,18.5h-6v4h6V18.5zM27.5,18.5h-6v4h6V18.5zM9.5,14.5H3.5v4h6V14.5zM15.5,14.5H9.5v4h6V14.5zM21.5,14.5h-6v4h6V14.5zM27.5,14.5h-6v4h6V14.5zM15.5,10.5H9.5v4h6V10.5zM21.5,10.5h-6v4h6V10.5zM27.5,10.5h-6v4h6V10.5z" Stroke="#ACACAC" StrokeThickness="1" StrokeMiterLimit="5" Opacity="0.6"/>
+        <Path Data="M15.5,18.5H9.5v-4h6V18.5z" Fill="#D0D0D0" Stroke="#9E9E9E" StrokeThickness="1" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeMiterLimit="5"/>
+      </Canvas>
+    <Canvas>
+      <Path Data="M24.901,22.672c0,1.752,-1.41,3.253,-3.15,3.253S18.6,24.424,18.6,22.672S20.011,19.5,21.75,19.5S24.901,20.92,24.901,22.672zM27,31.976c0,-3.062,-2.411,-6.03,-5.229,-6.03S16.5,28.914,16.5,31.976" Fill="#EFEFEF" Stroke="#ABABAB" StrokeThickness="1" StrokeMiterLimit="1"/>
+      <Path Data="M26.591,22.96c2.678,0.214,4.909,3.071,4.909,6.016h-3.399c-0.331,-0.818,-0.79,-1.589,-1.363,-2.264c-0.342,-0.403,-0.72,-0.766,-1.125,-1.081C26.185,24.858,26.533,23.926,26.591,22.96zM26.601,22.672c0,0.078,-0.002,0.155,-0.006,0.232c1.578,-0.182,2.806,-1.598,2.806,-3.232c0,-1.752,-1.41,-3.172,-3.15,-3.172c-1.183,0,-2.214,0.657,-2.752,1.629C25.311,18.835,26.601,20.604,26.601,22.672z" Fill="#EFEFEF"/>
+      <Path Data="M30.324,24.489c-0.624,-0.735,-1.368,-1.293,-2.164,-1.638c1.036,-0.671,1.741,-1.858,1.741,-3.179c0,-2.025,-1.638,-3.672,-3.65,-3.672c-1.402,0,-2.622,0.8,-3.233,1.97c0.328,0.089,0.642,0.213,0.939,0.366c0.459,-0.798,1.315,-1.336,2.294,-1.336c1.461,0,2.65,1.199,2.65,2.672c0,1.372,-1.026,2.547,-2.308,2.728c0.005,0.09,0.008,0.181,0.008,0.272c0,0.264,-0.022,0.527,-0.065,0.785c2.369,0.179,4.464,2.729,4.464,5.519h1C32,27.379,31.389,25.744,30.324,24.489z" Fill="#8C8C8C"/>
+    </Canvas>
+  </Canvas>
+</Viewbox>

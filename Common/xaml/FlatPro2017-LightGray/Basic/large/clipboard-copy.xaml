@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform" Width="32" Height="32">
+  <Canvas Width="32" Height="32" Canvas.Left="0" Canvas.Top="0">
+    <Canvas>
+      <Canvas>
+        <Path Data="M28.8739,30.5H14.1261c-0.4418,0,-0.6261,-0.1786,-0.6261,-0.6199V11.1c0,-0.4413,0.1582,-0.6,0.6,-0.6c0,0,10.1348,0,10.3,0s0.3533,0.0143,0.5969,0.2555c0.2082,0.2061,3.1928,3.2834,4.2248,4.3052c0.1758,0.1741,0.2783,0.3788,0.2783,0.6888c0,0.2152,0,14.1307,0,14.1307C29.5,30.3214,29.3157,30.5,28.8739,30.5z" Stroke="#B4B4B4" StrokeThickness="1" StrokeMiterLimit="1"/>
+        <Path Data="M24.5101,10.6867c0,0,0,3.836,0,4.2133s0.4676,0.6,0.6899,0.6c-0.2281,0,-0.8619,0,4,0" Stroke="#B4B4B4" StrokeThickness="1" StrokeMiterLimit="1" StrokeLineJoin="Round"/>
+        <Rectangle Canvas.Left="16" Canvas.Top="14" Width="6" Height="1" Fill="#B4B4B4"/>
+        <Rectangle Canvas.Left="16" Canvas.Top="17" Width="6" Height="1" Fill="#B4B4B4"/>
+        <Rectangle Canvas.Left="16" Canvas.Top="20" Width="11" Height="1" Fill="#B4B4B4"/>
+        <Rectangle Canvas.Left="16" Canvas.Top="23" Width="11" Height="1" Fill="#B4B4B4"/>
+        <Rectangle Canvas.Left="16" Canvas.Top="26" Width="11" Height="1" Fill="#B4B4B4"/>
+      </Canvas>
+      <Canvas>
+        <Canvas>
+          <Path Data="M12,21H3.1261c-0.0571,0,-0.0949,-0.0043,-0.1181,-0.0086c-0.004,-0.0223,-0.008,-0.058,-0.008,-0.1112V2.1c0,-0.0417,0.002,-0.0729,0.0044,-0.0956C3.0271,2.002,3.0583,2,3.1,2h10.3c0.0943,0,0.1333,0,0.2452,0.1108c0.0613,0.0607,0.4074,0.4156,0.8455,0.8649c0.9962,1.0217,2.6637,2.7318,3.3793,3.4403c0.0843,0.0835,0.13,0.1614,0.13,0.3334V9h1V6.7494c0,-0.4185,-0.1395,-0.76,-0.4265,-1.0441c-0.7093,-0.7022,-2.3729,-2.4084,-3.3669,-3.4278c-0.4759,-0.488,-0.7903,-0.8104,-0.8579,-0.8774C13.9926,1.0476,13.6693,1,13.4,1H3.1c-0.7196,0,-1.1,0.3804,-1.1,1.1v18.7801C2,21.5918,2.4104,22,3.1261,22H12V21z" Fill="#B4B4B4"/>
+        </Canvas>
+        <Path Data="M13.5101,1.6867c0,0,0,3.836,0,4.2133s0.4676,0.6,0.6899,0.6c-0.2281,0,-0.8619,0,4,0" Stroke="#B4B4B4" StrokeThickness="1" StrokeMiterLimit="1" StrokeLineJoin="Round"/>
+        <Rectangle Canvas.Left="5" Canvas.Top="5" Width="6" Height="1" Fill="#B4B4B4"/>
+        <Rectangle Canvas.Left="5" Canvas.Top="8" Width="6" Height="1" Fill="#B4B4B4"/>
+        <Rectangle Canvas.Left="5" Canvas.Top="11" Width="7" Height="1" Fill="#B4B4B4"/>
+        <Rectangle Canvas.Left="5" Canvas.Top="14" Width="7" Height="1" Fill="#B4B4B4"/>
+        <Rectangle Canvas.Left="5" Canvas.Top="17" Width="7" Height="1" Fill="#B4B4B4"/>
+      </Canvas>
+    </Canvas>
+  </Canvas>
+</Viewbox>

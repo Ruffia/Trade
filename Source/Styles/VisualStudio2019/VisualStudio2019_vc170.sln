@@ -1,0 +1,4 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 17
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VisualStudio2019", ".\VisualStudio2019_vc170.vcxproj", "{61343915-6239-2543-3746-327572144492}"
+EndProject

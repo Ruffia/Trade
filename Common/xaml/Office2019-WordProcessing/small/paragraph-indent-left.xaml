@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform" Width="16" Height="16">
+  <Canvas Width="16" Height="16" Canvas.Left="0" Canvas.Top="0">
+    <Canvas>
+      <Path Data="M0,7.5h5.4M2.93,10.009M5.444,7.508M2.93,5.007M5.444,7.508M2.93,10.009l2.514,-2.501L2.93,5.007" Stroke="#228BCB" StrokeThickness="1" StrokeMiterLimit="1"/>
+      <Line X1="2" Y1="1.5" X2="16" Y2="1.5" Fill="#FFFFFF" Stroke="#383838" StrokeThickness="1" StrokeMiterLimit="1"/>
+      <Line X1="7" Y1="3.5" X2="16" Y2="3.5" Fill="#FFFFFF" Stroke="#383838" StrokeThickness="1" StrokeMiterLimit="1"/>
+      <Line X1="7" Y1="5.5" X2="16" Y2="5.5" Fill="#FFFFFF" Stroke="#383838" StrokeThickness="1" StrokeMiterLimit="1"/>
+      <Line X1="7" Y1="7.5" X2="16" Y2="7.5" Fill="#FFFFFF" Stroke="#383838" StrokeThickness="1" StrokeMiterLimit="1"/>
+      <Line X1="7" Y1="9.5" X2="16" Y2="9.5" Fill="#FFFFFF" Stroke="#383838" StrokeThickness="1" StrokeMiterLimit="1"/>
+      <Line X1="7" Y1="11.5" X2="16" Y2="11.5" Fill="#FFFFFF" Stroke="#383838" StrokeThickness="1" StrokeMiterLimit="1"/>
+      <Line X1="2" Y1="13.5" X2="16" Y2="13.5" Fill="#FFFFFF" Stroke="#383838" StrokeThickness="1" StrokeMiterLimit="1"/>
+    </Canvas>
+  </Canvas>
+</Viewbox>

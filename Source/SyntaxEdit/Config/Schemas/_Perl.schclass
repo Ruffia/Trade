@@ -1,0 +1,395 @@
+//=======================================================================
+//================ Lex class support ====================================
+//=======================================================================
+// 	lexClass:
+//		name		= c_CPPString
+//		parent		= c_CPP
+//		parent:dyn	= c_CPP
+//
+//		children		= 0
+//		children		= class1, class2, ...
+//
+//		previous:class			=	
+//		previous:tag			=	
+//		previous:tag:separators	=	
+//
+//		start:class		= 
+//		start:Tag		= '"'
+//
+//		skip:Tag		= '\"'
+//
+//		end:class		= //
+//		end:Tag			= '"'
+//		end:separators	= ' '
+//
+//		Token:tag		= 'if', 'for', 'while', 'do'
+//		Token:start:separators	= 
+//		Token:end:separators	= 
+//-----------------------------------------------------------------------
+//---------------- Attributes -------------------------------------------
+//-----------------------------------------------------------------------
+//	txt:colorFG	= 0xffc0c0 // color value in hex format. default: black	
+//	txt:colorBK	= 0xffc0c0 // color value in hex format. default: white		
+//
+//	txt:colorSelFG	= 0xffc0c0 // color value in hex format. default: white
+//	txt:colorSelBK	= 0xffc0c0 // color value in hex format. default: black
+//
+//	txt:Bold	= 1 // {1,0} default: 0
+//	txt:Italic	= 1 // {1,0} default: 0
+//	txt:Underline	= 1 // {1,0} default: 0
+//
+//	caseSensitive	= 1 // {1,0} default: 0
+//
+//	Collapsable	= 1 // {1,0} default: 0
+//	CollapsedText	= '/*...*/' // quoted string value. default: '[..]'	
+//
+//	ParseOnScreen	= 1 // {1,0} default: 0
+// 	
+//-----------------------------------------------------------------------
+//* Global attributes ***************************************************
+//-----------------------------------------------------------------------
+// 	global:FirstParseInSeparateThread	= 1		// {0,1} default=1
+// 	global:EditReparceInSeparateThread	= 1		// {0,1} default=1
+// 	global:ConfigChangedReparceInSeparateThread= 1 // {0,1} default=1
+// 	global:EditReparceTimeout_ms	= 500		// default= 500 ms; time out for start reparse after last key was pressed.
+// 	global:MaxBackParseOffset		= 100		// default= 100 chars; maximum back buffer size. Some times parser look back for the text from current position.
+// 	global:OnScreenSchCacheLifeTime_sec = 180	// default= 180 sec; -1 and 0 means infinite; time out for on screen parsed pices of text. for memory using optimization.
+// 	global:ParserThreadIdleLifeTime_sec = 60	// default=60 sec; -1 and 0 means infinite; time out for existing of parser thread when parser idle (no parse requests).
+	
+/////////////////////////////////////////////////////////////////////////
+
+//=======================================================================
+//================ Variables support ====================================
+//=======================================================================
+// NON operation - example:   @alpha:not
+//
+// @alpha	= a-z, A-Z
+// @digit	= 0-9
+// @HexDdigit	= 0-9, a-f, A-F
+// @specs	= "~`!@#$%^&*()_-+=\\|{}[];:'\",.<>/?"
+// @EOL		= End Of Line
+//---------------------------------------------
+// special tags:  '\\', '\'', '\t', '\r', '\n'
+/////////////////////////////////////////////////////////////////////////
+
+/// Perl ///	
+lexClass:
+	parent:file		= <*.pl|*.PL>
+	name			= c_Perl
+	caseSensitive		= 0
+	txt:colorFG		= 0x000000
+	DisplayName			= 'Normal Text'
+	
+//:lexClass
+
+lexClass: 	
+	name			= c_PerlComment
+	parent			= c_Perl
+	start:tag		= '#'
+	end:Tag			= @eol
+	txt:colorFG		= 0x009000
+	DisplayName			= 'Perl Comment'
+
+//:lexClass
+
+lexClass:
+	name			= c_PerlNumber
+	parent			= c_Perl
+	previous:tag		= ' ', '\t', @specs, @EOL	
+	start:tag		= @digit, '.'
+        skip:tag        	= 'e', 'E', '+', '-'  
+	end:separators		= @digit:not
+	txt:colorFG		= 0x009090
+	DisplayName			= 'Perl Number'
+
+//:lexClass
+
+lexClass:
+	name			= c_PerlStr1
+	parent			= c_Perl
+	start:tag		= '\''
+	end:tag			= '\'', @EOL
+	txt:colorFG		= 0x840000
+	DisplayName			= 'Perl String (Single Quotes)'
+
+//:lexClass
+
+lexClass:
+	name			= c_PerlStr2
+	parent			= c_Perl
+	start:tag		= '"'
+	end:tag			= '"', @EOL
+	txt:colorFG		= 0x840000
+	DisplayName			= 'Perl String (Double Quotes)'
+
+//:lexClass
+
+lexClass:
+	name			= c_PerlCharEscapes_base16
+	parent			= c_PerlStr2			
+	start:tag		= '\\x'
+	skip:tag		= 'a', 'b', 'c', 'd', 'e', 'f'
+	end:separators		= @digit:not
+	txt:colorFG		= 0x00A000
+	CaseSensitive		= 0
+	DisplayName			= 'Perl Character Escapes (Hex)'
+
+//:lexClass
+
+lexClass:
+	name			= c_PerlCharEscapes_base8
+	parent			= c_PerlStr2			
+	start:tag		= '\\0'
+	end:separators		= @digit:not, '8', '9'
+	txt:colorFG		= 0x00A000
+	DisplayName			= 'Perl Character Escapes (Octal)'
+
+//:lexClass
+
+lexClass:
+	name			= c_PerlCharEscapes_control
+	parent			= c_PerlStr2			
+	start:tag		= '\\c'
+	end:tag			= @alpha, @digit, @specs
+	txt:colorFG		= 0x00A000
+	CaseSensitive		= 1
+	DisplayName			= 'Perl Character Escapes (Control)'
+
+//:lexClass
+
+lexClass:
+	name			= c_PerlCharEscapes_regular
+	parent			= c_PerlStr2			
+	token:tag		= '\\a', '\\b', '\\E', '\\f', '\\l', '\\L', '\\n', '\\Q', '\\r', '\\t', '\\u', '\\U', '\\v', '\\'', '\\"', '\\\\'
+	txt:colorFG		= 0x00A000
+	CaseSensitive		= 1
+	DisplayName			= 'Perl Character Escapes (Regular)'
+
+//:lexClass
+
+lexClass:
+	name			= c_PerlStrFormatSpecifiers1
+	parent			= c_PerlStr2
+	token:tag		= '%%'
+	txt:colorFG		= 0x00A000
+	DisplayName			= 'Perl String Format Specifiers 1'
+
+//:lexClass
+
+lexClass:
+	name			= c_PerlStrFormatSpecifiers2
+	parent			= c_PerlStr2
+	start:tag		= '%'
+	skip:tag		= 'c', 'd', 'e', 'f', 'g', 'o', 's', 'u', 'v', 'x'
+	skip:tag		= 'a', 'A', 'b', 'B', 'E', 'G', 'n', 'p', 'X'
+	skip:tag		= 'D', 'F', 'i', 'O', 'U'
+	skip:tag		= 'h', 'j', 'l', 'L', 'q', 't', 'z'	
+	skip:tag		= ' ', '+', '-', '#', '.', '*', '$'
+	end:separators		= @digit:not
+	txt:colorFG		= 0x00A000
+	DisplayName			= 'Perl String Format Specifiers 2'
+
+//:lexClass
+
+lexClass: 
+	name			= c_PerlKeywords_syntax
+	ParseOnScreen 		= 0
+	parent			= c_Perl
+	txt:colorFG		= 0x0000FF
+	txt:Bold		= 1
+	DisplayName			= 'Perl Keywords Syntax'
+
+	token:tag		= '__DATA__'
+	token:tag		= '__END__'
+	token:tag		= '__FILE__'
+	token:tag		= '__LINE__'
+	token:tag		= '__PACKAGE__'
+	token:tag		= 'continue'
+	token:tag		= 'CORE'
+	token:tag		= 'do'
+	token:tag		= 'else'
+	token:tag		= 'elsif'
+	token:tag		= 'exp'
+	token:tag		= 'for'
+	token:tag		= 'foreach'	
+	token:tag		= 'if'
+	token:tag		= 'lock'
+	token:tag		= 'm'
+	token:tag		= 'no'
+	token:tag		= 'package'	
+	token:tag		= 'q'
+	token:tag		= 'qq'
+	token:tag		= 'qr'
+	token:tag		= 'qw'
+	token:tag		= 'qx'
+	token:tag		= 's'	
+	token:tag		= 'sub'
+	token:tag		= 'tr'
+	token:tag		= 'unless'
+	token:tag		= 'until'	
+	token:tag		= 'while'			
+	token:tag		= 'xor'
+	token:tag		= 'y'
+
+	token:tag		= 'eq'
+	token:tag		= 'ne'
+	token:tag		= 'gt'
+	token:tag		= 'ge'
+	token:tag		= 'lt'
+	token:tag		= 'le'
+	token:tag		= 'cmp'
+
+	token:tag		= 'and'
+	token:tag		= 'or'
+	token:tag		= 'not'
+
+	token:start:separators	= @specs, ' ', '\t', @EOL
+	token:end:separators	= @specs, ' ', '\t', @EOL
+
+//:lexClass
+
+lexClass: 
+	name			= c_PerlKeywords_variables
+	ParseOnScreen 		= 0
+	parent			= c_Perl
+	txt:colorFG		= 0x0000FF
+	txt:Bold		= 1
+	DisplayName			= 'Perl Keywords Variables'
+
+	token:tag		= '$!'
+	token:tag		= '$"'
+	token:tag		= '$#'
+	token:tag		= '$$'
+	token:tag		= '$%'
+	token:tag		= '$&'
+	token:tag		= '$\''
+	token:tag		= '$('
+	token:tag		= '$)'
+	token:tag		= '$*'	
+	token:tag		= '$+'	
+	token:tag		= '$,'
+	token:tag		= '$-'
+	token:tag		= '$.'
+	token:tag		= '$/'
+	token:tag		= '$0'
+	token:tag		= '$:'
+	token:tag		= '$;'
+	token:tag		= '$<'	
+	token:tag		= '$='
+	token:tag		= '$>'
+	token:tag		= '$?'
+	token:tag		= '$@'	
+	token:tag		= '$['
+	token:tag		= '$\'
+	token:tag		= '$]'	
+	token:tag		= '$^'
+	token:tag		= '$^A'
+	token:tag		= '$^C'
+	token:tag		= '$^CHILD_ERROR_NATIVE'
+	token:tag		= '$^D'
+	token:tag		= '$^E'
+	token:tag		= '$^ENCODING'	
+	token:tag		= '$^F'
+	token:tag		= '$^H'
+	token:tag		= '$^I'	
+	token:tag		= '$^L'
+	token:tag		= '$^M'
+	token:tag		= '$^N'
+	token:tag		= '$^O'
+	token:tag		= '$^OPEN'	
+	token:tag		= '$^P'
+	token:tag		= '$^R'
+	token:tag		= '$^RE_DEBUG_FLAGS'
+	token:tag		= '$^RE_TRIE_MAXBUF'
+	token:tag		= '$^S'
+	token:tag		= '$^T'
+	token:tag		= '$^TAINT'	
+	token:tag		= '$^UNICODE'
+	token:tag		= '$^UTF8LOCALE'
+	token:tag		= '$^V'	
+	token:tag		= '$^W'
+	token:tag		= '$^WARNING_BITS'	
+	token:tag		= '$^WIDE_SYSTEM_CALLS'
+	token:tag		= '$^X'
+	token:tag		= '$_'
+	token:tag		= '$`'
+	token:tag		= '$a'
+	token:tag		= '$ACCUMULATOR'	
+	token:tag		= '$ARG'
+	token:tag		= '$ARGV'
+	token:tag		= '$b'
+	token:tag		= '$BASETIME'
+	token:tag		= '$CHILD_ERROR'
+	token:tag		= '$COMPILING'
+	token:tag		= '$DEBUGGING'
+	token:tag		= '$EFFECTIVE_GROUP_ID'
+	token:tag		= '$EFFECTIVE_USER_ID'	
+	token:tag		= '$EGID'	
+	token:tag		= '$ERRNO'	
+	token:tag		= '$EUID'
+	token:tag		= '$EVAL_ERROR'
+	token:tag		= '$EXCEPTIONS_BEING_CAUGHT'
+	token:tag		= '$EXECUTABLE_NAME'
+	token:tag		= '$EXTENDED_OS_ERROR'
+	token:tag		= '$FORMAT_FORMFEED'
+	token:tag		= '$FORMAT_LINE_BREAK_CHARACTERS'
+	token:tag		= '$FORMAT_LINES_LEFT'	
+	token:tag		= '$FORMAT_LINES_PER_PAGE'	
+	token:tag		= '$FORMAT_NAME'
+	token:tag		= '$FORMAT_PAGE_NUMBER'
+	token:tag		= '$FORMAT_TOP_NAME'
+	token:tag		= '$GID'
+	token:tag		= '$INPLACE_EDIT'
+	token:tag		= '$INPUT_LINE_NUMBER'
+	token:tag		= '$INPUT_RECORD_SEPARATOR'	
+	token:tag		= '$LAST_MATCH_END'	
+	token:tag		= '$LAST_PAREN_MATCH'	
+	token:tag		= '$LAST_REGEXP_CODE_RESULT'	
+	token:tag		= '$LIST_SEPARATOR'		
+	token:tag		= '$MATCH'
+	token:tag		= '$MULTILINE_MATCHING'	
+	token:tag		= '$NR'	
+	token:tag		= '$OFMT'
+	token:tag		= '$OFS'	
+	token:tag		= '$ORS'
+	token:tag		= '$OS_ERROR'
+	token:tag		= '$OSNAME'	
+	token:tag		= '$OUTPUT_AUTO_FLUSH'	
+	token:tag		= '$OUTPUT_FIELD_SEPARATOR'	
+	token:tag		= '$OUTPUT_RECORD_SEPARATOR'	
+	token:tag		= '$PERL_VERSION'
+	token:tag		= '$PERLDB'	
+	token:tag		= '$PID'
+	token:tag		= '$POSTMATCH'	
+	token:tag		= '$PREMATCH'	
+	token:tag		= '$PROCESS_ID'	
+	token:tag		= '$PROGRAM_NAME'	
+	token:tag		= '$REAL_GROUP_ID'
+	token:tag		= '$REAL_USER_ID'	
+	token:tag		= '$RS'	
+	token:tag		= '$SUBSCRIPT_SEPARATOR'
+	token:tag		= '$SUBSEP'
+	token:tag		= '$SYSTEM_FD_MAX'	
+	token:tag		= '$UID'	
+	token:tag		= '$WARNING'	
+	token:tag		= '$|'	
+	token:tag		= '$~'	
+
+	token:tag		= '%!'	
+	token:tag		= '%^H'	
+	token:tag		= '%ENV'
+	token:tag		= '%INC'
+	token:tag		= '%OVERLOAD'	
+	token:tag		= '%SIG'	
+
+	token:tag		= '@+'	
+	token:tag		= '@-'	
+	token:tag		= '@_'	
+	token:tag		= '@ARGV'	
+	token:tag		= '@INC'
+	token:tag		= '@LAST_MATCH_START'	
+
+	token:start:separators	= @specs, ' ', '\t', @EOL
+	token:end:separators	= @specs, ' ', '\t', @EOL
+
+//:lexClass

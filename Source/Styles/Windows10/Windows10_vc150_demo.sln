@@ -1,0 +1,4 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Windows10", ".\Windows10_vc150_demo.vcxproj", "{88927152-3816-5133-6871-191957235793}"
+EndProject

@@ -1,0 +1,579 @@
+//=======================================================================
+//================ Lex class support ====================================
+//=======================================================================
+// 	lexClass:
+//		name		= c_CPPString
+//		parent		= c_CPP
+//		parent:dyn	= c_CPP
+//		parent:file = <*.c|*.cpp|*.h|*.inl|*.tli|*.tlh|*.rc|*.rc2>	
+//
+//		children		= 0
+//		children		= class1, class2, ...
+//
+//		previous:class			=	
+//		previous:tag			=	
+//		previous:tag:separators	=	
+//
+//		start:class		= 
+//		start:Tag		= '"'
+//
+//		skip:Tag		= '\"'
+//
+//		end:class		= //
+//		end:Tag			= '"'
+//		end:separators	= ' '
+//
+//		Token:tag		= 'if', 'for', 'while', 'do'
+//		Token:start:separators	= 
+//		Token:end:separators	= 
+//-----------------------------------------------------------------------
+//---------------- Attributes -------------------------------------------
+//-----------------------------------------------------------------------
+//	txt:colorFG	= 0xffc0c0 // color value in hex format. default: black	
+//	txt:colorBK	= 0xffc0c0 // color value in hex format. default: white		
+//
+//	txt:colorSelFG	= 0xffc0c0 // color value in hex format. default: white
+//	txt:colorSelBK	= 0xffc0c0 // color value in hex format. default: black
+//
+//	txt:Bold	= 1 // {1,0} default: 0
+//	txt:Italic	= 1 // {1,0} default: 0
+//	txt:Underline	= 1 // {1,0} default: 0
+//
+//	caseSensitive	= 1 // {1,0} default: 0
+//
+//	Collapsable	= 1 // {1,0} default: 0
+//	CollapsedText	= '/*...*/' // quoted string value. default: '[..]'	
+//
+//	ParseOnScreen	= 1 // {1,0} default: 0
+// 	
+//-----------------------------------------------------------------------
+//* Global attributes ***************************************************
+//-----------------------------------------------------------------------
+// 	global:FirstParseInSeparateThread	= 1		// {0,1} default=1
+// 	global:EditReparceInSeparateThread	= 1		// {0,1} default=1
+// 	global:ConfigChangedReparceInSeparateThread= 1 // {0,1} default=1
+// 	global:EditReparceTimeout_ms	= 500		// default= 500 ms; time out for start reparse after last key was pressed.
+// 	global:MaxBackParseOffset		= 100		// default= 100 chars; maximum back buffer size. Some times parser look back for the text from current position.
+// 	global:OnScreenSchCacheLifeTime_sec = 180	// default= 180 sec; -1 and 0 means infinite; time out for on screen parsed pices of text. for memory using optimization.
+// 	global:ParserThreadIdleLifeTime_sec = 60	// default=60 sec; -1 and 0 means infinite; time out for existing of parser thread when parser idle (no parse requests).
+	
+/////////////////////////////////////////////////////////////////////////
+
+//=======================================================================
+//================ Variables support ====================================
+//=======================================================================
+// NON operation - example:   @alpha:not
+//
+// @alpha	= a-z, A-Z
+// @digit	= 0-9
+// @HexDdigit	= 0-9, a-f, A-F
+// @specs	= "~`!@#$%^&*()_-+=\\|{}[];:'\",.<>/?"
+// @EOL		= End Of Line
+//---------------------------------------------
+// special tags:  '\\', '\'', '\t', '\r', '\n'
+/////////////////////////////////////////////////////////////////////////
+
+/// Cobol ///	
+lexClass: 
+	name			= c_Cobol	
+	parent:file		= <*.cbl|*.cob|*.cpy>	
+	caseSensitive		= 1
+	DisplayName			= 'Normal Text'
+
+//:lexClass
+
+lexClass:	
+	name			= c_CobolComment
+	parent			= c_Cobol
+	start:tag		='*'
+	end:separators		= @EOL
+	txt:colorFG		= 0x00A000
+	DisplayName			= 'Cobol Comment'
+
+//:lexClass
+
+lexClass:
+	name			= c_CobolPictureClause1
+	parent:			= c_Cobol
+	previous:tag		= 'PIC'
+	previous:tag:separators = ' ', '\t'
+	start:tag		= '9', 'A', 'P', 'S', 'V', 'X'
+	skip:tag		= '9', 'A', 'P', 'S', 'V', 'X'
+	end:separators		= '.', ' ', '\t', @EOL
+	txt:colorFG		= 0x00A000
+	caseSensitive		= 0
+	DisplayName			= 'Cobol Picture Clause 1'
+
+//:lexClass
+
+lexClass:
+	name			= c_CobolPictureClause2
+	parent			= c_CobolPictureClause1
+	start:tag		= '('
+	end:tag			= ')'
+	txt:colorFG		= 0x000000
+	DisplayName			= 'Cobol Picture Clause 2'
+
+lexClass: 	
+	name			= c_CobolStr1	
+	parent			= c_Cobol
+	start:tag		= '\''	
+	end:tag			= '\'', @eol
+	txt:colorFG		= 0xE00000
+	DisplayName			= 'Cobol String (Single Quotes) (Single-Line)'
+
+//:lexClass
+
+lexClass: 	
+	name			= c_CobolStr2
+	parent			= c_Cobol 
+	start:tag		= '"'	
+	end:tag			= '"', @eol
+	txt:colorFG		= 0xE00000
+	DisplayName			= 'Cobol String (Double Quotes) (Single-Line)'
+
+//:lexClass
+
+lexClass:	
+	name			= c_CobolKeywords
+	ParseOnScreen		= 0
+	parent			= c_Cobol 
+	children		= 0
+	txt:colorFG		= 0x0000FF
+	DisplayName			= 'Cobol Keyword'
+
+	token:tag		= 'ACCEPT'
+	token:tag		= 'ACCESS'
+	token:tag		= 'ADD'
+	token:tag		= 'ADDRESS'
+	token:tag		= 'ADVANCING'
+	token:tag		= 'AFTER'
+	token:tag		= 'ALL'
+	token:tag		= 'ALPHABET'
+	token:tag		= 'ALPHABETIC'
+	token:tag		= 'ALPHABETIC-LOWER'
+	token:tag		= 'ALPHABETIC-UPPER'
+	token:tag		= 'ALPHANUMERIC'
+	token:tag		= 'ALPHANUMERIC-EDITED'
+	token:tag		= 'ALSO'
+	token:tag		= 'ALTER'
+	token:tag		= 'ALTERNATE'
+	token:tag		= 'AND'
+	token:tag		= 'ANY'
+	token:tag		= 'APPLY'
+	token:tag		= 'ARE'
+	token:tag		= 'AREA'
+	token:tag		= 'AREAS'
+	token:tag		= 'ASCENDING'
+	token:tag		= 'ASSIGN'
+	token:tag		= 'AT'
+	token:tag		= 'AUTHOR' 
+	token:tag		= 'BASIS'
+	token:tag		= 'BEFORE'
+	token:tag		= 'BEGINNING'
+	token:tag		= 'BINARY'
+	token:tag		= 'BLANK'
+	token:tag		= 'BLOCK'
+	token:tag		= 'BOTTOM'
+	token:tag		= 'BY'
+	token:tag		= 'CALL'
+	token:tag		= 'CANCEL'
+	token:tag		= 'CBL'
+	token:tag		= 'CD'
+	token:tag		= 'CF'
+	token:tag		= 'CH'
+	token:tag		= 'CHARACTER'
+	token:tag		= 'CHARACTERS'
+	token:tag		= 'CLASS'
+	token:tag		= 'CLASS-ID'
+	token:tag		= 'CLOCK-UNITS'
+	token:tag		= 'CLOSE'
+	token:tag		= 'COBOL'
+	token:tag		= 'CODE'
+	token:tag		= 'CODE-SET'
+	token:tag		= 'COLLATING'
+	token:tag		= 'COLUMN'
+	token:tag		= 'COM-REG'
+	token:tag		= 'COMMA'
+	token:tag		= 'COMMON'
+	token:tag		= 'COMMUNICATION'
+	token:tag		= 'COMP'
+	token:tag		= 'COMP-1'
+	token:tag		= 'COMP-2'
+	token:tag		= 'COMP-3'
+	token:tag		= 'COMP-4'
+	token:tag		= 'COMP-5'
+	token:tag		= 'COMPUTATIONAL'
+	token:tag		= 'COMPUTATIONAL-1'
+	token:tag		= 'COMPUTATIONAL-2'
+	token:tag		= 'COMPUTATIONAL-3'
+	token:tag		= 'COMPUTATIONAL-4'
+	token:tag		= 'COMPUTATIONAL-5'
+	token:tag		= 'COMPUTE'
+	token:tag		= 'CONFIGURATION'
+	token:tag		= 'CONTAINS'
+	token:tag		= 'CONTENT'
+	token:tag		= 'CONTINUE'
+	token:tag		= 'CONTROL'
+	token:tag		= 'CONTROLS'
+	token:tag		= 'CONVERTING'
+	token:tag		= 'COPY'
+	token:tag		= 'CORR'
+	token:tag		= 'CORRESPONDING'
+	token:tag		= 'COUNT'
+	token:tag		= 'CURRENCY'
+	token:tag		= 'DATA'
+	token:tag		= 'DATE-COMPILED'
+	token:tag		= 'DATE-WRITTEN'
+	token:tag		= 'DAY'
+	token:tag		= 'DAY-OF-WEEK'
+	token:tag		= 'DBCS'
+	token:tag		= 'DE'
+	token:tag		= 'DEBUG-CONTENTS'
+	token:tag		= 'DEBUG-ITEM'
+	token:tag		= 'DEBUG-LINE'
+	token:tag		= 'DEBUG-NAME'
+	token:tag		= 'DEBUG-SUB-1'
+	token:tag		= 'DEBUG-SUB-2'
+	token:tag		= 'DEBUG-SUB-3'
+	token:tag		= 'DEBUGGING'
+	token:tag		= 'DECIMAL-POINT'
+	token:tag		= 'DECLARATIVES'
+	token:tag		= 'DELETE'
+	token:tag		= 'DELIMITED'
+	token:tag		= 'DELIMITER'
+	token:tag		= 'DEPENDING'
+	token:tag		= 'DESCENDING'
+	token:tag		= 'DESTINATION'
+	token:tag		= 'DETAIL'
+	token:tag		= 'DISPLAY'
+	token:tag		= 'DISPLAY-1'
+	token:tag		= 'DIVIDE'
+	token:tag		= 'DIVISION'
+	token:tag		= 'DOWN'
+	token:tag		= 'DUPLICATES'
+	token:tag		= 'DYNAMIC'
+	token:tag		= 'EGCS'
+	token:tag		= 'EGI'
+	token:tag		= 'EJECT'
+	token:tag		= 'ELSE'
+	token:tag		= 'EMI'
+	token:tag		= 'ENABLE'
+	token:tag		= 'END'
+	token:tag		= 'END-ADD'
+	token:tag		= 'END-CALL'
+	token:tag		= 'END-COMPUTE'
+	token:tag		= 'END-DELETE'
+	token:tag		= 'END-DIVIDE'
+	token:tag		= 'END-EVALUATE'
+	token:tag		= 'END-IF'
+	token:tag		= 'END-INVOKE'
+	token:tag		= 'END-MULTIPLY'
+	token:tag		= 'END-OF-PAGE'
+	token:tag		= 'END-PERFORM'
+	token:tag		= 'END-READ'
+	token:tag		= 'END-RECEIVE'
+	token:tag		= 'END-RETURN'
+	token:tag		= 'END-REWRITE'
+	token:tag		= 'END-SEARCH'
+	token:tag		= 'END-START'
+	token:tag		= 'END-STRING'
+	token:tag		= 'END-SUBTRACT'
+	token:tag		= 'END-UNSTRING'
+	token:tag		= 'END-WRITE'
+	token:tag		= 'ENDING'
+	token:tag		= 'ENTER'
+	token:tag		= 'ENTRY'
+	token:tag		= 'ENVIRONMENT'
+	token:tag		= 'EOP'
+	token:tag		= 'EQUAL'
+	token:tag		= 'ERROR'
+	token:tag		= 'ESI'
+	token:tag		= 'EVALUATE'
+	token:tag		= 'EVERY'
+	token:tag		= 'EXCEPTION'
+	token:tag		= 'EXIT'
+	token:tag		= 'EXTEND'
+	token:tag		= 'EXTERNAL'
+	token:tag		= 'FALSE'
+	token:tag		= 'FD'
+	token:tag		= 'FILE'
+	token:tag		= 'FILE-CONTROL'
+	token:tag		= 'FILLER'
+	token:tag		= 'FINAL'
+	token:tag		= 'FIRST'
+	token:tag		= 'FOOTING'
+	token:tag		= 'FOR'
+	token:tag		= 'FROM'
+	token:tag		= 'FUNCTION'
+	token:tag		= 'GENERATE'
+	token:tag		= 'GIVING'
+	token:tag		= 'GLOBAL'
+	token:tag		= 'GO'
+	token:tag		= 'GOBACK'
+	token:tag		= 'GREATER'
+	token:tag		= 'GROUP'
+	token:tag		= 'HEADING'
+	token:tag		= 'HIGH-VALUE'
+	token:tag		= 'HIGH-VALUES'
+	token:tag		= 'ID'
+	token:tag		= 'IDENTIFICATION'
+	token:tag		= 'IF'
+	token:tag		= 'IN'
+	token:tag		= 'INDEX'
+	token:tag		= 'INDEXED'
+	token:tag		= 'INDICATE'
+	token:tag		= 'INHERITS'
+	token:tag		= 'INITIAL'
+	token:tag		= 'INITIALIZE'
+	token:tag		= 'INITIATE'
+	token:tag		= 'INPUT'
+	token:tag		= 'INPUT-OUTPUT'
+	token:tag		= 'INSERT'
+	token:tag		= 'INSPECT'
+	token:tag		= 'INSTALLATION'
+	token:tag		= 'INTO'
+	token:tag		= 'INVALID'
+	token:tag		= 'INVOKE'
+	token:tag		= 'IO'
+	token:tag		= 'IO-CONTROL'
+	token:tag		= 'IS'
+	token:tag		= 'JUST'
+	token:tag		= 'JUSTIFIED'
+	token:tag		= 'KANJI'
+	token:tag		= 'KEY'
+	token:tag		= 'LABEL'
+	token:tag		= 'LAST'
+	token:tag		= 'LEADING'
+	token:tag		= 'LEFT'
+	token:tag		= 'LENGTH'
+	token:tag		= 'LESS'
+	token:tag		= 'LIMIT'
+	token:tag		= 'LIMITS'
+	token:tag		= 'LINAGE'
+	token:tag		= 'LINAGE-COUNTER'
+	token:tag		= 'LINE'
+	token:tag		= 'LINE-COUNTER'
+	token:tag		= 'LINES'
+	token:tag		= 'LINKAGE'
+	token:tag		= 'LOCAL-STORAGE'
+	token:tag		= 'LOCK'
+	token:tag		= 'LOW-VALUE'
+	token:tag		= 'LOW-VALUES'
+	token:tag		= 'MEMORY'
+	token:tag		= 'MERGE'
+	token:tag		= 'MESSAGE'
+	token:tag		= 'METACLASS'
+	token:tag		= 'METHOD'
+	token:tag		= 'METHOD-ID'
+	token:tag		= 'MODE'
+	token:tag		= 'MODULES'
+	token:tag		= 'MORE-LABELS'
+	token:tag		= 'MOVE'
+	token:tag		= 'MULTIPLE'
+	token:tag		= 'MULTIPLY'
+	token:tag		= 'NATIVE'
+	token:tag		= 'NATIVE_BINARY'
+	token:tag		= 'NEGATIVE'
+	token:tag		= 'NEXT'
+	token:tag		= 'NO'
+	token:tag		= 'NOT'
+	token:tag		= 'NULL'
+	token:tag		= 'NULLS'
+	token:tag		= 'NUMBER'
+	token:tag		= 'NUMERIC'
+	token:tag		= 'NUMERIC-EDITED'
+	token:tag		= 'OBJECT'
+	token:tag		= 'OBJECT-COMPUTER'
+	token:tag		= 'OCCURS'
+	token:tag		= 'OF'
+	token:tag		= 'OFF'
+	token:tag		= 'OMITTED'
+	token:tag		= 'ON'
+	token:tag		= 'OPEN'
+	token:tag		= 'OPTIONAL'
+	token:tag		= 'OR'
+	token:tag		= 'ORDER'
+	token:tag		= 'ORGANIZATION'
+	token:tag		= 'OTHER'
+	token:tag		= 'OUTPUT'
+	token:tag		= 'OVERFLOW'
+	token:tag		= 'OVERRIDE'
+	token:tag		= 'PACKED-DECIMAL'
+	token:tag		= 'PADDING'
+	token:tag		= 'PAGE'
+	token:tag		= 'PAGE-COUNTER'
+	token:tag		= 'PASSWORD'
+	token:tag		= 'PERFORM'
+	token:tag		= 'PF'
+	token:tag		= 'PH'
+	token:tag		= 'PIC'
+	token:tag		= 'PICTURE'
+	token:tag		= 'PLUS'
+	token:tag		= 'POINTER'
+	token:tag		= 'POSITION'
+	token:tag		= 'POSITIVE'
+	token:tag		= 'PRINTING'
+	token:tag		= 'PROCEDURE'
+	token:tag		= 'PROCEDURE-POINTER'
+	token:tag		= 'PROCEDURES'
+	token:tag		= 'PROCEED'
+	token:tag		= 'PROCESSING'
+	token:tag		= 'PROGRAM'
+	token:tag		= 'PROGRAM-ID'
+	token:tag		= 'PURGE'
+	token:tag		= 'QUEUE'
+	token:tag		= 'QUOTE'
+	token:tag		= 'QUOTES'
+	token:tag		= 'RANDOM'
+	token:tag		= 'RD'
+	token:tag		= 'READ'
+	token:tag		= 'READY'
+	token:tag		= 'RECEIVE'
+	token:tag		= 'RECORD'
+	token:tag		= 'RECORDING'
+	token:tag		= 'RECORDS'
+	token:tag		= 'RECURSIVE'
+	token:tag		= 'REDEFINES'
+	token:tag		= 'REEL'
+	token:tag		= 'REFERENCE'
+	token:tag		= 'REFERENCES'
+	token:tag		= 'RELATIVE'
+	token:tag		= 'RELEASE'
+	token:tag		= 'RELOAD'
+	token:tag		= 'REMAINDER'
+	token:tag		= 'REMOVAL'
+	token:tag		= 'RENAMES'
+	token:tag		= 'REPLACE'
+	token:tag		= 'REPLACING'
+	token:tag		= 'REPORT'
+	token:tag		= 'REPORTING'
+	token:tag		= 'REPORTS'
+	token:tag		= 'REPOSITORY'
+	token:tag		= 'RERUN'
+	token:tag		= 'RESERVE'
+	token:tag		= 'RESET'
+	token:tag		= 'RETURN'
+	token:tag		= 'RETURN-CODE'
+	token:tag		= 'RETURNING'
+	token:tag		= 'REVERSED'
+	token:tag		= 'REWIND'
+	token:tag		= 'REWRITE'
+	token:tag		= 'RF'
+	token:tag		= 'RH'
+	token:tag		= 'RIGHT'
+	token:tag		= 'ROUNDED'
+	token:tag		= 'RUN'
+	token:tag		= 'SAME'
+	token:tag		= 'SD'
+	token:tag		= 'SEARCH'
+	token:tag		= 'SECTION'
+	token:tag		= 'SECURITY'
+	token:tag		= 'SEGMENT'
+	token:tag		= 'SEGMENT-LIMIT'
+	token:tag		= 'SELECT'
+	token:tag		= 'SELF'
+	token:tag		= 'SEND'
+	token:tag		= 'SENTENCE'
+	token:tag		= 'SEPARATE'
+	token:tag		= 'SEQUENCE'
+	token:tag		= 'SEQUENTIAL'
+	token:tag		= 'SERVICE'
+	token:tag		= 'SET'
+	token:tag		= 'SHIFT-IN'
+	token:tag		= 'SHIFT-OUT'
+	token:tag		= 'SIGN'
+	token:tag		= 'SIZE'
+	token:tag		= 'SKIP1'
+	token:tag		= 'SKIP2'
+	token:tag		= 'SKIP3'
+	token:tag		= 'SORT'
+	token:tag		= 'SORT-CONTROL'
+	token:tag		= 'SORT-CORE-SIZE'
+	token:tag		= 'SORT-FILE-SIZE'
+	token:tag		= 'SORT-MERGE'
+	token:tag		= 'SORT-MESSAGE'
+	token:tag		= 'SORT-MODE-SIZE'
+	token:tag		= 'SORT-RETURN'
+	token:tag		= 'SOURCE'
+	token:tag		= 'SOURCE-COMPUTER'
+	token:tag		= 'SPACE'
+	token:tag		= 'SPACES'
+	token:tag		= 'SPECIAL-NAMES'
+	token:tag		= 'STANDARD'
+	token:tag		= 'STANDARD-1'
+	token:tag		= 'STANDARD-2'
+	token:tag		= 'START'
+	token:tag		= 'STATUS'
+	token:tag		= 'STOP'
+	token:tag		= 'STRING'
+	token:tag		= 'SUB-QUEUE-1'
+	token:tag		= 'SUB-QUEUE-2'
+	token:tag		= 'SUB-QUEUE-3'
+	token:tag		= 'SUBTRACT'
+	token:tag		= 'SUM'
+	token:tag		= 'SUPER'
+	token:tag		= 'SUPPRESS'
+	token:tag		= 'SYMBOLIC'
+	token:tag		= 'SYNC'
+	token:tag		= 'SYNCHRONIZED'
+	token:tag		= 'TABLE'
+	token:tag		= 'TALLY'
+	token:tag		= 'TALLYING'
+	token:tag		= 'TAPE'
+	token:tag		= 'TERMINAL'
+	token:tag		= 'TERMINATE'
+	token:tag		= 'TEST'
+	token:tag		= 'TEXT'
+	token:tag		= 'THAN'
+	token:tag		= 'THEN'
+	token:tag		= 'THROUGH'
+	token:tag		= 'THRU'
+	token:tag		= 'TIME'
+	token:tag		= 'TIMES'
+	token:tag		= 'TITLE'
+	token:tag		= 'TO'
+	token:tag		= 'TOP'
+	token:tag		= 'TRACE'
+	token:tag		= 'TRAILING'
+	token:tag		= 'TRUE'
+	token:tag		= 'TYPE'
+	token:tag		= 'UNIT'
+	token:tag		= 'UNSTRING'
+	token:tag		= 'UNTIL'
+	token:tag		= 'UP'
+	token:tag		= 'UPON'
+	token:tag		= 'USAGE'
+	token:tag		= 'USE'
+	token:tag		= 'USING'
+	token:tag		= 'VALUE'
+	token:tag		= 'VALUES'
+	token:tag		= 'VARYING'
+	token:tag		= 'WHEN'
+	token:tag		= 'WHEN-COMPILED'
+	token:tag		= 'WITH'
+	token:tag		= 'WORDS'
+	token:tag		= 'WORKING-STORAGE'
+	token:tag		= 'WRITE'
+	token:tag		= 'WRITE-ONLY'
+	token:tag		= 'ZERO'
+	token:tag		= 'ZEROES'
+	token:tag		= 'ZEROS'
+
+	token:start:separators	= ' ', '\t', @EOL
+	token:end:separators	= @specs, ' ', '\t', @EOL
+
+//:lexClass
+
+lexClass:
+	name			= c_CobolNumber
+	parent			= c_Cobol, c_CobolPictureClause2
+	previous:tag		= @specs, ' ', '\t', @EOL	
+	start:tag		= @digit
+	skip:tag		= '.', 'e'
+	end:separators		= @digit:not
+	txt:colorFG		= 0xE00000
+	caseSensitive		= 0
+	DisplayName			= 'Cobol Number'
+
+//:lexClass

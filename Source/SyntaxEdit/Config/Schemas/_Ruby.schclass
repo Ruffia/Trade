@@ -1,0 +1,327 @@
+//=======================================================================
+//================ Lex class support ====================================
+//=======================================================================
+// 	lexClass:
+//		name		= c_CPPString
+//		parent		= c_CPP
+//		parent:dyn	= c_CPP
+//
+//		children		= 0
+//		children		= class1, class2, ...
+//
+//		previous:class			=	
+//		previous:tag			=	
+//		previous:tag:separators	=	
+//
+//		start:class		= 
+//		start:Tag		= '"'
+//
+//		skip:Tag		= '\"'
+//
+//		end:class		= //
+//		end:Tag			= '"'
+//		end:separators	= ' '
+//
+//		Token:tag		= 'if', 'for', 'while', 'do'
+//		Token:start:separators	= 
+//		Token:end:separators	= 
+//-----------------------------------------------------------------------
+//---------------- Attributes -------------------------------------------
+//-----------------------------------------------------------------------
+//	txt:colorFG	= 0xffc0c0 // color value in hex format. default: black	
+//	txt:colorBK	= 0xffc0c0 // color value in hex format. default: white		
+//
+//	txt:colorSelFG	= 0xffc0c0 // color value in hex format. default: white
+//	txt:colorSelBK	= 0xffc0c0 // color value in hex format. default: black
+//
+//	txt:Bold	= 1 // {1,0} default: 0
+//	txt:Italic	= 1 // {1,0} default: 0
+//	txt:Underline	= 1 // {1,0} default: 0
+//
+//	caseSensitive	= 1 // {1,0} default: 0
+//
+//	Collapsable	= 1 // {1,0} default: 0
+//	CollapsedText	= '/*...*/' // quoted string value. default: '[..]'	
+//
+//	ParseOnScreen	= 1 // {1,0} default: 0
+// 	
+//-----------------------------------------------------------------------
+//* Global attributes ***************************************************
+//-----------------------------------------------------------------------
+// 	global:FirstParseInSeparateThread	= 1		// {0,1} default=1
+// 	global:EditReparceInSeparateThread	= 1		// {0,1} default=1
+// 	global:ConfigChangedReparceInSeparateThread= 1 // {0,1} default=1
+// 	global:EditReparceTimeout_ms	= 500		// default= 500 ms; time out for start reparse after last key was pressed.
+// 	global:MaxBackParseOffset		= 100		// default= 100 chars; maximum back buffer size. Some times parser look back for the text from current position.
+// 	global:OnScreenSchCacheLifeTime_sec = 180	// default= 180 sec; -1 and 0 means infinite; time out for on screen parsed pices of text. for memory using optimization.
+// 	global:ParserThreadIdleLifeTime_sec = 60	// default=60 sec; -1 and 0 means infinite; time out for existing of parser thread when parser idle (no parse requests).
+	
+/////////////////////////////////////////////////////////////////////////
+
+//=======================================================================
+//================ Variables support ====================================
+//=======================================================================
+// NON operation - example:   @alpha:not
+//
+// @alpha	= a-z, A-Z
+// @digit	= 0-9
+// @HexDdigit	= 0-9, a-f, A-F
+// @specs	= "~`!@#$%^&*()_-+=\\|{}[];:'\",.<>/?"
+// @EOL		= End Of Line
+//---------------------------------------------
+// special tags:  '\\', '\'', '\t', '\r', '\n'
+/////////////////////////////////////////////////////////////////////////
+
+/// Ruby ///	
+lexClass:
+	parent:file		= <*.rb>
+	name			= c_Ruby
+	caseSensitive		= 0
+	txt:colorFG		= 0x000000
+	DisplayName			= 'Normal Text'
+	
+//:lexClass
+
+lexClass: 	
+	name			= c_RubyComment
+	parent			= c_Ruby
+	start:tag		= '#'
+	end:Tag			= @eol
+	txt:colorFG		= 0x009000
+	DisplayName			= 'Ruby Comment'
+
+//:lexClass
+
+lexClass:
+	name			= c_RubyNumber_base16
+	parent			= c_Ruby
+	previous:tag		= ' ', '\t', @specs, @EOL	
+	start:tag		= '0x'
+	skip:tag		= 'a', 'b', 'c', 'd', 'e', 'f'
+	end:separators		= @digit:not
+	txt:colorFG		= 0x009090
+	CaseSensitive		= 0
+	DisplayName			= 'Ruby Number (Hex)'
+
+lexClass:
+	name			= c_RubyNumber_base2
+	parent			= c_Ruby
+	previous:tag		= ' ', '\t', @specs, @EOL	
+	start:tag		= '0b'
+	skip:tag		= '0', '1'
+	end:separators		= @digit, @digit:not
+	txt:colorFG		= 0x009090
+	DisplayName			= 'Ruby Number (Binary)'
+
+lexClass:
+	name			= c_RubyNumber
+	parent			= c_Ruby
+	previous:tag		= ' ', '\t', @specs, @EOL	
+	start:tag		= @digit, '.'
+        skip:tag        	= 'e', 'E', '+', '-'  
+	end:separators		= @digit:not
+	txt:colorFG		= 0x009090
+	DisplayName			= 'Ruby Number'
+
+//:lexClass
+
+lexClass:
+	name			= c_RubyStr1
+	parent			= c_Ruby
+	start:tag		= '\''
+	end:tag			= '\'', @EOL
+	txt:colorFG		= 0x840000
+	DisplayName			= 'Ruby String (Single Quotes)'
+
+//:lexClass
+
+lexClass:
+	name			= c_RubyStr2
+	parent			= c_Ruby
+	start:tag		= '"'
+	end:tag			= '"', @EOL
+	txt:colorFG		= 0x840000
+	DisplayName			= 'Ruby String (Double Quotes)'
+
+//:lexClass
+
+lexClass:
+	name			= c_RubyCharEscapes_regular1
+	parent			= c_RubyStr2			
+	token:tag		= '\\a', '\\b', '\\e', '\\f', '\\n', '\\r', '\\s', '\\t', '\\'', '\\"', '\\\\'
+	txt:colorFG		= 0x00A000
+	DisplayName			= 'Ruby Character Escapes (Regular)'
+
+//:lexClass
+
+lexClass:
+	name			= c_RubyCharEscapes_control
+	parent			= c_RubyStr2			
+	start:tag		= '\\c', '\\C-'
+	end:tag			= @alpha, @digit, @specs
+	txt:colorFG		= 0x00A000
+	DisplayName			= 'Ruby Character Escapes (Control)'
+
+//:lexClass
+
+lexClass:
+	name			= c_RubyCharEscapes_meta
+	parent			= c_RubyStr2			
+	start:tag		= '\\M-', '\\M-\\C-'
+	end:tag			= @alpha, @digit, @specs
+	txt:colorFG		= 0x00A000
+	DisplayName			= 'Ruby Character Escapes (Octal)'
+
+//:lexClass
+
+lexClass:
+	name			= c_RubyCharEscapes_base16
+	parent			= c_RubyStr2			
+	start:tag		= '\\x'
+	skip:tag		= 'a', 'b', 'c', 'd', 'e', 'f'
+	end:separators		= @digit:not
+	txt:colorFG		= 0x00A000
+	CaseSensitive		= 0
+	DisplayName			= 'Ruby Character Escapes (Hex)'
+
+//:lexClass
+
+lexClass:
+	name			= c_RubyCharEscapes_base8
+	parent			= c_RubyStr2			
+	start:tag		= '\\'
+	end:separators		= @digit:not, '8', '9'
+	txt:colorFG		= 0x00A000
+	DisplayName			= 'Ruby Character Escapes (Octal)'
+
+//:lexClass
+
+lexClass:
+	name			= c_RubyCharEscapes_regular2
+	parent			= c_RubyStr1, c_RubyStr2			
+	token:tag		= '\\'', '\\\\'
+	txt:colorFG		= 0x00A000
+	DisplayName			= 'Ruby Character Escapes (Regular)'
+
+//:lexClass
+
+lexClass: 
+	name			= c_RubyKeywords_syntax
+	ParseOnScreen 		= 0
+	parent			= c_Ruby
+	txt:colorFG		= 0x0000FF
+	txt:Bold		= 1
+	DisplayName			= 'Ruby Keywords Syntax'
+
+	token:tag		= '__ENCODING__'
+	token:tag		= '__LINE__'
+	token:tag		= '__FILE__'
+	token:tag		= 'BEGIN'
+	token:tag		= 'END'
+	token:tag		= 'alias'
+	token:tag		= 'begin'
+	token:tag		= 'break'
+	token:tag		= 'case'
+	token:tag		= 'class'
+	token:tag		= 'def'
+	token:tag		= 'defined?'
+	token:tag		= 'do'
+	token:tag		= 'else'
+	token:tag		= 'elsif'
+	token:tag		= 'end'
+	token:tag		= 'ensure'
+	token:tag		= 'false'
+	token:tag		= 'for'
+	token:tag		= 'if'
+	token:tag		= 'in'
+	token:tag		= 'module'
+	token:tag		= 'next'
+	token:tag		= 'nil'
+	token:tag		= 'redo'
+	token:tag		= 'rescue'
+	token:tag		= 'retry'
+	token:tag		= 'return'
+	token:tag		= 'self'
+	token:tag		= 'super'
+	token:tag		= 'then'
+	token:tag		= 'true'
+	token:tag		= 'undef'
+	token:tag		= 'unless'
+	token:tag		= 'until'
+	token:tag		= 'when'
+	token:tag		= 'while'
+	token:tag		= 'yield'
+
+	token:tag		= 'and'
+	token:tag		= 'or'
+	token:tag		= 'not'
+
+	token:start:separators	= @specs, ' ', '\t', @EOL
+	token:end:separators	= @specs, ' ', '\t', @EOL
+
+//:lexClass
+
+lexClass: 
+	name			= c_RubyKeywords_variables
+	ParseOnScreen 		= 0
+	parent			= c_Ruby
+	txt:colorFG		= 0x0000FF
+	txt:Bold		= 1
+	DisplayName			= 'Ruby Keywords Variables'
+
+	token:tag		= '$!'
+	token:tag		= '$@'
+	token:tag		= '$&'
+	token:tag		= '$`'
+	token:tag		= '$''
+	token:tag		= '$+'
+	token:tag		= '$~'
+	token:tag		= '$='
+	token:tag		= '$/'
+	token:tag		= '$\'
+	token:tag		= '$,'
+	token:tag		= '$;'
+	token:tag		= '$.'
+	token:tag		= '$<'
+	token:tag		= '$>'
+	token:tag		= '$_'
+	token:tag		= '$0'
+	token:tag		= '$*'
+	token:tag		= '$$'
+	token:tag		= '$?'
+	token:tag		= '$:'
+	token:tag		= '$"'
+	token:tag		= '$DEBUG'
+	token:tag		= '$LOADED_FEATURES'
+	token:tag		= '$FILENAME'
+	token:tag		= '$LOAD_PATH'
+	token:tag		= '$stderr'
+	token:tag		= '$stdin'
+	token:tag		= '$stdout'
+	token:tag		= '$VERBOSE'
+	token:tag		= '$-0'
+	token:tag		= '$-a'
+	token:tag		= '$-d'
+	token:tag		= '$-F'
+	token:tag		= '$-i'
+	token:tag		= '$-I'
+	token:tag		= '$-l'
+	token:tag		= '$-p'
+	token:tag		= '$-v'
+	token:tag		= '$-w'
+
+	token:tag		= 'STDIN'
+	token:tag		= 'STDOUT'
+	token:tag		= 'STDERR'
+	token:tag		= 'ENV'
+	token:tag		= 'ARGF'
+	token:tag		= 'ARGV'
+	token:tag		= 'DATA'
+	token:tag		= 'RUBY_VERSION'
+	token:tag		= 'RUBY_RELEASE_DATE'
+	token:tag		= 'RUBY_PLATFORM'
+
+	token:start:separators	= @specs, ' ', '\t', @EOL
+	token:end:separators	= @specs, ' ', '\t', @EOL
+
+//:lexClass

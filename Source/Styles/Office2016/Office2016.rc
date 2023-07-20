@@ -1,0 +1,286 @@
+//Microsoft Developer Studio generated resource script.
+//
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// INI
+//
+
+OFFICE2016ACCESSBLACK_INI          TEXTFILE MOVEABLE PURE "Styles\\Office2016\\Office2016AccessBlack.ini"
+OFFICE2016ACCESSCOLORFUL_INI       TEXTFILE MOVEABLE PURE "Styles\\Office2016\\Office2016AccessColorful.ini"
+OFFICE2016ACCESSDARKGRAY_INI       TEXTFILE MOVEABLE PURE "Styles\\Office2016\\Office2016AccessDarkGray.ini"
+OFFICE2016ACCESSWHITE_INI          TEXTFILE MOVEABLE PURE "Styles\\Office2016\\Office2016AccessWhite.ini"
+OFFICE2016EXCELBLACK_INI           TEXTFILE MOVEABLE PURE "Styles\\Office2016\\Office2016ExcelBlack.ini"
+OFFICE2016EXCELCOLORFUL_INI        TEXTFILE MOVEABLE PURE "Styles\\Office2016\\Office2016ExcelColorful.ini"
+OFFICE2016EXCELDARKGRAY_INI        TEXTFILE MOVEABLE PURE "Styles\\Office2016\\Office2016ExcelDarkGray.ini"
+OFFICE2016EXCELWHITE_INI           TEXTFILE MOVEABLE PURE "Styles\\Office2016\\Office2016ExcelWhite.ini"
+OFFICE2016ONENOTEBLACK_INI         TEXTFILE MOVEABLE PURE "Styles\\Office2016\\Office2016OneNoteBlack.ini"
+OFFICE2016ONENOTECOLORFUL_INI      TEXTFILE MOVEABLE PURE "Styles\\Office2016\\Office2016OneNoteColorful.ini"
+OFFICE2016ONENOTEDARKGRAY_INI      TEXTFILE MOVEABLE PURE "Styles\\Office2016\\Office2016OneNoteDarkGray.ini"
+OFFICE2016ONENOTEWHITE_INI         TEXTFILE MOVEABLE PURE "Styles\\Office2016\\Office2016OneNoteWhite.ini"
+OFFICE2016OUTLOOKBLACK_INI         TEXTFILE MOVEABLE PURE "Styles\\Office2016\\Office2016OutlookBlack.ini"
+OFFICE2016OUTLOOKCOLORFUL_INI      TEXTFILE MOVEABLE PURE "Styles\\Office2016\\Office2016OutlookColorful.ini"
+OFFICE2016OUTLOOKDARKGRAY_INI      TEXTFILE MOVEABLE PURE "Styles\\Office2016\\Office2016OutlookDarkGray.ini"
+OFFICE2016OUTLOOKWHITE_INI         TEXTFILE MOVEABLE PURE "Styles\\Office2016\\Office2016OutlookWhite.ini"
+OFFICE2016PUBLISHERBLACK_INI       TEXTFILE MOVEABLE PURE "Styles\\Office2016\\Office2016PublisherBlack.ini"
+OFFICE2016PUBLISHERCOLORFUL_INI    TEXTFILE MOVEABLE PURE "Styles\\Office2016\\Office2016PublisherColorful.ini"
+OFFICE2016PUBLISHERDARKGRAY_INI    TEXTFILE MOVEABLE PURE "Styles\\Office2016\\Office2016PublisherDarkGray.ini"
+OFFICE2016PUBLISHERWHITE_INI       TEXTFILE MOVEABLE PURE "Styles\\Office2016\\Office2016PublisherWhite.ini"
+OFFICE2016POWERPOINTBLACK_INI      TEXTFILE MOVEABLE PURE "Styles\\Office2016\\Office2016PowerPointBlack.ini"
+OFFICE2016POWERPOINTCOLORFUL_INI   TEXTFILE MOVEABLE PURE "Styles\\Office2016\\Office2016PowerPointColorful.ini"
+OFFICE2016POWERPOINTDARKGRAY_INI   TEXTFILE MOVEABLE PURE "Styles\\Office2016\\Office2016PowerPointDarkGray.ini"
+OFFICE2016POWERPOINTWHITE_INI      TEXTFILE MOVEABLE PURE "Styles\\Office2016\\Office2016PowerPointWhite.ini"
+OFFICE2016WORDBLACK_INI            TEXTFILE MOVEABLE PURE "Styles\\Office2016\\Office2016WordBlack.ini"
+OFFICE2016WORDCOLORFUL_INI         TEXTFILE MOVEABLE PURE "Styles\\Office2016\\Office2016WordColorful.ini"
+OFFICE2016WORDDARKGRAY_INI         TEXTFILE MOVEABLE PURE "Styles\\Office2016\\Office2016WordDarkGray.ini"
+OFFICE2016WORDWHITE_INI            TEXTFILE MOVEABLE PURE "Styles\\Office2016\\Office2016WordWhite.ini"
+
+#if !defined(_XTP_NO_BINARY_RESOURCES)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// ZIP
+//
+
+XAML_STYLE STYLE DISCARDABLE "Styles\\Office2016\\XamlStyle.zip"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// PNG
+//
+
+OFFICE2016TIMELINEVIEWAPPOINTMENTICON_100     PNG  MOVEABLE PURE "Styles\\Office2016\\res\\TimeLineViewAppointmentIcon_100.png"
+OFFICE2016TIMELINEVIEWAPPOINTMENTICON_125     PNG  MOVEABLE PURE "Styles\\Office2016\\res\\TimeLineViewAppointmentIcon_125.png"
+OFFICE2016TIMELINEVIEWAPPOINTMENTICON_150     PNG  MOVEABLE PURE "Styles\\Office2016\\res\\TimeLineViewAppointmentIcon_150.png"
+OFFICE2016TIMELINEVIEWAPPOINTMENTICON_200     PNG  MOVEABLE PURE "Styles\\Office2016\\res\\TimeLineViewAppointmentIcon_200.png"
+
+#if !defined(_XTP_EXCLUDE_OFFICE_BACKGROUND)
+OFFICE2016BLACKLARGECALLIGRAPHY           PNG  MOVEABLE PURE "Styles\\Office2016\\res\\black-large-calligraphy.png"
+OFFICE2016BLACKLARGECIRCLESANDSTRIPES     PNG  MOVEABLE PURE "Styles\\Office2016\\res\\black-large-circles-and-stripes.png"
+OFFICE2016BLACKLARGECIRCUIT               PNG  MOVEABLE PURE "Styles\\Office2016\\res\\black-large-circuit.png"
+OFFICE2016BLACKLARGECLOUDS                PNG  MOVEABLE PURE "Styles\\Office2016\\res\\black-large-clouds.png"
+OFFICE2016BLACKLARGEDOODLEDIAMONDS        PNG  MOVEABLE PURE "Styles\\Office2016\\res\\black-large-doodle-diamonds.png"
+OFFICE2016BLACKLARGEDOODLECIRCLES         PNG  MOVEABLE PURE "Styles\\Office2016\\res\\black-large-doodle-circles.png"
+OFFICE2016BLACKLARGEGEOMETRY              PNG  MOVEABLE PURE "Styles\\Office2016\\res\\black-large-geometry.png"
+OFFICE2016BLACKLARGELUNCHBOX              PNG  MOVEABLE PURE "Styles\\Office2016\\res\\black-large-lunchbox.png"
+OFFICE2016BLACKLARGESCHOOLSUPPLIES        PNG  MOVEABLE PURE "Styles\\Office2016\\res\\black-large-school-supplies.png"
+OFFICE2016BLACKLARGESPRING                PNG  MOVEABLE PURE "Styles\\Office2016\\res\\black-large-spring.png"
+OFFICE2016BLACKLARGESTARS                 PNG  MOVEABLE PURE "Styles\\Office2016\\res\\black-large-stars.png"
+OFFICE2016BLACKLARGESTRAWS                PNG  MOVEABLE PURE "Styles\\Office2016\\res\\black-large-straws.png"
+OFFICE2016BLACKLARGETREERINGS             PNG  MOVEABLE PURE "Styles\\Office2016\\res\\black-large-tree-rings.png"
+OFFICE2016BLACKLARGEUNDERWATER            PNG  MOVEABLE PURE "Styles\\Office2016\\res\\black-large-underwater.png"
+OFFICE2016BLACKMEDIUMCALLIGRAPHY          PNG  MOVEABLE PURE "Styles\\Office2016\\res\\black-medium-calligraphy.png"
+OFFICE2016BLACKMEDIUMCIRCLESANDSTRIPES    PNG  MOVEABLE PURE "Styles\\Office2016\\res\\black-medium-circles-and-stripes.png"
+OFFICE2016BLACKMEDIUMCIRCUIT              PNG  MOVEABLE PURE "Styles\\Office2016\\res\\black-medium-circuit.png"
+OFFICE2016BLACKMEDIUMCLOUDS               PNG  MOVEABLE PURE "Styles\\Office2016\\res\\black-medium-clouds.png"
+OFFICE2016BLACKMEDIUMDOODLEDIAMONDS       PNG  MOVEABLE PURE "Styles\\Office2016\\res\\black-medium-doodle-diamonds.png"
+OFFICE2016BLACKMEDIUMDOODLECIRCLES        PNG  MOVEABLE PURE "Styles\\Office2016\\res\\black-medium-doodle-circles.png"
+OFFICE2016BLACKMEDIUMGEOMETRY             PNG  MOVEABLE PURE "Styles\\Office2016\\res\\black-medium-geometry.png"
+OFFICE2016BLACKMEDIUMLUNCHBOX             PNG  MOVEABLE PURE "Styles\\Office2016\\res\\black-medium-lunchbox.png"
+OFFICE2016BLACKMEDIUMSCHOOLSUPPLIES       PNG  MOVEABLE PURE "Styles\\Office2016\\res\\black-medium-school-supplies.png"
+OFFICE2016BLACKMEDIUMSPRING               PNG  MOVEABLE PURE "Styles\\Office2016\\res\\black-medium-spring.png"
+OFFICE2016BLACKMEDIUMSTARS                PNG  MOVEABLE PURE "Styles\\Office2016\\res\\black-medium-stars.png"
+OFFICE2016BLACKMEDIUMSTRAWS               PNG  MOVEABLE PURE "Styles\\Office2016\\res\\black-medium-straws.png"
+OFFICE2016BLACKMEDIUMTREERINGS            PNG  MOVEABLE PURE "Styles\\Office2016\\res\\black-medium-tree-rings.png"
+OFFICE2016BLACKMEDIUMUNDERWATER           PNG  MOVEABLE PURE "Styles\\Office2016\\res\\black-medium-underwater.png"
+OFFICE2016BLACKSMALLCALLIGRAPHY           PNG  MOVEABLE PURE "Styles\\Office2016\\res\\black-small-calligraphy.png"
+OFFICE2016BLACKSMALLCIRCLESANDSTRIPES     PNG  MOVEABLE PURE "Styles\\Office2016\\res\\black-small-circles-and-stripes.png"
+OFFICE2016BLACKSMALLCIRCUIT               PNG  MOVEABLE PURE "Styles\\Office2016\\res\\black-small-circuit.png"
+OFFICE2016BLACKSMALLCLOUDS                PNG  MOVEABLE PURE "Styles\\Office2016\\res\\black-small-clouds.png"
+OFFICE2016BLACKSMALLDOODLEDIAMONDS        PNG  MOVEABLE PURE "Styles\\Office2016\\res\\black-small-doodle-diamonds.png"
+OFFICE2016BLACKSMALLDOODLECIRCLES         PNG  MOVEABLE PURE "Styles\\Office2016\\res\\black-small-doodle-circles.png"
+OFFICE2016BLACKSMALLGEOMETRY              PNG  MOVEABLE PURE "Styles\\Office2016\\res\\black-small-geometry.png"
+OFFICE2016BLACKSMALLLUNCHBOX              PNG  MOVEABLE PURE "Styles\\Office2016\\res\\black-small-lunchbox.png"
+OFFICE2016BLACKSMALLSCHOOLSUPPLIES        PNG  MOVEABLE PURE "Styles\\Office2016\\res\\black-small-school-supplies.png"
+OFFICE2016BLACKSMALLSPRING                PNG  MOVEABLE PURE "Styles\\Office2016\\res\\black-small-spring.png"
+OFFICE2016BLACKSMALLSTARS                 PNG  MOVEABLE PURE "Styles\\Office2016\\res\\black-small-stars.png"
+OFFICE2016BLACKSMALLSTRAWS                PNG  MOVEABLE PURE "Styles\\Office2016\\res\\black-small-straws.png"
+OFFICE2016BLACKSMALLTREERINGS             PNG  MOVEABLE PURE "Styles\\Office2016\\res\\black-small-tree-rings.png"
+OFFICE2016BLACKSMALLUNDERWATER            PNG  MOVEABLE PURE "Styles\\Office2016\\res\\black-small-underwater.png"
+OFFICE2016COLORFULLARGECALLIGRAPHY        PNG  MOVEABLE PURE "Styles\\Office2016\\res\\colorful-large-calligraphy.png"
+OFFICE2016COLORFULLARGECIRCLESANDSTRIPES  PNG  MOVEABLE PURE "Styles\\Office2016\\res\\colorful-large-circles-and-stripes.png"
+OFFICE2016COLORFULLARGECIRCUIT            PNG  MOVEABLE PURE "Styles\\Office2016\\res\\colorful-large-circuit.png"
+OFFICE2016COLORFULLARGECLOUDS             PNG  MOVEABLE PURE "Styles\\Office2016\\res\\colorful-large-clouds.png"
+OFFICE2016COLORFULLARGEDOODLEDIAMONDS     PNG  MOVEABLE PURE "Styles\\Office2016\\res\\colorful-large-doodle-diamonds.png"
+OFFICE2016COLORFULLARGEDOODLECIRCLES      PNG  MOVEABLE PURE "Styles\\Office2016\\res\\colorful-large-doodle-circles.png"
+OFFICE2016COLORFULLARGEGEOMETRY           PNG  MOVEABLE PURE "Styles\\Office2016\\res\\colorful-large-geometry.png"
+OFFICE2016COLORFULLARGELUNCHBOX           PNG  MOVEABLE PURE "Styles\\Office2016\\res\\colorful-large-lunchbox.png"
+OFFICE2016COLORFULLARGESCHOOLSUPPLIES     PNG  MOVEABLE PURE "Styles\\Office2016\\res\\colorful-large-school-supplies.png"
+OFFICE2016COLORFULLARGESPRING             PNG  MOVEABLE PURE "Styles\\Office2016\\res\\colorful-large-spring.png"
+OFFICE2016COLORFULLARGESTARS              PNG  MOVEABLE PURE "Styles\\Office2016\\res\\colorful-large-stars.png"
+OFFICE2016COLORFULLARGESTRAWS             PNG  MOVEABLE PURE "Styles\\Office2016\\res\\colorful-large-straws.png"
+OFFICE2016COLORFULLARGETREERINGS          PNG  MOVEABLE PURE "Styles\\Office2016\\res\\colorful-large-tree-rings.png"
+OFFICE2016COLORFULLARGEUNDERWATER         PNG  MOVEABLE PURE "Styles\\Office2016\\res\\colorful-large-underwater.png"
+OFFICE2016COLORFULMEDIUMCALLIGRAPHY       PNG  MOVEABLE PURE "Styles\\Office2016\\res\\colorful-medium-calligraphy.png"
+OFFICE2016COLORFULMEDIUMCIRCLESANDSTRIPES PNG  MOVEABLE PURE "Styles\\Office2016\\res\\colorful-medium-circles-and-stripes.png"
+OFFICE2016COLORFULMEDIUMCIRCUIT           PNG  MOVEABLE PURE "Styles\\Office2016\\res\\colorful-medium-circuit.png"
+OFFICE2016COLORFULMEDIUMCLOUDS            PNG  MOVEABLE PURE "Styles\\Office2016\\res\\colorful-medium-clouds.png"
+OFFICE2016COLORFULMEDIUMDOODLEDIAMONDS    PNG  MOVEABLE PURE "Styles\\Office2016\\res\\colorful-medium-doodle-diamonds.png"
+OFFICE2016COLORFULMEDIUMDOODLECIRCLES     PNG  MOVEABLE PURE "Styles\\Office2016\\res\\colorful-medium-doodle-circles.png"
+OFFICE2016COLORFULMEDIUMGEOMETRY          PNG  MOVEABLE PURE "Styles\\Office2016\\res\\colorful-medium-geometry.png"
+OFFICE2016COLORFULMEDIUMLUNCHBOX          PNG  MOVEABLE PURE "Styles\\Office2016\\res\\colorful-medium-lunchbox.png"
+OFFICE2016COLORFULMEDIUMSCHOOLSUPPLIES    PNG  MOVEABLE PURE "Styles\\Office2016\\res\\colorful-medium-school-supplies.png"
+OFFICE2016COLORFULMEDIUMSPRING            PNG  MOVEABLE PURE "Styles\\Office2016\\res\\colorful-medium-spring.png"
+OFFICE2016COLORFULMEDIUMSTARS             PNG  MOVEABLE PURE "Styles\\Office2016\\res\\colorful-medium-stars.png"
+OFFICE2016COLORFULMEDIUMSTRAWS            PNG  MOVEABLE PURE "Styles\\Office2016\\res\\colorful-medium-straws.png"
+OFFICE2016COLORFULMEDIUMTREERINGS         PNG  MOVEABLE PURE "Styles\\Office2016\\res\\colorful-medium-tree-rings.png"
+OFFICE2016COLORFULMEDIUMUNDERWATER        PNG  MOVEABLE PURE "Styles\\Office2016\\res\\colorful-medium-underwater.png"
+OFFICE2016COLORFULSMALLCALLIGRAPHY        PNG  MOVEABLE PURE "Styles\\Office2016\\res\\colorful-small-calligraphy.png"
+OFFICE2016COLORFULSMALLCIRCLESANDSTRIPES  PNG  MOVEABLE PURE "Styles\\Office2016\\res\\colorful-small-circles-and-stripes.png"
+OFFICE2016COLORFULSMALLCIRCUIT            PNG  MOVEABLE PURE "Styles\\Office2016\\res\\colorful-small-circuit.png"
+OFFICE2016COLORFULSMALLCLOUDS             PNG  MOVEABLE PURE "Styles\\Office2016\\res\\colorful-small-clouds.png"
+OFFICE2016COLORFULSMALLDOODLEDIAMONDS     PNG  MOVEABLE PURE "Styles\\Office2016\\res\\colorful-small-doodle-diamonds.png"
+OFFICE2016COLORFULSMALLDOODLECIRCLES      PNG  MOVEABLE PURE "Styles\\Office2016\\res\\colorful-small-doodle-circles.png"
+OFFICE2016COLORFULSMALLGEOMETRY           PNG  MOVEABLE PURE "Styles\\Office2016\\res\\colorful-small-geometry.png"
+OFFICE2016COLORFULSMALLLUNCHBOX           PNG  MOVEABLE PURE "Styles\\Office2016\\res\\colorful-small-lunchbox.png"
+OFFICE2016COLORFULSMALLSCHOOLSUPPLIES     PNG  MOVEABLE PURE "Styles\\Office2016\\res\\colorful-small-school-supplies.png"
+OFFICE2016COLORFULSMALLSPRING             PNG  MOVEABLE PURE "Styles\\Office2016\\res\\colorful-small-spring.png"
+OFFICE2016COLORFULSMALLSTARS              PNG  MOVEABLE PURE "Styles\\Office2016\\res\\colorful-small-stars.png"
+OFFICE2016COLORFULSMALLSTRAWS             PNG  MOVEABLE PURE "Styles\\Office2016\\res\\colorful-small-straws.png"
+OFFICE2016COLORFULSMALLTREERINGS          PNG  MOVEABLE PURE "Styles\\Office2016\\res\\colorful-small-tree-rings.png"
+OFFICE2016COLORFULSMALLUNDERWATER         PNG  MOVEABLE PURE "Styles\\Office2016\\res\\colorful-small-underwater.png"
+OFFICE2016DARKGRAYLARGECALLIGRAPHY        PNG  MOVEABLE PURE "Styles\\Office2016\\res\\dark-gray-large-calligraphy.png"
+OFFICE2016DARKGRAYLARGECIRCLESANDSTRIPES  PNG  MOVEABLE PURE "Styles\\Office2016\\res\\dark-gray-large-circles-and-stripes.png"
+OFFICE2016DARKGRAYLARGECIRCUIT            PNG  MOVEABLE PURE "Styles\\Office2016\\res\\dark-gray-large-circuit.png"
+OFFICE2016DARKGRAYLARGECLOUDS             PNG  MOVEABLE PURE "Styles\\Office2016\\res\\dark-gray-large-clouds.png"
+OFFICE2016DARKGRAYLARGEDOODLEDIAMONDS     PNG  MOVEABLE PURE "Styles\\Office2016\\res\\dark-gray-large-doodle-diamonds.png"
+OFFICE2016DARKGRAYLARGEDOODLECIRCLES      PNG  MOVEABLE PURE "Styles\\Office2016\\res\\dark-gray-large-doodle-circles.png"
+OFFICE2016DARKGRAYLARGEGEOMETRY           PNG  MOVEABLE PURE "Styles\\Office2016\\res\\dark-gray-large-geometry.png"
+OFFICE2016DARKGRAYLARGELUNCHBOX           PNG  MOVEABLE PURE "Styles\\Office2016\\res\\dark-gray-large-lunchbox.png"
+OFFICE2016DARKGRAYLARGESCHOOLSUPPLIES     PNG  MOVEABLE PURE "Styles\\Office2016\\res\\dark-gray-large-school-supplies.png"
+OFFICE2016DARKGRAYLARGESPRING             PNG  MOVEABLE PURE "Styles\\Office2016\\res\\dark-gray-large-spring.png"
+OFFICE2016DARKGRAYLARGESTARS              PNG  MOVEABLE PURE "Styles\\Office2016\\res\\dark-gray-large-stars.png"
+OFFICE2016DARKGRAYLARGESTRAWS             PNG  MOVEABLE PURE "Styles\\Office2016\\res\\dark-gray-large-straws.png"
+OFFICE2016DARKGRAYLARGETREERINGS          PNG  MOVEABLE PURE "Styles\\Office2016\\res\\dark-gray-large-tree-rings.png"
+OFFICE2016DARKGRAYLARGEUNDERWATER         PNG  MOVEABLE PURE "Styles\\Office2016\\res\\dark-gray-large-underwater.png"
+OFFICE2016DARKGRAYMEDIUMCALLIGRAPHY       PNG  MOVEABLE PURE "Styles\\Office2016\\res\\dark-gray-medium-calligraphy.png"
+OFFICE2016DARKGRAYMEDIUMCIRCLESANDSTRIPES PNG  MOVEABLE PURE "Styles\\Office2016\\res\\dark-gray-medium-circles-and-stripes.png"
+OFFICE2016DARKGRAYMEDIUMCIRCUIT           PNG  MOVEABLE PURE "Styles\\Office2016\\res\\dark-gray-medium-circuit.png"
+OFFICE2016DARKGRAYMEDIUMCLOUDS            PNG  MOVEABLE PURE "Styles\\Office2016\\res\\dark-gray-medium-clouds.png"
+OFFICE2016DARKGRAYMEDIUMDOODLEDIAMONDS    PNG  MOVEABLE PURE "Styles\\Office2016\\res\\dark-gray-medium-doodle-diamonds.png"
+OFFICE2016DARKGRAYMEDIUMDOODLECIRCLES     PNG  MOVEABLE PURE "Styles\\Office2016\\res\\dark-gray-medium-doodle-circles.png"
+OFFICE2016DARKGRAYMEDIUMGEOMETRY          PNG  MOVEABLE PURE "Styles\\Office2016\\res\\dark-gray-medium-geometry.png"
+OFFICE2016DARKGRAYMEDIUMLUNCHBOX          PNG  MOVEABLE PURE "Styles\\Office2016\\res\\dark-gray-medium-lunchbox.png"
+OFFICE2016DARKGRAYMEDIUMSCHOOLSUPPLIES    PNG  MOVEABLE PURE "Styles\\Office2016\\res\\dark-gray-medium-school-supplies.png"
+OFFICE2016DARKGRAYMEDIUMSPRING            PNG  MOVEABLE PURE "Styles\\Office2016\\res\\dark-gray-medium-spring.png"
+OFFICE2016DARKGRAYMEDIUMSTARS             PNG  MOVEABLE PURE "Styles\\Office2016\\res\\dark-gray-medium-stars.png"
+OFFICE2016DARKGRAYMEDIUMSTRAWS            PNG  MOVEABLE PURE "Styles\\Office2016\\res\\dark-gray-medium-straws.png"
+OFFICE2016DARKGRAYMEDIUMTREERINGS         PNG  MOVEABLE PURE "Styles\\Office2016\\res\\dark-gray-medium-tree-rings.png"
+OFFICE2016DARKGRAYMEDIUMUNDERWATER        PNG  MOVEABLE PURE "Styles\\Office2016\\res\\dark-gray-medium-underwater.png"
+OFFICE2016DARKGRAYSMALLCALLIGRAPHY        PNG  MOVEABLE PURE "Styles\\Office2016\\res\\dark-gray-small-calligraphy.png"
+OFFICE2016DARKGRAYSMALLCIRCLESANDSTRIPES  PNG  MOVEABLE PURE "Styles\\Office2016\\res\\dark-gray-small-circles-and-stripes.png"
+OFFICE2016DARKGRAYSMALLCIRCUIT            PNG  MOVEABLE PURE "Styles\\Office2016\\res\\dark-gray-small-circuit.png"
+OFFICE2016DARKGRAYSMALLCLOUDS             PNG  MOVEABLE PURE "Styles\\Office2016\\res\\dark-gray-small-clouds.png"
+OFFICE2016DARKGRAYSMALLDOODLEDIAMONDS     PNG  MOVEABLE PURE "Styles\\Office2016\\res\\dark-gray-small-doodle-diamonds.png"
+OFFICE2016DARKGRAYSMALLDOODLECIRCLES      PNG  MOVEABLE PURE "Styles\\Office2016\\res\\dark-gray-small-doodle-circles.png"
+OFFICE2016DARKGRAYSMALLGEOMETRY           PNG  MOVEABLE PURE "Styles\\Office2016\\res\\dark-gray-small-geometry.png"
+OFFICE2016DARKGRAYSMALLLUNCHBOX           PNG  MOVEABLE PURE "Styles\\Office2016\\res\\dark-gray-small-lunchbox.png"
+OFFICE2016DARKGRAYSMALLSCHOOLSUPPLIES     PNG  MOVEABLE PURE "Styles\\Office2016\\res\\dark-gray-small-school-supplies.png"
+OFFICE2016DARKGRAYSMALLSPRING             PNG  MOVEABLE PURE "Styles\\Office2016\\res\\dark-gray-small-spring.png"
+OFFICE2016DARKGRAYSMALLSTARS              PNG  MOVEABLE PURE "Styles\\Office2016\\res\\dark-gray-small-stars.png"
+OFFICE2016DARKGRAYSMALLSTRAWS             PNG  MOVEABLE PURE "Styles\\Office2016\\res\\dark-gray-small-straws.png"
+OFFICE2016DARKGRAYSMALLTREERINGS          PNG  MOVEABLE PURE "Styles\\Office2016\\res\\dark-gray-small-tree-rings.png"
+OFFICE2016DARKGRAYSMALLUNDERWATER         PNG  MOVEABLE PURE "Styles\\Office2016\\res\\dark-gray-small-underwater.png"
+OFFICE2016WHITELARGECALLIGRAPHY           PNG  MOVEABLE PURE "Styles\\Office2016\\res\\white-large-calligraphy.png"
+OFFICE2016WHITELARGECIRCLESANDSTRIPES     PNG  MOVEABLE PURE "Styles\\Office2016\\res\\white-large-circles-and-stripes.png"
+OFFICE2016WHITELARGECIRCUIT               PNG  MOVEABLE PURE "Styles\\Office2016\\res\\white-large-circuit.png"
+OFFICE2016WHITELARGECLOUDS                PNG  MOVEABLE PURE "Styles\\Office2016\\res\\white-large-clouds.png"
+OFFICE2016WHITELARGEDOODLEDIAMONDS        PNG  MOVEABLE PURE "Styles\\Office2016\\res\\white-large-doodle-diamonds.png"
+OFFICE2016WHITELARGEDOODLECIRCLES         PNG  MOVEABLE PURE "Styles\\Office2016\\res\\white-large-doodle-circles.png"
+OFFICE2016WHITELARGEGEOMETRY              PNG  MOVEABLE PURE "Styles\\Office2016\\res\\white-large-geometry.png"
+OFFICE2016WHITELARGELUNCHBOX              PNG  MOVEABLE PURE "Styles\\Office2016\\res\\white-large-lunchbox.png"
+OFFICE2016WHITELARGESCHOOLSUPPLIES        PNG  MOVEABLE PURE "Styles\\Office2016\\res\\white-large-school-supplies.png"
+OFFICE2016WHITELARGESPRING                PNG  MOVEABLE PURE "Styles\\Office2016\\res\\white-large-spring.png"
+OFFICE2016WHITELARGESTARS                 PNG  MOVEABLE PURE "Styles\\Office2016\\res\\white-large-stars.png"
+OFFICE2016WHITELARGESTRAWS                PNG  MOVEABLE PURE "Styles\\Office2016\\res\\white-large-straws.png"
+OFFICE2016WHITELARGETREERINGS             PNG  MOVEABLE PURE "Styles\\Office2016\\res\\white-large-tree-rings.png"
+OFFICE2016WHITELARGEUNDERWATER            PNG  MOVEABLE PURE "Styles\\Office2016\\res\\white-large-underwater.png"
+OFFICE2016WHITEMEDIUMCALLIGRAPHY          PNG  MOVEABLE PURE "Styles\\Office2016\\res\\white-medium-calligraphy.png"
+OFFICE2016WHITEMEDIUMCIRCLESANDSTRIPES    PNG  MOVEABLE PURE "Styles\\Office2016\\res\\white-medium-circles-and-stripes.png"
+OFFICE2016WHITEMEDIUMCIRCUIT              PNG  MOVEABLE PURE "Styles\\Office2016\\res\\white-medium-circuit.png"
+OFFICE2016WHITEMEDIUMCLOUDS               PNG  MOVEABLE PURE "Styles\\Office2016\\res\\white-medium-clouds.png"
+OFFICE2016WHITEMEDIUMDOODLEDIAMONDS       PNG  MOVEABLE PURE "Styles\\Office2016\\res\\white-medium-doodle-diamonds.png"
+OFFICE2016WHITEMEDIUMDOODLECIRCLES        PNG  MOVEABLE PURE "Styles\\Office2016\\res\\white-medium-doodle-circles.png"
+OFFICE2016WHITEMEDIUMGEOMETRY             PNG  MOVEABLE PURE "Styles\\Office2016\\res\\white-medium-geometry.png"
+OFFICE2016WHITEMEDIUMLUNCHBOX             PNG  MOVEABLE PURE "Styles\\Office2016\\res\\white-medium-lunchbox.png"
+OFFICE2016WHITEMEDIUMSCHOOLSUPPLIES       PNG  MOVEABLE PURE "Styles\\Office2016\\res\\white-medium-school-supplies.png"
+OFFICE2016WHITEMEDIUMSPRING               PNG  MOVEABLE PURE "Styles\\Office2016\\res\\white-medium-spring.png"
+OFFICE2016WHITEMEDIUMSTARS                PNG  MOVEABLE PURE "Styles\\Office2016\\res\\white-medium-stars.png"
+OFFICE2016WHITEMEDIUMSTRAWS               PNG  MOVEABLE PURE "Styles\\Office2016\\res\\white-medium-straws.png"
+OFFICE2016WHITEMEDIUMTREERINGS            PNG  MOVEABLE PURE "Styles\\Office2016\\res\\white-medium-tree-rings.png"
+OFFICE2016WHITEMEDIUMUNDERWATER           PNG  MOVEABLE PURE "Styles\\Office2016\\res\\white-medium-underwater.png"
+OFFICE2016WHITESMALLCALLIGRAPHY           PNG  MOVEABLE PURE "Styles\\Office2016\\res\\white-small-calligraphy.png"
+OFFICE2016WHITESMALLCIRCLESANDSTRIPES     PNG  MOVEABLE PURE "Styles\\Office2016\\res\\white-small-circles-and-stripes.png"
+OFFICE2016WHITESMALLCIRCUIT               PNG  MOVEABLE PURE "Styles\\Office2016\\res\\white-small-circuit.png"
+OFFICE2016WHITESMALLCLOUDS                PNG  MOVEABLE PURE "Styles\\Office2016\\res\\white-small-clouds.png"
+OFFICE2016WHITESMALLDOODLEDIAMONDS        PNG  MOVEABLE PURE "Styles\\Office2016\\res\\white-small-doodle-diamonds.png"
+OFFICE2016WHITESMALLDOODLECIRCLES         PNG  MOVEABLE PURE "Styles\\Office2016\\res\\white-small-doodle-circles.png"
+OFFICE2016WHITESMALLGEOMETRY              PNG  MOVEABLE PURE "Styles\\Office2016\\res\\white-small-geometry.png"
+OFFICE2016WHITESMALLLUNCHBOX              PNG  MOVEABLE PURE "Styles\\Office2016\\res\\white-small-lunchbox.png"
+OFFICE2016WHITESMALLSCHOOLSUPPLIES        PNG  MOVEABLE PURE "Styles\\Office2016\\res\\white-small-school-supplies.png"
+OFFICE2016WHITESMALLSPRING                PNG  MOVEABLE PURE "Styles\\Office2016\\res\\white-small-spring.png"
+OFFICE2016WHITESMALLSTARS                 PNG  MOVEABLE PURE "Styles\\Office2016\\res\\white-small-stars.png"
+OFFICE2016WHITESMALLSTRAWS                PNG  MOVEABLE PURE "Styles\\Office2016\\res\\white-small-straws.png"
+OFFICE2016WHITESMALLTREERINGS             PNG  MOVEABLE PURE "Styles\\Office2016\\res\\white-small-tree-rings.png"
+OFFICE2016WHITESMALLUNDERWATER            PNG  MOVEABLE PURE "Styles\\Office2016\\res\\white-small-underwater.png"
+
+#endif // !defined(_XTP_EXCLUDE_OFFICE_BACKGROUND)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+OFFICE2016CALENDAREVENTGLYPHS_100     BITMAP MOVEABLE PURE "Styles\\Office2016\\res\\CalendarEventGlyphs_100.bmp"
+OFFICE2016CALENDAREVENTGLYPHS_125     BITMAP MOVEABLE PURE "Styles\\Office2016\\res\\CalendarEventGlyphs_125.bmp"
+OFFICE2016CALENDAREVENTGLYPHS_150     BITMAP MOVEABLE PURE "Styles\\Office2016\\res\\CalendarEventGlyphs_150.bmp"
+OFFICE2016CALENDAREVENTGLYPHS_200     BITMAP MOVEABLE PURE "Styles\\Office2016\\res\\CalendarEventGlyphs_200.bmp"
+
+#endif // !defined(_XTP_NO_BINARY_RESOURCES)
+
+#ifdef _XTP_INCLUDE_VERSION
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 22,1,0,0
+ PRODUCTVERSION 22,1,0,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Comments", "March 6, 2023\0"
+            VALUE "CompanyName", "Codejock Software\0"
+            VALUE "FileDescription", "Office 2016 Theme Resource DLL\0"
+            VALUE "FileVersion", "22, 1, 0, 0\0"
+            VALUE "InternalName", "Office2016.dll\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "Office2016.dll\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "Office 2016 Theme Resource DLL\0"
+            VALUE "ProductVersion", "22, 1, 0, 0\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // _XTP_INCLUDE_VERSION

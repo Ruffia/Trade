@@ -1,0 +1,277 @@
+// Controls resource file
+//
+// (c)1998-2023 Codejock Software, All Rights Reserved.
+//
+// THIS SOURCE FILE IS THE PROPERTY OF CODEJOCK SOFTWARE AND IS NOT TO BE
+// RE-DISTRIBUTED BY ANY MEANS WHATSOEVER WITHOUT THE EXPRESSED WRITTEN
+// CONSENT OF CODEJOCK SOFTWARE.
+//
+// THIS SOURCE CODE CAN ONLY BE USED UNDER THE TERMS AND CONDITIONS OUTLINED
+// IN THE XTREME TOOLKIT PRO LICENSE AGREEMENT. CODEJOCK SOFTWARE GRANTS TO
+// YOU (ONE SOFTWARE DEVELOPER) THE LIMITED RIGHT TO USE THIS SOFTWARE ON A
+// SINGLE COMPUTER.
+//
+// CONTACT INFORMATION:
+// support@codejock.com
+// http://www.codejock.com
+//
+/////////////////////////////////////////////////////////////////////////////
+
+#include "Controls/Resource.h"
+#include "Controls/res/Resource-Neutral.rc"
+
+#if !defined(_XTP_NO_STANDARDCONTROLS_RES) && ( !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_HEB))
+#ifdef _WIN32
+LANGUAGE LANG_HEBREW, SUBLANG_DEFAULT
+#pragma code_page(1255)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+XTP_IDD_TIPOFTHEDAY DIALOGEX 0, 0, 279, 127
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "הטיפ היומי"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    DEFPUSHBUTTON   "סגור",IDOK,224,108,50,14
+    CONTROL         "הצג טיפים בעת ההפעלה",XTP_IDC_CHK_DAYTIP_SHOW,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,6,110,140,10
+    PUSHBUTTON      "העצה הבאה",XTP_IDC_BTN_DAYTIP_NEXT,160,108,60,14
+    CONTROL         "",XTP_IDC_BTN_DAYTIP_BORDER,"Static",SS_GRAYFRAME | NOT WS_VISIBLE,0,0,279,103
+END
+
+XTP_IDD_COLORCUSTOM DIALOGEX DISCARDABLE  0, 0, 147, 161
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | 
+    WS_CAPTION
+CAPTION "המותאם אישית"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "צבעים:",XTP_IDC_TXT_COLORS,2,4,43,10
+    CONTROL         "",XTP_IDC_CLR_WND,"Static",SS_BLACKFRAME | WS_TABSTOP,3,
+                    15,119,86
+    CONTROL         "",XTP_IDC_CLR_LUM,"Static",SS_BLACKFRAME | WS_TABSTOP,
+                    126,15,20,86
+    LTEXT           "צֶבַע:",XTP_IDC_TXT_HUE,7,108,18,8
+    EDITTEXT        XTP_IDC_EDIT_HUE,31,106,33,13,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Spin1",XTP_IDC_SPIN_HUE,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,55,105,
+                    10,14
+    LTEXT           "רִוּוּי:",XTP_IDC_TXT_SAT,7,125,21,8
+    EDITTEXT        XTP_IDC_EDIT_SAT,31,122,33,13,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Spin2",XTP_IDC_SPIN_SAT,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,55,122,
+                    10,14
+    LTEXT           "בְּהִיקוּת:",XTP_IDC_TXT_LUM,7,140,18,8
+    EDITTEXT        XTP_IDC_EDIT_LUM,31,138,33,13,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Spin3",XTP_IDC_SPIN_LUM,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,55,137,
+                    10,14
+    LTEXT           "אָדוֹם:",XTP_IDC_TXT_RED,71,108,23,8
+    EDITTEXT        XTP_IDC_EDIT_RED,95,106,33,13,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Spin1",XTP_IDC_SPIN_RED,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,119,105,
+                    11,14
+    LTEXT           "ירוק:",XTP_IDC_TXT_GREEN,71,125,23,8
+    EDITTEXT        XTP_IDC_EDIT_GREEN,95,122,33,13,ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    CONTROL         "Spin2",XTP_IDC_SPIN_GREEN,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,119,122,
+                    11,14
+    LTEXT           "כָּחוֹל:",XTP_IDC_TXT_BLUE,71,140,23,8
+    EDITTEXT        XTP_IDC_EDIT_BLUE,95,138,33,13,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Spin3",XTP_IDC_SPIN_BLUE,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,119,137,
+                    11,14
+END
+
+XTP_IDD_COLORSTANDARD DIALOGEX DISCARDABLE  0, 0, 147, 161
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | 
+    WS_CAPTION
+CAPTION "תֶקֶן"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "צבעים:",XTP_IDC_TXT_COLORS,2,4,43,10
+    CONTROL         "",XTP_IDC_CLR_HEX,"Static",SS_BLACKFRAME | WS_TABSTOP,0,
+                    15,147,145
+END
+
+XTP_IDD_WINDOWLIST DIALOGEX DISCARDABLE  0, 0, 301, 164
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "סדר את Windows"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "בחר חלון:",IDC_STATIC,7,7,147,8
+    LISTBOX         XTP_IDC_LBOX_WINDOWS,7,17,216,140,LBS_SORT | 
+                    LBS_OWNERDRAWFIXED | LBS_HASSTRINGS | 
+                    LBS_NOINTEGRALHEIGHT | LBS_EXTENDEDSEL | WS_VSCROLL | 
+                    WS_HSCROLL | WS_TABSTOP
+    PUSHBUTTON      "לְהַפְעִיל",XTP_IDC_BTN_ACTIVATE,233,7,62,14
+    PUSHBUTTON      "בסדר",IDOK,233,24,62,14
+    PUSHBUTTON      "להציל",XTP_IDC_BTN_SAVE,233,41,62,14
+    PUSHBUTTON      "חלון סגור",XTP_IDC_BTN_CLOSEWINDOWS,233,58,62,14
+    PUSHBUTTON      "אֶשֶׁד",XTP_IDC_BTN_CASCADE,233,75,62,14
+    PUSHBUTTON      "אריח אופקית",XTP_IDC_BTN_TILEHORZ,233,92,62,14
+    PUSHBUTTON      "אריח אנכית",XTP_IDC_BTN_TILEVERT,233,109,62,14
+    PUSHBUTTON      "לְצַמְצֵם",XTP_IDC_BTN_MINIMIZE,233,126,62,14
+END
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+XTP_IDM_POPUP MENU DISCARDABLE 
+BEGIN
+    POPUP "RClickOutlookBar"
+    BEGIN
+        MENUITEM "אייקונים קטנים",                XTP_IDC_SMALLICON
+        MENUITEM "אייקונים גדולים",                XTP_IDC_LARGEICON
+    END
+    POPUP "RClickHexEdit"
+    BEGIN
+        MENUITEM "לבטל",                       ID_EDIT_UNDO
+        MENUITEM SEPARATOR
+        MENUITEM "גזירה",                        ID_EDIT_CUT
+        MENUITEM "עותק",                       ID_EDIT_COPY
+        MENUITEM "לְהַדבִּיק",                      ID_EDIT_PASTE
+        MENUITEM "לִמְחוֹק",                     ID_EDIT_CLEAR
+        MENUITEM SEPARATOR
+        MENUITEM "בחר הכל",                 ID_EDIT_SELECT_ALL
+    END
+    POPUP "RClickHeader"
+    BEGIN
+        MENUITEM "מיין בסדר עולה",              XTP_IDC_SORTASC
+        MENUITEM "מיין יורד",             XTP_IDC_SORTDSC
+        MENUITEM SEPARATOR
+        POPUP "יישור"
+        BEGIN
+            MENUITEM "יישר שמאלה",                  XTP_IDC_ALIGNLEFT
+            MENUITEM "יישר למרכז",                XTP_IDC_ALIGNCENTER
+            MENUITEM "ליישור מימין",                 XTP_IDC_ALIGNRIGHT
+        END
+    END
+END
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDC_BTN_NEW          "חָדָשׁ"
+    XTP_IDC_BTN_DELETE       "לִמְחוֹק"
+    XTP_IDC_BTN_UP           "לזוז למעלה"
+    XTP_IDC_BTN_DOWN         "לרדת"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_NAME             "שֵׁם"
+    XTP_IDS_SIZE             "גודל"
+    XTP_IDS_TYPE             "סוּג"
+    XTP_IDS_MODIFIED         "שונה"
+    XTP_IDS_COLOR_AUTO       "אוֹטוֹמָטִי"
+    XTP_IDS_COLOR_CUST       "התאמה אישית..."
+    XTP_IDS_SELDIR           "בחר ספרייה:"
+    XTP_IDS_DOT              "..."
+    XTP_IDS_DEFEXT           "*.*"
+    XTP_IDS_DEFFILT          "כל הקבצים (*.*)|*.*||"
+    XTP_IDS_DEFTITLE         "שם ספרייה:"
+    XTP_IDS_CLICKKEEPOPEN    "‏‏לחץ על סיכה כדי להישאר פתוחה"
+    XTP_IDS_SE_0             "‏‏למערכת ההפעלה אין זיכרון או משאבים."
+    XTP_IDS_SE_ERR_FNF       "‏‏‏‏הקובץ שצוין לא נמצא."
+    XTP_IDS_SE_ERR_PNF       "‏‏הנתיב שצוין לא נמצא."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_SE_ERR_ACCESSDENIED    "מערכת ההפעלה מנעה גישה לקובץ שצוין."
+    XTP_IDS_SE_ERR_OOM             "‏‏לא היה מספיק זיכרון להשלמת הפעולה."
+    XTP_IDS_SE_ERR_BAD_FORMAT      "קובץ ה-.exe אינו חוקי (לא-Win32® .exe או שגיאה בתמונת .exe)."
+    XTP_IDS_SE_ERR_SHARE           "‏‏התרחשה הפרת שיתוף."
+    XTP_IDS_SE_ERR_ASSOCINCOMPLETE "שיוך שם הקובץ אינו שלם או לא חוקי."
+    XTP_IDS_SE_ERR_DDETIMEOUT      "‏‏לא ניתן היה להשלים את עסקת ה-DDE כי תם הזמן הקצוב לבקשה."
+    XTP_IDS_SE_ERR_DDEFAIL         "‏‏עסקת DDE נכשלה."
+    XTP_IDS_SE_ERR_DDEBUSY         "‏‏לא ניתן היה להשלים את עסקת DDE מכיוון שעבדו עסקאות DDE אחרות."
+    XTP_IDS_SE_ERR_NOASSOC         "‏‏אין יישום המשויך לסיומת שם הקובץ הנתונה."
+    XTP_IDS_SE_ERR_DLLNOTFOUND     "‏‏‏‏‏‏ספריית הקישור הדינמי שצוינה לא נמצאה."
+    XTP_IDS_SE_ERR_UNKOWN          "‏‏אירעה שגיאה לא ידועה מספר %d."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDC_SORTASC          "מיין עולה\nמיין עולה"
+    XTP_IDC_SORTDSC          "מיין יורד\nמיין יורד"
+    XTP_IDC_ALIGNLEFT        "יישור הפסקה בשוליים השמאליים\nיישור שמאלה"
+    XTP_IDC_ALIGNCENTER      "ממרכז את הפסקה בין השוליים\nמרכז"
+    XTP_IDC_ALIGNRIGHT       "מיישר את הפסקה בשוליים הימניים\nיישור ימינה"
+    XTP_IDC_LARGEICON        "הצג סמלים גדולים\nסמלים גדולים"
+    XTP_IDC_SMALLICON        "הצג סמלים קטנים\nסמלים קטנים"
+    XTP_IDC_REMOVEITEM       "הסר מסרגל Outlook"
+    XTP_IDC_RENAMEITEM       "שנה שם קיצור"
+    XTP_IDC_REMOVEGROUP      "הסר קבוצה"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDC_RENAMEGROUP      "שנה את שם הקבוצה"
+    XTP_IDS_HEX              "משושה"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_STD_COLORS       "צבעים סטנדרטיים"
+	XTP_IDS_RECENT_COLORS    "צבעים אחרונים"
+	XTP_IDS_THEME_COLORS     "צבעי נושא"
+	XTP_IDS_TAGCLOUD_TIP     "תג: %s, ציון: %d"
+    XTP_IDS_TIPTEXT          "טקסט טיפ"
+    XTP_IDS_DIDYOUKNOW       "האם ידעת..."
+    XTP_IDS_FILE_ABSENT      "‏‏הקובץ שצוין אינו קיים."
+    XTP_IDS_FILE_CORRUPT     "שגיאה בקריאת הקובץ."
+    XTP_IDS_COLOR_CAPTION    "צבעים"
+    XTP_IDS_NEW              "חָדָשׁ"
+    XTP_IDS_CURRENT          "נוֹכְחִי"
+    XTP_IDS_DIRECTORIES      "ספריות:"
+    XTP_IDS_FILES            "קבצים:"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_TASK_OK           "בסדר"
+    XTP_IDS_TASK_YES          "כן"
+    XTP_IDS_TASK_NO           "לא"
+    XTP_IDS_TASK_RETRY        "נסה שוב"
+    XTP_IDS_TASK_CANCEL       "לְבַטֵל"
+    XTP_IDS_TASK_CLOSE        "סגור"
+    XTP_IDS_TASK_APPLY        "להגיש מועמדות"
+    XTP_IDS_TASK_HELP         "עֶזרָה"
+    XTP_IDS_TASK_SEE_DETAILS  "הראה פרטים"
+    XTP_IDS_TASK_HIDE_DETAILS "הסתר פרטים"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_BACKGROUND1        "רקע 1"
+    XTP_IDS_BACKGROUND2        "רקע 2"
+    XTP_IDS_TEXT1              "טקסט 1"
+    XTP_IDS_TEXT2              "טקסט 2"
+    XTP_IDS_ACCENT1            "מבטא 1"
+    XTP_IDS_ACCENT2            "מבטא 2"
+    XTP_IDS_ACCENT3            "מבטא 3"
+    XTP_IDS_ACCENT4            "מבטא 4"
+    XTP_IDS_ACCENT5            "מבטא 5"
+    XTP_IDS_ACCENT6            "מבטא 6"
+    XTP_IDS_LIGHTER            "קל יותר"
+    XTP_IDS_DARKER             "כהה יותר"
+END
+
+STRINGTABLE DISCARDABLE
+BEGIN
+    XTP_IDS_PREVIEW_DEFAULT_LOADING_MESSAGE "השגת תצוגה מקדימה של '%'"
+    XTP_IDS_PREVIEW_DEFAULT_FAILED_MESSAGE  "לא ניתן להשיג תצוגה מקדימה של '%'"
+END
+
+#endif // !defined(_XTP_NO_STANDARDCONTROLS_RES) && ( !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_HEB))

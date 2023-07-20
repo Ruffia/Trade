@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform" Width="32" Height="32">
+  <Canvas Width="32" Height="32" Canvas.Left="0" Canvas.Top="0">
+    <Canvas>
+      <Path Data="M30.5,16.5H9.5v14h21V16.5z" Fill="#F7DA8E" Stroke="#E57428" StrokeThickness="1" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeMiterLimit="1"/>
+      <Rectangle Canvas.Left="25.5" Canvas.Top="18.5" Width="3" Height="4" Fill="#F3B8B8" Stroke="#E42D2C" StrokeThickness="1" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeMiterLimit="1"/>
+      <Path Data="M12,19.5h10M12,21.5h7M13,27.5h5M20,27.5h6" Stroke="#787979" StrokeThickness="1" StrokeMiterLimit="1"/>
+      <Path Data="M13,25.5h9" Stroke="#383838" StrokeThickness="1" StrokeMiterLimit="1"/>
+      <Polygon Points="8,15 21.5,15 21.5,8.5 14.5,1.5 1.5,1.5 1.5,27.5 8,27.5" Fill="#FFFFFF" StrokeLineJoin="Miter"/>
+      <Path Data="M8,27H2V2h12v7h7v6h1V8.293L14.707,1H1v27h7V27zM15,2.707L20.293,8H15V2.707z" Fill="#383838"/>
+      <Path Data="M8,15H4.5v-1h14v1H8zM18.5,11H4.5v1h14V11zM8,23H4.5v1h3.5V23zM8,17H4.5v1h3.5V17zM8,20H4.5v1h3.5V20z" Fill="#78797A" Opacity="0.5"/>
+      <Path Data="M10,6H4V4h6V6zM12,7H6v2h6V7z" Fill="#238BCB"/>
+    </Canvas>
+  </Canvas>
+</Viewbox>

@@ -1,0 +1,58 @@
+// DockingPane resource file
+//
+// (c)1998-2023 Codejock Software, All Rights Reserved.
+//
+// THIS SOURCE FILE IS THE PROPERTY OF CODEJOCK SOFTWARE AND IS NOT TO BE
+// RE-DISTRIBUTED BY ANY MEANS WHATSOEVER WITHOUT THE EXPRESSED WRITTEN
+// CONSENT OF CODEJOCK SOFTWARE.
+//
+// THIS SOURCE CODE CAN ONLY BE USED UNDER THE TERMS AND CONDITIONS OUTLINED
+// IN THE XTREME TOOLKIT PRO LICENSE AGREEMENT. CODEJOCK SOFTWARE GRANTS TO
+// YOU (ONE SOFTWARE DEVELOPER) THE LIMITED RIGHT TO USE THIS SOFTWARE ON A
+// SINGLE COMPUTER.
+//
+// CONTACT INFORMATION:
+// support@codejock.com
+// http://www.codejock.com
+//
+/////////////////////////////////////////////////////////////////////////////
+
+#include "DockingPane/resource.h"
+
+/////////////////////////////////////////////////////////////////////////////
+// Neutral resources
+
+#if !defined(_XTP_NO_BINARY_RESOURCES)
+#ifdef _WIN32
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+XTP_XAML_DOCKINGPANE_STICKERS_VC2005_BACK				RT_XAML		"DockingPane/res/xaml/stickers/vc2005/back.xaml"
+XTP_XAML_DOCKINGPANE_STICKERS_VC2005_CENTER				RT_XAML		"DockingPane/res/xaml/stickers/vc2005/center.xaml"
+XTP_XAML_DOCKINGPANE_STICKERS_VC2005_LEFT				RT_XAML		"DockingPane/res/xaml/stickers/vc2005/dock.left.xaml"
+XTP_XAML_DOCKINGPANE_STICKERS_VC2005_TOP				RT_XAML		"DockingPane/res/xaml/stickers/vc2005/dock.top.xaml"
+XTP_XAML_DOCKINGPANE_STICKERS_VC2005_RIGHT				RT_XAML		"DockingPane/res/xaml/stickers/vc2005/dock.right.xaml"
+XTP_XAML_DOCKINGPANE_STICKERS_VC2005_BOTTOM				RT_XAML		"DockingPane/res/xaml/stickers/vc2005/dock.bottom.xaml"
+XTP_XAML_DOCKINGPANE_STICKERS_VC2005_CENTER_SELECTED	RT_XAML		"DockingPane/res/xaml/stickers/vc2005/center.selected.xaml"
+XTP_XAML_DOCKINGPANE_STICKERS_VC2005_LEFT_SELECTED		RT_XAML		"DockingPane/res/xaml/stickers/vc2005/dock.left.selected.xaml"
+XTP_XAML_DOCKINGPANE_STICKERS_VC2005_TOP_SELECTED		RT_XAML		"DockingPane/res/xaml/stickers/vc2005/dock.top.selected.xaml"
+XTP_XAML_DOCKINGPANE_STICKERS_VC2005_RIGHT_SELECTED		RT_XAML		"DockingPane/res/xaml/stickers/vc2005/dock.right.selected.xaml"
+XTP_XAML_DOCKINGPANE_STICKERS_VC2005_BOTTOM_SELECTED	RT_XAML		"DockingPane/res/xaml/stickers/vc2005/dock.bottom.selected.xaml"
+XTP_XAML_DOCKINGPANE_STICKERS_VC2008_BACK				RT_XAML		"DockingPane/res/xaml/stickers/vc2008/back.xaml"
+XTP_XAML_DOCKINGPANE_STICKERS_VC2008_CENTER				RT_XAML		"DockingPane/res/xaml/stickers/vc2008/center.xaml"
+XTP_XAML_DOCKINGPANE_STICKERS_VC2008_LEFT				RT_XAML		"DockingPane/res/xaml/stickers/vc2008/dock.left.xaml"
+XTP_XAML_DOCKINGPANE_STICKERS_VC2008_TOP				RT_XAML		"DockingPane/res/xaml/stickers/vc2008/dock.top.xaml"
+XTP_XAML_DOCKINGPANE_STICKERS_VC2008_RIGHT				RT_XAML		"DockingPane/res/xaml/stickers/vc2008/dock.right.xaml"
+XTP_XAML_DOCKINGPANE_STICKERS_VC2008_BOTTOM				RT_XAML		"DockingPane/res/xaml/stickers/vc2008/dock.bottom.xaml"
+XTP_XAML_DOCKINGPANE_STICKERS_VC2008_CENTER_SELECTED	RT_XAML		"DockingPane/res/xaml/stickers/vc2008/center.selected.xaml"
+XTP_XAML_DOCKINGPANE_STICKERS_VC2008_LEFT_SELECTED		RT_XAML		"DockingPane/res/xaml/stickers/vc2008/dock.left.selected.xaml"
+XTP_XAML_DOCKINGPANE_STICKERS_VC2008_TOP_SELECTED		RT_XAML		"DockingPane/res/xaml/stickers/vc2008/dock.top.selected.xaml"
+XTP_XAML_DOCKINGPANE_STICKERS_VC2008_RIGHT_SELECTED		RT_XAML		"DockingPane/res/xaml/stickers/vc2008/dock.right.selected.xaml"
+XTP_XAML_DOCKINGPANE_STICKERS_VC2008_BOTTOM_SELECTED	RT_XAML		"DockingPane/res/xaml/stickers/vc2008/dock.bottom.selected.xaml"
+
+#endif // !defined(_XTP_NO_BINARY_RESOURCES)

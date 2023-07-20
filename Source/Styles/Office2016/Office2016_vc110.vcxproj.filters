@@ -1,0 +1,659 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{5486cf8a-acab-49d9-a75b-49011b67bd2b}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Image Files">
+      <UniqueIdentifier>{775409c4-058f-4672-b5af-4fde3a676852}</UniqueIdentifier>
+      <Extensions>.png;.bmp</Extensions>
+    </Filter>
+    <Filter Include="Image Files\png">
+      <UniqueIdentifier>{291cc5ba-d629-45c6-89c1-4fc7c00bf403}</UniqueIdentifier>
+      <Extensions>*.png</Extensions>
+    </Filter>
+    <Filter Include="Image Files\bmp">
+      <UniqueIdentifier>{10e00789-3975-4907-aa98-a2c5b4647f8c}</UniqueIdentifier>
+      <Extensions>*.bmp</Extensions>
+    </Filter>
+    <Filter Include="Ini Files">
+      <UniqueIdentifier>{4a518888-b31a-4165-9a0d-a28f92017d4a}</UniqueIdentifier>
+      <Extensions>.ini</Extensions>
+    </Filter>
+    <Filter Include="Zip Files">
+      <UniqueIdentifier>{68b426cd-080c-474b-96c7-1a8b5098162a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Office2016.rc">
+      <Filter>Source Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\backstage-back-button-extralarge-rtl.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\backstage-back-button-extralarge.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\backstage-back-button-large-rtl.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\backstage-back-button-large.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\backstage-back-button-medium-rtl.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\backstage-back-button-medium.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\backstage-back-button-small-rtl.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\backstage-back-button-small.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\black-large-caligraphy.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="Styles\Office2016\res\black-large-calligraphy.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\black-large-circles.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\black-large-circuit.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\black-large-clouds.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\black-large-diamonds.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\black-large-doodle.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\black-large-geometry.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\black-large-lunch.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\black-large-school.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\black-large-spring.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\black-large-stars.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\black-large-straws.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\black-large-tree.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\black-large-under.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\black-medium-caligraphy.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\black-medium-circles.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\black-medium-circuit.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\black-medium-clouds.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\black-medium-diamonds.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\black-medium-doodle.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\black-medium-lunch.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\black-medium-school.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\black-medium-signature.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\black-medium-spring.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\black-medium-stars.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\black-medium-straws.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\black-medium-tree.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\black-medium-under.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\black-small-caligraphy.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\black-small-circles.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\black-small-circuit.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\black-small-clouds.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\black-small-diamonds.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\black-small-doodle.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\black-small-geometry.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\black-small-lunch.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\black-small-school.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\black-small-spring.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\black-small-stars.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\black-small-straws.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\black-small-tree.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\black-small-under.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\colorful-large-caligraphy.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\colorful-large-circles.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\colorful-large-circuit.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\colorful-large-clouds.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\colorful-large-diamonds.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\colorful-large-doodle.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\colorful-large-geometry.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\colorful-large-lunch.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\colorful-large-school.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\colorful-large-spring.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\colorful-large-stars.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\colorful-large-straws.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\colorful-large-tree.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\colorful-large-under.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\colorful-medium-caligraphy.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\colorful-medium-circles.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\colorful-medium-circuit.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\colorful-medium-clouds.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\colorful-medium-diamonds.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\colorful-medium-doodle.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\colorful-medium-geometry.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\colorful-medium-lunch.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\colorful-medium-school.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\colorful-medium-spring.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\colorful-medium-stars.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\colorful-medium-straws.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\colorful-medium-tree.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\colorful-medium-under.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\colorful-small-caligraphy.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\colorful-small-circles.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\colorful-small-circuit.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\colorful-small-clouds.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\colorful-small-diamonds.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\colorful-small-doodle.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\colorful-small-geometry.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\colorful-small-lunch.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\colorful-small-school.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\colorful-small-spring.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\colorful-small-stars.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\colorful-small-straws.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\colorful-small-tree.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\colorful-small-under.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-gray-large-caligraphy.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-gray-large-circles.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-gray-large-circuit.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-gray-large-clouds.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-gray-large-diamonds.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-gray-large-doodle.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-gray-large-geometry.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-gray-large-lunch.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-gray-large-school.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-gray-large-spring.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-gray-large-stars.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-gray-large-straws.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-gray-large-tree.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-gray-large-under.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-gray-medium-caligraphy.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-gray-medium-circles.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-gray-medium-circuit.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-gray-medium-clouds.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-gray-medium-diamonds.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-gray-medium-doodle.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-gray-medium-geometry.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-gray-medium-lunch.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-gray-medium-school.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-gray-medium-spring.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-gray-medium-stars.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-gray-medium-straws.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-gray-medium-tree.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-gray-medium-under.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-gray-small-caligraphy.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-gray-small-circles.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-gray-small-circuit.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-gray-small-clouds.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-gray-small-diamonds.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-gray-small-doodle.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-gray-small-geometry.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-gray-small-lunch.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-gray-small-school.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-gray-small-spring.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-gray-small-stars.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-gray-small-straws.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-gray-small-tree.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-gray-small-under.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\TimeLineViewAppointmentIcon.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\white-large-caligraphy.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\white-large-circles.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\white-large-circuit.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\white-large-clouds.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\white-large-diamonds.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\white-large-doodle.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\white-large-geometry.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\white-large-lunch.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\white-large-school.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\white-large-spring.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\white-large-stars.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\white-large-straws.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\white-large-tree.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\white-large-under.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\white-medium-caligraphy.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\white-medium-circles.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\white-medium-circuit.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\white-medium-clouds.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\white-medium-diamonds.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\white-medium-doodle.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\white-medium-geometry.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\white-medium-lunch.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\white-medium-school.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\white-medium-spring.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\white-medium-stars.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\white-medium-straws.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\white-medium-tree.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\white-medium-under.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\white-small-caligraphy.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\white-small-circles.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\white-small-circuit.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\white-small-clouds.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\white-small-diamonds.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\white-small-doodle.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\white-small-geometry.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\white-small-lunch.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\white-small-school.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\white-small-spring.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\white-small-stars.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\white-small-straws.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\white-small-tree.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\white-small-under.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\CalendarEventGlyphs.bmp">
+      <Filter>Image Files\bmp</Filter>
+    </None>
+    <None Include="Office2016AccessBlack.ini">
+      <Filter>Ini Files</Filter>
+    </None>
+    <None Include="Office2016AccessColorful.ini">
+      <Filter>Ini Files</Filter>
+    </None>
+    <None Include="Office2016AccessDarkGray.ini">
+      <Filter>Ini Files</Filter>
+    </None>
+    <None Include="Office2016AccessWhite.ini">
+      <Filter>Ini Files</Filter>
+    </None>
+    <None Include="Office2016ExcelBlack.ini">
+      <Filter>Ini Files</Filter>
+    </None>
+    <None Include="Office2016ExcelColorful.ini">
+      <Filter>Ini Files</Filter>
+    </None>
+    <None Include="Office2016ExcelDarkGray.ini">
+      <Filter>Ini Files</Filter>
+    </None>
+    <None Include="Office2016ExcelWhite.ini">
+      <Filter>Ini Files</Filter>
+    </None>
+    <None Include="Office2016OneNoteBlack.ini">
+      <Filter>Ini Files</Filter>
+    </None>
+    <None Include="Office2016OneNoteColorful.ini">
+      <Filter>Ini Files</Filter>
+    </None>
+    <None Include="Office2016OneNoteDarkGray.ini">
+      <Filter>Ini Files</Filter>
+    </None>
+    <None Include="Office2016OneNoteWhite.ini">
+      <Filter>Ini Files</Filter>
+    </None>
+    <None Include="Office2016OutlookBlack.ini">
+      <Filter>Ini Files</Filter>
+    </None>
+    <None Include="Office2016OutlookColorful.ini">
+      <Filter>Ini Files</Filter>
+    </None>
+    <None Include="Office2016OutlookDarkGray.ini">
+      <Filter>Ini Files</Filter>
+    </None>
+    <None Include="Office2016OutlookWhite.ini">
+      <Filter>Ini Files</Filter>
+    </None>
+    <None Include="Office2016PowerPointBlack.ini">
+      <Filter>Ini Files</Filter>
+    </None>
+    <None Include="Office2016PowerPointColorful.ini">
+      <Filter>Ini Files</Filter>
+    </None>
+    <None Include="Office2016PowerPointDarkGray.ini">
+      <Filter>Ini Files</Filter>
+    </None>
+    <None Include="Office2016PowerPointWhite.ini">
+      <Filter>Ini Files</Filter>
+    </None>
+    <None Include="Office2016PublisherBlack.ini">
+      <Filter>Ini Files</Filter>
+    </None>
+    <None Include="Office2016PublisherColorful.ini">
+      <Filter>Ini Files</Filter>
+    </None>
+    <None Include="Office2016PublisherDarkGray.ini">
+      <Filter>Ini Files</Filter>
+    </None>
+    <None Include="Office2016PublisherWhite.ini">
+      <Filter>Ini Files</Filter>
+    </None>
+    <None Include="Office2016WordBlack.ini">
+      <Filter>Ini Files</Filter>
+    </None>
+    <None Include="Office2016WordColorful.ini">
+      <Filter>Ini Files</Filter>
+    </None>
+    <None Include="Office2016WordDarkGray.ini">
+      <Filter>Ini Files</Filter>
+    </None>
+    <None Include="Office2016WordWhite.ini">
+      <Filter>Ini Files</Filter>
+    </None>
+    <None Include="Styles\Office2016\XAMLStyle.zip">
+      <Filter>Zip Files</Filter>
+    </None>
+  </ItemGroup>
+</Project>

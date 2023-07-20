@@ -1,0 +1,277 @@
+// Controls resource file
+//
+// (c)1998-2023 Codejock Software, All Rights Reserved.
+//
+// THIS SOURCE FILE IS THE PROPERTY OF CODEJOCK SOFTWARE AND IS NOT TO BE
+// RE-DISTRIBUTED BY ANY MEANS WHATSOEVER WITHOUT THE EXPRESSED WRITTEN
+// CONSENT OF CODEJOCK SOFTWARE.
+//
+// THIS SOURCE CODE CAN ONLY BE USED UNDER THE TERMS AND CONDITIONS OUTLINED
+// IN THE XTREME TOOLKIT PRO LICENSE AGREEMENT. CODEJOCK SOFTWARE GRANTS TO
+// YOU (ONE SOFTWARE DEVELOPER) THE LIMITED RIGHT TO USE THIS SOFTWARE ON A
+// SINGLE COMPUTER.
+//
+// CONTACT INFORMATION:
+// support@codejock.com
+// http://www.codejock.com
+//
+/////////////////////////////////////////////////////////////////////////////
+
+#include "Controls/Resource.h"
+#include "Controls/res/Resource-Neutral.rc"
+
+#if !defined(_XTP_NO_STANDARDCONTROLS_RES) && ( !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_SKY))
+#ifdef _WIN32
+LANGUAGE LANG_SLOVAK, SUBLANG_DEFAULT
+#pragma code_page(1250)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+XTP_IDD_TIPOFTHEDAY DIALOGEX 0, 0, 279, 127
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Tip dÚa"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    DEFPUSHBUTTON   "Zavrieù",IDOK,224,108,50,14
+    CONTROL         "Zobrazte tipy pri spustenÌ",XTP_IDC_CHK_DAYTIP_SHOW,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,6,110,140,10
+    PUSHBUTTON      "œalöÌ tip",XTP_IDC_BTN_DAYTIP_NEXT,170,108,50,14
+    CONTROL         "",XTP_IDC_BTN_DAYTIP_BORDER,"Static",SS_GRAYFRAME | NOT WS_VISIBLE,0,0,279,103
+END
+
+XTP_IDD_COLORCUSTOM DIALOGEX DISCARDABLE  0, 0, 147, 161
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | 
+    WS_CAPTION
+CAPTION "VlastnÈ nastavenia"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "Farby:",XTP_IDC_TXT_COLORS,2,4,43,10
+    CONTROL         "",XTP_IDC_CLR_WND,"Static",SS_BLACKFRAME | WS_TABSTOP,3,
+                    15,119,86
+    CONTROL         "",XTP_IDC_CLR_LUM,"Static",SS_BLACKFRAME | WS_TABSTOP,
+                    126,15,20,86
+    LTEXT           "Hue:",XTP_IDC_TXT_HUE,7,108,21,8
+    EDITTEXT        XTP_IDC_EDIT_HUE,32,106,33,13,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Spin1",XTP_IDC_SPIN_HUE,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,56,105,
+                    10,14
+    LTEXT           "S˝tosù:",XTP_IDC_TXT_SAT,7,125,22,8
+    EDITTEXT        XTP_IDC_EDIT_SAT,32,122,33,13,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Spin2",XTP_IDC_SPIN_SAT,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,56,122,
+                    10,14
+    LTEXT           "Svetelnosù:",XTP_IDC_TXT_LUM,7,140,18,8
+    EDITTEXT        XTP_IDC_EDIT_LUM,32,138,33,13,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Spin3",XTP_IDC_SPIN_LUM,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,56,137,
+                    10,14
+    LTEXT           "»erven·:",XTP_IDC_TXT_RED,72,108,27,8
+    EDITTEXT        XTP_IDC_EDIT_RED,101,106,33,13,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Spin1",XTP_IDC_SPIN_RED,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,125,105,
+                    11,14
+    LTEXT           "Zelen·:",XTP_IDC_TXT_GREEN,72,125,25,8
+    EDITTEXT        XTP_IDC_EDIT_GREEN,101,122,33,13,ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    CONTROL         "Spin2",XTP_IDC_SPIN_GREEN,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,125,122,
+                    11,14
+    LTEXT           "Modr·:",XTP_IDC_TXT_BLUE,72,140,23,8
+    EDITTEXT        XTP_IDC_EDIT_BLUE,101,138,33,13,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Spin3",XTP_IDC_SPIN_BLUE,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,125,137,
+                    11,14
+END
+
+XTP_IDD_COLORSTANDARD DIALOGEX DISCARDABLE  0, 0, 147, 161
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | 
+    WS_CAPTION
+CAPTION "ätandardnÈ nastavenia"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "Farby:",XTP_IDC_TXT_COLORS,2,4,43,10
+    CONTROL         "",XTP_IDC_CLR_HEX,"Static",SS_BLACKFRAME | WS_TABSTOP,0,
+                    15,147,145
+END
+
+XTP_IDD_WINDOWLIST DIALOGEX DISCARDABLE  0, 0, 301, 164
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Usporiadajte Windows"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "Vyberte poloûku Okno:",IDC_STATIC,7,7,147,8
+    LISTBOX         XTP_IDC_LBOX_WINDOWS,7,17,216,140,LBS_SORT | 
+                    LBS_OWNERDRAWFIXED | LBS_HASSTRINGS | 
+                    LBS_NOINTEGRALHEIGHT | LBS_EXTENDEDSEL | WS_VSCROLL | 
+                    WS_HSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Aktivovaù",XTP_IDC_BTN_ACTIVATE,233,7,62,14
+    PUSHBUTTON      "OK",IDOK,233,24,62,14
+    PUSHBUTTON      "Uloûiù",XTP_IDC_BTN_SAVE,233,41,62,14
+    PUSHBUTTON      "Zavrieù okno",XTP_IDC_BTN_CLOSEWINDOWS,233,58,62,14
+    PUSHBUTTON      "Kask·da",XTP_IDC_BTN_CASCADE,233,75,62,14
+    PUSHBUTTON      "Dlaûdice vodorovne",XTP_IDC_BTN_TILEHORZ,233,92,62,14
+    PUSHBUTTON      "Dlaûdice vertik·lne",XTP_IDC_BTN_TILEVERT,233,109,62,14
+    PUSHBUTTON      "Minimalizovaù",XTP_IDC_BTN_MINIMIZE,233,126,62,14
+END
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+XTP_IDM_POPUP MENU DISCARDABLE 
+BEGIN
+    POPUP "RClickOutlookBar"
+    BEGIN
+        MENUITEM "MalÈ ikony",                XTP_IDC_SMALLICON
+        MENUITEM "VeækÈ ikony",                XTP_IDC_LARGEICON
+    END
+    POPUP "RClickHexEdit"
+    BEGIN
+        MENUITEM "Vr·tenie sp‰ù",                       ID_EDIT_UNDO
+        MENUITEM SEPARATOR
+        MENUITEM "Vystrihn˙ù",                        ID_EDIT_CUT
+        MENUITEM "KopÌrovaù",                       ID_EDIT_COPY
+        MENUITEM "Vloûiù",                      ID_EDIT_PASTE
+        MENUITEM "Odstr·niù",                     ID_EDIT_CLEAR
+        MENUITEM SEPARATOR
+        MENUITEM "Vybraù vöetko",                 ID_EDIT_SELECT_ALL
+    END
+    POPUP "RClickHeader"
+    BEGIN
+        MENUITEM "Zoradiù vzostupne",              XTP_IDC_SORTASC
+        MENUITEM "Zoradiù zostupne",             XTP_IDC_SORTDSC
+        MENUITEM SEPARATOR
+        POPUP "Zarovnanie"
+        BEGIN
+            MENUITEM "Zarovnaù doæava",                  XTP_IDC_ALIGNLEFT
+            MENUITEM "Zarovnaù na stred",                XTP_IDC_ALIGNCENTER
+            MENUITEM "Zarovnaù doprava",                 XTP_IDC_ALIGNRIGHT
+        END
+    END
+END
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDC_BTN_NEW          "Nov˝"
+    XTP_IDC_BTN_DELETE       "Odstr·niù"
+    XTP_IDC_BTN_UP           "Move Up"
+    XTP_IDC_BTN_DOWN         "Posun˙ù nadol"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_NAME             "N·zov"
+    XTP_IDS_SIZE             "Veækosù"
+    XTP_IDS_TYPE             "Typ"
+    XTP_IDS_MODIFIED         "UpravenÈ"
+    XTP_IDS_COLOR_AUTO       "Automaticky"
+    XTP_IDS_COLOR_CUST       "PrispÙsobiù..."
+    XTP_IDS_SELDIR           "Vyberte adres·r:"
+    XTP_IDS_DOT              "..."
+    XTP_IDS_DEFEXT           "*.*"
+    XTP_IDS_DEFFILT          "Vöetky s˙bory (*.*)|*.*||"
+    XTP_IDS_DEFTITLE         "N·zov adres·ra:"
+    XTP_IDS_CLICKKEEPOPEN    "KliknutÌm na öpendlÌk ponechajte otvorenÈ"
+    XTP_IDS_SE_0             "OperaËn˝ systÈm nem· dostatok pam‰te alebo zdrojov."
+    XTP_IDS_SE_ERR_FNF       "Zadan˝ s˙bor sa nenaöiel."
+    XTP_IDS_SE_ERR_PNF       "Zadan· cesta sa nenaöla."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_SE_ERR_ACCESSDENIED    "OperaËn˝ systÈm zamietol prÌstup k zadanÈmu s˙boru."
+    XTP_IDS_SE_ERR_OOM             "Na dokonËenie oper·cie nebol dostatok pam‰te."
+    XTP_IDS_SE_ERR_BAD_FORMAT      "S˙bor .exe je neplatn˝ (in˝ ako Win32Æ .exe alebo chyba v .exe obr·zku)."
+    XTP_IDS_SE_ERR_SHARE           "Doölo k poruöeniu zdieæania."
+    XTP_IDS_SE_ERR_ASSOCINCOMPLETE "Priradenie n·zvu s˙boru je ne˙plnÈ alebo neplatnÈ."
+    XTP_IDS_SE_ERR_DDETIMEOUT      "Transakciu DDE nebolo moûnÈ dokonËiù, pretoûe Ëasov˝ limit poûiadavky vypröal."
+    XTP_IDS_SE_ERR_DDEFAIL         "Transakcia DDE zlyhala."
+    XTP_IDS_SE_ERR_DDEBUSY         "Transakciu DDE nebolo moûnÈ dokonËiù, pretoûe sa spracov·vali inÈ transakcie DDE."
+    XTP_IDS_SE_ERR_NOASSOC         "S danou prÌponou n·zvu s˙boru nie je spojen· ûiadna aplik·cia."
+    XTP_IDS_SE_ERR_DLLNOTFOUND     "Zadan· dynamick· kniûnica sa nenaöla."
+    XTP_IDS_SE_ERR_UNKOWN          "Vyskytla sa nezn·ma chyba ËÌslo %d."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDC_SORTASC          "Zoradiù vzostupne\nZoradiù vzostupne"
+    XTP_IDC_SORTDSC          "Zoradiù zostupne\nZoradiù zostupne"
+    XTP_IDC_ALIGNLEFT        "Zarovn· odsek k æavÈmu okraju\nZarovnaù doæava"
+    XTP_IDC_ALIGNCENTER      "Vycentruje odsek medzi okraje\nNa stred"
+    XTP_IDC_ALIGNRIGHT       "Zarovn· odsek k pravÈmu okraju\nZarovnaù doprava"
+    XTP_IDC_LARGEICON        "Zobraziù veækÈ ikony\nVeækÈ ikony"
+    XTP_IDC_SMALLICON        "Zobraziù malÈ ikony\nMalÈ ikony"
+    XTP_IDC_REMOVEITEM       "Odstr·niù z panela programu Outlook"
+    XTP_IDC_RENAMEITEM       "Premenovaù skratku"
+    XTP_IDC_REMOVEGROUP      "Odstr·niù skupinu"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDC_RENAMEGROUP      "Premenovaù skupinu"
+    XTP_IDS_HEX              "Hex"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_STD_COLORS       "ätandardnÈ farby"
+	XTP_IDS_RECENT_COLORS    "Ned·vne farby"
+	XTP_IDS_THEME_COLORS     "Farby motÌvu"
+	XTP_IDS_TAGCLOUD_TIP     "ZnaËka: %s, skÛre: %d"
+    XTP_IDS_TIPTEXT          "Text tipu"
+    XTP_IDS_DIDYOUKNOW       "Vedel si..."
+    XTP_IDS_FILE_ABSENT      "Zadan˝ s˙bor neexistuje."
+    XTP_IDS_FILE_CORRUPT     "Chyba pri ËÌtanÌ s˙boru."
+    XTP_IDS_COLOR_CAPTION    "Farby"
+    XTP_IDS_NEW              "Nov˝"
+    XTP_IDS_CURRENT          "Aktu·lne"
+    XTP_IDS_DIRECTORIES      "Adres·re:"
+    XTP_IDS_FILES            "S˙bory:"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_TASK_OK           "OK"
+    XTP_IDS_TASK_YES          "¡no"
+    XTP_IDS_TASK_NO           "Nie"
+    XTP_IDS_TASK_RETRY        "Sk˙siù znova"
+    XTP_IDS_TASK_CANCEL       "Zruöiù"
+    XTP_IDS_TASK_CLOSE        "Zavrieù"
+    XTP_IDS_TASK_APPLY        "Pouûiù"
+    XTP_IDS_TASK_HELP         "Pomoc"
+    XTP_IDS_TASK_SEE_DETAILS  "Zobraziù podrobnosti"
+    XTP_IDS_TASK_HIDE_DETAILS "Skryù detaily"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_BACKGROUND1        "Pozadie 1"
+    XTP_IDS_BACKGROUND2        "Pozadie 2"
+    XTP_IDS_TEXT1              "Text 1"
+    XTP_IDS_TEXT2              "Text 2"
+    XTP_IDS_ACCENT1            "PrÌzvuk 1"
+    XTP_IDS_ACCENT2            "PrÌzvuk 2"
+    XTP_IDS_ACCENT3            "PrÌzvuk 3"
+    XTP_IDS_ACCENT4            "PrÌzvuk 4"
+    XTP_IDS_ACCENT5            "PrÌzvuk 5"
+    XTP_IDS_ACCENT6            "PrÌzvuk 6"
+    XTP_IDS_LIGHTER            "ZapaæovaË"
+    XTP_IDS_DARKER             "Tmavöie"
+END
+
+STRINGTABLE DISCARDABLE
+BEGIN
+    XTP_IDS_PREVIEW_DEFAULT_LOADING_MESSAGE "ZÌskava sa uk·ûka '%'"
+    XTP_IDS_PREVIEW_DEFAULT_FAILED_MESSAGE  "Nie je moûnÈ zÌskaù uk·ûku '%'"
+END
+
+#endif // !defined(_XTP_NO_STANDARDCONTROLS_RES) && ( !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_SKY))

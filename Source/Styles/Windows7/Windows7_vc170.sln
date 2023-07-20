@@ -1,0 +1,4 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 17
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Windows7", ".\Windows7_vc170.vcxproj", "{69678597-4441-8521-4753-417876949537}"
+EndProject

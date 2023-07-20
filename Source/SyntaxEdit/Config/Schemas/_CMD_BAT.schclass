@@ -1,0 +1,393 @@
+//=======================================================================
+//================ Lex class support ====================================
+//=======================================================================
+// 	lexClass:
+//		name		= c_CPPString
+//		parent		= c_CPP
+//		parent:dyn	= c_CPP
+//
+//		children		= 0
+//		children		= class1, class2, ...
+//
+//		previous:class			=	
+//		previous:tag			=	
+//		previous:tag:separators	=	
+//
+//		start:class		= 
+//		start:Tag		= '"'
+//
+//		skip:Tag		= '\"'
+//
+//		end:class		= //
+//		end:Tag			= '"'
+//		end:separators	= ' '
+//
+//		Token:tag		= 'if', 'for', 'while', 'do'
+//		Token:start:separators	= 
+//		Token:end:separators	= 
+//-----------------------------------------------------------------------
+//---------------- Attributes -------------------------------------------
+//-----------------------------------------------------------------------
+//	txt:colorFG	= 0xffc0c0 // color value in hex format. default: black	
+//	txt:colorBK	= 0xffc0c0 // color value in hex format. default: white		
+//
+//	txt:colorSelFG	= 0xffc0c0 // color value in hex format. default: white
+//	txt:colorSelBK	= 0xffc0c0 // color value in hex format. default: black
+//
+//	txt:Bold	= 1 // {1,0} default: 0
+//	txt:Italic	= 1 // {1,0} default: 0
+//	txt:Underline	= 1 // {1,0} default: 0
+//
+//	caseSensitive	= 1 // {1,0} default: 0
+//
+//	Collapsable	= 1 // {1,0} default: 0
+//	CollapsedText	= '/*...*/' // quoted string value. default: '[..]'	
+//
+//	ParseOnScreen	= 1 // {1,0} default: 0
+// 	
+//-----------------------------------------------------------------------
+//* Global attributes ***************************************************
+//-----------------------------------------------------------------------
+// 	global:FirstParseInSeparateThread	= 1		// {0,1} default=1
+// 	global:EditReparceInSeparateThread	= 1		// {0,1} default=1
+// 	global:ConfigChangedReparceInSeparateThread= 1 // {0,1} default=1
+// 	global:EditReparceTimeout_ms	= 500		// default= 500 ms; time out for start reparse after last key was pressed.
+// 	global:MaxBackParseOffset		= 100		// default= 100 chars; maximum back buffer size. Some times parser look back for the text from current position.
+// 	global:OnScreenSchCacheLifeTime_sec = 180	// default= 180 sec; -1 and 0 means infinite; time out for on screen parsed pices of text. for memory using optimization.
+// 	global:ParserThreadIdleLifeTime_sec = 60	// default=60 sec; -1 and 0 means infinite; time out for existing of parser thread when parser idle (no parse requests).
+	
+/////////////////////////////////////////////////////////////////////////
+
+//=======================================================================
+//================ Variables support ====================================
+//=======================================================================
+// NON operation - example:   @alpha:not
+//
+// @alpha	= a-z, A-Z
+// @digit	= 0-9
+// @HexDdigit	= 0-9, a-f, A-F
+// @specs	= "~`!@#$%^&*()_-+=\\|{}[];:'\",.<>/?"
+// @EOL		= End Of Line
+//---------------------------------------------
+// special tags:  '\\', '\'', '\t', '\r', '\n'
+/////////////////////////////////////////////////////////////////////////
+
+/// CMD/BAT ///	
+lexClass:
+	parent:file		= <*.cmd|*.bat>
+	name			= c_CmdBat
+	caseSensitive		= 0
+	txt:colorFG		= 0x000000
+	DisplayName			= 'Normal Text'
+	
+//:lexClass
+
+lexClass: 	
+	name			= c_CmdBatComment1
+	parent			= c_CmdBat
+	previous:tag		= 'rem'
+	previous:tag:separators = ' ', '\t'
+	end:Tag			= @eol
+	txt:colorFG		= 0x009000
+	DisplayName			= 'CMD/BAT Comment1'
+
+//:lexClass
+
+lexClass: 	
+	name			= c_CmdBatComment2
+	parent			= c_CmdBat
+	start:tag		= '::'
+	end:Tag			= @eol
+	txt:colorFG		= 0x009000
+	DisplayName			= 'CMD/BAT Comment2'
+
+//:lexClass
+
+lexClass: 	
+	name			= c_CmdBatEcho
+	parent			= c_CmdBat
+	previous:tag		= 'echo'
+	previous:tag:separators = ' ', '\t'
+	end:Tag			= @eol
+	txt:colorFG		= 0x009090
+	DisplayName			= 'CMD/BAT Echo'
+
+//:lexClass
+
+lexClass:
+	name			= c_CmdBatLabel
+	parent			= c_CmdBat
+	previous:tag		= ' ', '\t', @specs, @EOL
+	start:tag		= ':'
+	end:separators		= ' ', @EOL
+	txt:colorFG		= 0xA0A000
+	DisplayName			= 'CMD/BAT Label'
+
+//:lexClass
+
+lexClass: 	
+	name			= c_CmdBatVariableName
+	parent			= c_CmdBat
+	previous:tag		= 'set', '/P'
+	previous:tag:separators = ' ', '\t'
+	start:tag		= @alpha
+	end:separators		= '='
+	txt:colorFG		= 0x6A0DAD
+	DisplayName			= 'CMD/BAT Variable Name'
+
+//:lexClass
+
+lexClass: 	
+	name			= c_CmdBatVariable1
+	parent			= c_CmdBat, 
+	start:tag		= '%%'
+	end:tag			= ' ', @EOL
+	txt:colorFG		= 0x6A0DAD
+	DisplayName			= 'CMD/BAT Variable1'
+
+//:lexClass
+
+lexClass: 	
+	name			= c_CmdBatVariable2
+	parent			= c_CmdBat
+	start:tag		= '%'
+	end:tag			= '%', @digit
+	txt:colorFG		= 0x6A0DAD
+	DisplayName			= 'CMD/BAT Variable2'
+
+//:lexClass
+
+lexClass: 	
+	name			= c_CmdBatVariable3
+	parent			= c_CmdBat, c_CmdBatStr
+	start:tag		= '!'
+	end:tag			= '!'
+	txt:colorFG		= 0x6A0DAD
+	DisplayName			= 'CMD/BAT Variable3'
+
+//:lexClass
+
+lexClass: 	
+	name			= c_CmdBatVariable4
+	parent			= c_CmdBat
+	token:tag		= '%*'
+	txt:colorFG		= 0x6A0DAD
+	DisplayName			= 'CMD/BAT Variable4'
+
+//:lexClass
+
+lexClass:
+	name			= c_CmdBatNumber
+	parent			= c_CmdBat, c_CmdBatComment1, c_CmdBatComment2
+	previous:tag		= ' ', '\t', @specs, @EOL	
+	start:tag		= @digit, '.'
+        skip:tag        	= '.', 'e', '+', '-', 
+	end:separators		= @digit:not
+	txt:colorFG		= 0x009090
+	caseSensitive		= 0
+	DisplayName			= 'CMD/BAT Number'
+
+//:lexClass
+
+lexClass:
+	name			= c_CmdBatStr
+	parent			= c_CmdBat
+	start:tag		= '"'
+	end:tag			= '"', @EOL
+	txt:colorFG		= 0x009090
+	DisplayName			= 'CMD/BAT String'
+
+//:lexClass
+
+lexClass: 
+	name			= c_CmdBatKeywords
+	ParseOnScreen 		= 0
+	parent			= c_CmdBat
+	txt:colorFG		= 0x0000FF
+	txt:Bold		= 1
+	DisplayName			= 'CMD/BAT Keywords'
+
+	token:tag		= 'arp'
+	token:tag		= 'at'
+	token:tag		= 'attrib'
+	token:tag		= 'auditpol'
+	token:tag		= 'autochk'
+	token:tag		= 'autoconv'
+	token:tag		= 'autofmt'
+	token:tag		= 'bcdboot'
+	token:tag		= 'bcdedit'
+	token:tag		= 'bdehdcfg'
+	token:tag		= 'bitsadmin'
+	token:tag		= 'bootcfg'
+	token:tag		= 'cacls'
+	token:tag		= 'certreq'
+	token:tag		= 'certutil'
+	token:tag		= 'change'
+	token:tag		= 'chcp'
+	token:tag		= 'chglogon'
+	token:tag		= 'chgport'
+	token:tag		= 'chgusr'
+	token:tag		= 'chkdsk'
+	token:tag		= 'chkntfs'
+	token:tag		= 'choice'
+	token:tag		= 'cipher'
+	token:tag		= 'cleanmgr'
+	token:tag		= 'clip'
+	token:tag		= 'cmd'
+	token:tag		= 'cmdkey'
+	token:tag		= 'cmstp'
+	token:tag		= 'comp'
+	token:tag		= 'compact'
+	token:tag		= 'convert'
+	token:tag		= 'cscript'
+	token:tag		= 'defrag'
+	token:tag		= 'diskpart'
+	token:tag		= 'diskperf'
+	token:tag		= 'diskraid'
+	token:tag		= 'dispdiag'
+	token:tag		= 'doskey'
+	token:tag		= 'driverquery'
+	token:tag		= 'eventcreate'
+	token:tag		= 'expand'
+	token:tag		= 'fc'
+	token:tag		= 'find'
+	token:tag		= 'findstr'
+	token:tag		= 'finger'
+	token:tag		= 'fondue'
+	token:tag		= 'forfiles'
+	token:tag		= 'format'
+	token:tag		= 'fsutil'
+	token:tag		= 'ftp'
+	token:tag		= 'getmac'
+	token:tag		= 'gpresult'
+	token:tag		= 'gpupdate'
+	token:tag		= 'help'
+	token:tag		= 'hostname'
+	token:tag		= 'icacls'
+	token:tag		= 'ipconfig'
+	token:tag		= 'klist'
+	token:tag		= 'ksetup'
+	token:tag		= 'ktmutil'
+	token:tag		= 'label'
+	token:tag		= 'lodctr'
+	token:tag		= 'logman'
+	token:tag		= 'logoff'
+	token:tag		= 'makecab'
+	token:tag		= 'mmc'
+	token:tag		= 'mode'
+	token:tag		= 'more'
+	token:tag		= 'mountvol'
+	token:tag		= 'msdt'
+	token:tag		= 'msg'
+	token:tag		= 'msiexec'
+	token:tag		= 'msinfo32'
+	token:tag		= 'mstsc'
+	token:tag		= 'nbtstat'
+	token:tag		= 'net'
+	token:tag		= 'netcfg'
+	token:tag		= 'netsh'
+	token:tag		= 'netstat'
+	token:tag		= 'nslookup'
+	token:tag		= 'openfiles'
+	token:tag		= 'pathping'
+	token:tag		= 'perfmon'
+	token:tag		= 'ping'
+	token:tag		= 'pnpunattend'
+	token:tag		= 'pnputil'
+	token:tag		= 'powershell'
+	token:tag		= 'print'
+	token:tag		= 'pwlauncher'
+	token:tag		= 'qappsrv'
+	token:tag		= 'qprocess'
+	token:tag		= 'query'
+	token:tag		= 'quser'
+	token:tag		= 'qwinsta'
+	token:tag		= 'rdpsign'
+	token:tag		= 'recover'
+	token:tag		= 'refsutil'
+	token:tag		= 'reg'
+	token:tag		= 'regini'
+	token:tag		= 'regsvr32'
+	token:tag		= 'relog'
+	token:tag		= 'replace'
+	token:tag		= 'reset'
+	token:tag		= 'robocopy'
+	token:tag		= 'route'
+	token:tag		= 'rpcping'
+	token:tag		= 'rundll32'
+	token:tag		= 'rwinsta'
+	token:tag		= 'sc'
+	token:tag		= 'schtasks'
+	token:tag		= 'secedit'
+	token:tag		= 'setx'
+	token:tag		= 'sfc'
+	token:tag		= 'shutdown'
+	token:tag		= 'sort'
+	token:tag		= 'subst'
+	token:tag		= 'sxstrace'
+	token:tag		= 'systeminfo'
+	token:tag		= 'takeown'
+	token:tag		= 'taskkill'
+	token:tag		= 'tasklist'
+	token:tag		= 'tcmsetup'
+	token:tag		= 'timeout'
+	token:tag		= 'tpmtool'
+	token:tag		= 'tpmvscmgr'
+	token:tag		= 'tracerpt'
+	token:tag		= 'tracert'
+	token:tag		= 'tree'
+	token:tag		= 'tscon'
+	token:tag		= 'tsdiscon'
+	token:tag		= 'tskill'
+	token:tag		= 'typeperf'
+	token:tag		= 'tzutil'
+	token:tag		= 'unlodctr'
+	token:tag		= 'verifier'
+	token:tag		= 'vssadmin'
+	token:tag		= 'waitfor'
+	token:tag		= 'wbadmin'
+	token:tag		= 'wecutil'
+	token:tag		= 'where'
+	token:tag		= 'whoami'
+	token:tag		= 'winrs'
+	token:tag		= 'winsat'
+	token:tag		= 'wmic'
+	token:tag		= 'wscript'
+	token:tag		= 'xcopy'
+
+	token:tag		= 'aux'
+	token:tag		= 'con'
+	token:tag		= 'dir'
+	token:tag		= 'do'
+	token:tag		= 'echo'
+	token:tag		= 'enabledelayedexpansion'
+	token:tag		= 'else'
+	token:tag		= 'errorlevel'
+	token:tag		= 'exist'
+	token:tag		= 'exit'
+	token:tag		= 'for'
+	token:tag		= 'goto'
+	token:tag		= 'if'
+	token:tag		= 'in'
+	token:tag		= 'nul'
+	token:tag		= 'off'
+	token:tag		= 'on'
+	token:tag		= 'rem'
+	token:tag		= 'set'
+	token:tag		= 'setlocal'
+
+	token:tag		= 'equ'
+	token:tag		= 'neq'
+	token:tag		= 'lss'
+	token:tag		= 'leq'
+	token:tag		= 'gtr'
+	token:tag		= 'geq'
+
+	token:tag		= 'and'
+	token:tag		= 'or'
+	token:tag		= 'not'
+
+	token:start:separators	= @specs, ' ', '\t', @EOL
+	token:end:separators	= @specs, ' ', '\t', @EOL
+
+//:lexClass

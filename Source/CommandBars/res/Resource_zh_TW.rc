@@ -1,0 +1,338 @@
+// CommandBars resource file
+//
+// (c)1998-2023 Codejock Software, All Rights Reserved.
+//
+// THIS SOURCE FILE IS THE PROPERTY OF CODEJOCK SOFTWARE AND IS NOT TO BE
+// RE-DISTRIBUTED BY ANY MEANS WHATSOEVER WITHOUT THE EXPRESSED WRITTEN
+// CONSENT OF CODEJOCK SOFTWARE.
+//
+// THIS SOURCE CODE CAN ONLY BE USED UNDER THE TERMS AND CONDITIONS OUTLINED
+// IN THE XTREME TOOLKIT PRO LICENSE AGREEMENT. CODEJOCK SOFTWARE GRANTS TO
+// YOU (ONE SOFTWARE DEVELOPER) THE LIMITED RIGHT TO USE THIS SOFTWARE ON A
+// SINGLE COMPUTER.
+//
+// CONTACT INFORMATION:
+// support@codejock.com
+// http://www.codejock.com
+//
+/////////////////////////////////////////////////////////////////////////////
+
+#include "CommandBars/Resource.h"
+#include "CommandBars/res/Resource-Neutral.rc"
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHT)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_TRADITIONAL
+#pragma code_page(950)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+XTP_IDD_IMAGEEDITOR_DIALOG DIALOGEX 0, 0, 253, 185
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "按鈕編輯器"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    LTEXT           "圖片",IDC_STATIC,7,7,86,8
+    GROUPBOX        "顏色",IDC_STATIC,102,106,80,71
+    GROUPBOX        "移動",IDC_STATIC,101,72,81,31
+    GROUPBOX        "預覽",IDC_STATIC,7,106,86,71
+    GROUPBOX        "工具",IDC_STATIC,101,9,81,60
+    DEFPUSHBUTTON   "好的",IDOK,193,7,50,14
+    PUSHBUTTON      "取消 ",IDCANCEL,193,25,50,14
+    CONTROL         "",XTP_IDC_STATIC_PICTURE,"Static",SS_BLACKFRAME | 
+                    SS_NOTIFY,7,17,86,80
+    CTEXT           "",XTP_IDC_STATIC_PREVIEW,14,117,73,54,SS_CENTERIMAGE,
+                    WS_EX_STATICEDGE
+    LTEXT           "透明的",IDC_STATIC,135,156,42,8
+    LTEXT           "",XTP_IDC_CLR_ERASE,116,153,15,15,SS_NOTIFY
+    CTEXT           "工具",XTP_IDC_STATIC_TOOLS,112,21,60,43,SS_CENTERIMAGE | 
+                    NOT WS_VISIBLE | WS_BORDER
+    CTEXT           "移動",XTP_IDC_STATIC_MOVE,111,83,62,12,SS_CENTERIMAGE | 
+                    NOT WS_VISIBLE | WS_BORDER
+    CONTROL         "",XTP_IDC_CLR_PICKER,"Static",SS_LEFTNOWORDWRAP | 
+                    SS_NOTIFY | WS_GROUP,109,144,15,15
+    CTEXT           "顏色",XTP_IDC_STATIC_COLORS,107,121,68,12,
+                    SS_CENTERIMAGE | NOT WS_VISIBLE | WS_BORDER
+END
+
+XTP_IDD_PAGE_KEYBOARD DIALOGEX DISCARDABLE  0, 0, 230, 150
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_CAPTION | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
+CAPTION "鍵盤"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "類別:",IDC_STATIC,4,5,89,8
+    COMBOBOX        XTP_IDC_COMBO_CATEGORY,4,15,91,147,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "命令:",XTP_IDC_TXT_COMMANDS,4,28,89,8
+    LISTBOX         XTP_IDC_LBOX_ACCEL_COMMANDS,4,38,91,77,LBS_HASSTRINGS | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LISTBOX         XTP_IDC_LBOX_ACCEL_COMMANDS_EX,4,38,91,77,LBS_HASSTRINGS | 
+                    LBS_OWNERDRAWFIXED |
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "按鍵分配:",XTP_IDC_TXT_ASSIGNMENTS,100,28,73,8
+    LISTBOX         XTP_IDC_LBOX_KEYS,100,38,75,51,LBS_HASSTRINGS | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LISTBOX         XTP_IDC_LBOX_KEYS_EX,100,38,75,51,LBS_HASSTRINGS | 
+                    LBS_OWNERDRAWFIXED |
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "按新的快捷鍵:",XTP_IDC_TXT_NEWKEY,100,93,100,8
+    EDITTEXT        XTP_IDC_EDIT_SHORTCUTKEY,100,103,75,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "分配",XTP_IDC_BTN_ASSIGN,179,39,49,14
+    PUSHBUTTON      "消除",XTP_IDC_BTN_REMOVE,179,56,49,14
+    PUSHBUTTON      "重置全部",XTP_IDC_BTN_ACCEL_RESET,179,73,49,14
+    LTEXT           "描述:",XTP_IDC_TXT_DESC_TITLE,4,117,89,8
+    LTEXT           "",XTP_IDC_TXT_DESC_OVERVIEW,4,127,224,19,0,
+                    WS_EX_STATICEDGE
+END
+
+XTP_IDD_PAGE_TOOLBARS DIALOGEX DISCARDABLE  0, 0, 230, 150
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_CAPTION | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
+CAPTION "工具欄"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "工具欄：",IDC_STATIC,4,5,148,8
+    LISTBOX         XTP_IDC_LIST_TOOLBARS,4,15,150,131,LBS_OWNERDRAWFIXED | 
+                    LBS_HASSTRINGS | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | 
+                    WS_TABSTOP
+    PUSHBUTTON      "新的...",XTP_IDC_BUTTON_NEW,158,15,70,14
+    PUSHBUTTON      "改名...",XTP_IDC_BUTTON_RENAME,158,33,70,14
+    PUSHBUTTON      "刪除",XTP_IDC_BUTTON_DELETE,158,51,70,14
+    PUSHBUTTON      "重置...",XTP_IDC_BUTTON_RESET,158,69,70,14
+END
+
+XTP_IDD_PAGE_OPTIONS DIALOGEX DISCARDABLE  0, 0, 230, 150
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_CAPTION | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
+CAPTION "選項"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "個性化菜單和工具欄",XTP_IDC_GROUP_PERSONALIZED,4,5,222,8
+    CONTROL         "始終顯示完整菜單",XTP_IDC_CHECK_FULL_MENUS,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,17,216,10
+    CONTROL         "短暫延遲後顯示完整菜單",
+                    XTP_IDC_CHECK_AFTERDELAY,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,22,29,204,10
+    PUSHBUTTON      "重置菜單和工具欄使用數據",
+                    XTP_IDC_BUTTON_RESETDATA,10,42,125,14
+    LTEXT           "其他", XTP_IDC_GROUP_OTHER,4,70,222,8
+    CONTROL         "大圖標",XTP_IDC_CHECK_LARGEICONS,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,10,82,216,10
+    CONTROL         "在工具欄上顯示屏幕提示",XTP_IDC_CHECK_SCREENTTIPS,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,93,216,10
+    CONTROL         "在屏幕提示中顯示快捷鍵",
+                    XTP_IDC_CHECK_SHORTCUTS,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,22,104,204,10
+    LTEXT           "菜單動畫：",IDC_STATIC,10,117,56,8
+    COMBOBOX        XTP_IDC_COMBO_ANIMATION,70,115,79,65,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+END
+
+XTP_IDD_PAGE_COMMANDS DIALOGEX DISCARDABLE  0, 0, 230, 150
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_CAPTION | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
+CAPTION "命令"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "將命令添加到工具欄：選擇一個類別並將命令從該對話框拖到工具欄。",
+                    IDC_STATIC,4,5,220,19
+    LTEXT           "類別:",IDC_STATIC,4,25,80,8
+    LISTBOX         XTP_IDC_LIST_CATEGORIES,4,35,81,111,LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL | WS_TABSTOP
+    LISTBOX         XTP_IDC_LIST_CATEGORIES_EX,4,35,81,111,LBS_NOINTEGRALHEIGHT | 
+                    LBS_OWNERDRAWFIXED | LBS_HASSTRINGS | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "命令:",IDC_STATIC,90,25,134,8
+    LISTBOX         XTP_IDC_LIST_COMMANDS,90,35,135,111,LBS_OWNERDRAWFIXED | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+END
+
+XTP_IDD_PAGE_MENUS DIALOGEX DISCARDABLE  0, 0, 230, 150
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_CAPTION | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
+CAPTION "菜單(&M)"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "應用程序菜單",XTP_IDC_STATIC_APPLICATIONMENUS,4,5,222,
+                    8
+    LTEXT           "上下文菜單",XTP_IDC_STATIC_CONTEXTMENUS,4,80,222,8
+    LTEXT           "顯示菜單:",IDC_STATIC,10,20,44,11
+    COMBOBOX        XTP_IDC_COMBO_APPMENUS,54,18,159,79,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "重置",XTP_IDC_BUTTON_RESETAPP,10,57,70,14
+    LTEXT           "默認菜單\n默認應用程序菜單",XTP_IDC_STATIC_DESCRIPTION,37,34,181,18
+    ICON            0,XTP_IDC_STATIC_ICON,10,32,21,20
+    LTEXT           "選擇上下文菜單:",IDC_STATIC,10,92,68,10
+    COMBOBOX        XTP_IDC_COMBO_CONTEXTMENUS,83,90,130,79,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "重置",XTP_IDC_BUTTON_RESETCONTEXT,10,108,70,14
+END
+
+XTP_IDD_NEWTOOLBAR DIALOGEX DISCARDABLE  0, 0, 186, 52
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "新工具欄"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "工具欄名稱:",IDC_STATIC,4,4,178,8
+    EDITTEXT        XTP_IDC_EDIT_TOOLBARNAME,4,15,178,12,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "好的",IDOK,78,34,50,14
+    PUSHBUTTON      "取消 ",IDCANCEL,132,34,50,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+XTP_IDR_CUSTOMIZEMENU MENU DISCARDABLE 
+BEGIN
+    POPUP "定制"
+    BEGIN
+        MENUITEM "重置",                      XTP_ID_CUSTOMIZE_RESET
+        MENUITEM "刪除",                     XTP_ID_CUSTOMIZE_DELETE
+        MENUITEM SEPARATOR
+        MENUITEM "姓名:",                      XTP_ID_CUSTOMIZE_NAME
+        MENUITEM SEPARATOR
+        MENUITEM "複製按鈕圖像",          XTP_ID_CUSTOMIZE_COPYBUTTONIMAGE
+
+        MENUITEM "粘貼按鈕圖像",         XTP_ID_CUSTOMIZE_PASTEBUTTONIMAGE
+
+        MENUITEM "重置按鈕圖片",         XTP_ID_CUSTOMIZE_RESETBUTTONIMAGE
+
+        MENUITEM "編輯按鈕圖像...",       XTP_ID_CUSTOMIZE_EDITBUTTONIMAGE
+
+        MENUITEM "更改按鈕圖像",        XTP_ID_CUSTOMIZE_CHANGEBUTTONIMAGE
+
+        MENUITEM SEPARATOR
+        MENUITEM "默認樣式",              XTP_ID_CUSTOMIZE_DEFAULTSTYLE
+
+        MENUITEM "純文本",                  XTP_ID_CUSTOMIZE_TEXTONLY
+        MENUITEM "圖片和文字",             XTP_ID_CUSTOMIZE_IMAGEANDTEXT
+
+        MENUITEM SEPARATOR
+        MENUITEM "開始一個小組",              XTP_ID_CUSTOMIZE_BEGINAGROUP
+    END
+END
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_CUSTOMIZE_CLOSE "關閉"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_CUSTOMIZE       "定制"
+    XTP_IDS_NEWMENU         "新菜單"
+    XTP_IDS_CUSTOMIZE_STATUSBAR "自定義狀態欄"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_CONFIRM_RESETDATA 
+                            "這將刪除您在此應用程序中使用的命令記錄，並將默認的可見命令集恢復到菜單和工具欄。 它不會撤消任何顯式自定義。 你確定你要這麼做嗎？"
+    XTP_IDS_INVALID_NUMBER  "這不是一個有效的數字。"
+    XTP_IDS_INVALID_FONTSIZE "該數字必須介於 1 和 1638 之間。"
+    XTP_IDS_CONFIRM_RESET   "您確定要重置對'%s'工具欄所做的更改嗎？"
+    XTP_IDS_BUILTINMENUS    "內置菜單"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_CUSTOM_BAR      "自定義 %d"
+    XTP_IDS_ERROR_BLANKNAME "工具欄名稱不能為空。 輸入名稱。"
+    XTP_IDS_ERROR_LIMIT     "抱歉，您已達到上限。"
+    XTP_IDS_ERROR_EXISTS    "名為 '%s' 的工具欄已存在。 鍵入另一個名稱。"
+    XTP_IDS_RENAMETOOLBAR   "重命名工具欄"
+    XTP_IDS_CONFIRM_DELETE  "您確定要刪除 '%s' 工具欄嗎？"
+    XTP_IDS_ALLCOMMANDS     "所有命令"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_ID_CUSTOMIZE        "自定義應用程序外觀、工具欄和菜單\n自定義(&C)..."
+    XTP_ID_CUSTOMIZE_RESET  "\n重置工具欄"
+    XTP_ID_CUSTOMIZE_ADDORREMOVE "\n添加或刪除按鈕"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_CONFIRM_KEYBOARD 
+                            "您確定要重置按鍵分配嗎？ 此操作將刪除文本級別的所有自定義鍵分配。"
+    XTP_IDS_CONFIRM_REASSIGN 
+                            "當前已分配此快捷方式。\n是否要重新分配此快捷方式?"
+    XTP_IDS_CONFIRM_UPDATE  "由於軟件更新，工具欄“%s”已更改。 您想重置自定義工具欄並加載新工具欄嗎？"
+    XTP_IDS_IMAGEEDITOR_FILTER
+                            "所有圖片文件|*.bmp;*.wmf;*.emf;*.ico;*.dib;*.png;*.cur;*.gif;*.jpg|位圖 (*.bmp;*.dib; *.png;*.gif;*.jpg)|*.bmp;*.dib;*.png;*.gif;*.jpg|圖元文件 (*.wmf;*.emf)|*.wmf;*。 emf|圖標 (*.ico;*.cur)|*.ico;*.cur|所有文件 (*.*)|*.*||"
+    XTP_ID_TOOLBAR_EXPAND   "\n工具欄選項"
+    XTP_ID_TOOLBAR_HIDE     "\n關閉"
+    XTP_ID_POPUPBAR_EXPAND  "\n展開"
+    XTP_ID_MENUBAR_CLOSE    "\n關閉窗口"
+    XTP_ID_MENUBAR_RESTORE  "\n還原窗口"
+    XTP_ID_MENUBAR_MINIMIZE "\n最小化窗口"
+
+    XTP_IDS_SHORTCUT_SECONDKEY "(%s) 被按下。 等待和弦的第二個鍵..."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_ID_BUTTON_PENCIL    "\n鉛筆"
+    XTP_ID_BUTTON_FILL      "\n填充顏色"
+    XTP_ID_BUTTON_GETCOLOR  "\n選擇顏色"
+    XTP_ID_BUTTON_LINE      "\n行"
+    XTP_ID_BUTTON_RECTANGLE "\n矩形"
+    XTP_ID_BUTTON_CIRCLE    "\n橢圓"
+    XTP_ID_BUTTON_COPY      "\n複製"
+    XTP_ID_BUTTON_PASTE     "\n粘貼"
+    XTP_ID_BUTTON_CLEAR     "\n清除"
+    XTP_ID_BUTTON_UNDO      "\n撤消"
+    XTP_ID_BUTTON_REDO      "\n重做"
+    XTP_ID_BUTTON_OPEN      "\n從文件導入"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_ANIMATION_SYSDEF "（系統默認）"
+    XTP_IDS_ANIMATION_RANDOM "隨機的"
+    XTP_IDS_ANIMATION_UNFOLD "展開"
+    XTP_IDS_ANIMATION_SLIDE "滑動"
+    XTP_IDS_ANIMATION_FADE  "褪色"
+    XTP_IDS_ANIMATION_NONE  "沒有任何"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_ID_WORKSPACE_MOVEPREVIOUS "\n移動到上一個選項卡組"
+    XTP_ID_WORKSPACE_MOVENEXT "\n移動到下一個選項卡組"
+    XTP_ID_WORKSPACE_NEWHORIZONTAL "\n新建水平選項卡組"
+    XTP_ID_WORKSPACE_NEWVERTICAL "\n新建垂直選項卡組"
+    XTP_ID_WORKSPACE_CANCEL "\n取消"
+    XTP_ID_WORKSPACE_DETACH "\n分離"
+    XTP_ID_WORKSPACE_DETACH_ALL "\n分離所有"
+    XTP_ID_WORKSPACE_ATTACH "\n附加"
+    XTP_ID_WORKSPACE_ATTACH_ALL "\n全部附加"
+    XTP_IDS_TABNAVIGATEBUTTON_ACTIVEFILES "活動文件"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_ID_PREVIEW_PRINT    "打印預覽項目\n打印"
+    XTP_ID_PREVIEW_PREV     "轉到上一頁\n上一頁"
+    XTP_ID_PREVIEW_NEXT     "轉到下一頁\n下一頁"
+    XTP_ID_PREVIEW_ZOOMIN   "增加預覽頁面的放大倍率\n放大"
+    XTP_ID_PREVIEW_ZOOMOUT  "降低預覽頁面的放大率\n縮小"
+    XTP_ID_PREVIEW_ONEPAGE  "單頁"
+    XTP_ID_PREVIEW_TWOPAGE  "多個頁面"
+    XTP_ID_PREVIEW_CLOSE    "關閉預覽\n關閉預覽"
+    XTP_IDS_PREVIEW_WHOLEPAGE "整頁"
+    XTP_IDS_PREVIEW_PAGEWIDTH "頁面寬度"
+    XTP_IDS_PREVIEW_PAGEI     "第 %i 頁"
+    XTP_IDS_PREVIEW_PAGEIOFI  "第 %i 頁，共 %i 頁"
+END
+
+#endif // !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHT)

@@ -1,0 +1,14 @@
+﻿<Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="None">
+  <Grid Width="64" Height="48">
+    <Grid.RowDefinitions>
+      <RowDefinition/>
+      <RowDefinition/>
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="64"/>
+      <ColumnDefinition/>
+    </Grid.ColumnDefinitions>
+    <TextBlock Grid.Row="0" VerticalAlignment="Bottom" TextAlignment="Center" FontFamily="Tahoma"  FontSize="14" Foreground="#5A5A5A">AaBbCcDd</TextBlock>
+    <TextBlock Grid.Row="1" VerticalAlignment="Bottom" TextAlignment="Center" FontFamily="Calibri" FontSize="14" Foreground="#5E5E5E" TextTrimming="CharacterEllipsis">Subtle Reference</TextBlock>
+  </Grid>
+</Viewbox>

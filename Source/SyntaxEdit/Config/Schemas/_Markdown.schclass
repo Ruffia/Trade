@@ -1,0 +1,295 @@
+//=======================================================================
+//================ Lex class support ====================================
+//=======================================================================
+// 	lexClass:
+//		name		= c_CPPString
+//		parent		= c_CPP
+//		parent:dyn	= c_CPP
+//
+//		children		= 0
+//		children		= class1, class2, ...
+//
+//		previous:class			=	
+//		previous:tag			=	
+//		previous:tag:separators	=	
+//
+//		start:class		= 
+//		start:Tag		= '"'
+//
+//		skip:Tag		= '\"'
+//
+//		end:class		= //
+//		end:Tag			= '"'
+//		end:separators	= ' '
+//
+//		Token:tag		= 'if', 'for', 'while', 'do'
+//		Token:start:separators	= 
+//		Token:end:separators	= 
+//-----------------------------------------------------------------------
+//---------------- Attributes -------------------------------------------
+//-----------------------------------------------------------------------
+//	txt:colorFG	= 0xffc0c0 // color value in hex format. default: black	
+//	txt:colorBK	= 0xffc0c0 // color value in hex format. default: white		
+//
+//	txt:colorSelFG	= 0xffc0c0 // color value in hex format. default: white
+//	txt:colorSelBK	= 0xffc0c0 // color value in hex format. default: black
+//
+//	txt:Bold	= 1 // {1,0} default: 0
+//	txt:Italic	= 1 // {1,0} default: 0
+//	txt:Underline	= 1 // {1,0} default: 0
+//
+//	caseSensitive	= 1 // {1,0} default: 0
+//
+//	Collapsable	= 1 // {1,0} default: 0
+//	CollapsedText	= '/*...*/' // quoted string value. default: '[..]'	
+//
+//	ParseOnScreen	= 1 // {1,0} default: 0
+// 	
+//-----------------------------------------------------------------------
+//* Global attributes ***************************************************
+//-----------------------------------------------------------------------
+// 	global:FirstParseInSeparateThread	= 1		// {0,1} default=1
+// 	global:EditReparceInSeparateThread	= 1		// {0,1} default=1
+// 	global:ConfigChangedReparceInSeparateThread= 1 // {0,1} default=1
+// 	global:EditReparceTimeout_ms	= 500		// default= 500 ms; time out for start reparse after last key was pressed.
+// 	global:MaxBackParseOffset		= 100		// default= 100 chars; maximum back buffer size. Some times parser look back for the text from current position.
+// 	global:OnScreenSchCacheLifeTime_sec = 180	// default= 180 sec; -1 and 0 means infinite; time out for on screen parsed pices of text. for memory using optimization.
+// 	global:ParserThreadIdleLifeTime_sec = 60	// default=60 sec; -1 and 0 means infinite; time out for existing of parser thread when parser idle (no parse requests).
+	
+/////////////////////////////////////////////////////////////////////////
+
+//=======================================================================
+//================ Variables support ====================================
+//=======================================================================
+// NON operation - example:   @alpha:not
+//
+// @alpha	= a-z, A-Z
+// @digit	= 0-9
+// @HexDdigit	= 0-9, a-f, A-F
+// @specs	= "~`!@#$%^&*()_-+=\\|{}[];:'\",.<>/?"
+// @EOL		= End Of Line
+//---------------------------------------------
+// special tags:  '\\', '\'', '\t', '\r', '\n'
+/////////////////////////////////////////////////////////////////////////
+
+/// Markdown ///	
+lexClass:
+	parent:file		= <*.md>
+	name			= c_Markdown
+	txt:colorFG		= 0x000000
+	DisplayName			= 'Normal Text'
+	
+//:lexClass
+
+lexClass:
+	name			= c_MarkdownSetextHeader
+	parent			= c_Markdown
+	previous:tag		= @EOL
+	start:tag		= '='
+	skip:tag		= '=', ' ', '\t'
+	end:separators		= @alpha, @digit, @specs, @EOL	
+	txt:colorFG		= 0xA00000
+	DisplayName 			= 'Markdown Setext Header'
+
+//:lexClass
+
+lexClass:
+	name			= c_MarkdownAtxHeader
+	parent			= c_Markdown
+	previous:tag		= @EOL
+	start:tag		= '#'
+	skip:tag		= '#'
+	end:separators		= @alpha, @digit, @specs, ' ', '\t', @EOL	
+	txt:colorFG		= 0xA00000
+	DisplayName 			= 'Markdown Setext Header'
+
+//:lexClass
+
+lexClass:
+	name			= c_MarkdownHorizontalRule1
+	parent			= c_Markdown
+	previous:tag		= @EOL
+	start:tag		= '-'
+	skip:tag		= '-', ' ', '\t'
+	end:separators		= @alpha, @digit, @specs, @EOL	
+	txt:colorFG		= 0xA00000
+	DisplayName 			= 'Markdown Horizontal Rule 1'
+
+//:lexClass
+
+lexClass:
+	name			= c_MarkdownHorizontalRule2
+	parent			= c_Markdown
+	previous:tag		= @EOL
+	start:tag		= '*'
+	skip:tag		= '*', ' ', '\t'
+	end:separators		= @alpha, @digit, @specs, @EOL	
+	txt:colorFG		= 0xA00000
+	DisplayName 			= 'Markdown Horizontal Rule 2'
+
+//:lexClass
+
+lexClass:
+	name			= c_MarkdownList_ordered
+	parent			= c_Markdown
+	previous:tag		= @EOL	
+	previous:tag:separators = ' ', '\t'	
+	start:tag		= @digit
+	end:tag			= '.'
+	end:separators		= @alpha, @digit, @specs, ' ', '\t', @EOL	
+	txt:colorFG		= 0xA00000
+	DisplayName 			= 'Markdown List (ordered)'
+
+//:lexClass
+
+lexClass:
+	name			= c_MarkdownList_unordered
+	parent			= c_Markdown
+	previous:tag		= @EOL	
+	previous:tag:separators = ' ', '\t'
+	start:tag		= '*', '+', '-'
+	end:separators		= @alpha, @digit, @specs, ' ', '\t', @EOL	
+	txt:colorFG		= 0xA00000
+	DisplayName 			= 'Markdown List (unordered)'
+
+//:lexClass
+
+lexClass:
+	name			= c_MarkdownLink_identifier
+	parent			= c_Markdown	
+	start:tag		= '![', '['
+	end:tag			= ']', ']:'
+	txt:colorFG		= 0xA00000
+	DisplayName 			= 'Markdown Link (website)'
+
+//:lexClass
+
+lexClass:
+	name			= c_MarkdownLink_title
+	parent			= c_MarkdownLink_inline, c_MarkdownLink_reference
+	start:tag		= '"'
+	end:tag			= '"'
+	txt:colorFG		= 0x00A000
+	DisplayName 			= 'Markdown Link (website)'
+
+//:lexClass
+
+lexClass:
+	name			= c_MarkdownLink_inline
+	parent			= c_Markdown	
+	previous:class		= c_MarkdownLink_identifier
+	start:tag		= '('
+	end:tag			= ')'
+	txt:colorFG		= 0x0000A0
+	DisplayName 			= 'Markdown Link (website)'
+
+//:lexClass
+
+lexClass:
+	name			= c_MarkdownLink_reference
+	parent			= c_Markdown	
+	previous:class		= c_MarkdownLink_identifier
+	previous:tag 		= ']:'
+	previous:tag:separators = ' ', '\t'
+	end:tag			= @EOL	
+	txt:colorFG		= 0x0000A0
+	DisplayName 			= 'Markdown List (image)'
+
+//:lexClass
+
+lexClass:
+	name			= c_MarkdownBlockquote
+	parent			= c_Markdown
+	previous:tag		= @EOL
+	start:tag		= '>'
+	end:separators		= @EOL	
+	txt:colorFG		= 0x00A000
+	DisplayName 			= 'Markdown Blockquote'
+
+//:lexClass
+
+lexClass:
+	name			= c_MarkdownCodeBlock
+	parent			= c_Markdown
+	previous:tag		= @EOL
+	start:tag		= '    ', '\t'
+	end:separators		= @EOL	
+	txt:colorFG		= 0x00A000
+	DisplayName 			= 'Markdown Blockquote'
+
+//:lexClass
+
+lexClass:
+	name			= c_MarkdownBoldText1
+	parent			= c_Markdown	
+	start:tag		= '__'
+	end:tag			= '__'	
+	txt:colorFG		= 0x0000A0
+	txt:Bold		= 1
+	DisplayName 			= 'Markdown Italic Text'
+
+//:lexClass
+
+lexClass:
+	name			= c_MarkdownBoldText2
+	parent			= c_Markdown	
+	start:tag		= '**'
+	end:tag			= '**'	
+	txt:colorFG		= 0x0000A0
+	txt:Bold		= 1
+	DisplayName 			= 'Markdown Bold Text'
+
+//:lexClass
+
+lexClass:
+	name			= c_MarkdownItalicText1
+	parent			= c_Markdown	
+	start:tag		= '_'
+	end:tag			= '_'	
+	txt:colorFG		= 0x00A0A0
+	txt:Italic		= 1
+	DisplayName 			= 'Markdown Italic Text'
+
+//:lexClass
+
+lexClass:
+	name			= c_MarkdownItalicText2
+	parent			= c_Markdown	
+	start:tag		= '*'
+	end:tag			= '*'	
+	txt:colorFG		= 0x00A0A0
+	txt:Italic		= 1
+	DisplayName 			= 'Markdown Italic Text'
+
+//:lexClass
+
+lexClass:
+	name			= c_MarkdownMonospaceText
+	parent			= c_Markdown	
+	start:tag		= '`'
+	end:tag			= '`'	
+	txt:colorFG		= 0xA000A0
+	DisplayName 			= 'Markdown Monospace Text'
+
+//:lexClass
+
+lexClass:
+	name			= c_MarkdownStrikethroughText
+	parent			= c_Markdown	
+	start:tag		= '~~'
+	end:tag			= '~~'	
+	txt:colorFG		= 0xA0A0A0
+	DisplayName 			= 'Markdown Strikethrough Text'
+
+//:lexClass
+
+lexClass:
+	name			= c_MarkdownCharEscapes
+	parent			= c_Markdown, c_MarkdownBoldText1, c_MarkdownBoldText2
+	parent			= c_MarkdownItalicText1, c_MarkdownItalicText2
+	parent			= c_MarkdownMonospaceText, c_MarkdownStrikethroughText  	
+	token:tag		= '\`', '\*', '\_', '\{', '\}', '\[', '\]', '\(', '\)', '\#', '\+', '\-', '\.', '\!', '\\\\'
+	txt:colorFG		= 0x00A000
+	DisplayName 			= 'Markdown Char Escapes'
+
+//:lexClass

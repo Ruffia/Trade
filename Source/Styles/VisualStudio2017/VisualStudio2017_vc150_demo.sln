@@ -1,0 +1,4 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VisualStudio2017", ".\VisualStudio2017_vc150_demo.vcxproj", "{85518516-8533-2488-7778-244963628262}"
+EndProject

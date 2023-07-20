@@ -1,0 +1,338 @@
+// CommandBars resource file
+//
+// (c)1998-2023 Codejock Software, All Rights Reserved.
+//
+// THIS SOURCE FILE IS THE PROPERTY OF CODEJOCK SOFTWARE AND IS NOT TO BE
+// RE-DISTRIBUTED BY ANY MEANS WHATSOEVER WITHOUT THE EXPRESSED WRITTEN
+// CONSENT OF CODEJOCK SOFTWARE.
+//
+// THIS SOURCE CODE CAN ONLY BE USED UNDER THE TERMS AND CONDITIONS OUTLINED
+// IN THE XTREME TOOLKIT PRO LICENSE AGREEMENT. CODEJOCK SOFTWARE GRANTS TO
+// YOU (ONE SOFTWARE DEVELOPER) THE LIMITED RIGHT TO USE THIS SOFTWARE ON A
+// SINGLE COMPUTER.
+//
+// CONTACT INFORMATION:
+// support@codejock.com
+// http://www.codejock.com
+//
+/////////////////////////////////////////////////////////////////////////////
+
+#include "CommandBars/Resource.h"
+#include "CommandBars/res/Resource-Neutral.rc"
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ROM)
+#ifdef _WIN32
+LANGUAGE LANG_ROMANIAN, SUBLANG_DEFAULT
+#pragma code_page(1250)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+XTP_IDD_IMAGEEDITOR_DIALOG DIALOGEX 0, 0, 253, 185
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Editor de butoane"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    LTEXT           "Imagine",IDC_STATIC,7,7,86,8
+    GROUPBOX        "Culori",IDC_STATIC,102,106,80,71
+    GROUPBOX        "Mi?care",IDC_STATIC,101,72,81,31
+    GROUPBOX        "Previzualizare",IDC_STATIC,7,106,86,71
+    GROUPBOX        "Instrumente",IDC_STATIC,101,9,81,60
+    DEFPUSHBUTTON   "Bine",IDOK,193,7,50,14
+    PUSHBUTTON      "Anulare",IDCANCEL,193,25,50,14
+    CONTROL         "",XTP_IDC_STATIC_PICTURE,"Static",SS_BLACKFRAME | 
+                    SS_NOTIFY,7,17,86,80
+    CTEXT           "",XTP_IDC_STATIC_PREVIEW,14,117,73,54,SS_CENTERIMAGE,
+                    WS_EX_STATICEDGE
+    LTEXT           "Transparent",IDC_STATIC,135,156,42,8
+    LTEXT           "",XTP_IDC_CLR_ERASE,116,153,15,15,SS_NOTIFY
+    CTEXT           "Instrumente",XTP_IDC_STATIC_TOOLS,112,21,60,43,SS_CENTERIMAGE | 
+                    NOT WS_VISIBLE | WS_BORDER
+    CTEXT           "Mi?care",XTP_IDC_STATIC_MOVE,111,83,62,12,SS_CENTERIMAGE | 
+                    NOT WS_VISIBLE | WS_BORDER
+    CONTROL         "",XTP_IDC_CLR_PICKER,"Static",SS_LEFTNOWORDWRAP | 
+                    SS_NOTIFY | WS_GROUP,109,144,15,15
+    CTEXT           "Culori",XTP_IDC_STATIC_COLORS,107,121,68,12,
+                    SS_CENTERIMAGE | NOT WS_VISIBLE | WS_BORDER
+END
+
+XTP_IDD_PAGE_KEYBOARD DIALOGEX DISCARDABLE  0, 0, 252, 150
+ STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_CAPTION | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
+CAPTION "Tastaturã"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "Categorie:",IDC_STATIC,4,5,89,8
+    COMBOBOX        XTP_IDC_COMBO_CATEGORY,4,15,91,147,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Comenzi:",XTP_IDC_TXT_COMMANDS,4,28,89,8
+    LISTBOX         XTP_IDC_LBOX_ACCEL_COMMANDS,4,38,91,77,LBS_HASSTRINGS | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LISTBOX         XTP_IDC_LBOX_ACCEL_COMMANDS_EX,4,38,91,77,LBS_HASSTRINGS | 
+                    LBS_OWNERDRAWFIXED |
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Atribu?ii cheie:",XTP_IDC_TXT_ASSIGNMENTS,100,28,73,8
+    LISTBOX         XTP_IDC_LBOX_KEYS,100,38,75,51,LBS_HASSTRINGS | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LISTBOX         XTP_IDC_LBOX_KEYS_EX,100,38,75,51,LBS_HASSTRINGS | 
+                    LBS_OWNERDRAWFIXED |
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Apãsa?i tasta de comandã rapidã nouã:",XTP_IDC_TXT_NEWKEY,100,91,120,8
+    EDITTEXT        XTP_IDC_EDIT_SHORTCUTKEY,100,103,75,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Atribui",XTP_IDC_BTN_ASSIGN,179,39,70,14
+    PUSHBUTTON      "Elimina",XTP_IDC_BTN_REMOVE,179,56,70,14
+    PUSHBUTTON      "Reseteaza tot",XTP_IDC_BTN_ACCEL_RESET,179,73,70,14
+    LTEXT           "Descriere:",XTP_IDC_TXT_DESC_TITLE,4,117,89,8
+    LTEXT           "",XTP_IDC_TXT_DESC_OVERVIEW,4,127,224,19,0,
+                    WS_EX_STATICEDGE
+END
+
+XTP_IDD_PAGE_TOOLBARS DIALOGEX DISCARDABLE  0, 0, 247, 150
+ STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_CAPTION | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
+CAPTION "Bare de instrumente"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "Bare de instrumente:",IDC_STATIC,4,5,148,8
+    LISTBOX         XTP_IDC_LIST_TOOLBARS,4,15,167,131,LBS_OWNERDRAWFIXED | 
+                    LBS_HASSTRINGS | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | 
+                    WS_TABSTOP
+    PUSHBUTTON      "Nou...",XTP_IDC_BUTTON_NEW,175,15,70,14
+    PUSHBUTTON      "Redenumi?i...",XTP_IDC_BUTTON_RENAME,175,33,70,14
+    PUSHBUTTON      "?terge",XTP_IDC_BUTTON_DELETE,175,51,70,14
+    PUSHBUTTON      "Reseteazã...",XTP_IDC_BUTTON_RESET,175,69,70,14
+END
+
+XTP_IDD_PAGE_OPTIONS DIALOGEX DISCARDABLE  0, 0, 247, 150
+ STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_CAPTION | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
+CAPTION "Op?iuni"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "Meniuri ?i bare de instrumente personalizate",XTP_IDC_GROUP_PERSONALIZED,4,5,240,8
+    CONTROL         "Afi?a?i întotdeauna meniurile complete",XTP_IDC_CHECK_FULL_MENUS,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,17,216,10
+    CONTROL         "Afi?a?i meniurile complete dupã o scurtã întârziere",
+                    XTP_IDC_CHECK_AFTERDELAY,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,22,29,204,10
+    PUSHBUTTON      "Reseta?i datele de utilizare din meniul ?i bara de instrumente",
+                    XTP_IDC_BUTTON_RESETDATA,10,42,125,14
+    LTEXT           "Alte", XTP_IDC_GROUP_OTHER,4,70,240,8
+    CONTROL         "Pictograme mari",XTP_IDC_CHECK_LARGEICONS,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,10,82,216,10
+    CONTROL         "Afi?a?i sfaturi pentru ecran în barele de instrumente",XTP_IDC_CHECK_SCREENTTIPS,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,93,216,10
+    CONTROL         "Afi?a?i tastele de comandã rapidã în Sfaturi ecran",
+                    XTP_IDC_CHECK_SHORTCUTS,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,22,104,204,10
+    LTEXT           "Anima?ii din meniu:",IDC_STATIC,10,117,56,8
+    COMBOBOX        XTP_IDC_COMBO_ANIMATION,70,115,79,65,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+END
+
+XTP_IDD_PAGE_COMMANDS DIALOGEX DISCARDABLE  0, 0, 247, 150
+ STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_CAPTION | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
+CAPTION "Comenzi"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "Pentru a adãuga o comandã la o barã de instrumente: selecta?i o categorie ?i trage?i comanda din aceastã casetã de dialog într-o barã de instrumente.",
+                    IDC_STATIC,4,4,220,25
+    LTEXT           "Categorii:",IDC_STATIC,4,32,80,8
+    LISTBOX         XTP_IDC_LIST_CATEGORIES,4,42,81,103,LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL | WS_TABSTOP
+    LISTBOX         XTP_IDC_LIST_CATEGORIES_EX,4,42,81,103,LBS_NOINTEGRALHEIGHT | 
+                    LBS_OWNERDRAWFIXED | LBS_HASSTRINGS | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Comenzi:",IDC_STATIC,90,32,134,8
+    LISTBOX         XTP_IDC_LIST_COMMANDS,90,42,153,103,LBS_OWNERDRAWFIXED | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+END
+
+XTP_IDD_PAGE_MENUS DIALOGEX DISCARDABLE  0, 0, 230, 150
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_CAPTION | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
+CAPTION "&Meniuri"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "Meniurile aplica?iilor",XTP_IDC_STATIC_APPLICATIONMENUS,4,5,222,
+                    8
+    LTEXT           "Meniuri contextuale",XTP_IDC_STATIC_CONTEXTMENUS,4,80,222,8
+    LTEXT           "Afi?a?i meniul:",IDC_STATIC,10,20,64,11
+    COMBOBOX        XTP_IDC_COMBO_APPMENUS,80,18,159,79,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Reseta?i",XTP_IDC_BUTTON_RESETAPP,10,57,70,14
+    LTEXT           "Meniul implicit\nMeniul implicit al aplica?iei",XTP_IDC_STATIC_DESCRIPTION,37,34,181,18
+    ICON            0,XTP_IDC_STATIC_ICON,10,32,21,20
+    LTEXT           "Selecta?i meniul contextual:",IDC_STATIC,10,92,98,10
+    COMBOBOX        XTP_IDC_COMBO_CONTEXTMENUS,108,90,130,79,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Reseta?i",XTP_IDC_BUTTON_RESETCONTEXT,10,108,70,14
+END
+
+XTP_IDD_NEWTOOLBAR DIALOGEX DISCARDABLE  0, 0, 186, 52
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Bara de instrumente nouã"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "Numele barei de instrumente:",IDC_STATIC,4,4,178,8
+    EDITTEXT        XTP_IDC_EDIT_TOOLBARNAME,4,15,178,12,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "Bine",IDOK,78,34,50,14
+    PUSHBUTTON      "Anulare",IDCANCEL,132,34,50,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+XTP_IDR_CUSTOMIZEMENU MENU DISCARDABLE 
+BEGIN
+    POPUP "Personaliza?i"
+    BEGIN
+        MENUITEM "Reseta?i",                      XTP_ID_CUSTOMIZE_RESET
+        MENUITEM "?terge",                     XTP_ID_CUSTOMIZE_DELETE
+        MENUITEM SEPARATOR
+        MENUITEM "Nume:",                      XTP_ID_CUSTOMIZE_NAME
+        MENUITEM SEPARATOR
+        MENUITEM "Copia?i imaginea butonului",          XTP_ID_CUSTOMIZE_COPYBUTTONIMAGE
+
+        MENUITEM "Lipi?i imaginea butonului",         XTP_ID_CUSTOMIZE_PASTEBUTTONIMAGE
+
+        MENUITEM "Resetare imaginea butonului",         XTP_ID_CUSTOMIZE_RESETBUTTONIMAGE
+
+        MENUITEM "Edita?i imaginea butonului...",       XTP_ID_CUSTOMIZE_EDITBUTTONIMAGE
+
+        MENUITEM "Schimba?i imaginea butonului",        XTP_ID_CUSTOMIZE_CHANGEBUTTONIMAGE
+
+        MENUITEM SEPARATOR
+        MENUITEM "Stil implicit",              XTP_ID_CUSTOMIZE_DEFAULTSTYLE
+
+        MENUITEM "Doar text",                  XTP_ID_CUSTOMIZE_TEXTONLY
+        MENUITEM "Imagine ?i text",             XTP_ID_CUSTOMIZE_IMAGEANDTEXT
+
+        MENUITEM SEPARATOR
+        MENUITEM "Începe?i un grup",              XTP_ID_CUSTOMIZE_BEGINAGROUP
+    END
+END
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_CUSTOMIZE_CLOSE "Închide"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_CUSTOMIZE       "Personaliza?i"
+    XTP_IDS_NEWMENU         "Meniu nou"
+    XTP_IDS_CUSTOMIZE_STATUSBAR "Personaliza?i bara de stare"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_CONFIRM_RESETDATA 
+                            "Aceasta va ?terge înregistrarea comenzilor pe care le-a?i folosit în aceastã aplica?ie ?i va restabili setul implicit de comenzi vizibile în meniuri ?i bare de instrumente. Nu va anula nicio personalizare explicitã. E?ti sigur cã vrei sã faci asta?"
+    XTP_IDS_INVALID_NUMBER  "Acesta nu este un numãr valid."
+    XTP_IDS_INVALID_FONTSIZE "Numãrul trebuie sã fie între 1 ?i 1638."
+    XTP_IDS_CONFIRM_RESET   "Sigur dori?i sã reseta?i modificãrile aduse barei de instrumente '%s'?"
+    XTP_IDS_BUILTINMENUS    "Meniuri încorporate"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_CUSTOM_BAR      "%d personalizat"
+    XTP_IDS_ERROR_BLANKNAME "Numele barei de instrumente nu poate fi necompletat. Introduce?i un nume."
+    XTP_IDS_ERROR_LIMIT     "Ne pare rãu cã a?i atins limita."
+    XTP_IDS_ERROR_EXISTS    "O barã de instrumente numitã '%s' existã deja. Introdu alt nume."
+    XTP_IDS_RENAMETOOLBAR   "Redenumi?i Bara de instrumente"
+    XTP_IDS_CONFIRM_DELETE  "Sigur dori?i sã ?terge?i bara de instrumente '%s'?"
+    XTP_IDS_ALLCOMMANDS     "Toate comenzile"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_ID_CUSTOMIZE        "Personaliza?i aspectul aplica?iei, barele de instrumente ?i meniurile\nPersonaliza?i..."
+    XTP_ID_CUSTOMIZE_RESET  "\nReseta?i bara de instrumente"
+    XTP_ID_CUSTOMIZE_ADDORREMOVE "\nAdãuga?i sau elimina?i butoane"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_CONFIRM_KEYBOARD 
+                            "Sigur dori?i sã reseta?i alocarea tastelor? Aceastã ac?iune va elimina toate atribuirile personalizate ale tastelor la nivel de text."
+    XTP_IDS_CONFIRM_REASSIGN 
+                            "Aceastã comandã rapidã este în prezent atribuitã.\nDori?i sã reatribui?i aceastã comandã rapidã?"
+    XTP_IDS_CONFIRM_UPDATE  "Datoritã unei actualizãri software, bara de instrumente „%s” s-a schimbat. Dori?i sã reseta?i bara de instrumente personalizatã ?i sã încãrca?i una nouã?"
+    XTP_IDS_IMAGEEDITOR_FILTER
+                            "Toate fi?ierele imagine|*.bmp;*.wmf;*.emf;*.ico;*.dib;*.png;*.cur;*.gif;*.jpg|Bitmaps (*.bmp;*.dib; *.png;*.gif;*.jpg)|*.bmp;*.dib;*.png;*.gif;*.jpg|Metafi?iere (*.wmf;*.emf)|*.wmf;*. emf|Icoane (*.ico;*.cur)|*.ico;*.cur|Toate fi?ierele (*.*)|*.*||"
+    XTP_ID_TOOLBAR_EXPAND   "\nOp?iuni din bara de instrumente"
+    XTP_ID_TOOLBAR_HIDE     "\nÎnchide?i"
+    XTP_ID_POPUPBAR_EXPAND  "\nExtinde?i"
+    XTP_ID_MENUBAR_CLOSE    "\nÎnchide fereastra"
+    XTP_ID_MENUBAR_RESTORE  "\nRestaura?i fereastra"
+    XTP_ID_MENUBAR_MINIMIZE "\n Minimiza?i fereastra"
+
+    XTP_IDS_SHORTCUT_SECONDKEY "(%s) a fost apãsat. Se a?teaptã a doua cheie a acordului..."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_ID_BUTTON_PENCIL    "\nCreion"
+    XTP_ID_BUTTON_FILL      "\nUmplere Culoare"
+    XTP_ID_BUTTON_GETCOLOR  "\nAlege?i culoarea"
+    XTP_ID_BUTTON_LINE      "\nLinie"
+    XTP_ID_BUTTON_RECTANGLE "\nDreptunghi"
+    XTP_ID_BUTTON_CIRCLE    "\nElipsã"
+    XTP_ID_BUTTON_COPY      "\nCopia?i"
+    XTP_ID_BUTTON_PASTE     "\nLipi?i"
+    XTP_ID_BUTTON_CLEAR     "\nClear"
+    XTP_ID_BUTTON_UNDO      "\nAnula?i"
+    XTP_ID_BUTTON_REDO      "\nReface?i"
+    XTP_ID_BUTTON_OPEN      "\nImportã din fi?ier"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_ANIMATION_SYSDEF "(Defectiune de sistem)"
+    XTP_IDS_ANIMATION_RANDOM "Aleatoriu"
+    XTP_IDS_ANIMATION_UNFOLD "Desfã?ura?i"
+    XTP_IDS_ANIMATION_SLIDE "Slide"
+    XTP_IDS_ANIMATION_FADE  "Decolorare"
+    XTP_IDS_ANIMATION_NONE  "Nici unul"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_ID_WORKSPACE_MOVEPREVIOUS "\nMuta?i la grupul de file anterior"
+    XTP_ID_WORKSPACE_MOVENEXT "\nMuta?i la urmãtorul grup de file"
+    XTP_ID_WORKSPACE_NEWHORIZONTAL "\nNou grup de file orizontale"
+    XTP_ID_WORKSPACE_NEWVERTICAL "\nNou grup de file verticale"
+    XTP_ID_WORKSPACE_CANCEL "\nAnuleazã"
+    XTP_ID_WORKSPACE_DETACH "\nDeta?a?i"
+    XTP_ID_WORKSPACE_DETACH_ALL "\nDeta?eazã toate"
+    XTP_ID_WORKSPACE_ATTACH "\nAta?a?i"
+    XTP_ID_WORKSPACE_ATTACH_ALL "\nAta?a?i toate"
+    XTP_IDS_TABNAVIGATEBUTTON_ACTIVEFILES "Fi?iere active"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_ID_PREVIEW_PRINT    "Imprima?i elementul previzualizat\nImprima?i"
+    XTP_ID_PREVIEW_PREV     "Accesa?i pagina anterioarã\nPagina anterioarã"
+    XTP_ID_PREVIEW_NEXT     "Accesa?i pagina urmãtoare\nPagina urmãtoare"
+    XTP_ID_PREVIEW_ZOOMIN   "Mãri?i mãrirea paginii de previzualizare\nMãri?i"
+    XTP_ID_PREVIEW_ZOOMOUT  "Reduce?i mãrirea paginii de previzualizare\nMãri?i mic"
+    XTP_ID_PREVIEW_ONEPAGE  "Pagina singura"
+    XTP_ID_PREVIEW_TWOPAGE  "Pagini multiple"
+    XTP_ID_PREVIEW_CLOSE    "Închide previzualizarea\nÎnchide previzualizarea"
+    XTP_IDS_PREVIEW_WHOLEPAGE "Toata pagina"
+    XTP_IDS_PREVIEW_PAGEWIDTH "Lã?imea paginii"
+    XTP_IDS_PREVIEW_PAGEI     "Pagina %i"
+    XTP_IDS_PREVIEW_PAGEIOFI  "Pagina %i din %i"
+END
+
+#endif // !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ROM)

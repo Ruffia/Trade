@@ -1,0 +1,338 @@
+// CommandBars resource file
+//
+// (c)1998-2023 Codejock Software, All Rights Reserved.
+//
+// THIS SOURCE FILE IS THE PROPERTY OF CODEJOCK SOFTWARE AND IS NOT TO BE
+// RE-DISTRIBUTED BY ANY MEANS WHATSOEVER WITHOUT THE EXPRESSED WRITTEN
+// CONSENT OF CODEJOCK SOFTWARE.
+//
+// THIS SOURCE CODE CAN ONLY BE USED UNDER THE TERMS AND CONDITIONS OUTLINED
+// IN THE XTREME TOOLKIT PRO LICENSE AGREEMENT. CODEJOCK SOFTWARE GRANTS TO
+// YOU (ONE SOFTWARE DEVELOPER) THE LIMITED RIGHT TO USE THIS SOFTWARE ON A
+// SINGLE COMPUTER.
+//
+// CONTACT INFORMATION:
+// support@codejock.com
+// http://www.codejock.com
+//
+/////////////////////////////////////////////////////////////////////////////
+
+#include "CommandBars/Resource.h"
+#include "CommandBars/res/Resource-Neutral.rc"
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_HRV)
+#ifdef _WIN32
+LANGUAGE LANG_CROATIAN, SUBLANG_DEFAULT
+#pragma code_page(1250)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+XTP_IDD_IMAGEEDITOR_DIALOG DIALOGEX 0, 0, 253, 185
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Ureðivaè gumba"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    LTEXT           "Slika",IDC_STATIC,7,7,86,8
+    GROUPBOX        "Boje",IDC_STATIC,102,106,80,71
+    GROUPBOX        "Potez",IDC_STATIC,101,72,81,31
+    GROUPBOX        "Pregled",IDC_STATIC,7,106,86,71
+    GROUPBOX        "Alati",IDC_STATIC,101,9,81,60
+    DEFPUSHBUTTON   "U redu",IDOK,193,7,50,14
+    PUSHBUTTON      "Otkazati",IDCANCEL,193,25,50,14
+    CONTROL         "",XTP_IDC_STATIC_PICTURE,"Static",SS_BLACKFRAME | 
+                    SS_NOTIFY,7,17,86,80
+    CTEXT           "",XTP_IDC_STATIC_PREVIEW,14,117,73,54,SS_CENTERIMAGE,
+                    WS_EX_STATICEDGE
+    LTEXT           "Transparentan",IDC_STATIC,135,156,42,8
+    LTEXT           "",XTP_IDC_CLR_ERASE,116,153,15,15,SS_NOTIFY
+    CTEXT           "Alati",XTP_IDC_STATIC_TOOLS,112,21,60,43,SS_CENTERIMAGE | 
+                    NOT WS_VISIBLE | WS_BORDER
+    CTEXT           "Potez",XTP_IDC_STATIC_MOVE,111,83,62,12,SS_CENTERIMAGE | 
+                    NOT WS_VISIBLE | WS_BORDER
+    CONTROL         "",XTP_IDC_CLR_PICKER,"Static",SS_LEFTNOWORDWRAP | 
+                    SS_NOTIFY | WS_GROUP,109,144,15,15
+    CTEXT           "Boje",XTP_IDC_STATIC_COLORS,107,121,68,12,
+                    SS_CENTERIMAGE | NOT WS_VISIBLE | WS_BORDER
+END
+
+XTP_IDD_PAGE_KEYBOARD DIALOGEX DISCARDABLE  0, 0, 237, 150
+ STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_CAPTION | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
+CAPTION "Tipkovnica"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "Kategorija:",IDC_STATIC,4,5,89,8
+    COMBOBOX        XTP_IDC_COMBO_CATEGORY,4,15,91,147,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Naredbe:",XTP_IDC_TXT_COMMANDS,4,28,89,8
+    LISTBOX         XTP_IDC_LBOX_ACCEL_COMMANDS,4,38,91,77,LBS_HASSTRINGS | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LISTBOX         XTP_IDC_LBOX_ACCEL_COMMANDS_EX,4,38,91,77,LBS_HASSTRINGS | 
+                    LBS_OWNERDRAWFIXED |
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Kljuèni zadaci:",XTP_IDC_TXT_ASSIGNMENTS,100,28,73,8
+    LISTBOX         XTP_IDC_LBOX_KEYS,100,38,70,51,LBS_HASSTRINGS | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LISTBOX         XTP_IDC_LBOX_KEYS_EX,100,38,70,51,LBS_HASSTRINGS | 
+                    LBS_OWNERDRAWFIXED |
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Pritisnite novu tipku preèaca:",XTP_IDC_TXT_NEWKEY,100,93,100,8
+    EDITTEXT        XTP_IDC_EDIT_SHORTCUTKEY,100,103,70,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Dodijeliti",XTP_IDC_BTN_ASSIGN,174,39,61,14
+    PUSHBUTTON      "Ukloniti",XTP_IDC_BTN_REMOVE,174,56,61,14
+    PUSHBUTTON      "Resetiraj sve",XTP_IDC_BTN_ACCEL_RESET,174,73,61,14
+    LTEXT           "Opis:",XTP_IDC_TXT_DESC_TITLE,4,117,89,8
+    LTEXT           "",XTP_IDC_TXT_DESC_OVERVIEW,4,127,166,19,0,
+                    WS_EX_STATICEDGE
+END
+
+XTP_IDD_PAGE_TOOLBARS DIALOGEX DISCARDABLE  0, 0, 237, 150
+ STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_CAPTION | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
+CAPTION "Alatne trake"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "Alatne trake:",IDC_STATIC,4,5,148,8
+    LISTBOX         XTP_IDC_LIST_TOOLBARS,4,15,156,131,LBS_OWNERDRAWFIXED | 
+                    LBS_HASSTRINGS | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | 
+                    WS_TABSTOP
+    PUSHBUTTON      "Novi...",XTP_IDC_BUTTON_NEW,165,15,70,14
+    PUSHBUTTON      "Preimenovati...",XTP_IDC_BUTTON_RENAME,165,33,70,14
+    PUSHBUTTON      "Izbrisati",XTP_IDC_BUTTON_DELETE,165,51,70,14
+    PUSHBUTTON      "Resetiraj...",XTP_IDC_BUTTON_RESET,165,69,70,14
+END
+
+XTP_IDD_PAGE_OPTIONS DIALOGEX DISCARDABLE  0, 0, 237, 150
+ STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_CAPTION | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
+CAPTION "Moguænosti"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "Personalizirani izbornici i alatne trake",XTP_IDC_GROUP_PERSONALIZED,4,5,229,8
+    CONTROL         "Uvijek prikaži cijele izbornike",XTP_IDC_CHECK_FULL_MENUS,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,17,216,10
+    CONTROL         "Prikaži cijele izbornike nakon kratke odgode",
+                    XTP_IDC_CHECK_AFTERDELAY,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,22,29,204,10
+    PUSHBUTTON      "Resetiraj podatke o korištenju izbornika i alatne trake",
+                    XTP_IDC_BUTTON_RESETDATA,16,42,175,14
+    LTEXT           "Ostalo", XTP_IDC_GROUP_OTHER,4,70,229,8
+    CONTROL         "Velike ikone",XTP_IDC_CHECK_LARGEICONS,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,10,82,216,10
+    CONTROL         "Prikaži zaslonske savjete na alatnim trakama",XTP_IDC_CHECK_SCREENTTIPS,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,93,216,10
+    CONTROL         "Prikaži tipke preèaca u zaslonskim savjetima",
+                    XTP_IDC_CHECK_SHORTCUTS,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,22,104,204,10
+    LTEXT           "Animacije izbornika:",IDC_STATIC,10,117,83,8
+    COMBOBOX        XTP_IDC_COMBO_ANIMATION,97,115,79,65,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+END
+
+XTP_IDD_PAGE_COMMANDS DIALOGEX DISCARDABLE  0, 0, 237, 150
+ STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_CAPTION | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
+CAPTION "Naredbe"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "Za dodavanje naredbe na alatnu traku: odaberite kategoriju i povucite naredbu iz ovog dijaloškog okvira na alatnu traku.",
+                    IDC_STATIC,4,5,220,19
+    LTEXT           "Kategorije:",IDC_STATIC,4,25,80,8
+    LISTBOX         XTP_IDC_LIST_CATEGORIES,4,35,81,111,LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL | WS_TABSTOP
+    LISTBOX         XTP_IDC_LIST_CATEGORIES_EX,4,35,81,111,LBS_NOINTEGRALHEIGHT | 
+                    LBS_OWNERDRAWFIXED | LBS_HASSTRINGS | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Naredbe:",IDC_STATIC,90,25,134,8
+    LISTBOX         XTP_IDC_LIST_COMMANDS,90,35,143,111,LBS_OWNERDRAWFIXED | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+END
+
+XTP_IDD_PAGE_MENUS DIALOGEX DISCARDABLE  0, 0, 230, 150
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_CAPTION | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
+CAPTION "Izbornici"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "Izbornici aplikacija",XTP_IDC_STATIC_APPLICATIONMENUS,4,5,222,
+                    8
+    LTEXT           "Kontekstni izbornici",XTP_IDC_STATIC_CONTEXTMENUS,4,80,222,8
+    LTEXT           "Prikaži izbornik:",IDC_STATIC,10,20,64,11
+    COMBOBOX        XTP_IDC_COMBO_APPMENUS,74,18,159,79,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Resetiraj",XTP_IDC_BUTTON_RESETAPP,10,57,70,14
+    LTEXT           "Zadani izbornik\nZadani izbornik aplikacije",XTP_IDC_STATIC_DESCRIPTION,37,34,181,18
+    ICON            0,XTP_IDC_STATIC_ICON,10,32,21,20
+    LTEXT           "Odaberite kontekstni izbornik:",IDC_STATIC,10,92,88,10
+    COMBOBOX        XTP_IDC_COMBO_CONTEXTMENUS,103,90,130,79,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Resetiraj",XTP_IDC_BUTTON_RESETCONTEXT,10,108,70,14
+END
+
+XTP_IDD_NEWTOOLBAR DIALOGEX DISCARDABLE  0, 0, 186, 52
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Nova alatna traka"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "Naziv alatne trake:",IDC_STATIC,4,4,178,8
+    EDITTEXT        XTP_IDC_EDIT_TOOLBARNAME,4,15,178,12,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "U redu",IDOK,78,34,50,14
+    PUSHBUTTON      "Otkazati",IDCANCEL,132,34,50,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+XTP_IDR_CUSTOMIZEMENU MENU DISCARDABLE 
+BEGIN
+    POPUP "Prilagodite"
+    BEGIN
+        MENUITEM "Resetiraj",                      XTP_ID_CUSTOMIZE_RESET
+        MENUITEM "Izbrisati",                     XTP_ID_CUSTOMIZE_DELETE
+        MENUITEM SEPARATOR
+        MENUITEM "Ime:",                      XTP_ID_CUSTOMIZE_NAME
+        MENUITEM SEPARATOR
+        MENUITEM "Kopiraj sliku gumba",          XTP_ID_CUSTOMIZE_COPYBUTTONIMAGE
+
+        MENUITEM "Zalijepi sliku gumba",         XTP_ID_CUSTOMIZE_PASTEBUTTONIMAGE
+
+        MENUITEM "Slika gumba za resetiranje",         XTP_ID_CUSTOMIZE_RESETBUTTONIMAGE
+
+        MENUITEM "Uredi sliku gumba...",       XTP_ID_CUSTOMIZE_EDITBUTTONIMAGE
+
+        MENUITEM "Promjena slike gumba",        XTP_ID_CUSTOMIZE_CHANGEBUTTONIMAGE
+
+        MENUITEM SEPARATOR
+        MENUITEM "Zadani stil",              XTP_ID_CUSTOMIZE_DEFAULTSTYLE
+
+        MENUITEM "Samo tekst",                  XTP_ID_CUSTOMIZE_TEXTONLY
+        MENUITEM "Slika i tekst",             XTP_ID_CUSTOMIZE_IMAGEANDTEXT
+
+        MENUITEM SEPARATOR
+        MENUITEM "Zapoènite grupu",              XTP_ID_CUSTOMIZE_BEGINAGROUP
+    END
+END
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_CUSTOMIZE_CLOSE "Zatvoriti"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_CUSTOMIZE       "Prilagodite"
+    XTP_IDS_NEWMENU         "Novi izbornik"
+    XTP_IDS_CUSTOMIZE_STATUSBAR "Prilagodite statusnu traku"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_CONFIRM_RESETDATA 
+                            "Ovo æe izbrisati zapis naredbi koje ste koristili u ovoj aplikaciji i vratiti zadani skup vidljivih naredbi na izbornicima i alatnim trakama. Neæe poništiti eksplicitne prilagodbe. Jeste li sigurni da to želite uèiniti?"
+    XTP_IDS_INVALID_NUMBER  "Ovo nije važeæi broj."
+    XTP_IDS_INVALID_FONTSIZE "Broj mora biti izmeðu 1 i 1638."
+    XTP_IDS_CONFIRM_RESET   "Jeste li sigurni da želite poništiti promjene napravljene na alatnoj traci '%s'?"
+    XTP_IDS_BUILTINMENUS    "Ugraðeni izbornici"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_CUSTOM_BAR      "Prilagoðeno %d"
+    XTP_IDS_ERROR_BLANKNAME "Naziv alatne trake ne može biti prazan. Upišite ime."
+    XTP_IDS_ERROR_LIMIT     "Žao nam je što ste dosegli svoj limit."
+    XTP_IDS_ERROR_EXISTS    "Alatna traka pod nazivom '%s' veæ postoji. Upišite drugo ime."
+    XTP_IDS_RENAMETOOLBAR   "Preimenuj alatnu traku"
+    XTP_IDS_CONFIRM_DELETE  "Jeste li sigurni da želite izbrisati alatnu traku '%s'?"
+    XTP_IDS_ALLCOMMANDS     "Sve naredbe"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_ID_CUSTOMIZE        "Prilagodite izgled aplikacije, alatne trake i izbornike\nPrilagodite..."
+    XTP_ID_CUSTOMIZE_RESET  "\nPoništi alatnu traku"
+    XTP_ID_CUSTOMIZE_ADDORREMOVE "\nDodaj ili ukloni gumbe"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_CONFIRM_KEYBOARD 
+                            "Jeste li sigurni da želite poništiti dodjele tipki? Ova radnja æe ukloniti sve prilagoðene dodjele tipki na razini teksta."
+    XTP_IDS_CONFIRM_REASSIGN 
+                            "Ovaj preèac je trenutno dodijeljen.\nŽelite li ponovo dodijeliti ovaj preèac?"
+    XTP_IDS_CONFIRM_UPDATE  "Zbog ažuriranja softvera alatna traka '%s' je promijenjena. Želite li resetirati svoju prilagoðenu alatnu traku i uèitati novu?"
+    XTP_IDS_IMAGEEDITOR_FILTER
+                            "Sve slikovne datoteke|*.bmp;*.wmf;*.emf;*.ico;*.dib;*.png;*.cur;*.gif;*.jpg|Bitmape (*.bmp;*.dib; *.png;*.gif;*.jpg)|*.bmp;*.dib;*.png;*.gif;*.jpg|Metadatoteke (*.wmf;*.emf)|*.wmf;*. emf|Ikone (*.ico;*.cur)|*.ico;*.cur|Sve datoteke (*.*)|*.*||"
+    XTP_ID_TOOLBAR_EXPAND   "\nOpcije alatne trake"
+    XTP_ID_TOOLBAR_HIDE     "\nZatvori"
+    XTP_ID_POPUPBAR_EXPAND  "\nProširi"
+    XTP_ID_MENUBAR_CLOSE    "\nZatvori prozor"
+    XTP_ID_MENUBAR_RESTORE  "\nVrati prozor"
+    XTP_ID_MENUBAR_MINIMIZE "\nMinimiziraj prozor"
+
+    XTP_IDS_SHORTCUT_SECONDKEY "(%s) je pritisnut. Èeka se drugi tonalitet akorda..."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_ID_BUTTON_PENCIL    "\nOlovka"
+    XTP_ID_BUTTON_FILL      "\nBoja ispune"
+    XTP_ID_BUTTON_GETCOLOR  "\nOdaberite boju"
+    XTP_ID_BUTTON_LINE      "\nLinija"
+    XTP_ID_BUTTON_RECTANGLE "\nPravokutnik"
+    XTP_ID_BUTTON_CIRCLE    "\nElipsa"
+    XTP_ID_BUTTON_COPY      "\nKopiraj"
+    XTP_ID_BUTTON_PASTE     "\nZalijepi"
+    XTP_ID_BUTTON_CLEAR     "\nJasno"
+    XTP_ID_BUTTON_UNDO      "\nPoništi"
+    XTP_ID_BUTTON_REDO      "\nPonovi"
+    XTP_ID_BUTTON_OPEN      "\nUvezi iz datoteke"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_ANIMATION_SYSDEF "(Zadano za sustav)"
+    XTP_IDS_ANIMATION_RANDOM "Sluèajno"
+    XTP_IDS_ANIMATION_UNFOLD "Otklopite"
+    XTP_IDS_ANIMATION_SLIDE "slajd"
+    XTP_IDS_ANIMATION_FADE  "Uvenuti"
+    XTP_IDS_ANIMATION_NONE  "Nijedan"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_ID_WORKSPACE_MOVEPREVIOUS "\nPrelazak na prethodnu grupu kartica"
+    XTP_ID_WORKSPACE_MOVENEXT "\nPrelazak na sljedeæu grupu kartica"
+    XTP_ID_WORKSPACE_NEWHORIZONTAL "\nNova grupa vodoravnih kartica"
+    XTP_ID_WORKSPACE_NEWVERTICAL "\nNova okomita grupa kartica"
+    XTP_ID_WORKSPACE_CANCEL "\nOdustani"
+    XTP_ID_WORKSPACE_DETACH "\nOdvojite"
+    XTP_ID_WORKSPACE_DETACH_ALL "\nOdvoji sve"
+    XTP_ID_WORKSPACE_ATTACH "\nPriložiti"
+    XTP_ID_WORKSPACE_ATTACH_ALL "\nPriloži sve"
+    XTP_IDS_TABNAVIGATEBUTTON_ACTIVEFILES "Aktivne datoteke"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_ID_PREVIEW_PRINT    "Ispis pregledane stavke\nIspis"
+    XTP_ID_PREVIEW_PREV     "Idi na prethodnu stranicu\nPrethodna stranica"
+    XTP_ID_PREVIEW_NEXT     "Idi na sljedeæu stranicu\nSljedeæa stranica"
+    XTP_ID_PREVIEW_ZOOMIN   "Poveæaj uveæanje stranice pregleda\nUveæaj"
+    XTP_ID_PREVIEW_ZOOMOUT  "Smanji uveæanje stranice pregleda\nSmanji"
+    XTP_ID_PREVIEW_ONEPAGE  "Jedna stranica"
+    XTP_ID_PREVIEW_TWOPAGE  "Više stranica"
+    XTP_ID_PREVIEW_CLOSE    "Zatvori pregled\nZatvori pregled"
+    XTP_IDS_PREVIEW_WHOLEPAGE "Cijela stranica"
+    XTP_IDS_PREVIEW_PAGEWIDTH "Širina stranice"
+    XTP_IDS_PREVIEW_PAGEI     "Stranica %i"
+    XTP_IDS_PREVIEW_PAGEIOFI  "Stranica %i od %i"
+END
+
+#endif // !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_HRV)

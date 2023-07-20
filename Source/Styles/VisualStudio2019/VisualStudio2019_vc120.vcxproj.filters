@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{f8836098-1edc-438e-ad7c-6ab9e33d08e2}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Image Files">
+      <UniqueIdentifier>{4da8b496-20e2-43ea-8952-4c898ca47621}</UniqueIdentifier>
+      <Extensions>.png;.bmp</Extensions>
+    </Filter>
+    <Filter Include="Image Files\png">
+      <UniqueIdentifier>{ea43b398-ad20-484f-accc-df20dcf232f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Image Files\bmp">
+      <UniqueIdentifier>{cc9b3064-4ffd-4eb0-af60-95e4b3ba4d6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ini Files">
+      <UniqueIdentifier>{6693c6fd-229f-49ac-ba2b-354b1e3d237c}</UniqueIdentifier>
+      <Extensions>.ini</Extensions>
+    </Filter>
+    <Filter Include="Zip Files">
+      <UniqueIdentifier>{48f4e7dc-6860-424f-91e9-d16f9a5c3782}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="VisualStudio2019.rc">
+      <Filter>Source Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Styles\VisualStudio2019\res\CalendarEventGlyphs.bmp">
+      <Filter>Image Files</Filter>
+    </None>
+    <None Include="res\backstage-back-button-extralarge-rtl.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\backstage-back-button-extralarge.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\backstage-back-button-large-rtl.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\backstage-back-button-large.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\backstage-back-button-medium-rtl.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\backstage-back-button-medium.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\backstage-back-button-small-rtl.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\backstage-back-button-small.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-backstage-back-button-extralarge-rtl.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-backstage-back-button-extralarge.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-backstage-back-button-large-rtl.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-backstage-back-button-large.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-backstage-back-button-medium-rtl.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-backstage-back-button-medium.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-backstage-back-button-small-rtl.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-backstage-back-button-small.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\ShortcutBarGlyphs.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\ShortcutBarGripper.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\ShortcutBarItems.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\ShortcutBarNavigateItem.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\TimeLineViewAppointmentIcon.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\CalendarEventGlyphs.bmp">
+      <Filter>Image Files\bmp</Filter>
+    </None>
+    <None Include="VisualStudio2019Blue.ini">
+      <Filter>Ini Files</Filter>
+    </None>
+    <None Include="VisualStudio2019BlueExtra.ini">
+      <Filter>Ini Files</Filter>
+    </None>
+    <None Include="VisualStudio2019Dark.ini">
+      <Filter>Ini Files</Filter>
+    </None>
+    <None Include="VisualStudio2019Light.ini">
+      <Filter>Ini Files</Filter>
+    </None>
+    <None Include="XamlStyle.zip">
+      <Filter>Zip Files</Filter>
+    </None>
+  </ItemGroup>
+</Project>

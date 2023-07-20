@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{28a8935a-200d-4626-8e01-70e9448a98cb}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Image Files">
+      <UniqueIdentifier>{9d2897d4-027a-4f4d-b636-ab84263b1815}</UniqueIdentifier>
+      <Extensions>.png;.bmp</Extensions>
+    </Filter>
+    <Filter Include="Image Files\png">
+      <UniqueIdentifier>{398734ae-12e4-428e-8f19-08636d853c96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Image Files\bmp">
+      <UniqueIdentifier>{facf95a2-0fe7-4757-bd35-e0bd0c40b5f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ini Files">
+      <UniqueIdentifier>{e01fa1b5-7a7b-4131-9e3d-9d1070390f7f}</UniqueIdentifier>
+      <Extensions>.ini</Extensions>
+    </Filter>
+    <Filter Include="Zip Files">
+      <UniqueIdentifier>{a7f32735-1eef-4b28-b37c-226efc1a8498}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="VisualStudio2017.rc">
+      <Filter>Source Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Styles\VisualStudio2017\res\CalendarEventGlyphs.bmp">
+      <Filter>Image Files</Filter>
+    </None>
+    <None Include="res\backstage-back-button-extralarge-rtl.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\backstage-back-button-extralarge.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\backstage-back-button-large-rtl.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\backstage-back-button-large.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\backstage-back-button-medium-rtl.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\backstage-back-button-medium.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\backstage-back-button-small-rtl.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\backstage-back-button-small.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-backstage-back-button-extralarge-rtl.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-backstage-back-button-extralarge.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-backstage-back-button-large-rtl.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-backstage-back-button-large.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-backstage-back-button-medium-rtl.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-backstage-back-button-medium.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-backstage-back-button-small-rtl.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-backstage-back-button-small.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\ShortcutBarGlyphs.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\ShortcutBarGripper.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\ShortcutBarItems.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\ShortcutBarNavigateItem.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\TimeLineViewAppointmentIcon.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\CalendarEventGlyphs.bmp">
+      <Filter>Image Files\bmp</Filter>
+    </None>
+    <None Include="VisualStudio2017Blue.ini">
+      <Filter>Ini Files</Filter>
+    </None>
+    <None Include="VisualStudio2017BlueExtra.ini">
+      <Filter>Ini Files</Filter>
+    </None>
+    <None Include="VisualStudio2017Dark.ini">
+      <Filter>Ini Files</Filter>
+    </None>
+    <None Include="VisualStudio2017Light.ini">
+      <Filter>Ini Files</Filter>
+    </None>
+    <None Include="XamlStyle.zip">
+      <Filter>Zip Files</Filter>
+    </None>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,304 @@
+//=======================================================================
+//================ Lex class support ====================================
+//=======================================================================
+// 	lexClass:
+//		name		= c_CPPString
+//		parent		= c_CPP
+//		parent:dyn	= c_CPP
+//		parent:file = <*.c|*.cpp|*.h|*.inl|*.tli|*.tlh|*.rc|*.rc2>	
+//
+//		children		= 0
+//		children		= class1, class2, ...
+//
+//		previous:class			=	
+//		previous:tag			=	
+//		previous:tag:separators	=	
+//
+//		start:class		= 
+//		start:Tag		= '"'
+//
+//		skip:Tag		= '\"'
+//
+//		end:class		= //
+//		end:Tag			= '"'
+//		end:separators	= ' '
+//
+//		Token:tag		= 'if', 'for', 'while', 'do'
+//		Token:start:separators	= 
+//		Token:end:separators	= 
+//-----------------------------------------------------------------------
+//---------------- Attributes -------------------------------------------
+//-----------------------------------------------------------------------
+//	txt:colorFG	= 0xffc0c0 // color value in hex format. default: black	
+//	txt:colorBK	= 0xffc0c0 // color value in hex format. default: white		
+//
+//	txt:colorSelFG	= 0xffc0c0 // color value in hex format. default: white
+//	txt:colorSelBK	= 0xffc0c0 // color value in hex format. default: black
+//
+//	txt:Bold	= 1 // {1,0} default: 0
+//	txt:Italic	= 1 // {1,0} default: 0
+//	txt:Underline	= 1 // {1,0} default: 0
+//
+//	caseSensitive	= 1 // {1,0} default: 0
+//
+//	Collapsable	= 1 // {1,0} default: 0
+//	CollapsedText	= '/*...*/' // quoted string value. default: '[..]'	
+//
+//	ParseOnScreen	= 1 // {1,0} default: 0
+// 	
+//-----------------------------------------------------------------------
+//* Global attributes ***************************************************
+//-----------------------------------------------------------------------
+// 	global:FirstParseInSeparateThread	= 1		// {0,1} default=1
+// 	global:EditReparceInSeparateThread	= 1		// {0,1} default=1
+// 	global:ConfigChangedReparceInSeparateThread= 1 // {0,1} default=1
+// 	global:EditReparceTimeout_ms	= 500		// default= 500 ms; time out for start reparse after last key was pressed.
+// 	global:MaxBackParseOffset		= 100		// default= 100 chars; maximum back buffer size. Some times parser look back for the text from current position.
+// 	global:OnScreenSchCacheLifeTime_sec = 180	// default= 180 sec; -1 and 0 means infinite; time out for on screen parsed pices of text. for memory using optimization.
+// 	global:ParserThreadIdleLifeTime_sec = 60	// default=60 sec; -1 and 0 means infinite; time out for existing of parser thread when parser idle (no parse requests).
+	
+/////////////////////////////////////////////////////////////////////////
+
+//=======================================================================
+//================ Variables support ====================================
+//=======================================================================
+// NON operation - example:   @alpha:not
+//
+// @alpha	= a-z, A-Z
+// @digit	= 0-9
+// @HexDdigit	= 0-9, a-f, A-F
+// @specs	= "~`!@#$%^&*()_-+=\\|{}[];:'\",.<>/?"
+// @EOL		= End Of Line
+//---------------------------------------------
+// special tags:  '\\', '\'', '\t', '\r', '\n'
+/////////////////////////////////////////////////////////////////////////
+
+/// Fortran ///	
+lexClass: 
+	name			= c_Fortran	
+	parent:file		= <*.f90|*.for|*.f>
+	txt:colorFG		= 0x000000
+	caseSensitive		= 1
+	DisplayName			= 'Normal Text'
+
+//:lexClass
+
+lexClass:	
+	name			= c_FortranComment
+	parent			= c_Fortran
+	start:tag		='!'
+	end:tag			= @eol
+	txt:colorFG		= 0x00A000
+	DisplayName			= 'Fortran Comment'
+
+//:lexClass
+
+lexClass: 	
+	name			= c_FortranStr1
+	parent			= c_Fortran, c_FortranFormat1
+	start:tag		= '\''	
+	end:tag			= '\'', @eol
+	txt:colorFG		= 0xE00000
+	DisplayName			= 'Fortran String (Single Quotes) (Single-Line)'
+
+//:lexClass
+
+lexClass: 	
+	name			= c_FortranStr2
+	parent			= c_Fortran, c_FortranFormat1
+	start:tag		= '"'	
+	end:tag			= '"', @eol
+	txt:colorFG		= 0xE00000
+	DisplayName			= 'Fortran String (Double Quotes) (Single-Line)'
+
+//:lexClass
+
+lexClass:
+	name			= c_FortranCharEscapes1
+	parent			= c_FortranStr1, c_FortranStr2			
+	token:tag		= '\\\\'
+	txt:colorFG		= 0x00A000
+	DisplayName			= 'Fortran Character Escapes 1'
+
+//:lexClass
+
+lexClass:
+	name			= c_FortranCharEscapes2
+	parent			= c_FortranStr1, c_FortranStr2			
+	start:tag		= '\\'
+	end:tag			= @alpha, @digit, @specs
+	txt:colorFG		= 0x00A000
+	DisplayName			= 'Fortran Character Escapes 2'
+
+//:lexClass
+
+lexClass:
+	name			= c_FortranFormat1
+	parent			= c_Fortran
+	previous:tag		= 'format'	
+	previous:tag:separators	= ' ', ' \t'
+	start:tag		= '('
+	end:tag			= ')'
+	txt:colorFG		= 0x000000
+	DisplayName			= 'Fortran String Format 1' 
+
+
+lexClass:
+	name			= c_FortranFormat2
+	parent			= c_FortranStr1, c_FortranStr2
+	start:tag		= '('
+	end:tag			= ')'
+	txt:colorFG		= 0x000000
+	DisplayName			= 'Fortran String Format 2' 
+
+//:lexClass
+
+lexClass:
+	name			= c_FortranFormat3
+	parent			= c_FortranFormat1, c_FortranFormat2
+	start:tag		= 'A', 'D', 'E', 'F', 'I', 'X', '//'
+	skip:tag		= '.'
+	end:separators		= @digit:not
+	txt:colorFG		= 0x00A000
+	DisplayName			= 'Fortran Format 3' 
+
+//:lexClass
+
+lexClass:	
+	name			= c_FortranKeywords
+	ParseOnScreen		= 0
+	parent			= c_Fortran 
+	children		= 0
+	txt:colorFG		= 0x0000FF
+	DisplayName			= 'Fortran Keyword'
+
+	token:tag		= 'abstract'
+	token:tag		= 'allocatable'
+	token:tag		= 'allocate'
+	token:tag		= 'assign'
+	token:tag		= 'associate'
+	token:tag		= 'asynchronous'
+	token:tag		= 'backspace'
+	token:tag		= 'bind'
+	token:tag		= 'block'
+	token:tag		= 'call'
+	token:tag		= 'case'
+	token:tag		= 'class'
+	token:tag		= 'close'
+	token:tag		= 'codimension'
+	token:tag		= 'common'
+	token:tag		= 'contains'
+	token:tag		= 'contiguous'
+	token:tag		= 'continue'
+	token:tag		= 'critical'
+	token:tag		= 'cycle'
+	token:tag		= 'data'
+	token:tag		= 'deallocate'
+	token:tag		= 'default'
+	token:tag		= 'deferred'
+	token:tag		= 'dimension'
+	token:tag		= 'do'
+	token:tag		= 'elemental'
+	token:tag		= 'else'
+	token:tag		= 'elsewhere'
+	token:tag		= 'end'
+	token:tag		= 'endfile'
+	token:tag		= 'endif'
+	token:tag		= 'entry'
+	token:tag		= 'enum'
+	token:tag		= 'enumerator'
+	token:tag		= 'equivalence'
+	token:tag		= 'exit'
+	token:tag		= 'extends'
+	token:tag		= 'external'
+	token:tag		= 'final'
+	token:tag		= 'flush'
+	token:tag		= 'forall'
+	token:tag		= 'format'
+	token:tag		= 'function'
+	token:tag		= 'generic'
+	token:tag		= 'goto'
+	token:tag		= 'if'
+	token:tag		= 'implicit'
+	token:tag		= 'import'
+	token:tag		= 'include'
+	token:tag		= 'inquire'
+	token:tag		= 'intent'
+	token:tag		= 'interface'
+	token:tag		= 'intrinsic'
+	token:tag		= 'lock'
+	token:tag		= 'module'
+	token:tag		= 'namelist'
+	token:tag		= 'non_overridable'
+	token:tag		= 'nopass'
+	token:tag		= 'nullify'
+	token:tag		= 'only'
+	token:tag		= 'open'
+	token:tag		= 'operator'
+	token:tag		= 'optional'
+	token:tag		= 'parameter'
+	token:tag		= 'pass'
+	token:tag		= 'pause'
+	token:tag		= 'pointer'
+	token:tag		= 'print'
+	token:tag		= 'private'
+	token:tag		= 'procedure'
+	token:tag		= 'program'
+	token:tag		= 'protected'
+	token:tag		= 'public'
+	token:tag		= 'pure'
+	token:tag		= 'read'
+	token:tag		= 'recursive'
+	token:tag		= 'result'
+	token:tag		= 'return'
+	token:tag		= 'rewind'
+	token:tag		= 'rewrite'
+	token:tag		= 'save'
+	token:tag		= 'select'
+	token:tag		= 'sequence'
+	token:tag		= 'stop'
+	token:tag		= 'submodule'
+	token:tag		= 'subroutine'
+	token:tag		= 'target'
+	token:tag		= 'then'
+	token:tag		= 'unlock'
+	token:tag		= 'use'
+	token:tag		= 'value'
+	token:tag		= 'volatile'
+	token:tag		= 'wait'
+	token:tag		= 'where'
+	token:tag		= 'while'
+	token:tag		= 'write'
+
+	token:tag		= 'character'
+	token:tag		= 'complex'
+	token:tag		= 'integer'
+	token:tag		= 'logical'
+	token:tag		= 'real'
+
+	token:tag		= '.and.'
+	token:tag		= '.or.'
+	token:tag		= '.not.'
+	token:tag		= '.eqv.'
+	token:tag		= '.neqv.'
+
+	token:tag		= '.true.'
+	token:tag		= '.false.'
+
+	token:start:separators	= @specs, ' ', '\t', @EOL
+	token:end:separators	= @specs, ' ', '\t', @EOL
+
+//:lexClass
+
+lexClass:
+	name			= c_FortranNumber
+	parent			= c_Fortran, c_FortranParenthesis
+	previous:tag		= @specs, ' ', '\t', @EOL	
+	start:tag		= @digit, '.'
+	skip:tag		= '.', 'e'
+	end:separators		= @digit:not
+	txt:colorFG		= 0xE00000
+	caseSensitive		= 0
+	DisplayName			= 'Fortran Number'
+
+//:lexClass

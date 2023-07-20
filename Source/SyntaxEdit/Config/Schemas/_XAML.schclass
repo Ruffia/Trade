@@ -1,0 +1,340 @@
+//=======================================================================
+//================ Lex class support ====================================
+//=======================================================================
+// 	lexClass:
+//		name		= c_CPPString
+//		parent		= c_CPP
+//		parent:dyn	= c_CPP
+//
+//		children		= 0
+//		children		= class1, class2, ...
+//
+//		previous:class			=	
+//		previous:tag			=	
+//		previous:tag:separators	=	
+//
+//		start:class		= 
+//		start:Tag		= '"'
+//
+//		skip:Tag		= '\"'
+//
+//		end:class		= //
+//		end:Tag			= '"'
+//		end:separators	= ' '
+//
+//		Token:tag		= 'if', 'for', 'while', 'do'
+//		Token:start:separators	= 
+//		Token:end:separators	= 
+//-----------------------------------------------------------------------
+//---------------- Attributes -------------------------------------------
+//-----------------------------------------------------------------------
+//	txt:colorFG	= 0xffc0c0 // color value in hex format. default: black	
+//	txt:colorBK	= 0xffc0c0 // color value in hex format. default: white		
+//
+//	txt:colorSelFG	= 0xffc0c0 // color value in hex format. default: white
+//	txt:colorSelBK	= 0xffc0c0 // color value in hex format. default: black
+//
+//	txt:Bold	= 1 // {1,0} default: 0
+//	txt:Italic	= 1 // {1,0} default: 0
+//	txt:Underline	= 1 // {1,0} default: 0
+//
+//	caseSensitive	= 1 // {1,0} default: 0
+//
+//	Collapsable	= 1 // {1,0} default: 0
+//	CollapsedText	= '/*...*/' // quoted string value. default: '[..]'	
+//
+//	ParseOnScreen	= 1 // {1,0} default: 0
+// 	
+//-----------------------------------------------------------------------
+//* Global attributes ***************************************************
+//-----------------------------------------------------------------------
+// 	global:FirstParseInSeparateThread	= 1		// {0,1} default=1
+// 	global:EditReparceInSeparateThread	= 1		// {0,1} default=1
+// 	global:ConfigChangedReparceInSeparateThread= 1 // {0,1} default=1
+// 	global:EditReparceTimeout_ms	= 500		// default= 500 ms; time out for start reparse after last key was pressed.
+// 	global:MaxBackParseOffset		= 100		// default= 100 chars; maximum back buffer size. Some times parser look back for the text from current position.
+// 	global:OnScreenSchCacheLifeTime_sec = 180	// default= 180 sec; -1 and 0 means infinite; time out for on screen parsed pices of text. for memory using optimization.
+// 	global:ParserThreadIdleLifeTime_sec = 60	// default=60 sec; -1 and 0 means infinite; time out for existing of parser thread when parser idle (no parse requests).
+	
+/////////////////////////////////////////////////////////////////////////
+
+//=======================================================================
+//================ Variables support ====================================
+//=======================================================================
+// NON operation - example:   @alpha:not
+//
+// @alpha	= a-z, A-Z
+// @digit	= 0-9
+// @HexDdigit	= 0-9, a-f, A-F
+// @specs	= "~`!@#$%^&*()_-+=\\|{}[];:'\",.<>/?"
+// @EOL		= End Of Line
+//---------------------------------------------
+// special tags:  '\\', '\'', '\t', '\r', '\n'
+/////////////////////////////////////////////////////////////////////////
+
+/// XAML ///	
+lexClass:
+	parent:file	= <*.xaml>
+	name		= c_XAML
+	txt:colorFG	= 0x000000
+	DisplayName 		= 'Normal Text'
+
+//:lexClass
+
+lexClass:  
+	name		= c_XAMLcomment
+	parent		= c_XAML	
+	start:tag	= '<!--'
+	end:tag		= '-->'	
+	txt:colorFG	= 0x008200
+	DisplayName 		= 'XAML Comment'
+
+//:lexClass
+
+lexClass:
+	name		= c_XAMLdocumentTypeDefinition_start
+	ParseOnScreen 	= 0
+	parent		= c_XAML
+	token:tag	= '<!DOCTYPE'
+	txt:colorFG	= 0x0000FF
+	DisplayName 		= 'XAML Document Type Definition (start)'
+
+//:lexClass
+
+
+lexClass:
+	name		= c_XAMLdocumentTypeDefinition_end
+	ParseOnScreen 	= 0
+	parent		= c_XAML
+	token:tag	= ']>'
+	txt:colorFG	= 0x0000FF
+	DisplayName 		= 'XAML Document Type Definition (end)'
+
+//:lexClass
+
+lexClass:
+	name		= c_XAMLdocumentTypeDefinition	
+	parent		= c_XAML
+	previous:class	= c_XAMLdocumentTypeDefinition_start
+	end:separators  = ']>'
+	txt:colorFG	= 0xFF0000
+	DisplayName 		= 'XAML Document Type Definition'
+
+//:lexClass
+
+lexClass:
+	name		= c_XAMLdocumentTypeDefinitionElements_start
+	ParseOnScreen 	= 0
+	parent		= c_XAMLdocumentTypeDefinition
+	token:tag	= '['
+	txt:colorFG	= 0x0000FF
+	DisplayName 		= 'XAML Document Type Definition (start)'
+
+//:lexClass
+
+
+lexClass:
+	name		= c_XAMLdocumentTypeDefinitionElements_end
+	ParseOnScreen 	= 0
+	parent		= c_XAMLdocumentTypeDefinition	
+	token:tag	= ']'
+	txt:colorFG	= 0x0000FF
+	DisplayName 		= 'XAML Document Type Definition (end)'
+
+//:lexClass
+
+lexClass:
+	name		= c_XAMLdocumentTypeDefinitionElements	
+	parent		= c_XAMLdocumentTypeDefinition	
+	previous:class	= c_XAMLdocumentTypeDefinitionElements_start
+	end:separators  = ']'
+	txt:colorFG	= 0x000000
+	DisplayName 		= 'XAML Document Type Definition'
+
+//:lexClass
+
+lexClass:
+	name		= c_XAMLdocumentTypeDefinitionElement_start
+	ParseOnScreen 	= 0
+	parent		= c_XAMLdocumentTypeDefinitionElements
+	token:tag	= '<!ELEMENT'
+	txt:colorFG	= 0x0000FF
+	DisplayName 		= 'XAML Document Type Definition (start)'
+
+//:lexClass
+
+
+lexClass:
+	name		= c_XAMLdocumentTypeDefinitionElement_end
+	ParseOnScreen 	= 0
+	parent		= c_XAMLdocumentTypeDefinitionElements
+	previous:class	= c_XAMLdocumentTypeDefinitionData	
+	token:tag	= '>'
+	txt:colorFG	= 0x0000FF
+	DisplayName 		= 'XAML Document Type Definition (end)'
+
+//:lexClass
+
+lexClass:
+	name		= c_XAMLdocumentTypeDefinitionElement	
+	parent		= c_XAMLdocumentTypeDefinitionElements	
+	previous:class	= c_XAMLdocumentTypeDefinitionElement_start
+	end:separators  = '>'
+	txt:colorFG	= 0xFF0000
+	DisplayName 		= 'XAML Document Type Definition'
+
+//:lexClass
+
+lexClass:
+	name		= c_XAMLdocumentTypeDefinitionData	
+	parent		= c_XAMLdocumentTypeDefinitionElement
+	start:tag	= '('
+	end:tag		= ')'	
+	txt:colorFG	= 0x0000FF
+	DisplayName 		= 'XAML Document Type Definition'
+
+//:lexClass
+
+lexClass:
+	name		= c_XAMLcdataBlock_start
+	ParseOnScreen 	= 0
+	parent		= c_XAML
+	token:tag	= '<![CDATA['
+	txt:colorFG	= 0x0000FF
+	DisplayName 		= 'XAML CDATA Block (start)'
+
+//:lexClass
+
+lexClass:
+	name		= c_XAMLcdataBlock_end
+	ParseOnScreen 	= 0
+	parent		= c_XAML
+	token:tag	= ']]>'
+	txt:colorFG	= 0x0000FF
+	DisplayName 		= 'XAML CDATA Block (end)'
+
+//:lexClass
+
+lexClass:
+	name		= c_XAMLcdataBlock	
+	parent		= c_XAML
+	previous:class	= c_XAMLcdataBlock_start
+	end:separators  = ']]>'
+	txt:colorFG	= 0x008200
+	DisplayName 		= 'XAML CDATA Block'
+
+//:lexClass
+
+lexClass:
+	name		= c_XAMLelement_start	
+	parent		= c_XAML
+	token:tag	= '<', '</', '<?'
+	txt:colorFG	= 0x0000FF
+	DisplayName 		= 'XAML Element (start)'
+
+//:lexClass
+
+lexClass:
+	name		= c_XAMLelement_end	
+	parent		= c_XAML
+	token:tag	= '>', '/>', '?>'
+	txt:colorFG	= 0x0000FF
+	DisplayName 		= 'XAML Element (end)'
+
+//:lexClass
+
+lexClass:
+	name		= c_XAMLelement	
+	parent		= c_XAML
+	previous:class	= c_XAMLelement_start
+	end:separators  = '>', '/>', '?>'
+	txt:colorFG	= 0x0000FF
+	DisplayName 		= 'XAML Element'
+
+//:lexClass
+
+lexClass:
+	name		= c_XAMLelementName	
+	ParseOnScreen 	= 0
+	parent		= c_XAMLelement, c_XAMLextension
+	previous:tag 	= '<', '</', '"{'
+	start:tag	= @alpha
+	skip:tag	= @digit, ':', '-', '_', '.'
+	end:separators 	= @alpha:not
+	txt:colorFG	= 0x840000
+	DisplayName 		= 'XAML Element Name'
+
+//:lexClass
+	
+lexClass:
+	name		= c_XAMLelementPropName	
+	ParseOnScreen 	= 0
+	parent		= c_XAMLelement, c_XAMLextension
+	previous:tag	= ' ', '\t', '>', @eol
+	start:tag	= @alpha
+	end:separators	= ' ', '\t', '=', '>', '}' @eol
+	txt:colorFG	= 0xFF0000
+	DisplayName 		= 'XAML Element Property Name'
+
+//:lexClass
+
+lexClass:
+	name		= c_XAMLextension_start	
+	parent		= c_XAMLelement
+	token:tag	= '"{', '{'
+	txt:colorFG	= 0x0000FF
+	DisplayName 		= 'XAML Extension (start)'
+
+//:lexClass
+
+lexClass:
+	name		= c_XAMLextension_end	
+	parent		= c_XAMLelement
+	token:tag	= '}"', '}'
+	txt:colorFG	= 0x0000FF
+	DisplayName 		= 'XAML Extension (end)'
+
+//:lexClass
+
+lexClass:
+	name		= c_XAMLextension
+	parent		= c_XAMLelement
+	previous:class	= c_XAMLextension_start
+	end:separators  = '}"', '}'
+	txt:colorFG	= 0x840000
+	DisplayName 		= 'XAML Extension'
+
+//:lexClass
+
+lexClass:
+	name		= c_XAMLelementPropValueStr1
+	ParseOnScreen 	= 0
+	parent		= c_XAMLelement, c_XAMLextension
+	start:tag	= '"'
+	end:tag		= '"'
+	txt:colorFG	= 0x0000FF
+	DisplayName 		= 'XAML Element Property Value (double quote)'
+
+//:lexClass
+	
+lexClass:	
+	name 		= c_XAMLelementPropValueStr2
+	ParseOnScreen 	= 0
+	parent		= c_XAMLelement, c_XAMLextension
+	start:tag	='\''
+	end:tag		='\''
+	txt:colorFG	= 0x0000FF
+	DisplayName 		= 'XAML Element Property Value (single quote)'
+
+//:lexClass
+
+lexClass:
+	name		= c_XAMLpredefinedEntities
+	ParseOnScreen 	= 0
+	parent		= c_XAMLelementPropValueStr1, c_XAMLelementPropValueStr2
+	start:tag	= '&quot', '&amp', '&apos', '&lt', '&gt'
+	end:tag		= ';'
+	txt:colorFG	= 0xFF0000
+	DisplayName 		= 'XAML Predefined Entities'
+
+//:lexClass

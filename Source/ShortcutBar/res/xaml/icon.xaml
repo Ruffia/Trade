@@ -1,0 +1,8 @@
+﻿<Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="None">
+	<Canvas Width="16" Height="16">
+		<Border Width="16" Height="16" />
+		<Canvas Name="Arrow" Canvas.Left="6" Canvas.Top="4" Width="9" Height="9">
+			<Path Data="M  0,0  0,9  5,5" Fill="#787878" />
+		</Canvas>
+	</Canvas>
+</Viewbox>

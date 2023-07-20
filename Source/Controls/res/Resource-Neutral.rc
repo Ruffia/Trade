@@ -1,0 +1,164 @@
+// Controls resource file
+//
+// (c)1998-2023 Codejock Software, All Rights Reserved.
+//
+// THIS SOURCE FILE IS THE PROPERTY OF CODEJOCK SOFTWARE AND IS NOT TO BE
+// RE-DISTRIBUTED BY ANY MEANS WHATSOEVER WITHOUT THE EXPRESSED WRITTEN
+// CONSENT OF CODEJOCK SOFTWARE.
+//
+// THIS SOURCE CODE CAN ONLY BE USED UNDER THE TERMS AND CONDITIONS OUTLINED
+// IN THE XTREME TOOLKIT PRO LICENSE AGREEMENT. CODEJOCK SOFTWARE GRANTS TO
+// YOU (ONE SOFTWARE DEVELOPER) THE LIMITED RIGHT TO USE THIS SOFTWARE ON A
+// SINGLE COMPUTER.
+//
+// CONTACT INFORMATION:
+// support@codejock.com
+// http://www.codejock.com
+//
+/////////////////////////////////////////////////////////////////////////////
+
+#include "Controls/resource.h"
+
+/////////////////////////////////////////////////////////////////////////////
+// Neutral resources
+
+#if !defined(_XTP_NO_BINARY_RESOURCES)
+#ifdef _WIN32
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Cursor
+//
+
+XTP_IDC_DRAGMOVE         CURSOR  DISCARDABLE     "Controls/res/dragmove.cur"
+XTP_IDC_DRAGNONE         CURSOR  DISCARDABLE     "Controls/res/dragnone.cur"
+XTP_IDC_DRAGCOPY         CURSOR  DISCARDABLE     "Controls/res/dragcopy.cur"
+XTP_IDC_EYEDROPPER       CURSOR  DISCARDABLE     "Controls/res/eyedropper.cur"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+XTP_IDB_BTN_OUT          BITMAP  DISCARDABLE     "Controls/res/btn_out.bmp"
+XTP_IDR_FIRST_BITMAP                BITMAP  MOVEABLE PURE   "Controls/res/action_goto_first.bmp"
+XTP_IDR_PREVIOUS_BITMAP             BITMAP  MOVEABLE PURE   "Controls/res/action_goto_previous.bmp"
+XTP_IDR_NEXT_BITMAP                 BITMAP  MOVEABLE PURE   "Controls/res/action_goto_next.bmp"
+XTP_IDR_LAST_BITMAP                 BITMAP  MOVEABLE PURE   "Controls/res/action_goto_last.bmp"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+XTP_IDD_MSG_PREVIEW_DLG DIALOGEX 0, 0, 233, 174
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_VISIBLE | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
+EXSTYLE WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 400, 0, 0x0
+BEGIN
+    LTEXT           "From:",IDC_STATIC,27,10,21,8
+    EDITTEXT        XTP_IDC_MSG_FROM_EDIT,52,7,174,14,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_TABSTOP
+    LTEXT           "To:",IDC_STATIC,35,26,12,8
+    EDITTEXT        XTP_IDC_MSG_TO_EDIT,52,23,175,14,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_TABSTOP
+    LTEXT           "Date:",IDC_STATIC,29,42,19,8
+    EDITTEXT        XTP_IDC_MSG_DATE_EDIT,52,39,174,14,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_TABSTOP
+    LTEXT           "Subject:",IDC_STATIC,18,58,29,8
+    EDITTEXT        XTP_IDC_MSG_SUBJECT_EDIT,52,55,175,14,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_TABSTOP
+    LTEXT           "CC:",IDC_STATIC,35,75,13,8
+    EDITTEXT        XTP_IDC_MSG_CC_EDIT,52,72,174,14,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_TABSTOP
+    LTEXT           "BCC:",IDC_STATIC,31,91,17,8
+    EDITTEXT        XTP_IDC_MSG_BCC_EDIT,52,88,174,14,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_TABSTOP
+    LTEXT           "Attachments:",IDC_STATIC,4,107,45,8
+    EDITTEXT        XTP_IDC_MSG_ATTACHMENT_EDIT,52,104,174,14,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_TABSTOP
+    CONTROL         "",XTP_IDC_MSG_BODY_RICHEDIT,"RichEdit20W",ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY | WS_BORDER | WS_VSCROLL | WS_HSCROLL | WS_TABSTOP,4,121,203,50
+END
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// XAML
+//
+
+IDR_XAML_ICON_LIST_SYMBOL_ADD			RT_XAML		"Controls/res/xaml/list.symbol-add.xaml"
+IDR_XAML_ICON_LIST_SYMBOL_ARROW_DOWN	RT_XAML		"Controls/res/xaml/list.symbol-arrow-down.xaml"
+IDR_XAML_ICON_LIST_SYMBOL_ARROW_UP		RT_XAML		"Controls/res/xaml/list.symbol-arrow-up.xaml"
+IDR_XAML_ICON_LIST_SYMBOL_DELETE		RT_XAML		"Controls/res/xaml/list.symbol-delete.xaml"
+IDR_XAML_ICON_TASKDLG_ARROW_RIGHT		RT_XAML		"Controls/res/xaml/task.symbol-arrow-right.xaml"
+IDR_XAML_ICON_FONTCOMBO_FONTS			RT_XAML		"Controls/res/xaml/fontCombo.fonts.xaml"
+IDR_XAML_ICON_CHECKBOX_UNCHECKED		RT_XAML		"Controls/res/xaml/checkbox.unchecked.xaml"
+IDR_XAML_ICON_CHECKBOX_CHECKED			RT_XAML		"Controls/res/xaml/checkbox.checked.xaml"
+IDR_XAML_ICON_CHECKBOX_MIXED			RT_XAML		"Controls/res/xaml/checkbox.mixed.xaml"
+IDR_XAML_ICON_CHECKBOX3D_UNCHECKED		RT_XAML		"Controls/res/xaml/checkbox3d.unchecked.xaml"
+IDR_XAML_ICON_CHECKBOX3D_CHECKED		RT_XAML		"Controls/res/xaml/checkbox3d.checked.xaml"
+IDR_XAML_ICON_CHECKBOX3D_MIXED			RT_XAML		"Controls/res/xaml/checkbox3d.mixed.xaml"
+IDR_XAML_ICON_HEADERCTRL_CENTER			RT_XAML		"Controls/res/xaml/headerCtrl.paragraph-align-center.xaml"
+IDR_XAML_ICON_HEADERCTRL_LEFT			RT_XAML		"Controls/res/xaml/headerCtrl.paragraph-align-left.xaml"
+IDR_XAML_ICON_HEADERCTRL_RIGHT			RT_XAML		"Controls/res/xaml/headerCtrl.paragraph-align-right.xaml"
+IDR_XAML_ICON_HEADERCTRL_SORTAZ			RT_XAML		"Controls/res/xaml/headerCtrl.sort-az.xaml"
+IDR_XAML_ICON_HEADERCTRL_SORTZA			RT_XAML		"Controls/res/xaml/headerCtrl.sort-za.xaml"
+IDR_XAML_ICON_HEXEDIT_COPY				RT_XAML		"Controls/res/xaml/hexEdit.clipboard-copy-text.xaml"
+IDR_XAML_ICON_HEXEDIT_CUT				RT_XAML		"Controls/res/xaml/hexEdit.clipboard-cut.xaml"
+IDR_XAML_ICON_HEXEDIT_PASTE				RT_XAML		"Controls/res/xaml/hexEdit.clipboard-paste.xaml"
+IDR_XAML_ICON_HEXEDIT_UNDO				RT_XAML		"Controls/res/xaml/hexEdit.command-undo-2.xaml"
+IDR_XAML_ICON_HEXEDIT_CANCEL			RT_XAML		"Controls/res/xaml/hexEdit.symbol-cancel.xaml"
+IDR_XAML_ICON_OUTBAR_SMALL				RT_XAML		"Controls/res/xaml/outBar.view-small-icons.xaml"
+IDR_XAML_ICON_OUTBAR_LARGE				RT_XAML		"Controls/res/xaml/outBar.view-large-icons.xaml"
+IDR_XAML_ICON_CAPTION_CLOSE_1			RT_XAML		"Controls/res/xaml/caption.button.close1.xaml"
+IDR_XAML_ICON_CAPTION_CLOSE_2			RT_XAML		"Controls/res/xaml/caption.button.close2.xaml"
+IDR_XAML_ICON_PASSWORDPEEK_SMALL_NORMAL			RT_XAML		"Controls/res/xaml/passwordpeek.small.normal.xaml"
+IDR_XAML_ICON_PASSWORDPEEK_SMALL_HIGHLIGHTED	RT_XAML		"Controls/res/xaml/passwordpeek.small.highlighted.xaml"
+IDR_XAML_ICON_PASSWORDPEEK_SMALL_PRESSED		RT_XAML		"Controls/res/xaml/passwordpeek.small.pressed.xaml"
+IDR_XAML_ICON_PASSWORDPEEK_LARGE_NORMAL			RT_XAML		"Controls/res/xaml/passwordpeek.large.normal.xaml"
+IDR_XAML_ICON_PASSWORDPEEK_LARGE_HIGHLIGHTED	RT_XAML		"Controls/res/xaml/passwordpeek.large.highlighted.xaml"
+IDR_XAML_ICON_PASSWORDPEEK_LARGE_PRESSED		RT_XAML		"Controls/res/xaml/passwordpeek.large.pressed.xaml"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+XTP_IDI_TASKERROR       ICON    DISCARDABLE     "Controls/res/Error.ico"
+XTP_IDI_TASKINFO        ICON    DISCARDABLE     "Controls/res/Info.ico"
+XTP_IDI_TASKSHIELD      ICON    DISCARDABLE     "Controls/res/Shield.ico"
+XTP_IDI_TASKWARN        ICON    DISCARDABLE     "Controls/res/Warning.ico"
+XTP_IDI_TASKQUESTION    ICON    DISCARDABLE     "Controls/res/Question.ico"
+XTP_IDI_LIGHTBULB        PNG     DISCARDABLE     "Controls/res/LightBulb.png"
+XTP_IDI_EYEDROPPER       ICON    DISCARDABLE     "Controls/res/eyedropper.ico"
+XTP_IDS_ARROW			ICON	DISCARDABLE		"Controls/res/Arrow.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+XTP_IDR_TBAR_HDR TOOLBAR DISCARDABLE  16, 15
+BEGIN
+    BUTTON      XTP_IDC_SORTASC
+    BUTTON      XTP_IDC_SORTDSC
+    SEPARATOR
+    BUTTON      XTP_IDC_ALIGNLEFT
+    BUTTON      XTP_IDC_ALIGNCENTER
+    BUTTON      XTP_IDC_ALIGNRIGHT
+END
+
+XTP_IDR_TBAR_OUT TOOLBAR DISCARDABLE  16, 15
+BEGIN
+    BUTTON      XTP_IDC_LARGEICON
+    BUTTON      XTP_IDC_SMALLICON
+END
+
+XTP_IDR_TBAR_HEXEDIT TOOLBAR DISCARDABLE  16, 15
+BEGIN
+    BUTTON      ID_EDIT_UNDO
+    SEPARATOR
+    BUTTON      ID_EDIT_CUT
+    BUTTON      ID_EDIT_COPY
+    BUTTON      ID_EDIT_PASTE
+    SEPARATOR
+    BUTTON      ID_EDIT_CLEAR
+END
+
+#endif // !defined(_XTP_NO_BINARY_RESOURCES)
+

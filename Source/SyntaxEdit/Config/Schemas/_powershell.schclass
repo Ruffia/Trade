@@ -1,0 +1,224 @@
+//=======================================================================
+//================ Lex class support ====================================
+//=======================================================================
+// 	lexClass:
+//		name		= c_CPPString
+//		parent		= c_CPP
+//		parent:dyn	= c_CPP
+//
+//		children		= 0
+//		children		= class1, class2, ...
+//
+//		previous:class			=	
+//		previous:tag			=	
+//		previous:tag:separators	=	
+//
+//		start:class		= 
+//		start:Tag		= '"'
+//
+//		skip:Tag		= '\"'
+//
+//		end:class		= //
+//		end:Tag			= '"'
+//		end:separators	= ' '
+//
+//		Token:tag		= 'if', 'for', 'while', 'do'
+//		Token:start:separators	= 
+//		Token:end:separators	= 
+//-----------------------------------------------------------------------
+//---------------- Attributes -------------------------------------------
+//-----------------------------------------------------------------------
+//	txt:colorFG	= 0xffc0c0 // color value in hex format. default: black	
+//	txt:colorBK	= 0xffc0c0 // color value in hex format. default: white		
+//
+//	txt:colorSelFG	= 0xffc0c0 // color value in hex format. default: white
+//	txt:colorSelBK	= 0xffc0c0 // color value in hex format. default: black
+//
+//	txt:Bold	= 1 // {1,0} default: 0
+//	txt:Italic	= 1 // {1,0} default: 0
+//	txt:Underline	= 1 // {1,0} default: 0
+//
+//	caseSensitive	= 1 // {1,0} default: 0
+//
+//	Collapsable	= 1 // {1,0} default: 0
+//	CollapsedText	= '/*...*/' // quoted string value. default: '[..]'	
+//
+//	ParseOnScreen	= 1 // {1,0} default: 0
+// 	
+//-----------------------------------------------------------------------
+//* Global attributes ***************************************************
+//-----------------------------------------------------------------------
+// 	global:FirstParseInSeparateThread	= 1		// {0,1} default=1
+// 	global:EditReparceInSeparateThread	= 1		// {0,1} default=1
+// 	global:ConfigChangedReparceInSeparateThread= 1 // {0,1} default=1
+// 	global:EditReparceTimeout_ms	= 500		// default= 500 ms; time out for start reparse after last key was pressed.
+// 	global:MaxBackParseOffset		= 100		// default= 100 chars; maximum back buffer size. Some times parser look back for the text from current position.
+// 	global:OnScreenSchCacheLifeTime_sec = 180	// default= 180 sec; -1 and 0 means infinite; time out for on screen parsed pices of text. for memory using optimization.
+// 	global:ParserThreadIdleLifeTime_sec = 60	// default=60 sec; -1 and 0 means infinite; time out for existing of parser thread when parser idle (no parse requests).
+	
+/////////////////////////////////////////////////////////////////////////
+
+//=======================================================================
+//================ Variables support ====================================
+//=======================================================================
+// NON operation - example:   @alpha:not
+//
+// @alpha	= a-z, A-Z
+// @digit	= 0-9
+// @HexDdigit	= 0-9, a-f, A-F
+// @specs	= "~`!@#$%^&*()_-+=\\|{}[];:'\",.<>/?"
+// @EOL		= End Of Line
+//---------------------------------------------
+// special tags:  '\\', '\'', '\t', '\r', '\n'
+/////////////////////////////////////////////////////////////////////////
+
+/// Powershell ///	
+lexClass:
+	parent:file		= <*.ps1>
+	name			= c_Powershell
+	caseSensitive		= 0
+	txt:colorFG		= 0x000000
+	DisplayName			= 'Normal Text'
+	
+//:lexClass
+
+lexClass: 	
+	name			= c_PowershellCommentSL
+	parent			= c_Powershell
+	start:tag		= '#'
+	end:Tag			= @eol
+	txt:colorFG		= 0x009000
+	DisplayName			= 'Powershell Comment (Single-Line)'
+
+//:lexClass
+
+lexClass: 	
+	name			= c_PowershellCommentML
+	parent			= c_Powershell
+	start:tag		= '<#'
+	end:Tag			= '#>'
+	txt:colorFG		= 0x009000
+	DisplayName			= 'Powershell Comment (Multi-Line)'
+
+//:lexClass
+
+lexClass:
+	name			= c_PowershellNumber
+	parent			= c_Powershell
+	previous:tag		= ' ', '\t', @specs, @EOL	
+	start:tag		= @digit, '.'
+        skip:tag        	= '.' 
+	end:separators		= @digit:not
+	txt:colorFG		= 0x009090
+	DisplayName			= 'Powershell Number'
+
+//:lexClass
+
+lexClass:
+	name			= c_PowershellStr
+	parent			= c_Powershell
+	start:tag		= '"'
+	end:tag			= '"', @EOL
+	txt:colorFG		= 0x840000
+	DisplayName			= 'Powershell String'
+
+//:lexClass
+
+lexClass:
+	name			= c_PowershellCharEscapes_regular
+	parent			= c_PowershellStr			
+	token:tag		= '`0', '`a', '`b', '`e', '`f', '`n', '`r', '`t', '`v'
+	txt:colorFG		= 0x00A000
+	DisplayName			= 'Powershell Character Escapes (Regular)'
+
+//:lexClass
+
+lexClass:
+	name			= c_PowershellCharEscapes_base16
+	parent			= c_PowershellStr			
+	start:tag		= '`u{'
+	end:tag			= '}'
+	txt:colorFG		= 0x00A000
+	DisplayName			= 'Powershell Character Escapes (Hex)'
+
+//:lexClass
+
+lexClass:
+	name			= c_PowershellStrFormat
+	parent			= c_PowershellStr	
+	start:tag		= '{'
+	end:tag			= '}'
+	DisplayName			= 'Powershell String Format'
+
+//:lexClass
+
+lexClass:
+	name			= c_PowershellStrFormatSpecifiers
+	parent			= c_PowershellStrFormat
+	token:tag		= ':c', ':d', ':e', ':f', ':g', ':n', ':p', ':r', ':x'
+	token:tag		= ':hh', ':mm', ':ss', ':HH', ':dd', ':ddd', ':dddd', ':yyyy'
+	txt:colorFG		= 0x00A000
+	caseSensitive		= 1
+	DisplayName			= 'Powershell String Format Specifiers'
+
+//:lexClass
+
+lexClass: 
+	name			= c_PowershellKeywords
+	ParseOnScreen 		= 0
+	parent			= c_Powershell
+	txt:colorFG		= 0x0000FF
+	txt:Bold		= 1
+	DisplayName			= 'Powershell Keywords'
+
+	token:tag		= 'Begin'
+	token:tag		= 'Break'
+	token:tag		= 'Catch'
+	token:tag		= 'Class'
+	token:tag		= 'Continue'
+	token:tag		= 'Data'
+	token:tag		= 'Define'
+	token:tag		= 'Do'
+	token:tag		= 'DynamicParam'
+	token:tag		= 'Else'
+	token:tag		= 'Elseif'
+	token:tag		= 'End'
+	token:tag		= 'Enum'
+	token:tag		= 'Exit'
+	token:tag		= 'Filter'
+	token:tag		= 'Finally'
+	token:tag		= 'For'
+	token:tag		= 'ForEach'
+	token:tag		= 'From'
+	token:tag		= 'Function'
+	token:tag		= 'Hidden'
+	token:tag		= 'If'
+	token:tag		= 'In'
+	token:tag		= 'Param'
+	token:tag		= 'Process'
+	token:tag		= 'Return'
+	token:tag		= 'Static'
+	token:tag		= 'Switch'
+	token:tag		= 'Throw'
+	token:tag		= 'Trap'
+	token:tag		= 'Try'
+	token:tag		= 'Until'
+	token:tag		= 'Using'
+	token:tag		= 'Var'
+	token:tag		= 'While'
+
+	token:tag		= 'eq'
+	token:tag		= 'ne'
+	token:tag		= 'gt'
+	token:tag		= 'ge'
+	token:tag		= 'lt'
+	token:tag		= 'le'
+
+	token:tag		= 'and'
+	token:tag		= 'or'
+	token:tag		= 'not'
+
+	token:start:separators	= @specs, ' ', '\t', @EOL
+	token:end:separators	= @specs, ' ', '\t', @EOL
+
+//:lexClass

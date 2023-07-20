@@ -1,0 +1,277 @@
+// Controls resource file
+//
+// (c)1998-2023 Codejock Software, All Rights Reserved.
+//
+// THIS SOURCE FILE IS THE PROPERTY OF CODEJOCK SOFTWARE AND IS NOT TO BE
+// RE-DISTRIBUTED BY ANY MEANS WHATSOEVER WITHOUT THE EXPRESSED WRITTEN
+// CONSENT OF CODEJOCK SOFTWARE.
+//
+// THIS SOURCE CODE CAN ONLY BE USED UNDER THE TERMS AND CONDITIONS OUTLINED
+// IN THE XTREME TOOLKIT PRO LICENSE AGREEMENT. CODEJOCK SOFTWARE GRANTS TO
+// YOU (ONE SOFTWARE DEVELOPER) THE LIMITED RIGHT TO USE THIS SOFTWARE ON A
+// SINGLE COMPUTER.
+//
+// CONTACT INFORMATION:
+// support@codejock.com
+// http://www.codejock.com
+//
+/////////////////////////////////////////////////////////////////////////////
+
+#include "Controls/Resource.h"
+#include "Controls/res/Resource-Neutral.rc"
+
+#if !defined(_XTP_NO_STANDARDCONTROLS_RES) && ( !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ETI))
+#ifdef _WIN32
+LANGUAGE LANG_ESTONIAN, SUBLANG_DEFAULT
+#pragma code_page(1257)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+XTP_IDD_TIPOFTHEDAY DIALOGEX 0, 0, 279, 127
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Päeva tipphetk"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    DEFPUSHBUTTON   "Sulge",IDOK,224,108,50,14
+    CONTROL         "Näita näpunäiteid käivitamisel",XTP_IDC_CHK_DAYTIP_SHOW,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,6,110,140,10
+    PUSHBUTTON      "Järgmine näpunäide",XTP_IDC_BTN_DAYTIP_NEXT,148,108,72,14
+    CONTROL         "",XTP_IDC_BTN_DAYTIP_BORDER,"Static",SS_GRAYFRAME | NOT WS_VISIBLE,0,0,279,103
+END
+
+XTP_IDD_COLORCUSTOM DIALOGEX DISCARDABLE  0, 0, 147, 161
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | 
+    WS_CAPTION
+CAPTION "Kohandatud"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "Värvid:",XTP_IDC_TXT_COLORS,2,4,43,10
+    CONTROL         "",XTP_IDC_CLR_WND,"Static",SS_BLACKFRAME | WS_TABSTOP,3,
+                    15,119,86
+    CONTROL         "",XTP_IDC_CLR_LUM,"Static",SS_BLACKFRAME | WS_TABSTOP,
+                    126,15,20,86
+    LTEXT           "Värvitoon:",XTP_IDC_TXT_HUE,3,108,19,8
+    EDITTEXT        XTP_IDC_EDIT_HUE,35,106,33,13,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Spin1",XTP_IDC_SPIN_HUE,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,59,105,
+                    10,14
+    LTEXT           "Küllastus:",XTP_IDC_TXT_SAT,3,125,31,8
+    EDITTEXT        XTP_IDC_EDIT_SAT,35,122,33,13,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Spin2",XTP_IDC_SPIN_SAT,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,59,122,
+                    10,14
+    LTEXT           "Heledus:",XTP_IDC_TXT_LUM,3,140,29,8
+    EDITTEXT        XTP_IDC_EDIT_LUM,35,138,33,13,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Spin3",XTP_IDC_SPIN_LUM,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,59,137,
+                    10,14
+    LTEXT           "Punane:",XTP_IDC_TXT_RED,75,108,27,8
+    EDITTEXT        XTP_IDC_EDIT_RED,108,106,33,13,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Spin1",XTP_IDC_SPIN_RED,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,132,105,
+                    11,14
+    LTEXT           "Roheline:",XTP_IDC_TXT_GREEN,75,125,31,8
+    EDITTEXT        XTP_IDC_EDIT_GREEN,108,122,33,13,ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    CONTROL         "Spin2",XTP_IDC_SPIN_GREEN,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,132,122,
+                    11,14
+    LTEXT           "Sinine:",XTP_IDC_TXT_BLUE,75,140,23,8
+    EDITTEXT        XTP_IDC_EDIT_BLUE,108,138,33,13,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Spin3",XTP_IDC_SPIN_BLUE,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,132,137,
+                    11,14
+END
+
+XTP_IDD_COLORSTANDARD DIALOGEX DISCARDABLE  0, 0, 147, 161
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | 
+    WS_CAPTION
+CAPTION "Standardne"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "Värvid:",XTP_IDC_TXT_COLORS,2,4,43,10
+    CONTROL         "",XTP_IDC_CLR_HEX,"Static",SS_BLACKFRAME | WS_TABSTOP,0,
+                    15,147,145
+END
+
+XTP_IDD_WINDOWLIST DIALOGEX DISCARDABLE  0, 0, 301, 164
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Korraldage Windows"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "Valige Aken:",IDC_STATIC,7,7,147,8
+    LISTBOX         XTP_IDC_LBOX_WINDOWS,7,17,216,140,LBS_SORT | 
+                    LBS_OWNERDRAWFIXED | LBS_HASSTRINGS | 
+                    LBS_NOINTEGRALHEIGHT | LBS_EXTENDEDSEL | WS_VSCROLL | 
+                    WS_HSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Aktiveerige",XTP_IDC_BTN_ACTIVATE,226,7,72,14
+    PUSHBUTTON      "Okei",IDOK,226,24,72,14
+    PUSHBUTTON      "Salvesta",XTP_IDC_BTN_SAVE,226,41,72,14
+    PUSHBUTTON      "Sulge aken",XTP_IDC_BTN_CLOSEWINDOWS,226,58,72,14
+    PUSHBUTTON      "Kaskaad",XTP_IDC_BTN_CASCADE,226,75,72,14
+    PUSHBUTTON      "Plaat horisontaalselt",XTP_IDC_BTN_TILEHORZ,226,92,72,14
+    PUSHBUTTON      "Plaat vertikaalselt",XTP_IDC_BTN_TILEVERT,226,109,72,14
+    PUSHBUTTON      "Minimeeri",XTP_IDC_BTN_MINIMIZE,226,126,72,14
+END
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+XTP_IDM_POPUP MENU DISCARDABLE 
+BEGIN
+    POPUP "RClickOutlookBar"
+    BEGIN
+        MENUITEM "Väikesed ikoonid",                XTP_IDC_SMALLICON
+        MENUITEM "Suured ikoonid",                XTP_IDC_LARGEICON
+    END
+    POPUP "RClickHexEdit"
+    BEGIN
+        MENUITEM "Võta tagasi",                       ID_EDIT_UNDO
+        MENUITEM SEPARATOR
+        MENUITEM "Lõika",                        ID_EDIT_CUT
+        MENUITEM "Kopeeri",                       ID_EDIT_COPY
+        MENUITEM "Kleebi",                      ID_EDIT_PASTE
+        MENUITEM "Kustuta",                     ID_EDIT_CLEAR
+        MENUITEM SEPARATOR
+        MENUITEM "Vali kõik",                 ID_EDIT_SELECT_ALL
+    END
+    POPUP "RClickHeader"
+    BEGIN
+        MENUITEM "Järjesta kasvavalt",              XTP_IDC_SORTASC
+        MENUITEM "Sorteeri kahanevalt",             XTP_IDC_SORTDSC
+        MENUITEM SEPARATOR
+        POPUP "Joondamine"
+        BEGIN
+            MENUITEM "Joonda vasakule",                  XTP_IDC_ALIGNLEFT
+            MENUITEM "Joonda keskus",                XTP_IDC_ALIGNCENTER
+            MENUITEM "Joonda paremale",                 XTP_IDC_ALIGNRIGHT
+        END
+    END
+END
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDC_BTN_NEW          "Uus"
+    XTP_IDC_BTN_DELETE       "Kustuta"
+    XTP_IDC_BTN_UP           "Üles liikuma"
+    XTP_IDC_BTN_DOWN         "Liigu alla"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_NAME             "Nimi"
+    XTP_IDS_SIZE             "Suurus"
+    XTP_IDS_TYPE             "Tüüp"
+    XTP_IDS_MODIFIED         "Muudetud"
+    XTP_IDS_COLOR_AUTO       "Automaatne"
+    XTP_IDS_COLOR_CUST       "Kohanda..."
+    XTP_IDS_SELDIR           "Valige kataloog:"
+    XTP_IDS_DOT              "..."
+    XTP_IDS_DEFEXT           "*.*"
+    XTP_IDS_DEFFILT          "Kõik failid (*.*)|*.*||"
+    XTP_IDS_DEFTITLE         "Kataloogi nimi:"
+    XTP_IDS_CLICKKEEPOPEN    "Avatuna hoidmiseks klõpsake tihvti"
+    XTP_IDS_SE_0             "Operatsioonisüsteemi mälu või ressursid on otsas."
+    XTP_IDS_SE_ERR_FNF       "Määratud faili ei leitud."
+    XTP_IDS_SE_ERR_PNF       "Määratud teed ei leitud."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_SE_ERR_ACCESSDENIED    "Operatsioonisüsteem keelas juurdepääsu määratud failile."
+    XTP_IDS_SE_ERR_OOM             "Operatsiooni lõpuleviimiseks polnud piisavalt mälu."
+    XTP_IDS_SE_ERR_BAD_FORMAT      "exe-fail on kehtetu (mitte-Win32® .exe või viga .exe-kujutises)."
+    XTP_IDS_SE_ERR_SHARE           "Ilmnes jagamise rikkumine."
+    XTP_IDS_SE_ERR_ASSOCINCOMPLETE "Failinime seos on puudulik või kehtetu."
+    XTP_IDS_SE_ERR_DDETIMEOUT      "DDE tehingut ei saanud lõpule viia, kuna päring aegus."
+    XTP_IDS_SE_ERR_DDEFAIL         "DDE tehing ebaõnnestus."
+    XTP_IDS_SE_ERR_DDEBUSY         "DDE tehingut ei saanud lõpule viia, kuna töödeldi teisi DDE tehinguid."
+    XTP_IDS_SE_ERR_NOASSOC         "Antud failinimelaiendiga pole seotud ühtegi rakendust."
+    XTP_IDS_SE_ERR_DLLNOTFOUND     "Määratud dünaamilise lingi teeki ei leitud."
+    XTP_IDS_SE_ERR_UNKOWN          "Ilmnes tundmatu veanumber %d."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDC_SORTASC          "Sordi kasvavas järjekorras\nSordi kasvavas järjekorras"
+    XTP_IDC_SORTDSC          "Sordi kahanevalt\nSordi kahanevalt"
+    XTP_IDC_ALIGNLEFT        "Joondab lõigu vasaku veerise\nJoonda vasakule"
+    XTP_IDC_ALIGNCENTER      "Tsentreerib lõigu veeriste vahele\nKeskenda"
+    XTP_IDC_ALIGNRIGHT       "Joondab lõigu paremale veerisele\nJoonda paremale"
+    XTP_IDC_LARGEICON        "Kuva suured ikoonid\nSuured ikoonid"
+    XTP_IDC_SMALLICON        "Kuva väikesed ikoonid\nVäikesed ikoonid"
+    XTP_IDC_REMOVEITEM       "Eemalda Outlooki ribalt"
+    XTP_IDC_RENAMEITEM       "Nimeta otsetee ümber"
+    XTP_IDC_REMOVEGROUP      "Eemalda rühm"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDC_RENAMEGROUP      "Nimeta grupp ümber"
+    XTP_IDS_HEX              "Hex"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_STD_COLORS       "Standardvärvid"
+	XTP_IDS_RECENT_COLORS    "Viimased värvid"
+	XTP_IDS_THEME_COLORS     "Teema Värvid"
+	XTP_IDS_TAGCLOUD_TIP     "Silt: %s, skoor: %d"
+    XTP_IDS_TIPTEXT          "Vihje tekst"
+    XTP_IDS_DIDYOUKNOW       "Kas sa teadsid..."
+    XTP_IDS_FILE_ABSENT      "Määratud faili pole olemas."
+    XTP_IDS_FILE_CORRUPT     "Viga faili lugemisel."
+    XTP_IDS_COLOR_CAPTION    "Värvid"
+    XTP_IDS_NEW              "Uus"
+    XTP_IDS_CURRENT          "Praegune"
+    XTP_IDS_DIRECTORIES      "Kataloogid:"
+    XTP_IDS_FILES            "Failid:"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_TASK_OK           "Okei"
+    XTP_IDS_TASK_YES          "Jah"
+    XTP_IDS_TASK_NO           "Ei"
+    XTP_IDS_TASK_RETRY        "Uuesti proovima"
+    XTP_IDS_TASK_CANCEL       "Tühista"
+    XTP_IDS_TASK_CLOSE        "Sulge"
+    XTP_IDS_TASK_APPLY        "Rakenda"
+    XTP_IDS_TASK_HELP         "Abi"
+    XTP_IDS_TASK_SEE_DETAILS  "Näita detaile"
+    XTP_IDS_TASK_HIDE_DETAILS "Detaile varjama"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_BACKGROUND1        "Taust 1"
+    XTP_IDS_BACKGROUND2        "Taust 2"
+    XTP_IDS_TEXT1              "Tekst 1"
+    XTP_IDS_TEXT2              "Tekst 2"
+    XTP_IDS_ACCENT1            "Aktsent 1"
+    XTP_IDS_ACCENT2            "Aktsent 2"
+    XTP_IDS_ACCENT3            "Aktsent 3"
+    XTP_IDS_ACCENT4            "Aktsent 4"
+    XTP_IDS_ACCENT5            "Aktsent 5"
+    XTP_IDS_ACCENT6            "Aktsent 6"
+    XTP_IDS_LIGHTER            "Heledam"
+    XTP_IDS_DARKER             "Tumedam"
+END
+
+STRINGTABLE DISCARDABLE
+BEGIN
+    XTP_IDS_PREVIEW_DEFAULT_LOADING_MESSAGE "'%' eelvaate hankimine"
+    XTP_IDS_PREVIEW_DEFAULT_FAILED_MESSAGE  "'%' eelvaadet ei saa hankida"
+END
+
+#endif // !defined(_XTP_NO_STANDARDCONTROLS_RES) && ( !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ETI))

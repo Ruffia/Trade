@@ -1,0 +1,338 @@
+// CommandBars resource file
+//
+// (c)1998-2023 Codejock Software, All Rights Reserved.
+//
+// THIS SOURCE FILE IS THE PROPERTY OF CODEJOCK SOFTWARE AND IS NOT TO BE
+// RE-DISTRIBUTED BY ANY MEANS WHATSOEVER WITHOUT THE EXPRESSED WRITTEN
+// CONSENT OF CODEJOCK SOFTWARE.
+//
+// THIS SOURCE CODE CAN ONLY BE USED UNDER THE TERMS AND CONDITIONS OUTLINED
+// IN THE XTREME TOOLKIT PRO LICENSE AGREEMENT. CODEJOCK SOFTWARE GRANTS TO
+// YOU (ONE SOFTWARE DEVELOPER) THE LIMITED RIGHT TO USE THIS SOFTWARE ON A
+// SINGLE COMPUTER.
+//
+// CONTACT INFORMATION:
+// support@codejock.com
+// http://www.codejock.com
+//
+/////////////////////////////////////////////////////////////////////////////
+
+#include "CommandBars/Resource.h"
+#include "CommandBars/res/Resource-Neutral.rc"
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NLD)
+#ifdef _WIN32
+LANGUAGE LANG_DUTCH, SUBLANG_DUTCH
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+XTP_IDD_IMAGEEDITOR_DIALOG DIALOGEX 0, 0, 253, 185
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Knop-editor"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    LTEXT           "Afbeelding",IDC_STATIC,7,7,86,8
+    GROUPBOX        "Kleuren",IDC_STATIC,102,106,80,71
+    GROUPBOX        "Beweging",IDC_STATIC,101,72,81,31
+    GROUPBOX        "Voorbeeld",IDC_STATIC,7,106,86,71
+    GROUPBOX        "Hulpmiddelen",IDC_STATIC,101,9,81,60
+    DEFPUSHBUTTON   "OK",IDOK,193,7,50,14
+    PUSHBUTTON      "Annuleren",IDCANCEL,193,25,50,14
+    CONTROL         "",XTP_IDC_STATIC_PICTURE,"Static",SS_BLACKFRAME | 
+                    SS_NOTIFY,7,17,86,80
+    CTEXT           "",XTP_IDC_STATIC_PREVIEW,14,117,73,54,SS_CENTERIMAGE,
+                    WS_EX_STATICEDGE
+    LTEXT           "Transparant",IDC_STATIC,135,156,42,8
+    LTEXT           "",XTP_IDC_CLR_ERASE,116,153,15,15,SS_NOTIFY
+    CTEXT           "Hulpmiddelen",XTP_IDC_STATIC_TOOLS,112,21,60,43,SS_CENTERIMAGE | 
+                    NOT WS_VISIBLE | WS_BORDER
+    CTEXT           "Beweging",XTP_IDC_STATIC_MOVE,111,83,62,12,SS_CENTERIMAGE | 
+                    NOT WS_VISIBLE | WS_BORDER
+    CONTROL         "",XTP_IDC_CLR_PICKER,"Static",SS_LEFTNOWORDWRAP | 
+                    SS_NOTIFY | WS_GROUP,109,144,15,15
+    CTEXT           "Kleuren",XTP_IDC_STATIC_COLORS,107,121,68,12,
+                    SS_CENTERIMAGE | NOT WS_VISIBLE | WS_BORDER
+END
+
+XTP_IDD_PAGE_KEYBOARD DIALOGEX DISCARDABLE  0, 0, 230, 150
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_CAPTION | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
+CAPTION "&Toetsenbord"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "Categorie:",IDC_STATIC,4,5,89,8
+    COMBOBOX        XTP_IDC_COMBO_CATEGORY,4,15,91,147,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Commando's:",XTP_IDC_TXT_COMMANDS,4,28,89,8
+    LISTBOX         XTP_IDC_LBOX_ACCEL_COMMANDS,4,38,91,77,LBS_HASSTRINGS | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LISTBOX         XTP_IDC_LBOX_ACCEL_COMMANDS_EX,4,38,91,77,LBS_HASSTRINGS | 
+                    LBS_OWNERDRAWFIXED |
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Sleutel opdrachten:",XTP_IDC_TXT_ASSIGNMENTS,100,28,73,8
+    LISTBOX         XTP_IDC_LBOX_KEYS,100,38,75,51,LBS_HASSTRINGS | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LISTBOX         XTP_IDC_LBOX_KEYS_EX,100,38,75,51,LBS_HASSTRINGS | 
+                    LBS_OWNERDRAWFIXED |
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Druk op nieuwe sneltoets:",XTP_IDC_TXT_NEWKEY,100,93,100,8
+    EDITTEXT        XTP_IDC_EDIT_SHORTCUTKEY,100,103,75,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Toewijzen",XTP_IDC_BTN_ASSIGN,177,39,52,14
+    PUSHBUTTON      "Verwijderen",XTP_IDC_BTN_REMOVE,177,56,52,14
+    PUSHBUTTON      "Alles resetten",XTP_IDC_BTN_ACCEL_RESET,177,73,52,14
+    LTEXT           "Beschrijving:",XTP_IDC_TXT_DESC_TITLE,4,117,89,8
+    LTEXT           "",XTP_IDC_TXT_DESC_OVERVIEW,4,127,224,19,0,
+                    WS_EX_STATICEDGE
+END
+
+XTP_IDD_PAGE_TOOLBARS DIALOGEX DISCARDABLE  0, 0, 230, 150
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_CAPTION | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
+CAPTION "Werkbalken"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "Werkbalken:",IDC_STATIC,4,5,148,8
+    LISTBOX         XTP_IDC_LIST_TOOLBARS,4,15,150,131,LBS_OWNERDRAWFIXED | 
+                    LBS_HASSTRINGS | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | 
+                    WS_TABSTOP
+    PUSHBUTTON      "Nieuw...",XTP_IDC_BUTTON_NEW,158,15,70,14
+    PUSHBUTTON      "Hernoemen...",XTP_IDC_BUTTON_RENAME,158,33,70,14
+    PUSHBUTTON      "Verwijderen",XTP_IDC_BUTTON_DELETE,158,51,70,14
+    PUSHBUTTON      "Resetten...",XTP_IDC_BUTTON_RESET,158,69,70,14
+END
+
+XTP_IDD_PAGE_OPTIONS DIALOGEX DISCARDABLE  0, 0, 230, 150
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_CAPTION | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
+CAPTION "Opties"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "Gepersonaliseerde menu's en werkbalken",XTP_IDC_GROUP_PERSONALIZED,4,5,222,8
+    CONTROL         "Toon altijd volledige menu's",XTP_IDC_CHECK_FULL_MENUS,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,17,216,10
+    CONTROL         "Toon volledige menu's na een korte vertraging",
+                    XTP_IDC_CHECK_AFTERDELAY,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,22,29,204,10
+    PUSHBUTTON      "Reset menu- en werkbalkgebruiksgegevens",
+                    XTP_IDC_BUTTON_RESETDATA,8,42,220,14
+    LTEXT           "Ander", XTP_IDC_GROUP_OTHER,4,70,222,8
+    CONTROL         "Grote iconen",XTP_IDC_CHECK_LARGEICONS,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,10,82,216,10
+    CONTROL         "Toon schermtips op werkbalken",XTP_IDC_CHECK_SCREENTTIPS,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,93,216,10
+    CONTROL         "Toon sneltoetsen in Scherminfo",
+                    XTP_IDC_CHECK_SHORTCUTS,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,22,104,204,10
+    LTEXT           "Menu-animaties:",IDC_STATIC,10,117,56,8
+    COMBOBOX        XTP_IDC_COMBO_ANIMATION,70,115,99,65,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+END
+
+XTP_IDD_PAGE_COMMANDS DIALOGEX DISCARDABLE  0, 0, 230, 150
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_CAPTION | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
+CAPTION "Commando's"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "Om een commando aan een werkbalk toe te voegen: selecteer een categorie en sleep het commando vanuit dit dialoogvenster naar een werkbalk.",
+                    IDC_STATIC,4,5,220,29
+    LTEXT           "Categorieën:",IDC_STATIC,4,35,80,8
+    LISTBOX         XTP_IDC_LIST_CATEGORIES,4,45,81,101,LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL | WS_TABSTOP
+    LISTBOX         XTP_IDC_LIST_CATEGORIES_EX,4,45,81,101,LBS_NOINTEGRALHEIGHT | 
+                    LBS_OWNERDRAWFIXED | LBS_HASSTRINGS | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Commando's:",IDC_STATIC,90,35,134,8
+    LISTBOX         XTP_IDC_LIST_COMMANDS,90,45,135,101,LBS_OWNERDRAWFIXED | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+END
+
+XTP_IDD_PAGE_MENUS DIALOGEX DISCARDABLE  0, 0, 230, 150
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_CAPTION | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
+CAPTION "Menu's"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "Toepassingsmenu's",XTP_IDC_STATIC_APPLICATIONMENUS,4,5,222,
+                    8
+    LTEXT           "Contextmenu's",XTP_IDC_STATIC_CONTEXTMENUS,4,80,222,8
+    LTEXT           "Laat het menu zien:",IDC_STATIC,10,20,64,11
+    COMBOBOX        XTP_IDC_COMBO_APPMENUS,74,18,149,79,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Resetten",XTP_IDC_BUTTON_RESETAPP,10,57,70,14
+    LTEXT           "Standaardmenu\nStandaard toepassingsmenu",XTP_IDC_STATIC_DESCRIPTION,37,34,181,18
+    ICON            0,XTP_IDC_STATIC_ICON,10,32,21,20
+    LTEXT           "Selecteer contextmenu:",IDC_STATIC,10,92,88,10
+    COMBOBOX        XTP_IDC_COMBO_CONTEXTMENUS,103,90,120,79,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Resetten",XTP_IDC_BUTTON_RESETCONTEXT,10,108,70,14
+END
+
+XTP_IDD_NEWTOOLBAR DIALOGEX DISCARDABLE  0, 0, 186, 52
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Nieuwe werkbalk"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "Werkbalk naam:",IDC_STATIC,4,4,178,8
+    EDITTEXT        XTP_IDC_EDIT_TOOLBARNAME,4,15,178,12,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,78,34,50,14
+    PUSHBUTTON      "Annuleren",IDCANCEL,132,34,50,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+XTP_IDR_CUSTOMIZEMENU MENU DISCARDABLE 
+BEGIN
+    POPUP "Aanpassen"
+    BEGIN
+        MENUITEM "Resetten",                      XTP_ID_CUSTOMIZE_RESET
+        MENUITEM "Verwijderen",                     XTP_ID_CUSTOMIZE_DELETE
+        MENUITEM SEPARATOR
+        MENUITEM "Naam:",                      XTP_ID_CUSTOMIZE_NAME
+        MENUITEM SEPARATOR
+        MENUITEM "Knopafbeelding kopiëren",          XTP_ID_CUSTOMIZE_COPYBUTTONIMAGE
+
+        MENUITEM "Plak knopafbeelding",         XTP_ID_CUSTOMIZE_PASTEBUTTONIMAGE
+
+        MENUITEM "Knopafbeelding resetten",         XTP_ID_CUSTOMIZE_RESETBUTTONIMAGE
+
+        MENUITEM "Knopafbeelding bewerken...",       XTP_ID_CUSTOMIZE_EDITBUTTONIMAGE
+
+        MENUITEM "Knopafbeelding wijzigen",        XTP_ID_CUSTOMIZE_CHANGEBUTTONIMAGE
+
+        MENUITEM SEPARATOR
+        MENUITEM "Standaard stijl",              XTP_ID_CUSTOMIZE_DEFAULTSTYLE
+
+        MENUITEM "Alleen tekst",                  XTP_ID_CUSTOMIZE_TEXTONLY
+        MENUITEM "Afbeelding en tekst",             XTP_ID_CUSTOMIZE_IMAGEANDTEXT
+
+        MENUITEM SEPARATOR
+        MENUITEM "Begin een groep",              XTP_ID_CUSTOMIZE_BEGINAGROUP
+    END
+END
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_CUSTOMIZE_CLOSE "Dichtbij"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_CUSTOMIZE       "Aanpassen"
+    XTP_IDS_NEWMENU         "Nieuwe menukaart"
+    XTP_IDS_CUSTOMIZE_STATUSBAR "Statusbalk aanpassen"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_CONFIRM_RESETDATA 
+                            "Hiermee wordt het record verwijderd van de opdrachten die u in deze toepassing hebt gebruikt en wordt de standaardset zichtbare opdrachten in de menu's en werkbalken hersteld. Expliciete aanpassingen worden niet ongedaan gemaakt. Weet je zeker dat je dit wilt doen?"
+    XTP_IDS_INVALID_NUMBER  "Dit is geen geldig nummer."
+    XTP_IDS_INVALID_FONTSIZE "Het nummer moet tussen 1 en 1638 liggen."
+    XTP_IDS_CONFIRM_RESET   "Weet u zeker dat u de wijzigingen aan de werkbalk '%s' wilt resetten?"
+    XTP_IDS_BUILTINMENUS    "Ingebouwde menu's"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_CUSTOM_BAR      "Aangepast %d"
+    XTP_IDS_ERROR_BLANKNAME "De naam van de werkbalk mag niet leeg zijn. Typ een naam."
+    XTP_IDS_ERROR_LIMIT     "Sorry, je hebt je limiet bereikt."
+    XTP_IDS_ERROR_EXISTS    "Er bestaat al een werkbalk met de naam '%s'. Typ een andere naam."
+    XTP_IDS_RENAMETOOLBAR   "Werkbalk hernoemen"
+    XTP_IDS_CONFIRM_DELETE  "Weet u zeker dat u de werkbalk '%s' wilt verwijderen?"
+    XTP_IDS_ALLCOMMANDS     "Alle commando's"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_ID_CUSTOMIZE        "Pas het uiterlijk van de applicatie, werkbalken en menu's aan\nAanpassen..."
+    XTP_ID_CUSTOMIZE_RESET  "\nWerkbalk resetten"
+    XTP_ID_CUSTOMIZE_ADDORREMOVE "\nToevoegen of verwijderen van knoppen"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_CONFIRM_KEYBOARD 
+                            "Weet u zeker dat u de toetstoewijzingen wilt resetten? Met deze actie worden alle aangepaste toetstoewijzingen op tekstniveau verwijderd."
+    XTP_IDS_CONFIRM_REASSIGN 
+                            "Deze snelkoppeling is momenteel toegewezen.\nWilt u deze snelkoppeling opnieuw toewijzen?"
+    XTP_IDS_CONFIRM_UPDATE  "Door een software update is de werkbalk '%s' veranderd. Wilt u uw aangepaste werkbalk resetten en de nieuwe laden?"
+    XTP_IDS_IMAGEEDITOR_FILTER
+                            "Alle afbeeldingsbestanden|*.bmp;*.wmf;*.emf;*.ico;*.dib;*.png;*.cur;*.gif;*.jpg|Bitmaps (*.bmp;*.dib; *.png;*.gif;*.jpg)|*.bmp;*.dib;*.png;*.gif;*.jpg|Metabestanden (*.wmf;*.emf)|*.wmf;*. emf|Pictogrammen (*.ico;*.cur)|*.ico;*.cur|Alle bestanden (*.*)|*.*||"
+    XTP_ID_TOOLBAR_EXPAND   "\nWerkbalkopties"
+    XTP_ID_TOOLBAR_HIDE     "\nSluiten"
+    XTP_ID_POPUPBAR_EXPAND  "\nUitvouwen"
+    XTP_ID_MENUBAR_CLOSE    "\nVenster sluiten"
+    XTP_ID_MENUBAR_RESTORE  "\nVenster herstellen"
+    XTP_ID_MENUBAR_MINIMIZE "\nMinimaliseer venster"
+
+    XTP_IDS_SHORTCUT_SECONDKEY "(%s) werd ingedrukt. Wachten op de tweede toonsoort..."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_ID_BUTTON_PENCIL    "\nPotlood"
+    XTP_ID_BUTTON_FILL      "\nVulkleur"
+    XTP_ID_BUTTON_GETCOLOR  "\nKies kleur"
+    XTP_ID_BUTTON_LINE      "\nLijn"
+    XTP_ID_BUTTON_RECTANGLE "\nRechthoek"
+    XTP_ID_BUTTON_CIRCLE    "\nEllips"
+    XTP_ID_BUTTON_COPY      "\nKopieer"
+    XTP_ID_BUTTON_PASTE     "\nPlakken"
+    XTP_ID_BUTTON_CLEAR     "\nWissen"
+    XTP_ID_BUTTON_UNDO      "\nOngedaan maken"
+    XTP_ID_BUTTON_REDO      "\nOpnieuw"
+    XTP_ID_BUTTON_OPEN      "\nImporteren uit bestand"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_ANIMATION_SYSDEF "(Systeemfout)"
+    XTP_IDS_ANIMATION_RANDOM "Willekeurig"
+    XTP_IDS_ANIMATION_UNFOLD "Ontvouwen"
+    XTP_IDS_ANIMATION_SLIDE "Schuif"
+    XTP_IDS_ANIMATION_FADE  "Vervagen"
+    XTP_IDS_ANIMATION_NONE  "Geen"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_ID_WORKSPACE_MOVEPREVIOUS "\nVerplaats naar vorige tabbladgroep"
+    XTP_ID_WORKSPACE_MOVENEXT "\nVerplaats naar volgende tabbladgroep"
+    XTP_ID_WORKSPACE_NEWHORIZONTAL "\nNieuwe horizontale tabbladgroep"
+    XTP_ID_WORKSPACE_NEWVERTICAL "\nNieuwe verticale tabbladgroep"
+    XTP_ID_WORKSPACE_CANCEL "\nAnnuleren"
+    XTP_ID_WORKSPACE_DETACH "\nOntkoppelen"
+    XTP_ID_WORKSPACE_DETACH_ALL "\nAlles loskoppelen"
+    XTP_ID_WORKSPACE_ATTACH "\nBijvoegen"
+    XTP_ID_WORKSPACE_ATTACH_ALL "\nAlles bijvoegen"
+    XTP_IDS_TABNAVIGATEBUTTON_ACTIVEFILES "Actieve bestanden"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_ID_PREVIEW_PRINT    "Druk het voorbeelditem af\nDruk af"
+    XTP_ID_PREVIEW_PREV     "Ga naar de vorige pagina\nVorige pagina"
+    XTP_ID_PREVIEW_NEXT     "Ga naar de volgende pagina\nVolgende pagina"
+    XTP_ID_PREVIEW_ZOOMIN   "Vergroot de vergroting van de voorbeeldpagina\nZoom in"
+    XTP_ID_PREVIEW_ZOOMOUT  "Verklein de vergroting van de voorbeeldpagina\nZoom uit"
+    XTP_ID_PREVIEW_ONEPAGE  "Enkele pagina"
+    XTP_ID_PREVIEW_TWOPAGE  "Meerdere pagina's"
+    XTP_ID_PREVIEW_CLOSE    "Sluit het voorbeeld\nSluit het voorbeeld"
+    XTP_IDS_PREVIEW_WHOLEPAGE "Hele pagina"
+    XTP_IDS_PREVIEW_PAGEWIDTH "Paginabreedte"
+    XTP_IDS_PREVIEW_PAGEI     "Pagina %i"
+    XTP_IDS_PREVIEW_PAGEIOFI  "Pagina %i van %i"
+END
+
+#endif // !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NLD)

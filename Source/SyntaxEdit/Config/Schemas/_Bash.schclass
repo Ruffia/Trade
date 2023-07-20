@@ -1,0 +1,191 @@
+//=======================================================================
+//================ Lex class support ====================================
+//=======================================================================
+// 	lexClass:
+//		name		= c_CPPString
+//		parent		= c_CPP
+//		parent:dyn	= c_CPP
+//
+//		children		= 0
+//		children		= class1, class2, ...
+//
+//		previous:class			=	
+//		previous:tag			=	
+//		previous:tag:separators	=	
+//
+//		start:class		= 
+//		start:Tag		= '"'
+//
+//		skip:Tag		= '\"'
+//
+//		end:class		= //
+//		end:Tag			= '"'
+//		end:separators	= ' '
+//
+//		Token:tag		= 'if', 'for', 'while', 'do'
+//		Token:start:separators	= 
+//		Token:end:separators	= 
+//-----------------------------------------------------------------------
+//---------------- Attributes -------------------------------------------
+//-----------------------------------------------------------------------
+//	txt:colorFG	= 0xffc0c0 // color value in hex format. default: black	
+//	txt:colorBK	= 0xffc0c0 // color value in hex format. default: white		
+//
+//	txt:colorSelFG	= 0xffc0c0 // color value in hex format. default: white
+//	txt:colorSelBK	= 0xffc0c0 // color value in hex format. default: black
+//
+//	txt:Bold	= 1 // {1,0} default: 0
+//	txt:Italic	= 1 // {1,0} default: 0
+//	txt:Underline	= 1 // {1,0} default: 0
+//
+//	caseSensitive	= 1 // {1,0} default: 0
+//
+//	Collapsable	= 1 // {1,0} default: 0
+//	CollapsedText	= '/*...*/' // quoted string value. default: '[..]'	
+//
+//	ParseOnScreen	= 1 // {1,0} default: 0
+// 	
+//-----------------------------------------------------------------------
+//* Global attributes ***************************************************
+//-----------------------------------------------------------------------
+// 	global:FirstParseInSeparateThread	= 1		// {0,1} default=1
+// 	global:EditReparceInSeparateThread	= 1		// {0,1} default=1
+// 	global:ConfigChangedReparceInSeparateThread= 1 // {0,1} default=1
+// 	global:EditReparceTimeout_ms	= 500		// default= 500 ms; time out for start reparse after last key was pressed.
+// 	global:MaxBackParseOffset		= 100		// default= 100 chars; maximum back buffer size. Some times parser look back for the text from current position.
+// 	global:OnScreenSchCacheLifeTime_sec = 180	// default= 180 sec; -1 and 0 means infinite; time out for on screen parsed pices of text. for memory using optimization.
+// 	global:ParserThreadIdleLifeTime_sec = 60	// default=60 sec; -1 and 0 means infinite; time out for existing of parser thread when parser idle (no parse requests).
+	
+/////////////////////////////////////////////////////////////////////////
+
+//=======================================================================
+//================ Variables support ====================================
+//=======================================================================
+// NON operation - example:   @alpha:not
+//
+// @alpha	= a-z, A-Z
+// @digit	= 0-9
+// @HexDdigit	= 0-9, a-f, A-F
+// @specs	= "~`!@#$%^&*()_-+=\\|{}[];:'\",.<>/?"
+// @EOL		= End Of Line
+//---------------------------------------------
+// special tags:  '\\', '\'', '\t', '\r', '\n'
+/////////////////////////////////////////////////////////////////////////
+
+/// BASH ///	
+lexClass:
+	parent:file		= <*.sh>
+	name			= c_Bash
+	caseSensitive		= 0
+	txt:colorFG		= 0x000000
+	DisplayName			= 'Normal Text'
+	
+//:lexClass
+
+lexClass: 	
+	name			= c_BashComment
+	parent			= c_Bash
+	start:tag		= '#'
+	end:Tag			= @eol
+	txt:colorFG		= 0x009000
+	DisplayName			= 'Bash Comment'
+
+//:lexClass
+
+lexClass:
+	name			= c_BashCommand
+	parent			= c_Bash
+	start:tag		= '`'
+	end:tag			= '`', @EOL
+	txt:colorFG		= 0x009000
+	DisplayName			= 'Bash Command'
+
+//:lexClass
+
+lexClass:
+	name			= c_BashNumber
+	parent			= c_Bash
+	previous:tag		= ' ', '\t', @specs, @EOL	
+	start:tag		= @digit, '.'
+        skip:tag        	= '.' 
+	end:separators		= @digit:not
+	txt:colorFG		= 0x009090
+	DisplayName			= 'Bash Number'
+
+//:lexClass
+
+lexClass:
+	name			= c_BashStr1
+	parent			= c_Bash
+	start:tag		= '\''
+	end:tag			= '\'', @EOL
+	txt:colorFG		= 0x840000
+	DisplayName			= 'Bash String (Single Quotes)'
+
+//:lexClass
+
+lexClass:
+	name			= c_BashStr2
+	parent			= c_Bash
+	start:tag		= '"'
+	end:tag			= '"', @EOL
+	txt:colorFG		= 0x840000
+	DisplayName			= 'Bash String (Double Quotes)'
+
+//:lexClass
+
+lexClass:
+	name			= c_BashCharEscapes
+	parent			= c_BashStr2
+	start:tag		= '\\'
+	end:tag			= @alpha, @digit, @specs
+	txt:colorFG		= 0x009000
+	DisplayName			= 'Bash Char Escapes
+
+//:lexClass
+
+lexClass: 
+	name			= c_BashKeywords
+	ParseOnScreen 		= 0
+	parent			= c_Bash
+	txt:colorFG		= 0x0000FF
+	txt:Bold		= 1
+	DisplayName			= 'Bash Keywords'
+
+	token:tag		= 'case'
+	token:tag		= 'coproc'
+	token:tag		= 'do'
+	token:tag		= 'done'
+	token:tag		= 'elif'
+	token:tag		= 'else'
+	token:tag		= 'esac'
+	token:tag		= 'fi'
+	token:tag		= 'for'
+	token:tag		= 'function'
+	token:tag		= 'if'
+	token:tag		= 'in'
+	token:tag		= 'select'
+	token:tag		= 'then'
+	token:tag		= 'until'
+	token:tag		= 'while'
+	token:tag		= '{'
+	token:tag		= '}'
+	token:tag		= 'time'
+	token:tag		= '[['
+	token:tag		= ']]'
+
+	token:tag		= '-eq'
+	token:tag		= '-ne'
+	token:tag		= '-gt'
+	token:tag		= '-ge'
+	token:tag		= '-lt'
+	token:tag		= '-le'
+
+	token:tag		= '-a'
+	token:tag		= '-o'
+	token:tag		= '!'
+
+	token:start:separators	= @specs, ' ', '\t', @EOL
+	token:end:separators	= @specs, ' ', '\t', @EOL
+
+//:lexClass

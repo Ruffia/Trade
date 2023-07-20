@@ -1,0 +1,4 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VisualStudio2022", ".\VisualStudio2022_vc100.vcxproj", "{67562769-8774-2657-3672-167845673865}"
+EndProject

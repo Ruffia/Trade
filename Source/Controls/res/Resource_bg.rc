@@ -1,0 +1,277 @@
+// Controls resource file
+//
+// (c)1998-2023 Codejock Software, All Rights Reserved.
+//
+// THIS SOURCE FILE IS THE PROPERTY OF CODEJOCK SOFTWARE AND IS NOT TO BE
+// RE-DISTRIBUTED BY ANY MEANS WHATSOEVER WITHOUT THE EXPRESSED WRITTEN
+// CONSENT OF CODEJOCK SOFTWARE.
+//
+// THIS SOURCE CODE CAN ONLY BE USED UNDER THE TERMS AND CONDITIONS OUTLINED
+// IN THE XTREME TOOLKIT PRO LICENSE AGREEMENT. CODEJOCK SOFTWARE GRANTS TO
+// YOU (ONE SOFTWARE DEVELOPER) THE LIMITED RIGHT TO USE THIS SOFTWARE ON A
+// SINGLE COMPUTER.
+//
+// CONTACT INFORMATION:
+// support@codejock.com
+// http://www.codejock.com
+//
+/////////////////////////////////////////////////////////////////////////////
+
+#include "Controls/Resource.h"
+#include "Controls/res/Resource-Neutral.rc"
+
+#if !defined(_XTP_NO_STANDARDCONTROLS_RES) && ( !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_BGR))
+#ifdef _WIN32
+LANGUAGE LANG_BULGARIAN, SUBLANG_DEFAULT
+#pragma code_page(1251)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+XTP_IDD_TIPOFTHEDAY DIALOGEX 0, 0, 279, 127
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Съвет на деня"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    DEFPUSHBUTTON   "Близо",IDOK,224,108,50,14
+    CONTROL         "Показване на съвети при стартиране",XTP_IDC_CHK_DAYTIP_SHOW,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,6,110,140,10
+    PUSHBUTTON      "Следващ съвет",XTP_IDC_BTN_DAYTIP_NEXT,170,108,50,14
+    CONTROL         "",XTP_IDC_BTN_DAYTIP_BORDER,"Static",SS_GRAYFRAME | NOT WS_VISIBLE,0,0,279,103
+END
+
+XTP_IDD_COLORCUSTOM DIALOGEX DISCARDABLE  0, 0, 147, 161
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | 
+    WS_CAPTION
+CAPTION "Персонализиран"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "Цветове:",XTP_IDC_TXT_COLORS,2,4,43,10
+    CONTROL         "",XTP_IDC_CLR_WND,"Static",SS_BLACKFRAME | WS_TABSTOP,3,
+                    15,119,86
+    CONTROL         "",XTP_IDC_CLR_LUM,"Static",SS_BLACKFRAME | WS_TABSTOP,
+                    126,15,20,86
+    LTEXT           "Hue:",XTP_IDC_TXT_HUE,7,108,28,8
+    EDITTEXT        XTP_IDC_EDIT_HUE,37,106,33,13,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Spin1",XTP_IDC_SPIN_HUE,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,61,105,
+                    10,14
+    LTEXT           "Насищане:",XTP_IDC_TXT_SAT,7,125,30,8
+    EDITTEXT        XTP_IDC_EDIT_SAT,37,122,33,13,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Spin2",XTP_IDC_SPIN_SAT,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,61,122,
+                    10,14
+    LTEXT           "Яркост:",XTP_IDC_TXT_LUM,7,140,30,8
+    EDITTEXT        XTP_IDC_EDIT_LUM,37,138,33,13,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Spin3",XTP_IDC_SPIN_LUM,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,61,137,
+                    10,14
+    LTEXT           "Червен:",XTP_IDC_TXT_RED,77,108,29,8
+    EDITTEXT        XTP_IDC_EDIT_RED,107,106,33,13,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Spin1",XTP_IDC_SPIN_RED,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,131,105,
+                    11,14
+    LTEXT           "Зелено:",XTP_IDC_TXT_GREEN,77,125,23,8
+    EDITTEXT        XTP_IDC_EDIT_GREEN,107,122,33,13,ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    CONTROL         "Spin2",XTP_IDC_SPIN_GREEN,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,131,122,
+                    11,14
+    LTEXT           "Син:",XTP_IDC_TXT_BLUE,77,140,23,8
+    EDITTEXT        XTP_IDC_EDIT_BLUE,107,138,33,13,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Spin3",XTP_IDC_SPIN_BLUE,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,131,137,
+                    11,14
+END
+
+XTP_IDD_COLORSTANDARD DIALOGEX DISCARDABLE  0, 0, 147, 161
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | 
+    WS_CAPTION
+CAPTION "Стандартен"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "&Цветове:",XTP_IDC_TXT_COLORS,2,4,43,10
+    CONTROL         "",XTP_IDC_CLR_HEX,"Static",SS_BLACKFRAME | WS_TABSTOP,0,
+                    15,147,145
+END
+
+XTP_IDD_WINDOWLIST DIALOGEX DISCARDABLE  0, 0, 301, 164
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Подредете Windows"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "Изберете Прозорец",IDC_STATIC,7,7,147,8
+    LISTBOX         XTP_IDC_LBOX_WINDOWS,7,17,216,140,LBS_SORT | 
+                    LBS_OWNERDRAWFIXED | LBS_HASSTRINGS | 
+                    LBS_NOINTEGRALHEIGHT | LBS_EXTENDEDSEL | WS_VSCROLL | 
+                    WS_HSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Активирате",XTP_IDC_BTN_ACTIVATE,228,7,69,14
+    PUSHBUTTON      "Добре",IDOK,228,24,69,14
+    PUSHBUTTON      "Запазване",XTP_IDC_BTN_SAVE,228,41,69,14
+    PUSHBUTTON      "Затвори прозореца",XTP_IDC_BTN_CLOSEWINDOWS,228,58,69,14
+    PUSHBUTTON      "Каскада",XTP_IDC_BTN_CASCADE,228,75,69,14
+    PUSHBUTTON      "Плочка хоризонтално",XTP_IDC_BTN_TILEHORZ,228,92,69,14
+    PUSHBUTTON      "Плочка вертикално",XTP_IDC_BTN_TILEVERT,228,109,69,14
+    PUSHBUTTON      "Минимизиране",XTP_IDC_BTN_MINIMIZE,228,126,69,14
+END
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+XTP_IDM_POPUP MENU DISCARDABLE 
+BEGIN
+    POPUP "RClickOutlookBar"
+    BEGIN
+        MENUITEM "Малки икони",                XTP_IDC_SMALLICON
+        MENUITEM "Големи икони",                XTP_IDC_LARGEICON
+    END
+    POPUP "RClickHexEdit"
+    BEGIN
+        MENUITEM "Отмяна",                       ID_EDIT_UNDO
+        MENUITEM SEPARATOR
+        MENUITEM "Разрез",                        ID_EDIT_CUT
+        MENUITEM "Копиране",                       ID_EDIT_COPY
+        MENUITEM "Залепете",                      ID_EDIT_PASTE
+        MENUITEM "Изтрий",                     ID_EDIT_CLEAR
+        MENUITEM SEPARATOR
+        MENUITEM "Избери всички",                 ID_EDIT_SELECT_ALL
+    END
+    POPUP "RClickHeader"
+    BEGIN
+        MENUITEM "Сортиране по възходящ ред",              XTP_IDC_SORTASC
+        MENUITEM "Сортиране в низходящ ред",             XTP_IDC_SORTDSC
+        MENUITEM SEPARATOR
+        POPUP "Подравняване"
+        BEGIN
+            MENUITEM "Подравняване вляво",                  XTP_IDC_ALIGNLEFT
+            MENUITEM "Подравнете центъра",                XTP_IDC_ALIGNCENTER
+            MENUITEM "Подравняване вдясно",                 XTP_IDC_ALIGNRIGHT
+        END
+    END
+END
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDC_BTN_NEW          "Нов"
+    XTP_IDC_BTN_DELETE       "Изтрий"
+    XTP_IDC_BTN_UP           "Преместване нагоре"
+    XTP_IDC_BTN_DOWN         "Преместване надолу"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_NAME             "Име"
+    XTP_IDS_SIZE             "Размер"
+    XTP_IDS_TYPE             "Тип"
+    XTP_IDS_MODIFIED         "Променен"
+    XTP_IDS_COLOR_AUTO       "Автоматичен"
+    XTP_IDS_COLOR_CUST       "Персонализиране..."
+    XTP_IDS_SELDIR           "Изберете директория:"
+    XTP_IDS_DOT              "..."
+    XTP_IDS_DEFEXT           "*.*"
+    XTP_IDS_DEFFILT          "Всички файлове (*.*)|*.*||"
+    XTP_IDS_DEFTITLE         "Име на директория:"
+    XTP_IDS_CLICKKEEPOPEN    "Щракнете върху щифта, за да остане отворен"
+    XTP_IDS_SE_0             "Операционната система няма памет или ресурси."
+    XTP_IDS_SE_ERR_FNF       "Посоченият файл не е намерен."
+    XTP_IDS_SE_ERR_PNF       "Посоченият път не беше намерен."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_SE_ERR_ACCESSDENIED    "Операционната система отказа достъп до посочения файл."
+    XTP_IDS_SE_ERR_OOM             "Нямаше достатъчно памет за завършване на операцията."
+    XTP_IDS_SE_ERR_BAD_FORMAT      ".exe файлът е невалиден (различен от Win32® .exe или грешка в .exe изображение)."
+    XTP_IDS_SE_ERR_SHARE           "Възникна нарушение на споделянето."
+    XTP_IDS_SE_ERR_ASSOCINCOMPLETE "Асоциацията на името на файла е непълна или невалидна."
+    XTP_IDS_SE_ERR_DDETIMEOUT      "DDE транзакцията не можа да бъде завършена, тъй като времето за изчакване на заявката изтече."
+    XTP_IDS_SE_ERR_DDEFAIL         "DDE транзакцията е неуспешна."
+    XTP_IDS_SE_ERR_DDEBUSY         "DDE транзакцията не може да бъде завършена, защото се обработват други DDE транзакции."
+    XTP_IDS_SE_ERR_NOASSOC         "Няма приложение, свързано с даденото файлово разширение."
+    XTP_IDS_SE_ERR_DLLNOTFOUND     "Посочената библиотека за динамични връзки не беше намерена."
+    XTP_IDS_SE_ERR_UNKOWN          "Възникна неизвестна грешка номер %d."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDC_SORTASC          "Сортиране по възходящ ред\nСортиране по възходящ ред"
+    XTP_IDC_SORTDSC          "Сортиране в низходящ ред\nСортиране в низходящ ред"
+    XTP_IDC_ALIGNLEFT        "Подравнява абзаца в лявото поле\nПодравняване вляво"
+    XTP_IDC_ALIGNCENTER      "Центрира абзаца между полетата\nЦентър"
+    XTP_IDC_ALIGNRIGHT       "Подравнява абзаца в дясното поле\nПодравняване вдясно"
+    XTP_IDC_LARGEICON        "Показване на големи икони\nГолеми икони"
+    XTP_IDC_SMALLICON        "Показване на малки икони\nМалки икони"
+    XTP_IDC_REMOVEITEM       "Премахване от лентата на Outlook"
+    XTP_IDC_RENAMEITEM       "Преименуване на пряк път"
+    XTP_IDC_REMOVEGROUP      "Премахване на група"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDC_RENAMEGROUP      "Преименуване на група"
+    XTP_IDS_HEX              "Шестнадесетичен"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_STD_COLORS       "Стандартни цветове"
+	XTP_IDS_RECENT_COLORS    "Последни цветове"
+	XTP_IDS_THEME_COLORS     "Цветове на темата"
+	XTP_IDS_TAGCLOUD_TIP     "Етикет: %s, резултат: %d"
+    XTP_IDS_TIPTEXT          "Текст на съвета"
+    XTP_IDS_DIDYOUKNOW       "Знаеше ли..."
+    XTP_IDS_FILE_ABSENT      "Посоченият файл не съществува."
+    XTP_IDS_FILE_CORRUPT     "Грешка при четене на файла."
+    XTP_IDS_COLOR_CAPTION    "Цветове"
+    XTP_IDS_NEW              "Нов"
+    XTP_IDS_CURRENT          "Текущ"
+    XTP_IDS_DIRECTORIES      "Директории:"
+    XTP_IDS_FILES            "Файлове:"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_TASK_OK           "Добре"
+    XTP_IDS_TASK_YES          "Да"
+    XTP_IDS_TASK_NO           "Не"
+    XTP_IDS_TASK_RETRY        "Опитайте отново"
+    XTP_IDS_TASK_CANCEL       "Отказ"
+    XTP_IDS_TASK_CLOSE        "Близо"
+    XTP_IDS_TASK_APPLY        "Приложи"
+    XTP_IDS_TASK_HELP         "Помогне"
+    XTP_IDS_TASK_SEE_DETAILS  "Покажи детайли"
+    XTP_IDS_TASK_HIDE_DETAILS "Скриване на детайлите"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_BACKGROUND1        "Предистория 1"
+    XTP_IDS_BACKGROUND2        "Предистория 2"
+    XTP_IDS_TEXT1              "Текст 1"
+    XTP_IDS_TEXT2              "Текст 2"
+    XTP_IDS_ACCENT1            "Акцент 1"
+    XTP_IDS_ACCENT2            "Акцент 2"
+    XTP_IDS_ACCENT3            "Акцент 3"
+    XTP_IDS_ACCENT4            "Акцент 4"
+    XTP_IDS_ACCENT5            "Акцент 5"
+    XTP_IDS_ACCENT6            "Акцент 6"
+    XTP_IDS_LIGHTER            "Запалка"
+    XTP_IDS_DARKER             "По-тъмен"
+END
+
+STRINGTABLE DISCARDABLE
+BEGIN
+    XTP_IDS_PREVIEW_DEFAULT_LOADING_MESSAGE "Получаване на визуализация на '%'"
+    XTP_IDS_PREVIEW_DEFAULT_FAILED_MESSAGE  "Не може да се получи визуализация на '%'"
+END
+
+#endif // !defined(_XTP_NO_STANDARDCONTROLS_RES) && ( !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_BGR))

@@ -1,0 +1,8 @@
+<Viewbox xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation' xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml' Stretch='Uniform'>
+	<Canvas>
+		<Ellipse Width="35" Height="35" Stroke="#FFFFFF" StrokeThickness="2"/>
+		<Line X1="7" Y1="18"   X2="28" Y2="18" Stroke="#FFFFFF" StrokeThickness="3"/>
+		<Line X1="8" Y1="18"   X2="16" Y2="8" Stroke="#FFFFFF" StrokeThickness="3"/>
+		<Line X1="8" Y1="18"   X2="16" Y2="27" Stroke="#FFFFFF" StrokeThickness="3"/>
+	</Canvas>
+</Viewbox>

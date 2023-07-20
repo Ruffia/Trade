@@ -1,0 +1,4 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Office2016", ".\Office2016_vc100.vcxproj", "{81278762-4994-8142-4586-594654145145}"
+EndProject

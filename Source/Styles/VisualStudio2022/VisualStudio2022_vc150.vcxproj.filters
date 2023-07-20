@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{52824493-e899-4ad1-9e1c-efbab8842210}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Image Files">
+      <UniqueIdentifier>{e064f301-e0cc-4455-9524-4ee654f2a441}</UniqueIdentifier>
+      <Extensions>.png;.bmp</Extensions>
+    </Filter>
+    <Filter Include="Image Files\png">
+      <UniqueIdentifier>{77d33575-410b-46e0-bd1b-b4fe3c5823ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Image Files\bmp">
+      <UniqueIdentifier>{e12dc609-948b-4f11-9e96-08d680390264}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ini Files">
+      <UniqueIdentifier>{d78d1555-df80-4e6c-b9c2-743a79b96061}</UniqueIdentifier>
+      <Extensions>.ini</Extensions>
+    </Filter>
+    <Filter Include="Zip Files">
+      <UniqueIdentifier>{a23e88eb-2a13-4e9c-ab55-67d932349d50}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="VisualStudio2022.rc">
+      <Filter>Source Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Styles\VisualStudio2022\res\CalendarEventGlyphs.bmp">
+      <Filter>Image Files</Filter>
+    </None>
+    <None Include="res\backstage-back-button-extralarge-rtl.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\backstage-back-button-extralarge.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\backstage-back-button-large-rtl.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\backstage-back-button-large.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\backstage-back-button-medium-rtl.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\backstage-back-button-medium.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\backstage-back-button-small-rtl.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\backstage-back-button-small.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-backstage-back-button-extralarge-rtl.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-backstage-back-button-extralarge.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-backstage-back-button-large-rtl.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-backstage-back-button-large.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-backstage-back-button-medium-rtl.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-backstage-back-button-medium.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-backstage-back-button-small-rtl.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\dark-backstage-back-button-small.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\ShortcutBarGlyphs.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\ShortcutBarGripper.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\ShortcutBarItems.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\ShortcutBarNavigateItem.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\TimeLineViewAppointmentIcon.png">
+      <Filter>Image Files\png</Filter>
+    </None>
+    <None Include="res\CalendarEventGlyphs.bmp">
+      <Filter>Image Files\bmp</Filter>
+    </None>
+    <None Include="VisualStudio2022Blue.ini">
+      <Filter>Ini Files</Filter>
+    </None>
+    <None Include="VisualStudio2022BlueExtra.ini">
+      <Filter>Ini Files</Filter>
+    </None>
+    <None Include="VisualStudio2022Dark.ini">
+      <Filter>Ini Files</Filter>
+    </None>
+    <None Include="VisualStudio2022Light.ini">
+      <Filter>Ini Files</Filter>
+    </None>
+    <None Include="XamlStyle.zip">
+      <Filter>Zip Files</Filter>
+    </None>
+  </ItemGroup>
+</Project>

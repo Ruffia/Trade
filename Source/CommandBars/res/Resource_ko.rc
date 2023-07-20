@@ -1,0 +1,338 @@
+// CommandBars resource file
+//
+// (c)1998-2023 Codejock Software, All Rights Reserved.
+//
+// THIS SOURCE FILE IS THE PROPERTY OF CODEJOCK SOFTWARE AND IS NOT TO BE
+// RE-DISTRIBUTED BY ANY MEANS WHATSOEVER WITHOUT THE EXPRESSED WRITTEN
+// CONSENT OF CODEJOCK SOFTWARE.
+//
+// THIS SOURCE CODE CAN ONLY BE USED UNDER THE TERMS AND CONDITIONS OUTLINED
+// IN THE XTREME TOOLKIT PRO LICENSE AGREEMENT. CODEJOCK SOFTWARE GRANTS TO
+// YOU (ONE SOFTWARE DEVELOPER) THE LIMITED RIGHT TO USE THIS SOFTWARE ON A
+// SINGLE COMPUTER.
+//
+// CONTACT INFORMATION:
+// support@codejock.com
+// http://www.codejock.com
+//
+/////////////////////////////////////////////////////////////////////////////
+
+#include "CommandBars/Resource.h"
+#include "CommandBars/res/Resource-Neutral.rc"
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)
+#ifdef _WIN32
+LANGUAGE LANG_KOREAN, SUBLANG_DEFAULT
+#pragma code_page(949)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+XTP_IDD_IMAGEEDITOR_DIALOG DIALOGEX 0, 0, 253, 185
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "버튼 편집기"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    LTEXT           "그림",IDC_STATIC,7,7,86,8
+    GROUPBOX        "그림 물감",IDC_STATIC,102,106,80,71
+    GROUPBOX        "이동하다",IDC_STATIC,101,72,81,31
+    GROUPBOX        "시사",IDC_STATIC,7,106,86,71
+    GROUPBOX        "도구",IDC_STATIC,101,9,81,60
+    DEFPUSHBUTTON   "좋아요",IDOK,193,7,50,14
+    PUSHBUTTON      "취소",IDCANCEL,193,25,50,14
+    CONTROL         "",XTP_IDC_STATIC_PICTURE,"Static",SS_BLACKFRAME | 
+                    SS_NOTIFY,7,17,86,80
+    CTEXT           "",XTP_IDC_STATIC_PREVIEW,14,117,73,54,SS_CENTERIMAGE,
+                    WS_EX_STATICEDGE
+    LTEXT           "투명한",IDC_STATIC,135,156,42,8
+    LTEXT           "",XTP_IDC_CLR_ERASE,116,153,15,15,SS_NOTIFY
+    CTEXT           "도구",XTP_IDC_STATIC_TOOLS,112,21,60,43,SS_CENTERIMAGE | 
+                    NOT WS_VISIBLE | WS_BORDER
+    CTEXT           "이동하다",XTP_IDC_STATIC_MOVE,111,83,62,12,SS_CENTERIMAGE | 
+                    NOT WS_VISIBLE | WS_BORDER
+    CONTROL         "",XTP_IDC_CLR_PICKER,"Static",SS_LEFTNOWORDWRAP | 
+                    SS_NOTIFY | WS_GROUP,109,144,15,15
+    CTEXT           "그림 물감",XTP_IDC_STATIC_COLORS,107,121,68,12,
+                    SS_CENTERIMAGE | NOT WS_VISIBLE | WS_BORDER
+END
+
+XTP_IDD_PAGE_KEYBOARD DIALOGEX DISCARDABLE  0, 0, 230, 150
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_CAPTION | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
+CAPTION "건반"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "범주:",IDC_STATIC,4,5,89,8
+    COMBOBOX        XTP_IDC_COMBO_CATEGORY,4,15,91,147,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "명령:",XTP_IDC_TXT_COMMANDS,4,28,89,8
+    LISTBOX         XTP_IDC_LBOX_ACCEL_COMMANDS,4,38,91,77,LBS_HASSTRINGS | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LISTBOX         XTP_IDC_LBOX_ACCEL_COMMANDS_EX,4,38,91,77,LBS_HASSTRINGS | 
+                    LBS_OWNERDRAWFIXED |
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "주요 할당:",XTP_IDC_TXT_ASSIGNMENTS,100,28,73,8
+    LISTBOX         XTP_IDC_LBOX_KEYS,100,38,70,51,LBS_HASSTRINGS | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LISTBOX         XTP_IDC_LBOX_KEYS_EX,100,38,70,51,LBS_HASSTRINGS | 
+                    LBS_OWNERDRAWFIXED |
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "새 바로 가기 키를 누르십시오.:",XTP_IDC_TXT_NEWKEY,100,93,100,8
+    EDITTEXT        XTP_IDC_EDIT_SHORTCUTKEY,100,103,70,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "양수인",XTP_IDC_BTN_ASSIGN,174,39,54,14
+    PUSHBUTTON      "제거하다",XTP_IDC_BTN_REMOVE,174,56,54,14
+    PUSHBUTTON      "모두 초기화",XTP_IDC_BTN_ACCEL_RESET,174,73,54,14
+    LTEXT           "설명:",XTP_IDC_TXT_DESC_TITLE,4,117,89,8
+    LTEXT           "",XTP_IDC_TXT_DESC_OVERVIEW,4,127,224,19,0,
+                    WS_EX_STATICEDGE
+END
+
+XTP_IDD_PAGE_TOOLBARS DIALOGEX DISCARDABLE  0, 0, 230, 150
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_CAPTION | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
+CAPTION "도구 모음"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "도구 모음:",IDC_STATIC,4,5,148,8
+    LISTBOX         XTP_IDC_LIST_TOOLBARS,4,15,150,131,LBS_OWNERDRAWFIXED | 
+                    LBS_HASSTRINGS | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | 
+                    WS_TABSTOP
+    PUSHBUTTON      "새로운...",XTP_IDC_BUTTON_NEW,158,15,70,14
+    PUSHBUTTON      "이름 바꾸기...",XTP_IDC_BUTTON_RENAME,158,33,70,14
+    PUSHBUTTON      "삭제",XTP_IDC_BUTTON_DELETE,158,51,70,14
+    PUSHBUTTON      "초기화...",XTP_IDC_BUTTON_RESET,158,69,70,14
+END
+
+XTP_IDD_PAGE_OPTIONS DIALOGEX DISCARDABLE  0, 0, 230, 150
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_CAPTION | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
+CAPTION "옵션"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "개인화된 메뉴 및 도구 모음",XTP_IDC_GROUP_PERSONALIZED,4,5,222,8
+    CONTROL         "항상 전체 메뉴 표시",XTP_IDC_CHECK_FULL_MENUS,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,17,216,10
+    CONTROL         "짧은 지연 후 전체 메뉴 표시",
+                    XTP_IDC_CHECK_AFTERDELAY,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,22,29,204,10
+    PUSHBUTTON      "메뉴 및 도구 모음 사용 데이터 재설정",
+                    XTP_IDC_BUTTON_RESETDATA,10,42,179,14
+    LTEXT           "다른", XTP_IDC_GROUP_OTHER,4,70,222,8
+    CONTROL         "큰 아이콘",XTP_IDC_CHECK_LARGEICONS,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,10,82,216,10
+    CONTROL         "도구 모음에 화면 팁 표시시",XTP_IDC_CHECK_SCREENTTIPS,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,93,216,10
+    CONTROL         "화면 설명에 바로 가기 키 표시",
+                    XTP_IDC_CHECK_SHORTCUTS,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,22,104,204,10
+    LTEXT           "메뉴 애니메이션:",IDC_STATIC,10,117,62,8
+    COMBOBOX        XTP_IDC_COMBO_ANIMATION,76,115,79,65,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+END
+
+XTP_IDD_PAGE_COMMANDS DIALOGEX DISCARDABLE  0, 0, 230, 150
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_CAPTION | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
+CAPTION "명령"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "도구 모음에 명령을 추가하려면 범주를 선택하고 이 대화 상자에서 도구 모음으로 명령을 끕니다.",
+                    IDC_STATIC,4,5,220,19
+    LTEXT           "카테고리:",IDC_STATIC,4,25,80,8
+    LISTBOX         XTP_IDC_LIST_CATEGORIES,4,35,81,111,LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL | WS_TABSTOP
+    LISTBOX         XTP_IDC_LIST_CATEGORIES_EX,4,35,81,111,LBS_NOINTEGRALHEIGHT | 
+                    LBS_OWNERDRAWFIXED | LBS_HASSTRINGS | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "명령:",IDC_STATIC,90,25,134,8
+    LISTBOX         XTP_IDC_LIST_COMMANDS,90,35,135,111,LBS_OWNERDRAWFIXED | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+END
+
+XTP_IDD_PAGE_MENUS DIALOGEX DISCARDABLE  0, 0, 230, 150
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_CAPTION | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
+CAPTION "메뉴"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "애플리케이션 메뉴",XTP_IDC_STATIC_APPLICATIONMENUS,4,5,222,
+                    8
+    LTEXT           "상황에 맞는 메뉴",XTP_IDC_STATIC_CONTEXTMENUS,4,80,222,8
+    LTEXT           "메뉴 보기:",IDC_STATIC,10,20,44,11
+    COMBOBOX        XTP_IDC_COMBO_APPMENUS,54,18,159,79,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "초기화",XTP_IDC_BUTTON_RESETAPP,10,57,70,14
+    LTEXT           "기본 메뉴\n기본 애플리케이션 메뉴",XTP_IDC_STATIC_DESCRIPTION,37,34,181,18
+    ICON            0,XTP_IDC_STATIC_ICON,10,32,21,20
+    LTEXT           "상황에 맞는 메뉴 선택:",IDC_STATIC,10,92,68,10
+    COMBOBOX        XTP_IDC_COMBO_CONTEXTMENUS,83,90,130,79,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "초기화",XTP_IDC_BUTTON_RESETCONTEXT,10,108,70,14
+END
+
+XTP_IDD_NEWTOOLBAR DIALOGEX DISCARDABLE  0, 0, 186, 52
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "새 도구 모음"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "도구 모음 이름:",IDC_STATIC,4,4,178,8
+    EDITTEXT        XTP_IDC_EDIT_TOOLBARNAME,4,15,178,12,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "좋아요",IDOK,78,34,50,14
+    PUSHBUTTON      "취소",IDCANCEL,132,34,50,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+XTP_IDR_CUSTOMIZEMENU MENU DISCARDABLE 
+BEGIN
+    POPUP "커스터마이징"
+    BEGIN
+        MENUITEM "초기화",                      XTP_ID_CUSTOMIZE_RESET
+        MENUITEM "삭제",                     XTP_ID_CUSTOMIZE_DELETE
+        MENUITEM SEPARATOR
+        MENUITEM "이름:",                      XTP_ID_CUSTOMIZE_NAME
+        MENUITEM SEPARATOR
+        MENUITEM "버튼 이미지 복사",          XTP_ID_CUSTOMIZE_COPYBUTTONIMAGE
+
+        MENUITEM "버튼 이미지 붙여넣기",         XTP_ID_CUSTOMIZE_PASTEBUTTONIMAGE
+
+        MENUITEM "재설정 버튼 이미지",         XTP_ID_CUSTOMIZE_RESETBUTTONIMAGE
+
+        MENUITEM "버튼 이미지 편집...",       XTP_ID_CUSTOMIZE_EDITBUTTONIMAGE
+
+        MENUITEM "버튼 이미지 변경",        XTP_ID_CUSTOMIZE_CHANGEBUTTONIMAGE
+
+        MENUITEM SEPARATOR
+        MENUITEM "기본 스타일",              XTP_ID_CUSTOMIZE_DEFAULTSTYLE
+
+        MENUITEM "텍스트만",                  XTP_ID_CUSTOMIZE_TEXTONLY
+        MENUITEM "이미지 및 텍스트",             XTP_ID_CUSTOMIZE_IMAGEANDTEXT
+
+        MENUITEM SEPARATOR
+        MENUITEM "그룹 시작",              XTP_ID_CUSTOMIZE_BEGINAGROUP
+    END
+END
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_CUSTOMIZE_CLOSE "닫다"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_CUSTOMIZE       "커스터마이징"
+    XTP_IDS_NEWMENU         "신메뉴"
+    XTP_IDS_CUSTOMIZE_STATUSBAR "상태 표시줄 사용자 지정"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_CONFIRM_RESETDATA 
+                            "이렇게 하면 이 응용 프로그램에서 사용한 명령 기록이 삭제되고 메뉴 및 도구 모음에 표시되는 기본 명령 집합이 복원됩니다. 명시적 사용자 지정은 실행 취소되지 않습니다. 이 작업을 수행하시겠습니까?"
+    XTP_IDS_INVALID_NUMBER  "유효한 번호가 아닙니다."
+    XTP_IDS_INVALID_FONTSIZE "숫자는 1에서 1638 사이여야 합니다."
+    XTP_IDS_CONFIRM_RESET   "'%s' 도구 모음에 대한 변경 사항을 재설정하시겠습니까?"
+    XTP_IDS_BUILTINMENUS    "내장 메뉴"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_CUSTOM_BAR      "사용자 정의 %d"
+    XTP_IDS_ERROR_BLANKNAME "도구 모음 이름은 비워둘 수 없습니다. 이름을 입력합니다."
+    XTP_IDS_ERROR_LIMIT     "죄송합니다. 한도에 도달했습니다."
+    XTP_IDS_ERROR_EXISTS    "이름이 '%s'인 도구 모음이 이미 있습니다. 다른 이름을 입력하십시오."
+    XTP_IDS_RENAMETOOLBAR   "도구 모음 이름 바꾸기"
+    XTP_IDS_CONFIRM_DELETE  "정말 '%s' 툴바를 삭제하시겠습니까?"
+    XTP_IDS_ALLCOMMANDS     "모든 명령"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_ID_CUSTOMIZE        "응용 프로그램 모양, 도구 모음 및 메뉴를 사용자 정의합니다.\n사용자 정의..."
+    XTP_ID_CUSTOMIZE_RESET  "\n도구 모음 재설정"
+    XTP_ID_CUSTOMIZE_ADDORREMOVE "\n버튼 추가 또는 제거"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_CONFIRM_KEYBOARD 
+                            "키 할당을 재설정하시겠습니까? 이 작업은 텍스트 수준에서 모든 사용자 지정 키 할당을 제거합니다."
+    XTP_IDS_CONFIRM_REASSIGN 
+                            "이 바로 가기는 현재 지정되어 있습니다.\n이 바로 가기를 다시 지정하시겠습니까?"
+    XTP_IDS_CONFIRM_UPDATE  "소프트웨어 업데이트로 인해 도구 모음 '%s'이(가) 변경되었습니다. 사용자 지정 도구 모음을 재설정하고 새 도구 모음을 로드하시겠습니까?"
+    XTP_IDS_IMAGEEDITOR_FILTER
+                            "모든 그림 파일|*.bmp;*.wmf;*.emf;*.ico;*.dib;*.png;*.cur;*.gif;*.jpg|비트맵(*.bmp;*.dib; *.png;*.gif;*.jpg)|*.bmp;*.dib;*.png;*.gif;*.jpg|메타파일(*.wmf;*.emf)|*.wmf;*. emf|아이콘(*.ico;*.cur)|*.ico;*.cur|모든 파일(*.*)|*.*||"
+    XTP_ID_TOOLBAR_EXPAND   "\n도구 모음 옵션"
+    XTP_ID_TOOLBAR_HIDE     "\n닫기"
+    XTP_ID_POPUPBAR_EXPAND  "\n확장"
+    XTP_ID_MENUBAR_CLOSE    "\n창 닫기"
+    XTP_ID_MENUBAR_RESTORE  "\n복원 창"
+    XTP_ID_MENUBAR_MINIMIZE "\n창 최소화"
+
+    XTP_IDS_SHORTCUT_SECONDKEY "(%s)을(를) 눌렀습니다. 코드의 두 번째 키를 기다리는 중..."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_ID_BUTTON_PENCIL    "\n연필"
+    XTP_ID_BUTTON_FILL      "\n채우기 색상"
+    XTP_ID_BUTTON_GETCOLOR  "\n색상 선택"
+    XTP_ID_BUTTON_LINE      "\n라인"
+    XTP_ID_BUTTON_RECTANGLE "\n직사각형"
+    XTP_ID_BUTTON_CIRCLE    "\n타원"
+    XTP_ID_BUTTON_COPY      "\n복사"
+    XTP_ID_BUTTON_PASTE     "\n붙여넣기"
+    XTP_ID_BUTTON_CLEAR     "\n지우기"
+    XTP_ID_BUTTON_UNDO      "\n실행취소"
+    XTP_ID_BUTTON_REDO      "\n다시 실행"
+    XTP_ID_BUTTON_OPEN      "\n파일에서 가져오기"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_ANIMATION_SYSDEF "(시스템 기본값)"
+    XTP_IDS_ANIMATION_RANDOM "무작위의"
+    XTP_IDS_ANIMATION_UNFOLD "펴다"
+    XTP_IDS_ANIMATION_SLIDE "미끄러지 다"
+    XTP_IDS_ANIMATION_FADE  "바래다"
+    XTP_IDS_ANIMATION_NONE  "없음"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_ID_WORKSPACE_MOVEPREVIOUS "\n이전 탭 그룹으로 이동"
+    XTP_ID_WORKSPACE_MOVENEXT "\n다음 탭 그룹으로 이동"
+    XTP_ID_WORKSPACE_NEWHORIZONTAL "\n새 수평 탭 그룹"
+    XTP_ID_WORKSPACE_NEWVERTICAL "\n새 수직 탭 그룹"
+    XTP_ID_WORKSPACE_CANCEL "\n취소"
+    XTP_ID_WORKSPACE_DETACH "\n분리"
+    XTP_ID_WORKSPACE_DETACH_ALL "\n모두 분리"
+    XTP_ID_WORKSPACE_ATTACH "\n첨부"
+    XTP_ID_WORKSPACE_ATTACH_ALL "\n모두 첨부"
+    XTP_IDS_TABNAVIGATEBUTTON_ACTIVEFILES "활성 파일"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_ID_PREVIEW_PRINT    "미리 본 항목을 인쇄합니다.\n인쇄"
+    XTP_ID_PREVIEW_PREV     "이전 페이지로 이동\n이전 페이지"
+    XTP_ID_PREVIEW_NEXT     "다음 페이지로 이동\n다음 페이지"
+    XTP_ID_PREVIEW_ZOOMIN   "미리보기 페이지 확대 확대\n확대"
+    XTP_ID_PREVIEW_ZOOMOUT  "미리보기 페이지의 확대 축소\n축소"
+    XTP_ID_PREVIEW_ONEPAGE  "단일 페이지"
+    XTP_ID_PREVIEW_TWOPAGE  "여러 페이지"
+    XTP_ID_PREVIEW_CLOSE    "미리보기 닫기\n미리보기 닫기"
+    XTP_IDS_PREVIEW_WHOLEPAGE "전체 페이지"
+    XTP_IDS_PREVIEW_PAGEWIDTH "페이지 폭"
+    XTP_IDS_PREVIEW_PAGEI     "페이지 %i"
+    XTP_IDS_PREVIEW_PAGEIOFI  "페이지 %i/%i"
+END
+
+#endif // !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)

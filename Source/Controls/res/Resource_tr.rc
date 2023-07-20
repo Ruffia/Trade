@@ -1,0 +1,277 @@
+// Controls resource file
+//
+// (c)1998-2023 Codejock Software, All Rights Reserved.
+//
+// THIS SOURCE FILE IS THE PROPERTY OF CODEJOCK SOFTWARE AND IS NOT TO BE
+// RE-DISTRIBUTED BY ANY MEANS WHATSOEVER WITHOUT THE EXPRESSED WRITTEN
+// CONSENT OF CODEJOCK SOFTWARE.
+//
+// THIS SOURCE CODE CAN ONLY BE USED UNDER THE TERMS AND CONDITIONS OUTLINED
+// IN THE XTREME TOOLKIT PRO LICENSE AGREEMENT. CODEJOCK SOFTWARE GRANTS TO
+// YOU (ONE SOFTWARE DEVELOPER) THE LIMITED RIGHT TO USE THIS SOFTWARE ON A
+// SINGLE COMPUTER.
+//
+// CONTACT INFORMATION:
+// support@codejock.com
+// http://www.codejock.com
+//
+/////////////////////////////////////////////////////////////////////////////
+
+#include "Controls/Resource.h"
+#include "Controls/res/Resource-Neutral.rc"
+
+#if !defined(_XTP_NO_STANDARDCONTROLS_RES) && ( !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_TRK))
+#ifdef _WIN32
+LANGUAGE LANG_TURKISH, SUBLANG_DEFAULT
+#pragma code_page(1254)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+XTP_IDD_TIPOFTHEDAY DIALOGEX 0, 0, 279, 127
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Günün bahþiþi"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    DEFPUSHBUTTON   "Kapat",IDOK,224,108,50,14
+    CONTROL         "Baþlangýçta ipuçlarýný göster",XTP_IDC_CHK_DAYTIP_SHOW,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,6,110,140,10
+    PUSHBUTTON      "Sonraki Ýpucu",XTP_IDC_BTN_DAYTIP_NEXT,170,108,50,14
+    CONTROL         "",XTP_IDC_BTN_DAYTIP_BORDER,"Static",SS_GRAYFRAME | NOT WS_VISIBLE,0,0,279,103
+END
+
+XTP_IDD_COLORCUSTOM DIALOGEX DISCARDABLE  0, 0, 147, 161
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | 
+    WS_CAPTION
+CAPTION "Gelenek"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "Renkler:",XTP_IDC_TXT_COLORS,2,4,43,10
+    CONTROL         "",XTP_IDC_CLR_WND,"Static",SS_BLACKFRAME | WS_TABSTOP,3,
+                    15,119,86
+    CONTROL         "",XTP_IDC_CLR_LUM,"Static",SS_BLACKFRAME | WS_TABSTOP,
+                    126,15,20,86
+    LTEXT           "Renk tonu:",XTP_IDC_TXT_HUE,7,108,18,8
+    EDITTEXT        XTP_IDC_EDIT_HUE,25,106,33,13,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Spin1",XTP_IDC_SPIN_HUE,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,49,105,
+                    10,14
+    LTEXT           "Doyma:",XTP_IDC_TXT_SAT,7,125,18,8
+    EDITTEXT        XTP_IDC_EDIT_SAT,25,122,33,13,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Spin2",XTP_IDC_SPIN_SAT,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,49,122,
+                    10,14
+    LTEXT           "Parlaklýk:",XTP_IDC_TXT_LUM,7,140,18,8
+    EDITTEXT        XTP_IDC_EDIT_LUM,25,138,33,13,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Spin3",XTP_IDC_SPIN_LUM,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,49,137,
+                    10,14
+    LTEXT           "Kýrmýzý:",XTP_IDC_TXT_RED,65,108,23,8
+    EDITTEXT        XTP_IDC_EDIT_RED,89,106,33,13,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Spin1",XTP_IDC_SPIN_RED,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,113,105,
+                    11,14
+    LTEXT           "Yeþil:",XTP_IDC_TXT_GREEN,65,125,23,8
+    EDITTEXT        XTP_IDC_EDIT_GREEN,89,122,33,13,ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    CONTROL         "Spin2",XTP_IDC_SPIN_GREEN,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,113,122,
+                    11,14
+    LTEXT           "Mavi:",XTP_IDC_TXT_BLUE,65,140,23,8
+    EDITTEXT        XTP_IDC_EDIT_BLUE,89,138,33,13,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Spin3",XTP_IDC_SPIN_BLUE,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,113,137,
+                    11,14
+END
+
+XTP_IDD_COLORSTANDARD DIALOGEX DISCARDABLE  0, 0, 147, 161
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | 
+    WS_CAPTION
+CAPTION "Standart"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "Renkler:",XTP_IDC_TXT_COLORS,2,4,43,10
+    CONTROL         "",XTP_IDC_CLR_HEX,"Static",SS_BLACKFRAME | WS_TABSTOP,0,
+                    15,147,145
+END
+
+XTP_IDD_WINDOWLIST DIALOGEX DISCARDABLE  0, 0, 301, 164
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Pencereleri Düzenleyin"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "Pencere Seç:",IDC_STATIC,7,7,147,8
+    LISTBOX         XTP_IDC_LBOX_WINDOWS,7,17,196,140,LBS_SORT | 
+                    LBS_OWNERDRAWFIXED | LBS_HASSTRINGS | 
+                    LBS_NOINTEGRALHEIGHT | LBS_EXTENDEDSEL | WS_VSCROLL | 
+                    WS_HSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Etkinleþtir",XTP_IDC_BTN_ACTIVATE,208,7,87,14
+    PUSHBUTTON      "Tamam",IDOK,208,24,87,14
+    PUSHBUTTON      "Kayýt etmek",XTP_IDC_BTN_SAVE,208,41,87,14
+    PUSHBUTTON      "Pencereyi kapat",XTP_IDC_BTN_CLOSEWINDOWS,208,58,87,14
+    PUSHBUTTON      "Çaðlayan",XTP_IDC_BTN_CASCADE,208,75,87,14
+    PUSHBUTTON      "Yatay Döþe",XTP_IDC_BTN_TILEHORZ,208,92,87,14
+    PUSHBUTTON      "Dikey Döþe",XTP_IDC_BTN_TILEVERT,208,109,87,14
+    PUSHBUTTON      "Küçültmek",XTP_IDC_BTN_MINIMIZE,208,126,87,14
+END
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+XTP_IDM_POPUP MENU DISCARDABLE 
+BEGIN
+    POPUP "RClickOutlookBar"
+    BEGIN
+        MENUITEM "Küçük ikonlar",                XTP_IDC_SMALLICON
+        MENUITEM "Büyük ikonlar",                XTP_IDC_LARGEICON
+    END
+    POPUP "RClickHexEdit"
+    BEGIN
+        MENUITEM "Geri alma",                       ID_EDIT_UNDO
+        MENUITEM SEPARATOR
+        MENUITEM "Kesmek",                        ID_EDIT_CUT
+        MENUITEM "kopyala",                       ID_EDIT_COPY
+        MENUITEM "Yapýþtýrmak",                      ID_EDIT_PASTE
+        MENUITEM "Silmek",                     ID_EDIT_CLEAR
+        MENUITEM SEPARATOR
+        MENUITEM "Hepsini seç",                 ID_EDIT_SELECT_ALL
+    END
+    POPUP "RClickHeader"
+    BEGIN
+        MENUITEM "Artan Sýralama",              XTP_IDC_SORTASC
+        MENUITEM "Azalan Sýrala",             XTP_IDC_SORTDSC
+        MENUITEM SEPARATOR
+        POPUP "Hizalama"
+        BEGIN
+            MENUITEM "Sola hizalamak",                  XTP_IDC_ALIGNLEFT
+            MENUITEM "Merkezi hizalama",                XTP_IDC_ALIGNCENTER
+            MENUITEM "Saða Hizala",                 XTP_IDC_ALIGNRIGHT
+        END
+    END
+END
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDC_BTN_NEW          "Yeni"
+    XTP_IDC_BTN_DELETE       "Silmek"
+    XTP_IDC_BTN_UP           "Yukarý Taþý"
+    XTP_IDC_BTN_DOWN         "Aþaðý inmek"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_NAME             "Ýsim"
+    XTP_IDS_SIZE             "Boy"
+    XTP_IDS_TYPE             "Tip"
+    XTP_IDS_MODIFIED         "Deðiþtirilmiþ"
+    XTP_IDS_COLOR_AUTO       "Otomatik"
+    XTP_IDS_COLOR_CUST       "Özelleþtirme..."
+    XTP_IDS_SELDIR           "Dizin Seçin:"
+    XTP_IDS_DOT              "..."
+    XTP_IDS_DEFEXT           "*.*"
+    XTP_IDS_DEFFILT          "Tüm Dosyalar (*.*)|*.*||"
+    XTP_IDS_DEFTITLE         "Dizin adý:"
+    XTP_IDS_CLICKKEEPOPEN    "Açýk tutmak için raptiyeyi týklayýn"
+    XTP_IDS_SE_0             "Ýþletim sisteminin belleði veya kaynaklarý yetersiz."
+    XTP_IDS_SE_ERR_FNF       "Belirtilen dosya bulunamadý."
+    XTP_IDS_SE_ERR_PNF       "Belirtilen yol bulunamadý."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_SE_ERR_ACCESSDENIED    "Ýþletim sistemi belirtilen dosyaya eriþimi reddetti."
+    XTP_IDS_SE_ERR_OOM             "Ýþlemi tamamlamak için yeterli bellek yoktu."
+    XTP_IDS_SE_ERR_BAD_FORMAT      ".exe dosyasý geçersiz (Win32® olmayan .exe veya .exe görüntüsünde hata)."
+    XTP_IDS_SE_ERR_SHARE           "Bir paylaþým ihlali oluþtu."
+    XTP_IDS_SE_ERR_ASSOCINCOMPLETE "Dosya adý iliþkilendirmesi eksik veya geçersiz."
+    XTP_IDS_SE_ERR_DDETIMEOUT      "Ýstek zaman aþýmýna uðradýðý için DDE iþlemi tamamlanamadý."
+    XTP_IDS_SE_ERR_DDEFAIL         "DDE iþlemi baþarýsýz oldu."
+    XTP_IDS_SE_ERR_DDEBUSY         "Diðer DDE iþlemleri gerçekleþtirilmekte olduðundan DDE iþlemi tamamlanamadý."
+    XTP_IDS_SE_ERR_NOASSOC         "Verilen dosya adý uzantýsýyla iliþkilendirilmiþ bir uygulama yok."
+    XTP_IDS_SE_ERR_DLLNOTFOUND     "Belirtilen dinamik baðlantý kitaplýðý bulunamadý."
+    XTP_IDS_SE_ERR_UNKOWN          "%d numaralý bilinmeyen bir hata oluþtu."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDC_SORTASC          "Artan Sýralama\nArtan Sýralama"
+    XTP_IDC_SORTDSC          "Azalan Sýrala\nAzalan Sýrala"
+    XTP_IDC_ALIGNLEFT        "Paragrafý sol kenar boþluðuna hizalar\nSola Hizala"
+    XTP_IDC_ALIGNCENTER      "Paragrafý kenar boþluklarý arasýnda ortalar\nOrtala"
+    XTP_IDC_ALIGNRIGHT       "Paragrafý sað kenar boþluðuna hizalar\nSaða Hizala"
+    XTP_IDC_LARGEICON        "Büyük simgeleri göster\nBüyük Simgeler"
+    XTP_IDC_SMALLICON        "Küçük simgeleri göster\nKüçük Simgeler"
+    XTP_IDC_REMOVEITEM       "Outlook Çubuðundan kaldýr"
+    XTP_IDC_RENAMEITEM       "Kýsayolu Yeniden Adlandýr"
+    XTP_IDC_REMOVEGROUP      "Grubu Kaldýr"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDC_RENAMEGROUP      "Grubu Yeniden Adlandýr"
+    XTP_IDS_HEX              "Altýgen"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_STD_COLORS       "Standart Renkler"
+	XTP_IDS_RECENT_COLORS    "Son Renkler"
+	XTP_IDS_THEME_COLORS     "Tema Renkleri"
+	XTP_IDS_TAGCLOUD_TIP     "Etiket: %s, Puan: %d"
+    XTP_IDS_TIPTEXT          "Ýpucu metni"
+    XTP_IDS_DIDYOUKNOW       "Biliyor musun..."
+    XTP_IDS_FILE_ABSENT      "Belirtilen dosya mevcut deðil."
+    XTP_IDS_FILE_CORRUPT     "Dosya okunurken hata oluþtu."
+    XTP_IDS_COLOR_CAPTION    "Renkler"
+    XTP_IDS_NEW              "Yeni"
+    XTP_IDS_CURRENT          "Akým"
+    XTP_IDS_DIRECTORIES      "Dizinler:"
+    XTP_IDS_FILES            "Dosyalar:"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_TASK_OK           "Tamam"
+    XTP_IDS_TASK_YES          "Evet"
+    XTP_IDS_TASK_NO           "Hayýr"
+    XTP_IDS_TASK_RETRY        "Yeniden dene"
+    XTP_IDS_TASK_CANCEL       "Ýptal"
+    XTP_IDS_TASK_CLOSE        "Kapat"
+    XTP_IDS_TASK_APPLY        "Uygulamak"
+    XTP_IDS_TASK_HELP         "Yardým"
+    XTP_IDS_TASK_SEE_DETAILS  "Detaylarý göster"
+    XTP_IDS_TASK_HIDE_DETAILS "Detaylarý gizle"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    XTP_IDS_BACKGROUND1        "Arka plan 1"
+    XTP_IDS_BACKGROUND2        "Arka plan 2"
+    XTP_IDS_TEXT1              "Metin 1"
+    XTP_IDS_TEXT2              "Metin 2"
+    XTP_IDS_ACCENT1            "Vurgu 1"
+    XTP_IDS_ACCENT2            "Vurgu 2"
+    XTP_IDS_ACCENT3            "Vurgu 3"
+    XTP_IDS_ACCENT4            "Vurgu 4"
+    XTP_IDS_ACCENT5            "Vurgu 5"
+    XTP_IDS_ACCENT6            "Vurgu 6"
+    XTP_IDS_LIGHTER            "Çakmak"
+    XTP_IDS_DARKER             "Daha koyu"
+END
+
+STRINGTABLE DISCARDABLE
+BEGIN
+    XTP_IDS_PREVIEW_DEFAULT_LOADING_MESSAGE "'%' Önizlemesi alýnýyor"
+    XTP_IDS_PREVIEW_DEFAULT_FAILED_MESSAGE  "'%' Önizlemesi alýnamýyor"
+END
+
+#endif // !defined(_XTP_NO_STANDARDCONTROLS_RES) && ( !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_TRK))

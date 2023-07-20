@@ -1,0 +1,140 @@
+//=======================================================================
+//================ Lex class support ====================================
+//=======================================================================
+// 	lexClass:
+//		name		= c_CPPString
+//		parent		= c_CPP
+//		parent:dyn	= c_CPP
+//
+//		children		= 0
+//		children		= class1, class2, ...
+//
+//		previous:class			=	
+//		previous:tag			=	
+//		previous:tag:separators	=	
+//
+//		start:class		= 
+//		start:Tag		= '"'
+//
+//		skip:Tag		= '\"'
+//
+//		end:class		= //
+//		end:Tag			= '"'
+//		end:separators	= ' '
+//
+//		Token:tag		= 'if', 'for', 'while', 'do'
+//		Token:start:separators	= 
+//		Token:end:separators	= 
+//-----------------------------------------------------------------------
+//---------------- Attributes -------------------------------------------
+//-----------------------------------------------------------------------
+//	txt:colorFG	= 0xffc0c0 // color value in hex format. default: black	
+//	txt:colorBK	= 0xffc0c0 // color value in hex format. default: white		
+//
+//	txt:colorSelFG	= 0xffc0c0 // color value in hex format. default: white
+//	txt:colorSelBK	= 0xffc0c0 // color value in hex format. default: black
+//
+//	txt:Bold	= 1 // {1,0} default: 0
+//	txt:Italic	= 1 // {1,0} default: 0
+//	txt:Underline	= 1 // {1,0} default: 0
+//
+//	caseSensitive	= 1 // {1,0} default: 0
+//
+//	Collapsable	= 1 // {1,0} default: 0
+//	CollapsedText	= '/*...*/' // quoted string value. default: '[..]'	
+//
+//	ParseOnScreen	= 1 // {1,0} default: 0
+// 	
+//-----------------------------------------------------------------------
+//* Global attributes ***************************************************
+//-----------------------------------------------------------------------
+// 	global:FirstParseInSeparateThread	= 1		// {0,1} default=1
+// 	global:EditReparceInSeparateThread	= 1		// {0,1} default=1
+// 	global:ConfigChangedReparceInSeparateThread= 1 // {0,1} default=1
+// 	global:EditReparceTimeout_ms	= 500		// default= 500 ms; time out for start reparse after last key was pressed.
+// 	global:MaxBackParseOffset		= 100		// default= 100 chars; maximum back buffer size. Some times parser look back for the text from current position.
+// 	global:OnScreenSchCacheLifeTime_sec = 180	// default= 180 sec; -1 and 0 means infinite; time out for on screen parsed pices of text. for memory using optimization.
+// 	global:ParserThreadIdleLifeTime_sec = 60	// default=60 sec; -1 and 0 means infinite; time out for existing of parser thread when parser idle (no parse requests).
+	
+/////////////////////////////////////////////////////////////////////////
+
+//=======================================================================
+//================ Variables support ====================================
+//=======================================================================
+// NON operation - example:   @alpha:not
+//
+// @alpha	= a-z, A-Z
+// @digit	= 0-9
+// @HexDdigit	= 0-9, a-f, A-F
+// @specs	= "~`!@#$%^&*()_-+=\\|{}[];:'\",.<>/?"
+// @EOL		= End Of Line
+//---------------------------------------------
+// special tags:  '\\', '\'', '\t', '\r', '\n'
+/////////////////////////////////////////////////////////////////////////
+
+/// LaTeX ///	
+lexClass:
+	parent:file		= <*.tex>
+	name			= c_Latex
+	txt:colorFG		= 0x000000
+	DisplayName			= 'Normal Text'
+	
+//:lexClass
+
+lexClass:	
+	name		= c_LatexComment
+	parent		= c_Latex
+	start:tag	='%'
+	end:tag		= @eol
+	txt:colorFG	= 0x00A000
+	DisplayName		= 'Latex Comment'
+
+//:lexClass
+
+lexClass:
+	name		= c_LatexRowEnd
+	parent		= c_Latex
+	token:tag	= '\\\\'
+	txt:colorFG	= 0xC08000	
+	DisplayName		'Latex Row End'
+
+//:lexClass
+
+lexClass:
+	name		= c_LatexCommand
+	parent		= c_Latex, c_LatexArgument
+	start:tag	= '\\'
+	end:separators	= @alpha:not
+	txt:colorFG	= 0x0000FF	
+	DisplayName		'Latex Command'
+
+//:lexClass
+
+lexClass:
+	name		= c_LatexArgument_start	
+	parent		= c_Latex, c_LatexArgument
+	token:tag	= '{', '['
+	txt:colorFG	= 0x000000
+	DisplayName 		= 'Latex Extension (start)'
+
+//:lexClass
+
+lexClass:
+	name		= c_LatexArgument_end	
+	parent		= c_Latex, c_LatexArgument
+	token:tag	= '}', ']'
+	txt:colorFG	= 0x000000
+	DisplayName 		= 'Latex Extension (end)'
+
+//:lexClass
+
+lexClass:
+	name		= c_LatexArgument
+	parent		= c_Latex
+	previous:class	= c_LatexArgument_start
+	end:separators  = '}', ']'
+	txt:colorFG	= 0x840000
+	DisplayName 		= 'Latex Extension'
+
+//:lexClass
+

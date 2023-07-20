@@ -1,0 +1,208 @@
+//=======================================================================
+//================ Lex class support ====================================
+//=======================================================================
+// 	lexClass:
+//		name		= c_CPPString
+//		parent		= c_CPP
+//		parent:dyn	= c_CPP
+//
+//		children		= 0
+//		children		= class1, class2, ...
+//
+//		previous:class			=	
+//		previous:tag			=	
+//		previous:tag:separators	=	
+//
+//		start:class		= 
+//		start:Tag		= '"'
+//
+//		skip:Tag		= '\"'
+//
+//		end:class		= //
+//		end:Tag			= '"'
+//		end:separators	= ' '
+//
+//		Token:tag		= 'if', 'for', 'while', 'do'
+//		Token:start:separators	= 
+//		Token:end:separators	= 
+//-----------------------------------------------------------------------
+//---------------- Attributes -------------------------------------------
+//-----------------------------------------------------------------------
+//	txt:colorFG	= 0xffc0c0 // color value in hex format. default: black	
+//	txt:colorBK	= 0xffc0c0 // color value in hex format. default: white		
+//
+//	txt:colorSelFG	= 0xffc0c0 // color value in hex format. default: white
+//	txt:colorSelBK	= 0xffc0c0 // color value in hex format. default: black
+//
+//	txt:Bold	= 1 // {1,0} default: 0
+//	txt:Italic	= 1 // {1,0} default: 0
+//	txt:Underline	= 1 // {1,0} default: 0
+//
+//	caseSensitive	= 1 // {1,0} default: 0
+//
+//	Collapsable	= 1 // {1,0} default: 0
+//	CollapsedText	= '/*...*/' // quoted string value. default: '[..]'	
+//
+//	ParseOnScreen	= 1 // {1,0} default: 0
+// 	
+//-----------------------------------------------------------------------
+//* Global attributes ***************************************************
+//-----------------------------------------------------------------------
+// 	global:FirstParseInSeparateThread	= 1		// {0,1} default=1
+// 	global:EditReparceInSeparateThread	= 1		// {0,1} default=1
+// 	global:ConfigChangedReparceInSeparateThread= 1 // {0,1} default=1
+// 	global:EditReparceTimeout_ms	= 500		// default= 500 ms; time out for start reparse after last key was pressed.
+// 	global:MaxBackParseOffset		= 100		// default= 100 chars; maximum back buffer size. Some times parser look back for the text from current position.
+// 	global:OnScreenSchCacheLifeTime_sec = 180	// default= 180 sec; -1 and 0 means infinite; time out for on screen parsed pices of text. for memory using optimization.
+// 	global:ParserThreadIdleLifeTime_sec = 60	// default=60 sec; -1 and 0 means infinite; time out for existing of parser thread when parser idle (no parse requests).
+	
+/////////////////////////////////////////////////////////////////////////
+
+//=======================================================================
+//================ Variables support ====================================
+//=======================================================================
+// NON operation - example:   @alpha:not
+//
+// @alpha	= a-z, A-Z
+// @digit	= 0-9
+// @HexDdigit	= 0-9, a-f, A-F
+// @specs	= "~`!@#$%^&*()_-+=\\|{}[];:'\",.<>/?"
+// @EOL		= End Of Line
+//---------------------------------------------
+// special tags:  '\\', '\'', '\t', '\r', '\n'
+/////////////////////////////////////////////////////////////////////////
+
+/// YAML ///	
+lexClass:
+	parent:file		= <*.yaml>
+	name			= c_YAML
+	txt:colorFG		= 0x000000
+	caseSensitive		= 1
+	DisplayName			= 'Normal Text'
+
+//:lexClass
+
+lexClass:
+	name			= c_YAMLdocument
+	parent			= c_YAML
+	previous:tag		= @EOL
+	token:tag		= '---', '...'
+	txt:colorFG		= 0x0000FF
+	DisplayName 			= 'YAML Document Separator'
+
+//:lexClass
+
+lexClass:
+	name			= c_YAMLproperty_valueML
+	parent			= c_YAMLproperty_valueSL
+	start:tag		= '|', '>'
+	end:separators		= '---', '...', ':'
+	DisplayName			= 'YAML Property Value (Multi-Line)'
+
+//:lexClass
+
+lexClass:
+	name			= c_YAMLproperty_valueSL
+	parent			= c_YAML
+	previous:class		= c_YAMLproperty_start
+	previous:tag:separators = ' ', '\t'
+	end:separators		= '---', '...', ':', @EOL
+	DisplayName			= 'YAML Property Value (Single-Line)'
+
+//:lexClass
+
+lexClass:
+	name			= c_YAMLproperty_start
+	parent			= c_YAML
+	previous:tag		= @alpha
+	previous:tag:separators = ' ', '\t'
+	token:tag		= '-', ':'
+	DisplayName			= 'YAML Property (Start)'
+
+//:lexClass
+
+lexClass:	
+	name			= c_YAMLcomment
+	parent			= c_YAML, c_YAMLproperty_valueSL
+	start:tag		='#'
+	end:tag			= @eol
+	txt:colorFG		= 0x00A000
+	DisplayName			= 'YAML Comment'
+
+//:lexClass
+
+lexClass: 	
+	name			= c_YAMLstr1	
+	parent			= c_YAML, c_YAMLproperty_valueSL
+	start:tag		= '\''	
+	end:tag			= '\''
+	txt:colorFG		= 0x00A000
+	DisplayName			= 'YAML String (Single Quotes)'
+
+//:lexClass
+
+lexClass:
+	name			= c_YAMLstr2
+	parent			= c_YAML, c_YAMLproperty_valueSL
+	start:tag		= '"'
+	end:tag			= '"'
+	txt:colorFG		= 0x00A000
+	DisplayName			= 'YAML String (Double Quotes)'
+
+//:lexClass
+
+lexClass: 
+	name			= c_YAMLconstants
+	parent			= c_YAML, c_YAMLproperty_valueSL
+	token:start:separators	= ' ', '\t', @specs, @EOL 
+	token:end:separators	= ' ', '\t', @specs, @EOL 
+	txt:colorFG		= 0x0000FF
+	txt:Bold		= 1
+	DisplayName			= 'YAML Constants'
+
+	token:tag		= '.inf'
+	token:tag		= '-.inf' 
+	token:tag		= '.nan'
+
+	token:tag 		= 'y', 'Y', 'true', 'yes', 'on'
+	token:tag 		= 'n', 'N', 'false', 'no', 'off'
+	token:tag 		= '~', 'null'
+
+//:lexClass
+
+lexClass:
+	name			= c_YAMLnumber_base16
+	parent			= c_YAML, c_YAMLproperty_valueSL
+	previous:tag		= @specs, ' ', '\t', @EOL
+	start:tag		= '0x'
+	skip:tag		= 'a', 'b', 'c', 'd', 'e', 'f'
+	end:separators		= @digit:not
+	txt:colorFG		= 0xE00000
+	CaseSensitive		= 0
+	DisplayName			= 'YAML Number (Hex)'
+
+//:lexClass
+
+lexClass:
+	name			= c_YAMLnumber_base8
+	parent			= c_YAML, c_YAMLproperty_valueSL
+	previous:tag		= @specs, ' ', '\t', @EOL
+	start:tag		= '0o'
+	end:separators		= @digit:not, '8', '9'
+	txt:colorFG		= 0xE00000
+	CaseSensitive		= 0
+	DisplayName			= 'YAML Number (Octal)'
+
+//:lexClass
+
+lexClass:
+	name			= c_YAMLnumber
+	parent			= c_YAML, c_YAMLproperty_valueSL
+	previous:tag		= @specs, ' ', '\t', @EOL
+	start:tag		= @digit, '.'
+        skip:tag        	= '.', 'e', 'E', '+', '-'
+	end:separators		= @digit:not
+	txt:colorFG		= 0xE00000
+ 	DisplayName			= 'YAML Number'    
+
+//:lexClass

@@ -1,0 +1,64 @@
+﻿<Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform">
+	<Canvas Width="32" Height="32">
+
+		<Border Width="32" Height="32">
+			<Border.Background>
+				<LinearGradientBrush StartPoint="0, 0" EndPoint="1,0">
+					<GradientStop Color="#C3C3C3" Offset="0"/>
+					<GradientStop Color="#E4E4E4" Offset="1"/>
+				</LinearGradientBrush>
+			</Border.Background>
+		</Border>
+
+		<Canvas Width="24" Height="32">
+			<Border Width="32" Height="32" BorderBrush="#4170CA" BorderThickness="1"/>
+		</Canvas>
+
+		<Canvas Canvas.Left="4" Canvas.Top="4" Width="28" Height="28">
+			<Rectangle Canvas.Left="0" Canvas.Top="0" Width="28" Height="24" Fill="#52419C"/>
+			<Rectangle Canvas.Left="1" Canvas.Top="1" Width="26" Height="22" Fill="White"/>
+
+			<Rectangle Canvas.Left="1" Canvas.Top="1" Width="13" Height="22">
+				<Rectangle.Fill>
+					<LinearGradientBrush StartPoint="0, 0" EndPoint="1,0">
+						<GradientStop Color="#B4C9E1" Offset="0"/>
+						<GradientStop Color="#D7E4F3" Offset="1"/>
+					</LinearGradientBrush>
+				</Rectangle.Fill>
+			</Rectangle>
+
+			<Rectangle Canvas.Left="1" Canvas.Top="0" Width="26" Height="3">
+				<Rectangle.Fill>
+					<LinearGradientBrush StartPoint="0, 0" EndPoint="1,0">
+						<GradientStop Color="#7887A2" Offset="0"/>
+						<GradientStop Color="#3C4A65" Offset="1"/>
+					</LinearGradientBrush>
+				</Rectangle.Fill>
+			</Rectangle>
+
+			<Rectangle Canvas.Left="1" Canvas.Top="1" Width="26" Height="2">
+				<Rectangle.Fill>
+					<LinearGradientBrush StartPoint="0, 0" EndPoint="1,0">
+						<GradientStop Color="#759CE5" Offset="0"/>
+						<GradientStop Color="#4170CA" Offset="1"/>
+					</LinearGradientBrush>
+				</Rectangle.Fill>
+			</Rectangle>
+
+			<Line Canvas.Left="14" Canvas.Top="4" Y2="20" Stroke="#52419C" StrokeDashArray="1"/>
+
+		</Canvas>
+
+		<Canvas Name="Arrow" Canvas.Left="18" Canvas.Top="7" Width="13" Height="20">
+			<Path Data="M  8,6  8,14  4,10">
+				<Path.Fill>
+					<LinearGradientBrush StartPoint="0, 0" EndPoint="1,0">
+						<GradientStop Offset="0" Color="#52419C"/>
+						<GradientStop Offset="1" Color="#4662BC"/>
+					</LinearGradientBrush>
+				</Path.Fill>
+			</Path>
+		</Canvas>
+
+	</Canvas>
+</Viewbox>

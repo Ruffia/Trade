@@ -1,0 +1,312 @@
+//=======================================================================
+//================ Lex class support ====================================
+//=======================================================================
+// 	lexClass:
+//		name		= c_CPPString
+//		parent		= c_CPP
+//		parent:dyn	= c_CPP
+//
+//		children		= 0
+//		children		= class1, class2, ...
+//
+//		previous:class			=	
+//		previous:tag			=	
+//		previous:tag:separators	=	
+//
+//		start:class		= 
+//		start:Tag		= '"'
+//
+//		skip:Tag		= '\"'
+//
+//		end:class		= //
+//		end:Tag			= '"'
+//		end:separators	= ' '
+//
+//		Token:tag		= 'if', 'for', 'while', 'do'
+//		Token:start:separators	= 
+//		Token:end:separators	= 
+//-----------------------------------------------------------------------
+//---------------- Attributes -------------------------------------------
+//-----------------------------------------------------------------------
+//	txt:colorFG	= 0xffc0c0 // color value in hex format. default: black	
+//	txt:colorBK	= 0xffc0c0 // color value in hex format. default: white		
+//
+//	txt:colorSelFG	= 0xffc0c0 // color value in hex format. default: white
+//	txt:colorSelBK	= 0xffc0c0 // color value in hex format. default: black
+//
+//	txt:Bold	= 1 // {1,0} default: 0
+//	txt:Italic	= 1 // {1,0} default: 0
+//	txt:Underline	= 1 // {1,0} default: 0
+//
+//	caseSensitive	= 1 // {1,0} default: 0
+//
+//	Collapsable	= 1 // {1,0} default: 0
+//	CollapsedText	= '/*...*/' // quoted string value. default: '[..]'	
+//
+//	ParseOnScreen	= 1 // {1,0} default: 0
+// 	
+//-----------------------------------------------------------------------
+//* Global attributes ***************************************************
+//-----------------------------------------------------------------------
+// 	global:FirstParseInSeparateThread	= 1		// {0,1} default=1
+// 	global:EditReparceInSeparateThread	= 1		// {0,1} default=1
+// 	global:ConfigChangedReparceInSeparateThread= 1 // {0,1} default=1
+// 	global:EditReparceTimeout_ms	= 500		// default= 500 ms; time out for start reparse after last key was pressed.
+// 	global:MaxBackParseOffset		= 100		// default= 100 chars; maximum back buffer size. Some times parser look back for the text from current position.
+// 	global:OnScreenSchCacheLifeTime_sec = 180	// default= 180 sec; -1 and 0 means infinite; time out for on screen parsed pices of text. for memory using optimization.
+// 	global:ParserThreadIdleLifeTime_sec = 60	// default=60 sec; -1 and 0 means infinite; time out for existing of parser thread when parser idle (no parse requests).
+	
+/////////////////////////////////////////////////////////////////////////
+
+//=======================================================================
+//================ Variables support ====================================
+//=======================================================================
+// NON operation - example:   @alpha:not
+//
+// @alpha	= a-z, A-Z
+// @digit	= 0-9
+// @HexDdigit	= 0-9, a-f, A-F
+// @specs	= "~`!@#$%^&*()_-+=\\|{}[];:'\",.<>/?"
+// @EOL		= End Of Line
+//---------------------------------------------
+// special tags:  '\\', '\'', '\t', '\r', '\n'
+/////////////////////////////////////////////////////////////////////////
+
+/// XML ///	
+lexClass:
+	parent:file	= <*.xml>
+	name		= c_XML
+	txt:colorFG	= 0x000000
+	DisplayName 		= 'Normal Text'
+
+//:lexClass
+
+lexClass:  
+	name		= c_XMLcomment
+	parent		= c_XML	
+	start:tag	= '<!--'
+	end:tag		= '-->'	
+	txt:colorFG	= 0x008200
+	DisplayName 		= 'XML Comment'
+
+//:lexClass
+
+lexClass:
+	name		= c_XMLdocumentTypeDefinition_start
+	ParseOnScreen 	= 0
+	parent		= c_XML
+	token:tag	= '<!DOCTYPE'
+	txt:colorFG	= 0x0000FF
+	DisplayName 		= 'XML Document Type Definition (start)'
+
+//:lexClass
+
+
+lexClass:
+	name		= c_XMLdocumentTypeDefinition_end
+	ParseOnScreen 	= 0
+	parent		= c_XML
+	token:tag	= ']>'
+	txt:colorFG	= 0x0000FF
+	DisplayName 		= 'XML Document Type Definition (end)'
+
+//:lexClass
+
+lexClass:
+	name		= c_XMLdocumentTypeDefinition	
+	parent		= c_XML
+	previous:class	= c_XMLdocumentTypeDefinition_start
+	end:separators  = ']>'
+	txt:colorFG	= 0xFF0000
+	DisplayName 		= 'XML Document Type Definition'
+
+//:lexClass
+
+lexClass:
+	name		= c_XMLdocumentTypeDefinitionElements_start
+	ParseOnScreen 	= 0
+	parent		= c_XMLdocumentTypeDefinition
+	token:tag	= '['
+	txt:colorFG	= 0x0000FF
+	DisplayName 		= 'XML Document Type Definition (start)'
+
+//:lexClass
+
+
+lexClass:
+	name		= c_XMLdocumentTypeDefinitionElements_end
+	ParseOnScreen 	= 0
+	parent		= c_XMLdocumentTypeDefinition	
+	token:tag	= ']'
+	txt:colorFG	= 0x0000FF
+	DisplayName 		= 'XML Document Type Definition (end)'
+
+//:lexClass
+
+lexClass:
+	name		= c_XMLdocumentTypeDefinitionElements	
+	parent		= c_XMLdocumentTypeDefinition	
+	previous:class	= c_XMLdocumentTypeDefinitionElements_start
+	end:separators  = ']'
+	txt:colorFG	= 0x000000
+	DisplayName 		= 'XML Document Type Definition'
+
+//:lexClass
+
+lexClass:
+	name		= c_XMLdocumentTypeDefinitionElement_start
+	ParseOnScreen 	= 0
+	parent		= c_XMLdocumentTypeDefinitionElements
+	token:tag	= '<!ELEMENT'
+	txt:colorFG	= 0x0000FF
+	DisplayName 		= 'XML Document Type Definition (start)'
+
+//:lexClass
+
+
+lexClass:
+	name		= c_XMLdocumentTypeDefinitionElement_end
+	ParseOnScreen 	= 0
+	parent		= c_XMLdocumentTypeDefinitionElements
+	previous:class	= c_XMLdocumentTypeDefinitionData	
+	token:tag	= '>'
+	txt:colorFG	= 0x0000FF
+	DisplayName 		= 'XML Document Type Definition (end)'
+
+//:lexClass
+
+lexClass:
+	name		= c_XMLdocumentTypeDefinitionElement	
+	parent		= c_XMLdocumentTypeDefinitionElements	
+	previous:class	= c_XMLdocumentTypeDefinitionElement_start
+	end:separators  = '>'
+	txt:colorFG	= 0xFF0000
+	DisplayName 		= 'XML Document Type Definition'
+
+//:lexClass
+
+lexClass:
+	name		= c_XMLdocumentTypeDefinitionData	
+	parent		= c_XMLdocumentTypeDefinitionElement
+	start:tag	= '('
+	end:tag		= ')'	
+	txt:colorFG	= 0x0000FF
+	DisplayName 		= 'XML Document Type Definition'
+
+//:lexClass
+
+lexClass:
+	name		= c_XMLcdataBlock_start
+	ParseOnScreen 	= 0
+	parent		= c_XML
+	token:tag	= '<![CDATA['
+	txt:colorFG	= 0x0000FF
+	DisplayName 		= 'XML CDATA Block (start)'
+
+//:lexClass
+
+lexClass:
+	name		= c_XMLcdataBlock_end
+	ParseOnScreen 	= 0
+	parent		= c_XML
+	token:tag	= ']]>'
+	txt:colorFG	= 0x0000FF
+	DisplayName 		= 'XML CDATA Block (end)'
+
+//:lexClass
+
+lexClass:
+	name		= c_XMLcdataBlock	
+	parent		= c_XML
+	previous:class	= c_XMLcdataBlock_start
+	end:separators  = ']]>'
+	txt:colorFG	= 0x008200
+	DisplayName 		= 'XML CDATA Block'
+
+//:lexClass
+
+lexClass:
+	name		= c_XMLelement_start	
+	parent		= c_XML
+	token:tag	= '<', '</', '<?'
+	txt:colorFG	= 0x0000FF
+	DisplayName 		= 'XML Element (start)'
+
+//:lexClass
+
+lexClass:
+	name		= c_XMLelement_end	
+	parent		= c_XML
+	token:tag	= '>', '/>', '?>'
+	txt:colorFG	= 0x0000FF
+	DisplayName 		= 'XML Element (end)'
+
+//:lexClass
+
+lexClass:
+	name		= c_XMLelement	
+	parent		= c_XML
+	previous:class	= c_XMLelement_start
+	end:separators  = '>', '/>', '?>'
+	txt:colorFG	= 0x0000FF
+	DisplayName 		= 'XML Element'
+
+//:lexClass
+
+lexClass:
+	name		= c_XMLelementName	
+	ParseOnScreen 	= 0
+	parent		= c_XMLelement
+	previous:tag 	= '<', '</'
+	start:tag	= @alpha
+	skip:tag	= @digit, ':', '-', '_', '.'
+	end:separators 	= @alpha:not
+	txt:colorFG	= 0x840000
+	DisplayName 		= 'XML Element Name'
+
+//:lexClass
+	
+lexClass:
+	name		= c_XMLelementPropName	
+	ParseOnScreen 	= 0
+	parent		= c_XMLelement
+	previous:tag	= ' ', '\t', '>', @eol
+	start:tag	= @alpha
+	end:separators	= ' ', '\t', '=', '>', @eol
+	txt:colorFG	= 0xFF0000
+	DisplayName 		= 'XML Element Property Name'
+
+//:lexClass
+
+lexClass:
+	name		= c_XMLelementPropValueStr1
+	ParseOnScreen 	= 0
+	parent		= c_XMLelement
+	start:tag	= '"'
+	end:tag		= '"'
+	txt:colorFG	= 0x0000FF
+	DisplayName 		= 'XML Element Property Value (double quote)'
+
+//:lexClass
+	
+lexClass:	
+	name 		= c_XMLelementPropValueStr2
+	ParseOnScreen 	= 0
+	parent		= c_XMLelement
+	start:tag	='\''
+	end:tag		='\''
+	txt:colorFG	= 0x0000FF
+	DisplayName 		= 'XML Element Property Value (single quote)'
+
+//:lexClass
+
+lexClass:
+	name		= c_XMLpredefinedEntities
+	ParseOnScreen 	= 0
+	parent		= c_XMLelementPropValueStr1, c_XMLelementPropValueStr2
+	start:tag	= '&quot', '&amp', '&apos', '&lt', '&gt'
+	end:tag		= ';'
+	txt:colorFG	= 0xFF0000
+	DisplayName 		= 'XML Predefined Entities'
+
+//:lexClass

@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectName>Office2013</ProjectName>
+    <ProjectGuid>{66778192-9293-8298-7124-496983872234}</ProjectGuid>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.40219.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\Release/vc110\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\Release/vc110\</IntDir>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</IgnoreImportLibrary>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\Release/vc110x64\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\Release/vc110x64\</IntDir>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</IgnoreImportLibrary>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <TargetName>Office2013</TargetName>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <TargetName>Office2013</TargetName>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <CustomBuildStep>
+      <Command>if exist "$(TargetPath)" if exist "../../../Workspace/*" copy "$(TargetPath)" "../../../bin/vc110/Styles"
+if exist "$(TargetPath)" if exist "../../../Workspace/*" copy "$(TargetPath)" "../../../Samples/ActiveX/Styles"
+if not exist "../../../Workspace/*" if exist "../../../bin/vc110/Styles" rmdir /q "../../../bin/vc110/Styles"&gt;nul
+if not exist "../../../Workspace/*" if exist "../../../Samples/ActiveX/Styles" rmdir /q "../../../Samples/ActiveX/Styles"&gt;nul &amp;&amp; rmdir /q "../../../Samples/ActiveX"&gt;nul
+</Command>
+      <Outputs>../../../bin/vc110/Styles/$(TargetName);../../../Samples/ActiveX/Styles/$(TargetName);%(Outputs)</Outputs>
+    </CustomBuildStep>
+    <Midl>
+      <TypeLibraryName>.\Release/vc110/Office2013.tlb</TypeLibraryName>
+      <HeaderFileName>
+      </HeaderFileName>
+    </Midl>
+    <ClCompile>
+      <Optimization>MinSpace</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <PreprocessorDefinitions>NDEBUG;WIN32;_WINDOWS;_USRDLL;XTPRESOURCE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <PrecompiledHeaderOutputFile>.\Release/vc110/Office2013.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\Release/vc110/</AssemblerListingLocation>
+      <ObjectFileName>.\Release/vc110/</ObjectFileName>
+      <ProgramDataBaseFileName>.\Release/vc110/</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;_AFXDLL;_XTP_INCLUDE_VERSION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>../../;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <ProgramDatabaseFile>
+      </ProgramDatabaseFile>
+      <NoEntryPoint>true</NoEntryPoint>
+      <ImportLibrary>.\Release/vc110/Office2013vc110.lib</ImportLibrary>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <CustomBuildStep>
+      <Command>if exist "$(TargetPath)" if exist "../../../Workspace/*" copy "$(TargetPath)" "../../../bin/vc110x64/Styles"
+if exist "$(TargetPath)" if exist "../../../Workspace/*" copy "$(TargetPath)" "../../../Samples/ActiveX/Styles"
+if not exist "../../../Workspace/*" if exist "../../../bin/vc110x64/Styles" rmdir /q "../../../bin/vc110x64/Styles"&gt;nul
+if not exist "../../../Workspace/*" if exist "../../../Samples/ActiveX/Styles" rmdir /q "../../../Samples/ActiveX/Styles"&gt;nul &amp;&amp; rmdir /q "../../../Samples/ActiveX"&gt;nul
+</Command>
+      <Outputs>../../../bin/vc110x64/Styles/$(TargetName);../../../Samples/ActiveX/Styles/$(TargetName);%(Outputs)</Outputs>
+    </CustomBuildStep>
+    <Midl>
+      <TargetEnvironment>X64</TargetEnvironment>
+      <TypeLibraryName>.\Release/vc110/Office2013.tlb</TypeLibraryName>
+      <HeaderFileName>
+      </HeaderFileName>
+    </Midl>
+    <ClCompile>
+      <Optimization>MinSpace</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <PreprocessorDefinitions>NDEBUG;WIN32;_WINDOWS;_USRDLL;XTPRESOURCE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <PrecompiledHeaderOutputFile>.\Release/vc110x64/Office2013.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\Release/vc110x64/</AssemblerListingLocation>
+      <ObjectFileName>.\Release/vc110x64/</ObjectFileName>
+      <ProgramDataBaseFileName>.\Release/vc110x64/</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;_AFXDLL;_XTP_INCLUDE_VERSION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>../../;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <ProgramDatabaseFile>
+      </ProgramDatabaseFile>
+      <NoEntryPoint>true</NoEntryPoint>
+      <ImportLibrary>.\Release/vc110x64/Office2013vc110x64.lib</ImportLibrary>
+      <TargetMachine>MachineX64</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Office2013.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\backstage-back-button-extralarge-rtl.png" />
+    <None Include="res\backstage-back-button-extralarge.png" />
+    <None Include="res\backstage-back-button-large-rtl.png" />
+    <None Include="res\backstage-back-button-large.png" />
+    <None Include="res\backstage-back-button-medium-rtl.png" />
+    <None Include="res\backstage-back-button-medium.png" />
+    <None Include="res\backstage-back-button-small-rtl.png" />
+    <None Include="res\backstage-back-button-small.png" />
+    <None Include="res\dark-gray-large-calligraphy.png" />
+    <None Include="res\dark-gray-large-circles-and-stripes.png" />
+    <None Include="res\dark-gray-large-circuit.png" />
+    <None Include="res\dark-gray-large-clouds.png" />
+    <None Include="res\dark-gray-large-doodle-circles.png" />
+    <None Include="res\dark-gray-large-doodle-diamonds.png" />
+    <None Include="res\dark-gray-large-geometry.png" />
+    <None Include="res\dark-gray-large-lunchbox.png" />
+    <None Include="res\dark-gray-large-school-supplies.png" />
+    <None Include="res\dark-gray-large-spring.png" />
+    <None Include="res\dark-gray-large-stars.png" />
+    <None Include="res\dark-gray-large-straws.png" />
+    <None Include="res\dark-gray-large-tree-rings.png" />
+    <None Include="res\dark-gray-large-underwater.png" />
+    <None Include="res\dark-gray-medium-calligraphy.png" />
+    <None Include="res\dark-gray-medium-circles-and-stripes.png" />
+    <None Include="res\dark-gray-medium-circuit.png" />
+    <None Include="res\dark-gray-medium-clouds.png" />
+    <None Include="res\dark-gray-medium-doodle-circles.png" />
+    <None Include="res\dark-gray-medium-doodle-diamonds.png" />
+    <None Include="res\dark-gray-medium-geometry.png" />
+    <None Include="res\dark-gray-medium-lunchbox.png" />
+    <None Include="res\dark-gray-medium-school-supplies.png" />
+    <None Include="res\dark-gray-medium-spring.png" />
+    <None Include="res\dark-gray-medium-stars.png" />
+    <None Include="res\dark-gray-medium-straws.png" />
+    <None Include="res\dark-gray-medium-tree-rings.png" />
+    <None Include="res\dark-gray-medium-underwater.png" />
+    <None Include="res\dark-gray-small-calligraphy.png" />
+    <None Include="res\dark-gray-small-circles-and-stripes.png" />
+    <None Include="res\dark-gray-small-circuit.png" />
+    <None Include="res\dark-gray-small-clouds.png" />
+    <None Include="res\dark-gray-small-doodle-circles.png" />
+    <None Include="res\dark-gray-small-doodle-diamonds.png" />
+    <None Include="res\dark-gray-small-geometry.png" />
+    <None Include="res\dark-gray-small-lunchbox.png" />
+    <None Include="res\dark-gray-small-school-supplies.png" />
+    <None Include="res\dark-gray-small-spring.png" />
+    <None Include="res\dark-gray-small-stars.png" />
+    <None Include="res\dark-gray-small-straws.png" />
+    <None Include="res\dark-gray-small-tree-rings.png" />
+    <None Include="res\dark-gray-small-underwater.png" />
+    <None Include="res\light-gray-large-calligraphy.png" />
+    <None Include="res\light-gray-large-circles-and-stripes.png" />
+    <None Include="res\light-gray-large-circuit.png" />
+    <None Include="res\light-gray-large-clouds.png" />
+    <None Include="res\light-gray-large-doodle-circles.png" />
+    <None Include="res\light-gray-large-doodle-diamonds.png" />
+    <None Include="res\light-gray-large-geometry.png" />
+    <None Include="res\light-gray-large-lunchbox.png" />
+    <None Include="res\light-gray-large-school-supplies.png" />
+    <None Include="res\light-gray-large-spring.png" />
+    <None Include="res\light-gray-large-stars.png" />
+    <None Include="res\light-gray-large-straws.png" />
+    <None Include="res\light-gray-large-tree-rings.png" />
+    <None Include="res\light-gray-large-underwater.png" />
+    <None Include="res\light-gray-medium-calligraphy.png" />
+    <None Include="res\light-gray-medium-circles-and-stripes.png" />
+    <None Include="res\light-gray-medium-circuit.png" />
+    <None Include="res\light-gray-medium-clouds.png" />
+    <None Include="res\light-gray-medium-doodle-circles.png" />
+    <None Include="res\light-gray-medium-doodle-diamonds.png" />
+    <None Include="res\light-gray-medium-geometry.png" />
+    <None Include="res\light-gray-medium-lunchbox.png" />
+    <None Include="res\light-gray-medium-school-supplies.png" />
+    <None Include="res\light-gray-medium-spring.png" />
+    <None Include="res\light-gray-medium-stars.png" />
+    <None Include="res\light-gray-medium-straws.png" />
+    <None Include="res\light-gray-medium-tree-rings.png" />
+    <None Include="res\light-gray-medium-underwater.png" />
+    <None Include="res\light-gray-small-calligraphy.png" />
+    <None Include="res\light-gray-small-circles-and-stripes.png" />
+    <None Include="res\light-gray-small-circuit.png" />
+    <None Include="res\light-gray-small-clouds.png" />
+    <None Include="res\light-gray-small-doodle-circles.png" />
+    <None Include="res\light-gray-small-doodle-diamonds.png" />
+    <None Include="res\light-gray-small-geometry.png" />
+    <None Include="res\light-gray-small-lunchbox.png" />
+    <None Include="res\light-gray-small-school-supplies.png" />
+    <None Include="res\light-gray-small-spring.png" />
+    <None Include="res\light-gray-small-stars.png" />
+    <None Include="res\light-gray-small-straws.png" />
+    <None Include="res\light-gray-small-tree-rings.png" />
+    <None Include="res\light-gray-small-underwater.png" />
+    <None Include="res\TimeLineViewAppointmentIcon.png" />
+    <None Include="res\white-large-calligraphy.png" />
+    <None Include="res\white-large-circles-and-stripes.png" />
+    <None Include="res\white-large-circuit.png" />
+    <None Include="res\white-large-clouds.png" />
+    <None Include="res\white-large-doodle-circles.png" />
+    <None Include="res\white-large-doodle-diamonds.png" />
+    <None Include="res\white-large-geometry.png" />
+    <None Include="res\white-large-lunchbox.png" />
+    <None Include="res\white-large-school-supplies.png" />
+    <None Include="res\white-large-spring.png" />
+    <None Include="res\white-large-stars.png" />
+    <None Include="res\white-large-straws.png" />
+    <None Include="res\white-large-tree-rings.png" />
+    <None Include="res\white-large-underwater.png" />
+    <None Include="res\white-medium-calligraphy.png" />
+    <None Include="res\white-medium-circles-and-stripes.png" />
+    <None Include="res\white-medium-circuit.png" />
+    <None Include="res\white-medium-clouds.png" />
+    <None Include="res\white-medium-doodle-circles.png" />
+    <None Include="res\white-medium-doodle-diamonds.png" />
+    <None Include="res\white-medium-geometry.png" />
+    <None Include="res\white-medium-lunchbox.png" />
+    <None Include="res\white-medium-school-supplies.png" />
+    <None Include="res\white-medium-spring.png" />
+    <None Include="res\white-medium-stars.png" />
+    <None Include="res\white-medium-straws.png" />
+    <None Include="res\white-medium-tree-rings.png" />
+    <None Include="res\white-medium-underwater.png" />
+    <None Include="res\white-small-calligraphy.png" />
+    <None Include="res\white-small-circles-and-stripes.png" />
+    <None Include="res\white-small-circuit.png" />
+    <None Include="res\white-small-clouds.png" />
+    <None Include="res\white-small-doodle-circles.png" />
+    <None Include="res\white-small-doodle-diamonds.png" />
+    <None Include="res\white-small-geometry.png" />
+    <None Include="res\white-small-lunchbox.png" />
+    <None Include="res\white-small-school-supplies.png" />
+    <None Include="res\white-small-spring.png" />
+    <None Include="res\white-small-stars.png" />
+    <None Include="res\white-small-straws.png" />
+    <None Include="res\white-small-tree-rings.png" />
+    <None Include="res\white-small-underwater.png" />
+    <None Include="res\CalendarEventGlyphs.bmp" />
+    <None Include="Styles\Office2013\res\CalendarEventGlyphs.bmp" />
+    <None Include="Office2013Access.ini" />
+    <None Include="Office2013AccessGrayDark.ini" />
+    <None Include="Office2013AccessGrayLight.ini" />
+    <None Include="Office2013Excel.ini" />
+    <None Include="Office2013ExcelGrayDark.ini" />
+    <None Include="Office2013ExcelGrayLight.ini" />
+    <None Include="Office2013OneNote.ini" />
+    <None Include="Office2013OneNoteGrayDark.ini" />
+    <None Include="Office2013OneNoteGrayLight.ini" />
+    <None Include="Office2013Outlook.ini" />
+    <None Include="Office2013OutlookGrayDark.ini" />
+    <None Include="Office2013OutlookGrayLight.ini" />
+    <None Include="Office2013PowerPoint.ini" />
+    <None Include="Office2013PowerPointGrayDark.ini" />
+    <None Include="Office2013PowerPointGrayLight.ini" />
+    <None Include="Office2013Publisher.ini" />
+    <None Include="Office2013PublisherGrayDark.ini" />
+    <None Include="Office2013PublisherGrayLight.ini" />
+    <None Include="Office2013Word.ini" />
+    <None Include="Office2013WordGrayDark.ini" />
+    <None Include="Office2013WordGrayLight.ini" />
+    <None Include="Styles\Office2013\XAMLStyle.zip" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

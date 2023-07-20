@@ -1,0 +1,368 @@
+//=======================================================================
+//================ Lex class support ====================================
+//=======================================================================
+// 	lexClass:
+//		name		= c_CPPString
+//		parent		= c_CPP
+//		parent:dyn	= c_CPP
+//		parent:file = <*.c|*.cpp|*.h|*.inl|*.tli|*.tlh|*.rc|*.rc2>	
+//
+//		children		= 0
+//		children		= class1, class2, ...
+//
+//		previous:class			=	
+//		previous:tag			=	
+//		previous:tag:separators	=	
+//
+//		start:class		= 
+//		start:Tag		= '"'
+//
+//		skip:Tag		= '\"'
+//
+//		end:class		= //
+//		end:Tag			= '"'
+//		end:separators	= ' '
+//
+//		Token:tag		= 'if', 'for', 'while', 'do'
+//		Token:start:separators	= 
+//		Token:end:separators	= 
+//-----------------------------------------------------------------------
+//---------------- Attributes -------------------------------------------
+//-----------------------------------------------------------------------
+//	txt:colorFG	= 0xffc0c0 // color value in hex format. default: black	
+//	txt:colorBK	= 0xffc0c0 // color value in hex format. default: white		
+//
+//	txt:colorSelFG	= 0xffc0c0 // color value in hex format. default: white
+//	txt:colorSelBK	= 0xffc0c0 // color value in hex format. default: black
+//
+//	txt:Bold	= 1 // {1,0} default: 0
+//	txt:Italic	= 1 // {1,0} default: 0
+//	txt:Underline	= 1 // {1,0} default: 0
+//
+//	caseSensitive	= 1 // {1,0} default: 0
+//
+//	Collapsable	= 1 // {1,0} default: 0
+//	CollapsedText	= '/*...*/' // quoted string value. default: '[..]'	
+//
+//	ParseOnScreen	= 1 // {1,0} default: 0
+// 	
+//-----------------------------------------------------------------------
+//* Global attributes ***************************************************
+//-----------------------------------------------------------------------
+// 	global:FirstParseInSeparateThread	= 1		// {0,1} default=1
+// 	global:EditReparceInSeparateThread	= 1		// {0,1} default=1
+// 	global:ConfigChangedReparceInSeparateThread= 1 // {0,1} default=1
+// 	global:EditReparceTimeout_ms	= 500		// default= 500 ms; time out for start reparse after last key was pressed.
+// 	global:MaxBackParseOffset		= 100		// default= 100 chars; maximum back buffer size. Some times parser look back for the text from current position.
+// 	global:OnScreenSchCacheLifeTime_sec = 180	// default= 180 sec; -1 and 0 means infinite; time out for on screen parsed pices of text. for memory using optimization.
+// 	global:ParserThreadIdleLifeTime_sec = 60	// default=60 sec; -1 and 0 means infinite; time out for existing of parser thread when parser idle (no parse requests).
+	
+/////////////////////////////////////////////////////////////////////////
+
+//=======================================================================
+//================ Variables support ====================================
+//=======================================================================
+// NON operation - example:   @alpha:not
+//
+// @alpha	= a-z, A-Z
+// @digit	= 0-9
+// @HexDdigit	= 0-9, a-f, A-F
+// @specs	= "~`!@#$%^&*()_-+=\\|{}[];:'\",.<>/?"
+// @EOL		= End Of Line
+//---------------------------------------------
+// special tags:  '\\', '\'', '\t', '\r', '\n'
+/////////////////////////////////////////////////////////////////////////
+
+/// Objective-C ///	
+lexClass: 
+	name			= c_ObjectiveC	
+	parent:file		= <*.m>	
+	caseSensitive		= 1
+	DisplayName     		= 'Normal Text'
+
+	//global:FirstParseInSeparateThread	= 0
+	global:EditReparceInSeparateThread	= 1
+
+	//global:EditReparceTimeout_ms		= 250
+	//global:MaxBackParseOffset		= 100
+	//global:OnScreenSchCacheLifeTime_sec 	= 60
+	//global:ParserThreadIdleLifeTime_sec 	= -1
+
+//:lexClass
+
+lexClass: 	
+	name			= c_ObjectiveCCodeBlock
+	parent			= c_ObjectiveC, c_ObjectiveCCodeBlock
+	start:tag		= '{'
+	end:tag			= '}'
+	Collapsable		= 1 
+	CollapsedText		= '...'
+	DisplayName			= 'Curly Braces'
+
+//:lexClass
+
+lexClass:
+	name			= c_ObjectiveCCommentML	
+	parent			= c_ObjectiveC, c_ObjectiveCCodeBlock
+	start:tag		='/*'
+	end:tag			='*/'
+	Collapsable		= 1 
+	CollapsedText		= '/**/' 
+	txt:colorFG		= 0x00A000
+	DisplayName		= 'Objective-C Comment (Multi-Line)'
+
+//:lexClass
+
+lexClass:	
+	name			= c_ObjectiveCCommentSL
+	parent			= c_ObjectiveC, c_ObjectiveCCodeBlock
+	start:tag		='//'
+	end:tag			= @eol
+	txt:colorFG		= 0x00A000
+	DisplayName			= 'Objective-C Comment (Single-Line)'
+
+//:lexClass
+
+lexClass:
+	name			= c_ObjectiveCIntegerLiteral_base16
+	parent			= c_ObjectiveC, c_ObjectiveCCodeBlock
+	previous:tag		= @specs, ' ', '\t', @EOL	
+	start:tag		= '0x'
+	skip:tag		= 'a', 'b', 'c', 'd', 'e', 'f', 'l', 'u'
+	end:separators		= @digit:not
+	txt:colorFG		= 0xE00000
+	caseSensitive		= 0
+	DisplayName			= 'Objective-C Integer Literal (Hex)'
+
+//:lexClass
+
+lexClass:
+	name			= c_ObjectiveCNumber
+	parent			= c_ObjectiveC, c_ObjectiveCCodeBlock
+	previous:tag		= @specs, ' ', '\t', @EOL	
+	start:tag		= @digit '.'
+	skip:tag		= '.', 'e', '+', '-', 'l', 'u'
+	end:separators		= @digit:not
+	txt:colorFG		= 0xE00000
+	caseSensitive		= 0
+	DisplayName			= 'Objective-C Number'
+
+//:lexClass
+
+lexClass: 	
+	name			= c_ObjectiveCStr1	
+	parent			= c_ObjectiveC, c_ObjectiveCCodeBlock
+	start:tag		= '\''	
+	end:tag			= '\'', @eol
+	txt:colorFG		= 0xE00000
+	DisplayName			= 'Objective-C String (Single Quotes)'
+	
+//:lexClass
+
+lexClass: 	
+	name			= c_ObjectiveCStr2	
+	parent			= c_ObjectiveC, c_ObjectiveCCodeBlock
+	start:tag		= '"', '@"'
+	end:tag			= '"', @eol
+	txt:colorFG		= 0xE00000
+	DisplayName			= 'Objective-C String (Double Quotes)'
+
+//:lexClass
+
+lexClass: 	
+	name			= c_ObjectiveCStrImport
+	parent:dyn		= c_ObjectiveC, c_ObjectiveCCodeBlock
+	children		= 0
+	previous:tag		= '#import'
+	previous:tag:separators = ' ', '\t' 
+	start:Tag		= '<'	
+	end:Tag			= '>', @eol
+	txt:colorFG		= 0xE00000
+	DisplayName			= 'String (Import File)'
+
+//:lexClass
+
+lexClass:
+	name			= c_ObjectiveCCharEscapes_regular
+	parent			= c_ObjectiveCStr1, c_ObjectiveCStr2			
+	token:tag		= '\\a', '\\b', '\\f', '\\n', '\\r', '\\t', '\\v', '\\?', '\\'', '\\"', '\\\\'
+	txt:colorFG		= 0x00A000
+	DisplayName			= 'Objective-C Character Escapes (Regular)'
+
+//:lexClass
+
+lexClass:
+	name			= c_ObjectiveCCharEscapes_base16
+	parent			= c_ObjectiveCStr1, c_ObjectiveCStr2			
+	start:tag		= '\\x'
+	skip:tag		= 'a', 'b', 'c', 'd', 'e', 'f'
+	end:separators		= @digit:not
+	txt:colorFG		= 0x00A000
+	caseSensitive		= 0
+	DisplayName			= 'Objective-C Character Escapes (Hex)'
+
+//:lexClass
+
+lexClass:
+	name			= c_ObjectiveCCharEscapes_base8
+	parent			= c_ObjectiveCStr1, c_ObjectiveCStr2			
+	start:tag		= '\\'
+	end:separators		= @digit:not, '8', '9'
+	txt:colorFG		= 0x00A000
+	DisplayName			= 'Objective-C Character Escapes (Octal)'
+
+//:lexClass
+
+lexClass:
+	name			= c_ObjectiveCStrFormatSpecifiers1
+	parent			= c_ObjectiveCStr2
+	token:tag		= '%@', '%%', '%D', '%U', '%o', '%O', '%c', '%C', '%s', '%S', '%p'
+	txt:colorFG		= 0x00A000
+	DisplayName			= Objective-C String Format Specifiers'
+
+//:lexClass
+
+lexClass:
+	name			= c_ObjectiveCStrFormatSpecifiers2
+	parent			= c_ObjectiveCStr2
+	token:tag		= '%a', '%A', '%La', '%LA'
+	token:tag		= '%e', '%E', '%Le', '%LE' 
+	token:tag		= '%f', '%F', '%Lf', '%LF'
+	token:tag		= '%g', '%G', '%Lg', '%LG'
+	txt:colorFG		= 0x00A000
+	DisplayName			= Objective-C String Format Specifiers'
+
+//:lexClass
+
+lexClass:
+	name			= c_ObjectiveCStrFormatSpecifiers3
+	parent			= c_ObjectiveCStr2
+	token:tag		= '%d', '%hd', '%hhd', '%ld', '%lld', '%qd', '%zd', '%td', '%jd'
+	token:tag		= '%o', '%ho', '%hho', '%lo', '%llo', '%qo', '%zo', '%to', '%jo'
+	token:tag		= '%u', '%hu', '%hhu', '%lu', '%llu', '%qu', '%zu', '%tu', '%ju'
+	token:tag		= '%x', '%hx', '%hhx', '%lx', '%llx', '%qx', '%zx', '%tx', '%jx'
+	token:tag		= '%X', '%hX', '%hhX', '%lX', '%llX', '%qX', '%zX', '%tX', '%jX'
+	txt:colorFG		= 0x00A000
+	DisplayName			= Objective-C String Format Specifiers'
+
+//:lexClass
+
+lexClass:	
+	name			= c_ObjectiveCKeywords
+	ParseOnScreen		= 0
+	parent			= c_ObjectiveC, c_ObjectiveCCodeBlock
+	children		= 0
+	txt:colorFG		= 0x0000FF
+	DisplayName			= 'Objective-C Keyword'
+
+	token:tag		= '__autoreleasing'
+	token:tag		= '__block'
+	token:tag		= '__strong'
+	token:tag		= '__unsafe_unretained'
+	token:tag		= '__weak'
+	token:tag		= 'asm'
+	token:tag		= 'auto'
+	token:tag		= 'BOOL'
+	token:tag		= 'break'
+	token:tag		= 'bycopy'
+	token:tag		= 'byref'
+	token:tag		= 'case'
+	token:tag		= 'char'
+	token:tag		= 'Class'
+	token:tag		= 'const'
+	token:tag		= 'continue'
+	token:tag		= 'default'
+	token:tag		= 'do'
+	token:tag		= 'double'
+	token:tag		= 'else'
+	token:tag		= 'enum'
+	token:tag		= 'extern'
+	token:tag		= 'float'
+	token:tag		= 'for'
+	token:tag		= 'goto'
+	token:tag		= 'id'
+	token:tag		= 'if'
+	token:tag		= 'IMP'
+	token:tag		= 'Imaginary'
+	token:tag		= 'In'
+	token:tag		= 'inline'
+	token:tag		= 'inout'
+	token:tag		= 'int'
+	token:tag		= 'long'
+	token:tag		= 'nil'
+	token:tag		= 'Nil'
+	token:tag		= 'NO'
+	token:tag		= 'oneway'
+	token:tag		= 'out'
+	token:tag		= 'register'
+	token:tag		= 'restrict'
+	token:tag		= 'return'
+	token:tag		= 'SEL'
+	token:tag		= 'self'
+	token:tag		= 'short'
+	token:tag		= 'signed'
+	token:tag		= 'sizeof'
+	token:tag		= 'static'
+	token:tag		= 'struct'
+	token:tag		= 'super'
+	token:tag		= 'switch'
+	token:tag		= 'typedef'
+	token:tag		= 'union'
+	token:tag		= 'unsigned'
+	token:tag		= 'void'
+	token:tag		= 'volatile'
+	token:tag		= 'while'
+	token:tag		= 'YES'
+
+	token:start:separators	= @specs, ' ', '\t', @EOL
+	token:end:separators	= @specs, ' ', '\t', @EOL
+
+//:lexClass
+
+lexClass:	
+	name			= c_ObjectiveCCompilerDirectives
+	ParseOnScreen		= 0
+	parent			= c_ObjectiveC, c_ObjectiveCCodeBlock
+	children		= 0
+	txt:colorFG		= 0x0000FF
+	DisplayName			= 'Objective-C Compiler Directives'
+
+	token:tag		= '@autoreleasepool'
+	token:tag		= '@catch'
+	token:tag		= '@class'
+	token:tag		= '@compatibility_alias'
+	token:tag		= '@dynamic'
+	token:tag		= '@encode'
+	token:tag		= '@end'
+	token:tag		= '@finally'
+	token:tag		= '@implementation'
+	token:tag		= '@interface'
+	token:tag		= '@optional'
+	token:tag		= '@package'
+	token:tag		= '@private'
+	token:tag		= '@property'
+	token:tag		= '@protected'
+	token:tag		= '@protocol'
+	token:tag		= '@public'
+	token:tag		= '@required'
+	token:tag		= '@selector'
+	token:tag		= '@synchronized'
+	token:tag		= '@synthesize'
+	token:tag		= '@throw'
+	token:tag		= '@try'
+
+	token:start:separators	= @specs, ' ', '\t', @EOL
+	token:end:separators	= @specs, ' ', '\t', @EOL
+
+//:lexClass
+
+lexClass:
+	name			= c_ObjectiveCVariable
+	parent			= c_ObjectiveC, c_ObjectiveCCodeBlock
+	start:Tag		= @alpha, '_'
+	skip:Tag		= @digit, '_'
+	end:separators		= @alpha:not
+	txt:colorFG		= 0x000000
+	DisplayName			= 'Objective-C Variable'
+
+//:lexClass

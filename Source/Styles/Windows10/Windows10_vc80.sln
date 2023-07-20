@@ -1,0 +1,4 @@
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Windows10", ".\Windows10_vc80.vcproj", "{74539177-1217-2472-8787-812247451147}"
+EndProject

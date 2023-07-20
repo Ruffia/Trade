@@ -1,0 +1,245 @@
+//=======================================================================
+//================ Lex class support ====================================
+//=======================================================================
+// 	lexClass:
+//		name		= c_CPPString
+//		parent		= c_CPP
+//		parent:dyn	= c_CPP
+//		parent:file = <*.c|*.cpp|*.h|*.inl|*.tli|*.tlh|*.rc|*.rc2>	
+//
+//		children		= 0
+//		children		= class1, class2, ...
+//
+//		previous:class			=	
+//		previous:tag			=	
+//		previous:tag:separators	=	
+//
+//		start:class		= 
+//		start:Tag		= '"'
+//
+//		skip:Tag		= '\"'
+//
+//		end:class		= //
+//		end:Tag			= '"'
+//		end:separators	= ' '
+//
+//		Token:tag		= 'if', 'for', 'while', 'do'
+//		Token:start:separators	= 
+//		Token:end:separators	= 
+//-----------------------------------------------------------------------
+//---------------- Attributes -------------------------------------------
+//-----------------------------------------------------------------------
+//	txt:colorFG	= 0xffc0c0 // color value in hex format. default: black	
+//	txt:colorBK	= 0xffc0c0 // color value in hex format. default: white		
+//
+//	txt:colorSelFG	= 0xffc0c0 // color value in hex format. default: white
+//	txt:colorSelBK	= 0xffc0c0 // color value in hex format. default: black
+//
+//	txt:Bold	= 1 // {1,0} default: 0
+//	txt:Italic	= 1 // {1,0} default: 0
+//	txt:Underline	= 1 // {1,0} default: 0
+//
+//	caseSensitive	= 1 // {1,0} default: 0
+//
+//	Collapsable	= 1 // {1,0} default: 0
+//	CollapsedText	= '/*...*/' // quoted string value. default: '[..]'	
+//
+//	ParseOnScreen	= 1 // {1,0} default: 0
+// 	
+//-----------------------------------------------------------------------
+//* Global attributes ***************************************************
+//-----------------------------------------------------------------------
+// 	global:FirstParseInSeparateThread	= 1		// {0,1} default=1
+// 	global:EditReparceInSeparateThread	= 1		// {0,1} default=1
+// 	global:ConfigChangedReparceInSeparateThread= 1 // {0,1} default=1
+// 	global:EditReparceTimeout_ms	= 500		// default= 500 ms; time out for start reparse after last key was pressed.
+// 	global:MaxBackParseOffset		= 100		// default= 100 chars; maximum back buffer size. Some times parser look back for the text from current position.
+// 	global:OnScreenSchCacheLifeTime_sec = 180	// default= 180 sec; -1 and 0 means infinite; time out for on screen parsed pices of text. for memory using optimization.
+// 	global:ParserThreadIdleLifeTime_sec = 60	// default=60 sec; -1 and 0 means infinite; time out for existing of parser thread when parser idle (no parse requests).
+	
+/////////////////////////////////////////////////////////////////////////
+
+//=======================================================================
+//================ Variables support ====================================
+//=======================================================================
+// NON operation - example:   @alpha:not
+//
+// @alpha	= a-z, A-Z
+// @digit	= 0-9
+// @HexDdigit	= 0-9, a-f, A-F
+// @specs	= "~`!@#$%^&*()_-+=\\|{}[];:'\",.<>/?"
+// @EOL		= End Of Line
+//---------------------------------------------
+// special tags:  '\\', '\'', '\t', '\r', '\n'
+/////////////////////////////////////////////////////////////////////////
+
+/// MATLAB ///	
+lexClass: 
+	name			= c_matlab	
+	parent:file		= <*.m|*.mat>	
+	caseSensitive		= 1
+	DisplayName      		= 'Normal Text'
+
+//:lexClass
+
+lexClass: 	
+	name			= c_matlabCodeBlock
+	parent			= c_matlab, c_matlabCodeBlock
+	start:tag		= '{'
+	end:tag			= '}'
+	Collapsable		= 1 
+	CollapsedText		= '...'
+	DisplayName			= 'Curly Braces'
+
+//:lexClass
+
+lexClass:
+	name			= c_matlabCommentML	
+	parent			= c_matlab, c_matlabCodeBlock
+	start:tag		='%{'
+	end:tag			='%}'
+	Collapsable		= 1 
+	CollapsedText		= '...' 
+	txt:colorFG		= 0x00A000
+	DisplayName			= 'MATLAB Comment (Multi-Line)'
+
+//:lexClass
+
+lexClass:	
+	name			= c_matlabCommentSL
+	parent			= c_matlab, c_matlabCodeBlock
+	start:tag		='%'
+	end:tag			= @eol
+	txt:colorFG		= 0x00A000
+	DisplayName			= 'MATLAB Comment (Single-Line)'
+
+//:lexClass
+
+lexClass:
+	name			= c_matlabNumber
+	parent			= c_matlab, c_matlabCodeBlock
+	previous:tag		= @specs, ' ', '\t', @EOL	
+	start:tag		= @digit, '.'
+	skip:tag		= '.'
+	end:separators		= @digit:not
+	txt:colorFG		= 0xE00000
+	DisplayName			= 'MATLAB Number'
+
+//:lexClass
+
+lexClass: 	
+	name			= c_matlabStr1	
+	parent			= c_matlab, c_matlabCodeBlock
+	start:tag		= '\''	
+	end:tag			= '\''
+	txt:colorFG		= 0xE00000
+	DisplayName			= 'MATLAB String (Single Quotes)'
+
+//:lexClass
+
+lexClass: 	
+	name			= c_matlabStr2	
+	parent			= c_matlab, c_matlabCodeBlock
+	start:tag		= '"'	
+	end:tag			= '"'
+	txt:colorFG		= 0xE00000
+	DisplayName			= 'MATLAB String (Double Quotes)'
+
+//:lexClass
+
+lexClass:
+	name			= c_matlabCharEscapes
+	parent			= c_matlabStr1, c_matlabStr2			
+	token:tag		= '\'\'', '%%', '\\\\', '\\a', '\\b', '\\f', '\\n', '\\r', '\\t', '\\v'
+	txt:colorFG		= 0x00A000
+	DisplayName			= 'MATLAB Character Escapes'
+
+//:lexClass
+
+lexClass:
+	name			= c_matlabCharEscapes_base16
+	parent			= c_matlabStr1, c_matlabStr2			
+	start:tag		= '\\x'
+	skip:tag		= 'a', 'b', 'c', 'd', 'e', 'f'
+	end:separators		= @digit:not
+	txt:colorFG		= 0x00A000
+	caseSensitive		= 0
+	DisplayName			= 'MATLAB Character Escapes (Hex)'
+
+//:lexClass
+
+lexClass:
+	name			= c_matlabCharEscapes_base8
+	parent			= c_matlabStr1, c_matlabStr2			
+	start:tag		= '\\'
+	end:separators		= @digit:not, '8', '9'
+	txt:colorFG		= 0x00A000
+	DisplayName			= 'MATLAB Character Escapes (Octal)'
+
+//:lexClass
+
+lexClass:
+	name			= c_matlabStrFormatSpecifiers
+	parent			= c_matlabStr1, c_matlabStr2
+	token:tag		= '%d', '%e', '%f', '%g', '%s'
+	txt:colorFG		= 0x00A000
+	DisplayName			= 'MATLAB String Format Specifiers'
+
+//:lexClass
+
+lexClass:	
+	name			= c_matlabKeywords
+	ParseOnScreen		= 0
+	parent			= c_matlab, c_matlabCodeBlock
+	children		= 0
+	txt:colorFG		= 0x0000FF
+	DisplayName			= 'MATLAB Keyword'
+
+	token:tag		= 'break'
+	token:tag		= 'case'
+	token:tag		= 'catch'
+	token:tag		= 'classdef'
+	token:tag		= 'continue'
+	token:tag		= 'else'
+	token:tag		= 'elseif'
+	token:tag		= 'end'
+	token:tag		= 'for'
+	token:tag		= 'function'
+	token:tag		= 'global'
+	token:tag		= 'if'
+	token:tag		= 'otherwise'
+	token:tag		= 'parfor'
+	token:tag		= 'persistent'
+	token:tag		= 'return'
+	token:tag		= 'spmd'
+	token:tag		= 'switch'
+	token:tag		= 'try'
+	token:tag		= 'while'
+
+	token:tag		= 'ans'
+	token:tag		= 'eps'
+	token:tag		= 'i'
+	token:tag		= 'j'
+	token:tag		= 'Inf'
+	token:tag		= 'NaN'
+	token:tag		= 'pi'
+
+	token:tag		= 'char'
+	token:tag		= 'double'
+	token:tag		= 'int8'
+	token:tag		= 'int16'
+	token:tag		= 'int32'
+	token:tag		= 'int64'
+	token:tag		= 'logical'
+	token:tag		= 'single'
+	token:tag		= 'uint8'
+	token:tag		= 'uint16'
+	token:tag		= 'uint32'
+	token:tag		= 'uint64'
+
+	token:start:separators	= @specs, ' ', '\t', @EOL
+	token:end:separators	= @specs, ' ', '\t', @EOL
+
+//:lexClass
+
+

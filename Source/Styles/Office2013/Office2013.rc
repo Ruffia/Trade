@@ -1,0 +1,239 @@
+//Microsoft Developer Studio generated resource script.
+//
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// INI
+//
+
+OFFICE2013WHITE_INI                TEXTFILE MOVEABLE PURE "Styles\\Office2013\\Office2013Word.ini"
+OFFICE2013ACCESS_INI               TEXTFILE MOVEABLE PURE "Styles\\Office2013\\Office2013Access.ini"
+OFFICE2013ACCESSGRAYLIGHT_INI      TEXTFILE MOVEABLE PURE "Styles\\Office2013\\Office2013AccessGrayLight.ini"
+OFFICE2013ACCESSGRAYDARK_INI       TEXTFILE MOVEABLE PURE "Styles\\Office2013\\Office2013AccessGrayDark.ini"
+OFFICE2013EXCEL_INI                TEXTFILE MOVEABLE PURE "Styles\\Office2013\\Office2013Excel.ini"
+OFFICE2013EXCELGRAYLIGHT_INI       TEXTFILE MOVEABLE PURE "Styles\\Office2013\\Office2013ExcelGrayLight.ini"
+OFFICE2013EXCELGRAYDARK_INI        TEXTFILE MOVEABLE PURE "Styles\\Office2013\\Office2013ExcelGrayDark.ini"
+OFFICE2013ONENOTE_INI              TEXTFILE MOVEABLE PURE "Styles\\Office2013\\Office2013OneNote.ini"
+OFFICE2013ONENOTEGRAYLIGHT_INI     TEXTFILE MOVEABLE PURE "Styles\\Office2013\\Office2013OneNoteGrayLight.ini"
+OFFICE2013ONENOTEGRAYDARK_INI      TEXTFILE MOVEABLE PURE "Styles\\Office2013\\Office2013OneNoteGrayDark.ini"
+OFFICE2013OUTLOOK_INI              TEXTFILE MOVEABLE PURE "Styles\\Office2013\\Office2013Outlook.ini"
+OFFICE2013OUTLOOKGRAYLIGHT_INI     TEXTFILE MOVEABLE PURE "Styles\\Office2013\\Office2013OutlookGrayLight.ini"
+OFFICE2013OUTLOOKGRAYDARK_INI      TEXTFILE MOVEABLE PURE "Styles\\Office2013\\Office2013OutlookGrayDark.ini"
+OFFICE2013PUBLISHER_INI            TEXTFILE MOVEABLE PURE "Styles\\Office2013\\Office2013Publisher.ini"
+OFFICE2013PUBLISHERGRAYLIGHT_INI   TEXTFILE MOVEABLE PURE "Styles\\Office2013\\Office2013PublisherGrayLight.ini"
+OFFICE2013PUBLISHERGRAYDARK_INI    TEXTFILE MOVEABLE PURE "Styles\\Office2013\\Office2013PublisherGrayDark.ini"
+OFFICE2013POWERPOINT_INI           TEXTFILE MOVEABLE PURE "Styles\\Office2013\\Office2013PowerPoint.ini"
+OFFICE2013POWERPOINTGRAYLIGHT_INI  TEXTFILE MOVEABLE PURE "Styles\\Office2013\\Office2013PowerPointGrayLight.ini"
+OFFICE2013POWERPOINTGRAYDARK_INI   TEXTFILE MOVEABLE PURE "Styles\\Office2013\\Office2013PowerPointGrayDark.ini"
+OFFICE2013WORD_INI                 TEXTFILE MOVEABLE PURE "Styles\\Office2013\\Office2013Word.ini"
+OFFICE2013WORDGRAYLIGHT_INI        TEXTFILE MOVEABLE PURE "Styles\\Office2013\\Office2013WordGrayLight.ini"
+OFFICE2013WORDGRAYDARK_INI         TEXTFILE MOVEABLE PURE "Styles\\Office2013\\Office2013WordGrayDark.ini"
+
+#if !defined(_XTP_NO_BINARY_RESOURCES)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// ZIP
+//
+
+XAML_STYLE STYLE DISCARDABLE "Styles\\Office2013\\XamlStyle.zip"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// PNG
+//
+
+OFFICE2013TIMELINEVIEWAPPOINTMENTICON_100        PNG MOVEABLE PURE "Styles\\Office2013\\res\\TimeLineViewAppointmentIcon_100.png"
+OFFICE2013TIMELINEVIEWAPPOINTMENTICON_125        PNG MOVEABLE PURE "Styles\\Office2013\\res\\TimeLineViewAppointmentIcon_125.png"
+OFFICE2013TIMELINEVIEWAPPOINTMENTICON_150        PNG MOVEABLE PURE "Styles\\Office2013\\res\\TimeLineViewAppointmentIcon_150.png"
+OFFICE2013TIMELINEVIEWAPPOINTMENTICON_200        PNG MOVEABLE PURE "Styles\\Office2013\\res\\TimeLineViewAppointmentIcon_200.png"
+
+#if !defined(_XTP_EXCLUDE_OFFICE_BACKGROUND)
+
+OFFICE2013DARKGRAYLARGECALLIGRAPHY            PNG MOVEABLE PURE "Styles\\Office2013\\res\\dark-gray-large-calligraphy.png"
+OFFICE2013DARKGRAYLARGECIRCLESANDSTRIPES      PNG MOVEABLE PURE "Styles\\Office2013\\res\\dark-gray-large-circles-and-stripes.png"
+OFFICE2013DARKGRAYLARGECIRCUIT                PNG MOVEABLE PURE "Styles\\Office2013\\res\\dark-gray-large-circuit.png"
+OFFICE2013DARKGRAYLARGECLOUDS                 PNG MOVEABLE PURE "Styles\\Office2013\\res\\dark-gray-large-clouds.png"
+OFFICE2013DARKGRAYLARGEDOODLECIRCLES          PNG MOVEABLE PURE "Styles\\Office2013\\res\\dark-gray-large-doodle-circles.png"
+OFFICE2013DARKGRAYLARGEDOODLEDIAMONDS         PNG MOVEABLE PURE "Styles\\Office2013\\res\\dark-gray-large-doodle-diamonds.png"
+OFFICE2013DARKGRAYLARGEGEOMETRY               PNG MOVEABLE PURE "Styles\\Office2013\\res\\dark-gray-large-geometry.png"
+OFFICE2013DARKGRAYLARGELUNCHBOX               PNG MOVEABLE PURE "Styles\\Office2013\\res\\dark-gray-large-lunchbox.png"
+OFFICE2013DARKGRAYLARGESCHOOLSUPPLIES         PNG MOVEABLE PURE "Styles\\Office2013\\res\\dark-gray-large-school-supplies.png"
+OFFICE2013DARKGRAYLARGESPRING                 PNG MOVEABLE PURE "Styles\\Office2013\\res\\dark-gray-large-spring.png"
+OFFICE2013DARKGRAYLARGESTARS                  PNG MOVEABLE PURE "Styles\\Office2013\\res\\dark-gray-large-stars.png"
+OFFICE2013DARKGRAYLARGESTRAWS                 PNG MOVEABLE PURE "Styles\\Office2013\\res\\dark-gray-large-straws.png"
+OFFICE2013DARKGRAYLARGETREERINGS              PNG MOVEABLE PURE "Styles\\Office2013\\res\\dark-gray-large-tree-rings.png"
+OFFICE2013DARKGRAYLARGEUNDERWATER             PNG MOVEABLE PURE "Styles\\Office2013\\res\\dark-gray-large-underwater.png"
+OFFICE2013DARKGRAYMEDIUMCALLIGRAPHY           PNG MOVEABLE PURE "Styles\\Office2013\\res\\dark-gray-medium-calligraphy.png"
+OFFICE2013DARKGRAYMEDIUMCIRCLESANDSTRIPES     PNG MOVEABLE PURE "Styles\\Office2013\\res\\dark-gray-medium-circles-and-stripes.png"
+OFFICE2013DARKGRAYMEDIUMCIRCUIT               PNG MOVEABLE PURE "Styles\\Office2013\\res\\dark-gray-medium-circuit.png"
+OFFICE2013DARKGRAYMEDIUMCLOUDS                PNG MOVEABLE PURE "Styles\\Office2013\\res\\dark-gray-medium-clouds.png"
+OFFICE2013DARKGRAYMEDIUMDOODLECIRCLES         PNG MOVEABLE PURE "Styles\\Office2013\\res\\dark-gray-medium-doodle-circles.png"
+OFFICE2013DARKGRAYMEDIUMDOODLEDIAMONDS        PNG MOVEABLE PURE "Styles\\Office2013\\res\\dark-gray-medium-doodle-diamonds.png"
+OFFICE2013DARKGRAYMEDIUMGEOMETRY              PNG MOVEABLE PURE "Styles\\Office2013\\res\\dark-gray-medium-geometry.png"
+OFFICE2013DARKGRAYMEDIUMLUNCHBOX              PNG MOVEABLE PURE "Styles\\Office2013\\res\\dark-gray-medium-lunchbox.png"
+OFFICE2013DARKGRAYMEDIUMSCHOOLSUPPLIES        PNG MOVEABLE PURE "Styles\\Office2013\\res\\dark-gray-medium-school-supplies.png"
+OFFICE2013DARKGRAYMEDIUMSPRING                PNG MOVEABLE PURE "Styles\\Office2013\\res\\dark-gray-medium-spring.png"
+OFFICE2013DARKGRAYMEDIUMSTARS                 PNG MOVEABLE PURE "Styles\\Office2013\\res\\dark-gray-medium-stars.png"
+OFFICE2013DARKGRAYMEDIUMSTRAWS                PNG MOVEABLE PURE "Styles\\Office2013\\res\\dark-gray-medium-straws.png"
+OFFICE2013DARKGRAYMEDIUMTREERINGS             PNG MOVEABLE PURE "Styles\\Office2013\\res\\dark-gray-medium-tree-rings.png"
+OFFICE2013DARKGRAYMEDIUMUNDERWATER            PNG MOVEABLE PURE "Styles\\Office2013\\res\\dark-gray-medium-underwater.png"
+OFFICE2013DARKGRAYSMALLCALLIGRAPHY            PNG MOVEABLE PURE "Styles\\Office2013\\res\\dark-gray-small-calligraphy.png"
+OFFICE2013DARKGRAYSMALLCIRCLESANDSTRIPES      PNG MOVEABLE PURE "Styles\\Office2013\\res\\dark-gray-small-circles-and-stripes.png"
+OFFICE2013DARKGRAYSMALLCIRCUIT                PNG MOVEABLE PURE "Styles\\Office2013\\res\\dark-gray-small-circuit.png"
+OFFICE2013DARKGRAYSMALLCLOUDS                 PNG MOVEABLE PURE "Styles\\Office2013\\res\\dark-gray-small-clouds.png"
+OFFICE2013DARKGRAYSMALLDOODLECIRCLES          PNG MOVEABLE PURE "Styles\\Office2013\\res\\dark-gray-small-doodle-circles.png"
+OFFICE2013DARKGRAYSMALLDOODLEDIAMONDS         PNG MOVEABLE PURE "Styles\\Office2013\\res\\dark-gray-small-doodle-diamonds.png"
+OFFICE2013DARKGRAYSMALLGEOMETRY               PNG MOVEABLE PURE "Styles\\Office2013\\res\\dark-gray-small-geometry.png"
+OFFICE2013DARKGRAYSMALLLUNCHBOX               PNG MOVEABLE PURE "Styles\\Office2013\\res\\dark-gray-small-lunchbox.png"
+OFFICE2013DARKGRAYSMALLSCHOOLSUPPLIES         PNG MOVEABLE PURE "Styles\\Office2013\\res\\dark-gray-small-school-supplies.png"
+OFFICE2013DARKGRAYSMALLSPRING                 PNG MOVEABLE PURE "Styles\\Office2013\\res\\dark-gray-small-spring.png"
+OFFICE2013DARKGRAYSMALLSTARS                  PNG MOVEABLE PURE "Styles\\Office2013\\res\\dark-gray-small-stars.png"
+OFFICE2013DARKGRAYSMALLSTRAWS                 PNG MOVEABLE PURE "Styles\\Office2013\\res\\dark-gray-small-straws.png"
+OFFICE2013DARKGRAYSMALLTREERINGS              PNG MOVEABLE PURE "Styles\\Office2013\\res\\dark-gray-small-tree-rings.png"
+OFFICE2013DARKGRAYSMALLUNDERWATER             PNG MOVEABLE PURE "Styles\\Office2013\\res\\dark-gray-small-underwater.png"
+OFFICE2013LIGHTGRAYLARGECALLIGRAPHY           PNG MOVEABLE PURE "Styles\\Office2013\\res\\light-gray-large-calligraphy.png"
+OFFICE2013LIGHTGRAYLARGECIRCLESANDSTRIPES     PNG MOVEABLE PURE "Styles\\Office2013\\res\\light-gray-large-circles-and-stripes.png"
+OFFICE2013LIGHTGRAYLARGECIRCUIT               PNG MOVEABLE PURE "Styles\\Office2013\\res\\light-gray-large-circuit.png"
+OFFICE2013LIGHTGRAYLARGECLOUDS                PNG MOVEABLE PURE "Styles\\Office2013\\res\\light-gray-large-clouds.png"
+OFFICE2013LIGHTGRAYLARGEDOODLECIRCLES         PNG MOVEABLE PURE "Styles\\Office2013\\res\\light-gray-large-doodle-circles.png"
+OFFICE2013LIGHTGRAYLARGEDOODLEDIAMONDS        PNG MOVEABLE PURE "Styles\\Office2013\\res\\light-gray-large-doodle-diamonds.png"
+OFFICE2013LIGHTGRAYLARGEGEOMETRY              PNG MOVEABLE PURE "Styles\\Office2013\\res\\light-gray-large-geometry.png"
+OFFICE2013LIGHTGRAYLARGELUNCHBOX              PNG MOVEABLE PURE "Styles\\Office2013\\res\\light-gray-large-lunchbox.png"
+OFFICE2013LIGHTGRAYLARGESCHOOLSUPPLIES        PNG MOVEABLE PURE "Styles\\Office2013\\res\\light-gray-large-school-supplies.png"
+OFFICE2013LIGHTGRAYLARGESPRING                PNG MOVEABLE PURE "Styles\\Office2013\\res\\light-gray-large-spring.png"
+OFFICE2013LIGHTGRAYLARGESTARS                 PNG MOVEABLE PURE "Styles\\Office2013\\res\\light-gray-large-stars.png"
+OFFICE2013LIGHTGRAYLARGESTRAWS                PNG MOVEABLE PURE "Styles\\Office2013\\res\\light-gray-large-straws.png"
+OFFICE2013LIGHTGRAYLARGETREERINGS             PNG MOVEABLE PURE "Styles\\Office2013\\res\\light-gray-large-tree-rings.png"
+OFFICE2013LIGHTGRAYLARGEUNDERWATER            PNG MOVEABLE PURE "Styles\\Office2013\\res\\light-gray-large-underwater.png"
+OFFICE2013LIGHTGRAYMEDIUMCALLIGRAPHY          PNG MOVEABLE PURE "Styles\\Office2013\\res\\light-gray-medium-calligraphy.png"
+OFFICE2013LIGHTGRAYMEDIUMCIRCLESANDSTRIPES    PNG MOVEABLE PURE "Styles\\Office2013\\res\\light-gray-medium-circles-and-stripes.png"
+OFFICE2013LIGHTGRAYMEDIUMCIRCUIT              PNG MOVEABLE PURE "Styles\\Office2013\\res\\light-gray-medium-circuit.png"
+OFFICE2013LIGHTGRAYMEDIUMCLOUDS               PNG MOVEABLE PURE "Styles\\Office2013\\res\\light-gray-medium-clouds.png"
+OFFICE2013LIGHTGRAYMEDIUMDOODLECIRCLES        PNG MOVEABLE PURE "Styles\\Office2013\\res\\light-gray-medium-doodle-circles.png"
+OFFICE2013LIGHTGRAYMEDIUMDOODLEDIAMONDS       PNG MOVEABLE PURE "Styles\\Office2013\\res\\light-gray-medium-doodle-diamonds.png"
+OFFICE2013LIGHTGRAYMEDIUMGEOMETRY             PNG MOVEABLE PURE "Styles\\Office2013\\res\\light-gray-medium-geometry.png"
+OFFICE2013LIGHTGRAYMEDIUMLUNCHBOX             PNG MOVEABLE PURE "Styles\\Office2013\\res\\light-gray-medium-lunchbox.png"
+OFFICE2013LIGHTGRAYMEDIUMSCHOOLSUPPLIES       PNG MOVEABLE PURE "Styles\\Office2013\\res\\light-gray-medium-school-supplies.png"
+OFFICE2013LIGHTGRAYMEDIUMSPRING               PNG MOVEABLE PURE "Styles\\Office2013\\res\\light-gray-medium-spring.png"
+OFFICE2013LIGHTGRAYMEDIUMSTARS                PNG MOVEABLE PURE "Styles\\Office2013\\res\\light-gray-medium-stars.png"
+OFFICE2013LIGHTGRAYMEDIUMSTRAWS               PNG MOVEABLE PURE "Styles\\Office2013\\res\\light-gray-medium-straws.png"
+OFFICE2013LIGHTGRAYMEDIUMTREERINGS            PNG MOVEABLE PURE "Styles\\Office2013\\res\\light-gray-medium-tree-rings.png"
+OFFICE2013LIGHTGRAYMEDIUMUNDERWATER           PNG MOVEABLE PURE "Styles\\Office2013\\res\\light-gray-medium-underwater.png"
+OFFICE2013LIGHTGRAYSMALLCALLIGRAPHY           PNG MOVEABLE PURE "Styles\\Office2013\\res\\light-gray-small-calligraphy.png"
+OFFICE2013LIGHTGRAYSMALLCIRCLESANDSTRIPES     PNG MOVEABLE PURE "Styles\\Office2013\\res\\light-gray-small-circles-and-stripes.png"
+OFFICE2013LIGHTGRAYSMALLCIRCUIT               PNG MOVEABLE PURE "Styles\\Office2013\\res\\light-gray-small-circuit.png"
+OFFICE2013LIGHTGRAYSMALLCLOUDS                PNG MOVEABLE PURE "Styles\\Office2013\\res\\light-gray-small-clouds.png"
+OFFICE2013LIGHTGRAYSMALLDOODLECIRCLES         PNG MOVEABLE PURE "Styles\\Office2013\\res\\light-gray-small-doodle-circles.png"
+OFFICE2013LIGHTGRAYSMALLDOODLEDIAMONDS        PNG MOVEABLE PURE "Styles\\Office2013\\res\\light-gray-small-doodle-diamonds.png"
+OFFICE2013LIGHTGRAYSMALLGEOMETRY              PNG MOVEABLE PURE "Styles\\Office2013\\res\\light-gray-small-geometry.png"
+OFFICE2013LIGHTGRAYSMALLLUNCHBOX              PNG MOVEABLE PURE "Styles\\Office2013\\res\\light-gray-small-lunchbox.png"
+OFFICE2013LIGHTGRAYSMALLSCHOOLSUPPLIES        PNG MOVEABLE PURE "Styles\\Office2013\\res\\light-gray-small-school-supplies.png"
+OFFICE2013LIGHTGRAYSMALLSPRING                PNG MOVEABLE PURE "Styles\\Office2013\\res\\light-gray-small-spring.png"
+OFFICE2013LIGHTGRAYSMALLSTARS                 PNG MOVEABLE PURE "Styles\\Office2013\\res\\light-gray-small-stars.png"
+OFFICE2013LIGHTGRAYSMALLSTRAWS                PNG MOVEABLE PURE "Styles\\Office2013\\res\\light-gray-small-straws.png"
+OFFICE2013LIGHTGRAYSMALLTREERINGS             PNG MOVEABLE PURE "Styles\\Office2013\\res\\light-gray-small-tree-rings.png"
+OFFICE2013LIGHTGRAYSMALLUNDERWATER            PNG MOVEABLE PURE "Styles\\Office2013\\res\\light-gray-small-underwater.png"
+OFFICE2013WHITELARGECALLIGRAPHY               PNG MOVEABLE PURE "Styles\\Office2013\\res\\white-large-calligraphy.png"
+OFFICE2013WHITELARGECIRCLESANDSTRIPES         PNG MOVEABLE PURE "Styles\\Office2013\\res\\white-large-circles-and-stripes.png"
+OFFICE2013WHITELARGECIRCUIT                   PNG MOVEABLE PURE "Styles\\Office2013\\res\\white-large-circuit.png"
+OFFICE2013WHITELARGECLOUDS                    PNG MOVEABLE PURE "Styles\\Office2013\\res\\white-large-clouds.png"
+OFFICE2013WHITELARGEDOODLECIRCLES             PNG MOVEABLE PURE "Styles\\Office2013\\res\\white-large-doodle-circles.png"
+OFFICE2013WHITELARGEDOODLEDIAMONDS            PNG MOVEABLE PURE "Styles\\Office2013\\res\\white-large-doodle-diamonds.png"
+OFFICE2013WHITELARGEGEOMETRY                  PNG MOVEABLE PURE "Styles\\Office2013\\res\\white-large-geometry.png"
+OFFICE2013WHITELARGELUNCHBOX                  PNG MOVEABLE PURE "Styles\\Office2013\\res\\white-large-lunchbox.png"
+OFFICE2013WHITELARGESCHOOLSUPPLIES            PNG MOVEABLE PURE "Styles\\Office2013\\res\\white-large-school-supplies.png"
+OFFICE2013WHITELARGESPRING                    PNG MOVEABLE PURE "Styles\\Office2013\\res\\white-large-spring.png"
+OFFICE2013WHITELARGESTARS                     PNG MOVEABLE PURE "Styles\\Office2013\\res\\white-large-stars.png"
+OFFICE2013WHITELARGESTRAWS                    PNG MOVEABLE PURE "Styles\\Office2013\\res\\white-large-straws.png"
+OFFICE2013WHITELARGETREERINGS                 PNG MOVEABLE PURE "Styles\\Office2013\\res\\white-large-tree-rings.png"
+OFFICE2013WHITELARGEUNDERWATER                PNG MOVEABLE PURE "Styles\\Office2013\\res\\white-large-underwater.png"
+OFFICE2013WHITEMEDIUMCALLIGRAPHY              PNG MOVEABLE PURE "Styles\\Office2013\\res\\white-medium-calligraphy.png"
+OFFICE2013WHITEMEDIUMCIRCLESANDSTRIPES        PNG MOVEABLE PURE "Styles\\Office2013\\res\\white-medium-circles-and-stripes.png"
+OFFICE2013WHITEMEDIUMCIRCUIT                  PNG MOVEABLE PURE "Styles\\Office2013\\res\\white-medium-circuit.png"
+OFFICE2013WHITEMEDIUMCLOUDS                   PNG MOVEABLE PURE "Styles\\Office2013\\res\\white-medium-clouds.png"
+OFFICE2013WHITEMEDIUMDOODLECIRCLES            PNG MOVEABLE PURE "Styles\\Office2013\\res\\white-medium-doodle-circles.png"
+OFFICE2013WHITEMEDIUMDOODLEDIAMONDS           PNG MOVEABLE PURE "Styles\\Office2013\\res\\white-medium-doodle-diamonds.png"
+OFFICE2013WHITEMEDIUMGEOMETRY                 PNG MOVEABLE PURE "Styles\\Office2013\\res\\white-medium-geometry.png"
+OFFICE2013WHITEMEDIUMLUNCHBOX                 PNG MOVEABLE PURE "Styles\\Office2013\\res\\white-medium-lunchbox.png"
+OFFICE2013WHITEMEDIUMSCHOOLSUPPLIES           PNG MOVEABLE PURE "Styles\\Office2013\\res\\white-medium-school-supplies.png"
+OFFICE2013WHITEMEDIUMSPRING                   PNG MOVEABLE PURE "Styles\\Office2013\\res\\white-medium-spring.png"
+OFFICE2013WHITEMEDIUMSTARS                    PNG MOVEABLE PURE "Styles\\Office2013\\res\\white-medium-stars.png"
+OFFICE2013WHITEMEDIUMSTRAWS                   PNG MOVEABLE PURE "Styles\\Office2013\\res\\white-medium-straws.png"
+OFFICE2013WHITEMEDIUMTREERINGS                PNG MOVEABLE PURE "Styles\\Office2013\\res\\white-medium-tree-rings.png"
+OFFICE2013WHITEMEDIUMUNDERWATER               PNG MOVEABLE PURE "Styles\\Office2013\\res\\white-medium-underwater.png"
+OFFICE2013WHITESMALLCALLIGRAPHY               PNG MOVEABLE PURE "Styles\\Office2013\\res\\white-small-calligraphy.png"
+OFFICE2013WHITESMALLCIRCLESANDSTRIPES         PNG MOVEABLE PURE "Styles\\Office2013\\res\\white-small-circles-and-stripes.png"
+OFFICE2013WHITESMALLCIRCUIT                   PNG MOVEABLE PURE "Styles\\Office2013\\res\\white-small-circuit.png"
+OFFICE2013WHITESMALLCLOUDS                    PNG MOVEABLE PURE "Styles\\Office2013\\res\\white-small-clouds.png"
+OFFICE2013WHITESMALLDOODLECIRCLES             PNG MOVEABLE PURE "Styles\\Office2013\\res\\white-small-doodle-circles.png"
+OFFICE2013WHITESMALLDOODLEDIAMONDS            PNG MOVEABLE PURE "Styles\\Office2013\\res\\white-small-doodle-diamonds.png"
+OFFICE2013WHITESMALLGEOMETRY                  PNG MOVEABLE PURE "Styles\\Office2013\\res\\white-small-geometry.png"
+OFFICE2013WHITESMALLLUNCHBOX                  PNG MOVEABLE PURE "Styles\\Office2013\\res\\white-small-lunchbox.png"
+OFFICE2013WHITESMALLSCHOOLSUPPLIES            PNG MOVEABLE PURE "Styles\\Office2013\\res\\white-small-school-supplies.png"
+OFFICE2013WHITESMALLSPRING                    PNG MOVEABLE PURE "Styles\\Office2013\\res\\white-small-spring.png"
+OFFICE2013WHITESMALLSTARS                     PNG MOVEABLE PURE "Styles\\Office2013\\res\\white-small-stars.png"
+OFFICE2013WHITESMALLSTRAWS                    PNG MOVEABLE PURE "Styles\\Office2013\\res\\white-small-straws.png"
+OFFICE2013WHITESMALLTREERINGS                 PNG MOVEABLE PURE "Styles\\Office2013\\res\\white-small-tree-rings.png"
+OFFICE2013WHITESMALLUNDERWATER                PNG MOVEABLE PURE "Styles\\Office2013\\res\\white-small-underwater.png"
+
+#endif // !defined(_XTP_EXCLUDE_OFFICE_BACKGROUND)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+OFFICE2013CALENDAREVENTGLYPHS_100     BITMAP MOVEABLE PURE "Styles\\Office2013\\res\\CalendarEventGlyphs_100.bmp"
+OFFICE2013CALENDAREVENTGLYPHS_125     BITMAP MOVEABLE PURE "Styles\\Office2013\\res\\CalendarEventGlyphs_125.bmp"
+OFFICE2013CALENDAREVENTGLYPHS_150     BITMAP MOVEABLE PURE "Styles\\Office2013\\res\\CalendarEventGlyphs_150.bmp"
+OFFICE2013CALENDAREVENTGLYPHS_200     BITMAP MOVEABLE PURE "Styles\\Office2013\\res\\CalendarEventGlyphs_200.bmp"
+
+#endif // !defined(_XTP_NO_BINARY_RESOURCES)
+
+#ifdef _XTP_INCLUDE_VERSION
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 22,1,0,0
+ PRODUCTVERSION 22,1,0,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Comments", "March 6, 2023\0"
+            VALUE "CompanyName", "Codejock Software\0"
+            VALUE "FileDescription", "Office 2013 Theme Resource DLL\0"
+            VALUE "FileVersion", "22, 1, 0, 0\0"
+            VALUE "InternalName", "Office2013.dll\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "Office2013.dll\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "Office 2013 Theme Resource DLL\0"
+            VALUE "ProductVersion", "22, 1, 0, 0\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // _XTP_INCLUDE_VERSION

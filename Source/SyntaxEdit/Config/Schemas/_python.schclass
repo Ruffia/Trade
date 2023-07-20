@@ -1,0 +1,312 @@
+//=======================================================================
+//================ Lex class support ====================================
+//=======================================================================
+// 	lexClass:
+//		name		= c_PYString
+//		parent		= c_PY
+//		parent:dyn	= c_PY
+//		parent:file = <*.py|*.pyw|*.pys>	
+//
+//		children		= 0
+//		children		= class1, class2, ...
+//
+//		previous:class			=	
+//		previous:tag			=	
+//		previous:tag:separators	=	
+//
+//		start:class		= 
+//		start:Tag		= '"'
+//
+//		skip:Tag		= '\"'
+//
+//		end:class		= //
+//		end:Tag			= '"'
+//		end:separators	= ' '
+//
+//		Token:tag		= 'if', 'for', 'while', 'do'
+//		Token:start:separators	= 
+//		Token:end:separators	= 
+//-----------------------------------------------------------------------
+//---------------- Attributes -------------------------------------------
+//-----------------------------------------------------------------------
+//	txt:colorFG	= 0xffc0c0 // color value in hex format. default: black	
+//	txt:colorBK	= 0xffc0c0 // color value in hex format. default: white		
+//
+//	txt:colorSelFG	= 0xffc0c0 // color value in hex format. default: white
+//	txt:colorSelBK	= 0xffc0c0 // color value in hex format. default: black
+//
+//	txt:Bold	= 1 // {1,0} default: 0
+//	txt:Italic	= 1 // {1,0} default: 0
+//	txt:Underline	= 1 // {1,0} default: 0
+//
+//	caseSensitive	= 1 // {1,0} default: 0
+//
+//	Collapsable	= 1 // {1,0} default: 0
+//	CollapsedText	= '/*...*/' // quoted string value. default: '[..]'	
+//
+//	ParseOnScreen	= 1 // {1,0} default: 0
+// 	
+//-----------------------------------------------------------------------
+//* Global attributes ***************************************************
+//-----------------------------------------------------------------------
+// 	global:FirstParseInSeparateThread	= 1		// {0,1} default=1
+// 	global:EditReparceInSeparateThread	= 1		// {0,1} default=1
+// 	global:ConfigChangedReparceInSeparateThread= 1 // {0,1} default=1
+// 	global:EditReparceTimeout_ms	= 500		// default= 500 ms; time out for start reparse after last key was pressed.
+// 	global:MaxBackParseOffset		= 100		// default= 100 chars; maximum back buffer size. Some times parser look back for the text from current position.
+// 	global:OnScreenSchCacheLifeTime_sec = 180	// default= 180 sec; -1 and 0 means infinite; time out for on screen parsed pices of text. for memory using optimization.
+// 	global:ParserThreadIdleLifeTime_sec = 60	// default=60 sec; -1 and 0 means infinite; time out for existing of parser thread when parser idle (no parse requests).
+	
+/////////////////////////////////////////////////////////////////////////
+
+//=======================================================================
+//================ Variables support ====================================
+//=======================================================================
+// NON operation - example:   @alpha:not
+//
+// @alpha	= a-z, A-Z
+// @digit	= 0-9
+// @HexDdigit	= 0-9, a-f, A-F
+// @specs	= "~`!@#$%^&*()_-+=\\|{}[];:'\",.<>/?"
+// @EOL		= End Of Line
+//---------------------------------------------
+// special tags:  '\\', '\'', '\t', '\r', '\n'
+/////////////////////////////////////////////////////////////////////////
+
+/// Python ///	
+lexClass: 
+	name			= c_Python	
+	parent:file		= <*.py>	
+	caseSensitive		= 1
+	txt:colorFG		= 0x000000
+	DisplayName 			= 'Normal Text'
+
+//:lexClass
+
+lexClass:	
+	name			= c_PythonComment
+	parent			= c_Python
+	start:tag		= '#'	
+	end:tag			= @eol
+	txt:colorFG		= 0x00A000
+	DisplayName			= 'Python Comment'
+
+//:lexClass
+
+lexClass:
+	name			= c_PythonNumber
+	parent			= c_Python
+	previous:Tag		= @specs, ' ', '\t', @EOL	
+	start:Tag		= @digit, '.'
+	skip:Tag		= 'e', '.'
+	end:separators		= @digit:not
+	txt:colorFG		= 0xE00000
+	caseSensitive		= 0
+	DisplayName			= 'Python Number'
+
+//:lexClass
+
+lexClass:
+	name			= c_PythonStrML1	
+	parent			= c_Python
+	start:Tag		= '\'\'\''
+	end:Tag			= '\'\'\''
+	txt:colorFG		= 0x840000
+	DisplayName			= 'Python String (Multi-Line) (Single Quotes)'
+
+//:lexClass
+
+lexClass:
+	name			= c_PythonStrML2	
+	parent			= c_Python
+	start:Tag		= '"""'
+	end:Tag			= '"""'
+	txt:colorFG		= 0x840000
+	DisplayName			= 'Python String (Multi-Line) (Double Quotes)'
+
+//:lexClass
+
+lexClass: 	
+	name			= c_PythonStrSL1
+	parent			= c_Python
+	start:Tag		= '\'', 'f\''
+	end:Tag			= '\'', @eol
+	txt:colorFG		= 0x840000
+	DisplayName			= 'Python String (Single-Line) (Single Quotes)'
+
+//:lexClass
+
+lexClass: 	
+	name			= c_PythonStrSL2
+	ParseOnScreen		= 0
+	parent			= c_Python
+	start:Tag		= '"', 'f"'
+	end:Tag			= '"', @eol
+	txt:colorFG		= 0x840000
+	DisplayName			= 'Python String (Single-Line) (Double Quotes)'
+
+//:lexClass
+
+lexClass:
+	name			= c_PythonStrFormat
+	parent			= c_PythonStrML1, c_PythonStrML2, c_PythonStrSL1, c_PythonStrSL2	
+	start:tag		= '{'
+	end:tag			= '}'
+	DisplayName			= 'Python String Format'
+
+//:lexClass
+
+lexClass:
+	name			= c_PythonStrFormatSpecifiers
+	parent			= c_PythonStrFormat
+	token:tag		= ':<', ':>', ':^', ':=', ':+', ':-', ': ', ':,', ':_' ':%'
+	token:tag		= ':b', ':c', ':d', ':e', ':E', ':f', ':F', ':g', ':G', ':o', ':n', ':x', ':X'
+	txt:colorFG		= 0x00A000
+	caseSensitive		= 1
+	DisplayName			= 'Python String Format Specifiers'
+
+//:lexClass
+
+lexClass:	
+	name			= c_PythonKeywords
+	ParseOnScreen		= 0
+	parent			= c_Python
+	children		= 0
+	txt:colorFG		= 0x0000FF
+	DisplayName			= 'Python Keyword'
+
+	token:tag		= 'and'
+	token:tag		= 'as'
+	token:tag		= 'assert'
+	token:tag		= 'break'
+	token:tag		= 'class'
+	token:tag		= 'continue'
+	token:tag		= 'def'
+	token:tag		= 'del'
+	token:tag		= 'elif'
+	token:tag		= 'else'
+	token:tag		= 'except'
+	token:tag		= 'False'
+	token:tag		= 'finally'
+	token:tag		= 'for'
+	token:tag		= 'from'
+	token:tag		= 'global'
+	token:tag		= 'if'
+	token:tag		= 'import'
+	token:tag		= 'in'
+	token:tag		= 'is'
+	token:tag		= 'lambda'
+	token:tag		= 'None'
+	token:tag		= 'nonlocal'
+	token:tag		= 'not'
+	token:tag		= 'or'
+	token:tag		= 'pass'
+	token:tag		= 'raise'
+	token:tag		= 'return'
+	token:tag		= 'True'
+	token:tag		= 'tuple'
+	token:tag		= 'try'
+	token:tag		= 'while'
+	token:tag		= 'with'
+	token:tag		= 'yield'
+
+	token:start:separators	= @specs, ' ', '\t', @EOL
+	token:end:separators	= @specs, ' ', '\t', @EOL
+
+//:lexClass
+
+lexClass:	
+	name			= c_PythonFunctions
+	ParseOnScreen		= 0
+	parent			= c_Python
+	children		= 0
+	txt:colorFG		= 0x0000FF
+	DisplayName			= 'Python Function'
+
+	token:tag		= '__import__'
+	token:tag		= 'abs'
+	token:tag		= 'aiter'
+	token:tag		= 'all'
+	token:tag		= 'any'
+	token:tag		= 'anext'
+	token:tag		= 'ascii'
+	token:tag		= 'bin'
+	token:tag		= 'bool'
+	token:tag		= 'breakpoint'
+	token:tag		= 'bytearray'
+	token:tag		= 'bytes'
+	token:tag		= 'callable'
+	token:tag		= 'chr'
+	token:tag		= 'classmethod'
+	token:tag		= 'compile'
+	token:tag		= 'complex'
+	token:tag		= 'delattr'
+	token:tag		= 'dict'
+	token:tag		= 'dir'
+	token:tag		= 'divmod'
+	token:tag		= 'enumerate'
+	token:tag		= 'eval'
+	token:tag		= 'exec'
+	token:tag		= 'filter'
+	token:tag		= 'float'
+	token:tag		= 'format'
+	token:tag		= 'frozenset'
+	token:tag		= 'getattr'
+	token:tag		= 'globals'
+	token:tag		= 'hasattr'
+	token:tag		= 'hash'
+	token:tag		= 'help'
+	token:tag		= 'hex'
+	token:tag		= 'id'
+	token:tag		= 'input'
+	token:tag		= 'int'
+	token:tag		= 'isinstance'
+	token:tag		= 'issubclass'
+	token:tag		= 'iter'
+	token:tag		= 'len'
+	token:tag		= 'list'
+	token:tag		= 'locals'
+	token:tag		= 'map'
+	token:tag		= 'max'
+	token:tag		= 'memoryview'
+	token:tag		= 'min'
+	token:tag		= 'next'
+	token:tag		= 'object'
+	token:tag		= 'oct'
+	token:tag		= 'open'
+	token:tag		= 'ord'
+	token:tag		= 'pow'
+	token:tag		= 'print'
+	token:tag		= 'property'
+	token:tag		= 'range'
+	token:tag		= 'repr'
+	token:tag		= 'reversed'
+	token:tag		= 'round'
+	token:tag		= 'set'
+	token:tag		= 'setattr'
+	token:tag		= 'slice'
+	token:tag		= 'sorted'
+	token:tag		= 'staticmethod'
+	token:tag		= 'str'
+	token:tag		= 'sum'
+	token:tag		= 'super'
+	token:tag		= 'tuple'
+	token:tag		= 'type'
+	token:tag		= 'vars'
+	token:tag		= 'zip'
+
+	token:start:separators	= @specs, ' ', '\t', @EOL
+	token:end:separators	= @specs, ' ', '\t', @EOL
+
+//:lexClass
+
+lexClass:
+	name			= c_PythonVariable
+	parent			= c_Python
+	start:Tag		= @alpha, '_'
+	skip:Tag		= @digit, '_'
+	end:separators		= @alpha:not
+	txt:colorFG		= 0x000000
+	DisplayName			= 'Python Variable'
+
+//:lexClass

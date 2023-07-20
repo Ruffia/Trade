@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform" Width="32" Height="32">
+  <Canvas Width="32" Height="32" Canvas.Left="0" Canvas.Top="0">
+    <Canvas>
+      <Path Data="M7.011,21v-2.756c0,-0.687,0.577,-1.244,1.289,-1.244h15.411c0.712,0,1.289,0.557,1.289,1.244V21" Stroke="#B4B4B4" StrokeThickness="2" StrokeMiterLimit="1" StrokeLineJoin="Round"/>
+      <Rectangle Canvas.Left="15" Canvas.Top="13" Width="2" Height="4.5" Fill="#B4B4B4"/>
+      <Path Data="M24.2,12H7.8c-0.442,0,-0.8,-0.358,-0.8,-0.8V2.8c0,-0.442,0.358,-0.8,0.8,-0.8h16.4c0.442,0,0.8,0.358,0.8,0.8v8.4C25,11.642,24.642,12,24.2,12zM12,29.2v-6.4c0,-0.442,-0.358,-0.8,-0.8,-0.8H2.8c-0.442,0,-0.8,0.358,-0.8,0.8v6.4c0,0.442,0.358,0.8,0.8,0.8h8.4C11.642,30,12,29.642,12,29.2zM30,29.2v-6.4c0,-0.442,-0.358,-0.8,-0.8,-0.8h-8.4c-0.442,0,-0.8,0.358,-0.8,0.8v6.4c0,0.442,0.358,0.8,0.8,0.8h8.4C29.642,30,30,29.642,30,29.2z" Stroke="#B4B4B4" StrokeThickness="2" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeMiterLimit="1" StrokeLineJoin="Round"/>
+    </Canvas>
+  </Canvas>
+</Viewbox>

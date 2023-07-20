@@ -1,0 +1,352 @@
+//=======================================================================
+//================ Lex class support ====================================
+//=======================================================================
+// 	lexClass:
+//		name		= c_CPPString
+//		parent		= c_CPP
+//		parent:dyn	= c_CPP
+//
+//		children		= 0
+//		children		= class1, class2, ...
+//
+//		previous:class			=	
+//		previous:tag			=	
+//		previous:tag:separators	=	
+//
+//		start:class		= 
+//		start:Tag		= '"'
+//
+//		skip:Tag		= '\"'
+//
+//		end:class		= //
+//		end:Tag			= '"'
+//		end:separators	= ' '
+//
+//		Token:tag		= 'if', 'for', 'while', 'do'
+//		Token:start:separators	= 
+//		Token:end:separators	= 
+//-----------------------------------------------------------------------
+//---------------- Attributes -------------------------------------------
+//-----------------------------------------------------------------------
+//	txt:colorFG	= 0xffc0c0 // color value in hex format. default: black	
+//	txt:colorBK	= 0xffc0c0 // color value in hex format. default: white		
+//
+//	txt:colorSelFG	= 0xffc0c0 // color value in hex format. default: white
+//	txt:colorSelBK	= 0xffc0c0 // color value in hex format. default: black
+//
+//	txt:Bold	= 1 // {1,0} default: 0
+//	txt:Italic	= 1 // {1,0} default: 0
+//	txt:Underline	= 1 // {1,0} default: 0
+//
+//	caseSensitive	= 1 // {1,0} default: 0
+//
+//	Collapsable	= 1 // {1,0} default: 0
+//	CollapsedText	= '/*...*/' // quoted string value. default: '[..]'	
+//
+//	ParseOnScreen	= 1 // {1,0} default: 0
+// 	
+//-----------------------------------------------------------------------
+//* Global attributes ***************************************************
+//-----------------------------------------------------------------------
+// 	global:FirstParseInSeparateThread	= 1		// {0,1} default=1
+// 	global:EditReparceInSeparateThread	= 1		// {0,1} default=1
+// 	global:ConfigChangedReparceInSeparateThread= 1 // {0,1} default=1
+// 	global:EditReparceTimeout_ms	= 500		// default= 500 ms; time out for start reparse after last key was pressed.
+// 	global:MaxBackParseOffset		= 100		// default= 100 chars; maximum back buffer size. Some times parser look back for the text from current position.
+// 	global:OnScreenSchCacheLifeTime_sec = 180	// default= 180 sec; -1 and 0 means infinite; time out for on screen parsed pices of text. for memory using optimization.
+// 	global:ParserThreadIdleLifeTime_sec = 60	// default=60 sec; -1 and 0 means infinite; time out for existing of parser thread when parser idle (no parse requests).
+	
+/////////////////////////////////////////////////////////////////////////
+
+//=======================================================================
+//================ Variables support ====================================
+//=======================================================================
+// NON operation - example:   @alpha:not
+//
+// @alpha	= a-z, A-Z
+// @digit	= 0-9
+// @HexDdigit	= 0-9, a-f, A-F
+// @specs	= "~`!@#$%^&*()_-+=\\|{}[];:'\",.<>/?"
+// @EOL		= End Of Line
+//---------------------------------------------
+// special tags:  '\\', '\'', '\t', '\r', '\n'
+/////////////////////////////////////////////////////////////////////////
+
+/// PHP ///	
+lexClass:
+	parent:file		= <*.php>
+	name			= c_php
+	caseSensitive		= 0
+	txt:colorFG		= 0x000000
+	DisplayName			= 'Normal Text'
+	
+//:lexClass
+
+lexClass:
+	name			= c_phpScript
+	parent			= c_php
+	start:tag		= '<?php'
+	end:tag			= '?>'
+	//txt:colorFG		= 0xFF0000
+	DisplayName			= 'PHP Script'
+
+//:lexClass
+
+lexClass: 	
+	name			= c_phpCommentML
+	parent			= c_phpScript
+	start:tag		= '/*'
+	end:Tag			= '*/'
+	txt:colorFG		= 0x009000
+	DisplayName			= 'PHP Comment (Multi-Line)'
+
+//:lexClass
+
+lexClass: 	
+	name			= c_phpCommentSL
+	parent			= c_phpScript
+	start:tag		= '//', '#'
+	end:Tag			= @eol
+	txt:colorFG		= 0x009000
+	DisplayName			= 'PHP Comment (Single-Line)'
+
+//:lexClass
+
+lexClass:
+	name			= c_phpNumber
+	parent			= c_phpScript
+	previous:tag		= ' ', '\t', @specs, @EOL	
+	start:tag		= @digit, '.'
+        skip:tag        	= 'e', '+', '-'  
+	end:separators		= @digit:not
+	txt:colorFG		= 0x009090
+	caseSensitive		= 0
+	DisplayName			= 'PHP Number'
+
+//:lexClass
+
+lexClass:
+	name			= c_phpStr1
+	parent			= c_phpScript
+	start:tag		= '\''
+	end:tag			= '\'', @EOL
+	txt:colorFG		= 0x840000
+	DisplayName			= 'PHP String (Single Quotes)'
+
+//:lexClass
+
+lexClass:
+	name			= c_phpStr2
+	parent			= c_phpScript
+	start:tag		= '"'
+	end:tag			= '"', @EOL
+	txt:colorFG		= 0x840000
+	DisplayName			= 'PHP String (Double Quotes)'
+
+//:lexClass
+
+lexClass:
+	name			= c_phpCharEscapes_base16
+	parent			= c_phpStr2			
+	start:tag		= '\\x'
+	skip:tag		= 'a', 'b', 'c', 'd', 'e', 'f'
+	end:separators		= @digit:not
+	txt:colorFG		= 0x00A000
+	CaseSensitive		= 0
+	DisplayName			= 'PHP Character Escapes (Hex)'
+
+//:lexClass
+
+lexClass:
+	name			= c_phpCharEscapes_base8
+	parent			= c_phpStr2			
+	start:tag		= '\\0'
+	end:separators		= @digit:not, '8', '9'
+	txt:colorFG		= 0x00A000
+	DisplayName			= 'PHP Character Escapes (Octal)'
+
+//:lexClass
+
+lexClass:
+	name			= c_phpCharEscapes_control
+	parent			= c_phpStr2			
+	start:tag		= '\\c'
+	end:tag			= @alpha, @digit, @specs
+	txt:colorFG		= 0x00A000
+	CaseSensitive		= 1
+	DisplayName			= 'PHP Character Escapes (Control)'
+
+//:lexClass
+
+lexClass:
+	name			= c_phpCharEscapes_regular
+	parent			= c_phpStr2			
+	token:tag		= '\\a', '\\e', '\\f', '\\n', '\\r', '\\R', '\\t', '\\$', '\\'', '\\"', '\\\\'
+	token:tag		= '\\d', '\\D', '\\h', '\\H', '\\s', '\\S', '\\v', '\\V', '\\w', '\\W'
+	token:tag		= '\\A', '\\b', '\\B', '\\G', '\\z', '\\Z', 
+	txt:colorFG		= 0x00A000
+	CaseSensitive		= 1
+	DisplayName			= 'PHP Character Escapes (Regular)'
+
+//:lexClass
+
+lexClass:
+	name			= c_phpStrFormatSpecifiers1
+	parent			= c_phpStr2
+	token:tag		= '%%'
+	txt:colorFG		= 0x00A000
+	DisplayName			= 'PHP String Format Specifiers 1'
+
+//:lexClass
+
+lexClass:
+	name			= c_phpStrFormatSpecifiers2
+	parent			= c_phpStr2
+	start:tag		= '%'
+	skip:tag		= 's'
+	skip:tag		= 'b', 'c', 'd', 'o', 'u', 'x', 'X'
+	skip:tag		= 'e', 'E', 'f', 'F', 'g', 'G', 'h', 'H'
+	skip:tag		= ' ', '+', '-', '$'
+	end:separators		= @digit:not
+	txt:colorFG		= 0x00A000
+	DisplayName			= 'PHP String Format Specifiers 2'
+
+//:lexClass
+
+lexClass:
+	name			= c_phpStrFormatSpecifiers3
+	parent:dyn		= c_phpStrFormatSpecifiers2
+	start:tag		= '\''
+	end:tag			= @alpha, @digit, @specs
+	txt:colorFG		= 0x00A000
+	DisplayName			= 'PHP String Format Specifiers 3'
+
+//:lexClass
+
+lexClass:
+	name			= c_phpStrFormatSpecifiers4
+	parent:dyn		= c_phpStrFormatSpecifiers2
+	previous:class		= c_phpStrFormatSpecifiers3
+	skip:tag		= 's'
+	skip:tag		= 'b', 'c', 'd', 'o', 'u', 'x', 'X'
+	skip:tag		= 'e', 'E', 'f', 'F', 'g', 'G', 'h', 'H'
+	skip:tag		= ' ', '+', '-', '$'
+	end:separators		= @digit:not
+	txt:colorFG		= 0x00A000
+	DisplayName			= 'PHP String Format Specifiers 4'
+
+//:lexClass
+
+lexClass: 
+	name			= c_phpKeywords
+	ParseOnScreen 		= 0
+	parent			= c_phpScript
+	txt:colorFG		= 0x0000FF
+	txt:Bold		= 1
+	caseSensitive		= 0
+	DisplayName			= 'PHP Keywords'
+
+	token:tag		= '__halt_compiler()'
+	token:tag		= 'abstract'
+	token:tag		= 'and'
+	token:tag		= 'array()'
+	token:tag		= 'as'
+	token:tag		= 'break'
+	token:tag		= 'callable'
+	token:tag		= 'case'
+	token:tag		= 'catch'
+	token:tag		= 'class'
+	token:tag		= 'clone'
+	token:tag		= 'const'
+	token:tag		= 'continue'
+	token:tag		= 'declare'
+	token:tag		= 'default'
+	token:tag		= 'die()'
+	token:tag		= 'do'
+	token:tag		= 'echo'
+	token:tag		= 'else'
+	token:tag		= 'elseif'
+	token:tag		= 'empty()'
+	token:tag		= 'enddeclare'
+	token:tag		= 'endfor'
+	token:tag		= 'endforeach'
+	token:tag		= 'endif'
+	token:tag		= 'endswitch'
+	token:tag		= 'endwhile'
+	token:tag		= 'eval()'
+	token:tag		= 'exit()'
+	token:tag		= 'extends'
+	token:tag		= 'final'
+	token:tag		= 'finally'
+	token:tag		= 'fn'
+	token:tag		= 'for'
+	token:tag		= 'foreach'
+	token:tag		= 'function'
+	token:tag		= 'global'
+	token:tag		= 'goto'
+	token:tag		= 'if'
+	token:tag		= 'implements'
+	token:tag		= 'include'
+	token:tag		= 'include_once'
+	token:tag		= 'instanceof'
+	token:tag		= 'insteadof'
+	token:tag		= 'interface'
+	token:tag		= 'isset()'
+	token:tag		= 'list()'
+	token:tag		= 'match'
+	token:tag		= 'namespace'
+	token:tag		= 'new'
+	token:tag		= 'or'
+	token:tag		= 'print'
+	token:tag		= 'private'
+	token:tag		= 'protected'
+	token:tag		= 'public'
+	token:tag		= 'require'
+	token:tag		= 'require_once'
+	token:tag		= 'return'
+	token:tag		= 'static'
+	token:tag		= 'switch'
+	token:tag		= 'throw'
+	token:tag		= 'trait'
+	token:tag		= 'try'
+	token:tag		= 'unset()'
+	token:tag		= 'use'
+	token:tag		= 'var'
+	token:tag		= 'while'
+	token:tag		= 'xor'
+	token:tag		= 'yield'
+
+	token:tag		= '__CLASS__'
+	token:tag		= '__DIR__'
+	token:tag		= '__FILE__'
+	token:tag		= '__FUNCTION__'
+	token:tag		= '__LINE__'
+	token:tag		= '__METHOD__'
+	token:tag		= '__NAMESPACE__'
+	token:tag		= '__TRAIT__'
+
+	token:tag		= '$GLOBALS'
+	token:tag		= '$_SERVER'
+	token:tag		= '$_REQUEST'
+	token:tag		= '$_POST'
+	token:tag		= '$_GET'
+	token:tag		= '$_FILES'
+	token:tag		= '$_ENV'
+	token:tag		= '$_COOKIE'
+	token:tag		= '$_SESSION'
+
+	token:start:separators	= @specs, ' ', '\t', @EOL
+	token:end:separators	= @specs, ' ', '\t', @EOL
+
+//:lexClass
+
+lexClass:
+	name			= c_phpVariable
+	parent			= c_phpScript, c_phpStr2
+	start:Tag		= '$'
+	skip:Tag		= @digit, '_'
+	end:separators		= @alpha:not
+	txt:colorFG		= 0x909000
+	DisplayName			= 'PHP Variable'
+
+//:lexClass
