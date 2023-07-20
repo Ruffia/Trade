@@ -248,7 +248,7 @@ BOOL CADRTradeApp::_InitDocumentTemplateList()
 
 void CADRTradeApp::OnFileNew()
 {
-	CMultiDocTemplate* pDocTemplate = CDocumentTemplateManager::Instance().GetDocumnetTemplate("TradeDay");
+	CMultiDocTemplate* pDocTemplate = CDocumentTemplateManager::Instance().GetDocumnetTemplate("TradeRecord");
 	if (!pDocTemplate) return;
 	pDocTemplate->OpenDocumentFile(NULL);
 }
