@@ -10,7 +10,7 @@
  Target Server Version : 3035005 (3.35.5)
  File Encoding         : 65001
 
- Date: 06/03/2023 10:14:36
+ Date: 01/08/2023 11:07:27
 */
 
 PRAGMA foreign_keys = false;
@@ -182,6 +182,6 @@ INSERT INTO "Dictionary_Field" VALUES (1, 'FailureReason', 'NotThinkCarefullyOfS
 INSERT INTO "Dictionary_Field" VALUES (2, 'FailureReason', 'NotThinkCarefullyOfSignalAndConflictOnTimePeriod', '未仔细思考信号及冲突的时间周期');
 INSERT INTO "Dictionary_Field" VALUES (3, 'FailureReason', 'Slow2ReactWhenEnvironmenChanged', '大环境已变化，反应慢');
 INSERT INTO "Dictionary_Field" VALUES (4, 'FailureReason', 'PlaceOrderConstrainedlyAsNotReconciled2LosingChance', '不甘心错失机会，勉强下单');
-INSERT INTO "Dictionary_Field" VALUES (5, 'FailureReason', 'NotExitEvenSignalTimePeriodExpired', '信号时间周期已过，但不退场');
+INSERT INTO "Dictionary_Field" VALUES (5, 'FailureReason', 'NotExitEvenSignalTimePeriodExpired', '信号时间周期已过，但不退场(恋战)');
 
 PRAGMA foreign_keys = true;

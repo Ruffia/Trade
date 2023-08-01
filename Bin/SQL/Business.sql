@@ -10,7 +10,7 @@
  Target Server Version : 3035005 (3.35.5)
  File Encoding         : 65001
 
- Date: 16/02/2023 13:33:49
+ Date: 01/08/2023 11:07:17
 */
 
 PRAGMA foreign_keys = false;
@@ -36,5 +36,6 @@ INSERT INTO "Business" VALUES ('Future_DailyMinorCycleAnalyze', 'FutureContract_
 INSERT INTO "Business" VALUES ('Future_DailyLongPeriodicAnalyze', 'FutureContract_LongPeriodicAnalyze.xml', '期货日内长周期分析记录表');
 INSERT INTO "Business" VALUES ('Future_DailyTraceEvidence', 'FutureContract_DailyTraceEvidence.xml', '期货日内日内行情中的线索');
 INSERT INTO "Business" VALUES ('Future_DailyTraceConflict', 'FutureContract_DailyTraceConflict.xml', '期货日内日内行情中的冲突点');
+INSERT INTO "Business" VALUES ('DocumentTemplate', NULL, '应用程序所用模板');
 
 PRAGMA foreign_keys = true;

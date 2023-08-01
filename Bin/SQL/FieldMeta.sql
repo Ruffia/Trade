@@ -10,7 +10,7 @@
  Target Server Version : 3035005 (3.35.5)
  File Encoding         : 65001
 
- Date: 26/02/2023 15:37:38
+ Date: 01/08/2023 11:07:59
 */
 
 PRAGMA foreign_keys = false;
@@ -141,5 +141,7 @@ INSERT INTO "FieldMeta" VALUES ('Value', 'Dictionary_Field', 'integer', 1, 0, 0)
 INSERT INTO "FieldMeta" VALUES ('Subject', 'Dictionary_Field', 'string', 1, 0, 1);
 INSERT INTO "FieldMeta" VALUES ('Meaning', 'Dictionary_Field', 'string', 0, 0, 2);
 INSERT INTO "FieldMeta" VALUES ('Translation', 'Dictionary_Field', 'string', 0, 0, 3);
+INSERT INTO "FieldMeta" VALUES ('DocumentTemplate', 'DocumentTemplate', 'string', 1, 1, 0);
+INSERT INTO "FieldMeta" VALUES ('Desc', 'DocumentTemplate', 'string', 0, 1, 1);
 
 PRAGMA foreign_keys = true;

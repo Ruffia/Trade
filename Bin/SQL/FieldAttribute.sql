@@ -10,7 +10,7 @@
  Target Server Version : 3035005 (3.35.5)
  File Encoding         : 65001
 
- Date: 22/02/2023 13:53:55
+ Date: 01/08/2023 11:07:50
 */
 
 PRAGMA foreign_keys = false;
@@ -337,5 +337,11 @@ INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'ConflictType', 'Future_Dail
 INSERT INTO "FieldAttribute" VALUES ('Meaning', 'DetailedDescription', 'Future_DailyTraceConflict', 'string', '冲突描述');
 INSERT INTO "FieldAttribute" VALUES ('ControlType', 'DetailedDescription', 'Future_DailyTraceConflict', 'string', 'CEdit');
 INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'DetailedDescription', 'Future_DailyTraceConflict', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'DocumentTemplate', 'DocumentTemplate', 'string', '模板名称');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'DocumentTemplate', 'DocumentTemplate', 'string', 'CGridCell');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'DocumentTemplate', 'DocumentTemplate', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'Desc', 'DocumentTemplate', 'string', '模板含义');
+INSERT INTO "FieldAttribute" VALUES ('ControlType', 'Desc', 'DocumentTemplate', 'string', 'CGridCell');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'Desc', 'DocumentTemplate', 'string', '%s');
 
 PRAGMA foreign_keys = true;
