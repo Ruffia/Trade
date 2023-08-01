@@ -16,6 +16,7 @@
 #include "DBDataManager.h"
 #include "Tools/StyleManager.h"
 #include "DocumentTemplateManager.h"
+#include "DlgPopup_SelectDocument.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -250,11 +251,15 @@ BOOL CADRTradeApp::_InitDocumentTemplateList()
 
 void CADRTradeApp::OnFileNew()
 {
-	CMultiDocTemplate* pDocTemplate = CDocumentTemplateManager::Instance().GetDocumnetTemplate("TradeRecord");
-	if (!pDocTemplate) return;
-	pDocTemplate->OpenDocumentFile(NULL);
+	CDlg_SelectDocument dlg;
+	if (IDOK == dlg.DoModal())
+	{
+		string strTemplate = dlg.m_strSelectTemplate;
+		CMultiDocTemplate* pDocTemplate = CDocumentTemplateManager::Instance().GetDocumnetTemplate(dlg.m_strSelectTemplate);
+		if (!pDocTemplate) return;
+		pDocTemplate->OpenDocumentFile(NULL);
+	}
 }
-// CADRTradeApp 消息处理程序
 
 
 

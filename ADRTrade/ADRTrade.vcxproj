@@ -124,6 +124,7 @@
     <ClInclude Include="ADRTradeRecordView.h" />
     <ClInclude Include="ChildFrm.h" />
     <ClInclude Include="DialogIDManager.h" />
+    <ClInclude Include="DlgPopup_SelectDocument.h" />
     <ClInclude Include="DocumentTemplateManager.h" />
     <ClInclude Include="Future\CustomTabCtrlDlg_DailyMinorCycleAnalyze.h" />
     <ClInclude Include="Future\DialogPlaceHolder_DailyTraceConflict.h" />
@@ -131,6 +132,10 @@
     <ClInclude Include="Future\DialogPlaceHolder_LongPeriodicAnalyze.h" />
     <ClInclude Include="Future\DialogPlaceHolder_MinorCycleAnalyze.h" />
     <ClInclude Include="Future\FutureContract_TradeDialogs.h" />
+    <ClInclude Include="GirdBehaviour\GridCellAttributeBehaviour.h" />
+    <ClInclude Include="GirdBehaviour\GridCellBehaviour.h" />
+    <ClInclude Include="GirdBehaviour\GridFieldMeta.h" />
+    <ClInclude Include="GirdBehaviour\GridViewField.h" />
     <ClInclude Include="MacroEnvironment\DlgTab_WorldEcnomic.h" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="PropertiesWnd.h" />
@@ -188,6 +193,7 @@
     <ClCompile Include="ADRTradeRecordView.cpp" />
     <ClCompile Include="ChildFrm.cpp" />
     <ClCompile Include="DialogIDManager.cpp" />
+    <ClCompile Include="DlgPopup_SelectDocument.cpp" />
     <ClCompile Include="DocumentTemplateManager.cpp" />
     <ClCompile Include="Future\CustomTabCtrlDlg_DailyMinorCycleAnalyze.cpp" />
     <ClCompile Include="Future\DialogPlaceHolder_DailyTraceConflict.cpp" />
@@ -195,6 +201,10 @@
     <ClCompile Include="Future\DialogPlaceHolder_LongPeriodicAnalyze.cpp" />
     <ClCompile Include="Future\DialogPlaceHolder_MinorCycleAnalyze.cpp" />
     <ClCompile Include="Future\FutureContract_TradeDialogs.cpp" />
+    <ClCompile Include="GirdBehaviour\GridCellAttributeBehaviour.cpp" />
+    <ClCompile Include="GirdBehaviour\GridCellBehaviour.cpp" />
+    <ClCompile Include="GirdBehaviour\GridFieldMeta.cpp" />
+    <ClCompile Include="GirdBehaviour\GridViewField.cpp" />
     <ClCompile Include="MacroEnvironment\DlgTab_WorldEcnomic.cpp" />
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="PropertiesWnd.cpp" />

@@ -28,6 +28,9 @@
     <Filter Include="WeatherGlass">
       <UniqueIdentifier>{a17a3f55-d4db-45d7-9a05-5eb8eced828f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GirdBehaviour">
+      <UniqueIdentifier>{51e92771-321b-42d0-8725-35225f42a831}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -198,12 +201,6 @@
     <ClInclude Include="Tools\ControlCreator.h">
       <Filter>Tools</Filter>
     </ClInclude>
-    <ClInclude Include="ADRTradeRecordDoc.h">
-      <Filter>源文件</Filter>
-    </ClInclude>
-    <ClInclude Include="ADRTradeRecordView.h">
-      <Filter>源文件</Filter>
-    </ClInclude>
     <ClInclude Include="DocumentTemplateManager.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -218,6 +215,27 @@
     </ClInclude>
     <ClInclude Include="WeatherGlass\WeatherGlass_TabCtrlDlg.h">
       <Filter>WeatherGlass</Filter>
+    </ClInclude>
+    <ClInclude Include="ADRTradeRecordDoc.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ADRTradeRecordView.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgPopup_SelectDocument.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="GirdBehaviour\GridCellAttributeBehaviour.h">
+      <Filter>GirdBehaviour</Filter>
+    </ClInclude>
+    <ClInclude Include="GirdBehaviour\GridCellBehaviour.h">
+      <Filter>GirdBehaviour</Filter>
+    </ClInclude>
+    <ClInclude Include="GirdBehaviour\GridViewField.h">
+      <Filter>GirdBehaviour</Filter>
+    </ClInclude>
+    <ClInclude Include="GirdBehaviour\GridFieldMeta.h">
+      <Filter>GirdBehaviour</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -394,6 +412,21 @@
     </ClCompile>
     <ClCompile Include="WeatherGlass\WeatherGlass_TabCtrlDlg.cpp">
       <Filter>WeatherGlass</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgPopup_SelectDocument.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="GirdBehaviour\GridCellAttributeBehaviour.cpp">
+      <Filter>GirdBehaviour</Filter>
+    </ClCompile>
+    <ClCompile Include="GirdBehaviour\GridCellBehaviour.cpp">
+      <Filter>GirdBehaviour</Filter>
+    </ClCompile>
+    <ClCompile Include="GirdBehaviour\GridViewField.cpp">
+      <Filter>GirdBehaviour</Filter>
+    </ClCompile>
+    <ClCompile Include="GirdBehaviour\GridFieldMeta.cpp">
+      <Filter>GirdBehaviour</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
