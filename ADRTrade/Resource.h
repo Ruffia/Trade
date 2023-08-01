@@ -97,14 +97,15 @@
 #define IDC_Btn_Previous                1001
 #define IDC_MultiSelect                 1002
 #define IDC_COMBO_APPEARANCE            1002
-#define IDC_Btn_Previous2               1002
 #define IDC_Btn_Next                    1002
+#define IDC_STATIC_HOLDER               1002
 #define IDC_COMBO_PALETTE               1003
 #define IDC_CHECK_LEGEND                1004
 #define IDC_STATIC_3DTEXT               1005
 #define IDC_TAB1                        6623
 #define IDC_Grid                        6631
 #define IDC_TAB                         6632
+#define IDC_BUTTON_OpenDocument         6647
 #define IDC_PROGRESS4Thread             14473
 #define IDC_STATIC_TEXT                 14474
 #define IDC_STATIC_PROGRESS             14475
@@ -119,6 +120,7 @@
 #define IDD_ChildDLG_Tab_PhraseIn1Day1  31417
 #define IDD_ChildDLG_Tab_PhraseIn1Week  31417
 #define IDD_WeatherGlass_Chart          31418
+#define IDD_DLG_SelectDocument          31419
 #define ID_Menu_WorldEconomic           32780
 #define ID_Menu_BulkCommodity           32781
 #define ID_Menu_PoliticEconomicRelation 32784
@@ -134,7 +136,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        312
 #define _APS_NEXT_COMMAND_VALUE         32792
-#define _APS_NEXT_CONTROL_VALUE         1002
+#define _APS_NEXT_CONTROL_VALUE         1003
 #define _APS_NEXT_SYMED_VALUE           310
 #endif
 #endif
