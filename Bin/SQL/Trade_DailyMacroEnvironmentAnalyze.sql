@@ -3,14 +3,14 @@
 
  Source Server         : TradeTrack
  Source Server Type    : SQLite
- Source Server Version : 3035005
+ Source Server Version : 3035005 (3.35.5)
  Source Schema         : main
 
  Target Server Type    : SQLite
- Target Server Version : 3035005
+ Target Server Version : 3035005 (3.35.5)
  File Encoding         : 65001
 
- Date: 13/01/2023 13:34:27
+ Date: 12/08/2023 11:56:21
 */
 
 PRAGMA foreign_keys = false;
@@ -20,7 +20,7 @@ PRAGMA foreign_keys = false;
 -- ----------------------------
 DROP TABLE IF EXISTS "Trade_DailyMacroEnvironmentAnalyze";
 CREATE TABLE "Trade_DailyMacroEnvironmentAnalyze" (
-  "TradeDay" text NOT NULL,
+  "TradeDay" date NOT NULL,
   "USStock" text,
   "USDollarIndex" text,
   "JapanKoreaStock" text,

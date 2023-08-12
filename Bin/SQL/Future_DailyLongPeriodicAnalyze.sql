@@ -10,7 +10,7 @@
  Target Server Version : 3035005 (3.35.5)
  File Encoding         : 65001
 
- Date: 26/02/2023 15:37:50
+ Date: 12/08/2023 11:55:34
 */
 
 PRAGMA foreign_keys = false;
@@ -20,7 +20,7 @@ PRAGMA foreign_keys = false;
 -- ----------------------------
 DROP TABLE IF EXISTS "Future_DailyLongPeriodicAnalyze";
 CREATE TABLE "Future_DailyLongPeriodicAnalyze" (
-  "TradeDay" text NOT NULL,
+  "TradeDay" date NOT NULL,
   "FutureContractName" TEXT NOT NULL,
   "MainForceChange" TEXT,
   "CITIC_GoldmanSachs" TEXT,

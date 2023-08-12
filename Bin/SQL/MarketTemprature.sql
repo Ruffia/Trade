@@ -10,22 +10,25 @@
  Target Server Version : 3035005 (3.35.5)
  File Encoding         : 65001
 
- Date: 12/08/2023 11:55:47
+ Date: 12/08/2023 11:56:13
 */
 
 PRAGMA foreign_keys = false;
 
 -- ----------------------------
--- Table structure for Future_DailyTraceConflict
+-- Table structure for MarketTemprature
 -- ----------------------------
-DROP TABLE IF EXISTS "Future_DailyTraceConflict";
-CREATE TABLE "Future_DailyTraceConflict" (
-  "TradeDay" date NOT NULL,
-  "FutureContractName" TEXT NOT NULL,
-  "number" integer NOT NULL,
-  "ConflictType" integer,
-  "DetailedDescription" text,
-  PRIMARY KEY ("TradeDay", "FutureContractName", "number")
+DROP TABLE IF EXISTS "MarketTemprature";
+CREATE TABLE "MarketTemprature" (
+  "Day" date NOT NULL,
+  "Number_Rise" integer,
+  "Number_Drop" integer,
+  "Number_Rise2UpperLimit" integer,
+  "Number_Drop2LowerLimit" integer,
+  "Number_TradeVolume" integer,
+  "Number_MoneyInOut" integer,
+  "Number_ProfitLoss" integer,
+  PRIMARY KEY ("Day")
 );
 
 PRAGMA foreign_keys = true;

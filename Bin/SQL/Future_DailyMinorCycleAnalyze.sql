@@ -10,7 +10,7 @@
  Target Server Version : 3035005 (3.35.5)
  File Encoding         : 65001
 
- Date: 21/02/2023 17:52:34
+ Date: 12/08/2023 11:55:40
 */
 
 PRAGMA foreign_keys = false;
@@ -20,7 +20,7 @@ PRAGMA foreign_keys = false;
 -- ----------------------------
 DROP TABLE IF EXISTS "Future_DailyMinorCycleAnalyze";
 CREATE TABLE "Future_DailyMinorCycleAnalyze" (
-  "TradeDay" text NOT NULL,
+  "TradeDay" date NOT NULL,
   "FutureContractName" TEXT NOT NULL,
   "RecordTime" TEXT NOT NULL,
   "MACD_5MIN" integer,

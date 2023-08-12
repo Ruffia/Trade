@@ -3,14 +3,14 @@
 
  Source Server         : TradeTrack
  Source Server Type    : SQLite
- Source Server Version : 3035005
+ Source Server Version : 3035005 (3.35.5)
  Source Schema         : main
 
  Target Server Type    : SQLite
- Target Server Version : 3035005
+ Target Server Version : 3035005 (3.35.5)
  File Encoding         : 65001
 
- Date: 13/01/2023 14:19:01
+ Date: 12/08/2023 11:56:06
 */
 
 PRAGMA foreign_keys = false;
@@ -20,7 +20,7 @@ PRAGMA foreign_keys = false;
 -- ----------------------------
 DROP TABLE IF EXISTS "Future_IntradayTrade";
 CREATE TABLE "Future_IntradayTrade" (
-  "TradeDay" text NOT NULL,
+  "TradeDay" date NOT NULL,
   "FutureContractName" text,
   "TradeTime" text,
   "ExpectOrderTime" integer,
