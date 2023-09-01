@@ -31,6 +31,9 @@
     <Filter Include="GirdBehaviour">
       <UniqueIdentifier>{51e92771-321b-42d0-8725-35225f42a831}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MarketTemperature">
+      <UniqueIdentifier>{424e4411-4c48-4e64-a0c9-8d03649a0243}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -204,15 +207,6 @@
     <ClInclude Include="DocumentTemplateManager.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="WeatherGlass\ChartDialogDlg.h">
-      <Filter>WeatherGlass</Filter>
-    </ClInclude>
-    <ClInclude Include="WeatherGlass\WeatherGlassChartPage.h">
-      <Filter>WeatherGlass</Filter>
-    </ClInclude>
-    <ClInclude Include="WeatherGlass\ChartPageBase.h">
-      <Filter>WeatherGlass</Filter>
-    </ClInclude>
     <ClInclude Include="WeatherGlass\WeatherGlass_TabCtrlDlg.h">
       <Filter>WeatherGlass</Filter>
     </ClInclude>
@@ -236,6 +230,15 @@
     </ClInclude>
     <ClInclude Include="GirdBehaviour\GridFieldMeta.h">
       <Filter>GirdBehaviour</Filter>
+    </ClInclude>
+    <ClInclude Include="ADRMarketTemperatureDoc.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ADRMarketTemperatureView.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MarketTemperature\DlgMarketTemperature.h">
+      <Filter>MarketTemperature</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -401,15 +404,6 @@
     <ClCompile Include="DocumentTemplateManager.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="WeatherGlass\ChartDialogDlg.cpp">
-      <Filter>WeatherGlass</Filter>
-    </ClCompile>
-    <ClCompile Include="WeatherGlass\WeatherGlassChartPage.cpp">
-      <Filter>WeatherGlass</Filter>
-    </ClCompile>
-    <ClCompile Include="WeatherGlass\ChartPageBase.cpp">
-      <Filter>WeatherGlass</Filter>
-    </ClCompile>
     <ClCompile Include="WeatherGlass\WeatherGlass_TabCtrlDlg.cpp">
       <Filter>WeatherGlass</Filter>
     </ClCompile>
@@ -427,6 +421,15 @@
     </ClCompile>
     <ClCompile Include="GirdBehaviour\GridFieldMeta.cpp">
       <Filter>GirdBehaviour</Filter>
+    </ClCompile>
+    <ClCompile Include="ADRMarketTemperatureDoc.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ADRMarketTemperatureView.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MarketTemperature\DlgMarketTemperature.cpp">
+      <Filter>MarketTemperature</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

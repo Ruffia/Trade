@@ -11,7 +11,7 @@ protected:
 
 protected:
 	CList<CRect,CRect&> m_listRect; 
-	CXTPChartControl m_wndChartControl;
+	//CXTPChartControl m_wndChartControl;
 
 	void ShowControls(BOOL bShowLegend, BOOL bShow3DText);
 	void GetInitRect();

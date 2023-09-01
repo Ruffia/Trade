@@ -75,28 +75,28 @@ END_MESSAGE_MAP()
 
 void CChartDialogDlg::ShowControls(BOOL bShowLegend, BOOL bShow3DText)
 {
-	m_wndLegend.ShowWindow(bShowLegend ? SW_SHOW : SW_HIDE);
-	m_wnd3dText.ShowWindow(bShow3DText ? SW_SHOW : SW_HIDE);
+	//m_wndLegend.ShowWindow(bShowLegend ? SW_SHOW : SW_HIDE);
+	//m_wnd3dText.ShowWindow(bShow3DText ? SW_SHOW : SW_HIDE);
 
-	m_wndChartControl.GetContent()->GetLegend()->SetVisible(bShowLegend && m_bLegend);
+	//m_wndChartControl.GetContent()->GetLegend()->SetVisible(bShowLegend && m_bLegend);
 }
 
 void CChartDialogDlg::AddTitles()
 {
-	CXTPChartTitle* pTitle = m_wndChartControl.GetContent()->GetTitles()->Add(new CXTPChartTitle());
-	pTitle->SetText(_T("Chart Control"));
+	//CXTPChartTitle* pTitle = m_wndChartControl.GetContent()->GetTitles()->Add(new CXTPChartTitle());
+	//pTitle->SetText(_T("Chart Control"));
 }
 
 void CChartDialogDlg::AddSeries()
 {
-	CXTPChartSeries* pSeries = m_wndChartControl.GetContent()->GetSeries()->Add(
-		new CXTPChartSeries());
+	//CXTPChartSeries* pSeries = m_wndChartControl.GetContent()->GetSeries()->Add(
+	//	new CXTPChartSeries());
 
-	pSeries->GetPoints()->Add(new CXTPChartSeriesPoint(6, 4, 4));
-	pSeries->GetPoints()->Add(new CXTPChartSeriesPoint(7, 3.3, 3.3));
-	pSeries->GetPoints()->Add(new CXTPChartSeriesPoint(8, 2.8, 2.8))->m_bSpecial = TRUE;
-	pSeries->GetPoints()->Add(new CXTPChartSeriesPoint(9, 3.7, 3.7));
-	pSeries->GetPoints()->Add(new CXTPChartSeriesPoint(10, 1.9, 1.9));
+	//pSeries->GetPoints()->Add(new CXTPChartSeriesPoint(6, 4, 4));
+	//pSeries->GetPoints()->Add(new CXTPChartSeriesPoint(7, 3.3, 3.3));
+	//pSeries->GetPoints()->Add(new CXTPChartSeriesPoint(8, 2.8, 2.8))->m_bSpecial = TRUE;
+	//pSeries->GetPoints()->Add(new CXTPChartSeriesPoint(9, 3.7, 3.7));
+	//pSeries->GetPoints()->Add(new CXTPChartSeriesPoint(10, 1.9, 1.9));
 }
 
 BOOL CChartDialogDlg::OnInitDialog()
@@ -115,10 +115,10 @@ BOOL CChartDialogDlg::OnInitDialog()
 	OnChangeComboPalette();
 	OnChangeComboAppearance();
 
-	m_wndChartControl.GetContent()->GetLegend()->SetVisible(TRUE);
+	//m_wndChartControl.GetContent()->GetLegend()->SetVisible(TRUE);
 
 	// Set the default font for all dialog controls.
-	SendMessageToDescendants(WM_SETFONT, (WPARAM)(HFONT)XTPFontManager()->GetFont());
+	//SendMessageToDescendants(WM_SETFONT, (WPARAM)(HFONT)XTPFontManager()->GetFont());
 
 	return TRUE; // return TRUE  unless you set the focus to a control
 }
@@ -168,117 +168,117 @@ void CChartDialogDlg::OnChangeComboStyle()
 {
 	UpdateData();
 
-	CXTPChartSeries* pSeries = m_wndChartControl.GetContent()->GetSeries()->GetAt(0);
+	//CXTPChartSeries* pSeries = m_wndChartControl.GetContent()->GetSeries()->GetAt(0);
 
-	switch (m_nStyle)
-	{
-		case 0:
-		{
-			pSeries->SetStyle(new CXTPChartPointSeriesStyle());
-			ShowControls(FALSE, FALSE);
-		}
-		break;
-		case 1:
-		{
-			pSeries->SetStyle(new CXTPChartLineSeriesStyle());
-			ShowControls(FALSE, FALSE);
-		}
-		break;
-		case 2:
-		{
-			pSeries->SetStyle(new CXTPChartSplineSeriesStyle());
-			ShowControls(FALSE, FALSE);
-		}
-		break;
-		case 3:
-		{
-			pSeries->SetStyle(new CXTPChartBarSeriesStyle());
-			ShowControls(FALSE, FALSE);
-		}
-		break;
-		case 4:
-		{
-			pSeries->SetStyle(new CXTPChartAreaSeriesStyle());
-			ShowControls(FALSE, FALSE);
-		}
-		break;
-		case 5:
-		{
-			pSeries->SetStyle(new CXTPChartSplineAreaSeriesStyle());
-			ShowControls(FALSE, FALSE);
-		}
-		break;
-		case 6:
-		{
-			pSeries->SetStyle(new CXTPChartBubbleSeriesStyle());
-			ShowControls(TRUE, FALSE);
-		}
-		break;
-		case 7:
-		{
-			pSeries->SetStyle(new CXTPChart2dPieSeriesStyle());
-			ShowControls(TRUE, FALSE);
-		}
-		break;
-		case 8:
-		{
-			CXTPChartPieSeriesStyle* pPieStyle = (CXTPChartPieSeriesStyle*)pSeries->SetStyle(
-				new CXTPChart2dPieSeriesStyle());
-			pPieStyle->SetRotation(20);
-			pPieStyle->SetHolePercent(60);
-			pPieStyle->SetExplodedDistancePercent(20);
-			((CXTPChartPieSeriesLabel*)pPieStyle->GetLabel())->SetPosition(xtpChartPieLabelOutside);
-			ShowControls(TRUE, FALSE);
-		}
-		break;
-		case 9:
-		{
-			CXTPChart3dPieSeriesStyle* pPieStyle = (CXTPChart3dPieSeriesStyle*)pSeries->SetStyle(
-				new CXTPChart3dPieSeriesStyle());
-			pPieStyle->Set3dRotation(10, 20, 50);
-			((CXTPChartPieSeriesLabel*)pPieStyle->GetLabel())->SetPosition(xtpChartPieLabelOutside);
-			ShowControls(TRUE, TRUE);
-		}
-		break;
-		case 10:
-		{
-			CXTPChart3dPieSeriesStyle* pPieStyle = (CXTPChart3dPieSeriesStyle*)pSeries->SetStyle(
-				new CXTPChart3dPieSeriesStyle());
-			pPieStyle->Set3dRotation(10, 20, 30);
-			pPieStyle->SetHolePercent(60);
-			pPieStyle->SetExplodedDistancePercent(20);
-			((CXTPChartPieSeriesLabel*)pPieStyle->GetLabel())->SetPosition(xtpChartPieLabelOutside);
-			ShowControls(TRUE, TRUE);
-		}
-		break;
-		case 11:
-		{
-			CXTPChart3dPieSeriesStyle* pPieStyle = (CXTPChart3dPieSeriesStyle*)pSeries->SetStyle(
-				new CXTPChart3dPieSeriesStyle());
-			pPieStyle->Set3dRotation(-20, 0, 70);
-			pPieStyle->SetExplodedDistancePercent(20);
-			pPieStyle->SetTorus(TRUE);
-			pPieStyle->SetDepth(pPieStyle->GetDepth() * 2);
-			((CXTPChartPieSeriesLabel*)pPieStyle->GetLabel())->SetPosition(xtpChartPieLabelOutside);
-			ShowControls(TRUE, TRUE);
-		}
-		break;
-		case 12:
-		{
-			CXTPChart3dPyramidSeriesStyle* pPyramidStyle =
-				(CXTPChart3dPyramidSeriesStyle*)pSeries->SetStyle(
-					new CXTPChart3dPyramidSeriesStyle());
-			pPyramidStyle->Set3dRotation(20, 20, 90);
-			pPyramidStyle->SetPointDistance(5);
-			pPyramidStyle->SetHeightToWidthRatio(2);
-			pPyramidStyle->SetBaseEdgeCount(6);
-			pPyramidStyle->Enable3dEdgeSmoothing(TRUE);
-			((CXTPChartPyramidSeriesLabel*)pPyramidStyle->GetLabel())
-				->SetPosition(xtpChartPyramidLabelCenter);
-			ShowControls(TRUE, TRUE);
-		}
-		break;
-	}
+	//switch (m_nStyle)
+	//{
+	//	case 0:
+	//	{
+	//		pSeries->SetStyle(new CXTPChartPointSeriesStyle());
+	//		ShowControls(FALSE, FALSE);
+	//	}
+	//	break;
+	//	case 1:
+	//	{
+	//		pSeries->SetStyle(new CXTPChartLineSeriesStyle());
+	//		ShowControls(FALSE, FALSE);
+	//	}
+	//	break;
+	//	case 2:
+	//	{
+	//		pSeries->SetStyle(new CXTPChartSplineSeriesStyle());
+	//		ShowControls(FALSE, FALSE);
+	//	}
+	//	break;
+	//	case 3:
+	//	{
+	//		pSeries->SetStyle(new CXTPChartBarSeriesStyle());
+	//		ShowControls(FALSE, FALSE);
+	//	}
+	//	break;
+	//	case 4:
+	//	{
+	//		pSeries->SetStyle(new CXTPChartAreaSeriesStyle());
+	//		ShowControls(FALSE, FALSE);
+	//	}
+	//	break;
+	//	case 5:
+	//	{
+	//		pSeries->SetStyle(new CXTPChartSplineAreaSeriesStyle());
+	//		ShowControls(FALSE, FALSE);
+	//	}
+	//	break;
+	//	case 6:
+	//	{
+	//		pSeries->SetStyle(new CXTPChartBubbleSeriesStyle());
+	//		ShowControls(TRUE, FALSE);
+	//	}
+	//	break;
+	//	case 7:
+	//	{
+	//		pSeries->SetStyle(new CXTPChart2dPieSeriesStyle());
+	//		ShowControls(TRUE, FALSE);
+	//	}
+	//	break;
+	//	case 8:
+	//	{
+	//		CXTPChartPieSeriesStyle* pPieStyle = (CXTPChartPieSeriesStyle*)pSeries->SetStyle(
+	//			new CXTPChart2dPieSeriesStyle());
+	//		pPieStyle->SetRotation(20);
+	//		pPieStyle->SetHolePercent(60);
+	//		pPieStyle->SetExplodedDistancePercent(20);
+	//		((CXTPChartPieSeriesLabel*)pPieStyle->GetLabel())->SetPosition(xtpChartPieLabelOutside);
+	//		ShowControls(TRUE, FALSE);
+	//	}
+	//	break;
+	//	case 9:
+	//	{
+	//		CXTPChart3dPieSeriesStyle* pPieStyle = (CXTPChart3dPieSeriesStyle*)pSeries->SetStyle(
+	//			new CXTPChart3dPieSeriesStyle());
+	//		pPieStyle->Set3dRotation(10, 20, 50);
+	//		((CXTPChartPieSeriesLabel*)pPieStyle->GetLabel())->SetPosition(xtpChartPieLabelOutside);
+	//		ShowControls(TRUE, TRUE);
+	//	}
+	//	break;
+	//	case 10:
+	//	{
+	//		CXTPChart3dPieSeriesStyle* pPieStyle = (CXTPChart3dPieSeriesStyle*)pSeries->SetStyle(
+	//			new CXTPChart3dPieSeriesStyle());
+	//		pPieStyle->Set3dRotation(10, 20, 30);
+	//		pPieStyle->SetHolePercent(60);
+	//		pPieStyle->SetExplodedDistancePercent(20);
+	//		((CXTPChartPieSeriesLabel*)pPieStyle->GetLabel())->SetPosition(xtpChartPieLabelOutside);
+	//		ShowControls(TRUE, TRUE);
+	//	}
+	//	break;
+	//	case 11:
+	//	{
+	//		CXTPChart3dPieSeriesStyle* pPieStyle = (CXTPChart3dPieSeriesStyle*)pSeries->SetStyle(
+	//			new CXTPChart3dPieSeriesStyle());
+	//		pPieStyle->Set3dRotation(-20, 0, 70);
+	//		pPieStyle->SetExplodedDistancePercent(20);
+	//		pPieStyle->SetTorus(TRUE);
+	//		pPieStyle->SetDepth(pPieStyle->GetDepth() * 2);
+	//		((CXTPChartPieSeriesLabel*)pPieStyle->GetLabel())->SetPosition(xtpChartPieLabelOutside);
+	//		ShowControls(TRUE, TRUE);
+	//	}
+	//	break;
+	//	case 12:
+	//	{
+	//		CXTPChart3dPyramidSeriesStyle* pPyramidStyle =
+	//			(CXTPChart3dPyramidSeriesStyle*)pSeries->SetStyle(
+	//				new CXTPChart3dPyramidSeriesStyle());
+	//		pPyramidStyle->Set3dRotation(20, 20, 90);
+	//		pPyramidStyle->SetPointDistance(5);
+	//		pPyramidStyle->SetHeightToWidthRatio(2);
+	//		pPyramidStyle->SetBaseEdgeCount(6);
+	//		pPyramidStyle->Enable3dEdgeSmoothing(TRUE);
+	//		((CXTPChartPyramidSeriesLabel*)pPyramidStyle->GetLabel())
+	//			->SetPosition(xtpChartPyramidLabelCenter);
+	//		ShowControls(TRUE, TRUE);
+	//	}
+	//	break;
+	//}
 }
 
 void CChartDialogDlg::OnChangeComboAppearance()
@@ -286,12 +286,12 @@ void CChartDialogDlg::OnChangeComboAppearance()
 	UpdateData();
 
 	CString strAppearance;
-	m_wndAppearance.GetLBText(m_nAppearance, strAppearance);
+	//m_wndAppearance.GetLBText(m_nAppearance, strAppearance);
 
-	m_wndChartControl.GetContent()->GetAppearance()->LoadAppearance(_T("CHART_APPEARANCE_")
+	//m_wndChartControl.GetContent()->GetAppearance()->LoadAppearance(_T("CHART_APPEARANCE_")
 																	+ strAppearance);
 
-	m_wndChartControl.GetContent()->OnChartChanged();
+	//m_wndChartControl.GetContent()->OnChartChanged();
 }
 
 void CChartDialogDlg::OnChangeComboPalette()
@@ -303,14 +303,14 @@ void CChartDialogDlg::OnChangeComboPalette()
 	strPalette.MakeUpper();
 	strPalette.Replace(_T(" "), _T(""));
 
-	m_wndChartControl.GetContent()->GetAppearance()->LoadPalette(_T("CHART_PALETTE_") + strPalette);
+	//m_wndChartControl.GetContent()->GetAppearance()->LoadPalette(_T("CHART_PALETTE_") + strPalette);
 
-	m_wndChartControl.GetContent()->OnChartChanged();
+	//m_wndChartControl.GetContent()->OnChartChanged();
 }
 
 void CChartDialogDlg::OnCheckLegend()
 {
 	UpdateData();
 
-	m_wndChartControl.GetContent()->GetLegend()->SetVisible(m_bLegend);
+	//m_wndChartControl.GetContent()->GetLegend()->SetVisible(m_bLegend);
 }

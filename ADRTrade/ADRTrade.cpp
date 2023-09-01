@@ -13,6 +13,8 @@
 #include "ADRTradeDayView.h"
 #include "ADRTradeRecordDoc.h"
 #include "ADRTradeRecordView.h"
+#include "ADRMarketTemperatureDoc.h"
+#include "ADRMarketTemperatureView.h"
 #include "DBDataManager.h"
 #include "Tools/StyleManager.h"
 #include "DocumentTemplateManager.h"
@@ -244,6 +246,19 @@ BOOL CADRTradeApp::_InitDocumentTemplateList()
 		AddDocTemplate(pDocTemplate);
 		CDocumentTemplateManager::Instance().Register("TradeRecord",pDocTemplate);
 	}
+
+
+	{
+		CMultiDocTemplate* pDocTemplate = new CMultiDocTemplate(IDR_ADRMarketTemperature,
+			RUNTIME_CLASS(CADRMarketTemperatureDoc),
+			RUNTIME_CLASS(CChildFrame), // 自定义 MDI 子框架
+			RUNTIME_CLASS(CADRMarketTemperatureView));
+		if (!pDocTemplate)
+			return FALSE;
+		AddDocTemplate(pDocTemplate);
+		CDocumentTemplateManager::Instance().Register("MarketTemperature",pDocTemplate);
+	}
+
 
 	return TRUE;
 }

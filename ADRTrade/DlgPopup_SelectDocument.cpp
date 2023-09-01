@@ -61,6 +61,10 @@ BOOL CGridPage_SelectDocument::OnNotify(WPARAM wParam, LPARAM lParam, LRESULT* p
 		NM_GRIDVIEW* nmgv = (NM_GRIDVIEW*)(lParam);
 		int nRow = nmgv->iRow;
 		int nColumn = nmgv->iColumn;
+		if (nRow < 1)
+		{
+			return FALSE;
+		}
 		m_pSelectRecord = m_ds[nRow - 1];
 		ASSERT(m_pSelectRecord);
 		CField* pField = m_pSelectRecord->GetField("DocumentTemplate");

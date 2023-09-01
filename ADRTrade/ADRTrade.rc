@@ -392,6 +392,31 @@ BEGIN
     END
 END
 
+IDR_ADRMarketTemperature MENU
+BEGIN
+    POPUP "文件(&F)"
+    BEGIN
+        MENUITEM "新建(&N)\tCtrl+N",              ID_FILE_NEW
+        MENUITEM "打开(&O)...\tCtrl+O",           ID_FILE_OPEN
+        MENUITEM "退出(&X)",                      ID_APP_EXIT
+    END
+    POPUP "宏观"
+    BEGIN
+        MENUITEM "世界经济基本面",                     ID_Menu_WorldEconomic
+        MENUITEM "大宗商品",                        ID_Menu_BulkCommodity
+        MENUITEM "政经关系",                        ID_Menu_PoliticEconomicRelation
+        MENUITEM "研判",                          ID_Menu_Judge
+    END
+    POPUP "股票"
+    BEGIN
+        MENUITEM "周线股票池",                       ID_Menu_OpenStockPool
+    END
+    POPUP "帮助(&H)"
+    BEGIN
+        MENUITEM "关于 ADRTrade(&A)...",          ID_APP_ABOUT
+    END
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //

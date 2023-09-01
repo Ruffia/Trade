@@ -10,7 +10,7 @@
  Target Server Version : 3035005 (3.35.5)
  File Encoding         : 65001
 
- Date: 01/08/2023 11:07:34
+ Date: 12/08/2023 16:08:36
 */
 
 PRAGMA foreign_keys = false;
@@ -30,5 +30,6 @@ CREATE TABLE "DocumentTemplate" (
 -- ----------------------------
 INSERT INTO "DocumentTemplate" VALUES ('TradeDay', '交易日');
 INSERT INTO "DocumentTemplate" VALUES ('TradeRecord', '交易记录');
+INSERT INTO "DocumentTemplate" VALUES ('MarketTemperature', '市场温度');
 
 PRAGMA foreign_keys = true;

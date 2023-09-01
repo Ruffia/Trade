@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<Layout>	
+		<widget Name="Future_DailyMinorCycleAnalyze" ClassName="CCustomTabCtrlDlg_DailyMinorCycleAnalyze" Layout="MarketTemperature_Tab.xml"  IDD="IDD_DLG_Common" Left="0" Top="0" Width="1400" Height="680" />		
+	</Layout>
+</root>

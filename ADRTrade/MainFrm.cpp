@@ -13,7 +13,6 @@ using namespace std;
 #include "../Common/Factory.h"
 #include "Util.h"
 #include "WeatherGlass/WeatherGlass_TabCtrlDlg.h"
-#include "WeatherGlass/ChartDialogDlg.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW

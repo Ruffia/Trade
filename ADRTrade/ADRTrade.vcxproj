@@ -117,6 +117,8 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ADRMarketTemperatureDoc.h" />
+    <ClInclude Include="ADRMarketTemperatureView.h" />
     <ClInclude Include="ADRTrade.h" />
     <ClInclude Include="ADRTradeDayDoc.h" />
     <ClInclude Include="ADRTradeDayView.h" />
@@ -138,6 +140,7 @@
     <ClInclude Include="GirdBehaviour\GridViewField.h" />
     <ClInclude Include="MacroEnvironment\DlgTab_WorldEcnomic.h" />
     <ClInclude Include="MainFrm.h" />
+    <ClInclude Include="MarketTemperature\DlgMarketTemperature.h" />
     <ClInclude Include="PropertiesWnd.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
@@ -180,12 +183,11 @@
     <ClInclude Include="UIData.h" />
     <ClInclude Include="UIDataManager.h" />
     <ClInclude Include="ViewTree.h" />
-    <ClInclude Include="WeatherGlass\ChartDialogDlg.h" />
-    <ClInclude Include="WeatherGlass\ChartPageBase.h" />
-    <ClInclude Include="WeatherGlass\WeatherGlassChartPage.h" />
     <ClInclude Include="WeatherGlass\WeatherGlass_TabCtrlDlg.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ADRMarketTemperatureDoc.cpp" />
+    <ClCompile Include="ADRMarketTemperatureView.cpp" />
     <ClCompile Include="ADRTrade.cpp" />
     <ClCompile Include="ADRTradeDayDoc.cpp" />
     <ClCompile Include="ADRTradeDayView.cpp" />
@@ -207,6 +209,7 @@
     <ClCompile Include="GirdBehaviour\GridViewField.cpp" />
     <ClCompile Include="MacroEnvironment\DlgTab_WorldEcnomic.cpp" />
     <ClCompile Include="MainFrm.cpp" />
+    <ClCompile Include="MarketTemperature\DlgMarketTemperature.cpp" />
     <ClCompile Include="PropertiesWnd.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -251,9 +254,6 @@
     <ClCompile Include="UIData.cpp" />
     <ClCompile Include="UIDataManager.cpp" />
     <ClCompile Include="ViewTree.cpp" />
-    <ClCompile Include="WeatherGlass\ChartDialogDlg.cpp" />
-    <ClCompile Include="WeatherGlass\ChartPageBase.cpp" />
-    <ClCompile Include="WeatherGlass\WeatherGlassChartPage.cpp" />
     <ClCompile Include="WeatherGlass\WeatherGlass_TabCtrlDlg.cpp" />
   </ItemGroup>
   <ItemGroup>
