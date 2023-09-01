@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="High-Speed-Charting-Control.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartAxis.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartAxisLabel.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartBarSerie.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartCandlestickSerie.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartCrossHairCursor.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartCtrl.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartCursor.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartDateTimeAxis.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartDragLineCursor.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartFont.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartGanttSerie.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartGradient.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartGrid.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartLegend.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartLineSerie.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartLogarithmicAxis.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartPointsSerie.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartScrollBar.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartSerie.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartStandardAxis.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartSurfaceSerie.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartTitle.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartXYSerie.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="High-Speed-Charting-Control.def">
+      <Filter>源文件</Filter>
+    </None>
+    <None Include="res\High-Speed-Charting-Control.rc2">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="ChartBalloonLabel.inl">
+      <Filter>头文件</Filter>
+    </None>
+    <None Include="ChartLabel.inl">
+      <Filter>头文件</Filter>
+    </None>
+    <None Include="ChartPointsArray.inl">
+      <Filter>头文件</Filter>
+    </None>
+    <None Include="ChartSerieBase.inl">
+      <Filter>头文件</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartAxis.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartAxisLabel.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartBalloonLabel.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartBarSerie.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCandlestickSerie.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCrossHairCursor.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCursor.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartDateTimeAxis.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartDragLineCursor.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartFont.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartGanttSerie.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartGradient.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartGrid.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartLabel.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartLegend.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartLineSerie.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartLogarithmicAxis.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartMouseListener.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartPointsArray.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartPointsSerie.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartScrollBar.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartSerie.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartSerieBase.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartSeriesMouseListener.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartStandardAxis.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartString.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartSurfaceSerie.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartTitle.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartXYSerie.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="High-Speed-Charting-Control.rc">
+      <Filter>资源文件</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
