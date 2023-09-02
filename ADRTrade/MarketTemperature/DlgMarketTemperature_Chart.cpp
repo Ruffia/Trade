@@ -255,12 +255,12 @@ void CDlgMarketTemperature_Chart::_InitLayOut()
 	srand((unsigned int)time(NULL));
 	// Disable the refresh
 	COleDateTime Min(2023,1,1,0,0,0);
-	COleDateTime Max(2023,1,30,0,0,0);// Create the bottom axis and configure it properly
+	COleDateTime Max(2023,1,25,0,0,0);// Create the bottom axis and configure it properly
 	CChartDateTimeAxis* pBottomAxis = m_pChartCtrl->CreateDateTimeAxis(CChartCtrl::BottomAxis);
 	pBottomAxis->SetMinMax(Min,Max);
 	pBottomAxis->SetDiscrete(true);
 	pBottomAxis->SetTickIncrement(false,CChartDateTimeAxis::tiDay,1);
-	pBottomAxis->SetTickLabelFormat(false,_T("%b"));// Create the left axis and configure it properly
+	pBottomAxis->SetTickLabelFormat(false,_T("%d/%m"));// Create the left axis and configure it properly
 	CChartStandardAxis* pLeftAxis = m_pChartCtrl->CreateStandardAxis(CChartCtrl::LeftAxis);
 	pLeftAxis->SetMinMax(0,100);
 	//pLeftAxis->GetLabel()->SetText(_T("Units sold"));// Create the right axis and configure it properly
@@ -284,7 +284,7 @@ void CDlgMarketTemperature_Chart::_InitLayOut()
 	CChartLineSerie* pLineSeries = m_pChartCtrl->CreateLineSerie(false,true);
 	int lowIndex = -1;
 	int lowVal = 999;
-	for (int i=0;i<30;i++)
+	for (int i=0;i<23;i++)
 	{
 		COleDateTime TimeVal(2023,1,i + 1,0,0,0);
 		int DesktopVal = 20 + rand()%(100-30);
@@ -300,10 +300,10 @@ void CDlgMarketTemperature_Chart::_InitLayOut()
 		//pLineSeries->AddPoint(TimeVal,Income);
 	}
 	pBarSeries1->SetColor(RGB(255,0,0));
-	pBarSeries1->SetName(_T("Desktops"));
+	pBarSeries1->SetName(_T("Temperature"));
 	pBarSeries2->SetColor(RGB(68,68,255));
 	pBarSeries2->SetGradient(RGB(200,200,255),gtVerticalDouble);
-	pBarSeries2->SetName(_T("Laptops"));
+	pBarSeries2->SetName(_T("Capital Flow(วงาฺ)"));
 	pBarSeries2->SetBorderColor(RGB(0,0,255));
 	pBarSeries2->SetBorderWidth(2);
 	//pLineSeries->SetColor(RGB(0,180,0));
