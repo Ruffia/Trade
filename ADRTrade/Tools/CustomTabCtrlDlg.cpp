@@ -86,7 +86,7 @@ BOOL CCustomTabCtrlDlg::OnInitDialog()
 
 	m_pTab->SetControlFont(lf, TRUE);
 	_Resize(rcClient.Width(),rcClient.Height());
-
+	m_pTab->SetCurSel(m_nCurSel);
 	return TRUE; 
 }
 
