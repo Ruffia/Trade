@@ -155,7 +155,7 @@ void CGridPage_SelectDocument::ShowData( map<string,CFieldDesc*> &mapFieldName2F
 
 	::sort(vColumn.begin(),vColumn.end(),Comp);
 
-	const int   nColumnWidth[2] = {120,322};
+	const int   nColumnWidth[2] = {196,352};
 	const string sGridHeader[2] = {"Ä£°å","º­Òå"};
 
 	m_nFixCols = 0;
