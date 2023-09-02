@@ -38,7 +38,7 @@ BEGIN_MESSAGE_MAP(CDialogFutureContract_DailyTraceEvidence,CDialogPlaceHolder)
 END_MESSAGE_MAP()
 
 
-void CDialogFutureContract_DailyTraceEvidence::_LoadTradeDayData2UI()
+void CDialogFutureContract_DailyTraceEvidence::_LoadData2UI()
 {
 	bool bExists = _CheckExistsTradeDayRecord();
 	if (!bExists) return;

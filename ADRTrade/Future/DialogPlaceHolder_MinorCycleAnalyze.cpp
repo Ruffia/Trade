@@ -27,7 +27,7 @@ CDialogTabItem_MinorCycleAnalyze::CDialogTabItem_MinorCycleAnalyze(CWnd* pParent
 	m_bNeed2UpdateRecordTime = false;
 }
 
-void CDialogTabItem_MinorCycleAnalyze::_LoadTradeDayData2UI()
+void CDialogTabItem_MinorCycleAnalyze::_LoadData2UI()
 {
 	bool bExists = _CheckExistsTradeDayRecord();
 	if (!bExists) return;

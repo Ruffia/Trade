@@ -25,7 +25,7 @@ CDialogFutureContract_LongPeriodicAnalyze::CDialogFutureContract_LongPeriodicAna
 	CDialogIDMgr::Instance().Register("CDialogFutureContract_LongPeriodicAnalyze",CDialogFutureContract_LongPeriodicAnalyze::IDD); 
 }
 
-void CDialogFutureContract_LongPeriodicAnalyze::_LoadTradeDayData2UI()
+void CDialogFutureContract_LongPeriodicAnalyze::_LoadData2UI()
 {
 	bool bExists = _CheckExistsTradeDayRecord();
 	if (!bExists) return;

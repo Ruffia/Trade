@@ -75,7 +75,7 @@ BOOL CCustomTabCtrlDlg::OnInitDialog()
 	m_pTab->SetDragCursors(AfxGetApp()->LoadCursor(IDC_CURSORMOVE),AfxGetApp()->LoadCursor(IDC_CURSORCOPY));
 
 	_InitPage(rcTab);
-	_LoadTradeDayData2UI();
+	_LoadData2UI();
 
 	m_nCurSel = 0;
 	//œ‘ æ≥ı º“≥√Ê
@@ -448,7 +448,7 @@ void CCustomTabCtrlDlg::_ShowPage(const int nCurPage)
 }
 
 
-void CCustomTabCtrlDlg::_LoadTradeDayData2UI()
+void CCustomTabCtrlDlg::_LoadData2UI()
 {
 	bool bExists = _CheckExistsTradeDayRecord();
 	if (!bExists) return;

@@ -14,5 +14,5 @@ public:
 
 protected:
 	virtual void _InitPage(CRect& rcTab); 
-	virtual void _LoadTradeDayData2UI();
+	virtual void _LoadData2UI();
 };

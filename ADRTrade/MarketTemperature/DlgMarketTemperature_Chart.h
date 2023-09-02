@@ -44,8 +44,10 @@ protected:
 	BOOL OnInitDialog();
 	virtual void _InitLayOut();
 	virtual void _DesignLayout();
-	virtual void _LoadTradeDayData2UI();
+	virtual void _LoadData2UI();
 
+	void _CreateChart_Bar();
+	void _CreateChart_Line(); 
 
 protected:
 	string m_strRecordTime_Old;  //保存修改页签名称之前的名称

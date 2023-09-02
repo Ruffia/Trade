@@ -40,7 +40,7 @@ public:
 	virtual void UpdateUI2DB();
 
 protected:
-	virtual void _LoadTradeDayData2UI();
+	virtual void _LoadData2UI();
 
 
 protected:

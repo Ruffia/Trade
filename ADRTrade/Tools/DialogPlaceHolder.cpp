@@ -66,7 +66,7 @@ BOOL CDialogPlaceHolder::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 	_InitLayOut();
-	_LoadTradeDayData2UI();
+	_LoadData2UI();
 	return TRUE;
 }
 
@@ -121,7 +121,7 @@ void CDialogPlaceHolder::_DesignLayout()
 {
 }
 
-void CDialogPlaceHolder::_LoadTradeDayData2UI()
+void CDialogPlaceHolder::_LoadData2UI()
 {
 	bool bExists = _CheckExistsTradeDayRecord();
 	if (!bExists) return;

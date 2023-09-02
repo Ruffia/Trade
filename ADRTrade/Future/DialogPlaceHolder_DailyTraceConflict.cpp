@@ -29,7 +29,7 @@ CDialogFutureContract_DailyTraceConflict::CDialogFutureContract_DailyTraceConfli
 }
 
 
-void CDialogFutureContract_DailyTraceConflict::_LoadTradeDayData2UI()
+void CDialogFutureContract_DailyTraceConflict::_LoadData2UI()
 {
 	bool bExists = _CheckExistsTradeDayRecord();
 	if (!bExists) return;

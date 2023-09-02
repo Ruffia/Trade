@@ -18,7 +18,7 @@ public:
 	virtual void UpdateDB2UI(CDataSet& ds,int index = 0);
 
 protected:
-	virtual void _LoadTradeDayData2UI();
+	virtual void _LoadData2UI();
 	void _ChangeComboxDropdownList( const string& strComboxTechnicalIndex_Name, const string& strComboxTechnicalIndexValue_Name ); 
 	afx_msg void OnSelComboChange_TechnicalIndex0();
 	afx_msg void OnSelComboChange_TechnicalIndex1();
