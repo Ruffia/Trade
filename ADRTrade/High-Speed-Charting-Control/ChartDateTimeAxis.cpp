@@ -327,10 +327,10 @@ void CChartDateTimeAxis::RefreshDTTickFormat()
 		m_strDTTickFormat = _T("%H:00");
 		break;
 	case tiDay:
-		m_strDTTickFormat = _T("%d %b");
+		m_strDTTickFormat = _T("%d/%m");
 		break;
 	case tiMonth:
-		m_strDTTickFormat = _T("%b %Y");
+		m_strDTTickFormat = _T("%m/%Y");
 		break;
 	case tiYear:
 		m_strDTTickFormat = _T("%Y");

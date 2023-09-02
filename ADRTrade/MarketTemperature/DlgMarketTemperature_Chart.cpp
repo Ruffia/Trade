@@ -27,6 +27,7 @@ CDlgMarketTemperature_Chart::CDlgMarketTemperature_Chart(CWnd* pParent /*=NULL*/
 	m_strRecordTime = "";
 	m_strRecordTime_Old = "";
 	m_bNeed2UpdateRecordTime = false;
+	m_pChartCtrl = NULL;
 	CDialogIDMgr::Instance().Register("CDlgMarketTemperature_Chart",CDlgMarketTemperature_Chart::IDD);
 }
 
@@ -246,55 +247,19 @@ void CDlgMarketTemperature_Chart::_InitLayOut()
 {
 	CRect rc;
 	GetClientRect(rc);
-	CRect rcChart(rc.left + 10, rc.top + 10,rc.Width() - 20,rc.Height() - 150);
+	CRect rcChart(rc.left + 10, rc.top + 10,rc.Width() - 20,rc.Height() - 50);
 	m_pChartCtrl = new CChartCtrl();
 	m_pChartCtrl->Create(this,rcChart,3000,WS_CLIPCHILDREN | WS_TABSTOP);
 	m_pChartCtrl->ShowWindow(SW_SHOW);
 
-	//CChartAxis* pXAxis = m_pChartCtrl->CreateStandardAxis(CChartCtrl::BottomAxis); //底部坐标轴
-	////pAxis->SetAutomatic(true);
-	////根据具体数值自动调节坐标轴坐标，如果要固定坐标轴需要将其参数修改为false
-	//pXAxis->SetAutomatic(false);
-	//pXAxis->SetMinMax(0,20);       //固定x轴坐标为-20
-	//CChartAxis* pYAxis = m_pChartCtrl->CreateStandardAxis(CChartCtrl::LeftAxis);  //左边坐标轴
-	//pYAxis->SetAutomatic(false);
-	//pYAxis->SetMinMax(0,100);   //固定y轴坐标为0 - 100
-
-	//TChartString str1;   //添加标题
-	//str1 =_T("市场温度变化图");
-	//m_pChartCtrl->GetTitle()->AddString(str1);
-	////设置颜色
-	//m_pChartCtrl->GetTitle()->SetColor(RGB(255,255,255));            //标题字体白色
-	//m_pChartCtrl->GetLeftAxis()->SetTextColor(RGB(255,255,255));     //左坐标轴白色
-	//m_pChartCtrl->GetBottomAxis()->SetTextColor(RGB(255,255,255));    //底部坐标轴白色
-	//m_pChartCtrl->SetBorderColor(RGB(255,255,255));                   //边框颜色白色
-	//m_pChartCtrl->SetBackColor(RGB(85,85,85));                        //背景颜色深灰色
-
-	////产生随机数种子，包含头文件
-	//double X1Values[15],Y1Values[15];
-	//for (int i = 0; i < 15; i++)
-	//{
-	//	X1Values[i] = i;
-	//	Y1Values[i] = rand() % 100 + 1; //y坐标随机产生1~100
-	//}
-
-	//m_pChartCtrl->SetZoomEnabled(true);
-	//m_pChartCtrl->RemoveAllSeries();     //先清空
-	//CChartBarSerie* pBarSerie3 = m_pChartCtrl->CreateBarSerie();   //定义柱状图向柄
-	//pBarSerie3->SetSeriesOrdering(poNoOrdering);  //绑定绘图变量
-	////设置为无序
-	//pBarSerie3->SetPoints(X1Values,Y1Values,10);
-
-
-
 	srand((unsigned int)time(NULL));
-	// Disable the refreshm_pChartCtrl->EnableRefresh(false);
+	// Disable the refresh
 	COleDateTime Min(2023,1,1,0,0,0);
-	COleDateTime Max(2024,1,1,0,0,0);// Create the bottom axis and configure it properly
+	COleDateTime Max(2023,1,30,0,0,0);// Create the bottom axis and configure it properly
 	CChartDateTimeAxis* pBottomAxis = m_pChartCtrl->CreateDateTimeAxis(CChartCtrl::BottomAxis);
 	pBottomAxis->SetMinMax(Min,Max);
 	pBottomAxis->SetDiscrete(true);
-	pBottomAxis->SetTickIncrement(false,CChartDateTimeAxis::tiMonth,1);
+	pBottomAxis->SetTickIncrement(false,CChartDateTimeAxis::tiDay,1);
 	pBottomAxis->SetTickLabelFormat(false,_T("%b"));// Create the left axis and configure it properly
 	CChartStandardAxis* pLeftAxis = m_pChartCtrl->CreateStandardAxis(CChartCtrl::LeftAxis);
 	pLeftAxis->SetMinMax(0,100);
@@ -302,12 +267,12 @@ void CDlgMarketTemperature_Chart::_InitLayOut()
 	CChartStandardAxis* pRightAxis = m_pChartCtrl->CreateStandardAxis(CChartCtrl::RightAxis);
 	pRightAxis->SetVisible(true);
 	//pRightAxis->GetLabel()->SetText(_T("Income (kEuros)"));
-	pRightAxis->SetMinMax(0,200);
+	pRightAxis->SetMinMax(0,20);
 	// Configure the legend
 	m_pChartCtrl->GetLegend()->SetVisible(true);
 	m_pChartCtrl->GetLegend()->SetHorizontalMode(true);
 	m_pChartCtrl->GetLegend()->UndockLegend(80,50);// Add text to the title and set the font & color
-	m_pChartCtrl->GetTitle()->AddString(_T("Income over 2023"));
+	m_pChartCtrl->GetTitle()->AddString(_T("Market Temperature"));
 	CChartFont titleFont;
 	titleFont.SetFont(_T("Arial Black"),120,true,false,true);
 	m_pChartCtrl->GetTitle()->SetFont(titleFont);
@@ -319,9 +284,9 @@ void CDlgMarketTemperature_Chart::_InitLayOut()
 	CChartLineSerie* pLineSeries = m_pChartCtrl->CreateLineSerie(false,true);
 	int lowIndex = -1;
 	int lowVal = 999;
-	for (int i=0;i<12;i++)
+	for (int i=0;i<30;i++)
 	{
-		COleDateTime TimeVal(2023,i+1,1,0,0,0);
+		COleDateTime TimeVal(2023,1,i + 1,0,0,0);
 		int DesktopVal = 20 + rand()%(100-30);
 		pBarSeries1->AddPoint(TimeVal,DesktopVal);
 		int LaptopVal = 10 + rand()%(80-20);
@@ -340,7 +305,7 @@ void CDlgMarketTemperature_Chart::_InitLayOut()
 	pBarSeries2->SetGradient(RGB(200,200,255),gtVerticalDouble);
 	pBarSeries2->SetName(_T("Laptops"));
 	pBarSeries2->SetBorderColor(RGB(0,0,255));
-	pBarSeries2->SetBorderWidth(3);
+	pBarSeries2->SetBorderWidth(2);
 	//pLineSeries->SetColor(RGB(0,180,0));
 	//pLineSeries->SetName(_T("Total income"));
 	//pLineSeries->SetWidth(2);
@@ -354,4 +319,17 @@ void CDlgMarketTemperature_Chart::_InitLayOut()
 	//pLabel->SetFont(labelFont);
 	// Re enable the refreshm_pChartCtrl->EnableRefresh(true);
 
+}
+
+
+void CDlgMarketTemperature_Chart::_DesignLayout()
+{
+	CRect rc;
+	GetClientRect(rc);
+	CRect rcChart(rc.left + 10, rc.top + 10,rc.Width() - 20,rc.Height() - 50);
+
+	if (m_pChartCtrl && m_pChartCtrl->m_hWnd)
+	{
+		m_pChartCtrl->MoveWindow(rcChart);
+	}	
 }

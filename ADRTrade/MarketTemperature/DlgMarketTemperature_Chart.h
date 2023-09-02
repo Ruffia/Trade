@@ -43,6 +43,7 @@ public:
 protected:
 	BOOL OnInitDialog();
 	virtual void _InitLayOut();
+	virtual void _DesignLayout();
 	virtual void _LoadTradeDayData2UI();
 
 

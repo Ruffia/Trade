@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="gbk"?>
 <root>
 	<Layout>	
-		<widget Name="图表" ClassName="CDlgMarketTemperature_Chart" IDD="IDD_DLG_Common" Layout="MarketTemperature_Chart.xml"  Left="0" Top="20" Width="700" Height="590" />
-		<widget Name="数据" ClassName="CDialogFutureContract_MinorCycleAnalyze" IDD="IDD_DLG_Common" Layout="FutureContract_MinorCycleAnalyze.xml"  Left="0" Top="20" Width="700" Height="590" />	
+		<widget Name="图表" ClassName="CDlgMarketTemperature_Chart" IDD="IDD_DLG_Common" Layout="MarketTemperature_Chart.xml"  Left="0" Top="20" Width="1300" Height="590" />
+		<widget Name="数据" ClassName="CDialogFutureContract_MinorCycleAnalyze" IDD="IDD_DLG_Common" Layout="FutureContract_MinorCycleAnalyze.xml"  Left="0" Top="20" Width="1300" Height="590" />	
 	</Layout>
 </root>
