@@ -171,6 +171,9 @@
     <ClInclude Include="High-Speed-Charting-Control\PointsOrdering.h" />
     <ClInclude Include="MacroEnvironment\DlgTab_WorldEcnomic.h" />
     <ClInclude Include="MainFrm.h" />
+    <ClInclude Include="MarketTemperature\DlgMarketTemperatureChart_CapitalFlow.h" />
+    <ClInclude Include="MarketTemperature\DlgMarketTemperatureChart_RiseDrop2Limit.h" />
+    <ClInclude Include="MarketTemperature\DlgMarketTemperatureChart_RiseRatioTradeVolume.h" />
     <ClInclude Include="MarketTemperature\DlgMarketTemperature_Chart.h" />
     <ClInclude Include="MarketTemperature\DlgMarketTemperature_Data.h" />
     <ClInclude Include="PropertiesWnd.h" />
@@ -264,6 +267,9 @@
     <ClCompile Include="High-Speed-Charting-Control\ChartXYSerie.cpp" />
     <ClCompile Include="MacroEnvironment\DlgTab_WorldEcnomic.cpp" />
     <ClCompile Include="MainFrm.cpp" />
+    <ClCompile Include="MarketTemperature\DlgMarketTemperatureChart_CapitalFlow.cpp" />
+    <ClCompile Include="MarketTemperature\DlgMarketTemperatureChart_RiseDrop2Limit.cpp" />
+    <ClCompile Include="MarketTemperature\DlgMarketTemperatureChart_RiseRatioTradeVolume.cpp" />
     <ClCompile Include="MarketTemperature\DlgMarketTemperature_Chart.cpp" />
     <ClCompile Include="MarketTemperature\DlgMarketTemperature_Data.cpp" />
     <ClCompile Include="PropertiesWnd.cpp" />

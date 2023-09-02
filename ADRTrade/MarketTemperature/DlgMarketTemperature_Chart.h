@@ -42,12 +42,14 @@ public:
 
 protected:
 	BOOL OnInitDialog();
+	//初始化Layout
 	virtual void _InitLayOut();
+	//根据缩放情况调整Layout
 	virtual void _DesignLayout();
+	//从数据库加载数据
 	virtual void _LoadData2UI();
-
-	void _CreateChart_Bar();
-	void _CreateChart_Line(); 
+	//创建图形UI
+	virtual void _CreateChart();
 
 protected:
 	string m_strRecordTime_Old;  //保存修改页签名称之前的名称

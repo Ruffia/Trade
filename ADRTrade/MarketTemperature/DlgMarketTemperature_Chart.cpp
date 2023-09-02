@@ -252,7 +252,7 @@ void CDlgMarketTemperature_Chart::_InitLayOut()
 	m_pChartCtrl->Create(this,rcChart,3000,WS_CLIPCHILDREN | WS_TABSTOP);
 	m_pChartCtrl->ShowWindow(SW_SHOW);
 
-	_CreateChart_Bar();
+	_CreateChart();
 }
 
 
@@ -270,7 +270,7 @@ void CDlgMarketTemperature_Chart::_DesignLayout()
 
 
 
-void CDlgMarketTemperature_Chart::_CreateChart_Bar() 
+void CDlgMarketTemperature_Chart::_CreateChart() 
 {
 	srand((unsigned int)time(NULL));
 	// Disable the refresh
@@ -337,77 +337,6 @@ void CDlgMarketTemperature_Chart::_CreateChart_Bar()
 	pBarSeries3->SetBorderColor(RGB(0,200,0));
 	pBarSeries3->SetBorderWidth(2);
 
-	//pLineSeries->SetColor(RGB(0,180,0));
-	//pLineSeries->SetName(_T("Total income"));
-	//pLineSeries->SetWidth(2);
-	//pLineSeries->EnableShadow(true);
-	// Add a label on the line series.
-	TChartStringStream labelStream;
-	labelStream << _T("Min income: ") << lowVal;
-	//CChartBalloonLabel<SChartXYPoint>* pLabel = pLineSeries->CreateBalloonLabel(lowIndex, labelStream.str() + _T(" kEuros"));
-	//CChartFont labelFont;
-	//labelFont.SetFont(_T("Microsoft Sans Serif"),100,false,true,false);
-	//pLabel->SetFont(labelFont);
-	// Re enable the refreshm_pChartCtrl->EnableRefresh(true);
-}
-
-
-void CDlgMarketTemperature_Chart::_CreateChart_Line() 
-{
-	srand((unsigned int)time(NULL));
-	// Disable the refresh
-	COleDateTime Min(2023,1,1,0,0,0);
-	COleDateTime Max(2023,1,25,0,0,0);// Create the bottom axis and configure it properly
-	CChartDateTimeAxis* pBottomAxis = m_pChartCtrl->CreateDateTimeAxis(CChartCtrl::BottomAxis);
-	pBottomAxis->SetMinMax(Min,Max);
-	pBottomAxis->SetDiscrete(true);
-	pBottomAxis->SetTickIncrement(false,CChartDateTimeAxis::tiDay,1);
-	pBottomAxis->SetTickLabelFormat(false,_T("%d/%m"));// Create the left axis and configure it properly
-	CChartStandardAxis* pLeftAxis = m_pChartCtrl->CreateStandardAxis(CChartCtrl::LeftAxis);
-	pLeftAxis->SetMinMax(0,100);
-	//pLeftAxis->GetLabel()->SetText(_T("Units sold"));// Create the right axis and configure it properly
-	CChartStandardAxis* pRightAxis = m_pChartCtrl->CreateStandardAxis(CChartCtrl::RightAxis);
-	pRightAxis->SetVisible(true);
-	//pRightAxis->GetLabel()->SetText(_T("Income (kEuros)"));
-	pRightAxis->SetMinMax(0,20);
-	// Configure the legend
-	m_pChartCtrl->GetLegend()->SetVisible(true);
-	m_pChartCtrl->GetLegend()->SetHorizontalMode(true);
-	m_pChartCtrl->GetLegend()->UndockLegend(80,50);// Add text to the title and set the font & color
-	m_pChartCtrl->GetTitle()->AddString(_T("Market Temperature"));
-	CChartFont titleFont;
-	titleFont.SetFont(_T("Arial Black"),120,true,false,true);
-	m_pChartCtrl->GetTitle()->SetFont(titleFont);
-	m_pChartCtrl->GetTitle()->SetColor(RGB(0,0,128));// Sets a gradient background
-	m_pChartCtrl->SetBackGradient(RGB(255,255,255),RGB(150,150,255),gtVertical);
-	// Create two bar series and a line series and populate them with data
-	CChartBarSerie* pBarSeries1 = m_pChartCtrl->CreateBarSerie();
-	CChartBarSerie* pBarSeries2 = m_pChartCtrl->CreateBarSerie();
-	CChartLineSerie* pLineSeries = m_pChartCtrl->CreateLineSerie(false,true);
-	int lowIndex = -1;
-	int lowVal = 999;
-	for (int i=0;i<23;i++)
-	{
-		COleDateTime TimeVal(2023,1,i + 1,0,0,0);
-		int DesktopVal = 20 + rand()%(100-30);
-		pBarSeries1->AddPoint(TimeVal,DesktopVal);
-		int LaptopVal = 10 + rand()%(80-20);
-		pBarSeries2->AddPoint(TimeVal,LaptopVal);
-		int Income = DesktopVal + LaptopVal*1.5;
-		if (Income < lowVal)
-		{
-			lowVal = Income;
-			lowIndex = i;
-		}
-		//pLineSeries->AddPoint(TimeVal,Income);
-	}
-	pBarSeries1->SetColor(RGB(255,0,0));
-	pBarSeries1->SetName(_T("Temperature"));
-	pBarSeries2->SetColor(RGB(68,68,255));
-	pBarSeries2->SetGradient(RGB(200,200,255),gtVerticalDouble);
-	pBarSeries2->SetName(_T("Capital Flow(วงาฺ)"));
-	pBarSeries2->SetBorderColor(RGB(0,0,255));
-	pBarSeries2->SetBorderWidth(2);
 	//pLineSeries->SetColor(RGB(0,180,0));
 	//pLineSeries->SetName(_T("Total income"));
 	//pLineSeries->SetWidth(2);

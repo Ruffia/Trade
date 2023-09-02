@@ -339,6 +339,15 @@
     <ClInclude Include="High-Speed-Charting-Control\PointsOrdering.h">
       <Filter>High-Speed-Charting-Control</Filter>
     </ClInclude>
+    <ClInclude Include="MarketTemperature\DlgMarketTemperatureChart_RiseRatioTradeVolume.h">
+      <Filter>MarketTemperature</Filter>
+    </ClInclude>
+    <ClInclude Include="MarketTemperature\DlgMarketTemperatureChart_CapitalFlow.h">
+      <Filter>MarketTemperature</Filter>
+    </ClInclude>
+    <ClInclude Include="MarketTemperature\DlgMarketTemperatureChart_RiseDrop2Limit.h">
+      <Filter>MarketTemperature</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ADRTrade.cpp">
@@ -601,6 +610,15 @@
     </ClCompile>
     <ClCompile Include="High-Speed-Charting-Control\ChartXYSerie.cpp">
       <Filter>High-Speed-Charting-Control</Filter>
+    </ClCompile>
+    <ClCompile Include="MarketTemperature\DlgMarketTemperatureChart_RiseRatioTradeVolume.cpp">
+      <Filter>MarketTemperature</Filter>
+    </ClCompile>
+    <ClCompile Include="MarketTemperature\DlgMarketTemperatureChart_CapitalFlow.cpp">
+      <Filter>MarketTemperature</Filter>
+    </ClCompile>
+    <ClCompile Include="MarketTemperature\DlgMarketTemperatureChart_RiseDrop2Limit.cpp">
+      <Filter>MarketTemperature</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

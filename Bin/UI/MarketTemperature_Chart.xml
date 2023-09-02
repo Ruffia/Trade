@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="gbk"?>
 <root>
 	<Layout>
-		<widget Name="涨跌比/成交量" ClassName="CDlgMarketTemperature_Chart" IDD="IDD_DLG_Common" Layout=""  Left="0" Top="20" Width="1300" Height="590" />
-		<widget Name="涨停/跌停" ClassName="CDlgMarketTemperature_Chart" IDD="IDD_DLG_Common" Layout=""  Left="0" Top="20" Width="1300" Height="590" />
-		<widget Name="资金流入/流出" ClassName="CDlgMarketTemperature_Chart" IDD="IDD_DLG_Common" Layout=""  Left="0" Top="20" Width="1300" Height="590" />
+		<widget Name="涨跌比/成交量" ClassName="CDlgMarketTemperature_RiseRatioTradeVolume" IDD="IDD_DLG_Common" Layout=""  Left="0" Top="20" Width="1300" Height="590" />
+		<widget Name="涨停/跌停" ClassName="CDlgMarketTemperature_RiseDrop2Limit" IDD="IDD_DLG_Common" Layout=""  Left="0" Top="20" Width="1300" Height="590" />
+		<widget Name="资金流入/流出" ClassName="CDlgMarketTemperature_CapitalFlow" IDD="IDD_DLG_Common" Layout=""  Left="0" Top="20" Width="1300" Height="590" />
 	</Layout>
 </root>
