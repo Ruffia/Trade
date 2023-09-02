@@ -2,6 +2,6 @@
 <root>
 	<Layout>	
 		<widget Name="图表" ClassName="CCustomTabCtrlDlg" IDD="IDD_DLG_Common" Layout="MarketTemperature_Chart.xml"  Left="0" Top="20" Width="1300" Height="590" />
-		<widget Name="数据" ClassName="CDialogFutureContract_MinorCycleAnalyze" IDD="IDD_DLG_Common" Layout="FutureContract_MinorCycleAnalyze.xml"  Left="0" Top="20" Width="1300" Height="590" />	
+		<widget Name="数据" ClassName="CGridPage_MarketTemperatureRecord" IDD="IDD_DLG_Common" Layout=""  Left="0" Top="20" Width="1300" Height="590" />	
 	</Layout>
 </root>

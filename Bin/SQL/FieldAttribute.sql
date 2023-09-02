@@ -10,7 +10,7 @@
  Target Server Version : 3035005 (3.35.5)
  File Encoding         : 65001
 
- Date: 02/09/2023 18:00:57
+ Date: 02/09/2023 21:47:04
 */
 
 PRAGMA foreign_keys = false;
@@ -344,28 +344,36 @@ INSERT INTO "FieldAttribute" VALUES ('Meaning', 'Desc', 'DocumentTemplate', 'str
 INSERT INTO "FieldAttribute" VALUES ('ControlType', 'Desc', 'DocumentTemplate', 'string', 'CGridCell');
 INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'Desc', 'DocumentTemplate', 'string', '%s');
 INSERT INTO "FieldAttribute" VALUES ('Meaning', 'Day', 'Stock_MarketTemperature', 'string', '交易日');
+INSERT INTO "FieldAttribute" VALUES ('ColumnWidth', 'Day', 'Stock_MarketTemperature', 'integer', '160');
 INSERT INTO "FieldAttribute" VALUES ('ControlType', 'Day', 'Stock_MarketTemperature', 'string', 'CEdit');
 INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'Day', 'Stock_MarketTemperature', 'string', '%s');
 INSERT INTO "FieldAttribute" VALUES ('Meaning', 'Number_Rise', 'Stock_MarketTemperature', 'string', '上涨股票数量');
+INSERT INTO "FieldAttribute" VALUES ('ColumnWidth', 'Number_Rise', 'Stock_MarketTemperature', 'integer', '200');
 INSERT INTO "FieldAttribute" VALUES ('ControlType', 'Number_Rise', 'Stock_MarketTemperature', 'string', 'CEdit');
-INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'Number_Rise', 'Stock_MarketTemperature', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'Number_Rise', 'Stock_MarketTemperature', 'string', '%d');
 INSERT INTO "FieldAttribute" VALUES ('Meaning', 'Number_Drop', 'Stock_MarketTemperature', 'string', '下跌股票数量');
+INSERT INTO "FieldAttribute" VALUES ('ColumnWidth', 'Number_Drop', 'Stock_MarketTemperature', 'integer', '200');
 INSERT INTO "FieldAttribute" VALUES ('ControlType', 'Number_Drop', 'Stock_MarketTemperature', 'string', 'CEdit');
-INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'Number_Drop', 'Stock_MarketTemperature', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'Number_Drop', 'Stock_MarketTemperature', 'string', '%d');
 INSERT INTO "FieldAttribute" VALUES ('Meaning', 'Number_Rise2UpperLimit', 'Stock_MarketTemperature', 'string', '涨停数');
+INSERT INTO "FieldAttribute" VALUES ('ColumnWidth', 'Number_Rise2UpperLimit', 'Stock_MarketTemperature', 'integer', '100');
 INSERT INTO "FieldAttribute" VALUES ('ControlType', 'Number_Rise2UpperLimit', 'Stock_MarketTemperature', 'string', 'CEdit');
-INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'Number_Rise2UpperLimit', 'Stock_MarketTemperature', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'Number_Rise2UpperLimit', 'Stock_MarketTemperature', 'string', '%d');
 INSERT INTO "FieldAttribute" VALUES ('Meaning', 'Number_Drop2LowerLimit', 'Stock_MarketTemperature', 'string', '跌停数');
+INSERT INTO "FieldAttribute" VALUES ('ColumnWidth', 'Number_Drop2LowerLimit', 'Stock_MarketTemperature', 'integer', '100');
 INSERT INTO "FieldAttribute" VALUES ('ControlType', 'Number_Drop2LowerLimit', 'Stock_MarketTemperature', 'string', 'CEdit');
-INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'Number_Drop2LowerLimit', 'Stock_MarketTemperature', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'Number_Drop2LowerLimit', 'Stock_MarketTemperature', 'string', '%d');
 INSERT INTO "FieldAttribute" VALUES ('Meaning', 'Number_TradeVolume', 'Stock_MarketTemperature', 'string', '成交量(亿)');
+INSERT INTO "FieldAttribute" VALUES ('ColumnWidth', 'Number_TradeVolume', 'Stock_MarketTemperature', 'integer', '200');
 INSERT INTO "FieldAttribute" VALUES ('ControlType', 'Number_TradeVolume', 'Stock_MarketTemperature', 'string', 'CEdit');
-INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'Number_TradeVolume', 'Stock_MarketTemperature', 'string', '%s');
-INSERT INTO "FieldAttribute" VALUES ('Meaning', 'Number_MoneyInOut', 'Stock_MarketTemperature', 'string', '主力资金流入量');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'Number_TradeVolume', 'Stock_MarketTemperature', 'string', '%d');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'Number_MoneyInOut', 'Stock_MarketTemperature', 'string', '主力资金流入量(亿)');
+INSERT INTO "FieldAttribute" VALUES ('ColumnWidth', 'Number_MoneyInOut', 'Stock_MarketTemperature', 'integer', '200');
 INSERT INTO "FieldAttribute" VALUES ('ControlType', 'Number_MoneyInOut', 'Stock_MarketTemperature', 'string', 'CEdit');
-INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'Number_MoneyInOut', 'Stock_MarketTemperature', 'string', '%s');
-INSERT INTO "FieldAttribute" VALUES ('Meaning', 'Number_ForeignMoneyInOut', 'Stock_MarketTemperature', 'string', '外资流入量');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'Number_MoneyInOut', 'Stock_MarketTemperature', 'string', '%d');
+INSERT INTO "FieldAttribute" VALUES ('Meaning', 'Number_ForeignMoneyInOut', 'Stock_MarketTemperature', 'string', '外资流入量(亿)');
+INSERT INTO "FieldAttribute" VALUES ('ColumnWidth', 'Number_ForeignMoneyInOut', 'Stock_MarketTemperature', 'integer', '200');
 INSERT INTO "FieldAttribute" VALUES ('ControlType', 'Number_ForeignMoneyInOut', 'Stock_MarketTemperature', 'string', 'CEdit');
-INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'Number_ForeignMoneyInOut', 'Stock_MarketTemperature', 'string', '%s');
+INSERT INTO "FieldAttribute" VALUES ('DisplayType', 'Number_ForeignMoneyInOut', 'Stock_MarketTemperature', 'string', '%d');
 
 PRAGMA foreign_keys = true;
