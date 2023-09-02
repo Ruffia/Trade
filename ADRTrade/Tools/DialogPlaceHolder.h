@@ -71,8 +71,13 @@ public:
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV 支持
 	virtual BOOL OnInitDialog();
+	afx_msg void OnSize(UINT nType, int cx, int cy);
+
 	//从XML中加载UI布局
 	virtual void _InitLayOut();
+
+	//界面缩放，需要调整布局
+	virtual void _DesignLayout();
 
 	//将数据库中的数据记录加载到UI上显示
 	virtual void _LoadTradeDayData2UI();

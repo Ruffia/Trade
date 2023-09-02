@@ -57,6 +57,7 @@ void CDialogPlaceHolder::DoDataExchange(CDataExchange* pDX)
 
 
 BEGIN_MESSAGE_MAP(CDialogPlaceHolder, CDialog)
+	ON_WM_SIZE()
 END_MESSAGE_MAP()
 
 
@@ -67,6 +68,13 @@ BOOL CDialogPlaceHolder::OnInitDialog()
 	_InitLayOut();
 	_LoadTradeDayData2UI();
 	return TRUE;
+}
+
+
+void CDialogPlaceHolder::OnSize(UINT nType, int cx, int cy)
+{
+	__super::OnSize(nType,cx,cy);
+	_DesignLayout();
 }
 
 
@@ -108,6 +116,10 @@ void CDialogPlaceHolder::_InitLayOut()
 	}
 }
 
+
+void CDialogPlaceHolder::_DesignLayout()
+{
+}
 
 void CDialogPlaceHolder::_LoadTradeDayData2UI()
 {
