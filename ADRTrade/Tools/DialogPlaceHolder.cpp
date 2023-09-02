@@ -80,6 +80,7 @@ void CDialogPlaceHolder::OnSize(UINT nType, int cx, int cy)
 
 void CDialogPlaceHolder::_InitLayOut()
 {
+	if("" == m_sLayout) return;
 	string sFileName = GetModulePath() + "/UI/" + m_sLayout;
 	bool bRet = true;
 	if (!m_doc.load_file(sFileName.c_str())) 

@@ -82,11 +82,19 @@ void GridCellBehaviour_Time::_GetDisplayValue(int row,int column, CField* pField
 }
 
 
-// AppStartTime ×Ö¶Î
-IMPLEMENT_FACTORY(GridCellBehaviour,GridCellBehaviour_AppStartTime,string,"AppStartTime")
-void GridCellBehaviour_AppStartTime::_GetDisplayValue(int row,int column, CField* pField,CString& strValue)
+// Date ×Ö¶Î
+IMPLEMENT_FACTORY(GridCellBehaviour,GridCellBehaviour_Date,string,"date")
+void GridCellBehaviour_Date::_GetDisplayValue(int row,int column, CField* pField,CString& strValue)
 {
-	__super::_GetDisplayValue(row,column,pField,strValue);
+	if(!pField) return;
+	CFieldDesc* pFieldDesc = pField->GetFieldDesc();
+	if(!pFieldDesc) return;
+
+	const string strDataType = pFieldDesc->m_strDataType;
+	const string strDisplayType = pFieldDesc->GetAttributeString("DisplayType");
+
+	string sValue = pField->GetValueAsString();
+	strValue.Format(strDisplayType.c_str(),sValue.c_str());
 }
 
 

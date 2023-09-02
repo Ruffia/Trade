@@ -148,7 +148,16 @@ int CDBDataManager::LoadData(const string& strSQL,const string& strTableName, CD
 				__int64 nValue = pRecordset->AsLong(i);
 				pValue->SetValueLongLong(nValue);
 			}
-
+			else if (sDataType.find("date") != string::npos)
+			{
+				CString sValue = pRecordset->AsString(i);
+				pValue->SetValueString((LPTSTR)(LPCTSTR)sValue);
+			}
+			else if (sDataType.find("Date") != string::npos)
+			{
+				CString sValue = pRecordset->AsString(i);
+				pValue->SetValueString((LPTSTR)(LPCTSTR)sValue);
+			}
 			pField->SetFieldValue(pValue);
 			pRecord->Add(sFieldName,pField);
 		}

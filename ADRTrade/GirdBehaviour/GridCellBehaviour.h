@@ -31,8 +31,8 @@ public:
 };
 
 
-// Time ×Ö¶Î
-class GridCellBehaviour_AppStartTime: public GridCellBehaviour_Time
+// Date ×Ö¶Î
+class GridCellBehaviour_Date: public GridCellBehaviour
 {
 public:
 	virtual void _GetDisplayValue(int row,int column, CField* pField,CString& strValue);

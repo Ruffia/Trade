@@ -2,8 +2,9 @@
 #include "afxcmn.h"
 #include "GridCtrl.h"
 #include "afxdtctl.h"
+#include "DialogPlaceHolder.h"
 
-class CDlgGridPage: public CDialog
+class CDlgGridPage: public CDialogPlaceHolder
 {
 	DECLARE_DYNAMIC(CDlgGridPage)
 
@@ -107,8 +108,6 @@ protected:
 	afx_msg void OnEditPaste();
 	afx_msg void OnUpdateEditPaste(CCmdUI* pCmdUI);
 	afx_msg void OnHide2ndrowcolumn();
-	afx_msg void OnSize(UINT nType, int cx, int cy);
-	DECLARE_MESSAGE_MAP()
 
 protected:
 	int		m_nFixCols;

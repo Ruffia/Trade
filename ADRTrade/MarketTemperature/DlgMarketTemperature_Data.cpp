@@ -10,16 +10,16 @@
 #include "GirdBehaviour/GridCellBehaviour.h"
 #include "Tools/CustomButton.h"
 
-IMPLEMENT_DYNAMIC(CGridPage_MarketTemperatureRecord, CDlgGridPage)
 
+IMPLEMENT_FACTORY(CDialogPlaceHolder,CGridPage_MarketTemperatureRecord, string,"CGridPage_MarketTemperatureRecord")
+
+IMPLEMENT_DYNAMIC(CGridPage_MarketTemperatureRecord, CDlgGridPage)
 CGridPage_MarketTemperatureRecord::CGridPage_MarketTemperatureRecord(CWnd* pParent /*=NULL*/)
 	: CDlgGridPage(pParent),m_pSelectRecord(NULL),m_strSelectTemplate("")
 {
-	m_bHorzLines = TRUE;
-	m_bVertLines = TRUE;
-	m_bVertical = FALSE;
 	m_bEditable  = FALSE;
 	m_bSingleSelMode = TRUE;
+	CDialogIDMgr::Instance().Register("CGridPage_MarketTemperatureRecord",CDlgGridPage::IDD);
 }
 
 CGridPage_MarketTemperatureRecord::~CGridPage_MarketTemperatureRecord()
@@ -28,25 +28,20 @@ CGridPage_MarketTemperatureRecord::~CGridPage_MarketTemperatureRecord()
 }
 
 
-BEGIN_MESSAGE_MAP(CGridPage_MarketTemperatureRecord, CDlgGridPage)
-	ON_WM_SIZE()
-END_MESSAGE_MAP()
-
-
 BOOL CGridPage_MarketTemperatureRecord::OnInitDialog()
 {
-	CDlgGridPage::OnInitDialog();
+	CDialogPlaceHolder::OnInitDialog();
 	_InitializeGrid();
 	m_Grid.EnableSelection(TRUE);
 	m_Grid.SetSingleRowSelection(TRUE);
 
-	const string& sTableName = "DocumentTemplate";
+	const string& sTableName = "Stock_MarketTemperature";
 	_LoadData(sTableName);
 
 	map<string,CFieldDesc*> &mapFieldName2FieldDesc = CDBDataManager::Instance().GetTableMeta(sTableName);
 
 	ShowData(mapFieldName2FieldDesc,&m_ds);
-	m_Grid.SetEditable(m_bEditable);
+	m_Grid.SetEditable(FALSE);
 	return TRUE;
 }
 
@@ -65,9 +60,6 @@ BOOL CGridPage_MarketTemperatureRecord::OnNotify(WPARAM wParam, LPARAM lParam, L
 		}
 		m_pSelectRecord = m_ds[nRow - 1];
 		ASSERT(m_pSelectRecord);
-		CField* pField = m_pSelectRecord->GetField("DocumentTemplate");
-		ASSERT(pField);
-		m_strSelectTemplate = pField->GetValueAsString();
 	}
 
 	return CDialog::OnNotify(wParam, lParam, pResult);
@@ -81,11 +73,6 @@ void CGridPage_MarketTemperatureRecord::_LoadData(const string& sTableName)
 	CDBDataManager::Instance().LoadData(string(szSQL),sTableName,m_ds);
 }
 
-void CGridPage_MarketTemperatureRecord::OnSize(UINT nType, int cx, int cy)
-{
-	__super::OnSize(nType,cx,cy);
-	_DesignLayout();
-}
 
 void CGridPage_MarketTemperatureRecord::_DesignLayout()
 {
@@ -95,9 +82,9 @@ void CGridPage_MarketTemperatureRecord::_DesignLayout()
 void CGridPage_MarketTemperatureRecord::_MoveGrid()
 {
 	CRect rc;
-	GetClientRect(rc);
+	CDialogPlaceHolder::GetClientRect(rc);
 
-	CWnd* pCtrl = GetDlgItem(IDC_Grid);
+	CWnd* pCtrl = CDialogPlaceHolder::GetDlgItem(IDC_Grid);
 	if(!pCtrl) return;
 	pCtrl->MoveWindow(rc);
 }
@@ -106,7 +93,7 @@ void CGridPage_MarketTemperatureRecord::_MoveGrid()
 static bool Comp(CFieldDesc* pLeft,CFieldDesc* pRight)
 {
 	if(!pLeft || !pRight) return false;
-	return pLeft->GetAttributeInt("SortID") < pRight->GetAttributeInt("SortID");
+	return pLeft->m_nSequenceID < pRight->m_nSequenceID;
 }
 
 
@@ -120,7 +107,7 @@ void CGridPage_MarketTemperatureRecord::GetCellData( CDataSet* pDs, vector<CFiel
 	CField* pField = pRecord->GetField(pFieldDesc->m_strFieldName);
 	if(!pField) return;
 
-	GridCellBehaviour* pBehaviour = Factory<GridCellBehaviour,string>::Instance().BuildProduct(pFieldDesc->m_strFieldName);
+	GridCellBehaviour* pBehaviour = Factory<GridCellBehaviour,string>::Instance().BuildProduct(pFieldDesc->m_strDataType);
 	if (pBehaviour)
 	{
 		pBehaviour->Attach(&m_Grid);
@@ -153,9 +140,6 @@ void CGridPage_MarketTemperatureRecord::ShowData( map<string,CFieldDesc*> &mapFi
 
 	::sort(vColumn.begin(),vColumn.end(),Comp);
 
-	const int   nColumnWidth[2] = {120,322};
-	const string sGridHeader[2] = {"模板","涵义"};
-
 	m_nFixCols = 0;
 	m_nFixRows = 1;
 	m_nCols = vColumn.size();
@@ -180,6 +164,9 @@ void CGridPage_MarketTemperatureRecord::ShowData( map<string,CFieldDesc*> &mapFi
 	{
 		for (int col = 0; col < m_Grid.GetColumnCount(); col++)
 		{ 
+			CFieldDesc* pFieldDesc = vColumn[col];
+			if (!pFieldDesc) continue;
+
 			CString str;
 			GV_ITEM Item;
 
@@ -192,9 +179,11 @@ void CGridPage_MarketTemperatureRecord::ShowData( map<string,CFieldDesc*> &mapFi
 				str.Format(_T("%s"),_T(""));
 			}
 			else if (row < m_nFixRows && col >= m_nFixCols)
-			{
-				m_Grid.SetColumnWidth(col,nColumnWidth[col]);
-				str.Format(_T("%s"),sGridHeader[col].c_str());
+			{				
+				int nColumnWidth = pFieldDesc->GetAttributeInt("ColumnWidth");
+				std::string sHeader = pFieldDesc->GetAttributeString("Meaning");
+				m_Grid.SetColumnWidth(col,nColumnWidth);
+				str.Format(_T("%s"),sHeader.c_str());
 			}
 			else if (col < m_nFixCols && row >= m_nFixRows)
 			{
@@ -213,5 +202,15 @@ void CGridPage_MarketTemperatureRecord::ShowData( map<string,CFieldDesc*> &mapFi
 	}
 
 	m_Grid.Invalidate();
-	UpdateData(FALSE);
+	CDialogPlaceHolder::UpdateData(FALSE);
+}
+
+//屏蔽 CDialogPlaceHolder 的部分功能
+void CGridPage_MarketTemperatureRecord::_InitLayOut()
+{
+}
+
+//屏蔽 CDialogPlaceHolder 的部分功能
+void CGridPage_MarketTemperatureRecord::_LoadData2UI()
+{
 }

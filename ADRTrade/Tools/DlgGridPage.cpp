@@ -12,7 +12,7 @@
 
 IMPLEMENT_DYNAMIC(CDlgGridPage, CDialog)
 CDlgGridPage::CDlgGridPage(CWnd* pParent /*=NULL*/)
-	: CDialog(CDlgGridPage::IDD, pParent)
+	: CDialogPlaceHolder(pParent)
 {
 	m_OldSize = CSize(-1,-1);
 
@@ -54,11 +54,6 @@ void CDlgGridPage::DoDataExchange(CDataExchange* pDX)
 	CDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_Grid, m_Grid); 
 }
-
-
-BEGIN_MESSAGE_MAP(CDlgGridPage, CDialog)
-	ON_WM_SIZE()
-END_MESSAGE_MAP()
 
 
 // CDlgSEMLog 消息处理程序
@@ -854,11 +849,6 @@ void CDlgGridPage::OnCleartrace()
 	//m_TraceWnd.SetWindowText(_T(""));
 }
 
-void CDlgGridPage::OnSize(UINT nType, int cx, int cy)
-{
-	CDialog::OnSize(nType,cx,cy);
-}
-
 
 void CDlgGridPage::OnHide2ndrowcolumn()
 {
@@ -883,6 +873,7 @@ void CDlgGridPage::OnHide2ndrowcolumn()
 
 void CDlgGridPage::_InitializeGrid()
 {
+	if (!m_Grid.m_hWnd) return;
 	CRect rect;
 	GetClientRect(rect);
 	m_OldSize = CSize(rect.Width(), rect.Height());

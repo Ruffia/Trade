@@ -3,6 +3,7 @@
 #include "DataSet.h"
 #include "afxdtctl.h"
 #include "Tools/DlgGridPage.h"
+#include "Tools/DialogPlaceHolder.h"
 
 class CField;
 class CFieldDesc;
@@ -24,6 +25,12 @@ public:
 protected:
 	virtual BOOL OnInitDialog();
 
+	//从XML中加载UI布局
+	virtual void _InitLayOut();
+
+	//将数据库中的数据记录加载到UI上显示
+	virtual void _LoadData2UI();
+
 	//移动Grid
 	void _MoveGrid();
 
@@ -40,9 +47,7 @@ protected:
 	void GetCellData( CDataSet* pDs,vector<CFieldDesc*>& vColumn,int row, int col, CString &str );
 
 protected:
-	afx_msg void OnSize(UINT nType, int cx, int cy);
 	virtual BOOL OnNotify(WPARAM wParam, LPARAM lParam, LRESULT* pResult); 
-	DECLARE_MESSAGE_MAP()
 
 public:
 	string m_strSelectTemplate;
