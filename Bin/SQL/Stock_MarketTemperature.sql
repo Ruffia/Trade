@@ -10,16 +10,16 @@
  Target Server Version : 3035005 (3.35.5)
  File Encoding         : 65001
 
- Date: 12/08/2023 12:27:12
+ Date: 02/09/2023 17:32:59
 */
 
 PRAGMA foreign_keys = false;
 
 -- ----------------------------
--- Table structure for MarketTemperature
+-- Table structure for Stock_MarketTemperature
 -- ----------------------------
-DROP TABLE IF EXISTS "MarketTemperature";
-CREATE TABLE "MarketTemperature" (
+DROP TABLE IF EXISTS "Stock_MarketTemperature";
+CREATE TABLE "Stock_MarketTemperature" (
   "Day" date NOT NULL,
   "Number_Rise" integer,
   "Number_Drop" integer,
@@ -27,7 +27,7 @@ CREATE TABLE "MarketTemperature" (
   "Number_Drop2LowerLimit" integer,
   "Number_TradeVolume" integer,
   "Number_MoneyInOut" integer,
-  "Number_ProfitLoss" integer,
+  "Number_ForeignMoneyInOut" integer,
   PRIMARY KEY ("Day")
 );
 

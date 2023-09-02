@@ -10,7 +10,7 @@
  Target Server Version : 3035005 (3.35.5)
  File Encoding         : 65001
 
- Date: 13/08/2023 12:09:54
+ Date: 02/09/2023 17:51:20
 */
 
 PRAGMA foreign_keys = false;
@@ -143,5 +143,13 @@ INSERT INTO "FieldMeta" VALUES ('Meaning', 'Dictionary_Field', 'string', 0, 0, 2
 INSERT INTO "FieldMeta" VALUES ('Translation', 'Dictionary_Field', 'string', 0, 0, 3);
 INSERT INTO "FieldMeta" VALUES ('DocumentTemplate', 'DocumentTemplate', 'string', 1, 1, 0);
 INSERT INTO "FieldMeta" VALUES ('Desc', 'DocumentTemplate', 'string', 0, 1, 1);
+INSERT INTO "FieldMeta" VALUES ('Day', 'Stock_MarketTemperature', 'date', 1, 1, 0);
+INSERT INTO "FieldMeta" VALUES ('Number_Rise', 'Stock_MarketTemperature', 'integer', 1, 1, 1);
+INSERT INTO "FieldMeta" VALUES ('Number_Drop', 'Stock_MarketTemperature', 'integer', 0, 1, 2);
+INSERT INTO "FieldMeta" VALUES ('Number_Rise2UpperLimit', 'Stock_MarketTemperature', 'integer', 0, 1, 3);
+INSERT INTO "FieldMeta" VALUES ('Number_Drop2LowerLimit', 'Stock_MarketTemperature', 'integer', 0, 1, 4);
+INSERT INTO "FieldMeta" VALUES ('Number_TradeVolume', 'Stock_MarketTemperature', 'integer', 0, 1, 5);
+INSERT INTO "FieldMeta" VALUES ('Number_MoneyInOut', 'Stock_MarketTemperature', 'integer', 0, 1, 6);
+INSERT INTO "FieldMeta" VALUES ('Number_ForeignMoneyInOut', 'Stock_MarketTemperature', 'integer', 0, 1, 7);
 
 PRAGMA foreign_keys = true;
