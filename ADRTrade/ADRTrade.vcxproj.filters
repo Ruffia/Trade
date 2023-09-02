@@ -34,6 +34,9 @@
     <Filter Include="MarketTemperature">
       <UniqueIdentifier>{424e4411-4c48-4e64-a0c9-8d03649a0243}</UniqueIdentifier>
     </Filter>
+    <Filter Include="High-Speed-Charting-Control">
+      <UniqueIdentifier>{040852dc-61f6-42ab-b3ad-b8af6faddee5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -237,8 +240,104 @@
     <ClInclude Include="ADRMarketTemperatureView.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="MarketTemperature\DlgMarketTemperature.h">
+    <ClInclude Include="MarketTemperature\DlgMarketTemperature_Chart.h">
       <Filter>MarketTemperature</Filter>
+    </ClInclude>
+    <ClInclude Include="MarketTemperature\DlgMarketTemperature_Data.h">
+      <Filter>MarketTemperature</Filter>
+    </ClInclude>
+    <ClInclude Include="High-Speed-Charting-Control\ChartAxis.h">
+      <Filter>High-Speed-Charting-Control</Filter>
+    </ClInclude>
+    <ClInclude Include="High-Speed-Charting-Control\ChartAxisLabel.h">
+      <Filter>High-Speed-Charting-Control</Filter>
+    </ClInclude>
+    <ClInclude Include="High-Speed-Charting-Control\ChartBalloonLabel.h">
+      <Filter>High-Speed-Charting-Control</Filter>
+    </ClInclude>
+    <ClInclude Include="High-Speed-Charting-Control\ChartBarSerie.h">
+      <Filter>High-Speed-Charting-Control</Filter>
+    </ClInclude>
+    <ClInclude Include="High-Speed-Charting-Control\ChartCandlestickSerie.h">
+      <Filter>High-Speed-Charting-Control</Filter>
+    </ClInclude>
+    <ClInclude Include="High-Speed-Charting-Control\ChartCrossHairCursor.h">
+      <Filter>High-Speed-Charting-Control</Filter>
+    </ClInclude>
+    <ClInclude Include="High-Speed-Charting-Control\ChartCtrl.h">
+      <Filter>High-Speed-Charting-Control</Filter>
+    </ClInclude>
+    <ClInclude Include="High-Speed-Charting-Control\ChartCursor.h">
+      <Filter>High-Speed-Charting-Control</Filter>
+    </ClInclude>
+    <ClInclude Include="High-Speed-Charting-Control\ChartDateTimeAxis.h">
+      <Filter>High-Speed-Charting-Control</Filter>
+    </ClInclude>
+    <ClInclude Include="High-Speed-Charting-Control\ChartDragLineCursor.h">
+      <Filter>High-Speed-Charting-Control</Filter>
+    </ClInclude>
+    <ClInclude Include="High-Speed-Charting-Control\ChartFont.h">
+      <Filter>High-Speed-Charting-Control</Filter>
+    </ClInclude>
+    <ClInclude Include="High-Speed-Charting-Control\ChartGanttSerie.h">
+      <Filter>High-Speed-Charting-Control</Filter>
+    </ClInclude>
+    <ClInclude Include="High-Speed-Charting-Control\ChartGradient.h">
+      <Filter>High-Speed-Charting-Control</Filter>
+    </ClInclude>
+    <ClInclude Include="High-Speed-Charting-Control\ChartGrid.h">
+      <Filter>High-Speed-Charting-Control</Filter>
+    </ClInclude>
+    <ClInclude Include="High-Speed-Charting-Control\ChartLabel.h">
+      <Filter>High-Speed-Charting-Control</Filter>
+    </ClInclude>
+    <ClInclude Include="High-Speed-Charting-Control\ChartLegend.h">
+      <Filter>High-Speed-Charting-Control</Filter>
+    </ClInclude>
+    <ClInclude Include="High-Speed-Charting-Control\ChartLineSerie.h">
+      <Filter>High-Speed-Charting-Control</Filter>
+    </ClInclude>
+    <ClInclude Include="High-Speed-Charting-Control\ChartLogarithmicAxis.h">
+      <Filter>High-Speed-Charting-Control</Filter>
+    </ClInclude>
+    <ClInclude Include="High-Speed-Charting-Control\ChartMouseListener.h">
+      <Filter>High-Speed-Charting-Control</Filter>
+    </ClInclude>
+    <ClInclude Include="High-Speed-Charting-Control\ChartPointsArray.h">
+      <Filter>High-Speed-Charting-Control</Filter>
+    </ClInclude>
+    <ClInclude Include="High-Speed-Charting-Control\ChartPointsSerie.h">
+      <Filter>High-Speed-Charting-Control</Filter>
+    </ClInclude>
+    <ClInclude Include="High-Speed-Charting-Control\ChartScrollBar.h">
+      <Filter>High-Speed-Charting-Control</Filter>
+    </ClInclude>
+    <ClInclude Include="High-Speed-Charting-Control\ChartSerie.h">
+      <Filter>High-Speed-Charting-Control</Filter>
+    </ClInclude>
+    <ClInclude Include="High-Speed-Charting-Control\ChartSerieBase.h">
+      <Filter>High-Speed-Charting-Control</Filter>
+    </ClInclude>
+    <ClInclude Include="High-Speed-Charting-Control\ChartSeriesMouseListener.h">
+      <Filter>High-Speed-Charting-Control</Filter>
+    </ClInclude>
+    <ClInclude Include="High-Speed-Charting-Control\ChartStandardAxis.h">
+      <Filter>High-Speed-Charting-Control</Filter>
+    </ClInclude>
+    <ClInclude Include="High-Speed-Charting-Control\ChartString.h">
+      <Filter>High-Speed-Charting-Control</Filter>
+    </ClInclude>
+    <ClInclude Include="High-Speed-Charting-Control\ChartSurfaceSerie.h">
+      <Filter>High-Speed-Charting-Control</Filter>
+    </ClInclude>
+    <ClInclude Include="High-Speed-Charting-Control\ChartTitle.h">
+      <Filter>High-Speed-Charting-Control</Filter>
+    </ClInclude>
+    <ClInclude Include="High-Speed-Charting-Control\ChartXYSerie.h">
+      <Filter>High-Speed-Charting-Control</Filter>
+    </ClInclude>
+    <ClInclude Include="High-Speed-Charting-Control\PointsOrdering.h">
+      <Filter>High-Speed-Charting-Control</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -428,8 +527,80 @@
     <ClCompile Include="ADRMarketTemperatureView.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="MarketTemperature\DlgMarketTemperature.cpp">
+    <ClCompile Include="MarketTemperature\DlgMarketTemperature_Chart.cpp">
       <Filter>MarketTemperature</Filter>
+    </ClCompile>
+    <ClCompile Include="MarketTemperature\DlgMarketTemperature_Data.cpp">
+      <Filter>MarketTemperature</Filter>
+    </ClCompile>
+    <ClCompile Include="High-Speed-Charting-Control\ChartAxis.cpp">
+      <Filter>High-Speed-Charting-Control</Filter>
+    </ClCompile>
+    <ClCompile Include="High-Speed-Charting-Control\ChartAxisLabel.cpp">
+      <Filter>High-Speed-Charting-Control</Filter>
+    </ClCompile>
+    <ClCompile Include="High-Speed-Charting-Control\ChartBarSerie.cpp">
+      <Filter>High-Speed-Charting-Control</Filter>
+    </ClCompile>
+    <ClCompile Include="High-Speed-Charting-Control\ChartCandlestickSerie.cpp">
+      <Filter>High-Speed-Charting-Control</Filter>
+    </ClCompile>
+    <ClCompile Include="High-Speed-Charting-Control\ChartCrossHairCursor.cpp">
+      <Filter>High-Speed-Charting-Control</Filter>
+    </ClCompile>
+    <ClCompile Include="High-Speed-Charting-Control\ChartCtrl.cpp">
+      <Filter>High-Speed-Charting-Control</Filter>
+    </ClCompile>
+    <ClCompile Include="High-Speed-Charting-Control\ChartCursor.cpp">
+      <Filter>High-Speed-Charting-Control</Filter>
+    </ClCompile>
+    <ClCompile Include="High-Speed-Charting-Control\ChartDateTimeAxis.cpp">
+      <Filter>High-Speed-Charting-Control</Filter>
+    </ClCompile>
+    <ClCompile Include="High-Speed-Charting-Control\ChartDragLineCursor.cpp">
+      <Filter>High-Speed-Charting-Control</Filter>
+    </ClCompile>
+    <ClCompile Include="High-Speed-Charting-Control\ChartFont.cpp">
+      <Filter>High-Speed-Charting-Control</Filter>
+    </ClCompile>
+    <ClCompile Include="High-Speed-Charting-Control\ChartGanttSerie.cpp">
+      <Filter>High-Speed-Charting-Control</Filter>
+    </ClCompile>
+    <ClCompile Include="High-Speed-Charting-Control\ChartGradient.cpp">
+      <Filter>High-Speed-Charting-Control</Filter>
+    </ClCompile>
+    <ClCompile Include="High-Speed-Charting-Control\ChartGrid.cpp">
+      <Filter>High-Speed-Charting-Control</Filter>
+    </ClCompile>
+    <ClCompile Include="High-Speed-Charting-Control\ChartLegend.cpp">
+      <Filter>High-Speed-Charting-Control</Filter>
+    </ClCompile>
+    <ClCompile Include="High-Speed-Charting-Control\ChartLineSerie.cpp">
+      <Filter>High-Speed-Charting-Control</Filter>
+    </ClCompile>
+    <ClCompile Include="High-Speed-Charting-Control\ChartLogarithmicAxis.cpp">
+      <Filter>High-Speed-Charting-Control</Filter>
+    </ClCompile>
+    <ClCompile Include="High-Speed-Charting-Control\ChartPointsSerie.cpp">
+      <Filter>High-Speed-Charting-Control</Filter>
+    </ClCompile>
+    <ClCompile Include="High-Speed-Charting-Control\ChartScrollBar.cpp">
+      <Filter>High-Speed-Charting-Control</Filter>
+    </ClCompile>
+    <ClCompile Include="High-Speed-Charting-Control\ChartSerie.cpp">
+      <Filter>High-Speed-Charting-Control</Filter>
+    </ClCompile>
+    <ClCompile Include="High-Speed-Charting-Control\ChartStandardAxis.cpp">
+      <Filter>High-Speed-Charting-Control</Filter>
+    </ClCompile>
+    <ClCompile Include="High-Speed-Charting-Control\ChartSurfaceSerie.cpp">
+      <Filter>High-Speed-Charting-Control</Filter>
+    </ClCompile>
+    <ClCompile Include="High-Speed-Charting-Control\ChartTitle.cpp">
+      <Filter>High-Speed-Charting-Control</Filter>
+    </ClCompile>
+    <ClCompile Include="High-Speed-Charting-Control\ChartXYSerie.cpp">
+      <Filter>High-Speed-Charting-Control</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -523,6 +694,18 @@
     </None>
     <None Include="res\DRAGCOPY.CUR">
       <Filter>资源文件</Filter>
+    </None>
+    <None Include="High-Speed-Charting-Control\ChartBalloonLabel.inl">
+      <Filter>High-Speed-Charting-Control</Filter>
+    </None>
+    <None Include="High-Speed-Charting-Control\ChartLabel.inl">
+      <Filter>High-Speed-Charting-Control</Filter>
+    </None>
+    <None Include="High-Speed-Charting-Control\ChartPointsArray.inl">
+      <Filter>High-Speed-Charting-Control</Filter>
+    </None>
+    <None Include="High-Speed-Charting-Control\ChartSerieBase.inl">
+      <Filter>High-Speed-Charting-Control</Filter>
     </None>
   </ItemGroup>
 </Project>

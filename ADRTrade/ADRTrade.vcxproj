@@ -57,7 +57,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir);/Trade/Common;../Common;../Source;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);/Trade/Common;../Common;../Source;../High-Speed-Charting-Control;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>/Zm200 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
@@ -138,9 +138,41 @@
     <ClInclude Include="GirdBehaviour\GridCellBehaviour.h" />
     <ClInclude Include="GirdBehaviour\GridFieldMeta.h" />
     <ClInclude Include="GirdBehaviour\GridViewField.h" />
+    <ClInclude Include="High-Speed-Charting-Control\ChartAxis.h" />
+    <ClInclude Include="High-Speed-Charting-Control\ChartAxisLabel.h" />
+    <ClInclude Include="High-Speed-Charting-Control\ChartBalloonLabel.h" />
+    <ClInclude Include="High-Speed-Charting-Control\ChartBarSerie.h" />
+    <ClInclude Include="High-Speed-Charting-Control\ChartCandlestickSerie.h" />
+    <ClInclude Include="High-Speed-Charting-Control\ChartCrossHairCursor.h" />
+    <ClInclude Include="High-Speed-Charting-Control\ChartCtrl.h" />
+    <ClInclude Include="High-Speed-Charting-Control\ChartCursor.h" />
+    <ClInclude Include="High-Speed-Charting-Control\ChartDateTimeAxis.h" />
+    <ClInclude Include="High-Speed-Charting-Control\ChartDragLineCursor.h" />
+    <ClInclude Include="High-Speed-Charting-Control\ChartFont.h" />
+    <ClInclude Include="High-Speed-Charting-Control\ChartGanttSerie.h" />
+    <ClInclude Include="High-Speed-Charting-Control\ChartGradient.h" />
+    <ClInclude Include="High-Speed-Charting-Control\ChartGrid.h" />
+    <ClInclude Include="High-Speed-Charting-Control\ChartLabel.h" />
+    <ClInclude Include="High-Speed-Charting-Control\ChartLegend.h" />
+    <ClInclude Include="High-Speed-Charting-Control\ChartLineSerie.h" />
+    <ClInclude Include="High-Speed-Charting-Control\ChartLogarithmicAxis.h" />
+    <ClInclude Include="High-Speed-Charting-Control\ChartMouseListener.h" />
+    <ClInclude Include="High-Speed-Charting-Control\ChartPointsArray.h" />
+    <ClInclude Include="High-Speed-Charting-Control\ChartPointsSerie.h" />
+    <ClInclude Include="High-Speed-Charting-Control\ChartScrollBar.h" />
+    <ClInclude Include="High-Speed-Charting-Control\ChartSerie.h" />
+    <ClInclude Include="High-Speed-Charting-Control\ChartSerieBase.h" />
+    <ClInclude Include="High-Speed-Charting-Control\ChartSeriesMouseListener.h" />
+    <ClInclude Include="High-Speed-Charting-Control\ChartStandardAxis.h" />
+    <ClInclude Include="High-Speed-Charting-Control\ChartString.h" />
+    <ClInclude Include="High-Speed-Charting-Control\ChartSurfaceSerie.h" />
+    <ClInclude Include="High-Speed-Charting-Control\ChartTitle.h" />
+    <ClInclude Include="High-Speed-Charting-Control\ChartXYSerie.h" />
+    <ClInclude Include="High-Speed-Charting-Control\PointsOrdering.h" />
     <ClInclude Include="MacroEnvironment\DlgTab_WorldEcnomic.h" />
     <ClInclude Include="MainFrm.h" />
-    <ClInclude Include="MarketTemperature\DlgMarketTemperature.h" />
+    <ClInclude Include="MarketTemperature\DlgMarketTemperature_Chart.h" />
+    <ClInclude Include="MarketTemperature\DlgMarketTemperature_Data.h" />
     <ClInclude Include="PropertiesWnd.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
@@ -207,9 +239,33 @@
     <ClCompile Include="GirdBehaviour\GridCellBehaviour.cpp" />
     <ClCompile Include="GirdBehaviour\GridFieldMeta.cpp" />
     <ClCompile Include="GirdBehaviour\GridViewField.cpp" />
+    <ClCompile Include="High-Speed-Charting-Control\ChartAxis.cpp" />
+    <ClCompile Include="High-Speed-Charting-Control\ChartAxisLabel.cpp" />
+    <ClCompile Include="High-Speed-Charting-Control\ChartBarSerie.cpp" />
+    <ClCompile Include="High-Speed-Charting-Control\ChartCandlestickSerie.cpp" />
+    <ClCompile Include="High-Speed-Charting-Control\ChartCrossHairCursor.cpp" />
+    <ClCompile Include="High-Speed-Charting-Control\ChartCtrl.cpp" />
+    <ClCompile Include="High-Speed-Charting-Control\ChartCursor.cpp" />
+    <ClCompile Include="High-Speed-Charting-Control\ChartDateTimeAxis.cpp" />
+    <ClCompile Include="High-Speed-Charting-Control\ChartDragLineCursor.cpp" />
+    <ClCompile Include="High-Speed-Charting-Control\ChartFont.cpp" />
+    <ClCompile Include="High-Speed-Charting-Control\ChartGanttSerie.cpp" />
+    <ClCompile Include="High-Speed-Charting-Control\ChartGradient.cpp" />
+    <ClCompile Include="High-Speed-Charting-Control\ChartGrid.cpp" />
+    <ClCompile Include="High-Speed-Charting-Control\ChartLegend.cpp" />
+    <ClCompile Include="High-Speed-Charting-Control\ChartLineSerie.cpp" />
+    <ClCompile Include="High-Speed-Charting-Control\ChartLogarithmicAxis.cpp" />
+    <ClCompile Include="High-Speed-Charting-Control\ChartPointsSerie.cpp" />
+    <ClCompile Include="High-Speed-Charting-Control\ChartScrollBar.cpp" />
+    <ClCompile Include="High-Speed-Charting-Control\ChartSerie.cpp" />
+    <ClCompile Include="High-Speed-Charting-Control\ChartStandardAxis.cpp" />
+    <ClCompile Include="High-Speed-Charting-Control\ChartSurfaceSerie.cpp" />
+    <ClCompile Include="High-Speed-Charting-Control\ChartTitle.cpp" />
+    <ClCompile Include="High-Speed-Charting-Control\ChartXYSerie.cpp" />
     <ClCompile Include="MacroEnvironment\DlgTab_WorldEcnomic.cpp" />
     <ClCompile Include="MainFrm.cpp" />
-    <ClCompile Include="MarketTemperature\DlgMarketTemperature.cpp" />
+    <ClCompile Include="MarketTemperature\DlgMarketTemperature_Chart.cpp" />
+    <ClCompile Include="MarketTemperature\DlgMarketTemperature_Data.cpp" />
     <ClCompile Include="PropertiesWnd.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -287,6 +343,10 @@
     <Image Include="UserImages.bmp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="High-Speed-Charting-Control\ChartBalloonLabel.inl" />
+    <None Include="High-Speed-Charting-Control\ChartLabel.inl" />
+    <None Include="High-Speed-Charting-Control\ChartPointsArray.inl" />
+    <None Include="High-Speed-Charting-Control\ChartSerieBase.inl" />
     <None Include="res\ADRTrade.rc2" />
     <None Include="res\DRAGCOPY.CUR" />
     <None Include="res\DRAGMOVE.CUR" />
