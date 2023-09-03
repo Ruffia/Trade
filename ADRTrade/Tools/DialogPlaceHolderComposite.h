@@ -1,9 +1,9 @@
 #pragma once
-#include "DialogPlaceHolder.h"
+#include "DialogPlaceHolderDB.h"
 using namespace pugi;
 
 // CDialogPlaceHolderComposite ¶Ô»°¿ò
-class CDialogPlaceHolderComposite : public CDialogPlaceHolder
+class CDialogPlaceHolderComposite : public CDialogPlaceHolderBusiness
 {
 	DECLARE_DYNAMIC(CDialogPlaceHolderComposite)
 

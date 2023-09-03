@@ -129,6 +129,8 @@
     <ClInclude Include="DlgPopup_SelectDocument.h" />
     <ClInclude Include="DocumentTemplateManager.h" />
     <ClInclude Include="Future\CustomTabCtrlDlg_DailyMinorCycleAnalyze.h" />
+    <ClInclude Include="Future\DataProvider_DailyMacroEnvironmentAnalyze.h" />
+    <ClInclude Include="Future\DataProvider_DailyTradeSummarize.h" />
     <ClInclude Include="Future\DialogPlaceHolder_DailyTraceConflict.h" />
     <ClInclude Include="Future\DialogPlaceHolder_DailyTraceEvidence.h" />
     <ClInclude Include="Future\DialogPlaceHolder_LongPeriodicAnalyze.h" />
@@ -199,10 +201,13 @@
     <ClInclude Include="Tools\CustomButton.h" />
     <ClInclude Include="Tools\CustomTabCtrl.h" />
     <ClInclude Include="Tools\CustomTabCtrlDlg.h" />
+    <ClInclude Include="Tools\CustomTabCtrlDlgDB.h" />
     <ClInclude Include="Tools\CustomTabCtrlItem.h" />
+    <ClInclude Include="Tools\DataProvider.h" />
     <ClInclude Include="Tools\DialogLayout.h" />
     <ClInclude Include="Tools\DialogPlaceHolder.h" />
     <ClInclude Include="Tools\DialogPlaceHolderComposite.h" />
+    <ClInclude Include="Tools\DialogPlaceHolderDB.h" />
     <ClInclude Include="Tools\DialogPopup.h" />
     <ClInclude Include="Tools\Dlg4ProgressThread.h" />
     <ClInclude Include="Tools\DlgGridPage.h" />
@@ -233,6 +238,8 @@
     <ClCompile Include="DlgPopup_SelectDocument.cpp" />
     <ClCompile Include="DocumentTemplateManager.cpp" />
     <ClCompile Include="Future\CustomTabCtrlDlg_DailyMinorCycleAnalyze.cpp" />
+    <ClCompile Include="Future\DataProvider_DailyMacroEnvironmentAnalyze.cpp" />
+    <ClCompile Include="Future\DataProvider_DailyTradeSummarize.cpp" />
     <ClCompile Include="Future\DialogPlaceHolder_DailyTraceConflict.cpp" />
     <ClCompile Include="Future\DialogPlaceHolder_DailyTraceEvidence.cpp" />
     <ClCompile Include="Future\DialogPlaceHolder_LongPeriodicAnalyze.cpp" />
@@ -295,10 +302,13 @@
     <ClCompile Include="Tools\CustomButton.cpp" />
     <ClCompile Include="Tools\CustomTabCtrl.cpp" />
     <ClCompile Include="Tools\CustomTabCtrlDlg.cpp" />
+    <ClCompile Include="Tools\CustomTabCtrlDlgDB.cpp" />
     <ClCompile Include="Tools\CustomTabCtrlItem.cpp" />
+    <ClCompile Include="Tools\DataProvider.cpp" />
     <ClCompile Include="Tools\DialogLayout.cpp" />
     <ClCompile Include="Tools\DialogPlaceHolder.cpp" />
     <ClCompile Include="Tools\DialogPlaceHolderComposite.cpp" />
+    <ClCompile Include="Tools\DialogPlaceHolderDB.cpp" />
     <ClCompile Include="Tools\DialogPopup.cpp" />
     <ClCompile Include="Tools\Dlg4ProgressThread.cpp" />
     <ClCompile Include="Tools\DlgGridPage.cpp" />

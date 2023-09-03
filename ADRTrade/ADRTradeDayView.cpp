@@ -144,6 +144,7 @@ void CADRTradeDayView::_LoadLayout()
 		data.m_nTop = node.attribute("Top").as_int();
 		data.m_nWidth = node.attribute("Width").as_int();
 		data.m_nHeight = node.attribute("Height").as_int();
+		data.m_sDataProvider = node.attribute("DataProvider").as_string("");
 		CUIDataMgr::Instance().Register(data.m_sName,data);
 		node = node.next_sibling();
 	}
@@ -178,11 +179,12 @@ void CADRTradeDayView::_CreateUI()
 	{
 		string sCaption = it->first;
 		CUIData& UIData = it->second;
-		CDialogPlaceHolder* pHolder = Factory<CDialogPlaceHolder,string>::Instance().BuildProduct(UIData.m_strUIClassName);
+		CDialogPlaceHolderBusiness* pHolder = Factory<CDialogPlaceHolderBusiness,string>::Instance().BuildProduct(UIData.m_strUIClassName);
 		if(!pHolder) continue;
 		const int nIDD = CDialogIDMgr::Instance().GetDialogResourceID(UIData.m_strUIClassName);
 		ASSERT(-1 != nIDD);
-		pHolder->SetBusiness(UIData.m_sName);
+		IDataProvider* pProvider = Factory<IDataProvider,string>::Instance().BuildProduct(UIData.m_sDataProvider);
+		pHolder->SetDataProvider(pProvider);
 		pHolder->SetLayout(UIData.m_strLayout);		
 
 		pHolder->Create(nIDD,this);

@@ -348,6 +348,21 @@
     <ClInclude Include="MarketTemperature\DlgMarketTemperatureChart_RiseDrop2Limit.h">
       <Filter>MarketTemperature</Filter>
     </ClInclude>
+    <ClInclude Include="Tools\DialogPlaceHolderDB.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\CustomTabCtrlDlgDB.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\DataProvider.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Future\DataProvider_DailyMacroEnvironmentAnalyze.h">
+      <Filter>Future</Filter>
+    </ClInclude>
+    <ClInclude Include="Future\DataProvider_DailyTradeSummarize.h">
+      <Filter>Future</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ADRTrade.cpp">
@@ -619,6 +634,21 @@
     </ClCompile>
     <ClCompile Include="MarketTemperature\DlgMarketTemperatureChart_RiseDrop2Limit.cpp">
       <Filter>MarketTemperature</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\DialogPlaceHolderDB.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\CustomTabCtrlDlgDB.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\DataProvider.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Future\DataProvider_DailyMacroEnvironmentAnalyze.cpp">
+      <Filter>Future</Filter>
+    </ClCompile>
+    <ClCompile Include="Future\DataProvider_DailyTradeSummarize.cpp">
+      <Filter>Future</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

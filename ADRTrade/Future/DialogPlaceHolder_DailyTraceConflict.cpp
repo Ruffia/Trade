@@ -21,9 +21,9 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 
-IMPLEMENT_FACTORY(CDialogPlaceHolder,CDialogFutureContract_DailyTraceConflict, string,"CDialogFutureContract_DailyTraceConflict")
+IMPLEMENT_FACTORY(CDialogPlaceHolderBusiness,CDialogFutureContract_DailyTraceConflict, string,"CDialogFutureContract_DailyTraceConflict")
 CDialogFutureContract_DailyTraceConflict::CDialogFutureContract_DailyTraceConflict(CWnd* pParent /*=NULL*/)
-	: CDialogPlaceHolder(pParent)
+	: CDialogPlaceHolderBusiness(pParent)
 {
 	CDialogIDMgr::Instance().Register("CDialogFutureContract_DailyTraceConflict",CDialogFutureContract_DailyTraceConflict::IDD); 
 }
@@ -39,10 +39,10 @@ void CDialogFutureContract_DailyTraceConflict::_LoadData2UI()
 	const string strNumber = "number";
 
 	vector<CFieldDesc*> vFieldDesc;
-	CDBDataManager::Instance().GetFieldMetaData(m_sBusiness,vFieldDesc);
+	CDBDataManager::Instance().GetFieldMetaData(m_pDataProvider->m_sBusiness,vFieldDesc);
 
 	vector<CFieldDesc*> vPrimaryKey;
-	CDBDataManager::Instance().GetPrimaryKey(m_sBusiness,vPrimaryKey);
+	CDBDataManager::Instance().GetPrimaryKey(m_pDataProvider->m_sBusiness,vPrimaryKey);
 
 	CFieldDesc* pTradeDayDesc = NULL;
 	CFieldDesc* pFutureContractNameDesc = NULL;
@@ -67,7 +67,7 @@ void CDialogFutureContract_DailyTraceConflict::_LoadData2UI()
 	if(!pTradeDayDesc || !pFutureContractNameDesc || !pNumberDesc) return;
 
 	string sSQL = "select * from ";
-	sSQL += m_sBusiness;
+	sSQL += m_pDataProvider->m_sBusiness;
 	sSQL += " where ";
 	sSQL += pTradeDayDesc->m_strFieldName;
 	sSQL += " = '";
@@ -80,7 +80,7 @@ void CDialogFutureContract_DailyTraceConflict::_LoadData2UI()
 	sSQL += "'";
 
 	CDataSet ds;
-	CDBDataManager::Instance().LoadData(sSQL,m_sBusiness,ds);
+	CDBDataManager::Instance().LoadData(sSQL,m_pDataProvider->m_sBusiness,ds);
 
 	UpdateDB2UI(ds);
 }
@@ -125,11 +125,11 @@ void CDialogFutureContract_DailyTraceConflict::UpdateUI2DB()
 	}
 
 
-	map<string,CFieldDesc*>& mapTableName2FieldDesc = CDBDataManager::Instance().GetTableMeta(m_sBusiness);
+	map<string,CFieldDesc*>& mapTableName2FieldDesc = CDBDataManager::Instance().GetTableMeta(m_pDataProvider->m_sBusiness);
 	for (int i = 0; i < vConflict.size();i++)
 	{
 		string sSQL = "update ";
-		sSQL += m_sBusiness;
+		sSQL += m_pDataProvider->m_sBusiness;
 		sSQL += " set ";
 
 		string sSQLField = "";
@@ -172,7 +172,7 @@ void CDialogFutureContract_DailyTraceConflict::UpdateUI2DB()
 		sSQL += " where ";
 
 		vector<CFieldDesc*> vPrimaryKey;
-		CDBDataManager::Instance().GetPrimaryKey(m_sBusiness,vPrimaryKey);
+		CDBDataManager::Instance().GetPrimaryKey(m_pDataProvider->m_sBusiness,vPrimaryKey);
 
 		string strPrimaryKeyClause = "";
 		for (int j = 0; j < vPrimaryKey.size();j++)
@@ -230,7 +230,7 @@ void CDialogFutureContract_DailyTraceConflict::UpdateUI2DB()
 
 void CDialogFutureContract_DailyTraceConflict::UpdateDB2UI(CDataSet& ds,int index)
 {
-	map<string,CFieldDesc*>& mapTableName2FieldDesc = CDBDataManager::Instance().GetTableMeta(m_sBusiness);
+	map<string,CFieldDesc*>& mapTableName2FieldDesc = CDBDataManager::Instance().GetTableMeta(m_pDataProvider->m_sBusiness);
 	for (int i = 0; i < ds.Size();i++)
 	{
 		CRecord* pRecord = ds[i];

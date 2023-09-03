@@ -1,7 +1,7 @@
 #pragma once
-#include "Tools/DialogPlaceHolder.h"
+#include "Tools/DialogPlaceHolderDB.h"
 
-class CDialogFutureContract_LongPeriodicAnalyze : public CDialogPlaceHolder
+class CDialogFutureContract_LongPeriodicAnalyze : public CDialogPlaceHolderBusiness
 {
 public:
 	CDialogFutureContract_LongPeriodicAnalyze(CWnd* pParent = NULL);

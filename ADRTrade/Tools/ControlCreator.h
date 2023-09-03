@@ -11,31 +11,36 @@ class IControlCreator
 {
 public:
 	IControlCreator();
-	virtual void Create(const CUIData &data,const string& sName, const string &sCaption, DWORD dwTotalStyle,
-		const xml_node &node,map<string,CWnd*>& mapUIName2Wnd,map<string,CWnd*>& mapBusiness2Control,CWnd* pParent) = 0;
+	virtual void Create(const CUIData &data,const xml_node &node,map<string,CWnd*>& mapUIName2Wnd,CWnd* pParent) = 0;
+
+	void SetBussinessControl(map<string,CWnd*>* pmapBusiness2Control)
+	{
+		m_pmapBusiness2Control = pmapBusiness2Control;
+	}
+
+protected:
+	//对于部分控件，有可能绑定数据库字段
+	map<string,CWnd*>*  m_pmapBusiness2Control;
 };
 
 
 class CControlCreator_CEdit : public IControlCreator
 {
 public:
-	virtual void Create(const CUIData &data,const string& sName, const string &sCaption, DWORD dwTotalStyle,
-		const xml_node &node,map<string,CWnd*>& mapUIName2Wnd,map<string,CWnd*>& mapBusiness2Control,CWnd* pParent);
+	virtual void Create(const CUIData &data,const xml_node &node,map<string,CWnd*>& mapUIName2Wnd,CWnd* pParent);
 };
 
 
 class CControlCreator_CBusinessEdit : public IControlCreator
 {
 public:
-	virtual void Create(const CUIData &data,const string& sName, const string &sCaption, DWORD dwTotalStyle,
-		const xml_node &node,map<string,CWnd*>& mapUIName2Wnd,map<string,CWnd*>& mapBusiness2Control,CWnd* pParent);
+	virtual void Create(const CUIData &data,const xml_node &node,map<string,CWnd*>& mapUIName2Wnd,CWnd* pParent);
 };
 
 class CControlCreator_CBusinessEditNumber : public IControlCreator
 {
 public:
-	virtual void Create(const CUIData &data,const string& sName, const string &sCaption, DWORD dwTotalStyle,
-		const xml_node &node,map<string,CWnd*>& mapUIName2Wnd,map<string,CWnd*>& mapBusiness2Control,CWnd* pParent);
+	virtual void Create(const CUIData &data,const xml_node &node,map<string,CWnd*>& mapUIName2Wnd,CWnd* pParent);
 };
 
 
@@ -46,16 +51,14 @@ class CControlCreator_CBusinessEditConflictDetailedDescription : public CControl
 class CControlCreator_CBusinessComboBox : public IControlCreator
 {
 public:
-	virtual void Create(const CUIData &data,const string& sName, const string &sCaption, DWORD dwTotalStyle,
-		const xml_node &node,map<string,CWnd*>& mapUIName2Wnd,map<string,CWnd*>& mapBusiness2Control,CWnd* pParent);
+	virtual void Create(const CUIData &data,const xml_node &node,map<string,CWnd*>& mapUIName2Wnd,CWnd* pParent);
 };
 
 
 class CControlCreator_CBusinessComboBoxTechnicalIndex : public IControlCreator
 {
 public:
-	virtual void Create(const CUIData &data,const string& sName, const string &sCaption, DWORD dwTotalStyle,
-		const xml_node &node,map<string,CWnd*>& mapUIName2Wnd,map<string,CWnd*>& mapBusiness2Control,CWnd* pParent);
+	virtual void Create(const CUIData &data,const xml_node &node,map<string,CWnd*>& mapUIName2Wnd,CWnd* pParent);
 };
 
 
@@ -66,22 +69,19 @@ class CControlCreator_CBusinessComboBoxConflict : public CControlCreator_CBusine
 class CControlCreator_CBusinessComboBoxTimePeriod : public CControlCreator_CBusinessComboBoxTechnicalIndex
 {
 public:
-	virtual void Create(const CUIData &data,const string& sName, const string &sCaption, DWORD dwTotalStyle,
-		const xml_node &node,map<string,CWnd*>& mapUIName2Wnd,map<string,CWnd*>& mapBusiness2Control,CWnd* pParent);
+	virtual void Create(const CUIData &data,const xml_node &node,map<string,CWnd*>& mapUIName2Wnd,CWnd* pParent);
 };
 
 
 class CControlCreator_CBusinessCheckBox : public IControlCreator
 {
 public:
-	virtual void Create(const CUIData &data,const string& sName, const string &sCaption, DWORD dwTotalStyle,
-		const xml_node &node,map<string,CWnd*>& mapUIName2Wnd,map<string,CWnd*>& mapBusiness2Control,CWnd* pParent);
+	virtual void Create(const CUIData &data,const xml_node &node,map<string,CWnd*>& mapUIName2Wnd,CWnd* pParent);
 };
 
 
 class CControlCreator_CEditTreeCtrlEx : public IControlCreator
 {
 public:
-	virtual void Create(const CUIData &data,const string& sName, const string &sCaption, DWORD dwTotalStyle,
-		const xml_node &node,map<string,CWnd*>& mapUIName2Wnd,map<string,CWnd*>& mapBusiness2Control,CWnd* pParent);
+	virtual void Create(const CUIData &data,const xml_node &node,map<string,CWnd*>& mapUIName2Wnd,CWnd* pParent);
 };

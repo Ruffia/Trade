@@ -1,5 +1,5 @@
 #pragma once
-#include "Tools/DialogPlaceHolder.h"
+#include "Tools/DialogPlaceHolderDB.h"
 
 #define Combox_TechnicalIndex0         10013
 #define Combox_TechnicalIndexValue0    10014
@@ -8,7 +8,7 @@
 #define Combox_TechnicalIndex2         10033
 #define Combox_TechnicalIndexValue2    10034
 
-class CDialogFutureContract_DailyTraceEvidence : public CDialogPlaceHolder
+class CDialogFutureContract_DailyTraceEvidence : public CDialogPlaceHolderBusiness
 {
 public:
 	CDialogFutureContract_DailyTraceEvidence(CWnd* pParent = NULL);

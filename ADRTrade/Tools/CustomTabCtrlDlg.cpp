@@ -5,7 +5,6 @@
 #include "UIData.h"
 #include "Factory.h"
 #include "DialogIDManager.h"
-#include "DialogPlaceHolder.h"
 #include "DBDataManager.h"
 #include "CustomTabCtrlDlg.h"
 #include "TradeDayPrimaryData.h"
@@ -42,14 +41,9 @@ CCustomTabCtrlDlg::~CCustomTabCtrlDlg()
 	m_vPage.clear();
 }
 
-void CCustomTabCtrlDlg::DoDataExchange(CDataExchange* pDX)
-{
-	CDialog::DoDataExchange(pDX);
-}
 
 BEGIN_MESSAGE_MAP(CCustomTabCtrlDlg, CDialog)
 	ON_WM_PAINT()
-	ON_WM_SIZE()
 	ON_NOTIFY(CTCN_CLICK, IDC_TAB, OnLButtonClickedTab)
 	ON_NOTIFY(CTCN_RCLICK, IDC_TAB, OnRButtonClickedTab)
 	ON_NOTIFY(CTCN_SELCHANGE, IDC_TAB, OnSelchangeTab)
@@ -61,22 +55,10 @@ END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
 // CCustomTabCtrlDlg message handlers
-
 BOOL CCustomTabCtrlDlg::OnInitDialog()
 {
 	CDialog::OnInitDialog();
-
-	CRect rcClient;
-	GetClientRect(rcClient);
-
-	m_pTab = new CCustomTabCtrl;
-	CRect rcTab(rcClient.left + 17,rcClient.top + 27,rcClient.Width() - 20,rcClient.Height() - 20);
-	m_pTab->Create(WS_CHILD|WS_VISIBLE|CTCS_DRAGMOVE|CTCS_TOP|CTCS_EDITLABELS|CTCS_CLOSEBUTTON|CTCS_AUTOHIDEBUTTONS|CTCS_MULTIHIGHLIGHT|CTCS_DRAGCOPY|CTCS_TOP,rcTab,this,IDC_TAB);
-	m_pTab->SetDragCursors(AfxGetApp()->LoadCursor(IDC_CURSORMOVE),AfxGetApp()->LoadCursor(IDC_CURSORCOPY));
-
-	_InitPage(rcTab);
-	_LoadData2UI();
-
+	_InitLayOut();
 	m_nCurSel = 0;
 	//显示初始页面
 	_ShowPage(m_nCurSel);
@@ -85,75 +67,76 @@ BOOL CCustomTabCtrlDlg::OnInitDialog()
 		DEFAULT_QUALITY, DEFAULT_PITCH | FF_DONTCARE, "Courier"};
 
 	m_pTab->SetControlFont(lf, TRUE);
-	_Resize(rcClient.Width(),rcClient.Height());
+	CRect rcClient;
+	GetClientRect(rcClient);
+	_DesignLayout(0,rcClient.Width(),rcClient.Height());
 	m_pTab->SetCurSel(m_nCurSel);
 	return TRUE; 
 }
 
 
-void CCustomTabCtrlDlg::_InitPage(CRect& rcTab) 
+void CCustomTabCtrlDlg::_InitLayOut()
 {
+	CRect rcClient;
+	GetClientRect(rcClient);
+
+	m_pTab = new CCustomTabCtrl;
+	CRect rcTab(rcClient.left + 17,rcClient.top + 27,rcClient.Width() - 20,rcClient.Height() - 20);
+	m_pTab->Create(WS_CHILD|WS_VISIBLE|CTCS_DRAGMOVE|CTCS_TOP|CTCS_EDITLABELS|CTCS_CLOSEBUTTON|CTCS_AUTOHIDEBUTTONS|CTCS_MULTIHIGHLIGHT|CTCS_DRAGCOPY|CTCS_TOP,rcTab,this,IDC_TAB);
+	m_pTab->SetDragCursors(AfxGetApp()->LoadCursor(IDC_CURSORMOVE),AfxGetApp()->LoadCursor(IDC_CURSORCOPY));
+
 	string sFileName = GetModulePath() + "/UI/" + m_sLayout;
 	if (!m_doc.load_file(sFileName.c_str())) 
 	{ //加载xml文件
 		return;
 	}
 
-	int nCount = 0;
 	xml_node root = m_doc.child("root");  //根节点
 	xml_node nodeLayout = root.child("Layout");
 	xml_node node = nodeLayout.first_child();
 	while (!node.empty())
 	{
 		CUIData data;
-		const string sName = node.attribute("Name").as_string("");
-		data.m_strUIClassName = node.attribute("ClassName").as_string("");
-		data.m_strLayout = node.attribute("Layout").as_string("");
-		data.m_nID = node.attribute("ID").as_int();
-		data.m_nLeft = node.attribute("Left").as_int();
-		data.m_nTop = node.attribute("Top").as_int();
-		data.m_nWidth = node.attribute("Width").as_int();
-		data.m_nHeight = node.attribute("Height").as_int();
-		string sTitle = node.attribute("Title").as_string("");
-
-		//设定在Tab内显示的范围
-		CRect rcHold;
-		rcHold.top = rcTab.top + data.m_nTop;
-		rcHold.left = rcTab.left;
-		rcHold.right = rcTab.right;
-		rcHold.bottom = rcTab.bottom;
-	
-
-		CDialogPlaceHolder* pDlg = Factory<CDialogPlaceHolder,string>::Instance().BuildProduct(data.m_strUIClassName);
-		if(!pDlg) continue;
-		pDlg->SetBusiness(m_sBusiness);
-		pDlg->SetLayout(data.m_strLayout);
-
-		const int nIDD = CDialogIDMgr::Instance().GetDialogResourceID(data.m_strUIClassName);
-		ASSERT(-1 != nIDD);
-
-
-		pDlg->Create(nIDD,this);
-		pDlg->MoveWindow(&rcHold);
-
-		m_pTab->InsertItem(nCount,sName.c_str());
-
-		m_vPage.push_back(pDlg);
-		data.m_pWnd = pDlg;
-
-		nCount++;
+		_ReadUIData(node,data);
+		_CreateUI(data,node);
 		node = node.next_sibling();
 	}
-
 }
 
-void CCustomTabCtrlDlg::OnSize(UINT nType, int cx, int cy) 
+
+//根据 CUIData 对象的数据创建实际的控件 
+void CCustomTabCtrlDlg::_CreateUI( CUIData &data, xml_node node )
 {
-	CDialog::OnSize(nType, cx, cy);
-	_Resize(cx,cy);
+	CRect rcClient;
+	GetClientRect(rcClient);
+	CRect rcTab(rcClient.left + 17,rcClient.top + 27,rcClient.Width() - 20,rcClient.Height() - 20);
+
+	//设定在Tab内显示的范围
+	CRect rcHold;
+	rcHold.top = rcTab.top + data.m_nTop;
+	rcHold.left = rcTab.left;
+	rcHold.right = rcTab.right;
+	rcHold.bottom = rcTab.bottom;
+
+	CDialogPlaceHolder* pDlg = Factory<CDialogPlaceHolder,string>::Instance().BuildProduct(data.m_strUIClassName);
+	if(!pDlg) return;
+	pDlg->SetLayout(data.m_strLayout);
+
+	const int nIDD = CDialogIDMgr::Instance().GetDialogResourceID(data.m_strUIClassName);
+	ASSERT(-1 != nIDD);
+
+	pDlg->Create(nIDD,this);
+	pDlg->MoveWindow(&rcHold);
+
+	int nIndex = m_vPage.size();
+	m_pTab->InsertItem(nIndex,data.m_sName.c_str());
+
+	m_vPage.push_back(pDlg);
+	data.m_pWnd = pDlg;
 }
 
-void CCustomTabCtrlDlg::_Resize(int cx, int cy)
+
+void CCustomTabCtrlDlg::_DesignLayout(UINT nType, int cx, int cy)
 {
 	if(!m_pTab) return; 	
 	if(!m_pTab->m_hWnd) return;
@@ -186,8 +169,8 @@ void CCustomTabCtrlDlg::_Resize(int cx, int cy)
 
 	m_pTab->MoveWindow(nTabPosition[Left],nTabPosition[Top],nTabPosition[Width],nTabPosition[Height]);
 	RedrawWindow(NULL,NULL,RDW_ALLCHILDREN|RDW_ERASE|RDW_INVALIDATE);
-
 }
+
 
 void CCustomTabCtrlDlg::OnSelchangeTab(NMHDR* pNMHDR, LRESULT* pResult) 
 {
@@ -445,33 +428,4 @@ void CCustomTabCtrlDlg::_ShowPage(const int nCurPage)
 			pPage->ShowWindow(SW_HIDE);
 		}
 	}
-}
-
-
-void CCustomTabCtrlDlg::_LoadData2UI()
-{
-	bool bExists = _CheckExistsTradeDayRecord();
-	if (!bExists) return;
-
-	vector<CFieldDesc*> vFieldDesc;
-	CDBDataManager::Instance().GetFieldMetaData(m_sBusiness,vFieldDesc);
-
-	vector<CFieldDesc*> vPrimaryKey;
-	CDBDataManager::Instance().GetPrimaryKey(m_sBusiness,vPrimaryKey);
-
-	CFieldDesc* pPrimaryKeyDesc = vPrimaryKey[0];
-	if(!pPrimaryKeyDesc) return;
-
-	string sSQL = "select * from ";
-	sSQL += m_sBusiness;
-	sSQL += " where ";
-	sSQL += pPrimaryKeyDesc->m_strFieldName;
-	sSQL += " = '";
-	sSQL += CTradeDayPrimaryData::Instance().m_strTradeDay;
-	sSQL += "'";
-
-	CDataSet ds;
-	CDBDataManager::Instance().LoadData(sSQL,m_sBusiness,ds);
-
-	UpdateDB2UI(ds);
 }

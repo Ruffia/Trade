@@ -1,7 +1,7 @@
 #pragma once
-#include "Tools/CustomTabCtrlDlg.h"
+#include "Tools/CustomTabCtrlDlgDB.h"
 
-class CCustomTabCtrlDlg_DailyMinorCycleAnalyze : public CCustomTabCtrlDlg
+class CCustomTabCtrlDlg_DailyMinorCycleAnalyze : public CCustomTabCtrlDlgBusiness
 {
 public:
 	CCustomTabCtrlDlg_DailyMinorCycleAnalyze(CWnd* pParent = NULL);

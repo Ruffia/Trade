@@ -1,7 +1,7 @@
 #pragma once
-#include "Tools/DialogPlaceHolder.h"
+#include "Tools/DialogPlaceHolderDB.h"
 
-class CDialogTabItem_MinorCycleAnalyze : public CDialogPlaceHolder
+class CDialogTabItem_MinorCycleAnalyze : public CDialogPlaceHolderBusiness
 {
 	DECLARE_DYNAMIC(CDialogTabItem_MinorCycleAnalyze)
 public:

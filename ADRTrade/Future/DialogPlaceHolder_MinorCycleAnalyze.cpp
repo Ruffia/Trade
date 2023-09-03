@@ -18,9 +18,9 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 
-IMPLEMENT_DYNAMIC(CDialogTabItem_MinorCycleAnalyze, CDialogPlaceHolder)
+IMPLEMENT_DYNAMIC(CDialogTabItem_MinorCycleAnalyze, CDialogPlaceHolderBusiness)
 CDialogTabItem_MinorCycleAnalyze::CDialogTabItem_MinorCycleAnalyze(CWnd* pParent /*=NULL*/)
-	: CDialogPlaceHolder(pParent)
+	: CDialogPlaceHolderBusiness(pParent)
 {
 	m_strRecordTime = "";
 	m_strRecordTime_Old = "";
@@ -33,10 +33,10 @@ void CDialogTabItem_MinorCycleAnalyze::_LoadData2UI()
 	if (!bExists) return;
 
 	vector<CFieldDesc*> vFieldDesc;
-	CDBDataManager::Instance().GetFieldMetaData(m_sBusiness,vFieldDesc);
+	CDBDataManager::Instance().GetFieldMetaData(m_pDataProvider->m_sBusiness,vFieldDesc);
 
 	vector<CFieldDesc*> vPrimaryKey;
-	CDBDataManager::Instance().GetPrimaryKey(m_sBusiness,vPrimaryKey);
+	CDBDataManager::Instance().GetPrimaryKey(m_pDataProvider->m_sBusiness,vPrimaryKey);
 
 	const string strTradeDay = "TradeDay";
 	const string strRecordTime = "RecordTime";
@@ -58,7 +58,7 @@ void CDialogTabItem_MinorCycleAnalyze::_LoadData2UI()
 	if(!pTradeDayDesc || !pRecordTimeDesc) return;
 
 	string sSQL = "select * from ";
-	sSQL += m_sBusiness;
+	sSQL += m_pDataProvider->m_sBusiness;
 	sSQL += " where ";
 	sSQL += pTradeDayDesc->m_strFieldName;
 	sSQL += " = '";
@@ -71,7 +71,7 @@ void CDialogTabItem_MinorCycleAnalyze::_LoadData2UI()
 	sSQL += "'";
 
 	CDataSet ds;
-	CDBDataManager::Instance().LoadData(sSQL,m_sBusiness,ds);
+	CDBDataManager::Instance().LoadData(sSQL,m_pDataProvider->m_sBusiness,ds);
 
 	UpdateDB2UI(ds);
 }
@@ -82,10 +82,10 @@ void CDialogTabItem_MinorCycleAnalyze::UpdateUI2DB()
 	bool bExists = _CheckExistsTradeDayRecord();
 	if(!bExists) return;
 
-	map<string,CFieldDesc*>& mapTableName2FieldDesc = CDBDataManager::Instance().GetTableMeta(m_sBusiness);
+	map<string,CFieldDesc*>& mapTableName2FieldDesc = CDBDataManager::Instance().GetTableMeta(m_pDataProvider->m_sBusiness);
 
 	string sSQL = "update ";
-	sSQL += m_sBusiness;
+	sSQL += m_pDataProvider->m_sBusiness;
 	sSQL += " set ";
 	sSQL += " FutureContractName = '";
 	sSQL += CTradeDayPrimaryData::Instance().m_strFutureContractName;
@@ -187,7 +187,7 @@ void CDialogTabItem_MinorCycleAnalyze::UpdateUI2DB()
 	sSQL += " where ";
 
 	vector<CFieldDesc*> vPrimaryKey;
-	CDBDataManager::Instance().GetPrimaryKey(m_sBusiness,vPrimaryKey);
+	CDBDataManager::Instance().GetPrimaryKey(m_pDataProvider->m_sBusiness,vPrimaryKey);
 
 	string strPrimaryKeyClause = "";
 	for (int i = 0; i < vPrimaryKey.size();i++)

@@ -12,5 +12,8 @@ CUIData::CUIData()
 	m_nTop = 0;
 	m_nWidth = 1;
 	m_nHeight = 1;
+	m_sCaption = "";
+	m_dwTotalStyle = 0;
+	m_sDataProvider = "";
 	m_pWnd = NULL;
 }

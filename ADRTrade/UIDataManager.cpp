@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "UIDataManager.h"
-#include "./Tools/DialogPlaceHolder.h"
+#include "./Tools/DialogPlaceHolderDB.h"
 
 CUIDataMgr::CUIDataMgr()
 {
@@ -51,7 +51,7 @@ void CUIDataMgr::UpdateUI2DB()
 		it != m_mapUIName2Data.end();it++)
 	{
 		CUIData& ui = it->second;	
-		CDialogPlaceHolder* pHolder = dynamic_cast<CDialogPlaceHolder*>(ui.m_pWnd);
+		CDialogPlaceHolderBusiness* pHolder = dynamic_cast<CDialogPlaceHolderBusiness*>(ui.m_pWnd);
 		if(!pHolder) continue;
 		pHolder->UpdateUI2DB();
 	}

@@ -1,13 +1,13 @@
 #include "StdAfx.h"
 #include "FutureContract_TradeDialogs.h"
 
-ImplementClass(CDailyMacroEnvironmentDlg,CDialogPlaceHolder)
+ImplementClass(CDailyMacroEnvironmentDlg,CDialogPlaceHolderBusiness)
 
-ImplementClass(CDialogDailyTradeSummarize,CDialogPlaceHolder)
+ImplementClass(CDialogDailyTradeSummarize,CDialogPlaceHolderBusiness)
 
-ImplementClass(CDialogFutureContract_IntradayTrade,CDialogPlaceHolder)
+ImplementClass(CDialogFutureContract_IntradayTrade,CDialogPlaceHolderBusiness)
 
-ImplementClass(CDialogDailyTrades_SingleTradeTrack,CDialogPlaceHolder)
+ImplementClass(CDialogDailyTrades_SingleTradeTrack,CDialogPlaceHolderBusiness)
 
 ImplementClass(CDialogFutureContract_MinorCycleAnalyze,CDialogTabItem_MinorCycleAnalyze)
 

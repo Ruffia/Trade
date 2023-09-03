@@ -3,7 +3,7 @@
 #include "stdafx.h"
 #include "ADRTrade.h"
 #include "DialogPlaceHolderComposite.h"
-#include "DialogPlaceHolder.h"
+#include "DialogPlaceHolderDB.h"
 #include "Tools/CustomTabCtrlDlg.h"
 #include "afxdialogex.h"
 #include "../Common/Factory.h"
@@ -17,7 +17,7 @@
 IMPLEMENT_DYNAMIC(CDialogPlaceHolderComposite, CDialogPlaceHolder)
 
 CDialogPlaceHolderComposite::CDialogPlaceHolderComposite(CWnd* pParent /*=NULL*/)
-	: CDialogPlaceHolder(pParent)
+	: CDialogPlaceHolderBusiness(pParent)
 {
 }
 
@@ -64,15 +64,15 @@ void CDialogPlaceHolderComposite::_InitLayOut()
 			CCustomTabCtrlDlg* pTabWnd = dynamic_cast<CCustomTabCtrlDlg*>(pDlg);
 			if (pTabWnd)
 			{
-				pTabWnd->SetBusiness(data.m_sName);
+				//pTabWnd->SetBusiness(data.m_sName);
 				pTabWnd->SetLayout(data.m_strLayout);
 			}
 			else
 			{
-				CDialogPlaceHolder* pHolder = dynamic_cast<CDialogPlaceHolder*>(pDlg);
+				CDialogPlaceHolderBusiness* pHolder = dynamic_cast<CDialogPlaceHolderBusiness*>(pDlg);
 				if (pHolder)
 				{
-					pHolder->SetBusiness(data.m_sName);
+					//pHolder->SetBusiness(data.m_sName);
 					pHolder->SetLayout(data.m_strLayout);
 				}
 			}

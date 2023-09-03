@@ -5,7 +5,7 @@
 #include "UIData.h"
 #include "../Common/Factory.h"
 #include "DialogIDManager.h"
-#include "Tools/DialogPlaceHolder.h"
+#include "Tools/DialogPlaceHolderDB.h"
 #include "CustomTabCtrlDlg_DailyMinorCycleAnalyze.h"
 #include "DBDataManager.h"
 #include "Tools/CustomTabCtrlDlg.h"
@@ -21,7 +21,7 @@ static char THIS_FILE[] = __FILE__;
 
 IMPLEMENT_FACTORY(CDialogPlaceHolder,CCustomTabCtrlDlg_DailyMinorCycleAnalyze, string,"CCustomTabCtrlDlg_DailyMinorCycleAnalyze")
 CCustomTabCtrlDlg_DailyMinorCycleAnalyze::CCustomTabCtrlDlg_DailyMinorCycleAnalyze(CWnd* pParent /*=NULL*/)
-	: CCustomTabCtrlDlg(pParent)
+	: CCustomTabCtrlDlgBusiness(pParent)
 {
 	CDialogIDMgr::Instance().Register("CCustomTabCtrlDlg_DailyMinorCycleAnalyze",CCustomTabCtrlDlg_DailyMinorCycleAnalyze::IDD);
 }
@@ -59,10 +59,10 @@ void CCustomTabCtrlDlg_DailyMinorCycleAnalyze::_InitPage(CRect& rcTab)
 		rcHold.right = rcTab.right;
 		rcHold.bottom = rcTab.bottom;
 	
-		CDialogPlaceHolder* pDlg = Factory<CDialogPlaceHolder,string>::Instance().BuildProduct(data.m_strUIClassName);
+		CDialogPlaceHolderBusiness* pDlg = Factory<CDialogPlaceHolderBusiness,string>::Instance().BuildProduct(data.m_strUIClassName);
 		if(!pDlg) continue;
 
-		pDlg->SetBusiness(m_sBusiness);
+		//pDlg->SetBusiness(m_pDataProvider->m_sBusiness);
 		pDlg->SetLayout(data.m_strLayout);
 
 		const int nIDD = CDialogIDMgr::Instance().GetDialogResourceID(data.m_strUIClassName);
@@ -95,17 +95,17 @@ void CCustomTabCtrlDlg_DailyMinorCycleAnalyze::_InitPage(CRect& rcTab)
 
 void CCustomTabCtrlDlg_DailyMinorCycleAnalyze::_LoadData2UI()
 {
-	bool bExists = _CheckExistsTradeDayRecord();
-	if (!bExists) return;
+	//bool bExists = _CheckExistsTradeDayRecord();
+	//if (!bExists) return;
 
 	vector<CFieldDesc*> vFieldDesc;
-	CDBDataManager::Instance().GetFieldMetaData(m_sBusiness,vFieldDesc);
+	CDBDataManager::Instance().GetFieldMetaData(m_pDataProvider->m_sBusiness,vFieldDesc);
 
 	vector<CFieldDesc*> vPrimaryKey;
-	CDBDataManager::Instance().GetPrimaryKey(m_sBusiness,vPrimaryKey);
+	CDBDataManager::Instance().GetPrimaryKey(m_pDataProvider->m_sBusiness,vPrimaryKey);
 
 	string sSQL = "select * from ";
-	sSQL += m_sBusiness;
+	sSQL += m_pDataProvider->m_sBusiness;
 	sSQL += " where ";
 	sSQL += " TradeDay ";
 	sSQL += " = '";
@@ -114,7 +114,7 @@ void CCustomTabCtrlDlg_DailyMinorCycleAnalyze::_LoadData2UI()
 	sSQL += "order by RecordTime asc";
 
 	CDataSet ds;
-	CDBDataManager::Instance().LoadData(sSQL,m_sBusiness,ds);
+	CDBDataManager::Instance().LoadData(sSQL,m_pDataProvider->m_sBusiness,ds);
 
 	const int nRecordCount = ds.Size();
 	for (int i = 0; i < nRecordCount;i++)
@@ -126,7 +126,7 @@ void CCustomTabCtrlDlg_DailyMinorCycleAnalyze::_LoadData2UI()
 		if(!pField) continue;
 		string strRecordTime = pField->GetValueAsString();
 
-		CDialogPlaceHolder* pPage = m_vPage[i];
+		CDialog* pPage = m_vPage[i];
 		CDialogTabItem_MinorCycleAnalyze* pDlgItem = dynamic_cast<CDialogTabItem_MinorCycleAnalyze*>(pPage);
 		if(!pDlgItem) continue;
 
@@ -140,13 +140,13 @@ void CCustomTabCtrlDlg_DailyMinorCycleAnalyze::_LoadData2UI()
 
 void CCustomTabCtrlDlg_DailyMinorCycleAnalyze::UpdateUI2DB()
 {
-	bool bExists = _CheckExistsTradeDayRecord();
-	if(!bExists) return;
+	//bool bExists = _CheckExistsTradeDayRecord();
+	//if(!bExists) return;
 
 	const int nPageCount = m_vPage.size();
 	for (int i = 0; i < nPageCount;i++)
 	{
-		CDialogPlaceHolder* pHolder = m_vPage[i];
+		CDialog* pHolder = m_vPage[i];
 		if(!pHolder) continue;
 		CDialogTabItem_MinorCycleAnalyze* pDlgItem = dynamic_cast<CDialogTabItem_MinorCycleAnalyze*>(pHolder);
 		if(!pDlgItem) continue;

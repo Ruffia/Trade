@@ -18,9 +18,9 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 
-IMPLEMENT_FACTORY(CDialogPlaceHolder,CDialogFutureContract_LongPeriodicAnalyze, string,"CDialogFutureContract_LongPeriodicAnalyze")
+IMPLEMENT_FACTORY(CDialogPlaceHolderBusiness,CDialogFutureContract_LongPeriodicAnalyze, string,"CDialogFutureContract_LongPeriodicAnalyze")
 CDialogFutureContract_LongPeriodicAnalyze::CDialogFutureContract_LongPeriodicAnalyze(CWnd* pParent /*=NULL*/)
-	: CDialogPlaceHolder(pParent)
+	: CDialogPlaceHolderBusiness(pParent)
 {
 	CDialogIDMgr::Instance().Register("CDialogFutureContract_LongPeriodicAnalyze",CDialogFutureContract_LongPeriodicAnalyze::IDD); 
 }
@@ -40,10 +40,10 @@ void CDialogFutureContract_LongPeriodicAnalyze::_LoadData2UI()
 	CTradeDayPrimaryData::Instance().m_strFutureContractName_LastTime = CTradeDayPrimaryData::Instance().m_strFutureContractName;
 
 	vector<CFieldDesc*> vFieldDesc;
-	CDBDataManager::Instance().GetFieldMetaData(m_sBusiness,vFieldDesc);
+	CDBDataManager::Instance().GetFieldMetaData(m_pDataProvider->m_sBusiness,vFieldDesc);
 
 	vector<CFieldDesc*> vPrimaryKey;
-	CDBDataManager::Instance().GetPrimaryKey(m_sBusiness,vPrimaryKey);
+	CDBDataManager::Instance().GetPrimaryKey(m_pDataProvider->m_sBusiness,vPrimaryKey);
 
 	CFieldDesc* pTradeDayDesc = NULL;
 	CFieldDesc* pFutureContractNameDesc = NULL;
@@ -63,7 +63,7 @@ void CDialogFutureContract_LongPeriodicAnalyze::_LoadData2UI()
 	if(!pTradeDayDesc || !pFutureContractNameDesc) return;
 
 	string sSQL = "select * from ";
-	sSQL += m_sBusiness;
+	sSQL += m_pDataProvider->m_sBusiness;
 	sSQL += " where ";
 	sSQL += pTradeDayDesc->m_strFieldName;
 	sSQL += " = '";
@@ -76,7 +76,7 @@ void CDialogFutureContract_LongPeriodicAnalyze::_LoadData2UI()
 	sSQL += "'";
 
 	CDataSet ds;
-	CDBDataManager::Instance().LoadData(sSQL,m_sBusiness,ds);
+	CDBDataManager::Instance().LoadData(sSQL,m_pDataProvider->m_sBusiness,ds);
 
 	UpdateDB2UI(ds);
 }
@@ -87,10 +87,10 @@ void CDialogFutureContract_LongPeriodicAnalyze::UpdateUI2DB()
 	bool bExists = _CheckExistsTradeDayRecord();
 	if(!bExists) return;
 
-	map<string,CFieldDesc*>& mapTableName2FieldDesc = CDBDataManager::Instance().GetTableMeta(m_sBusiness);
+	map<string,CFieldDesc*>& mapTableName2FieldDesc = CDBDataManager::Instance().GetTableMeta(m_pDataProvider->m_sBusiness);
 
 	string sSQL = "update ";
-	sSQL += m_sBusiness;
+	sSQL += m_pDataProvider->m_sBusiness;
 	sSQL += " set ";
 
 	int nUIControlCount = 0;
@@ -197,7 +197,7 @@ void CDialogFutureContract_LongPeriodicAnalyze::UpdateUI2DB()
 	sSQL += " where ";
 
 	vector<CFieldDesc*> vPrimaryKey;
-	CDBDataManager::Instance().GetPrimaryKey(m_sBusiness,vPrimaryKey);
+	CDBDataManager::Instance().GetPrimaryKey(m_pDataProvider->m_sBusiness,vPrimaryKey);
 
 	string strPrimaryKeyClause = "";
 	for (int i = 0; i < vPrimaryKey.size();i++)
@@ -236,7 +236,7 @@ string CDialogFutureContract_LongPeriodicAnalyze::_QueryFutureContractName(const
 	string strSQL = "select ";
 	strSQL += strFutureContractName;
 	strSQL += " from ";
-	strSQL += m_sBusiness;
+	strSQL += m_pDataProvider->m_sBusiness;
 	strSQL += " where ";
 	strSQL += strTradeDay;
 	strSQL += " = '";
@@ -244,7 +244,7 @@ string CDialogFutureContract_LongPeriodicAnalyze::_QueryFutureContractName(const
 	strSQL += "'";
 
 	CDataSet ds;
-	CDBDataManager::Instance().LoadData(strSQL,m_sBusiness,ds);
+	CDBDataManager::Instance().LoadData(strSQL,m_pDataProvider->m_sBusiness,ds);
 	if(ds.Size() != 1) return "";   //此处有且仅有一条记录
 
 	CRecord* pRecord = ds[0];
@@ -262,7 +262,7 @@ void CDialogFutureContract_LongPeriodicAnalyze::UpdateDB2UI( CDataSet& ds,int in
 	CRecord* pRecord = ds[index];
 	if(!pRecord) return;
 
-	map<string,CFieldDesc*>& mapTableName2FieldDesc = CDBDataManager::Instance().GetTableMeta(m_sBusiness);
+	map<string,CFieldDesc*>& mapTableName2FieldDesc = CDBDataManager::Instance().GetTableMeta(m_pDataProvider->m_sBusiness);
 	for(map<string,CWnd*>::iterator it = m_mapBusiness2Control.begin();
 		it != m_mapBusiness2Control.end();it++)
 	{

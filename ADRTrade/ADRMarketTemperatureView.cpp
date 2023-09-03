@@ -178,11 +178,11 @@ void CADRMarketTemperatureView::_CreateUI()
 	{
 		string sCaption = it->first;
 		CUIData& UIData = it->second;
-		CDialogPlaceHolder* pHolder = Factory<CDialogPlaceHolder,string>::Instance().BuildProduct(UIData.m_strUIClassName);
+		CDialogPlaceHolderBusiness* pHolder = Factory<CDialogPlaceHolderBusiness,string>::Instance().BuildProduct(UIData.m_strUIClassName);
 		if(!pHolder) continue;
 		const int nIDD = CDialogIDMgr::Instance().GetDialogResourceID(UIData.m_strUIClassName);
 		ASSERT(-1 != nIDD);
-		pHolder->SetBusiness(UIData.m_sName);
+		//pHolder->SetBusiness(UIData.m_sName);
 		pHolder->SetLayout(UIData.m_strLayout);		
 
 		pHolder->Create(nIDD,this);

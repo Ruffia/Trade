@@ -1,7 +1,7 @@
 #pragma once
-#include "Tools/DialogPlaceHolder.h"
+#include "Tools/DialogPlaceHolderDB.h"
 
-class CDialogFutureContract_DailyTraceConflict : public CDialogPlaceHolder
+class CDialogFutureContract_DailyTraceConflict : public CDialogPlaceHolderBusiness
 {
 public:
 	CDialogFutureContract_DailyTraceConflict(CWnd* pParent = NULL);

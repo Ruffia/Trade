@@ -3,11 +3,8 @@
 #include <vector>
 #include <string>
 using namespace std;
-#include "Tools/pugixml.hpp"
-#include "Tools/pugiconfig.hpp"
-using namespace pugi;
 #include "CustomTabCtrl.h"
-
+#include "DialogPlaceHolder.h"
 
 class CCustomTabCtrlDlg : public CDialogPlaceHolder
 {
@@ -19,12 +16,13 @@ public:
 
 	CCustomTabCtrl*	m_pTab;
 	int m_nCurSel;
-	vector<CDialogPlaceHolder*> m_vPage; 
+	int m_nCount;
+	vector<CDialog*> m_vPage; 
 
 protected:
 	virtual BOOL OnInitDialog();
-	virtual void DoDataExchange(CDataExchange* pDX);
-	afx_msg void OnSize(UINT nType, int cx, int cy);
+	void _ShowPage(const int nCurPage);
+	LPCTSTR GetTooltipText(int nStyle);
 	afx_msg void OnLButtonClickedTab(NMHDR* pNMHDR, LRESULT* pResult) ;
 	afx_msg void OnRButtonClickedTab(NMHDR* pNMHDR, LRESULT* pResult) ;
 	afx_msg void OnSelchangeTab(NMHDR* pNMHDR, LRESULT* pResult);
@@ -35,9 +33,9 @@ protected:
 	DECLARE_MESSAGE_MAP()
 
 protected:
-	virtual void _InitPage(CRect& rcTab); 
-	virtual void _LoadData2UI();
-	void _Resize(int cx, int cy);
-	void _ShowPage(const int nCurPage);
-	LPCTSTR GetTooltipText(int nStyle);
+	virtual void _InitLayOut();
+	virtual void _DesignLayout(UINT nType, int cx, int cy);
+
+	//根据 CUIData 对象的数据创建实际的控件 
+	virtual void _CreateUI( CUIData &data, xml_node node );
 };
